@@ -89,3 +89,17 @@
   - DSO: 기존 붙여쓰기 표기(안드로메다은하) 유지, G2 띄어쓰기·대체 이름은 `alt_names_ko`. 새 id 9개(M77, M102, NGC40, NGC1275, NGC1499, NGC3132, NGC4038/4039, IC2118) 추가.
   - `needs_review`: confidence low 또는 한글 이름 빈칸만 true. 나머지는 편집 검토 완료로 본다(음역 미세 조정은 T8).
 - 보류: Naga/HIP64962, Bade(HIP 충돌)는 G2 메모대로 제외. 28수 표는 A7(전통 별자리 오버레이) 때 사용 — Stellarium korean 자료는 GPL v2이므로 **선 연결 데이터는 복사하지 않고** 기준별·이름 표만 참고.
+
+## D-017 · 2026-09-07 · T1 렌더러 결정: 투영·은하수·크기 규칙·라벨 임계
+- **투영**: 원근 투영(PerspectiveCamera), 사용자 FOV는 **짧은 변 기준 3°~100°**(`render/projection.ts`). 스테레오그래픽 투영(SHOULD)은 보류 → 110° 대신 상한 100°. 카메라 롤 0, 고도 ±89.5° 클램프.
+- **은하수**: NASA SVS 이미지는 직접 파일 요청이 403(Referer·UA 붙여도)이라 포기. **d3-celestial `mw.json`(BSD-3)을 빌드 시 1024×512 등적색 회색조 PNG로 래스터화**(`scripts/data/build-milkyway.ts`, sharp SVG, 5단계 누적 밝기, ±180° 경계 링은 unwrap 후 3회 오프셋). 렌더러는 J2000 방향에서 UV(u = RA/360, v = 0.5 + Dec/180)를 계산하므로 이미지 방향 오류가 없다. 45 KB, 프리캐시.
+- **별 크기**: `s0 = 4.5px × pixelRatio × clamp(√(60/FOV), 0.7, 3.5)`, `size = s0·10^(−0.2·(mag+소광))`, 하한 1.2px(그 아래는 알파 감소), 상한 18px. mag < 1.5 가우시안 글로우. B−V → RGB 8점 표(Mitchell Charity 근사). 낮에는 `skyBrightnessPenaltyMag(태양 고도)`를 한계등급에서 빼서 별·행성·DSO·라벨을 숨긴다.
+- **행성·태양**: 크기 = max(7px, 등급 기반(상한 18px), 각지름 px). 태양은 등급을 쓰지 않고 max(22px, 각지름×2.2). 달은 구 메시(반지름 = 98·tan(각지름/2)) + 태양 방향 DirectionalLight + 앰비언트 0.08(지구조) → 위상 자동. "확대 표시"는 ×3.
+- **레이어 순서(renderOrder)**: 배경 0 → 은하수 10 → 별 20 → DSO 22 → 격자 25·기준선 26 → 별자리 경계 29·선 30 → 행성 35·달 36 → 땅 40·지평선 링 41. 전부 depthTest off, 투명 블렌딩(별·은하수는 Additive).
+- **라벨**: HTML div 풀, 최대 60개, 사각형 겹침 회피. 우선순위 선택 > 방위 > 행성 > 고유명 별(FOV 100°→mag 1.5, 60°→2.5, 30°→3.5, 10°→5.0, ≤10° 전부) > 메시에(FOV ≤ 60°) > 별자리 이름(FOV ≥ 90° 12개, ≥45° 16개, 그 외 24개).
+- **DSO 표시**: FOV > 60° 메시에 mag ≤ 5만, 30~60° 메시에 전부 + mag ≤ 6.5, 15~30° ≤ 8.5, 6~15° ≤ 10.5, 그 이하 전부. 기호 크기 = 각지름 px, 7~48px.
+- **팩 교체**: FOV < 20°에서 `stars-deep` 지연 로드, > 28°에서 bright로 복귀(히스테리시스).
+- **hit-test**: 반경 24px, 가중치 = 거리 − 2.5·(6 − mag). 달·행성은 원반 반지름만큼 거리 차감.
+- **시간·시점 공유**: `#/sky?t=ISO&alt=&az=&fov=&rate=&select=` 해시 쿼리. 해시 변경 시 재적용. `preserve=1`은 테스트 전용(preserveDrawingBuffer).
+- **렌더 루프**: invalidate 패턴. 정지 시 draw 0(HUD로 확인). 실시간은 행렬 1초·행성 250ms 간격, 시간 점프(≥60s)는 즉시.
+- **T2 훅**: `CameraController.setOrientationQuaternion(q)` — 씬 프레임 쿼터니언 → alt/az. `viewStore.mode = 'sensor'`일 때 센서 프로바이더가 매 프레임 호출하면 된다.

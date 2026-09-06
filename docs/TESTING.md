@@ -11,6 +11,8 @@
 
 첫 실행 전 Chromium 설치: `pnpm exec playwright install chromium` (클라우드 환경이면 프리인스톨 Chromium 사용).
 
+하늘 뷰(T1) e2e(`tests/e2e/sky.spec.ts`): 해시 쿼리 `#/sky?t=2026-09-06T12:00:00Z&alt=&az=&fov=&preserve=1`로 시각·시점을 고정하고 `window.__skylogScene`으로 alt/az·픽셀을 읽어 JPL Horizons 기준 표(`tests/fixtures/reference-altaz.json`)와 비교한다. 스크린샷: `sky-south/north/zenith/night/moon/day.png`. 야간 모드는 캔버스 픽셀을 읽어 적색 외 색이 없는지 검사한다(`preserve=1` 필요).
+
 CI(`.github/workflows/deploy.yml`)는 typecheck → lint → test → build만 실행한다. e2e는 로컬에서 태스크 완료 전에 돌린다.
 
 ## 성능 측정

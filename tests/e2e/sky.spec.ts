@@ -299,7 +299,9 @@ test('야간 모드: 하늘 뷰 캔버스에 적색 외 색이 없다 · 레이�
   await page.locator('#setting-night').click();
 });
 
-test('달: 위상이 날짜와 맞고 밝은 쪽이 태양 방향(05:00 KST 하현 근처, 동쪽 하늘)', async ({ page }) => {
+test('달: 위상이 날짜와 맞고 밝은 쪽이 태양 방향(05:00 KST 하현 근처, 동쪽 하늘)', async ({
+  page,
+}) => {
   await page.goto(`#/sky?t=2026-09-06T20:00:00Z&preserve=1&alt=30&az=90&fov=60`);
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
   await page.evaluate(() => {
@@ -317,7 +319,12 @@ test('달: 위상이 날짜와 맞고 밝은 쪽이 태양 방향(05:00 KST 하�
           bodies: {
             placements: {
               key: string;
-              state: { phaseFraction: number; moonPhaseDeg?: number; altDeg: number; azDeg: number };
+              state: {
+                phaseFraction: number;
+                moonPhaseDeg?: number;
+                altDeg: number;
+                azDeg: number;
+              };
             }[];
           };
         };

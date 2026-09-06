@@ -43,6 +43,25 @@ React 19 · TypeScript(strict, `any` 금지) · Vite 8 · Tailwind CSS 4(토큰�
 - 런타임: `stars-deep` CacheFirst · `content/*`·`learn/*` StaleWhileRevalidate · Open-Meteo/7Timer NetworkFirst.
 - `base`는 `/skylog/`(GitHub Pages). `VITE_BASE`로 덮어쓴다.
 
+## 렌더 파이프라인 (`src/render/`, T1)
+
+```
+clockStore.now() ─┐                         ┌─ StarLayer      (Points, J2000 buffer, uEqjToScene, GLSL 굴절)
+locationStore ────┼─► SkyScene.updateAstronomy ├─ DsoLayer       (Points, 카테고리 기호)
+                  │   · eqjToSceneMatrix 1개/초 ├─ MilkyWayLayer  (J2000 구 + 등적색 텍스처)
+                  │   · bodies.update 250ms     ├─ ConstellationLayer / GridLayer (LineLayer: 선분+aDist 대시)
+layerStore ───────┤                            ├─ BodyLayer      (행성 스프라이트 + 달 구/조명 + 태양)
+settings(theme) ──┤   readRenderPalette()      ├─ HorizonLayer   (아래 반구 땅 + 지평선 링·눈금)
+                  │                            └─ SkyBackground  (R=150 구, 태양 고도 그라디언트)
+pointer/wheel ────┴─► CameraController ─► camera(alt/az/fov) ─► renderer.render ─► Labels(HTML) · 선택 링
+                        └ flyTo / setOrientationQuaternion(T2)        └ renderStats(draw call → HUD)
+```
+
+- 씬 프레임 +X 동 +Y 천정 +Z 남, 천체는 R≈100 방향 벡터. 별·선·DSO·은하수는 정점 셰이더에서 `uEqjToScene` + `skylogApplyRefraction`; 행성·달·라벨·hit-test는 CPU에서 `bodies.ts`/`apparentAltitude` — 같은 Sæmundsson 식.
+- React와 렌더 루프 분리: 씬은 스토어를 `getState()`로 읽고, 스토어 구독은 `invalidate()`만 호출. viewStore는 ≤10Hz로만 갱신(ViewInfo가 구독).
+- 외부 진입점 `features/sky/skyApi.ts`: `flyToObject(id, fov?)`(T3 "하늘에서 보기"), `getSkyScene()`. 테스트 훅 `window.__skylogScene / __skylogStats / __skylogAstro`.
+- 결정 상세: D-017.
+
 ## 디렉터리
 
 마스터 플랜 §6.4와 동일. 빈 디렉터리에는 `README.md` 한 줄.

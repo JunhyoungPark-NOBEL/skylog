@@ -99,6 +99,8 @@ export class BodyLayer {
     degPerPixel: number,
     pixelRatio: number,
     magnify: boolean,
+    /** 하늘 밝기를 반영한 한계등급 — 이보다 어두운 행성은 낮에 숨긴다 */
+    limitingMag = 99,
   ): void {
     this.magnify = magnify ? 3 : 1;
     const pos = this.geometry.getAttribute('position') as THREE.BufferAttribute;
@@ -115,12 +117,16 @@ export class BodyLayer {
       const dir = altAzToScene(s.altDeg, s.azDeg);
       const angDeg = (s.angularDiameterArcsec / 3600) * this.magnify;
       const angPx = angDeg / Math.max(degPerPixel, 1e-6);
-      // 등급 기반 크기(별과 같은 규칙) + 최소 크기 보장(행성은 항상 찾기 쉽게)
-      const magSize = 3 * Math.pow(10, -0.2 * s.magnitude);
-      const minPx = key === 'sun' ? 22 : key === 'moon' ? 0 : 7;
-      let sizePx = Math.max(minPx, magSize, angPx) * pixelRatio;
-      if (key === 'moon') sizePx = 0; // 달은 구 메시
-      if (key === 'sun') sizePx = Math.max(sizePx, angPx * 2.2 * pixelRatio);
+      // 등급 기반 크기(별과 같은 규칙, 상한 18px) + 최소 크기 보장(행성은 항상 찾기 쉽게)
+      const magSize = Math.min(18, 4.5 * Math.pow(10, -0.2 * s.magnitude));
+      let sizePx: number;
+      if (key === 'moon')
+        sizePx = 0; // 달은 구 메시
+      else if (key === 'sun')
+        sizePx = Math.max(22, angPx * 2.2) * pixelRatio; // 원반 + 글로우
+      else sizePx = Math.max(7, magSize, angPx) * pixelRatio;
+      // 낮에는 한계등급보다 어두운 행성을 숨긴다(태양·달은 항상)
+      if (key !== 'sun' && key !== 'moon' && s.magnitude > limitingMag) sizePx = 0;
       sizePx = Math.min(sizePx, 400 * pixelRatio);
 
       pos.setXYZ(i, dir[0], dir[1], dir[2]);

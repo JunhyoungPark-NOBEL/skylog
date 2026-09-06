@@ -275,8 +275,27 @@ export class SkyScene {
     const jump = Number.isNaN(this.lastBodyTimeMs) || Math.abs(t - this.lastBodyTimeMs) >= 60_000;
     if ((changed && nowMs - this.lastBodyUpdateMs > 250) || jump) {
       const dpp = degPerPixel(this.controller.getView().fovDeg, this.width, this.height);
-      this.bodies.update(date, observer, dpp, this.pixelRatio, this.opts.getLayers().magnifyBodies);
+      const layers = this.opts.getLayers();
+      // 한계등급(하늘 밝기 반영)은 직전 프레임의 태양 고도로 계산 — 첫 프레임은 두 번 갱신된다
+      this.bodies.update(
+        date,
+        observer,
+        dpp,
+        this.pixelRatio,
+        layers.magnifyBodies,
+        this.effectiveLimitingMag(layers),
+      );
       this.sunState = this.bodies.sunPlacement?.state ?? null;
+      if (jump) {
+        this.bodies.update(
+          date,
+          observer,
+          dpp,
+          this.pixelRatio,
+          layers.magnifyBodies,
+          this.effectiveLimitingMag(layers),
+        );
+      }
       this.lastBodyUpdateMs = nowMs;
       this.lastBodyTimeMs = t;
       changed = true;
@@ -296,8 +315,8 @@ export class SkyScene {
 
     const sunAlt = this.sunState?.altAirlessDeg ?? -30;
     const sunDir = this.bodies.sunPlacement?.dir ?? ([0, -1, 0] as Vec3);
-    const limitingMag =
-      layers.limitingMag - (layers.atmosphere ? skyBrightnessPenaltyMag(sunAlt) : 0);
+    const limitingMag = this.effectiveLimitingMag(layers);
+    const dayFade = Math.max(0, 1 - Math.max(0, layers.limitingMag - limitingMag) / 4);
 
     this.background.setSun(sunDir, sunAlt);
     this.background.setStyle(p.bg, layers.atmosphere, p.night);
@@ -342,7 +361,7 @@ export class SkyScene {
 
     this.dso.setMatrix(this.matrix);
     this.dso.points.visible = layers.dso;
-    this.dso.setParams(view.fovDeg, dpp, this.pixelRatio, p.label, 0.85, true);
+    this.dso.setParams(view.fovDeg, dpp, this.pixelRatio, p.label, 0.85 * dayFade, true);
 
     this.horizon.ground.visible = layers.ground;
     this.horizon.setStyle(p.night ? '#050000' : '#0b0d12', layers.groundOpaque, p.horizon);
@@ -355,7 +374,13 @@ export class SkyScene {
     renderStats.triangles = info.triangles;
     renderStats.points = info.points;
 
-    this.updateLabels(view, layers, dpp);
+    this.updateLabels(view, layers, limitingMag);
+  }
+
+  /** 레이어 설정의 한계등급에서 하늘 밝기(태양 고도)를 뺀 값 */
+  private effectiveLimitingMag(layers: LayerValues): number {
+    const sunAlt = this.sunState?.altAirlessDeg ?? -30;
+    return layers.limitingMag - (layers.atmosphere ? skyBrightnessPenaltyMag(sunAlt) : 0);
   }
 
   private manageStarPacks(fovDeg: number): void {
@@ -623,7 +648,7 @@ export class SkyScene {
 
   // ---------- 라벨 ----------
 
-  private updateLabels(view: ViewState, layers: LayerValues, _dpp: number): void {
+  private updateLabels(view: ViewState, layers: LayerValues, limitingMag: number): void {
     const cat = this.catalog;
     const lang = this.opts.getLang();
     const labelLang: Lang = layers.labelLang === 'auto' ? lang : layers.labelLang;
@@ -651,6 +676,7 @@ export class SkyScene {
     if (cat) {
       for (const b of this.bodies.placements) {
         if (b.state.altDeg < -2) continue;
+        if (b.key !== 'sun' && b.key !== 'moon' && b.state.magnitude > limitingMag) continue;
         const px = proj(b.dir);
         if (!px) continue;
         const id = (b.key === 'sun' || b.key === 'moon' ? b.key : `planet:${b.key}`) as ObjectId;
@@ -668,7 +694,7 @@ export class SkyScene {
     }
     // 고유명 별
     if (cat && layers.starLabels) {
-      const limit = starLabelMagLimit(view.fovDeg);
+      const limit = Math.min(starLabelMagLimit(view.fovDeg), limitingMag);
       const center = altAzToScene(view.altDeg, view.azDeg);
       const cosFov = Math.cos(((view.fovDeg * 1.3) / 2) * (Math.PI / 180));
       cat.stars.forEach((s, i) => {
@@ -697,7 +723,7 @@ export class SkyScene {
       });
     }
     // 메시에
-    if (cat && layers.dso && view.fovDeg <= 60) {
+    if (cat && layers.dso && view.fovDeg <= 60 && limitingMag > 4) {
       cat.dso.forEach((d, i) => {
         if (d.messier === undefined) return;
         const v: Vec3 = [
@@ -734,7 +760,7 @@ export class SkyScene {
           Math.cos(dec * rad) * Math.sin(ra * rad),
           Math.sin(dec * rad),
         ]);
-        if (dir[1] < -0.05) continue;
+        if (dir[1] < 0.01) continue;
         const px = proj(dir);
         if (!px || px.x < 0 || px.y < 0 || px.x > W || px.y > H) continue;
         items.push({
