@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-09-06",
+  "status": "structure_passed_editorial_review_required",
+  "encoding": "UTF-8 without BOM",
+  "newline": "LF",
+  "files": {
+    "star_names_ko.csv": {
+      "rows": 233,
+      "headers_exact": true,
+      "round_trip_equal": true,
+      "key_unique": true,
+      "source_nonempty": true,
+      "confidence_counts": {
+        "medium": 198,
+        "low": 35
+      },
+      "blank_korean_names": 35,
+      "sha256": "a5b96702b83f1c18b298cafd25e3e595ad41a2e35da5006f2a18194bc4c8e56e"
+    },
+    "constellations_ko.csv": {
+      "rows": 88,
+      "headers_exact": true,
+      "round_trip_equal": true,
+      "key_unique": true,
+      "source_nonempty": true,
+      "confidence_counts": {
+        "high": 88
+      },
+      "blank_korean_names": 0,
+      "sha256": "84e506ebdce9568510f57ccd29da22114916d29a4040b8e7f7a27fcd17f062a3"
+    },
+    "dso_names_ko.csv": {
+      "rows": 66,
+      "headers_exact": true,
+      "round_trip_equal": true,
+      "key_unique": true,
+      "source_nonempty": true,
+      "confidence_counts": {
+        "medium": 56,
+        "high": 8,
+        "low": 2
+      },
+      "blank_korean_names": 0,
+      "sha256": "045807fc68db814b70a29a98e90298e8d47f8896f8a999b2d8d33997db56fb47"
+    },
+    "caldwell.csv": {
+      "rows": 109,
+      "headers_exact": true,
+      "round_trip_equal": true,
+      "key_unique": true,
+      "source_nonempty": true,
+      "confidence_counts": {
+        "low": 78,
+        "medium": 31
+      },
+      "blank_korean_names": 77,
+      "sha256": "3a643ba52f331d1e0c9acb42b084d962d2cb5c32f9c582a160e0f949ae8166b0"
+    }
+  },
+  "mansions": {
+    "rows": 28,
+    "each_direction": 7,
+    "defining_star_order_matches_selected_source": true
+  },
+  "critical_identifier_checks_passed": true,
+  "embedded_csv_matches_files": true,
+  "scope": {
+    "baseline_bright_2022": 183,
+    "baseline_famous_extra": 22,
+    "current_WGSN_bright_complete": "not_verified",
+    "all_Korean_Messier_aliases_complete": "not_verified",
+    "repository_commit_performed": false,
+    "application_integration_tested": false
+  },
+  "excluded_pending_approval_or_identifier_review": [
+    "Naga / HIP64962",
+    "Bade / conflicting mu Lep and gamma Lep"
+  ]
+}

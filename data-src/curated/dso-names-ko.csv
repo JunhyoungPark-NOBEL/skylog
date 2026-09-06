@@ -1,31 +1,31 @@
 id,name_en,name_ko,alt_names_ko,note,source,confidence,needs_review
-M31,Andromeda Galaxy,안드로메다은하,안드로메다 은하|안드로메다 대성운,NGC 224,위키백과 ko,high,true
+M31,Andromeda Galaxy,안드로메다은하,안드로메다 은하|안드로메다 대성운,NGC 224,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
 M32,,M32,,안드로메다은하의 동반 은하,,high,true
 M110,,M110,,안드로메다은하의 동반 은하,,high,true
-M33,Triangulum Galaxy,삼각형자리은하,삼각형자리 은하|바람개비은하(혼동 주의),NGC 598,위키백과 ko,high,true
-M42,Orion Nebula,오리온대성운,오리온 대성운|오리온성운,NGC 1976,위키백과 ko,high,true
-M43,De Mairan's Nebula,드 메랑 성운,,NGC 1982,위키백과 ko,medium,true
-M45,Pleiades,플레이아데스성단,플레이아데스|좀생이별|묘성,황소자리 산개성단 · 28수 묘수,위키백과 ko,high,true
-M44,Beehive Cluster,프레세페성단,프레세페|벌집성단|귀수,게자리 산개성단 · 28수 귀수,위키백과 ko,high,true
-M13,Hercules Globular Cluster,헤르쿨레스 대성단,헤르쿨레스자리 구상성단,NGC 6205,위키백과 ko,high,true
+M33,Triangulum Galaxy,삼각형자리은하,삼각형자리 은하|바람개비은하(혼동 주의),NGC 598,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M42,Orion Nebula,오리온대성운,오리온 대성운|오리온성운|오리온 성운,NGC 1976,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M43,De Mairan's Nebula,드 메랑 성운,드 모이란 성운,NGC 1982,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_43,medium,false
+M45,Pleiades,플레이아데스성단,플레이아데스|좀생이별|묘성|플레이아데스 성단,황소자리 산개성단 · 28수 묘수,위키백과 ko | https://www.kasi.re.kr/publication/post/photoGallery/4470?cPage=46,high,false
+M44,Beehive Cluster,프레세페성단,프레세페|벌집성단|귀수|벌집 성단|프래세페 성단|프레세페 성단,게자리 산개성단 · 28수 귀수,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4435?cPage=19&clsf_cd=photo005,high,false
+M13,Hercules Globular Cluster,헤르쿨레스 대성단,헤르쿨레스자리 구상성단|허큘리스 대성단,NGC 6205,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
 M92,,M92,헤르쿨레스자리 구상성단 M92,NGC 6341,,high,true
 M3,,M3,사냥개자리 구상성단,NGC 5272,,high,true
 M5,,M5,뱀자리 구상성단,NGC 5904,,high,true
-M57,Ring Nebula,고리성운,고리 성운|링 성운,NGC 6720,위키백과 ko,high,true
-M27,Dumbbell Nebula,아령성운,아령 성운,NGC 6853,위키백과 ko,high,true
-M51,Whirlpool Galaxy,소용돌이은하,소용돌이 은하|부자은하,NGC 5194,위키백과 ko,high,true
-M81,Bode's Galaxy,보데은하,보데 은하,NGC 3031,위키백과 ko,high,true
-M82,Cigar Galaxy,시가은하,시가 은하|담배은하,NGC 3034,위키백과 ko,high,true
-M101,Pinwheel Galaxy,바람개비은하,바람개비 은하,NGC 5457,위키백과 ko,high,true
-M104,Sombrero Galaxy,솜브레로은하,솜브레로 은하,NGC 4594,위키백과 ko,high,true
-M8,Lagoon Nebula,라군성운,석호성운|라군 성운,NGC 6523,위키백과 ko,high,true
-M20,Trifid Nebula,삼렬성운,삼렬 성운|삼엽성운,NGC 6514,위키백과 ko,high,true
-M17,Omega Nebula,오메가성운,오메가 성운|백조성운|말굽성운,NGC 6618,위키백과 ko,high,true
-M16,Eagle Nebula,독수리성운,독수리 성운,NGC 6611 · 창조의 기둥,위키백과 ko,high,true
-M22,Sagittarius Cluster,M22,궁수자리 구상성단,NGC 6656,,high,true
-M11,Wild Duck Cluster,야생오리성단,들오리성단|야생 오리 성단,NGC 6705,위키백과 ko,high,true
-M6,Butterfly Cluster,나비성단,나비 성단,NGC 6405,위키백과 ko,high,true
-M7,Ptolemy Cluster,프톨레마이오스성단,프톨레마이오스 성단,NGC 6475,위키백과 ko,high,true
+M57,Ring Nebula,고리성운,고리 성운|링 성운,NGC 6720,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M27,Dumbbell Nebula,아령성운,아령 성운|덤벨 성운,NGC 6853,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M51,Whirlpool Galaxy,소용돌이은하,소용돌이 은하|부자은하|부자 은하,NGC 5194,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M81,Bode's Galaxy,보데은하,보데 은하,NGC 3031,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M82,Cigar Galaxy,시가은하,시가 은하|담배은하,NGC 3034,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M101,Pinwheel Galaxy,바람개비은하,바람개비 은하,NGC 5457,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M104,Sombrero Galaxy,솜브레로은하,솜브레로 은하,NGC 4594,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M8,Lagoon Nebula,라군성운,석호성운|라군 성운|석호 성운,NGC 6523,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M20,Trifid Nebula,삼렬성운,삼렬 성운|삼엽성운|삼열 성운,NGC 6514,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M17,Omega Nebula,오메가성운,오메가 성운|백조성운|말굽성운|백조 성운|가재 성운|말굽 성운,NGC 6618,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4474,high,false
+M16,Eagle Nebula,독수리성운,독수리 성운,NGC 6611 · 창조의 기둥,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M22,Sagittarius Cluster,궁수자리 성단,궁수자리 구상성단|궁수자리 성단,NGC 6656,https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M11,Wild Duck Cluster,야생오리성단,들오리성단|야생 오리 성단|야생오리 성단,NGC 6705,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M6,Butterfly Cluster,나비성단,나비 성단,NGC 6405,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M7,Ptolemy Cluster,프톨레마이오스성단,프톨레마이오스 성단,NGC 6475,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
 M35,,M35,쌍둥이자리 산개성단,NGC 2168,,high,true
 M36,Pinwheel Cluster,M36,마차부자리 산개성단,NGC 1960,,high,true
 M37,,M37,마차부자리 산개성단,NGC 2099,,high,true
@@ -34,7 +34,7 @@ M41,,M41,큰개자리 산개성단,NGC 2287,,high,true
 M46,,M46,고물자리 산개성단,NGC 2437,,high,true
 M47,,M47,고물자리 산개성단,NGC 2422,,high,true
 M67,,M67,게자리 산개성단,NGC 2682,,high,true
-M15,,M15,페가수스자리 구상성단,NGC 7078,,high,true
+M15,Pegasus Cluster,페가수스 성단,페가수스자리 구상성단|페가수스 성단,NGC 7078,https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
 M2,,M2,물병자리 구상성단,NGC 7089,,high,true
 M39,,M39,백조자리 산개성단,NGC 7092,,high,true
 M103,,M103,카시오페이아자리 산개성단,NGC 581,,high,true
@@ -45,56 +45,65 @@ M29,,M29,백조자리 산개성단,NGC 6913,,high,true
 M34,,M34,페르세우스자리 산개성단,NGC 1039,,high,true
 M52,,M52,카시오페이아자리 산개성단,NGC 7654,,high,true
 M78,,M78,오리온자리 반사성운,NGC 2068,,high,true
-M1,Crab Nebula,게성운,게 성운,NGC 1952 · 초신성 잔해,위키백과 ko,high,true
-M97,Owl Nebula,올빼미성운,올빼미 성운|부엉이성운,NGC 3587,위키백과 ko,high,true
-M64,Black Eye Galaxy,검은눈은하,검은 눈 은하,NGC 4826,위키백과 ko,high,true
-M63,Sunflower Galaxy,해바라기은하,해바라기 은하,NGC 5055,위키백과 ko,high,true
+M1,Crab Nebula,게성운,게 성운,NGC 1952 · 초신성 잔해,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M97,Owl Nebula,올빼미성운,올빼미 성운|부엉이성운,NGC 3587,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M64,Black Eye Galaxy,검은눈은하,검은 눈 은하,NGC 4826,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M63,Sunflower Galaxy,해바라기은하,해바라기 은하,NGC 5055,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
 M74,Phantom Galaxy,M74,유령은하,NGC 628,,medium,true
-M76,Little Dumbbell Nebula,작은아령성운,작은 아령 성운,NGC 650/651,위키백과 ko,high,true
+M76,Little Dumbbell Nebula,작은아령성운,작은 아령 성운,NGC 650/651,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
 M65,,M65,사자자리 세쌍둥이 은하,NGC 3623,,high,true
 M66,,M66,사자자리 세쌍둥이 은하,NGC 3627,,high,true
-M87,Virgo A,처녀자리 A,M87 은하,NGC 4486 · 블랙홀 이미지,위키백과 ko,high,true
-M83,Southern Pinwheel Galaxy,남쪽바람개비은하,남쪽 바람개비 은하,NGC 5236,위키백과 ko,high,true
+M87,Virgo A,처녀자리 A,M87 은하|처녀자리 A 은하,NGC 4486 · 블랙홀 이미지,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M83,Southern Pinwheel Galaxy,남쪽바람개비은하,남쪽 바람개비 은하,NGC 5236,위키백과 ko | https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
 M24,Sagittarius Star Cloud,궁수자리 별구름,작은 궁수자리 별구름,,위키백과 ko,medium,true
 M25,,M25,궁수자리 산개성단,IC 4725,,high,true
 M23,,M23,궁수자리 산개성단,NGC 6494,,high,true
 M40,Winnecke 4,M40,비네케 4,이중성,,high,true
 M73,,M73,별 4개 무리,NGC 6994,,high,true
-NGC869,Double Cluster (h Persei),이중성단(h),페르세우스 이중성단,C14 · NGC 884와 쌍,위키백과 ko,high,true
-NGC884,Double Cluster (χ Persei),이중성단(χ),페르세우스 이중성단,C14 · NGC 869와 쌍,위키백과 ko,high,true
-NGC7000,North America Nebula,북아메리카성운,북아메리카 성운,C20,위키백과 ko,high,true
-NGC457,Owl Cluster,ET성단,ET 성단|올빼미성단|잠자리성단,C13,위키백과 ko,high,true
-NGC7009,Saturn Nebula,토성성운,토성 성운,C55,위키백과 ko,high,true
-NGC6960,Western Veil Nebula,서쪽 베일성운,베일 성운(서)|마녀의 빗자루 성운,C34,위키백과 ko,high,true
-NGC6992,Eastern Veil Nebula,동쪽 베일성운,베일 성운(동),C33,위키백과 ko,high,true
-NGC2237,Rosette Nebula,장미성운,장미 성운,C49,위키백과 ko,high,true
-NGC7293,Helix Nebula,나선성운,헬릭스 성운|나선 성운,C63,위키백과 ko,high,true
-NGC2392,Eskimo Nebula,에스키모성운,에스키모 성운|광대 얼굴 성운,C39,위키백과 ko,high,true
-NGC6543,Cat's Eye Nebula,고양이눈성운,고양이 눈 성운,C6,위키백과 ko,high,true
-NGC7662,Blue Snowball Nebula,푸른 눈덩이 성운,블루 스노볼 성운,C22,위키백과 ko,medium,true
+NGC869,Double Cluster (h Persei),이중성단(h),페르세우스 이중성단|이중성단의 NGC869,C14 · NGC 884와 쌍,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC884,Double Cluster (χ Persei),이중성단(χ),페르세우스 이중성단|이중성단의 NGC884,C14 · NGC 869와 쌍,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC7000,North America Nebula,북아메리카성운,북아메리카 성운,C20,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC457,Owl Cluster,ET성단,ET 성단|올빼미성단|잠자리성단|올빼미 성단,C13,위키백과 ko | https://www.kasi.re.kr/kor/publication/post/photoGallery/4568?cPage=10&clsf_cd=photo005,high,false
+NGC7009,Saturn Nebula,토성성운,토성 성운,C55,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC6960,Western Veil Nebula,서쪽 베일성운,베일 성운(서)|마녀의 빗자루 성운|서쪽 베일 성운|서쪽 망상 성운,C34,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC6992,Eastern Veil Nebula,동쪽 베일성운,베일 성운(동)|동쪽 베일 성운|동쪽 망상 성운,C33,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC2237,Rosette Nebula,장미성운,장미 성운,C49,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/장미_성운 | https://en.wikipedia.org/wiki/Rosette_Nebula,medium,false
+NGC7293,Helix Nebula,나선성운,헬릭스 성운|나선 성운,C63,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC2392,Eskimo Nebula,에스키모성운,에스키모 성운|광대 얼굴 성운,C39,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://www.nasa.gov/solar-system/nasa-to-reexamine-nicknames-for-cosmic-objects/,low,true
+NGC6543,Cat's Eye Nebula,고양이눈성운,고양이 눈 성운,C6,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC7662,Blue Snowball Nebula,푸른 눈덩이 성운,블루 스노볼 성운,C22,위키백과 ko | https://ko.wikipedia.org/wiki/NGC_7662 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
 NGC6826,Blinking Planetary,깜빡이는 행성상성운,블링킹 성운,C15,위키백과 ko,medium,true
 NGC2264,Christmas Tree Cluster,크리스마스트리성단,크리스마스 트리 성단|원뿔성운,,위키백과 ko,high,true
 NGC891,,NGC 891,안드로메다자리 측면 은하,C23,,high,true
 NGC4565,Needle Galaxy,바늘은하,바늘 은하,C38,위키백과 ko,high,true
-NGC4631,Whale Galaxy,고래은하,고래 은하,C32,위키백과 ko,high,true
-NGC5128,Centaurus A,센타우루스 A,켄타우루스 A,C77,위키백과 ko,high,true
-NGC5139,Omega Centauri,오메가 센타우리,오메가 켄타우리,C80,위키백과 ko,high,true
-NGC104,47 Tucanae,47 투카나에,큰부리새자리 47,C106,위키백과 ko,high,true
-NGC3372,Carina Nebula,용골자리성운,용골자리 대성운|에타 카리나 성운,C92,위키백과 ko,high,true
+NGC4631,Whale Galaxy,고래은하,고래 은하,C32,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC5128,Centaurus A,센타우루스 A,켄타우루스 A|센타우루스자리 A,C77,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC5139,Omega Centauri,오메가 센타우리,오메가 켄타우리|센타우루스자리 오메가,C80,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC104,47 Tucanae,47 투카나에,큰부리새자리 47,C106,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC3372,Carina Nebula,용골자리성운,용골자리 대성운|에타 카리나 성운|용골자리 성운,C92,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
 NGC2070,Tarantula Nebula,타란툴라성운,독거미성운,C103,위키백과 ko,high,true
-NGC4755,Jewel Box,보석상자성단,보석 상자 성단,C94,위키백과 ko,high,true
-NGC253,Sculptor Galaxy,조각가자리은하,조각실자리 은하|은화은하,C65,위키백과 ko,medium,true
-NGC6888,Crescent Nebula,초승달성운,초승달 성운,C27,위키백과 ko,high,true
-NGC7635,Bubble Nebula,거품성운,거품 성운,C11,위키백과 ko,high,true
-NGC7023,Iris Nebula,아이리스성운,붓꽃성운,C4,위키백과 ko,medium,true
-NGC6946,Fireworks Galaxy,불꽃놀이은하,불꽃놀이 은하,C12,위키백과 ko,medium,true
+NGC4755,Jewel Box,보석상자성단,보석 상자 성단|보석상자 성단,C94,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC253,Sculptor Galaxy,조각가자리은하,조각실자리 은하|은화은하|조각가자리 은하,C65,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC6888,Crescent Nebula,초승달성운,초승달 성운,C27,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC7635,Bubble Nebula,거품성운,거품 성운,C11,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC7023,Iris Nebula,아이리스성운,붓꽃성운|아이리스 성운,C4,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC6946,Fireworks Galaxy,불꽃놀이은하,불꽃놀이 은하,C12,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
 NGC2403,,NGC 2403,기린자리 은하,C7,,high,true
 IC434,Horsehead Nebula (region),말머리성운,말머리 성운,B33이 어두운 성운 본체,위키백과 ko,high,true
-IC5146,Cocoon Nebula,고치성운,코쿤 성운,C19,위키백과 ko,medium,true
-IC405,Flaming Star Nebula,불타는 별 성운,플레이밍 스타 성운,C31,위키백과 ko,medium,true
-IC2602,Southern Pleiades,남쪽 플레이아데스,,C102,위키백과 ko,high,true
+IC5146,Cocoon Nebula,고치성운,코쿤 성운|누에고치 성운,C19,위키백과 ko | https://www.kasi.re.kr/kor/publication/post/photoGallery/4409 | https://www.kasi.re.kr/publication/post/photoGallery/4536?cPage=48 | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+IC405,Flaming Star Nebula,불타는 별 성운,플레이밍 스타 성운|불꽃별 성운,C31,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+IC2602,Southern Pleiades,남쪽 플레이아데스,남쪽 플레이아데스 성단,C102,위키백과 ko | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
 IC1396,Elephant's Trunk Nebula (region),코끼리 코 성운,,,위키백과 ko,medium,true
 C41,Hyades,히아데스성단,히아데스|히아데스 성단|필수,황소자리 · 28수 필수,위키백과 ko,high,true
 C99,Coalsack Nebula,석탄자루성운,석탄 자루 성운,남십자자리 암흑성운,위키백과 ko,high,true
 C9,Cave Nebula,동굴성운,동굴 성운,Sh2-155,위키백과 ko,medium,true
-B33,Horsehead Nebula,말머리성운,말머리 성운,IC 434 앞의 암흑성운,위키백과 ko,high,true
+B33,Horsehead Nebula,말머리성운,말머리 성운,IC 434 앞의 암흑성운,위키백과 ko | https://www.kasi.re.kr/kor/publication/post/photoGallery/4491?cPage=16&clsf_cd=photo005,high,false
+M77,Cetus A,고래자리 A 은하,,NGC1068.,https://ko.wikipedia.org/wiki/메시에_천체_목록,medium,false
+M102,Spindle Galaxy,방추 은하,,NGC5866으로 취급하는 관행을 채택한 검토 행. M102=M101 재관측설과의 식별 논쟁이 있어 확정 병합 금지.,https://ko.wikipedia.org/wiki/메시에_천체_목록,low,true
+NGC40,Bow-Tie Nebula,나비넥타이 성운,,C2.,https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC1275,Perseus A,페르세우스자리 A 은하,,C24.,https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC1499,California Nebula,캘리포니아 성운,,NGC1499의 통용명.,https://www.kasi.re.kr/kor/publication/post/notice/577,high,false
+NGC3132,Southern Ring Nebula,팔렬 성운,,C74. Eight-Burst Nebula와 Southern Ring Nebula의 동일 대상.,https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC4038,Antennae Galaxies (NGC4038 component),더듬이 은하의 NGC4038,,C60. NGC4039와 이루는 은하쌍의 구성요소를 구분한 편집 표제.,https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+NGC4039,Antennae Galaxies (NGC4039 component),더듬이 은하의 NGC4039,,C61. NGC4038와 이루는 은하쌍의 구성요소를 구분한 편집 표제.,https://ko.wikipedia.org/wiki/콜드웰_목록 | https://en.wikipedia.org/wiki/Caldwell_catalogue,medium,false
+IC2118,Witch Head Nebula,마귀할멈 성운,,사진 공모전의 확인된 한국어 용례.,https://www.kasi.re.kr/kor/publication/post/notice/577,high,false

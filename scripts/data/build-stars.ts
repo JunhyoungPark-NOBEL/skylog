@@ -154,6 +154,11 @@ export function buildStars(): StarsBuildResult {
     if (en) out.en = en;
     if (cur?.['name_ko']) out.ko = cur['name_ko'];
     if (cur?.['traditional_ko']) out.traditionalKo = cur['traditional_ko'];
+    const aliasesKo = (cur?.['aliases_ko'] ?? '')
+      .split('|')
+      .map((a) => a.trim())
+      .filter(Boolean);
+    if (aliasesKo.length > 0) out.aliasesKo = aliasesKo;
     const b = parseBayer(s.bayer);
     if (b) {
       out.bayer = b.suffix ? `${b.greek}${b.suffix}` : b.greek;
@@ -195,10 +200,14 @@ export function buildStars(): StarsBuildResult {
 /** 검색 인덱스용: 별 하나의 별칭 목록(정규화 전). conKo는 별자리 한글 이름(예: "오리온자리"). */
 export function starAliases(s: NamedStarOut, conKo?: string): string[] {
   const out: string[] = [];
+  // 성군 구성별("묘수(昴宿)의 구성별")은 그룹 관계이므로 단일 별의 검색 별칭으로 쓰지 않는다(G2 검토 메모).
+  const isGroupRole = (t: string) => /구성별/.test(t);
   if (s.en) out.push(s.en);
   if (s.ko) out.push(s.ko);
-  if (s.traditionalKo) out.push(s.traditionalKo);
-  if (s.aliasesKo) out.push(...s.aliasesKo);
+  if (s.traditionalKo && !isGroupRole(s.traditionalKo)) {
+    out.push(s.traditionalKo, s.traditionalKo.replace(/\(.*?\)/g, ''));
+  }
+  if (s.aliasesKo) out.push(...s.aliasesKo.filter((a) => !isGroupRole(a)));
   if (s.bayer && s.con) {
     const greek = s.bayer.replace(/\d+$/, '');
     const suffix = s.bayer.slice(greek.length);

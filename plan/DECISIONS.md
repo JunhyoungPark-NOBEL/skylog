@@ -80,3 +80,12 @@
 - `eqjToSceneMatrix()`는 기저 벡터를 `RotateVector`로 돌려 열을 만든다(엔진의 행렬 관례에 비의존). 반환은 **column-major Float32Array(9)** → `THREE.Matrix3.fromArray`/GLSL `mat3` 그대로.
 - 굴절은 Sæmundsson(참→겉보기)을 CPU(`refraction.ts`)와 GLSL(`render/shaders/refraction.glsl`) 두 곳에 동일하게 둔다. 값을 바꾸면 둘 다.
 - 출몰 해석식은 검증·근사 전용. 실제 표시는 astronomy-engine 검색 함수.
+
+## D-016 · 2026-09-07 · G2(한국어 이름 표) 병합 규칙
+- 맥락: GPT Pro G2 산출물(`plan/research/`: 별 233행·별자리 88·DSO 66·콜드웰 109·28수 표·검토 메모)이 도착. 콜드웰 NGC/IC 대응은 T0 큐레이션과 **109개 전부 일치**(독립 출처 2개 합치 → 검증 완료로 간주).
+- 결정(`scripts/data/merge-g2.ts`, 재실행 가능):
+  - 별자리: G2(한국천문학회 용어표, confidence high) 우선 → **허큘리스자리, 여우자리**로 교정(T0의 헤르쿨레스자리·작은여우자리는 폐기). 계절 분류도 G2.
+  - 별: 기존 통용 표기(아르크투루스 등)를 표시명으로 유지, G2의 Stellarium 번역 표기(아크투루스 등)는 새 `aliases_ko` 컬럼에 검색 별칭으로. 전통 이름은 유명한 것(직녀성·견우성·북극성·천랑성·노인성)을 우선하고 G2의 28수 역할명(왕랑, 대장 등)은 보조. "…의 구성별"(성군 그룹 관계)은 데이터에 남기되 **검색 별칭에서 제외**. G2에만 있는 120개 별 추가 → 큐레이션 240행.
+  - DSO: 기존 붙여쓰기 표기(안드로메다은하) 유지, G2 띄어쓰기·대체 이름은 `alt_names_ko`. 새 id 9개(M77, M102, NGC40, NGC1275, NGC1499, NGC3132, NGC4038/4039, IC2118) 추가.
+  - `needs_review`: confidence low 또는 한글 이름 빈칸만 true. 나머지는 편집 검토 완료로 본다(음역 미세 조정은 T8).
+- 보류: Naga/HIP64962, Bade(HIP 충돌)는 G2 메모대로 제외. 28수 표는 A7(전통 별자리 오버레이) 때 사용 — Stellarium korean 자료는 GPL v2이므로 **선 연결 데이터는 복사하지 않고** 기준별·이름 표만 참고.

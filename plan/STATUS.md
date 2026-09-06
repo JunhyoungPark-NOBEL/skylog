@@ -30,9 +30,9 @@
 
 | 요청 | 시점 | 상태 | 산출물 위치 |
 |---|---|---|---|
-| G1 모바일 브라우저 센서 API·앱 UX 벤치마크 딥리서치 | T2 전 | 🟡 사용자 실행 중 | `plan/research/G1-*.md` |
-| G2 한국어 천체 이름·별자리 이름·전통 별자리 표 | T0 중 / T6 전 | 🟡 사용자 실행 중 | `plan/research/G2-*.md` → `data-src/curated/`에 병합 |
-| G3 콘텐츠 팩 생성(유명 천체 ~120개) | T6 전 | ⬜ **지금 실행 가능** — 입력: `data-src/curated/content-targets.v1.csv`, `data-src/content-raw/catalog-values.v1.csv` | `data-src/content-raw/batch-N.json` |
+| G1 모바일 브라우저 센서 API·앱 UX 벤치마크 딥리서치 | T2 전 | ✅ 도착(2026-09-07) — T2 세션이 읽는다 | `plan/research/G1-sensors-ux.md` |
+| G2 한국어 천체 이름·별자리 이름·전통 별자리 표 | T0 중 / T6 전 | ✅ 도착·병합 완료(D-016) | `plan/research/G2-korean-names.md`, `*.csv`, `28-mansions-ko.md`, `review-items.md` → `scripts/data/merge-g2.ts`로 `data-src/curated/`에 병합 |
+| G3 콘텐츠 팩 생성(유명 천체 ~120개) | T6 전 | 🟡 사용자 실행 중 — 입력: `data-src/curated/content-targets.v1.csv`, `data-src/content-raw/catalog-values.v1.csv` | `data-src/content-raw/batch-N.json` |
 | G4 센서·정렬 수학 코드 2차 리뷰 | T2·T5 후 | ⬜ | |
 | G5 퀴즈·미션 콘텐츠 생성 | T7 전 | ⬜ | |
 
@@ -49,7 +49,8 @@
 - 사용자 장비: 쌍안경 보유(모델 미확인 → Task 5에서 물어볼 것), SVBONY SV48P(90mm f/5.5, FL 500mm) 구매 검토 중, 마운트 미정.
 - 기본 관측지: 대전(KAIST 36.37N 127.36E 70m 프리셋). 실제 관측 장소의 "보이는 하늘 범위"는 T2에서 입력.
 - 프로젝트가 OneDrive 폴더 안에 있다(D-007 주의). 느려지면 OneDrive 제외 또는 이동.
-- 실기기(폰) 확인 결과는 아직 없음(사용자 액션 대기: 설치·야간 모드·언어·오프라인).
+- 실기기(폰) T0 체크리스트: **사용자 통과 확인(2026-09-07)** — 설치·야간 모드·언어 전환·Wake Lock·데이터 점검·오프라인 재실행.
+- G2 병합 후 큐레이션 표: 별 240행(`aliases_ko` 컬럼 추가), 별자리 88(허큘리스자리·여우자리로 교정), DSO 108, 콜드웰 109(번호 검증 완료). 28수 표(`plan/research/28-mansions-ko.md`)는 A7(T6) 때 사용.
 
 ## 최근 완료 보고
 

@@ -1,110 +1,110 @@
 caldwell,ngc_ic,name_en,name_ko,type,source,confidence,needs_review
-1,NGC188,,,OCl,Caldwell catalogue (Moore 1995); 위키백과 en,medium,true
-2,NGC40,Bow-Tie Nebula,나비넥타이성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-3,NGC4236,,,G,Caldwell catalogue; 위키백과 en,medium,true
-4,NGC7023,Iris Nebula,아이리스성운,RfN,Caldwell catalogue; 위키백과 en,medium,true
-5,IC342,,,G,Caldwell catalogue; 위키백과 en,medium,true
-6,NGC6543,Cat's Eye Nebula,고양이눈성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-7,NGC2403,,,G,Caldwell catalogue; 위키백과 en,medium,true
-8,NGC559,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-9,Sh2-155,Cave Nebula,동굴성운,HII,Caldwell catalogue; 위키백과 en,medium,true
-10,NGC663,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-11,NGC7635,Bubble Nebula,거품성운,HII,Caldwell catalogue; 위키백과 en,medium,true
-12,NGC6946,Fireworks Galaxy,불꽃놀이은하,G,Caldwell catalogue; 위키백과 en,medium,true
-13,NGC457,Owl Cluster,ET성단,OCl,Caldwell catalogue; 위키백과 en,medium,true
-14,NGC869/NGC884,Double Cluster,페르세우스 이중성단,OCl,Caldwell catalogue; 위키백과 en,medium,true
-15,NGC6826,Blinking Planetary,깜빡이는 행성상성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-16,NGC7243,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-17,NGC147,,,G,Caldwell catalogue; 위키백과 en,medium,true
-18,NGC185,,,G,Caldwell catalogue; 위키백과 en,medium,true
-19,IC5146,Cocoon Nebula,고치성운,Cl+N,Caldwell catalogue; 위키백과 en,medium,true
-20,NGC7000,North America Nebula,북아메리카성운,HII,Caldwell catalogue; 위키백과 en,medium,true
-21,NGC4449,,,G,Caldwell catalogue; 위키백과 en,medium,true
-22,NGC7662,Blue Snowball Nebula,푸른 눈덩이 성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-23,NGC891,,,G,Caldwell catalogue; 위키백과 en,medium,true
-24,NGC1275,Perseus A,페르세우스 A,G,Caldwell catalogue; 위키백과 en,medium,true
-25,NGC2419,Intergalactic Wanderer,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-26,NGC4244,,,G,Caldwell catalogue; 위키백과 en,medium,true
-27,NGC6888,Crescent Nebula,초승달성운,HII,Caldwell catalogue; 위키백과 en,medium,true
-28,NGC752,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-29,NGC5005,,,G,Caldwell catalogue; 위키백과 en,medium,true
-30,NGC7331,,,G,Caldwell catalogue; 위키백과 en,medium,true
-31,IC405,Flaming Star Nebula,불타는 별 성운,Neb,Caldwell catalogue; 위키백과 en,medium,true
-32,NGC4631,Whale Galaxy,고래은하,G,Caldwell catalogue; 위키백과 en,medium,true
-33,NGC6992,Eastern Veil Nebula,동쪽 베일성운,SNR,Caldwell catalogue; 위키백과 en,medium,true
-34,NGC6960,Western Veil Nebula,서쪽 베일성운,SNR,Caldwell catalogue; 위키백과 en,medium,true
-35,NGC4889,,,G,Caldwell catalogue; 위키백과 en,medium,true
-36,NGC4559,,,G,Caldwell catalogue; 위키백과 en,medium,true
-37,NGC6885,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-38,NGC4565,Needle Galaxy,바늘은하,G,Caldwell catalogue; 위키백과 en,medium,true
-39,NGC2392,Eskimo Nebula,에스키모성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-40,NGC3626,,,G,Caldwell catalogue; 위키백과 en,medium,true
-41,Mel25,Hyades,히아데스성단,OCl,Caldwell catalogue; 위키백과 en,medium,true
-42,NGC7006,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-43,NGC7814,,,G,Caldwell catalogue; 위키백과 en,medium,true
-44,NGC7479,,,G,Caldwell catalogue; 위키백과 en,medium,true
-45,NGC5248,,,G,Caldwell catalogue; 위키백과 en,medium,true
-46,NGC2261,Hubble's Variable Nebula,허블 변광성운,RfN,Caldwell catalogue; 위키백과 en,medium,true
-47,NGC6934,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-48,NGC2775,,,G,Caldwell catalogue; 위키백과 en,medium,true
-49,NGC2237,Rosette Nebula,장미성운,HII,Caldwell catalogue; 위키백과 en,medium,true
-50,NGC2244,Rosette Cluster,장미성단,OCl,Caldwell catalogue; 위키백과 en,medium,true
-51,IC1613,,,G,Caldwell catalogue; 위키백과 en,medium,true
-52,NGC4697,,,G,Caldwell catalogue; 위키백과 en,medium,true
-53,NGC3115,Spindle Galaxy,방추은하,G,Caldwell catalogue; 위키백과 en,medium,true
-54,NGC2506,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-55,NGC7009,Saturn Nebula,토성성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-56,NGC246,Skull Nebula,해골성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-57,NGC6822,Barnard's Galaxy,바너드은하,G,Caldwell catalogue; 위키백과 en,medium,true
-58,NGC2360,Caroline's Cluster,캐롤라인성단,OCl,Caldwell catalogue; 위키백과 en,medium,true
-59,NGC3242,Ghost of Jupiter,목성의 유령 성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-60,NGC4038,Antennae Galaxies,더듬이은하,G,Caldwell catalogue; 위키백과 en,medium,true
-61,NGC4039,Antennae Galaxies,더듬이은하,G,Caldwell catalogue; 위키백과 en,medium,true
-62,NGC247,,,G,Caldwell catalogue; 위키백과 en,medium,true
-63,NGC7293,Helix Nebula,나선성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-64,NGC2362,Tau Canis Majoris Cluster,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-65,NGC253,Sculptor Galaxy,조각가자리은하,G,Caldwell catalogue; 위키백과 en,medium,true
-66,NGC5694,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-67,NGC1097,,,G,Caldwell catalogue; 위키백과 en,medium,true
-68,NGC6729,R Coronae Australis Nebula,,RfN,Caldwell catalogue; 위키백과 en,medium,true
-69,NGC6302,Bug Nebula,벌레성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-70,NGC300,,,G,Caldwell catalogue; 위키백과 en,medium,true
-71,NGC2477,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-72,NGC55,,,G,Caldwell catalogue; 위키백과 en,medium,true
-73,NGC1851,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-74,NGC3132,Eight-Burst Nebula,남쪽고리성운,PN,Caldwell catalogue; 위키백과 en,medium,true
-75,NGC6124,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-76,NGC6231,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-77,NGC5128,Centaurus A,센타우루스 A,G,Caldwell catalogue; 위키백과 en,medium,true
-78,NGC6541,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-79,NGC3201,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-80,NGC5139,Omega Centauri,오메가 센타우리,GCl,Caldwell catalogue; 위키백과 en,medium,true
-81,NGC6352,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-82,NGC6193,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-83,NGC4945,,,G,Caldwell catalogue; 위키백과 en,medium,true
-84,NGC5286,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-85,IC2391,Omicron Velorum Cluster,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-86,NGC6397,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-87,NGC1261,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-88,NGC5823,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-89,NGC6087,S Normae Cluster,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-90,NGC2867,,,PN,Caldwell catalogue; 위키백과 en,medium,true
-91,NGC3532,Wishing Well Cluster,소원의 우물 성단,OCl,Caldwell catalogue; 위키백과 en,medium,true
-92,NGC3372,Carina Nebula,용골자리성운,HII,Caldwell catalogue; 위키백과 en,medium,true
-93,NGC6752,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-94,NGC4755,Jewel Box,보석상자성단,OCl,Caldwell catalogue; 위키백과 en,medium,true
-95,NGC6025,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-96,NGC2516,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-97,NGC3766,Pearl Cluster,진주성단,OCl,Caldwell catalogue; 위키백과 en,medium,true
-98,NGC4609,,,OCl,Caldwell catalogue; 위키백과 en,medium,true
-99,Coalsack,Coalsack Nebula,석탄자루성운,DrkN,Caldwell catalogue; 위키백과 en,medium,true
-100,IC2944,Lambda Centauri Nebula,달리는 닭 성운,Cl+N,Caldwell catalogue; 위키백과 en,medium,true
-101,NGC6744,,,G,Caldwell catalogue; 위키백과 en,medium,true
-102,IC2602,Southern Pleiades,남쪽 플레이아데스,OCl,Caldwell catalogue; 위키백과 en,medium,true
-103,NGC2070,Tarantula Nebula,타란툴라성운,HII,Caldwell catalogue; 위키백과 en,medium,true
-104,NGC362,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-105,NGC4833,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-106,NGC104,47 Tucanae,47 투카나에,GCl,Caldwell catalogue; 위키백과 en,medium,true
-107,NGC6101,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-108,NGC4372,,,GCl,Caldwell catalogue; 위키백과 en,medium,true
-109,NGC3195,,,PN,Caldwell catalogue; 위키백과 en,medium,true
+1,NGC188,,,OCl,Caldwell catalogue (Moore 1995) | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+2,NGC40,Bow-Tie Nebula,나비넥타이성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+3,NGC4236,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+4,NGC7023,Iris Nebula,아이리스성운,RfN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+5,IC342,Hidden Galaxy,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+6,NGC6543,Cat's Eye Nebula,고양이눈성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+7,NGC2403,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+8,NGC559,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+9,Sh2-155,Cave Nebula,동굴성운,HII,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+10,NGC663,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+11,NGC7635,Bubble Nebula,거품성운,HII,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+12,NGC6946,Fireworks Galaxy,불꽃놀이은하,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+13,NGC457,Owl Cluster,ET성단,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://www.kasi.re.kr/kor/publication/post/photoGallery/4568?cPage=10&clsf_cd=photo005,high,false
+14,NGC869/NGC884,Double Cluster,페르세우스 이중성단,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+15,NGC6826,Blinking Planetary,깜빡이는 행성상성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+16,NGC7243,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+17,NGC147,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+18,NGC185,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+19,IC5146,Cocoon Nebula,고치성운,Cl+N,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://www.kasi.re.kr/kor/publication/post/photoGallery/4409 | https://www.kasi.re.kr/publication/post/photoGallery/4536?cPage=48,high,false
+20,NGC7000,North America Nebula,북아메리카성운,HII,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+21,NGC4449,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+22,NGC7662,Blue Snowball Nebula,푸른 눈덩이 성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/NGC_7662,high,false
+23,NGC891,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+24,NGC1275,Perseus A,페르세우스 A,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+25,NGC2419,Intergalactic Wanderer,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+26,NGC4244,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+27,NGC6888,Crescent Nebula,초승달성운,HII,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+28,NGC752,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+29,NGC5005,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+30,NGC7331,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+31,IC405,Flaming Star Nebula,불타는 별 성운,Neb,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+32,NGC4631,Whale Galaxy,고래은하,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+33,NGC6992,Eastern Veil Nebula,동쪽 베일성운,SNR,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+34,NGC6960,Western Veil Nebula,서쪽 베일성운,SNR,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+35,NGC4889,Coma B,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+36,NGC4559,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+37,NGC6885,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+38,NGC4565,Needle Galaxy,바늘은하,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+39,NGC2392,Eskimo Nebula,에스키모성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://www.nasa.gov/solar-system/nasa-to-reexamine-nicknames-for-cosmic-objects/,high,false
+40,NGC3626,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+41,Mel25,Hyades,히아데스성단,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+42,NGC7006,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+43,NGC7814,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+44,NGC7479,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+45,NGC5248,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+46,NGC2261,Hubble's Variable Nebula,허블 변광성운,RfN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+47,NGC6934,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+48,NGC2775,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+49,NGC2237,Rosette Nebula,장미성운,HII,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록 | https://ko.wikipedia.org/wiki/장미_성운 | https://en.wikipedia.org/wiki/Rosette_Nebula,high,false
+50,NGC2244,Rosette Cluster,장미성단,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+51,IC1613,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+52,NGC4697,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+53,NGC3115,Spindle Galaxy,방추은하,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+54,NGC2506,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+55,NGC7009,Saturn Nebula,토성성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+56,NGC246,Skull Nebula,해골성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+57,NGC6822,Barnard's Galaxy,바너드은하,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+58,NGC2360,Caroline's Cluster,캐롤라인성단,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+59,NGC3242,Ghost of Jupiter,목성의 유령 성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+60,NGC4038,Antennae Galaxies,더듬이은하,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+61,NGC4039,Antennae Galaxies,더듬이은하,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+62,NGC247,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+63,NGC7293,Helix Nebula,나선성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+64,NGC2362,Tau Canis Majoris Cluster,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+65,NGC253,Sculptor Galaxy,조각가자리은하,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+66,NGC5694,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+67,NGC1097,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+68,NGC6729,R Coronae Australis Nebula,,RfN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+69,NGC6302,Bug Nebula,벌레성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+70,NGC300,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+71,NGC2477,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+72,NGC55,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+73,NGC1851,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+74,NGC3132,Eight-Burst Nebula,남쪽고리성운,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+75,NGC6124,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+76,NGC6231,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+77,NGC5128,Centaurus A,센타우루스 A,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+78,NGC6541,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+79,NGC3201,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+80,NGC5139,Omega Centauri,오메가 센타우리,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+81,NGC6352,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+82,NGC6193,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+83,NGC4945,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+84,NGC5286,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+85,IC2391,Omicron Velorum Cluster,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+86,NGC6397,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+87,NGC1261,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+88,NGC5823,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+89,NGC6087,S Normae Cluster,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+90,NGC2867,,,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+91,NGC3532,Wishing Well Cluster,소원의 우물 성단,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+92,NGC3372,Carina Nebula,용골자리성운,HII,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+93,NGC6752,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+94,NGC4755,Jewel Box,보석상자성단,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+95,NGC6025,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+96,NGC2516,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+97,NGC3766,Pearl Cluster,진주성단,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+98,NGC4609,,,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+99,Coalsack,Coalsack Nebula,석탄자루성운,DrkN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+100,IC2944,Lambda Centauri Nebula,달리는 닭 성운,Cl+N,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+101,NGC6744,,,G,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+102,IC2602,Southern Pleiades,남쪽 플레이아데스,OCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+103,NGC2070,Tarantula Nebula,타란툴라성운,HII,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+104,NGC362,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+105,NGC4833,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+106,NGC104,47 Tucanae,47 투카나에,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue | https://ko.wikipedia.org/wiki/콜드웰_목록,high,false
+107,NGC6101,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+108,NGC4372,,,GCl,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false
+109,NGC3195,,,PN,Caldwell catalogue | 위키백과 en | https://en.wikipedia.org/wiki/Caldwell_catalogue,high,false

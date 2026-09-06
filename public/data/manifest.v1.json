@@ -1,7 +1,7 @@
 {
   "schema": "skylog-data-manifest",
   "version": 1,
-  "generatedAt": "2026-09-06T14:57:12.241Z",
+  "generatedAt": "2026-09-06T15:41:33.407Z",
   "packs": {
     "stars-bright": {
       "file": "stars-bright.v1.bin",
@@ -20,22 +20,22 @@
     "stars-names": {
       "file": "stars-bright.v1.json",
       "version": 1,
-      "bytes": 501559,
-      "sha256": "68306888df543b10c5844d42c4748bed3306546ac86d4f85f95a0509bfa0b8a2",
+      "bytes": 506759,
+      "sha256": "6ea592079ce9d6d3a3778427b5235993bb2ef7fb6392b852e5ecf27ceda0433f",
       "records": 3171
     },
     "constellations": {
       "file": "constellations.v1.json",
       "version": 1,
-      "bytes": 59330,
-      "sha256": "e221934418475ce4547be39f930334cf01b68ec9503dab9f89ac0c9da96a4f7a",
+      "bytes": 59327,
+      "sha256": "a9ddf0821892771617c90d5d2f18957c853ef512456a5f42d60cb4b337a207a0",
       "records": 88
     },
     "dso": {
       "file": "dso.v1.json",
       "version": 1,
-      "bytes": 154268,
-      "sha256": "450333539fea2b7264af3dadc0dad5b2610a5456e82d54e6a30f5e5b96bb582c",
+      "bytes": 155323,
+      "sha256": "b26183f756105870555d85cffce24945c1099b774572ea5d3323b6d07e10c5fd",
       "records": 661
     },
     "bodies": {
@@ -55,8 +55,8 @@
     "search-index": {
       "file": "search-index.v1.json",
       "version": 1,
-      "bytes": 451115,
-      "sha256": "c8de80003dc292d32539cdfd653799074837b635ec985c2ffdfba71a5d5a7bc9",
+      "bytes": 454441,
+      "sha256": "efdc91c1277330ad88e89e3c08f85ffa0d2f772ee32c9333256c4ae8f7c2a146",
       "records": 3929
     }
   },
