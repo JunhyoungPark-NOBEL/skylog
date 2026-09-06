@@ -5,15 +5,16 @@
 
 ## 링크
 
-- GitHub 저장소: **(미생성 — `gh auth login` 후 `gh repo create skylog --public --source=. --remote=origin --push`)**
-- 배포 URL (GitHub Pages): **(미배포 — 예정: `https://<owner>.github.io/skylog/`)**
+- GitHub 저장소: https://github.com/JunhyoungPark-NOBEL/skylog (public, main)
+- 배포 URL (GitHub Pages): **https://junhyoungpark-nobel.github.io/skylog/** (Actions 소스, `main` push마다 자동 배포)
+- Actions: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/deploy.yml
 - 개발 환경 경로: **A(Claude Code 로컬) 확정** — D-007. 로컬 폴더 `C:\Users\JunhyoungPark\OneDrive\Desktop\별관찰해쌀뚜`.
 
 ## 태스크 현황
 
 | 태스크 | 상태 | 완료일 | 태그 | 비고 |
 |---|---|---|---|---|
-| T0a 저장소·셸·테마·i18n·DB v1·PWA·배포·테스트 하네스 | 🟡 진행 중 (로컬 완료, GitHub 배포 대기) | | | 남은 것: gh 로그인 → 저장소 생성·push → Pages 활성화 → `gh run watch` → URL 확인 |
+| T0a 저장소·셸·테마·i18n·DB v1·PWA·배포·테스트 하네스 | ✅ 완료 | 2026-09-06 | (task-0-done은 T0b 후) | 첫 배포 워크플로 성공, Pages URL 200 확인 |
 | T0b 데이터 파이프라인·데이터 팩 v1·`src/astro`·G3 입력 | ⬜ 대기 | | task-0-done | 외부 다운로드 가능 확인됨(codeberg·GitHub raw·NASA SVS) |
 | T1 천구 렌더러 | ⬜ 대기 | | | 기준 표(`reference-altaz.json`) 필요 |
 | T2 센서 연동(AR 모드) | ⬜ 대기 | | | G1 리서치 먼저 권장, 실기기 왕복 |
@@ -37,7 +38,7 @@
 
 ## 다음 세션이 알아야 할 것
 
-- **T0a의 로컬 작업은 끝났고 GitHub 단계만 남았다.** 사용자가 `gh auth login`을 마치면 순서대로: `gh repo create skylog --public --source=. --remote=origin --push` → `gh api -X POST repos/{owner}/skylog/pages -f build_type=workflow`(이미 있으면 `-X PUT`) → `gh run watch` → `curl -I https://<owner>.github.io/skylog/` → 이 문서의 링크·README 배포 URL 기입 → D-007에 gh 계정명 추가 → 커밋·push. 그 다음 T0b.
+- **T0a 완료.** 저장소·Pages·배포 워크플로가 동작한다(gh 계정 `JunhyoungPark-NOBEL`). 다음은 **T0b**(`plan/task-00-setup-and-data.md` §3 MUST 3·4). 실기기 확인 결과는 아직 없음(사용자 액션 대기).
 - 명령은 PowerShell에서 실행할 때 `$env:PATH`에 `C:\Program Files\nodejs`, `C:\Program Files\GitHub CLI`, `%APPDATA%\npm`을 앞에 붙여야 한다(새 터미널은 자동 반영). Git Bash에서는 pnpm shim이 깨져 있으므로 PowerShell을 쓴다.
 - 검증 명령 전부 통과 상태: `pnpm typecheck && pnpm lint && pnpm test`(17개) `&& pnpm build`, `pnpm test:e2e`(4개, Chromium 설치됨). 초기 JS gzip ≈ 119KB.
 - `pnpm data:fetch/build/validate`는 T0b용 스텁(exit 2). T0b는 `plan/task-00-setup-and-data.md` §3 MUST 3·4부터. `/debug/data` 페이지는 `public/data/manifest.v1.json`의 `summary`(starsBright, constellations, dso, messier, caldwell)를 읽도록 이미 되어 있고, e2e가 그 값을 검사한다(별 > 8000, 별자리 88, 메시에 110) — T0b는 `manifest.v1.json`에 `summary`를 반드시 넣을 것(`src/catalog/manifest.ts` 타입 참조).
@@ -49,9 +50,10 @@
 
 ## 최근 완료 보고
 
-### T0a 중간 보고 (2026-09-06) — 로컬 완료, GitHub 배포 대기
+### T0a 완료 보고 (2026-09-06)
+- 산출물: 저장소 https://github.com/JunhyoungPark-NOBEL/skylog, 배포 https://junhyoungpark-nobel.github.io/skylog/ (index·manifest·sw.js 200 확인), 워크플로 첫 실행 성공(typecheck→lint→test→build→deploy).
 - 구현: Vite 8 + React 19 + TS 6 strict + Tailwind 4 툴체인; 앱 셸(상태 바·5탭·설정·정보·`/debug/data`), 테마 토큰 + 적색 야간 모드, i18n ko/en, Wake Lock, Dexie v1(10 테이블) + settings/cache/sites 리포지토리, zustand 5개 스토어(settings는 Dexie persist), PWA(manifest·SW·런타임 캐시), `deploy.yml`, Vitest 17개·Playwright 4개(스크린샷 3장 확인), 디버그 HUD, 문서(README·ARCHITECTURE·TESTING·DATA-LICENSES·LICENSE×2·CHANGELOG).
-- 수용 기준(T0a): ✅ 4 / ⚠️ 1(GitHub Pages 배포 — gh 미로그인).
+- 수용 기준(T0a): ✅ 5 / ⚠️ 0. 실기기 설치 확인은 사용자 액션.
 - 결정: D-007 환경 정보, D-008 확정, D-011 해시 라우터, D-012 i18next, D-013 툴체인 버전.
 
 ## 결정 기록 요약 (`DECISIONS.md` 전체 참조)

@@ -2,7 +2,7 @@
 
 별·달·행성 관측용 개인 PWA. 폰을 하늘로 들어 올리면 그 방향의 별·행성·별자리를 보여주고(센서 AR), 검색·추천 → 관측 기록 → 망원경 push-to 가이드 → AI 요약 스토리 → 학습으로 이어진다.
 
-- 배포(GitHub Pages): _미배포 — 저장소 생성 후 `https://<owner>.github.io/skylog/`_
+- 배포(GitHub Pages): **https://junhyoungpark-nobel.github.io/skylog/** · 저장소: https://github.com/JunhyoungPark-NOBEL/skylog
 - 계획 문서: [`plan/`](plan/README.md) — 세션은 [`CLAUDE.md`](CLAUDE.md) → `plan/STATUS.md` 순서로 읽는다.
 - 코드 문서: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · [`docs/TESTING.md`](docs/TESTING.md) · [`docs/DATA-LICENSES.md`](docs/DATA-LICENSES.md)
 

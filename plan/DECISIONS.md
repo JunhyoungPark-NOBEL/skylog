@@ -33,7 +33,7 @@
 - **환경 정보 (2026-09-06, T0a 세션에서 확인)**
   - OS: Windows 11 Education 10.0.26200. 셸: PowerShell 5.1 + Git Bash. 프로젝트 폴더: `C:\Users\JunhyoungPark\OneDrive\Desktop\별관찰해쌀뚜` (Git 저장소 루트, GitHub 저장소 이름은 `skylog`).
   - Node v24.19.0 (winget `OpenJS.NodeJS.LTS`로 T0a에서 설치), npm 11.17.0, pnpm 12.3.4 (`npm i -g pnpm` — `corepack enable`은 Program Files 권한 문제로 실패), git 2.53.0, GitHub CLI 2.100.0 (winget `GitHub.cli`로 설치).
-  - gh 로그인 계정: **미로그인** — 사용자가 `gh auth login`을 실행한 뒤 저장소 생성·Pages·push를 진행한다(다음 세션에서 계정명 기입).
+  - gh 로그인 계정: **`JunhyoungPark-NOBEL`** (keyring, https, scopes: repo·workflow·read:org·gist). 저장소 `JunhyoungPark-NOBEL/skylog`(public — 무료 계정 Pages 조건), Pages는 Actions 소스(`build_type=workflow`), URL https://junhyoungpark-nobel.github.io/skylog/.
   - 외부 다운로드: codeberg.org·raw.githubusercontent.com·registry.npmjs.org·svs.gsfc.nasa.gov·api.github.com 모두 접근 가능(T0b `data:fetch` 가능).
   - git 로컬 identity: `Junhyoung Park <jhpark@nobelab.kaist.ac.kr>` (저장소 로컬 설정). 줄바꿈은 `.gitattributes`로 LF 고정, `core.autocrlf=false`.
   - 주의: 프로젝트가 OneDrive 동기화 폴더 안에 있다. `node_modules`·`dist`가 동기화 대상이 되어 느려지거나 파일 잠금이 날 수 있으므로, 문제가 생기면 OneDrive 설정에서 이 폴더를 제외하거나 `C:\dev\skylog`로 옮긴다.
