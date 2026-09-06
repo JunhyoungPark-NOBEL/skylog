@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="40%" r="70%">
+      <stop offset="0" stop-color="#1a2440"/>
+      <stop offset="1" stop-color="#05070d"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#sky)"/>
+  <!-- 지평선 -->
+  <path d="M64 392 Q256 330 448 392" stroke="#7a5a2a" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- 작은 별들 -->
+  <g fill="#c8d0e0">
+    <circle cx="120" cy="150" r="5"/>
+    <circle cx="180" cy="96" r="3.5"/>
+    <circle cx="392" cy="120" r="4"/>
+    <circle cx="430" cy="210" r="3"/>
+    <circle cx="90" cy="250" r="3"/>
+    <circle cx="330" cy="70" r="2.5"/>
+  </g>
+  <!-- 별자리 선 -->
+  <path d="M120 150 L180 96 L256 200 L330 70" stroke="#4f7fbf" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <!-- 큰 별 -->
+  <path d="M256 140 l24 56 60 6 -45 40 13 60 -52 -30 -52 30 13 -60 -45 -40 60 -6z" fill="#ffffff"/>
+</svg>

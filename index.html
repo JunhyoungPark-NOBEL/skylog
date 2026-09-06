@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no"
+    />
+    <meta name="theme-color" content="#05070d" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="별관찰" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon-180.png" />
+    <title>별관찰해쌀뚜</title>
+    <style>
+      /* 하이드레이션 전 스플래시: 테마 토큰이 로드되기 전이므로 검정 고정 */
+      html,
+      body {
+        margin: 0;
+        background: #05070d;
+        color: #e6e9f2;
+      }
+      #splash {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: system-ui, sans-serif;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="splash" aria-hidden="true">별관찰해쌀뚜</div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+skylog data packs — Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+The data files in this directory (public/data/) are derived works built from the
+following sources and are distributed under CC BY-SA 4.0 because their principal
+sources (HYG, OpenNGC) require share-alike:
+
+  - HYG Database v4.x — David Nash (astronexus.com), CC BY-SA 4.0
+    https://codeberg.org/astronexus/hyg
+  - OpenNGC — Mattia Verga, CC BY-SA 4.0
+    https://github.com/mattiaverga/OpenNGC
+  - d3-celestial constellation lines/bounds/names — Olaf Frohn (code BSD-3-Clause;
+    data files carry their own attributions, see docs/DATA-LICENSES.md)
+    https://github.com/ofrohn/d3-celestial
+  - NASA SVS "Deep Star Maps 2020" Milky Way imagery — public domain (if used)
+    https://svs.gsfc.nasa.gov/4851
+  - IAU Working Group on Star Names (WGSN) — official star names
+  - Korean names curated for this project (data-src/curated/) — CC BY-SA 4.0
+
+Per-file provenance, versions and hashes: docs/DATA-LICENSES.md and manifest.v1.json.
+
+You are free to share and adapt this data under the terms of CC BY-SA 4.0:
+https://creativecommons.org/licenses/by-sa/4.0/
+
+The application source code is licensed separately under the MIT License (see /LICENSE).
+Weather data shown in the app comes from Open-Meteo (CC BY 4.0, https://open-meteo.com)
+and 7Timer (http://www.7timer.info) and is not part of these packs.

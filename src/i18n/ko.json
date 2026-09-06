@@ -1,0 +1,88 @@
+{
+  "app": {
+    "name": "별관찰해쌀뚜",
+    "tagline": "밤하늘을 보고 · 찾고 · 기록하고 · 배우는 관측 노트"
+  },
+  "tabs": {
+    "sky": "하늘",
+    "search": "검색",
+    "tonight": "오늘 밤",
+    "log": "기록",
+    "learn": "배우기"
+  },
+  "status": {
+    "sensorOff": "센서 꺼짐",
+    "sensorOn": "센서 켜짐",
+    "manualTime": "시간 여행"
+  },
+  "common": {
+    "on": "켬",
+    "off": "끔",
+    "back": "뒤로",
+    "settings": "설정",
+    "close": "닫기",
+    "unsupported": "이 기기에서 지원하지 않음",
+    "loading": "불러오는 중…",
+    "comingSoon": "Task {{task}}에서 구현"
+  },
+  "sky": {
+    "placeholder": "하늘 뷰 — Task 1에서 렌더링"
+  },
+  "search": {
+    "title": "검색",
+    "placeholder": "토성, 안드로메다, M13, 직녀성…"
+  },
+  "tonight": {
+    "title": "오늘 밤"
+  },
+  "log": {
+    "title": "관측 기록"
+  },
+  "learn": {
+    "title": "배우기"
+  },
+  "settings": {
+    "title": "설정",
+    "display": "화면",
+    "nightMode": "적색 야간 모드",
+    "nightModeHint": "암순응을 보호하기 위해 모든 UI를 붉게 바꿉니다.",
+    "language": "언어",
+    "keepAwake": "화면 켜짐 유지",
+    "keepAwakeHint": "관측 중 화면이 꺼지지 않게 합니다 (Wake Lock).",
+    "developer": "개발자",
+    "debugHud": "디버그 HUD",
+    "debugHudHint": "fps·프레임 시간·draw call을 표시합니다.",
+    "debugData": "데이터 팩 점검",
+    "about": "정보 / 라이선스",
+    "version": "버전"
+  },
+  "about": {
+    "title": "정보 / 라이선스",
+    "codeLicense": "코드: MIT 라이선스",
+    "dataLicense": "데이터 팩: CC BY-SA 4.0 (HYG · OpenNGC 파생)",
+    "sources": "데이터 출처"
+  },
+  "debug": {
+    "title": "데이터 팩 점검",
+    "noData": "데이터 팩이 아직 없습니다 (Task 0b에서 생성).",
+    "pack": "팩",
+    "version": "버전",
+    "records": "레코드",
+    "bytes": "크기",
+    "generatedAt": "생성",
+    "stars": "별",
+    "constellations": "별자리",
+    "dso": "DSO",
+    "messier": "메시에",
+    "caldwell": "콜드웰"
+  },
+  "hud": {
+    "fps": "fps",
+    "frame": "프레임",
+    "draws": "draw"
+  },
+  "error": {
+    "title": "문제가 생겼어요",
+    "reload": "다시 시작"
+  }
+}

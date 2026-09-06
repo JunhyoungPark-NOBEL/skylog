@@ -1,0 +1,4 @@
+# pnpm 10+: dependencies allowed to run install/postinstall scripts.
+# Anything not listed here is installed with its build scripts skipped (ERR_PNPM_IGNORED_BUILDS otherwise).
+allowBuilds:
+  esbuild: true

@@ -1,0 +1,11 @@
+node_modules
+dist
+dev-dist
+pnpm-lock.yaml
+public/data
+data-src
+plan
+coverage
+playwright-report
+test-results
+tests/e2e/__screenshots__

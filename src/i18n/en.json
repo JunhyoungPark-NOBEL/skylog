@@ -1,0 +1,88 @@
+{
+  "app": {
+    "name": "Skylog",
+    "tagline": "See, find, log and learn the night sky"
+  },
+  "tabs": {
+    "sky": "Sky",
+    "search": "Search",
+    "tonight": "Tonight",
+    "log": "Log",
+    "learn": "Learn"
+  },
+  "status": {
+    "sensorOff": "Sensors off",
+    "sensorOn": "Sensors on",
+    "manualTime": "Time travel"
+  },
+  "common": {
+    "on": "On",
+    "off": "Off",
+    "back": "Back",
+    "settings": "Settings",
+    "close": "Close",
+    "unsupported": "Not supported on this device",
+    "loading": "Loading…",
+    "comingSoon": "Coming in Task {{task}}"
+  },
+  "sky": {
+    "placeholder": "Sky view — rendered in Task 1"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Saturn, Andromeda, M13, Vega…"
+  },
+  "tonight": {
+    "title": "Tonight"
+  },
+  "log": {
+    "title": "Observation log"
+  },
+  "learn": {
+    "title": "Learn"
+  },
+  "settings": {
+    "title": "Settings",
+    "display": "Display",
+    "nightMode": "Red night mode",
+    "nightModeHint": "Turns the whole UI red to protect dark adaptation.",
+    "language": "Language",
+    "keepAwake": "Keep screen awake",
+    "keepAwakeHint": "Prevents the screen from sleeping while observing (Wake Lock).",
+    "developer": "Developer",
+    "debugHud": "Debug HUD",
+    "debugHudHint": "Shows fps, frame time and draw calls.",
+    "debugData": "Data pack check",
+    "about": "About / Licenses",
+    "version": "Version"
+  },
+  "about": {
+    "title": "About / Licenses",
+    "codeLicense": "Code: MIT License",
+    "dataLicense": "Data packs: CC BY-SA 4.0 (derived from HYG · OpenNGC)",
+    "sources": "Data sources"
+  },
+  "debug": {
+    "title": "Data pack check",
+    "noData": "No data packs yet (built in Task 0b).",
+    "pack": "Pack",
+    "version": "Version",
+    "records": "Records",
+    "bytes": "Size",
+    "generatedAt": "Generated",
+    "stars": "Stars",
+    "constellations": "Constellations",
+    "dso": "DSO",
+    "messier": "Messier",
+    "caldwell": "Caldwell"
+  },
+  "hud": {
+    "fps": "fps",
+    "frame": "frame",
+    "draws": "draw"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "reload": "Restart"
+  }
+}

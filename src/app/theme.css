@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+/*
+ * 테마 토큰 (마스터 플랜 §4.2). 모든 색은 이 변수로만 지정한다.
+ * - 기본(dark): 검은 하늘 위 회청색 UI
+ * - night: html[data-theme="night"] — 적색 계열만 사용 (암순응 보호). 흰색이 남으면 안 된다.
+ * 렌더러(Three.js)는 src/app/theme.ts의 getPalette()로 같은 토큰을 읽는다.
+ */
+:root {
+  color-scheme: dark;
+
+  --bg: #05070d;
+  --fg: #e6e9f2;
+  --muted: #8a93a8;
+  --surface: #0f1421;
+  --surface-2: #171d2e;
+  --border: #222b45;
+  --accent: #5aa9ff;
+  --accent-fg: #05070d;
+  --danger: #ff5c5c;
+  --success: #4ad48a;
+  --overlay: rgba(5, 7, 13, 0.78);
+
+  /* 렌더러 전용 */
+  --star: #ffffff;
+  --planet: #ffd98a;
+  --moon: #e8e8e8;
+  --constellation: #4f7fbf;
+  --constellation-bound: #2d3d5c;
+  --grid: #2a3550;
+  --horizon: #7a5a2a;
+  --milky-way: #6f7fb0;
+  --label: #c8d0e0;
+  --marker: #ffb020;
+
+  --tab-height: 56px;
+  --status-height: 36px;
+  --touch-min: 44px;
+}
+
+html[data-theme='night'] {
+  --bg: #000000;
+  --fg: #ff3b30;
+  --muted: #7a1010;
+  --surface: #0a0000;
+  --surface-2: #160404;
+  --border: #3a0a0a;
+  --accent: #ff3b30;
+  --accent-fg: #000000;
+  --danger: #ff3b30;
+  --success: #ff3b30;
+  --overlay: rgba(0, 0, 0, 0.82);
+
+  --star: #ff3b30;
+  --planet: #ff5a4a;
+  --moon: #ff3b30;
+  --constellation: #7a1010;
+  --constellation-bound: #4a0a0a;
+  --grid: #3a0a0a;
+  --horizon: #4a1010;
+  --milky-way: #4a0a0a;
+  --label: #b02a20;
+  --marker: #ff3b30;
+}
+
+/* Tailwind v4: 토큰을 유틸리티 이름으로 노출 (bg-bg, text-fg, border-border …) */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-overlay: var(--overlay);
+  --font-sans:
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+/* 야간 모드에서 이미지·아이콘도 붉게 (SVG는 currentColor 사용, 래스터 이미지는 필터) */
+html[data-theme='night'] img {
+  filter: grayscale(1) sepia(1) saturate(6) hue-rotate(-20deg) brightness(0.8);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
