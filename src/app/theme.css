@@ -114,6 +114,64 @@ html[data-theme='night'] img {
   filter: grayscale(1) sepia(1) saturate(6) hue-rotate(-20deg) brightness(0.8);
 }
 
+/* 하늘 뷰 라벨(HTML 오버레이, T1) */
+.sky-label {
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--label);
+  text-shadow:
+    0 0 3px var(--bg),
+    0 0 2px var(--bg);
+  user-select: none;
+}
+.sky-label-body {
+  color: var(--planet);
+  font-weight: 600;
+  font-size: 12px;
+}
+.sky-label-star {
+  color: var(--label);
+}
+.sky-label-messier {
+  color: var(--muted);
+  font-size: 10px;
+}
+.sky-label-dso {
+  color: var(--muted);
+  font-size: 10px;
+}
+.sky-label-constellation {
+  color: var(--constellation);
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sky-label-cardinal {
+  color: var(--fg);
+  font-weight: 700;
+  font-size: 13px;
+}
+.sky-label-selection {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 12px;
+}
+.sky-selection-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--accent);
+  pointer-events: none;
+}
+html[data-theme='night'] .sky-label-constellation {
+  color: var(--muted);
+}
+
 .safe-top {
   padding-top: env(safe-area-inset-top);
 }

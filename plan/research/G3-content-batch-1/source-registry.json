@@ -1,0 +1,338 @@
+[
+  {
+    "key": "sunspots",
+    "title": "NASA — Track the Solar Cycle with Sunspots",
+    "url": "https://science.nasa.gov/sun/track-the-solar-cycle-with-sunspots/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "twinkle",
+    "title": "NASA Cosmicopia — Ask Us: Stars, Apparent Color Changes",
+    "url": "https://cosmicopia.gsfc.nasa.gov/qa_star.html",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "uranussee",
+    "title": "NASA/JPL — What’s Up: July 2024, Observing Uranus",
+    "url": "https://www.jpl.nasa.gov/videos/whats-up-july-2024/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "uranusspot",
+    "title": "NASA APOD — Infrared Uranus (1998-10-20)",
+    "url": "https://science.nasa.gov/image-article/apod-1998-october-20-infrared-uranus/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "sun",
+    "title": "NASA — Sun Facts",
+    "url": "https://science.nasa.gov/sun/facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "safe",
+    "title": "NASA — Eclipse Viewing Safety",
+    "url": "https://science.nasa.gov/eclipses/safety/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "sunfolk",
+    "title": "한국학중앙연구원 — 해와 달이 된 오누이",
+    "url": "https://encykorea.aks.ac.kr/Article/E0062663",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "moon",
+    "title": "NASA — Moon Facts",
+    "url": "https://science.nasa.gov/moon/facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "moonsee",
+    "title": "NASA — Moon Viewing Tips",
+    "url": "https://science.nasa.gov/moon/viewing-tips/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "moonhome",
+    "title": "NASA — Observe the Moon at Home",
+    "url": "https://science.nasa.gov/moon/observe-the-moon-night/observe-at-home/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "rabbit",
+    "title": "한국학중앙연구원 — 옛사람의 향기: 토끼",
+    "url": "https://www.aks.ac.kr/webzine/2302/sub04.jsp",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "mercury",
+    "title": "NASA — Mercury Facts",
+    "url": "https://science.nasa.gov/mercury/facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "venus",
+    "title": "NASA — Venus Facts",
+    "url": "https://science.nasa.gov/venus/venus-facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "mars",
+    "title": "NASA — Mars Facts",
+    "url": "https://science.nasa.gov/mars/facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "jupiter",
+    "title": "NASA — Jupiter Facts",
+    "url": "https://science.nasa.gov/jupiter/jupiter-facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "saturn",
+    "title": "NASA — Saturn Facts",
+    "url": "https://science.nasa.gov/saturn/facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "uranus",
+    "title": "NASA — Uranus Facts",
+    "url": "https://science.nasa.gov/uranus/facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "neptune",
+    "title": "NASA — Neptune Facts",
+    "url": "https://science.nasa.gov/neptune/neptune-facts/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "sky",
+    "title": "NASA — Skywatching Tips",
+    "url": "https://science.nasa.gov/skywatching/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "vphase",
+    "title": "NASA — Galileo’s Phases of Venus and Other Planets",
+    "url": "https://science.nasa.gov/resource/galileos-phases-of-venus-and-other-planets/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "galileo",
+    "title": "NASA — Galileo’s Observations of the Moon, Jupiter, Venus and the Sun",
+    "url": "https://science.nasa.gov/solar-system/galileos-observations-of-the-moon-jupiter-venus-and-the-sun/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "venusko",
+    "title": "한국천문연구원 — 금성과 목성의 접근",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4300",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "venusorigin",
+    "title": "한국천문연구원 — 금성의 기원",
+    "url": "https://astro.kasi.re.kr/kor/post/venusInfo/71386",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "marsopp",
+    "title": "NASA/ESA Hubble — Mars Opposition 2018",
+    "url": "https://science.nasa.gov/asset/hubble/mars-opposition-2018/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "jmoons",
+    "title": "NASA — Jupiter Moons",
+    "url": "https://science.nasa.gov/jupiter/jupiter-moons/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "jhistory",
+    "title": "NASA — 415 Years Ago: Astronomer Galileo Discovers Jupiter’s Moons",
+    "url": "https://www.nasa.gov/general/415-years-ago-astronomer-galileo-discovers-jupiters-moons/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "jrings",
+    "title": "NASA — Basics of Space Flight, Chapter 1: The Solar System",
+    "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter1-2/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "srings",
+    "title": "ESA — Saturn’s Rings",
+    "url": "https://www.esa.int/Science_Exploration/Space_Science/Cassini-Huygens/Saturn_s_rings",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "sirius",
+    "title": "NASA/ESA Hubble — The Dog Star, Sirius, and its Tiny Companion",
+    "url": "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "siriusmass",
+    "title": "NASA — Astronomers Use Hubble to Weigh Dog Star’s Companion",
+    "url": "https://science.nasa.gov/missions/hubble/astronomers-use-hubble-to-weigh-dog-stars-companion/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "startypes",
+    "title": "NASA — Star Types",
+    "url": "https://science.nasa.gov/universe/stars/types/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "arcfinder",
+    "title": "NASA — What’s Up: September 2021",
+    "url": "https://science.nasa.gov/resource/whats-up-september-2021/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "arcfair",
+    "title": "국제박람회기구 BIE — Arcturus: the Star that Lit up an Expo",
+    "url": "https://www.bie-paris.org/site/en/latest/blog/entry/arcturus-the-star-that-lit-up-an-expo",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "arcyerkes",
+    "title": "University of Chicago Library — Yerkes Observatory at the Century of Progress 1933 World’s Fair",
+    "url": "https://www.lib.uchicago.edu/collex/collections/yerkes-plates/women-at-yerkes/capturing-the-stars-digital-cases/yerkes-observatory-at-the-century-of-progress-1933-worlds-fair/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "vega",
+    "title": "NASA Night Sky Network — Summer Triangle Corner: Vega",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-vega/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "altair",
+    "title": "NASA Night Sky Network — Summer Triangle Corner: Altair",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-altair/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "deneb",
+    "title": "NASA Night Sky Network — Summer Triangle Corner: Deneb",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "triangle",
+    "title": "한국천문연구원 — 여름철 대삼각형",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "weaver",
+    "title": "한국학중앙연구원 — 견우직녀설화",
+    "url": "https://encykorea.aks.ac.kr/Article/E0002170",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "ox",
+    "title": "한국학중앙연구원 조선왕조실록사전 — 우성(牛星)",
+    "url": "https://dh.aks.ac.kr/sillokwiki/index.php/%EC%9A%B0%EC%84%B1%28%E7%89%9B%E6%98%9F%29",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "capella",
+    "title": "Takeda·Hashimoto·Honda (2018) — Spectroscopic Determination of Capella’s Photospheric Abundances",
+    "url": "https://arxiv.org/html/1806.09036v1",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "asterisms",
+    "title": "NASA Night Sky Network — Connecting the Dots with Asterisms",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/connecting-the-dots-with-asterisms/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "rigel",
+    "title": "NASA APOD — Rigel and the Witch Head Nebula (2024-10-31)",
+    "url": "https://science.nasa.gov/image-article/apod-2024-october-31-rigel-and-the-witch-head-nebula/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "betel",
+    "title": "NASA — What is Betelgeuse? Inside the Strange, Volatile Star",
+    "url": "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "dimming",
+    "title": "NASA — Hubble Finds that Betelgeuse’s Mysterious Dimming Is Due to a Traumatic Outburst",
+    "url": "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "dimmingeso",
+    "title": "ESO — Betelgeuse’s Great Dimming Event in High Resolution",
+    "url": "https://www.eso.org/public/images/potw2343a/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "hyades",
+    "title": "NASA Night Sky Network — Spot the Young Stars of the Hyades and Pleiades",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "aldebaran",
+    "title": "NASA/JPL — What’s Up: March 2022",
+    "url": "https://www.jpl.nasa.gov/videos/whats-up-march-2022/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "antares",
+    "title": "ESO — Best Ever Image of a Star’s Surface and Atmosphere",
+    "url": "https://www.eso.org/public/news/eso1726/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "antaresradio",
+    "title": "ALMA — Supergiant Atmosphere of Antares Revealed by Radio Telescopes",
+    "url": "https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "denebdist",
+    "title": "Chesneau 외 (2010) — Time, Spatial, and Spectral Resolution of the Hα Line-Formation Region of Deneb and Rigel",
+    "url": "https://arxiv.org/html/1007.2095v1",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "polaris",
+    "title": "NASA — What is the North Star and How Do You Find It?",
+    "url": "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "polarismulti",
+    "title": "NASA — There’s More to the North Star than Meets the Eye",
+    "url": "https://science.nasa.gov/missions/hubble/theres-more-to-the-north-star-than-meets-the-eye/",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "polarispre",
+    "title": "NASA StarChild — Will Polaris Always Be the North Star?",
+    "url": "https://starchild.gsfc.nasa.gov/docs/StarChild/questions/question64.html",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "polarisko",
+    "title": "한국학중앙연구원 — 북극성",
+    "url": "https://encykorea.aks.ac.kr/Article/E0024645",
+    "accessedOn": "2026-09-07"
+  },
+  {
+    "key": "korean",
+    "title": "Stellarium — Korean Sky Culture, HIP별 전통 명칭 재구성 데이터",
+    "url": "https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json",
+    "accessedOn": "2026-09-07"
+  }
+]

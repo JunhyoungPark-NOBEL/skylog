@@ -13,8 +13,17 @@ export type Route = TabRoute | 'settings' | 'about' | 'debug/data';
 const ALL_ROUTES: readonly Route[] = [...TAB_ROUTES, 'settings', 'about', 'debug/data'];
 
 export function parseHash(hash: string): Route {
-  const path = hash.replace(/^#\/?/, '').replace(/\/+$/, '');
+  const path = hash
+    .replace(/^#\/?/, '')
+    .replace(/[?#].*$/, '')
+    .replace(/\/+$/, '');
   return (ALL_ROUTES as readonly string[]).includes(path) ? (path as Route) : 'sky';
+}
+
+/** 해시의 쿼리(`#/sky?t=…&alt=…`)를 읽는다. 테스트·공유 링크용. */
+export function hashQuery(hash: string = globalThis.location?.hash ?? ''): URLSearchParams {
+  const i = hash.indexOf('?');
+  return new URLSearchParams(i >= 0 ? hash.slice(i + 1) : '');
 }
 
 export function toHash(route: Route): string {

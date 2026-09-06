@@ -72,6 +72,15 @@ export function IconBack(p: IconProps) {
     </svg>
   );
 }
+export function IconLayers(p: IconProps) {
+  return (
+    <svg {...base(p)}>
+      <path d="m12 3 9 5-9 5-9-5 9-5Z" />
+      <path d="m3 13 9 5 9-5" />
+      <path d="m3 17.5 9 5 9-5" />
+    </svg>
+  );
+}
 export function IconChevron(p: IconProps) {
   return (
     <svg {...base(p)}>

@@ -1,7 +1,7 @@
 {
   "schema": "skylog-data-manifest",
   "version": 1,
-  "generatedAt": "2026-09-06T15:41:33.407Z",
+  "generatedAt": "2026-09-06T23:07:00.283Z",
   "packs": {
     "stars-bright": {
       "file": "stars-bright.v1.bin",
@@ -51,6 +51,12 @@
       "bytes": 3141,
       "sha256": "6c8c759ef3d442862db85d54867c086a42537612ca2b8cd583ebd9c2035a13c7",
       "records": 13
+    },
+    "milkyway": {
+      "file": "milkyway.v1.png",
+      "version": 1,
+      "bytes": 46166,
+      "sha256": "faab4b3a791a23cdadbe7a2c228811b3aa05aad86183bbc08f2f462ddb1f5167"
     },
     "search-index": {
       "file": "search-index.v1.json",

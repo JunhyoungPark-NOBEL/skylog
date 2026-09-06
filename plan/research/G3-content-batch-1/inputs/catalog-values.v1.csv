@@ -1,0 +1,122 @@
+id,priority,name_en,name_ko,ra_deg,dec_deg,mag,dist_ly,spect,size_arcmin,con,type
+sun,1,Sun,태양,variable,variable,variable,,,,,sun
+moon,1,Moon,달,variable,variable,variable,,,,,moon
+planet:mercury,2,Mercury,수성,variable,variable,variable,,,,,planet
+planet:venus,1,Venus,금성,variable,variable,variable,,,,,planet
+planet:mars,1,Mars,화성,variable,variable,variable,,,,,planet
+planet:jupiter,1,Jupiter,목성,variable,variable,variable,,,,,planet
+planet:saturn,1,Saturn,토성,variable,variable,variable,,,,,planet
+planet:uranus,2,Uranus,천왕성,variable,variable,variable,,,,,planet
+planet:neptune,3,Neptune,해왕성,variable,variable,variable,,,,,planet
+star:HIP32349,1,Sirius,시리우스,101.28722,-16.71612,-1.44,8.6,A0m...,,CMa,star
+star:HIP30438,2,Canopus,카노푸스,95.98792,-52.69566,-0.62,309.2,F0Ib,,Car,star
+star:HIP69673,1,Arcturus,아르크투루스,213.91545,19.18241,-0.05,36.7,K2IIIp,,Boo,star
+star:HIP91262,1,Vega,베가,279.2346,38.78369,0.03,25,A0Vvar,,Lyr,star
+star:HIP24608,1,Capella,카펠라,79.17225,45.99799,0.08,42.8,M1: comp,,Aur,star
+star:HIP24436,1,Rigel,리겔,78.63447,-8.20164,0.18,862.9,B8Ia,,Ori,star
+star:HIP37279,2,Procyon,프로키온,114.8255,5.22499,0.4,11.5,F5IV-V,,CMi,star
+star:HIP27989,1,Betelgeuse,베텔게우스,88.79294,7.40706,0.45,498,M2Ib,,Ori,star
+star:HIP97649,1,Altair,알타이르,297.69582,8.86832,0.76,16.7,A7IV-V,,Aql,star
+star:HIP21421,1,Aldebaran,알데바란,68.98016,16.5093,0.87,66.6,K5III,,Tau,star
+star:HIP80763,1,Antares,안타레스,247.35192,-26.432,1.06,553.8,M1Ib + B2.5V,,Sco,star
+star:HIP65474,2,Spica,스피카,201.29825,-11.16132,0.98,249.7,B1V,,Vir,star
+star:HIP37826,2,Pollux,폴룩스,116.32916,28.0262,1.16,33.8,K0IIIvar,,Gem,star
+star:HIP113368,2,Fomalhaut,포말하우트,344.41257,-29.62224,1.17,25.1,A3V,,PsA,star
+star:HIP102098,1,Deneb,데네브,310.35798,45.28034,1.25,1411.9,A2Ia,,Cyg,star
+star:HIP49669,2,Regulus,레굴루스,152.09298,11.96721,1.36,79.3,B7V,,Leo,star
+star:HIP36850,2,Castor,카스토르,113.64951,31.88828,1.58,50.9,A2Vm,,Gem,star
+star:HIP11767,1,Polaris,폴라리스,37.94625,89.26411,1.97,432.6,F7:Ib-IIv SB,,UMi,star
+star:HIP65378,1,Mizar,미자르,200.98121,54.92536,2.23,85.8,A2V,,UMa,star
+star:HIP95947,1,Albireo,알비레오,292.68035,27.95968,3.05,434.3,K3II+...,,Cyg,star
+star:HIP14576,2,Algol,알골,47.04222,40.95565,2.09,89.9,B8V,,Per,star
+star:HIP677,2,Alpheratz,알페라츠,2.09687,29.09043,2.07,97,B9p,,And,star
+star:HIP10826,3,Mira,미라,34.83663,-2.97764,6.47,299,M5e-M9e,,Cet,star
+star:HIP54061,2,Dubhe,두베,165.93233,61.75103,1.81,122.9,F7V comp,,UMa,star
+star:HIP67301,2,Alkaid,알카이드,206.88531,49.31327,1.85,103.9,B3V SB,,UMa,star
+star:HIP26727,1,Alnitak,알니탁,85.1897,-1.94257,1.74,736.3,O9.5Ib SB,,Ori,star
+star:HIP26311,1,Alnilam,알닐람,84.05339,-1.20192,1.69,1976.7,B0Ia,,Ori,star
+star:HIP25930,1,Mintaka,민타카,83.00168,-0.29909,2.25,692.5,O9.5II,,Ori,star
+star:HIP25336,2,Bellatrix,벨라트릭스,81.28277,6.3497,1.64,252.4,B2III,,Ori,star
+star:HIP9884,3,Hamal,하말,31.79333,23.46242,2.01,65.8,K2III,,Ari,star
+star:HIP72607,3,Kochab,코카브,222.67658,74.15551,2.07,130.9,K4IIIvar,,UMi,star
+const:Ari,3,Aries,양자리,42,22,,,,,Ari,constellation (가을)
+const:Tau,1,Taurus,황소자리,54,15,,,,,Tau,constellation (겨울)
+const:Gem,2,Gemini,쌍둥이자리,107.25,23.5,,,,,Gem,constellation (겨울)
+const:Cnc,3,Cancer,게자리,128.25,27,,,,,Cnc,constellation (봄)
+const:Leo,2,Leo,사자자리,159,15,,,,,Leo,constellation (봄)
+const:Vir,2,Virgo,처녀자리,199.5,-4,,,,,Vir,constellation (봄)
+const:Lib,3,Libra,천칭자리,231,-26,,,,,Lib,constellation (여름)
+const:Sco,1,Scorpius,전갈자리,249,-38,,,,,Sco,constellation (여름)
+const:Sgr,2,Sagittarius,궁수자리,292.5,-34,,,,,Sgr,constellation (여름)
+const:Cap,3,Capricornus,염소자리,315,-22,,,,,Cap,constellation (가을)
+const:Aqr,3,Aquarius,물병자리,337.5,-5,,,,,Aqr,constellation (가을)
+const:Psc,3,Pisces,물고기자리,19.5,15,,,,,Psc,constellation (가을)
+const:Ori,1,Orion,오리온자리,84,13,,,,,Ori,constellation (겨울)
+const:UMa,1,Ursa Major,큰곰자리,165,48,,,,,UMa,constellation (봄)
+const:UMi,1,Ursa Minor,작은곰자리,226.5,68,,,,,UMi,constellation (북극)
+const:Cas,1,Cassiopeia,카시오페이아자리,354,55.5,,,,,Cas,constellation (가을)
+const:Cyg,1,Cygnus,백조자리,307.5,50,,,,,Cyg,constellation (여름)
+const:Lyr,1,Lyra,거문고자리,279,30,,,,,Lyr,constellation (여름)
+const:Aql,1,Aquila,독수리자리,291,8,,,,,Aql,constellation (여름)
+const:Peg,2,Pegasus,페가수스자리,334.5,16,,,,,Peg,constellation (가을)
+const:And,2,Andromeda,안드로메다자리,0.75,43,,,,,And,constellation (가을)
+const:Per,2,Perseus,페르세우스자리,66,45,,,,,Per,constellation (가을)
+const:Aur,2,Auriga,마차부자리,82.5,37,,,,,Aur,constellation (겨울)
+const:CMa,1,Canis Major,큰개자리,97.5,-26,,,,,CMa,constellation (겨울)
+const:CMi,3,Canis Minor,작은개자리,109.5,5,,,,,CMi,constellation (겨울)
+const:Her,2,Hercules,헤르쿨레스자리,253.5,35,,,,,Her,constellation (여름)
+const:Boo,2,Boötes,목동자리,223.5,35,,,,,Boo,constellation (봄)
+const:Dra,3,Draco,용자리,268.5,64,,,,,Dra,constellation (여름)
+const:Cet,3,Cetus,고래자리,28.5,-5,,,,,Cet,constellation (가을)
+const:Cru,3,Crux,남십자자리,193.5,-62,,,,,Cru,constellation (남천)
+dso:M31,1,Andromeda Galaxy,안드로메다은하,10.68479,41.26906,3.44,544,,177.83x69.66,And,G (galaxy)
+dso:M32,3,,M32,10.67429,40.86528,8.13,,,7.74x4.86,And,G (galaxy)
+dso:M110,3,,M110,10.092,41.68531,8.15,,,16.22x9.59,And,G (galaxy)
+dso:M33,2,Triangulum Galaxy,삼각형자리은하,23.46204,30.66022,5.79,,,62.09x36.73,Tri,G (galaxy)
+dso:M42,1,Orion Nebula,오리온대성운,83.81867,-5.38967,4,,,90x60,Ori,Cl+N (openCluster)
+dso:M43,3,De Mairan's Nebula,드 메랑 성운,83.88075,-5.26747,9,,,20x15,Ori,HII (nebula)
+dso:M45,1,Pleiades,플레이아데스성단,56.86917,24.10528,1.2,443,,150x150,Tau,OCl (openCluster)
+dso:M44,1,Beehive Cluster,프레세페성단,130.0925,19.67206,3.1,607,,108.6,Cnc,OCl (openCluster)
+dso:M13,1,Hercules Globular Cluster,헤르쿨레스 대성단,250.42346,36.46131,5.8,40118,,16.5,Her,GCl (globularCluster)
+dso:M92,3,,M92,259.28029,43.13653,6.52,58036,,14.4,Her,GCl (globularCluster)
+dso:M3,2,,M3,205.54679,28.37544,6.39,133127,,16.2,CVn,GCl (globularCluster)
+dso:M5,2,,M5,229.64063,2.08269,5.95,28636,,15,Se1,GCl (globularCluster)
+dso:M57,1,Ring Nebula,고리성운,283.39588,33.02858,8.8,2567,,1.27,Lyr,PN (planetaryNebula)
+dso:M27,1,Dumbbell Nebula,아령성운,299.90158,22.72103,7.4,1227,,6.7,Vul,PN (planetaryNebula)
+dso:M51,2,Whirlpool Galaxy,소용돌이은하,202.46962,47.19517,8.36,418,,13.71x11.67,CVn,G (galaxy)
+dso:M81,2,Bode's Galaxy,보데은하,148.88821,69.06531,6.92,,,21.63x11.25,UMa,G (galaxy)
+dso:M82,2,Cigar Galaxy,시가은하,148.96971,69.67939,8.3,,,10.99x5.11,UMa,G (galaxy)
+dso:M101,3,Pinwheel Galaxy,바람개비은하,210.80225,54.34894,7.9,,,23.99x23.07,UMa,G (galaxy)
+dso:M104,2,Sombrero Galaxy,솜브레로은하,189.99763,-11.62306,8.59,,,8.45x4.91,Vir,G (galaxy)
+dso:M8,1,Lagoon Nebula,라군성운,270.92196,-24.38017,5.8,,,45x30,Sgr,Neb (nebula)
+dso:M20,2,Trifid Nebula,삼렬성운,270.67546,-22.97189,8.5,4129,,28x28,Sgr,Neb (nebula)
+dso:M17,2,Omega Nebula,오메가성운,275.19629,-16.17153,7,5436,,12.6,Sgr,Neb (nebula)
+dso:M16,2,Eagle Nebula,독수리성운,274.70071,-13.80722,6,5763,,120x25,Se2,Neb (nebula)
+dso:M22,2,Sagittarius Cluster,M22,279.10083,-23.90342,6.17,12359,,12.6,Sgr,GCl (globularCluster)
+dso:M11,2,Wild Duck Cluster,야생오리성단,282.77496,-6.27003,5.8,7638,,9,Sct,OCl (openCluster)
+dso:M6,2,Butterfly Cluster,나비성단,265.08646,-32.25417,4.2,1508,,15.6,Sco,OCl (openCluster)
+dso:M7,2,Ptolemy Cluster,프톨레마이오스성단,268.46325,-34.79283,3.3,914,,22.2,Sco,OCl (openCluster)
+dso:M35,2,,M35,92.27108,24.33864,5.1,2886,,24,Gem,OCl (openCluster)
+dso:M36,3,Pinwheel Cluster,M36,84.07392,34.14075,6,3906,,7.2,Aur,OCl (openCluster)
+dso:M37,2,,M37,88.07646,32.553,5.6,4897,,11.4,Aur,OCl (openCluster)
+dso:M38,3,Starfish Cluster,M38,82.17704,35.85492,6.4,3732,,9.6,Aur,OCl (openCluster)
+dso:M41,2,,M41,101.49975,-20.75422,4.5,2398,,12,CMa,OCl (openCluster)
+dso:M46,3,,M46,115.44508,-14.81,6.1,5431,,21,Pup,OCl (openCluster)
+dso:M47,3,,M47,114.14592,-14.48261,4.4,1576,,19.8,Pup,OCl (openCluster)
+dso:M67,3,,M67,132.83388,11.81194,6.9,2880,,33,Cnc,OCl (openCluster)
+dso:M15,2,,M15,322.49325,12.16683,6.3,62483,,11.1,Peg,GCl (globularCluster)
+dso:M2,3,,M2,323.36254,-0.82331,6.25,53294,,8.4,Aqr,GCl (globularCluster)
+dso:M39,3,,M39,322.95133,48.43817,4.6,977,,19.5,Cyg,OCl (openCluster)
+dso:M103,3,,M103,23.34088,60.658,7.4,8744,,4.5,Cas,OCl (openCluster)
+dso:M4,2,,M4,245.8975,-26.52553,5.4,6530,,28.2,Sco,GCl (globularCluster)
+dso:M10,3,,M10,254.28746,-4.09933,4.98,21643,,9.3,Oph,GCl (globularCluster)
+dso:M12,3,,M12,251.8105,-1.94783,6.07,20591,,11.1,Oph,GCl (globularCluster)
+dso:M29,3,,M29,305.99071,38.50767,6.6,5898,,3.6,Cyg,OCl (openCluster)
+dso:M34,3,,M34,40.53083,42.74614,5.2,1670,,22.5,Per,OCl (openCluster)
+dso:M52,3,,M52,351.20167,61.59317,6.9,5472,,9.9,Cas,OCl (openCluster)
+dso:M78,3,,M78,86.69092,0.07931,8,,,4.5,Ori,RfN (nebula)
+dso:NGC869,1,Double Cluster (h Persei),이중성단(h),34.744,57.11725,3.7,8274,,14.4,Per,OCl (openCluster)
+dso:NGC884,2,Double Cluster (χ Persei),이중성단(χ),35.63375,57.14411,3.8,8203,,10.5,Per,OCl (openCluster)
+dso:NGC7000,2,North America Nebula,북아메리카성운,314.82142,44.52878,,,,120x30,Cyg,HII (nebula)
+dso:NGC457,1,Owl Cluster,ET성단,19.88604,58.29069,6.4,10257,,7.8,Cas,OCl (openCluster)
+dso:NGC7009,2,Saturn Nebula,토성성운,316.04496,-11.36325,8,3764,,0.7x0.52,Aqr,PN (planetaryNebula)

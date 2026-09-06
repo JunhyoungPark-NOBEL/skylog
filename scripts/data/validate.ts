@@ -54,6 +54,7 @@ function main(): void {
     'search-index.v1.json',
     'bodies.v1.json',
     'meteors.v1.json',
+    'milkyway.v1.png',
   ];
   for (const f of required) check(existsSync(path.join(OUT_DIR, f)), `파일 없음: ${f}`);
   if (failures.length > 0) return report();

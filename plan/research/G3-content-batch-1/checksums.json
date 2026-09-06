@@ -1,0 +1,11 @@
+{
+  "G3-content-batch-1.json": "d9105feee59162ab847f2f0cd8b6ef4d954f8179c9e3d2f82a2bb4e37ba57785",
+  "README.md": "1515a9b00a7632eb99d9f107407170d91ae1094372f4c66b570f1aabe62cf236",
+  "batch-manifest.json": "4d9556dc42c479b0100b2fb84eaa64da82a39dec82b5e46fcb3c26d71baab868",
+  "inputs/catalog-values.v1.csv": "a372c581814827928319f10a63c361071b0c3af37831abd964855e44a80d74f6",
+  "inputs/content-targets.v1.csv": "f3e38b67118a826a6df0f63c86159ce5f127da835b37188bdd899d7b32e2db53",
+  "review-items.md": "3cb44f4037bfccd9f4cf85420846c14e8c950772910140a1708a580ef59a73dd",
+  "source-registry.json": "2501f531cee8696159aadf21e4ef550fff089b070205a83d2c61877549bcc569",
+  "validate.py": "8a1e4f53e09d8cfbf1adb33e332712d6d3097fe68984fdc9b41dec615029739e",
+  "validation.json": "417427db858ef518a98908384c056aa1360b18bdf18e0a52539cc556d20253b4"
+}

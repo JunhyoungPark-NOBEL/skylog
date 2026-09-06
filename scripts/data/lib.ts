@@ -69,6 +69,14 @@ export const SOURCES: SourceSpec[] = [
     license: 'BSD-3-Clause (d3-celestial; 경계: IAU / Davenhall & Leggett 1989)',
     homepage: 'https://github.com/ofrohn/d3-celestial',
   },
+  {
+    key: 'd3c-milkyway',
+    file: 'mw.json',
+    url: 'https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/mw.json',
+    license: 'BSD-3-Clause (d3-celestial; 윤곽: Milky Way Outline Catalog, Jose R. Vieira)',
+    homepage: 'https://github.com/ofrohn/d3-celestial',
+    note: 'NASA SVS 은하수 이미지는 직접 파일 요청이 403이라 사용하지 않음(D-017)',
+  },
 ];
 
 export interface SourceRecord {

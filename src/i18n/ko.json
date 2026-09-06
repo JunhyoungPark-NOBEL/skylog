@@ -26,7 +26,51 @@
     "comingSoon": "Task {{task}}에서 구현"
   },
   "sky": {
-    "placeholder": "하늘 뷰 — Task 1에서 렌더링"
+    "placeholder": "하늘 뷰 — Task 1에서 렌더링",
+    "layers": "레이어",
+    "layer": {
+      "constellationLines": "별자리 선",
+      "constellationBounds": "별자리 경계",
+      "constellationNames": "별자리 이름",
+      "starLabels": "별 이름",
+      "dso": "성운·성단·은하",
+      "milkyWay": "은하수",
+      "altAzGrid": "고도-방위 격자",
+      "equator": "천구 적도",
+      "ecliptic": "황도",
+      "meridian": "자오선",
+      "ground": "지평선(땅)",
+      "groundOpaque": "땅 불투명",
+      "atmosphere": "대기 효과(박명·낮 하늘)",
+      "extinction": "대기 소광",
+      "magnifyBodies": "달·행성 확대 표시",
+      "viewInfo": "시점 정보 표시",
+      "starSaturation": "별 채도",
+      "labelLang": "라벨 언어",
+      "labelLangAuto": "설정 따름"
+    },
+    "time": {
+      "now": "지금",
+      "slider": "시간 이동(±12시간)",
+      "date": "날짜",
+      "rate": "배속"
+    },
+    "kind": {
+      "star": "별",
+      "dso": "성운·성단·은하",
+      "planet": "행성",
+      "moon": "달",
+      "sun": "태양",
+      "const": "별자리"
+    },
+    "tooltip": {
+      "mag": "등급",
+      "alt": "고도",
+      "az": "방위",
+      "illum": "조도",
+      "center": "화면 중앙으로",
+      "details": "자세히"
+    }
   },
   "search": {
     "title": "검색",

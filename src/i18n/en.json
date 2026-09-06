@@ -26,7 +26,51 @@
     "comingSoon": "Coming in Task {{task}}"
   },
   "sky": {
-    "placeholder": "Sky view — rendered in Task 1"
+    "placeholder": "Sky view — rendered in Task 1",
+    "layers": "Layers",
+    "layer": {
+      "constellationLines": "Constellation lines",
+      "constellationBounds": "Constellation boundaries",
+      "constellationNames": "Constellation names",
+      "starLabels": "Star names",
+      "dso": "Deep-sky objects",
+      "milkyWay": "Milky Way",
+      "altAzGrid": "Alt-az grid",
+      "equator": "Celestial equator",
+      "ecliptic": "Ecliptic",
+      "meridian": "Meridian",
+      "ground": "Horizon (ground)",
+      "groundOpaque": "Opaque ground",
+      "atmosphere": "Atmosphere (twilight, daylight)",
+      "extinction": "Atmospheric extinction",
+      "magnifyBodies": "Magnify Moon & planets",
+      "viewInfo": "Show view info",
+      "starSaturation": "Star colour saturation",
+      "labelLang": "Label language",
+      "labelLangAuto": "Follow settings"
+    },
+    "time": {
+      "now": "Now",
+      "slider": "Time offset (±12 h)",
+      "date": "Date",
+      "rate": "Speed"
+    },
+    "kind": {
+      "star": "Star",
+      "dso": "Deep-sky object",
+      "planet": "Planet",
+      "moon": "Moon",
+      "sun": "Sun",
+      "const": "Constellation"
+    },
+    "tooltip": {
+      "mag": "mag",
+      "alt": "Alt",
+      "az": "Az",
+      "illum": "Illum.",
+      "center": "Center on sky",
+      "details": "Details"
+    }
   },
   "search": {
     "title": "Search",

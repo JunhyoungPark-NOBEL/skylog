@@ -18,15 +18,20 @@ export function StatusBar() {
   const { t } = useTranslation();
   const siteName = useLocationStore((s) => s.site.name);
   const clockMode = useClockStore((s) => s.mode);
+  const offsetMs = useClockStore((s) => s.offsetMs);
+  const notNow = clockMode === 'manual' || offsetMs !== 0;
   const viewMode = useViewStore((s) => s.mode);
   const [time, setTime] = useState(() => timeFmt.format(useClockStore.getState().now()));
 
   useEffect(() => {
-    const id = window.setInterval(
-      () => setTime(timeFmt.format(useClockStore.getState().now())),
-      1000,
-    );
-    return () => window.clearInterval(id);
+    const tick = () => setTime(timeFmt.format(useClockStore.getState().now()));
+    const id = window.setInterval(tick, 1000);
+    // 시간 여행·오프셋 변경은 즉시 반영
+    const unsub = useClockStore.subscribe(() => queueMicrotask(tick));
+    return () => {
+      window.clearInterval(id);
+      unsub();
+    };
   }, []);
 
   return (
@@ -39,9 +44,15 @@ export function StatusBar() {
         {siteName}
       </span>
       <span className="text-border">·</span>
-      <span data-testid="status-time">
+      <span
+        data-testid="status-time"
+        style={{
+          color: notNow ? 'var(--accent)' : undefined,
+          fontWeight: notNow ? 600 : undefined,
+        }}
+      >
         {time}
-        {clockMode === 'manual' ? ` (${t('status.manualTime')})` : ''}
+        {notNow ? ` (${t('status.manualTime')})` : ''}
       </span>
       <span className="text-border">·</span>
       <span data-testid="status-sensor">

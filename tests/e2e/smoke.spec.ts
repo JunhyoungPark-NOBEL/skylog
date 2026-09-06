@@ -31,6 +31,8 @@ test('앱 셸: 탭 5개 · 상태 바 · 콘솔 에러 0', async ({ page }) => {
     await expect(page.getByTestId(`tab-${tab}`)).toHaveAttribute('aria-selected', 'true');
   }
   await page.getByTestId('tab-sky').click();
+  await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
+  await page.waitForTimeout(500);
   await page.screenshot({ path: `${SHOTS}/shell-dark.png`, fullPage: true });
   expect(errors, errors.join('\n')).toEqual([]);
 });

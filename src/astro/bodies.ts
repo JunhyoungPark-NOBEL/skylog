@@ -72,6 +72,8 @@ export interface BodyState {
   moonPhaseDeg?: number;
   /** 밝은 가장자리 위치각(북에서 동으로), 도 — 달·행성 */
   brightLimbAngleDeg?: number;
+  /** 토성만: 고리 기울기(도, 관측자 기준 B) */
+  ringTiltDeg?: number;
 }
 
 /** Meeus 48.5: 밝은 가장자리의 위치각 χ (북=0, 동쪽으로 증가) */
@@ -122,6 +124,7 @@ export function bodyState(key: BodyKey, date: DateLike, observer: ObserverLike):
     phaseAngleDeg: illum.phase_angle,
   };
   if (key === 'moon') state.moonPhaseDeg = MoonPhase(time);
+  if (key === 'saturn') state.ringTiltDeg = illum.ring_tilt;
   if (key !== 'sun') {
     const sun = Equator(Body.Sun, time, obs, true, true);
     state.brightLimbAngleDeg = brightLimbAngleDeg(

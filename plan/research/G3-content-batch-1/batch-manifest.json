@@ -1,0 +1,240 @@
+{
+  "batch": 1,
+  "version": 1,
+  "createdOn": "2026-09-07",
+  "contentFile": "G3-content-batch-1.json",
+  "scope": "First batch only; 9 solar-system objects and 11 priority stars.",
+  "selectionRule": "Solar-system rows in attached catalog order, then 11 stars sorted by content-targets priority; ties preserve attached catalog order.",
+  "counts": {
+    "inputTargets": 121,
+    "generated": 20,
+    "pending": 101,
+    "inputGroups": {
+      "solarSystem": 9,
+      "star": 31,
+      "constellation": 30,
+      "dso": 51
+    },
+    "generatedGroups": {
+      "solarSystem": 9,
+      "star": 11
+    }
+  },
+  "selected": [
+    {
+      "id": "sun",
+      "priority": 1,
+      "reason": "태양 안전 문구 필수 · 온보딩"
+    },
+    {
+      "id": "moon",
+      "priority": 1,
+      "reason": "가장 먼저 보는 천체 · 위상·크레이터"
+    },
+    {
+      "id": "planet:mercury",
+      "priority": 2,
+      "reason": "관측 난이도 높음 · 최대이각 안내"
+    },
+    {
+      "id": "planet:venus",
+      "priority": 1,
+      "reason": "새벽/저녁 가장 밝은 행성"
+    },
+    {
+      "id": "planet:mars",
+      "priority": 1,
+      "reason": "2026~27 충 시즌"
+    },
+    {
+      "id": "planet:jupiter",
+      "priority": 1,
+      "reason": "쌍안경으로 갈릴레이 위성"
+    },
+    {
+      "id": "planet:saturn",
+      "priority": 1,
+      "reason": "고리 · 첫 망원경 대상 1순위 · 2026년 가을 밤 잘 보임"
+    },
+    {
+      "id": "planet:uranus",
+      "priority": 2,
+      "reason": "쌍안경 도전 대상"
+    },
+    {
+      "id": "planet:neptune",
+      "priority": 3,
+      "reason": "망원경 대상"
+    },
+    {
+      "id": "star:HIP32349",
+      "priority": 1,
+      "reason": "시리우스 · 천랑성 · 가장 밝은 별"
+    },
+    {
+      "id": "star:HIP69673",
+      "priority": 1,
+      "reason": "아르크투루스 · 봄철 대표"
+    },
+    {
+      "id": "star:HIP91262",
+      "priority": 1,
+      "reason": "베가 · 직녀성 · 여름 대삼각형"
+    },
+    {
+      "id": "star:HIP24608",
+      "priority": 1,
+      "reason": "카펠라 · 겨울"
+    },
+    {
+      "id": "star:HIP24436",
+      "priority": 1,
+      "reason": "리겔 · 오리온"
+    },
+    {
+      "id": "star:HIP27989",
+      "priority": 1,
+      "reason": "베텔게우스 · 적색초거성"
+    },
+    {
+      "id": "star:HIP97649",
+      "priority": 1,
+      "reason": "알타이르 · 견우성"
+    },
+    {
+      "id": "star:HIP21421",
+      "priority": 1,
+      "reason": "알데바란 · 히아데스"
+    },
+    {
+      "id": "star:HIP80763",
+      "priority": 1,
+      "reason": "안타레스 · 여름"
+    },
+    {
+      "id": "star:HIP102098",
+      "priority": 1,
+      "reason": "데네브 · 여름 대삼각형"
+    },
+    {
+      "id": "star:HIP11767",
+      "priority": 1,
+      "reason": "북극성 · 방향 찾기 · 전통 이름"
+    }
+  ],
+  "pendingIds": [
+    "star:HIP30438",
+    "star:HIP37279",
+    "star:HIP65474",
+    "star:HIP37826",
+    "star:HIP113368",
+    "star:HIP49669",
+    "star:HIP36850",
+    "star:HIP65378",
+    "star:HIP95947",
+    "star:HIP14576",
+    "star:HIP677",
+    "star:HIP10826",
+    "star:HIP54061",
+    "star:HIP67301",
+    "star:HIP26727",
+    "star:HIP26311",
+    "star:HIP25930",
+    "star:HIP25336",
+    "star:HIP9884",
+    "star:HIP72607",
+    "const:Ari",
+    "const:Tau",
+    "const:Gem",
+    "const:Cnc",
+    "const:Leo",
+    "const:Vir",
+    "const:Lib",
+    "const:Sco",
+    "const:Sgr",
+    "const:Cap",
+    "const:Aqr",
+    "const:Psc",
+    "const:Ori",
+    "const:UMa",
+    "const:UMi",
+    "const:Cas",
+    "const:Cyg",
+    "const:Lyr",
+    "const:Aql",
+    "const:Peg",
+    "const:And",
+    "const:Per",
+    "const:Aur",
+    "const:CMa",
+    "const:CMi",
+    "const:Her",
+    "const:Boo",
+    "const:Dra",
+    "const:Cet",
+    "const:Cru",
+    "dso:M31",
+    "dso:M32",
+    "dso:M110",
+    "dso:M33",
+    "dso:M42",
+    "dso:M43",
+    "dso:M45",
+    "dso:M44",
+    "dso:M13",
+    "dso:M92",
+    "dso:M3",
+    "dso:M5",
+    "dso:M57",
+    "dso:M27",
+    "dso:M51",
+    "dso:M81",
+    "dso:M82",
+    "dso:M101",
+    "dso:M104",
+    "dso:M8",
+    "dso:M20",
+    "dso:M17",
+    "dso:M16",
+    "dso:M22",
+    "dso:M11",
+    "dso:M6",
+    "dso:M7",
+    "dso:M35",
+    "dso:M36",
+    "dso:M37",
+    "dso:M38",
+    "dso:M41",
+    "dso:M46",
+    "dso:M47",
+    "dso:M67",
+    "dso:M15",
+    "dso:M2",
+    "dso:M39",
+    "dso:M103",
+    "dso:M4",
+    "dso:M10",
+    "dso:M12",
+    "dso:M29",
+    "dso:M34",
+    "dso:M52",
+    "dso:M78",
+    "dso:NGC869",
+    "dso:NGC884",
+    "dso:NGC7000",
+    "dso:NGC457",
+    "dso:NGC7009"
+  ],
+  "inputCountNote": "The attachments contain 121 targets, including 51 DSOs. No target has been silently removed to match the nominal 120-target plan.",
+  "readyForT6Review": true,
+  "readyForUnreviewedPublication": false,
+  "releaseBlockerIds": [
+    "star:HIP24608"
+  ],
+  "schemaLiteralNote": "meta.generatedBy is the requested legacy literal gpt-5-pro, not verified runtime model metadata.",
+  "inputSHA256": {
+    "catalog-values.v1.csv": "a372c581814827928319f10a63c361071b0c3af37831abd964855e44a80d74f6",
+    "content-targets.v1.csv": "f3e38b67118a826a6df0f63c86159ce5f127da835b37188bdd899d7b32e2db53"
+  },
+  "contentSHA256": "d9105feee59162ab847f2f0cd8b6ef4d954f8179c9e3d2f82a2bb4e37ba57785"
+}

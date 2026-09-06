@@ -23,6 +23,7 @@ const PRECACHE_DATA_FILES = [
   'search-index.v1.json',
   'bodies.v1.json',
   'meteors.v1.json',
+  'milkyway.v1.png',
 ];
 const precacheDataPatterns = PRECACHE_DATA_FILES.filter((f) =>
   existsSync(new URL(`./public/data/${f}`, import.meta.url)),

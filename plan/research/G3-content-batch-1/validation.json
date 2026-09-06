@@ -1,0 +1,336 @@
+{
+  "status": "structural_pass_with_editorial_review_required",
+  "validatedOn": "2026-09-07",
+  "entryCount": 20,
+  "inputTargetCount": 121,
+  "inputCategoryCounts": {
+    "sun": 1,
+    "moon": 1,
+    "planet": 7,
+    "star": 31,
+    "constellation (가을)": 9,
+    "constellation (겨울)": 6,
+    "constellation (봄)": 5,
+    "constellation (여름)": 8,
+    "constellation (북극)": 1,
+    "constellation (남천)": 1,
+    "G (galaxy)": 9,
+    "Cl+N (openCluster)": 1,
+    "HII (nebula)": 2,
+    "OCl (openCluster)": 21,
+    "GCl (globularCluster)": 10,
+    "PN (planetaryNebula)": 3,
+    "Neb (nebula)": 4,
+    "RfN (nebula)": 1
+  },
+  "pendingTargetCount": 101,
+  "checks": {
+    "topLevelJSONArray": true,
+    "exactBatchOrder": true,
+    "sourceAndReferenceChecks": "pass",
+    "copiedStellarFieldComparisons": 44,
+    "movingBodiesWithoutFixedBestMonths": 9
+  },
+  "sourceURLCount": 56,
+  "confidenceCounts": {
+    "medium": 9,
+    "high": 10,
+    "low": 1
+  },
+  "reviewEntryCount": 10,
+  "releaseBlockerIds": [
+    "star:HIP24608"
+  ],
+  "notVerified": [
+    "Astronomical correctness of the attached numeric values and their upstream provenance",
+    "Photometric passband/epoch metadata absent from the attachments",
+    "All URLs by an automated HTTP health check",
+    "Real-device sky rendering, live ephemerides, real observations or measured instrument limits",
+    "T6 validator compatibility beyond the provided G3 schema",
+    "Deployment, repository merge or commit"
+  ],
+  "schemaProvenanceNote": "generatedBy=gpt-5-pro is preserved solely as the required G3 v1 schema literal, not a verified runtime-model identity.",
+  "inputSHA256": {
+    "catalog-values.v1.csv": "a372c581814827928319f10a63c361071b0c3af37831abd964855e44a80d74f6",
+    "content-targets.v1.csv": "f3e38b67118a826a6df0f63c86159ce5f127da835b37188bdd899d7b32e2db53"
+  },
+  "contentSHA256": "d9105feee59162ab847f2f0cd8b6ef4d954f8179c9e3d2f82a2bb4e37ba57785",
+  "metrics": [
+    {
+      "id": "sun",
+      "oneLinerChars": 31,
+      "summaryChars": 236,
+      "storyChars": 322,
+      "factCount": 6,
+      "sourceCount": 5,
+      "confidence": "medium",
+      "reviewCount": 1
+    },
+    {
+      "id": "moon",
+      "oneLinerChars": 36,
+      "summaryChars": 233,
+      "storyChars": 322,
+      "factCount": 6,
+      "sourceCount": 5,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "planet:mercury",
+      "oneLinerChars": 34,
+      "summaryChars": 229,
+      "storyChars": 337,
+      "factCount": 6,
+      "sourceCount": 4,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "planet:venus",
+      "oneLinerChars": 33,
+      "summaryChars": 233,
+      "storyChars": 331,
+      "factCount": 6,
+      "sourceCount": 7,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "planet:mars",
+      "oneLinerChars": 31,
+      "summaryChars": 242,
+      "storyChars": 339,
+      "factCount": 6,
+      "sourceCount": 4,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "planet:jupiter",
+      "oneLinerChars": 30,
+      "summaryChars": 242,
+      "storyChars": 338,
+      "factCount": 6,
+      "sourceCount": 6,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "planet:saturn",
+      "oneLinerChars": 33,
+      "summaryChars": 247,
+      "storyChars": 331,
+      "factCount": 6,
+      "sourceCount": 4,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "planet:uranus",
+      "oneLinerChars": 29,
+      "summaryChars": 251,
+      "storyChars": 339,
+      "factCount": 6,
+      "sourceCount": 5,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "planet:neptune",
+      "oneLinerChars": 38,
+      "summaryChars": 256,
+      "storyChars": 328,
+      "factCount": 6,
+      "sourceCount": 3,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "star:HIP32349",
+      "oneLinerChars": 38,
+      "summaryChars": 262,
+      "storyChars": 349,
+      "factCount": 5,
+      "sourceCount": 8,
+      "confidence": "medium",
+      "reviewCount": 1
+    },
+    {
+      "id": "star:HIP69673",
+      "oneLinerChars": 36,
+      "summaryChars": 207,
+      "storyChars": 346,
+      "factCount": 5,
+      "sourceCount": 6,
+      "confidence": "medium",
+      "reviewCount": 1
+    },
+    {
+      "id": "star:HIP91262",
+      "oneLinerChars": 33,
+      "summaryChars": 247,
+      "storyChars": 347,
+      "factCount": 5,
+      "sourceCount": 5,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "star:HIP24608",
+      "oneLinerChars": 33,
+      "summaryChars": 253,
+      "storyChars": 356,
+      "factCount": 5,
+      "sourceCount": 5,
+      "confidence": "low",
+      "reviewCount": 2
+    },
+    {
+      "id": "star:HIP24436",
+      "oneLinerChars": 39,
+      "summaryChars": 249,
+      "storyChars": 359,
+      "factCount": 5,
+      "sourceCount": 5,
+      "confidence": "medium",
+      "reviewCount": 1
+    },
+    {
+      "id": "star:HIP27989",
+      "oneLinerChars": 34,
+      "summaryChars": 257,
+      "storyChars": 371,
+      "factCount": 5,
+      "sourceCount": 5,
+      "confidence": "medium",
+      "reviewCount": 3
+    },
+    {
+      "id": "star:HIP97649",
+      "oneLinerChars": 36,
+      "summaryChars": 248,
+      "storyChars": 343,
+      "factCount": 5,
+      "sourceCount": 5,
+      "confidence": "high",
+      "reviewCount": 0
+    },
+    {
+      "id": "star:HIP21421",
+      "oneLinerChars": 36,
+      "summaryChars": 253,
+      "storyChars": 344,
+      "factCount": 5,
+      "sourceCount": 4,
+      "confidence": "medium",
+      "reviewCount": 1
+    },
+    {
+      "id": "star:HIP80763",
+      "oneLinerChars": 36,
+      "summaryChars": 258,
+      "storyChars": 332,
+      "factCount": 5,
+      "sourceCount": 4,
+      "confidence": "medium",
+      "reviewCount": 1
+    },
+    {
+      "id": "star:HIP102098",
+      "oneLinerChars": 37,
+      "summaryChars": 252,
+      "storyChars": 354,
+      "factCount": 5,
+      "sourceCount": 6,
+      "confidence": "medium",
+      "reviewCount": 1
+    },
+    {
+      "id": "star:HIP11767",
+      "oneLinerChars": 40,
+      "summaryChars": 255,
+      "storyChars": 370,
+      "factCount": 5,
+      "sourceCount": 5,
+      "confidence": "medium",
+      "reviewCount": 1
+    }
+  ],
+  "reviewItems": [
+    {
+      "id": "sun",
+      "confidence": "medium",
+      "issues": [
+        "난이도 3은 밝기가 아니라 전용 필터 준비와 안전 절차를 포함한 편집 판단입니다. 앱에서 관측 시작 전 별도 안전 확인이 필요합니다."
+      ]
+    },
+    {
+      "id": "star:HIP32349",
+      "confidence": "medium",
+      "issues": [
+        "전통 명칭은 Stellarium 한국 재구성의 HIP 대응을 사용했습니다. 천랑성 등 다른 용례와의 통합은 원전 확인 후 진행하세요."
+      ]
+    },
+    {
+      "id": "star:HIP69673",
+      "confidence": "medium",
+      "issues": [
+        "한국어 기본 이름은 첨부의 아르크투루스를 유지했습니다. 아크투루스 표기와의 검색 별칭 병합을 확인하세요."
+      ]
+    },
+    {
+      "id": "star:HIP24608",
+      "confidence": "low",
+      "issues": [
+        "중요: 첨부 spect=M1: comp는 Takeda 외(2018)의 주요 구성별 G8 III·G0 III와 불일치합니다. 원값을 보존했으며 외부 연구로 덮어쓰지 않았습니다. T0 카탈로그의 행 매핑·대상 계층·상위 출처를 확인한 뒤 출시하세요.",
+        "전통 명칭은 Stellarium 한국 재구성의 대응이며 역사 원전 대조가 필요합니다."
+      ]
+    },
+    {
+      "id": "star:HIP24436",
+      "confidence": "medium",
+      "issues": [
+        "전통 명칭은 Stellarium 한국 재구성에 한정했습니다. 삼이라는 성군과 개별 항성의 별칭을 일대일로 합치지 마세요."
+      ]
+    },
+    {
+      "id": "star:HIP27989",
+      "confidence": "medium",
+      "issues": [
+        "첨부 거리 498광년을 보존했습니다. NASA의 별 소개에 제시된 다른 추정과 차이가 있으므로 거리의 상위 원전·불확실도를 확인하세요.",
+        "V=0.45는 첨부 대표값입니다. 현재 밝기로 고정 표시하거나 실시간 밝기 순위에 사용하지 마세요.",
+        "전통 명칭은 Stellarium 한국 재구성의 대응이며 역사 원전 대조가 필요합니다."
+      ]
+    },
+    {
+      "id": "star:HIP21421",
+      "confidence": "medium",
+      "issues": [
+        "전통 명칭은 Stellarium 한국 재구성에 한정했습니다. 천고라는 한글 표기만으로 카펠라의 명칭과 합치지 마세요."
+      ]
+    },
+    {
+      "id": "star:HIP80763",
+      "confidence": "medium",
+      "issues": [
+        "전통 명칭은 Stellarium 한국 재구성의 대응이며 역사 원전 대조가 필요합니다."
+      ]
+    },
+    {
+      "id": "star:HIP102098",
+      "confidence": "medium",
+      "issues": [
+        "첨부 거리 1411.9광년을 보존했습니다. Chesneau 외(2010)는 시차 기반과 성협 소속 가정 기반 거리의 큰 차이를 설명합니다. 거리 상위 원전·불확실도를 확인하기 전 정밀한 광도·나이 계산이나 거리 순서 퀴즈의 근거로 쓰지 마세요."
+      ]
+    },
+    {
+      "id": "star:HIP11767",
+      "confidence": "medium",
+      "issues": [
+        "V=1.97은 첨부 대표값입니다. 변광성을 현재 밝기 고정값으로 처리하지 마세요."
+      ]
+    }
+  ],
+  "errors": []
+}

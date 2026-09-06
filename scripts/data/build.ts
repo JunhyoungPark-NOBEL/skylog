@@ -7,6 +7,7 @@ import path from 'node:path';
 import { buildConstellations } from './build-constellations.ts';
 import { buildDso } from './build-dso.ts';
 import { buildBodies, buildMeteors } from './build-misc.ts';
+import { buildMilkyWay } from './build-milkyway.ts';
 import { buildSearchIndex } from './build-search-index.ts';
 import { buildStars } from './build-stars.ts';
 import { exportCatalogValues } from './export-catalog-values.ts';
@@ -30,7 +31,7 @@ interface PackEntry {
   sha256: string;
 }
 
-function main(): void {
+async function main(): Promise<void> {
   for (const s of SOURCES) {
     if (!existsSync(path.join(RAW_DIR, s.file))) {
       fail(
@@ -104,6 +105,11 @@ function main(): void {
   const meteors = buildMeteors();
   writeJsonPack('meteors', 'meteors.v1.json', meteors, meteors.length);
 
+  // 은하수 텍스처
+  const mwPng = await buildMilkyWay();
+  writeFileSync(path.join(OUT_DIR, 'milkyway.v1.png'), mwPng);
+  record('milkyway', 'milkyway.v1.png', new Uint8Array(mwPng));
+
   // 검색 인덱스
   const index = buildSearchIndex({
     stars: stars.named,
@@ -154,4 +160,7 @@ function main(): void {
   log(`manifest.v1.json ${bytes} B`);
 }
 
-main();
+main().catch((err: unknown) => {
+  console.error(err);
+  process.exit(1);
+});
