@@ -1,0 +1,56 @@
+{
+  "description": "기준 표(마스터 플랜 §8 b). JPL Horizons API로 받은 대전 기준 겉보기(대기 굴절 없음, airless) 위치. src/astro 테스트가 ≤0.1°로 대조한다.",
+  "source": "https://ssd.jpl.nasa.gov/api/horizons.api — EPHEM_TYPE=OBSERVER, CENTER=coord@399, COORD_TYPE=GEODETIC, SITE_COORD='127.36,36.37,0.07', QUANTITIES='2,4,20', APPARENT=AIRLESS, ANG_FORMAT=DEG",
+  "fetchedAt": "2026-09-06",
+  "utc": "2026-09-06T12:00:00Z",
+  "localTime": "2026-09-06 21:00 KST",
+  "site": { "name": "대전 (KAIST)", "lat": 36.37, "lon": 127.36, "elevationM": 70 },
+  "columns": {
+    "raDeg": "R.A. apparent (of date, airless), degrees",
+    "decDeg": "Dec apparent (of date, airless), degrees",
+    "azDeg": "Azimuth apparent airless, degrees (N=0, E=90)",
+    "altDeg": "Elevation apparent airless, degrees",
+    "deltaAu": "observer–target distance, AU"
+  },
+  "bodies": {
+    "saturn": {
+      "horizonsId": "699",
+      "raDeg": 13.32461,
+      "decDeg": 2.81154,
+      "azDeg": 93.463843,
+      "altDeg": 9.418866,
+      "deltaAu": 8.55201000402046
+    },
+    "jupiter": {
+      "horizonsId": "599",
+      "raDeg": 137.4737,
+      "decDeg": 16.89698,
+      "azDeg": 332.111839,
+      "altDeg": -31.912393,
+      "deltaAu": 6.15715814160087
+    },
+    "moon": {
+      "horizonsId": "301",
+      "raDeg": 104.46462,
+      "decDeg": 25.78886,
+      "azDeg": 8.607582,
+      "altDeg": -27.327314,
+      "deltaAu": 0.00248116808583
+    },
+    "mars": {
+      "horizonsId": "499",
+      "raDeg": 108.36313,
+      "decDeg": 22.9866,
+      "azDeg": 4.907798,
+      "altDeg": -30.484967,
+      "deltaAu": 1.81939490477955
+    }
+  },
+  "stars": {
+    "note": "Horizons는 항성을 제공하지 않는다. 별은 J2000 카탈로그 값(HYG)을 두고 빠른 경로(행렬) vs 느린 경로(astronomy-engine Horizon) 상호 검증으로 대신한다.",
+    "vega": { "hip": 91262, "raJ2000Deg": 279.2346, "decJ2000Deg": 38.78369 },
+    "altair": { "hip": 97649, "raJ2000Deg": 297.69582, "decJ2000Deg": 8.86832 },
+    "polaris": { "hip": 11767, "raJ2000Deg": 37.95456, "decJ2000Deg": 89.26411 },
+    "sirius": { "hip": 32349, "raJ2000Deg": 101.28716, "decJ2000Deg": -16.71612 }
+  }
+}

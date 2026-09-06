@@ -63,3 +63,20 @@
 - Vite 8.2.2(rolldown 기반) + `@vitejs/plugin-react` 6.1.1(플러그인이 rolldown-vite에서는 SWC 대신 자체 플러그인을 권장하므로 `plugin-react-swc` 대신 채택), React 19.2.8, TypeScript **6.0.3**(7.x는 typescript-eslint가 아직 미지원 `<6.1`), Tailwind CSS 4.3.3(`@tailwindcss/vite`, CSS-first `@theme inline`), Vitest 5.0.0(jsdom), Playwright 1.63.0, ESLint 10 + typescript-eslint 8.69, pnpm 12.3.4(`pnpm-workspace.yaml`의 `allowBuilds`로 esbuild 빌드 스크립트 허용), Dexie 4.4.5, zustand 5.0.15, three 0.185.1, astronomy-engine 2.1.19, i18next 26.4.2.
 - `tsconfig`는 프로젝트 참조(`tsc -b`: app/node). 경로 별칭 `@/` → `src/`. `noUncheckedIndexedAccess`·`verbatimModuleSyntax` 켬.
 - CI(`deploy.yml`)는 typecheck → lint → test → build → Pages. e2e(Playwright)는 로컬 전용(브라우저 설치 시간·CI 비용). 필요해지면 별도 잡으로 추가.
+
+## D-014 · 2026-09-06 · 데이터 팩 v1 포맷·ID 규칙 확정 (T0b)
+- 원본: HYG **v4.4**(`hyg_v44.csv.gz`, codeberg Git LFS → `media/` 엔드포인트), OpenNGC `NGC.csv`+`addendum.csv`, d3-celestial 별자리 3종. 은하수 텍스처는 T1에서 결정(NASA SVS milkyway_* 또는 d3-celestial `mw.json`).
+- 별 팩: 헤더 16B + 레코드 28B(J2000 단위벡터 f32×3, mag, bv, hip, hygId), 등급 오름차순. bright ≤ 6.5(8,920개, 244KB), deep ≤ 9.0(83,476개, 2.3MB). 인코더/디코더는 `src/catalog/starPackFormat.ts` 한 곳(스크립트·앱 공유).
+- `stars-bright.v1.json`(이름/메타 별 3,171개)에 **ra/dec(J2000 도)를 추가**(계획 포맷에 없던 필드) — 팩 없이도 검색·상세·출몰 계산이 좌표를 쓰기 위함.
+- DSO id: M > NGC > IC. NGC/IC가 없는 유명 천체는 **`dso:C<n>`(콜드웰)·`dso:B<n>`(바너드)** 허용(`ObjectId` 타입·정규식 확장): C9 동굴성운, C14 이중성단(쌍; NGC869/884는 별칭 C14만), C41 히아데스, C99 석탄자루, B33 말머리.
+- **M102 = NGC 5866**(OpenNGC는 M101 중복으로 처리하지만 관행을 따름), M73은 OpenNGC 타입 'Other'지만 메시에라서 포함. OpenNGC `Dup` 행은 마스터의 별칭으로 흡수(C37→NGC6882, C50→NGC2239).
+- 포함 규칙: 메시에 110 + 콜드웰 109 + (V ≤ 10 또는 B ≤ 10.8 또는 공통 이름 또는 한글 이름) → 661개. `*`(단일 별)·`NonEx`·`Nova` 제외.
+- 검색 정규화: NFC → 소문자 → 공백·하이픈·밑줄·점·따옴표·가운뎃점·괄호 제거. 그리스 문자 별칭은 α/alpha/Alp/알파 4종. 클라이언트도 같은 함수를 써야 한다(T3에서 `src/catalog/search.ts`로 이식).
+- 별자리 한글: 한국천문학회 표기 우선(백조자리·헤르쿨레스자리·**작은여우자리**). d3-celestial ko와 다른 항목은 빌드 로그에 표시.
+- 기준 표: `tests/fixtures/reference-altaz.json` — JPL Horizons(대전 2026-09-06 21:00 KST, airless) 토성·목성·달·화성. astronomy-engine과 RA/Dec·alt/az ≤ 0.1° 일치 확인.
+
+## D-015 · 2026-09-06 · astronomy-engine 래퍼 경계와 씬 행렬 규약 (T0b)
+- `Horizon`/`DefineStar`/`Constellation`은 `src/astro/frames.ts`·`events.ts` 안에서만 호출. 바깥 API는 도(deg)·J2000. `Horizon`의 굴절 인자는 타입상 `string | undefined`이므로 "굴절 없음"은 `undefined`로 넘긴다.
+- `eqjToSceneMatrix()`는 기저 벡터를 `RotateVector`로 돌려 열을 만든다(엔진의 행렬 관례에 비의존). 반환은 **column-major Float32Array(9)** → `THREE.Matrix3.fromArray`/GLSL `mat3` 그대로.
+- 굴절은 Sæmundsson(참→겉보기)을 CPU(`refraction.ts`)와 GLSL(`render/shaders/refraction.glsl`) 두 곳에 동일하게 둔다. 값을 바꾸면 둘 다.
+- 출몰 해석식은 검증·근사 전용. 실제 표시는 astronomy-engine 검색 함수.

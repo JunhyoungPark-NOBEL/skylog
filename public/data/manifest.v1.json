@@ -1,0 +1,128 @@
+{
+  "schema": "skylog-data-manifest",
+  "version": 1,
+  "generatedAt": "2026-09-06T14:57:12.241Z",
+  "packs": {
+    "stars-bright": {
+      "file": "stars-bright.v1.bin",
+      "version": 1,
+      "bytes": 249776,
+      "sha256": "6b06290f998fad0694163d869e29b2275b018f4f9cccd660d480da4a42be18ea",
+      "records": 8920
+    },
+    "stars-deep": {
+      "file": "stars-deep.v1.bin",
+      "version": 1,
+      "bytes": 2337344,
+      "sha256": "62045e73f7aaf5b4fa008f11a5a7fff7aa108470b304aabb30b49e57ee4e40e1",
+      "records": 83476
+    },
+    "stars-names": {
+      "file": "stars-bright.v1.json",
+      "version": 1,
+      "bytes": 501559,
+      "sha256": "68306888df543b10c5844d42c4748bed3306546ac86d4f85f95a0509bfa0b8a2",
+      "records": 3171
+    },
+    "constellations": {
+      "file": "constellations.v1.json",
+      "version": 1,
+      "bytes": 59330,
+      "sha256": "e221934418475ce4547be39f930334cf01b68ec9503dab9f89ac0c9da96a4f7a",
+      "records": 88
+    },
+    "dso": {
+      "file": "dso.v1.json",
+      "version": 1,
+      "bytes": 154268,
+      "sha256": "450333539fea2b7264af3dadc0dad5b2610a5456e82d54e6a30f5e5b96bb582c",
+      "records": 661
+    },
+    "bodies": {
+      "file": "bodies.v1.json",
+      "version": 1,
+      "bytes": 1197,
+      "sha256": "f7420eb8c2121103c7740892b50cb6baba0b521dc22c1ccd21718788d236a87d",
+      "records": 9
+    },
+    "meteors": {
+      "file": "meteors.v1.json",
+      "version": 1,
+      "bytes": 3141,
+      "sha256": "6c8c759ef3d442862db85d54867c086a42537612ca2b8cd583ebd9c2035a13c7",
+      "records": 13
+    },
+    "search-index": {
+      "file": "search-index.v1.json",
+      "version": 1,
+      "bytes": 451115,
+      "sha256": "c8de80003dc292d32539cdfd653799074837b635ec985c2ffdfba71a5d5a7bc9",
+      "records": 3929
+    }
+  },
+  "sources": [
+    {
+      "name": "hyg",
+      "url": "https://codeberg.org/astronexus/hyg/media/branch/main/data/hyg/CURRENT/hyg_v44.csv.gz",
+      "file": "hyg_v44.csv.gz",
+      "bytes": 13636362,
+      "sha256": "00b349893b9a53106dd488d8371e8d2fa586043e500bb3cdb8bff3931682197d",
+      "license": "CC BY-SA 4.0",
+      "fetchedAt": "2026-09-06T14:36:59.450Z"
+    },
+    {
+      "name": "openngc",
+      "url": "https://raw.githubusercontent.com/mattiaverga/OpenNGC/master/database_files/NGC.csv",
+      "file": "NGC.csv",
+      "bytes": 3876622,
+      "sha256": "be150bdaa1997dacbcb39f303074403edec7a953b589b36d5f1c4522c0cc6fae",
+      "license": "CC BY-SA 4.0",
+      "fetchedAt": "2026-09-06T14:36:59.692Z"
+    },
+    {
+      "name": "openngc-addendum",
+      "url": "https://raw.githubusercontent.com/mattiaverga/OpenNGC/master/database_files/addendum.csv",
+      "file": "addendum.csv",
+      "bytes": 17484,
+      "sha256": "1d8f0914e643ada325a5a94d88d8fefad6a4937a2f77cc34f21483af22b11983",
+      "license": "CC BY-SA 4.0",
+      "fetchedAt": "2026-09-06T14:36:59.940Z"
+    },
+    {
+      "name": "d3c-constellations",
+      "url": "https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/constellations.json",
+      "file": "constellations.json",
+      "bytes": 50581,
+      "sha256": "ab4ae692027cbc042c0d6791a84456a65eb7c55656107fd00c58ff6e55d4d8b2",
+      "license": "BSD-3-Clause (d3-celestial; 이름 데이터: IAU 공개)",
+      "fetchedAt": "2026-09-06T14:37:00.130Z"
+    },
+    {
+      "name": "d3c-lines",
+      "url": "https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/constellations.lines.json",
+      "file": "constellations.lines.json",
+      "bytes": 27136,
+      "sha256": "294f66bef5d5cf50b1e17f16d2efa1d97a15131612c68dd935adef6e7373e13c",
+      "license": "BSD-3-Clause (d3-celestial)",
+      "fetchedAt": "2026-09-06T14:37:00.343Z"
+    },
+    {
+      "name": "d3c-bounds",
+      "url": "https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/constellations.bounds.json",
+      "file": "constellations.bounds.json",
+      "bytes": 40714,
+      "sha256": "f2e2687af6b20b24567879f838c21874d412efcc93ecc1966be07e78431cc196",
+      "license": "BSD-3-Clause (d3-celestial; 경계: IAU / Davenhall & Leggett 1989)",
+      "fetchedAt": "2026-09-06T14:37:00.550Z"
+    }
+  ],
+  "summary": {
+    "starsBright": 8920,
+    "starsDeep": 83476,
+    "namedStars": 3171,
+    "constellations": 88,
+    "dso": 661,
+    "messier": 110,
+    "caldwell": 109
+  }
+}

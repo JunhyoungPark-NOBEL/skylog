@@ -47,12 +47,64 @@ React 19 · TypeScript(strict, `any` 금지) · Vite 8 · Tailwind CSS 4(토큰�
 
 마스터 플랜 §6.4와 동일. 빈 디렉터리에는 `README.md` 한 줄.
 
-## 데이터 팩 포맷 (T0b에서 확정)
+## 데이터 파이프라인 (`scripts/data/`, T0b)
 
-- `manifest.v1.json`: `{schema, version, generatedAt, packs{name→{file,version,bytes,records,sha256}}, sources[], summary}` — `src/catalog/manifest.ts`.
-- `stars-bright.v1.bin` / `stars-deep.v1.bin`: 헤더 16B(`'SKYS'`, u16 version, u32 count, reserved) + 레코드 28B LE `x,y,z(f32) mag(f32) bv(f32) hip(u32) hygId(u32)`.
-- 나머지 JSON 포맷은 `plan/task-00-setup-and-data.md` §3.3.
+```
+pnpm data:fetch     원본 → data-src/raw/ (+ sources.json: 크기·SHA-256·시각). 이미 있으면 재사용, --force로 다시 받음
+pnpm data:build     data-src/{raw,curated} → public/data/*.v1.* + manifest.v1.json + data-src/content-raw/catalog-values.v1.csv
+pnpm data:validate  검증 리포트(별 ≥ 8000, 별자리 88, 메시에 110, 콜드웰 ≥ 100, 좌표 범위, 중복, 크기…) — 실패 시 exit 1
+```
 
-## T1이 쓸 API (T0b에서 작성)
+모듈: `lib.ts`(경로·CSV·해시·정규화) · `build-stars.ts` · `build-constellations.ts` · `build-dso.ts` · `build-misc.ts`(유성우·행성 메타) · `build-search-index.ts` · `export-catalog-values.ts` · `build.ts`(오케스트레이션·manifest) · `validate.ts`. 빌드는 결정론적이다(정렬 고정, 생성 시각만 manifest에).
 
-- `catalog/starPack.ts` 로더 시그니처, `astro/frames.ts#eqjToSceneMatrix(time, observer)`, `render/shaders/refraction.glsl` 사용법.
+## 데이터 팩 포맷 v1 (`public/data/`)
+
+| 파일                     | 내용                                                                                                                                                                                                                                             | 크기(2026-09-06) |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
+| `manifest.v1.json`       | `{schema, version, generatedAt, packs{name→{file,version,bytes,records,sha256}}, sources[], summary{starsBright,starsDeep,namedStars,constellations,dso,messier,caldwell}}` — 타입 `src/catalog/manifest.ts`                                     | 4 KB             |
+| `stars-bright.v1.bin`    | mag ≤ 6.5, 8,920개. 헤더 16B(`'SKYS'`, u16 version=1, u32 count, 6B reserved) + 레코드 28B LE `x,y,z(f32 J2000 단위벡터) mag(f32) bv(f32; 결측 0.6) hip(u32; 없으면 0) hygId(u32)`. 등급 오름차순. 인코더/디코더 `src/catalog/starPackFormat.ts` | 244 KB           |
+| `stars-deep.v1.bin`      | mag ≤ 9.0, 83,476개, 같은 포맷. 지연 로드(런타임 CacheFirst)                                                                                                                                                                                     | 2.3 MB           |
+| `stars-bright.v1.json`   | 이름/메타가 있는 별 3,171개: `{id, hip, hygId, en?, ko?, traditionalKo?, aliasesKo?, bayer?("α"), bayerAbbr?("Alp"), flam?, con, spect?, distLy?, mag, ra, dec}` (ra/dec는 J2000 도 — 팩 없이도 상세·검색이 좌표를 쓰도록 추가)                  | 490 KB           |
+| `constellations.v1.json` | `{[iau3]: {en, ko, genitive?, label:[ra,dec], lines:[[[ra,dec],…],…], bounds:[[ra,dec],…], boundsExtra?, season?}}` RA 0..360                                                                                                                    | 58 KB            |
+| `dso.v1.json`            | 661개: `[{id, aliases[], names:{en?, ko?, aliasesKo?, common[]}, type(OpenNGC), category, ra, dec, mag?, magB?, majAxArcmin?, minAxArcmin?, posAngDeg?, con, distLy?, messier?, caldwell?}]`                                                     | 151 KB           |
+| `search-index.v1.json`   | 3,929개 `{id, kind, con?, mag?, n:[정규화 별칭]}`                                                                                                                                                                                                | 440 KB           |
+| `bodies.v1.json`         | 행성 7 + 달 + 태양: `{id, body(astronomy-engine Body 이름), names{ko,en}, icon, kind, hints}`                                                                                                                                                    | 1 KB             |
+| `meteors.v1.json`        | 유성우 13개: `{id, names, activeFrom, activeTo, peak('MM-DD'), zhr, radiant{ra,dec}, velocityKms?, parentBody?, note?}`                                                                                                                          | 3 KB             |
+
+**ObjectId(D-014 보강)**: `dso:` 우선순위 M > NGC > IC, NGC/IC가 없는 유명 천체는 `dso:C41`(히아데스)·`dso:C99`(석탄자루)·`dso:C9`(동굴성운)·`dso:C14`(이중성단 쌍)·`dso:B33`(말머리) 처럼 콜드웰/바너드 번호. M102 = NGC 5866(OpenNGC는 M101 중복으로 보지만 관행을 따름). OpenNGC `Dup` 행은 마스터의 별칭으로 흡수(예: NGC2244→NGC2239, C50).
+
+**검색 별칭 정규화**(`normalizeAlias`, 빌드와 클라이언트가 동일하게 적용): NFC → 소문자 → 공백·하이픈·밑줄·점·따옴표·가운뎃점 제거 → 괄호 제거. `"M 31"`=`"m31"`, `"NGC 224"`=`"ngc224"`. 그리스 문자는 `α Ori` / `Alpha Ori` / `Alp Ori` / `알파 오리온자리` / `알파 오리온`을 모두 별칭으로 넣는다. 한글은 그대로(공백 제거). 초성 검색은 T3에서 필요 시 추가.
+
+## `src/astro` API (T0b) — T1·T3가 바로 쓰는 것
+
+```ts
+import {
+  eqjToSceneMatrix,
+  applyMat3,
+  eqjToAltAz,
+  eqjToAltAzSlow,
+  bodyState,
+  riseTransitSetFixed,
+  nightTimeline,
+} from '@/astro';
+
+// 렌더 루프(프레임당 1회): J2000 단위벡터 버퍼 × 3×3 행렬 → 씬(+X 동, +Y 천정, +Z 남)
+const m = eqjToSceneMatrix(clock.now(), { lat: 36.37, lon: 127.36, elevation: 70 }); // Float32Array(9), column-major
+material.uniforms.uEqjToScene.value.fromArray(m); // THREE.Matrix3.fromArray는 column-major
+const sceneVec = applyMat3(m, raDecToUnitVector(raDeg, decDeg)); // CPU 쪽 단일 변환
+
+// 굴절: 셰이더에서 `#include <skylog_refraction>`(src/render/shaders/refraction.glsl) → skylogApplyRefraction(dir)
+//        CPU에서는 apparentAltitude(trueAlt) (Sæmundsson) / trueAltitude(apparentAlt) (Bennett)
+
+// 행성·달·태양: 겉보기 RA/Dec(of date)·alt/az(굴절 포함/미포함)·거리·등급·각지름·위상·밝은 가장자리 위치각
+const saturn = bodyState('saturn', date, site);
+
+// 출몰·박명 (별·DSO는 J2000 도 입력; 내부에서 DefineStar(Body.Star1) 재사용)
+riseTransitSetFixed(raDeg, decDeg, site, date, distLy);
+nightTimeline(site, date); // sunset … astronomicalDusk … sunrise, moonrise/moonset
+
+// 별 팩 로더
+const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(count×3), mag, bv, hip, hygId }
+```
+
+규칙: astronomy-engine의 `Horizon`/`DefineStar`/`Constellation`은 `frames.ts`·`events.ts` 밖에서 호출하지 않는다(RA hours·EQD 실수 방지). 검증: 무작위 별 150개 빠른/느린 경로 ≤ 0.01°, JPL Horizons 기준 표(`tests/fixtures/reference-altaz.json`) ≤ 0.1°, 출몰 해석식 ±2분.

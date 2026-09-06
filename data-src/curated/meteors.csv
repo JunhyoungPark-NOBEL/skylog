@@ -1,0 +1,14 @@
+id,name_ko,name_en,active_from,active_to,peak,zhr,ra_deg,dec_deg,velocity_kms,parent_body,note,source,confidence,needs_review
+QUA,사분의자리 유성우,Quadrantids,12-28,01-12,01-03,110,230,49,41,(196256) 2003 EH1,극대 지속 시간이 짧음(수 시간),IMO Meteor Shower Calendar,high,true
+LYR,거문고자리 유성우,Lyrids,04-14,04-30,04-22,18,271,34,49,C/1861 G1 (Thatcher),,IMO Meteor Shower Calendar,high,true
+ETA,물병자리 에타 유성우,η-Aquariids,04-19,05-28,05-06,50,338,-1,66,1P/Halley,새벽 동쪽 낮은 고도,IMO Meteor Shower Calendar,high,true
+SDA,물병자리 델타 남류 유성우,Southern δ-Aquariids,07-12,08-23,07-30,25,340,-16,41,96P/Machholz (추정),,IMO Meteor Shower Calendar,high,true
+CAP,염소자리 알파 유성우,α-Capricornids,07-03,08-15,07-30,5,307,-10,23,169P/NEAT,느리고 밝은 화구,IMO Meteor Shower Calendar,high,true
+PER,페르세우스자리 유성우,Perseids,07-17,08-24,08-12,100,48,58,59,109P/Swift-Tuttle,3대 유성우,IMO Meteor Shower Calendar,high,true
+DRA,용자리 유성우,Draconids,10-06,10-10,10-08,10,262,54,20,21P/Giacobini-Zinner,초저녁 관측 · 해마다 변동 큼,IMO Meteor Shower Calendar,high,true
+ORI,오리온자리 유성우,Orionids,10-02,11-07,10-21,20,95,16,66,1P/Halley,,IMO Meteor Shower Calendar,high,true
+STA,황소자리 남류 유성우,Southern Taurids,09-10,11-20,11-05,5,52,15,27,2P/Encke,화구 많음,IMO Meteor Shower Calendar,high,true
+NTA,황소자리 북류 유성우,Northern Taurids,10-20,12-10,11-12,5,58,22,29,2004 TG10 / 2P/Encke 복합체,,IMO Meteor Shower Calendar,high,true
+LEO,사자자리 유성우,Leonids,11-06,11-30,11-17,10,152,22,71,55P/Tempel-Tuttle,33년 주기 폭발,IMO Meteor Shower Calendar,high,true
+GEM,쌍둥이자리 유성우,Geminids,12-04,12-20,12-14,150,112,33,35,(3200) Phaethon,3대 유성우 · 초저녁부터,IMO Meteor Shower Calendar,high,true
+URS,작은곰자리 유성우,Ursids,12-17,12-26,12-22,10,217,76,33,8P/Tuttle,,IMO Meteor Shower Calendar,high,true

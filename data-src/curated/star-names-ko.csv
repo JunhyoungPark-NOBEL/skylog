@@ -1,0 +1,121 @@
+hip,iau_name_en,name_ko,traditional_ko,note,source,confidence,needs_review
+32349,Sirius,시리우스,천랑성,큰개자리 α · 가장 밝은 별,IAU WGSN; 위키백과 ko,high,true
+30438,Canopus,카노푸스,노인성,용골자리 α · 남극노인성,IAU WGSN; 위키백과 ko,high,true
+69673,Arcturus,아르크투루스,,목동자리 α,IAU WGSN,high,true
+91262,Vega,베가,직녀성,거문고자리 α,IAU WGSN; 위키백과 ko,high,true
+24608,Capella,카펠라,,마차부자리 α,IAU WGSN,high,true
+24436,Rigel,리겔,,오리온자리 β,IAU WGSN,high,true
+37279,Procyon,프로키온,,작은개자리 α,IAU WGSN,high,true
+27989,Betelgeuse,베텔게우스,,오리온자리 α,IAU WGSN,high,true
+97649,Altair,알타이르,견우성,독수리자리 α · 통속적 견우(전통 견우는 염소자리 β 다비흐라는 설도 있음),IAU WGSN; 위키백과 ko,high,true
+21421,Aldebaran,알데바란,,황소자리 α,IAU WGSN,high,true
+80763,Antares,안타레스,,전갈자리 α · 28수 심수의 대화(大火),IAU WGSN,high,true
+65474,Spica,스피카,,처녀자리 α · 28수 각수,IAU WGSN,high,true
+37826,Pollux,폴룩스,,쌍둥이자리 β,IAU WGSN,high,true
+113368,Fomalhaut,포말하우트,,남쪽물고기자리 α,IAU WGSN,high,true
+102098,Deneb,데네브,,백조자리 α,IAU WGSN,high,true
+49669,Regulus,레굴루스,,사자자리 α,IAU WGSN,high,true
+36850,Castor,카스토르,,쌍둥이자리 α,IAU WGSN,high,true
+11767,Polaris,폴라리스,북극성,작은곰자리 α,IAU WGSN; 위키백과 ko,high,true
+65378,Mizar,미자르,,큰곰자리 ζ · 알코르와 쌍,IAU WGSN,high,true
+65477,Alcor,알코르,,큰곰자리 80,IAU WGSN,high,true
+95947,Albireo,알비레오,,백조자리 β · 색 대비 이중성,IAU WGSN,high,true
+14576,Algol,알골,,페르세우스자리 β · 식변광성,IAU WGSN,high,true
+677,Alpheratz,알페라츠,,안드로메다자리 α,IAU WGSN,high,true
+10826,Mira,미라,,고래자리 ο · 장주기 변광성,IAU WGSN,high,true
+54061,Dubhe,두베,,큰곰자리 α · 북두칠성,IAU WGSN,high,true
+53910,Merak,메라크,,큰곰자리 β · 북두칠성,IAU WGSN,high,true
+58001,Phecda,페크다,,큰곰자리 γ · 북두칠성,IAU WGSN,high,true
+59774,Megrez,메그레즈,,큰곰자리 δ · 북두칠성,IAU WGSN,high,true
+62956,Alioth,알리오트,,큰곰자리 ε · 북두칠성,IAU WGSN,high,true
+67301,Alkaid,알카이드,,큰곰자리 η · 북두칠성,IAU WGSN,high,true
+26727,Alnitak,알니탁,,오리온자리 ζ · 허리띠(삼태성으로 통칭되기도 함),IAU WGSN,high,true
+26311,Alnilam,알닐람,,오리온자리 ε · 허리띠,IAU WGSN,high,true
+25930,Mintaka,민타카,,오리온자리 δ · 허리띠,IAU WGSN,high,true
+25336,Bellatrix,벨라트릭스,,오리온자리 γ,IAU WGSN,high,true
+27366,Saiph,사이프,,오리온자리 κ,IAU WGSN,high,true
+26207,Meissa,메이사,,오리온자리 λ,IAU WGSN,high,true
+9884,Hamal,하말,,양자리 α,IAU WGSN,high,true
+72607,Kochab,코카브,,작은곰자리 β,IAU WGSN,high,true
+7588,Achernar,아케르나르,,에리다누스자리 α · 대전에서 안 보임,IAU WGSN,high,true
+68702,Hadar,하다르,,센타우루스자리 β,IAU WGSN,high,true
+71683,Rigil Kentaurus,리길 켄타우루스,,센타우루스자리 α A,IAU WGSN,high,true
+60718,Acrux,아크룩스,,남십자자리 α,IAU WGSN,high,true
+33579,Adhara,아다라,,큰개자리 ε,IAU WGSN,high,true
+85927,Shaula,샤울라,,전갈자리 λ,IAU WGSN,high,true
+25428,Elnath,엘나스,,황소자리 β,IAU WGSN,high,true
+15863,Mirfak,미르파크,,페르세우스자리 α,IAU WGSN,high,true
+34444,Wezen,웨젠,,큰개자리 δ,IAU WGSN,high,true
+90185,Kaus Australis,카우스 아우스트랄리스,,궁수자리 ε,IAU WGSN,high,true
+28360,Menkalinan,멘칼리난,,마차부자리 β,IAU WGSN,high,true
+31681,Alhena,알헤나,,쌍둥이자리 γ,IAU WGSN,high,true
+30324,Mirzam,미르잠,,큰개자리 β,IAU WGSN,high,true
+46390,Alphard,알파르드,,바다뱀자리 α,IAU WGSN,high,true
+50583,Algieba,알기에바,,사자자리 γ · 이중성,IAU WGSN,high,true
+3419,Diphda,디프다,,고래자리 β,IAU WGSN,high,true
+92855,Nunki,눈키,,궁수자리 σ,IAU WGSN,high,true
+5447,Mirach,미라크,,안드로메다자리 β,IAU WGSN,high,true
+86032,Rasalhague,라스알하게,,뱀주인자리 α,IAU WGSN,high,true
+57632,Denebola,데네볼라,,사자자리 β,IAU WGSN,high,true
+76267,Alphecca,알페카,,북쪽왕관자리 α,IAU WGSN,high,true
+100453,Sadr,사드르,,백조자리 γ,IAU WGSN,high,true
+87833,Eltanin,엘타닌,,용자리 γ,IAU WGSN,high,true
+3179,Schedar,셰다르,,카시오페이아자리 α,IAU WGSN,high,true
+746,Caph,카프,,카시오페이아자리 β,IAU WGSN,high,true
+6686,Ruchbah,루크바,,카시오페이아자리 δ,IAU WGSN,high,true
+9640,Almach,알마크,,안드로메다자리 γ · 이중성,IAU WGSN,high,true
+72105,Izar,이자르,,목동자리 ε · 이중성,IAU WGSN,high,true
+78401,Dschubba,드슈바,,전갈자리 δ,IAU WGSN,high,true
+107315,Enif,에니프,,페가수스자리 ε,IAU WGSN,high,true
+113881,Scheat,셰아트,,페가수스자리 β,IAU WGSN,high,true
+113963,Markab,마르카브,,페가수스자리 α,IAU WGSN,high,true
+1067,Algenib,알게니브,,페가수스자리 γ,IAU WGSN,high,true
+84012,Sabik,사비크,,뱀주인자리 η,IAU WGSN,high,true
+102488,Aljanah,알자나,,백조자리 ε,IAU WGSN,high,true
+68756,Thuban,투반,,용자리 α · 고대 북극성,IAU WGSN,high,true
+85670,Rastaban,라스타반,,용자리 β,IAU WGSN,high,true
+77070,Unukalhai,우누칼하이,,뱀자리 α,IAU WGSN,high,true
+72622,Zubenelgenubi,주벤엘게누비,,천칭자리 α,IAU WGSN,high,true
+74785,Zubeneschamali,주벤에샤말리,,천칭자리 β,IAU WGSN,high,true
+105199,Alderamin,알데라민,,세페우스자리 α,IAU WGSN,high,true
+17702,Alcyone,알키오네,,플레이아데스(좀생이별)의 가장 밝은 별,IAU WGSN,high,true
+63608,Vindemiatrix,빈데미아트릭스,,처녀자리 ε,IAU WGSN,high,true
+14135,Menkar,멘카르,,고래자리 α,IAU WGSN,high,true
+97278,Tarazed,타라제드,,독수리자리 γ,IAU WGSN,high,true
+92420,Sheliak,셸리아크,,거문고자리 β,IAU WGSN,high,true
+93194,Sulafat,술라파트,,거문고자리 γ,IAU WGSN,high,true
+25985,Arneb,아르네브,,토끼자리 α,IAU WGSN,high,true
+59803,Gienah,기에나,,까마귀자리 γ,IAU WGSN,high,true
+107556,Deneb Algedi,데네브 알게디,,염소자리 δ,IAU WGSN,high,true
+109074,Sadalmelik,사달멜리크,,물병자리 α,IAU WGSN,high,true
+106278,Sadalsuud,사달수드,,물병자리 β,IAU WGSN,high,true
+67927,Muphrid,무프리드,,목동자리 η,IAU WGSN,high,true
+63125,Cor Caroli,코르 카롤리,,사냥개자리 α,IAU WGSN,high,true
+84345,Rasalgethi,라스알게티,,헤르쿨레스자리 α,IAU WGSN,high,true
+80816,Kornephoros,코르네포로스,,헤르쿨레스자리 β,IAU WGSN,high,true
+106032,Alfirk,알피르크,,세페우스자리 β,IAU WGSN,high,true
+8903,Sheratan,셰라탄,,양자리 β,IAU WGSN,high,true
+20889,Ain,아인,,황소자리 ε,IAU WGSN,high,true
+71075,Seginus,세기누스,,목동자리 γ,IAU WGSN,high,true
+61941,Porrima,포리마,,처녀자리 γ · 이중성,IAU WGSN,high,true
+79593,Yed Prior,예드 프리오르,,뱀주인자리 δ,IAU WGSN,high,true
+86742,Cebalrai,케발라이,,뱀주인자리 β,IAU WGSN,high,true
+96757,Sham,샴,,화살자리 α,IAU WGSN,high,true
+101769,Sualocin,수알로킨,,돌고래자리 α,IAU WGSN,high,true
+101421,Rotanev,로타네브,,돌고래자리 β,IAU WGSN,high,true
+110960,Ancha,안카,,물병자리 θ,IAU WGSN,high,true
+111497,Skat,스카트,,물병자리 δ,IAU WGSN,high,true
+9487,Alrescha,알레샤,,물고기자리 α,IAU WGSN,high,true
+23875,Cursa,쿠르사,,에리다누스자리 β,IAU WGSN,high,true
+18543,Zaurak,자우라크,,에리다누스자리 γ,IAU WGSN,high,true
+16537,Ran,란,,에리다누스자리 ε,IAU WGSN,high,true
+44127,Talitha,탈리타,,큰곰자리 ι · 28수 삼태(三台) 상태,IAU WGSN,medium,true
+50372,Tania Borealis,타니아 보레알리스,,큰곰자리 λ · 삼태 중태,IAU WGSN,medium,true
+55219,Alula Borealis,알룰라 보레알리스,,큰곰자리 ν · 삼태 하태,IAU WGSN,medium,true
+109268,Alnair,알나이르,,두루미자리 α,IAU WGSN,high,true
+100751,Peacock,피콕,,공작자리 α,IAU WGSN,high,true
+62434,Mimosa,미모사,,남십자자리 β,IAU WGSN,high,true
+61084,Gacrux,가크룩스,,남십자자리 γ,IAU WGSN,high,true
+45238,Miaplacidus,미아플라키두스,,용골자리 β,IAU WGSN,high,true
+41037,Avior,아비오르,,용골자리 ε,IAU WGSN,high,true
+82273,Atria,아트리아,,남쪽삼각형자리 α,IAU WGSN,high,true
