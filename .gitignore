@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+dist-ssr/
+dev-dist/
+*.local
+
+# data pipeline raw downloads (rebuild with `pnpm data:fetch`)
+data-src/raw/
+
+# test artifacts
+test-results/
+playwright-report/
+coverage/
+
+# editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+pnpm-debug.log*
