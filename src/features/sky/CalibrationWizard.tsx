@@ -17,9 +17,15 @@ import { useSettingsStore } from '@/state/settingsStore';
 
 type Step = 1 | 2 | 3;
 
+const BTN_SECONDARY =
+  'inline-flex min-h-11 items-center justify-center rounded-pill bg-surface-3 px-4 text-body-sm font-medium text-fg transition-transform duration-150 ease-standard active:scale-[0.97]';
+const BTN_PRIMARY =
+  'inline-flex min-h-11 flex-1 items-center justify-center rounded-pill bg-accent px-5 text-body font-semibold text-accent-fg transition-transform duration-150 ease-standard active:scale-[0.97]';
+
 /**
  * 1-별 정렬 마법사 (task-02 §3.5, §5): ① 대상 고르기 ② 십자에 맞추기(실시간 오차, 드래그 미세 조정) ③ 확인.
  * δ = 대상 실제 방위 − 센서(오프셋 미적용) 방위. 고도 차이는 피치 오프셋.
+ * 패널은 탭 pill 위(bottom-sky)에 떠 있는 불투명 카드 — 뒤의 하늘은 드래그로 미세 조정할 수 있어야 한다.
  */
 export function CalibrationWizard({ onClose }: { onClose(): void }) {
   const { t } = useTranslation();
@@ -121,7 +127,7 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
 
   return (
     <div
-      className="absolute inset-0 z-30 flex flex-col"
+      className="pointer-events-none absolute inset-0 z-30"
       data-testid="calib-wizard"
       role="dialog"
       aria-label={t('sensor.wizard.title')}
@@ -134,16 +140,15 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
           <div className="calib-crosshair" />
         </div>
       )}
-      <div className="pointer-events-none flex-1" />
-      <div className="rounded-t-2xl border-t border-border bg-overlay p-4 text-sm backdrop-blur-sm">
-        <div className="mb-2 flex items-center">
-          <h2 className="flex-1 font-semibold">
+      <div className="pointer-events-auto absolute inset-x-3 bottom-sky mx-auto max-w-md rounded-2xl bg-surface p-4 text-body-sm text-fg shadow-float squircle">
+        <div className="mb-3 flex items-center gap-2">
+          <h2 className="flex-1 text-body-lg font-semibold">
             {t('sensor.wizard.title')} · {step}/3
           </h2>
           <button
             type="button"
             onClick={onClose}
-            className="min-h-9 px-2 text-muted"
+            className="inline-flex min-h-9 items-center justify-center rounded-pill px-3 text-body-sm font-medium text-accent transition-colors duration-150 active:bg-accent-soft"
             data-testid="calib-later"
           >
             {t('sensor.wizard.later')}
@@ -152,8 +157,11 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
 
         {step === 1 && (
           <>
-            <p className="mb-2 text-muted">{t('sensor.wizard.step1')}</p>
-            <div className="flex flex-wrap gap-2" data-testid="calib-candidates">
+            <p className="mb-2 text-caption text-muted">{t('sensor.wizard.step1')}</p>
+            <div
+              className="flex max-h-[40vh] flex-wrap gap-2 overflow-y-auto"
+              data-testid="calib-candidates"
+            >
               {candidates.length === 0 && (
                 <span className="text-muted">{t('sensor.wizard.noCandidates')}</span>
               )}
@@ -165,11 +173,11 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
                     setTargetId(c.id as ObjectId);
                     setStep(2);
                   }}
-                  className="min-h-10 rounded-full border border-border bg-surface px-3"
+                  className="inline-flex min-h-10 items-center rounded-pill bg-surface-3 px-3.5 text-body-sm font-medium text-fg transition-transform duration-150 ease-standard active:scale-[0.97]"
                   data-testid={`calib-candidate-${c.id}`}
                 >
                   {c.name}{' '}
-                  <span className="text-muted">
+                  <span className="text-muted tabular-nums">
                     · {c.altDeg.toFixed(0)}° {c.azDeg.toFixed(0)}°
                   </span>
                 </button>
@@ -180,26 +188,22 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
 
         {step === 2 && (
           <>
-            <p className="mb-1">
+            <p className="mb-1 text-body">
               <strong>{targetName}</strong> — {t('sensor.wizard.step2')}
             </p>
-            <p className="mb-2 font-mono text-xs text-muted" data-testid="calib-error">
+            <p className="mb-2 text-caption text-muted tabular-nums" data-testid="calib-error">
               {t('sensor.wizard.currentError')}:{' '}
               {errorDeg === null ? '—' : `${errorDeg.toFixed(1)}°`}
             </p>
-            <p className="mb-3 text-xs text-muted">{t('sensor.wizard.dragHint')}</p>
+            <p className="mb-3 text-caption text-muted">{t('sensor.wizard.dragHint')}</p>
             <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                className="min-h-11 rounded-full bg-surface-2 px-4"
-              >
+              <button type="button" onClick={() => setStep(1)} className={BTN_SECONDARY}>
                 {t('common.back')}
               </button>
               <button
                 type="button"
                 onClick={confirm}
-                className="min-h-11 flex-1 rounded-full bg-accent px-4 font-semibold text-accent-fg"
+                className={BTN_PRIMARY}
                 data-testid="calib-confirm"
               >
                 {t('sensor.wizard.aligned')}
@@ -210,24 +214,20 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
 
         {step === 3 && result && (
           <>
-            <p className="mb-1">{t('sensor.wizard.done', { target: targetName })}</p>
-            <p className="mb-3 font-mono text-xs text-muted" data-testid="calib-result">
+            <p className="mb-1 text-body">{t('sensor.wizard.done', { target: targetName })}</p>
+            <p className="mb-3 text-caption text-muted tabular-nums" data-testid="calib-result">
               δ {result.deltaAzDeg >= 0 ? '+' : ''}
               {result.deltaAzDeg.toFixed(1)}° · pitch {result.pitchOffsetDeg >= 0 ? '+' : ''}
               {result.pitchOffsetDeg.toFixed(1)}°
             </p>
             <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                className="min-h-11 rounded-full bg-surface-2 px-4"
-              >
+              <button type="button" onClick={() => setStep(1)} className={BTN_SECONDARY}>
                 {t('sensor.wizard.again')}
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="min-h-11 flex-1 rounded-full bg-accent px-4 font-semibold text-accent-fg"
+                className={BTN_PRIMARY}
                 data-testid="calib-finish"
               >
                 {t('sensor.wizard.finish')}

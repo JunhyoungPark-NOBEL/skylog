@@ -10,6 +10,7 @@ interface HudSample {
 /**
  * 디버그 HUD (task-00 §3.6). rAF 기반 fps·프레임 시간 + 렌더러가 보고한 draw call.
  * 이후 모든 성능 수용 기준은 이 값으로 측정한다(DevTools 대신).
+ * 상태 캡슐 아래 왼쪽에 작은 유리 칩으로 띄운다(오른쪽은 하늘 뷰 컨트롤 클러스터 자리).
  */
 export function DebugHud() {
   const [sample, setSample] = useState<HudSample>({ fps: 0, frameMs: 0, drawCalls: 0 });
@@ -45,8 +46,7 @@ export function DebugHud() {
   return (
     <div
       data-testid="debug-hud"
-      className="pointer-events-none fixed right-2 z-50 rounded bg-overlay px-2 py-1 font-mono text-[11px] leading-tight text-fg"
-      style={{ top: 'calc(var(--status-height) + env(safe-area-inset-top) + 4px)' }}
+      className="glass-sm pointer-events-none fixed left-3 top-[calc(env(safe-area-inset-top)+8px)] z-50 rounded-sm px-2.5 py-1.5 font-mono text-caption leading-tight text-fg tabular-nums shadow-[inset_0_0_0_1px_var(--hairline)]"
     >
       <div>{sample.fps} fps</div>
       <div>{sample.frameMs.toFixed(1)} ms</div>

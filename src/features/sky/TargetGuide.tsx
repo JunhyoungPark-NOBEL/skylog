@@ -21,6 +21,9 @@ export const CENTER_DEG = 3;
 const REARM_DEG = 5;
 const EDGE_MARGIN = 30;
 
+/** 화살표·링 옆 각거리 라벨 — 매 틱 움직이므로 블러 없이 반투명 표면(유리 금지) */
+const HUD_LABEL = 'rounded-pill bg-surface/85 px-2 py-0.5 text-label tabular-nums';
+
 interface GuideState {
   onScreen: boolean;
   x: number;
@@ -37,6 +40,7 @@ interface GuideState {
 /**
  * 찾아가기 오버레이(task-03 §3.3): 목표가 화면 밖이면 가장자리 화살표 + 남은 각거리, 안에 있으면 링 마커,
  * 중앙 3° 안이면 색 변화 + 피드백(한 번, 5° 밖으로 나가면 재무장). 지평선 아래면 뜨는 시각과 시간 이동 버튼.
+ * 목표 pill은 상태 캡슐 아래 HUD 줄 가운데(레이어 버튼·AR 버튼 사이)에 떠 있다.
  */
 export function TargetGuide() {
   const { t } = useTranslation();
@@ -163,10 +167,7 @@ export function TargetGuide() {
           >
             <polygon points="14,0 -8,-10 -4,0 -8,10" fill="currentColor" />
           </svg>
-          <span
-            className="rounded-full bg-overlay px-2 py-0.5 font-mono text-[11px]"
-            style={{ color }}
-          >
+          <span className={HUD_LABEL} style={{ color }}>
             {t('target.remaining', { deg: state.sepDeg.toFixed(0) })}
           </span>
         </div>
@@ -180,14 +181,14 @@ export function TargetGuide() {
           data-centered={state.centered ? '1' : '0'}
         >
           <div
-            className="h-14 w-14 rounded-full border-2"
+            className="h-14 w-14 rounded-full border-2 transition-[border-color,box-shadow] duration-150 ease-standard"
             style={{
               borderColor: color,
               boxShadow: state.centered ? `0 0 12px ${color}` : undefined,
             }}
           />
           <span
-            className="absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap rounded-full bg-overlay px-2 py-0.5 font-mono text-[11px]"
+            className={`absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap ${HUD_LABEL}`}
             style={{ color }}
           >
             {state.centered
@@ -197,13 +198,15 @@ export function TargetGuide() {
         </div>
       )}
       <div
-        className="pointer-events-auto absolute left-1/2 top-14 flex -translate-x-1/2 items-center gap-2 rounded-full border border-border bg-overlay px-3 py-1 text-xs backdrop-blur-sm"
+        className="pointer-events-auto absolute left-1/2 top-[calc(var(--status-height)+env(safe-area-inset-top)+12px)] flex min-h-11 max-w-[calc(100%-8rem)] -translate-x-1/2 items-center gap-2 rounded-pill glass py-1 pl-3.5 pr-1 text-caption text-fg shadow-float"
         data-testid="target-pill"
       >
-        <span style={{ color }}>◎</span>
-        <span className="max-w-40 truncate font-semibold">{state?.name ?? targetId}</span>
+        <span aria-hidden style={{ color }}>
+          ◎
+        </span>
+        <span className="min-w-0 max-w-40 truncate font-semibold">{state?.name ?? targetId}</span>
         {state && state.altDeg <= 0 && (
-          <span className="text-muted" data-testid="target-below">
+          <span className="min-w-0 truncate text-fg/70" data-testid="target-below">
             {t('target.below')}
             {state.riseAt
               ? ` · ${t('target.risesAt', { time: formatTime(state.riseAt) })} (${formatRelative(useClockStore.getState().now().getTime(), state.riseAt.getTime(), lang)})`
@@ -215,7 +218,7 @@ export function TargetGuide() {
         {state && state.altDeg <= 0 && state.riseAt && (
           <button
             type="button"
-            className="min-h-7 rounded-full bg-surface-2 px-2"
+            className="inline-flex min-h-8 shrink-0 items-center justify-center rounded-pill bg-surface-3 px-3 text-caption font-medium text-fg transition-transform duration-150 ease-standard active:scale-95"
             onClick={() => {
               const at = state.riseAt;
               if (at) useClockStore.getState().setManual(new Date(at.getTime() + 20 * 60_000), 0);
@@ -227,7 +230,7 @@ export function TargetGuide() {
         )}
         <button
           type="button"
-          className="min-h-7 rounded-full bg-surface-2 px-2"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-pill text-fg/80 transition-colors duration-150 active:bg-surface-2"
           onClick={clear}
           aria-label={t('target.clear')}
           data-testid="target-clear"

@@ -30,7 +30,8 @@ export const useTonightStore = create<TonightState>()(
       customToHour: 1,
       equipment: 'naked',
       setPreset: (preset) => set({ preset }),
-      setCustom: (customFromHour, customToHour) => set({ customFromHour, customToHour, preset: 'custom' }),
+      setCustom: (customFromHour, customToHour) =>
+        set({ customFromHour, customToHour, preset: 'custom' }),
       setEquipment: (equipment) => set({ equipment }),
     }),
     {

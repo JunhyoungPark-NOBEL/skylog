@@ -62,60 +62,63 @@ export function SensorDebugScreen({ onBack }: { onBack(): void }) {
   return (
     <ScreenFrame title={t('sensor.debug.title')} onBack={onBack} testId="sensor-debug">
       <pre
-        className="m-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-surface p-3 font-mono text-[11px] leading-relaxed"
+        className="mx-4 mt-4 overflow-x-auto whitespace-pre-wrap rounded-md bg-surface-2 px-3.5 py-3 font-mono text-caption leading-relaxed text-fg tabular-nums"
         data-testid="sensor-dump"
       >
         {dump}
       </pre>
-      <div className="px-4">
+      <div className="px-4 pt-3">
         <button
           type="button"
           onClick={() => void copy()}
-          className="min-h-11 rounded-full bg-accent px-4 text-accent-fg"
+          className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-pill bg-accent px-5 text-body font-semibold text-accent-fg transition-[transform,opacity] duration-150 ease-standard active:scale-[0.97] disabled:opacity-40"
           data-testid="sensor-copy"
         >
           {copied ? t('sensor.debug.copied') : t('sensor.debug.copy')}
         </button>
       </div>
-      <h2 className="px-4 pb-1 pt-5 text-xs font-semibold uppercase tracking-wider text-muted">
+
+      <h2 className="px-5 pb-2 pt-6 text-body-sm font-semibold text-muted">
         {t('sensor.debug.settings')}
       </h2>
-      <Toggle
-        id="sensor-declination"
-        label={t('sensor.settings.declination')}
-        hint={t('sensor.settings.declinationHint', { d: f(s.declinationDeg, 1) })}
-        checked={s.applyDeclination}
-        onChange={(v) => s.setSetting('applyDeclination', v)}
-      />
-      <Toggle
-        id="sensor-keeplevel"
-        label={t('sensor.settings.keepLevel')}
-        hint={t('sensor.settings.keepLevelHint')}
-        checked={s.keepLevel}
-        onChange={(v) => s.setSetting('keepLevel', v)}
-      />
-      <Toggle
-        id="sensor-sound"
-        label={t('sensor.settings.sound')}
-        checked={s.sound}
-        onChange={(v) => s.setSetting('sound', v)}
-      />
-      <Segmented
-        label={t('sensor.settings.compassAxis')}
-        value={s.compassAxis}
-        options={[
-          { value: 'top', label: t('sensor.settings.axisTop') },
-          { value: 'back', label: t('sensor.settings.axisBack') },
-        ]}
-        onChange={(v) => s.setSetting('compassAxis', v)}
-      />
-      <Toggle
-        id="sensor-simulator"
-        label={t('sensor.simulator')}
-        hint={t('sensor.simulatorHint')}
-        checked={s.simulator}
-        onChange={(v) => s.setSetting('simulator', v)}
-      />
+      <div className="mx-4 overflow-hidden rounded-lg bg-surface squircle [&>*+*]:hairline-t">
+        <Toggle
+          id="sensor-declination"
+          label={t('sensor.settings.declination')}
+          hint={t('sensor.settings.declinationHint', { d: f(s.declinationDeg, 1) })}
+          checked={s.applyDeclination}
+          onChange={(v) => s.setSetting('applyDeclination', v)}
+        />
+        <Toggle
+          id="sensor-keeplevel"
+          label={t('sensor.settings.keepLevel')}
+          hint={t('sensor.settings.keepLevelHint')}
+          checked={s.keepLevel}
+          onChange={(v) => s.setSetting('keepLevel', v)}
+        />
+        <Toggle
+          id="sensor-sound"
+          label={t('sensor.settings.sound')}
+          checked={s.sound}
+          onChange={(v) => s.setSetting('sound', v)}
+        />
+        <Segmented
+          label={t('sensor.settings.compassAxis')}
+          value={s.compassAxis}
+          options={[
+            { value: 'top', label: t('sensor.settings.axisTop') },
+            { value: 'back', label: t('sensor.settings.axisBack') },
+          ]}
+          onChange={(v) => s.setSetting('compassAxis', v)}
+        />
+        <Toggle
+          id="sensor-simulator"
+          label={t('sensor.simulator')}
+          hint={t('sensor.simulatorHint')}
+          checked={s.simulator}
+          onChange={(v) => s.setSetting('simulator', v)}
+        />
+      </div>
     </ScreenFrame>
   );
 }

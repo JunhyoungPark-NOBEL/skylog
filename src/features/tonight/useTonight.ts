@@ -4,14 +4,25 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Interval, ObservingNight } from '@/astro/night';
 import { monthPhenomena, specialEventsFrom, type Phenomenon } from '@/astro/phenomena';
-import { recommend, type Candidate, type RecommendResult, type SiteConstraints } from '@/astro/recommend';
+import {
+  recommend,
+  type Candidate,
+  type RecommendResult,
+  type SiteConstraints,
+} from '@/astro/recommend';
 import { loadCatalog, type Catalog } from '@/catalog/catalog';
 import { FAMOUS_SET } from '@/catalog/famous';
 import { loadMeteors, type MeteorShower } from '@/catalog/meteors';
 import { buildCandidates, SEASON_SIGNATURES } from '@/catalog/recommendCandidates';
 import { useSiteRecord } from '@/features/settings/useSiteRecord';
 import { useObservingNight } from '@/features/tonight/useNight';
-import { getWeather, hourAt, summarizeWeather, type WeatherForecast, type WeatherSummary } from '@/services/weather';
+import {
+  getWeather,
+  hourAt,
+  summarizeWeather,
+  type WeatherForecast,
+  type WeatherSummary,
+} from '@/services/weather';
 import { useClockStore } from '@/state/clockStore';
 import { useLocationStore } from '@/state/locationStore';
 import { useTonightStore, type WindowPreset } from '@/state/tonightStore';
@@ -86,7 +97,11 @@ export function getMonthPhenomena(
 }
 
 function ymOf(date: Date, tz: string): { year: number; month: number } {
-  const parts = new Intl.DateTimeFormat('en-US', { timeZone: tz, year: 'numeric', month: 'numeric' }).formatToParts(date);
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz,
+    year: 'numeric',
+    month: 'numeric',
+  }).formatToParts(date);
   const get = (t: string) => Number(parts.find((p) => p.type === t)?.value ?? '0');
   return { year: get('year'), month: get('month') };
 }
@@ -175,11 +190,17 @@ export function useTonight(): TonightData {
   }, [site.lat, site.lon]);
 
   const window_ = useMemo(
-    () => (night ? windowForPreset(night, preset, now, { fromHour: customFrom, toHour: customTo }) : null),
+    () =>
+      night
+        ? windowForPreset(night, preset, now, { fromHour: customFrom, toHour: customTo })
+        : null,
     [night, preset, now, customFrom, customTo],
   );
 
-  const ym = useMemo(() => (night ? ymOf(new Date(night.start.getTime() + 12 * 3_600_000), night.tz) : null), [night]);
+  const ym = useMemo(
+    () => (night ? ymOf(new Date(night.start.getTime() + 12 * 3_600_000), night.tz) : null),
+    [night],
+  );
   const phenomena = useMemo(
     () => (night && ym ? getMonthPhenomena(site, ym.year, ym.month, showers, night.tz) : []),
     [night, ym, site, showers],
@@ -213,7 +234,18 @@ export function useTonight(): TonightData {
             phenomena.length,
           ].join('|')
         : '',
-    [window_, night, now, equipment, constraints, weather, site.lat, site.lon, cat, phenomena.length],
+    [
+      window_,
+      night,
+      now,
+      equipment,
+      constraints,
+      weather,
+      site.lat,
+      site.lon,
+      cat,
+      phenomena.length,
+    ],
   );
   useEffect(() => {
     if (!cat || !night || !window_ || !computeKey) return;
@@ -221,7 +253,8 @@ export function useTonight(): TonightData {
     const key = computeKey;
     const h = window.setTimeout(() => {
       if (!alive) return;
-      if (!candidatesCache || candidatesCache.cat !== cat) candidatesCache = { cat, list: buildCandidates(cat) };
+      if (!candidatesCache || candidatesCache.cat !== cat)
+        candidatesCache = { cat, list: buildCandidates(cat) };
       const events = specialEventsFrom([...phenomena, ...nextMonthPhenomena]);
       const r = recommend({
         candidates: candidatesCache.list,
@@ -243,7 +276,19 @@ export function useTonight(): TonightData {
       alive = false;
       window.clearTimeout(h);
     };
-  }, [cat, night, window_, now, site, constraints, equipment, weather, phenomena, nextMonthPhenomena, computeKey]);
+  }, [
+    cat,
+    night,
+    window_,
+    now,
+    site,
+    constraints,
+    equipment,
+    weather,
+    phenomena,
+    nextMonthPhenomena,
+    computeKey,
+  ]);
 
   return {
     night,

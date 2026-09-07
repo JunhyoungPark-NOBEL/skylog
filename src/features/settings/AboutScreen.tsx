@@ -10,14 +10,15 @@ export function AboutScreen({ onBack }: { onBack(): void }) {
   const { t } = useTranslation();
   return (
     <ScreenFrame title={t('about.title')} onBack={onBack} testId="about-screen">
-      <div className="space-y-3 p-4 text-sm">
-        <p className="font-semibold">{t('app.name')}</p>
-        <p>{t('about.codeLicense')}</p>
-        <p>{t('about.dataLicense')}</p>
-        <h2 className="pt-2 text-xs font-semibold uppercase tracking-wider text-muted">
-          {t('about.sources')}
-        </h2>
-        <pre className="overflow-x-auto whitespace-pre-wrap rounded bg-surface p-3 text-xs leading-relaxed text-fg">
+      <div className="mx-4 mt-4 overflow-hidden rounded-lg bg-surface squircle [&>*+*]:hairline-t">
+        <p className="px-4 py-3 text-body font-semibold">{t('app.name')}</p>
+        <p className="px-4 py-3 text-body-sm">{t('about.codeLicense')}</p>
+        <p className="px-4 py-3 text-body-sm">{t('about.dataLicense')}</p>
+      </div>
+
+      <h2 className="px-5 pb-2 pt-6 text-body-sm font-semibold text-muted">{t('about.sources')}</h2>
+      <div className="mx-4 rounded-lg bg-surface p-1.5 squircle">
+        <pre className="overflow-x-auto whitespace-pre-wrap rounded-md bg-surface-2/70 px-3.5 py-3 font-mono text-caption leading-relaxed text-fg">
           {dataLicenses}
         </pre>
       </div>

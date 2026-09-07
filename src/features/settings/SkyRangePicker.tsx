@@ -28,6 +28,7 @@ function arcPath(start: number, end: number): string {
 /**
  * 보이는 하늘 범위 선택기 (task-02 §3.1 C15): 방위 링 위에서 시작·끝 핸들을 끌어 구간을 정한다.
  * 예: 베란다(남동~남서) → [110, 250]. "전체"면 구간 없음.
+ * 색은 전부 테마 변수(--surface-2·--hairline-strong·--accent 등) → 야간 모드에서 자동으로 붉어진다.
  */
 export function SkyRangePicker({
   value,
@@ -77,7 +78,7 @@ export function SkyRangePicker({
   ];
 
   return (
-    <div className="flex flex-col items-center gap-2" data-testid="sky-range-picker">
+    <div className="flex w-full flex-col items-center gap-3" data-testid="sky-range-picker">
       <svg
         ref={svgRef}
         viewBox={`0 0 ${SIZE} ${SIZE}`}
@@ -89,26 +90,49 @@ export function SkyRangePicker({
         role="img"
         aria-label={t('sites.range')}
       >
-        <circle cx={C} cy={C} r={R} fill="var(--surface-2)" stroke="var(--border)" />
+        {/* 링 바탕 — 표면 층 + 헤어라인(불투명 외곽선 없음) */}
+        <circle cx={C} cy={C} r={R} fill="var(--surface-2)" stroke="var(--hairline-strong)" />
         {arc ? (
           <path
             d={arcPath(arc[0], arc[1])}
             fill="var(--accent)"
-            fillOpacity={0.35}
+            fillOpacity={0.3}
             stroke="var(--accent)"
+            strokeWidth={1.5}
+            strokeLinejoin="round"
           />
         ) : (
-          <circle cx={C} cy={C} r={R} fill="var(--accent)" fillOpacity={0.25} />
+          <circle cx={C} cy={C} r={R} fill="var(--accent)" fillOpacity={0.22} />
         )}
         {Array.from({ length: 12 }, (_, i) => {
-          const [x1, y1] = pt(i * 30, R - 6);
+          const major = i % 3 === 0;
+          const [x1, y1] = pt(i * 30, R - (major ? 8 : 5));
           const [x2, y2] = pt(i * 30, R);
-          return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="var(--muted)" />;
+          return (
+            <line
+              key={i}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+              stroke={major ? 'var(--muted)' : 'var(--muted-2)'}
+              strokeWidth={major ? 1.5 : 1}
+              strokeLinecap="round"
+            />
+          );
         })}
         {labels.map(([text, az]) => {
           const [x, y] = pt(az, R + 14);
           return (
-            <text key={text} x={x} y={y + 4} textAnchor="middle" fontSize="12" fill="var(--fg)">
+            <text
+              key={text}
+              x={x}
+              y={y + 4}
+              textAnchor="middle"
+              fontSize="12"
+              fontWeight="600"
+              fill="var(--fg)"
+            >
               {text}
             </text>
           );
@@ -123,28 +147,28 @@ export function SkyRangePicker({
                 cy={y}
                 r={9}
                 fill="var(--accent)"
-                stroke="var(--bg)"
-                strokeWidth={2}
+                stroke="var(--surface)"
+                strokeWidth={2.5}
                 data-testid={`range-handle-${k}`}
               />
             );
           })}
       </svg>
-      <div className="flex items-center gap-2 text-xs">
-        <span className="font-mono" data-testid="range-text">
+      <div className="flex items-center gap-2">
+        <span className="font-mono text-caption tabular-nums text-fg" data-testid="range-text">
           {arc ? `${arc[0]}° → ${arc[1]}°` : t('sites.rangeAll')}
         </span>
         <button
           type="button"
           onClick={() => onChange({ ...value, arc: undefined })}
-          className="min-h-9 rounded-full bg-surface-2 px-3"
+          className="inline-flex min-h-9 items-center justify-center rounded-pill bg-surface-3 px-3.5 text-body-sm font-medium text-fg transition-[transform,opacity] duration-150 ease-standard active:scale-[0.97]"
           data-testid="range-all"
         >
           {t('sites.rangeAll')}
         </button>
       </div>
-      <label className="flex w-full items-center gap-2 text-xs">
-        <span className="w-24">{t('sites.minAlt')}</span>
+      <label className="flex min-h-11 w-full items-center gap-3 text-body-sm">
+        <span className="w-20 shrink-0 text-muted">{t('sites.minAlt')}</span>
         <input
           type="range"
           min={0}
@@ -152,10 +176,10 @@ export function SkyRangePicker({
           step={1}
           value={value.minAltDeg}
           onChange={(e) => onChange({ ...value, minAltDeg: Number(e.target.value) })}
-          className="flex-1"
+          className="min-w-0 flex-1"
           data-testid="range-minalt"
         />
-        <span className="w-8 text-right font-mono">{value.minAltDeg}°</span>
+        <span className="w-9 shrink-0 text-right font-mono tabular-nums">{value.minAltDeg}°</span>
       </label>
     </div>
   );

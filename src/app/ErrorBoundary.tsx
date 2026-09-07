@@ -26,19 +26,21 @@ export class ErrorBoundary extends Component<Props, State> {
     return (
       <div
         role="alert"
-        className="flex h-full flex-col items-center justify-center gap-4 bg-bg p-6 text-fg"
+        className="flex h-full flex-col items-center justify-center bg-bg p-6 text-fg"
       >
-        <h1 className="text-lg font-semibold">{t('error.title', '문제가 생겼어요')}</h1>
-        <pre className="max-w-full overflow-auto rounded bg-surface p-3 text-xs text-muted">
-          {this.state.error.message}
-        </pre>
-        <button
-          type="button"
-          className="min-h-11 rounded-full bg-accent px-5 text-accent-fg"
-          onClick={() => window.location.reload()}
-        >
-          {t('error.reload', '다시 시작')}
-        </button>
+        <div className="squircle w-full max-w-sm rounded-xl bg-surface p-5 shadow-card">
+          <h1 className="text-headline">{t('error.title', '문제가 생겼어요')}</h1>
+          <pre className="mt-3 max-h-48 max-w-full overflow-auto rounded-md bg-surface-2/70 px-3.5 py-3 text-caption break-words whitespace-pre-wrap text-muted">
+            {this.state.error.message}
+          </pre>
+          <button
+            type="button"
+            className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-pill bg-accent px-5 text-body font-semibold text-accent-fg transition-[transform,opacity] duration-150 ease-standard active:scale-[0.97]"
+            onClick={() => window.location.reload()}
+          >
+            {t('error.reload', '새로고침')}
+          </button>
+        </div>
       </div>
     );
   }

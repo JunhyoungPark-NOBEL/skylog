@@ -28,7 +28,7 @@
     "close": "닫기",
     "unsupported": "이 기기에서 지원하지 않음",
     "loading": "불러오는 중…",
-    "comingSoon": "아직 준비 중이에요 (Task {{task}}에서 추가 예정)",
+    "comingSoon": "아직 준비 중이에요(Task {{task}}에서 추가 예정)",
     "more": "{{n}}개 더 보기",
     "less": "접기",
     "search": "검색"
@@ -48,16 +48,16 @@
       "ecliptic": "황도",
       "meridian": "자오선",
       "ground": "지평선(땅)",
-      "groundOpaque": "땅 아래 가리기",
+      "groundOpaque": "지평선 아래 가리기",
       "atmosphere": "대기 효과(노을·낮 하늘)",
-      "extinction": "지평선 근처 흐림(대기 소광)",
+      "extinction": "지평선 흐림(대기 소광)",
       "magnifyBodies": "달·행성 확대 표시",
       "viewInfo": "보는 방향·시야각 표시",
       "starSaturation": "별 색 진하기",
       "labelLang": "이름 표시 언어",
       "labelLangAuto": "앱 설정과 같게",
       "realSky": "실제 하늘처럼",
-      "realSkyHint": "광해와 달빛만큼 별이 줄어요. 아래 하늘 밝기(1 아주 어두움 ~ 9 도심)를 조절할 수 있어요.",
+      "realSkyHint": "광해와 달빛만큼 별이 줄어요. 아래에서 하늘 밝기(1 아주 어두움 ~ 9 도심)를 조절할 수 있어요.",
       "bortle": "하늘 밝기"
     },
     "time": {
@@ -124,17 +124,17 @@
     "moonAge": "월령 {{d}}일",
     "illum": "밝은 부분 {{p}}%",
     "darkWindow": "가장 어두운 시간",
-    "darkWindowHint": "완전한 밤 · 달 없음(10° 아래)",
+    "darkWindowHint": "완전한 밤 · 달 고도 10° 미만",
     "darkNone": "밤새 달빛이 있어요",
     "darkTotal": "총 {{dur}}",
     "now": "지금",
     "legend": {
       "darkness": "어두운 정도",
-      "moon": "달",
+      "moon": "달 떠 있음",
       "dark": "가장 어두운 시간"
     },
     "moonPhase": {
-      "new": "삭 (안 보이는 달)",
+      "new": "삭(달 없음)",
       "waxingCrescent": "초승달",
       "firstQuarter": "상현달",
       "waxingGibbous": "차오르는 달",
@@ -143,7 +143,7 @@
       "lastQuarter": "하현달",
       "waningCrescent": "그믐달"
     },
-    "comingSoon": "추천·날씨·천문 현상은 곧 추가돼요 (T3b)",
+    "comingSoon": "",
     "window": "언제 볼까요",
     "preset": {
       "next2h": "지금부터 2시간",
@@ -166,7 +166,7 @@
   "sensor": {
     "ar": "폰으로 하늘 보기(센서 모드)",
     "unsupported": "이 기기·브라우저에서는 방향 센서를 쓸 수 없어요. 손가락으로 끌어 둘러보세요. (설정 → 개발자 → 센서 시뮬레이터에서 흐름을 확인할 수 있어요.)",
-    "anomaly": "나침반이 간섭을 받는 것 같아요 — 금속이나 자석 케이스에서 떨어져 보세요",
+    "anomaly": "나침반 간섭 — 금속·자석에서 떨어져 보세요",
     "resume": "센서로 돌아가기",
     "align": "별에 맞추기",
     "realign": "다시 맞추기",
@@ -179,7 +179,7 @@
       "absolute": "절대 방향 · 나침반 기준",
       "compassSync": "나침반 동기화",
       "relative": "상대 방향 · 별에 맞추기 필요",
-      "manual": "수동 (5초 뒤 센서로 돌아가요)",
+      "manual": "수동 · 5초 뒤 센서로 돌아감",
       "none": "센서 없음"
     },
     "permission": {
@@ -309,14 +309,14 @@
   },
   "error": {
     "title": "문제가 생겼어요",
-    "reload": "다시 시작"
+    "reload": "새로고침"
   },
   "object": {
     "section": {
       "now": "지금",
       "today": "오늘",
       "coords": "좌표",
-      "equipment": "이 장비로 보일까?",
+      "equipment": "이 장비로 보일까요?",
       "constellation": "별자리"
     },
     "alt": "고도",
@@ -339,10 +339,10 @@
     "transit": "가장 높을 때",
     "set": "질 때",
     "transitAlt": "가장 높을 때 고도",
-    "circumpolar": "하루 종일 떠 있음 (지지 않는 천체)",
+    "circumpolar": "하루 종일 떠 있음(지지 않는 천체)",
     "neverRises": "이곳에서는 뜨지 않음",
     "bestWindow": "관측하기 좋은 시간",
-    "bestWindowHint": "하늘이 어둡고 고도 {{alt}}° 위에 있는 시간이에요",
+    "bestWindowHint": "하늘이 완전히 어둡고 고도 {{alt}}° 이상인 시간이에요",
     "bestWindowNone": "오늘 밤은 높이 뜨지 않음",
     "bestMonth": "일 년 중 가장 좋은 때",
     "month": "{{m}}월",
@@ -402,14 +402,14 @@
   "target": {
     "title": "찾아가기",
     "clear": "목표 해제",
-    "remaining": "{{deg}}°",
+    "remaining": "{{deg}}° 남음",
     "centered": "중앙!",
     "inView": "시야 안",
     "below": "지평선 아래",
     "risesAt": "{{time}}에 뜸",
-    "risesRel": "{{rel}} 뜸",
+    "risesRel": "{{rel}}에 뜸",
     "noRise": "오늘은 뜨지 않음",
-    "jumpTime": "그 시각으로 이동"
+    "jumpTime": "뜰 때로 이동"
   },
   "weather": {
     "title": "날씨",
@@ -422,7 +422,7 @@
     "cloudHigh": "높은 구름",
     "humidity": "습도 %",
     "dew": "{{from}}부터 이슬 맺힘 주의({{n}}시간) — 렌즈 히터·후드 준비",
-    "dewInWindow": "관측 시간 중 결로 위험 {{dur}}",
+    "dewInWindow": "관측 시간 중 이슬 맺힘 위험 {{dur}}",
     "wind": "바람 최대 {{kmh}} km/h",
     "precip": "강수 확률 최대 {{p}}%"
   },
@@ -434,7 +434,7 @@
     "addToPlan": "관측 예정에 추가",
     "computing": "하늘을 계산하는 중…",
     "none": "이 시간대에는 추천할 대상이 없어요. 시간대나 장비를 바꿔 보세요.",
-    "siteBadge": "베란다 기준",
+    "siteBadge": "보이는 범위 기준",
     "group": {
       "now": "지금 당장",
       "naked": "맨눈으로",
@@ -453,7 +453,7 @@
       "risesAt": "{{time}}부터 {{dir}}에서",
       "event": {
         "opposition": "충(가장 밝고 큼)",
-        "elongation": "최대 이각",
+        "elongation": "해에서 가장 멀리(최대 이각)",
         "meteorPeak": "유성우 극대",
         "closeApproach": "근접",
         "fullMoon": "보름달"
@@ -520,8 +520,8 @@
   "realSky": {
     "toggle": "실제 하늘처럼 보기",
     "short": "실제 하늘",
-    "hint": "내가 있는 곳의 광해(Bortle)와 달빛만큼 별을 줄여서 보여줘요.",
-    "bortle": "하늘 밝기(Bortle {{n}})",
-    "bortleAuto": "관측지 설정 따름"
+    "hint": "내가 있는 곳의 광해와 달빛만큼 별을 줄여서 보여 줘요.",
+    "bortle": "하늘 밝기(광해 {{n}}단계)",
+    "bortleAuto": "관측지 설정과 같게"
   }
 }

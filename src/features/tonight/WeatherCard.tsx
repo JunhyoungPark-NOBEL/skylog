@@ -13,6 +13,8 @@ interface Props {
   lang: Lang;
 }
 
+const ROW_HEAD = 'whitespace-nowrap pr-2 text-left font-normal text-muted';
+
 /** 날씨 카드(task-03 §3.5): 관측 창 요약 한 줄 + 시간별 구름(저/중/고) 막대 + 습도·결로·바람. 예보가 없으면 렌더하지 않는다. */
 export function WeatherCard({ night, weather, summary, window: win, lang }: Props) {
   const { t } = useTranslation();
@@ -39,19 +41,27 @@ export function WeatherCard({ night, weather, summary, window: win, lang }: Prop
   const maxPrecip = Math.max(...hours.map((h) => h.precipProb));
 
   return (
-    <Card title={t('weather.title')} aside={t('weather.updated', { time: formatTime(weather.fetchedAt) })} testId="weather-card">
+    <Card
+      title={t('weather.title')}
+      aside={t('weather.updated', { time: formatTime(weather.fetchedAt) })}
+      testId="weather-card"
+    >
       {summaryText && (
-        <p className="text-[15px] font-semibold" data-testid="weather-summary">
+        <p className="text-body font-semibold" data-testid="weather-summary">
           {summaryText}
         </p>
       )}
-      <div className="mt-3 overflow-x-auto">
-        <table className="w-full border-separate border-spacing-0 text-[11px]">
+      <div className="-mx-4 mt-3 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <table className="w-full border-separate border-spacing-0 text-label tabular-nums">
           <thead>
             <tr className="text-muted">
-              <th className="w-10 pr-1 text-left font-normal" scope="row" />
+              <th className="w-10 pr-2 text-left font-normal" scope="row" />
               {hours.map((h) => (
-                <th key={h.at.getTime()} className="min-w-6 text-center font-mono font-normal" scope="col">
+                <th
+                  key={h.at.getTime()}
+                  className="min-w-6 pb-1 text-center font-normal"
+                  scope="col"
+                >
                   {formatTime(h.at).slice(0, 2)}
                 </th>
               ))}
@@ -60,7 +70,7 @@ export function WeatherCard({ night, weather, summary, window: win, lang }: Prop
           <tbody>
             {(['cloudHigh', 'cloudMid', 'cloudLow'] as const).map((k) => (
               <tr key={k}>
-                <th className="pr-1 text-left font-normal text-muted" scope="row">
+                <th className={ROW_HEAD} scope="row">
                   {t(`weather.${k}`)}
                 </th>
                 {hours.map((h) => (
@@ -75,21 +85,28 @@ export function WeatherCard({ night, weather, summary, window: win, lang }: Prop
               </tr>
             ))}
             <tr>
-              <th className="pr-1 text-left font-normal text-muted" scope="row">
+              <th className={ROW_HEAD} scope="row">
                 {t('weather.cloud')}
               </th>
               {hours.map((h) => (
-                <td key={h.at.getTime()} className="text-center font-mono" data-testid="weather-cloud">
+                <td
+                  key={h.at.getTime()}
+                  className="pt-1 text-center text-caption"
+                  data-testid="weather-cloud"
+                >
                   {Math.round(h.cloud)}
                 </td>
               ))}
             </tr>
             <tr>
-              <th className="pr-1 text-left font-normal text-muted" scope="row">
+              <th className={ROW_HEAD} scope="row">
                 {t('weather.humidity')}
               </th>
               {hours.map((h) => (
-                <td key={h.at.getTime()} className="text-center font-mono" style={{ color: dewRisk(h) ? 'var(--danger)' : undefined }}>
+                <td
+                  key={h.at.getTime()}
+                  className={`text-center text-caption ${dewRisk(h) ? 'font-semibold text-danger' : ''}`}
+                >
                   {Math.round(h.humidity)}
                 </td>
               ))}
@@ -97,19 +114,22 @@ export function WeatherCard({ night, weather, summary, window: win, lang }: Prop
           </tbody>
         </table>
       </div>
-      <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
+      <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-caption text-muted">
         {dewHours.length > 0 && (
-          <li style={{ color: 'var(--danger)' }} data-testid="weather-dew">
+          <li className="font-medium text-danger" data-testid="weather-dew">
+            <span aria-hidden>● </span>
             {t('weather.dew', { from: formatTime(dewHours[0]!.at), n: dewHours.length })}
           </li>
         )}
         <li>{t('weather.wind', { kmh: Math.round(maxWind) })}</li>
         {maxPrecip > 0 && <li>{t('weather.precip', { p: Math.round(maxPrecip) })}</li>}
         {summary && summary.dewRiskHours > 0 && win && (
-          <li>{t('weather.dewInWindow', { dur: formatDuration(summary.dewRiskHours * 60, lang) })}</li>
+          <li>
+            {t('weather.dewInWindow', { dur: formatDuration(summary.dewRiskHours * 60, lang) })}
+          </li>
         )}
       </ul>
-      <p className="mt-2 text-[10px] text-muted">Weather data by Open-Meteo.com (CC BY 4.0)</p>
+      <p className="mt-2 text-label text-muted">Weather data by Open-Meteo.com (CC BY 4.0)</p>
     </Card>
   );
 }

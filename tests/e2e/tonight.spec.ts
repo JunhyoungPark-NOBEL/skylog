@@ -58,10 +58,16 @@ async function openSky(page: Page): Promise<void> {
   await page.waitForTimeout(400);
 }
 
-test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · 계획 ☆ · 이달의 현상(10월 토성 충) · 유성우', async ({ page }) => {
+test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · 계획 ☆ · 이달의 현상(10월 토성 충) · 유성우', async ({
+  page,
+}) => {
   const errors = collectErrors(page);
   await page.route(OPEN_METEO, (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(forecast()) }),
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(forecast()),
+    }),
   );
   await openSky(page);
   await page.getByTestId('tab-tonight').click();
@@ -75,15 +81,21 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
   await expect(page.getByTestId('weather-dew')).toBeVisible();
   await expect(weather).toContainText('Open-Meteo');
   // 하늘 상태 타임라인에 구름 막대가 겹쳐 그려진다
-  expect(await page.getByTestId('sky-status-card').locator('rect[fill="var(--muted)"]').count()).toBeGreaterThan(5);
+  expect(
+    await page.getByTestId('sky-status-card').locator('rect[fill="var(--muted)"]').count(),
+  ).toBeGreaterThan(5);
 
   // 추천: 계산 완료 후 그룹 칩 · 토성이 목록에 있고 '지금 당장' 그룹에 있다
   const rec = page.getByTestId('recommend-card');
   await expect(rec.getByTestId('rec-list')).toBeVisible({ timeout: 20_000 });
   await expect(rec.getByTestId('rec-group-now')).toBeVisible();
   await rec.getByTestId('rec-group-now').click();
-  await expect(rec.locator('[data-testid="rec-item"][data-object-id="planet:saturn"]')).toHaveCount(1);
-  const reason = await rec.locator('[data-object-id="planet:saturn"] [data-testid="rec-reason"]').textContent();
+  await expect(rec.locator('[data-testid="rec-item"][data-object-id="planet:saturn"]')).toHaveCount(
+    1,
+  );
+  const reason = await rec
+    .locator('[data-object-id="planet:saturn"] [data-testid="rec-reason"]')
+    .textContent();
   expect(reason).toMatch(/동|남동|북동/); // 21시 토성은 동쪽
   await rec.getByTestId('rec-group-binoculars').click();
   expect(await rec.getByTestId('rec-item').count()).toBeGreaterThan(0);
@@ -91,8 +103,8 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
   // 하이라이트: 행성 1개 이상
   await expect(page.getByTestId('highlights-card')).toBeVisible();
 
-  // 시간대 프리셋: 지금부터 2시간 → 창 라벨 변경, 장비 전환
-  await expect(page.getByTestId('window-label')).toContainText('20:');
+  // 시간대 프리셋: 저녁 = 일몰(18:51)부터 → 지금부터 2시간 → 창 라벨 변경, 장비 전환
+  await expect(page.getByTestId('window-label')).toContainText('18:5');
   await page.getByTestId('preset-next2h').click();
   await expect(page.getByTestId('window-label')).toContainText('21:00 ~ 23:00');
   await page.getByTestId('equip-telescope').click();
@@ -133,10 +145,15 @@ test('오늘 밤(오프라인/실패): 날씨 카드는 조용히 숨고 추천�
   await openSky(page);
   await page.getByTestId('tab-tonight').click();
   await expect(page.getByTestId('sky-status-card')).toBeVisible({ timeout: 15_000 });
-  await expect(page.getByTestId('recommend-card').getByTestId('rec-list')).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByTestId('recommend-card').getByTestId('rec-list')).toBeVisible({
+    timeout: 20_000,
+  });
   await page.waitForTimeout(500);
   await expect(page.getByTestId('weather-card')).toHaveCount(0);
-  expect(errors.filter((e) => !/open-meteo|net::ERR|Failed to load resource/i.test(e)), errors.join('\n')).toEqual([]);
+  expect(
+    errors.filter((e) => !/open-meteo|net::ERR|Failed to load resource/i.test(e)),
+    errors.join('\n'),
+  ).toEqual([]);
 });
 
 test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 즉시 반영된다', async ({ page }) => {
@@ -176,8 +193,13 @@ test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 �
   let gone = 0;
   for (let i = 0; i < before.length; i++) if (before[i]! > 40 && after[i]! < 20) gone++;
   const litAfter = after.filter((v) => v > 40).length;
-  expect(litAfter, `lit before=${litBefore} after=${litAfter} gone=${gone}`).toBeLessThan(litBefore);
-  expect(gone / litBefore, `lit before=${litBefore} after=${litAfter} gone=${gone}`).toBeGreaterThan(0.2);
+  expect(litAfter, `lit before=${litBefore} after=${litAfter} gone=${gone}`).toBeLessThan(
+    litBefore,
+  );
+  expect(
+    gone / litBefore,
+    `lit before=${litBefore} after=${litAfter} gone=${gone}`,
+  ).toBeGreaterThan(0.2);
 
   // Bortle 슬라이더(레이어 패널) → 즉시 반영
   await page.getByTestId('open-layers').click();

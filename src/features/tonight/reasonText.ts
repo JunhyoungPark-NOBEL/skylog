@@ -15,7 +15,10 @@ export function reasonSentence(parts: ReasonPart[], lang: Lang, t: TFunction, ma
       case 'position':
         out.push(
           p.when === 'now'
-            ? t('recommend.reason.now', { dir: compass16(p.azDeg, lang), alt: Math.round(p.altDeg) })
+            ? t('recommend.reason.now', {
+                dir: compass16(p.azDeg, lang),
+                alt: Math.round(p.altDeg),
+              })
             : t('recommend.reason.peakDir', {
                 dir: compass16(p.azDeg, lang),
                 alt: Math.round(p.altDeg),
@@ -24,14 +27,19 @@ export function reasonSentence(parts: ReasonPart[], lang: Lang, t: TFunction, ma
         );
         break;
       case 'peak':
-        out.push(t('recommend.reason.peakAt', { time: formatTime(p.at), alt: Math.round(p.altDeg) }));
+        out.push(
+          t('recommend.reason.peakAt', { time: formatTime(p.at), alt: Math.round(p.altDeg) }),
+        );
         break;
       case 'moonSep':
         out.push(t('recommend.reason.moonSep', { deg: Math.round(p.deg) }));
         break;
       case 'moonClose':
         out.push(
-          t('recommend.reason.moonClose', { deg: Math.round(p.deg), illum: Math.round(p.illumination * 100) }),
+          t('recommend.reason.moonClose', {
+            deg: Math.round(p.deg),
+            illum: Math.round(p.illumination * 100),
+          }),
         );
         break;
       case 'moonDown':
@@ -44,7 +52,9 @@ export function reasonSentence(parts: ReasonPart[], lang: Lang, t: TFunction, ma
         out.push(t('recommend.reason.setsAt', { time: formatTime(p.at), alt: p.minAltDeg }));
         break;
       case 'risesAt':
-        out.push(t('recommend.reason.risesAt', { time: formatTime(p.at), dir: compass16(p.azDeg, lang) }));
+        out.push(
+          t('recommend.reason.risesAt', { time: formatTime(p.at), dir: compass16(p.azDeg, lang) }),
+        );
         break;
       case 'event':
         out.push(t(`recommend.reason.event.${p.kind}`));
@@ -52,7 +62,10 @@ export function reasonSentence(parts: ReasonPart[], lang: Lang, t: TFunction, ma
       case 'double':
         out.push(
           t('recommend.reason.double', {
-            sep: p.sepArcsec >= 60 ? `${(p.sepArcsec / 60).toFixed(1)}′` : `${p.sepArcsec.toFixed(1)}″`,
+            sep:
+              p.sepArcsec >= 60
+                ? `${(p.sepArcsec / 60).toFixed(1)}′`
+                : `${p.sepArcsec.toFixed(1)}″`,
             equipment: t(`object.equipment.${p.splitWith}`),
           }),
         );

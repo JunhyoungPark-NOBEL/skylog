@@ -12,7 +12,13 @@
  * 점수 = 가중합(아래 WEIGHTS 표, 근거 주석). 이유 문구는 계산 값에서만 만든다(구조화된 ReasonPart → UI가 i18n으로 문장화).
  */
 import { bodyState, type BodyKey } from '@/astro/bodies';
-import { angularSeparation, raDecToUnitVector, sceneToAltAz, wrap360, type Vec3 } from '@/astro/coords';
+import {
+  angularSeparation,
+  raDecToUnitVector,
+  sceneToAltAz,
+  wrap360,
+  type Vec3,
+} from '@/astro/coords';
 import {
   allVerdicts,
   DEFAULT_EQUIPMENT,
@@ -50,7 +56,8 @@ export interface Candidate {
   doubleSepArcsec?: number;
 }
 
-export type SpecialEventKind = 'opposition' | 'elongation' | 'meteorPeak' | 'closeApproach' | 'fullMoon';
+export type SpecialEventKind =
+  'opposition' | 'elongation' | 'meteorPeak' | 'closeApproach' | 'fullMoon';
 
 export interface SpecialEvent {
   objectId: ObjectId;
@@ -215,7 +222,17 @@ export const RISING_MIN_SCORE = 50;
 export const PLAN_MAX = 12;
 export const NOW_MAX = 8;
 export const RISING_MAX = 6;
-const CLASSICAL: ReadonlySet<BodyKey> = new Set(['moon', 'mercury', 'venus', 'mars', 'jupiter', 'saturn']);
+const CLASSICAL: ReadonlySet<BodyKey> = new Set([
+  'moon',
+  'mercury',
+  'venus',
+  'mars',
+  'jupiter',
+  'saturn',
+]);
+const BINOCULAR_BODIES: ReadonlySet<BodyKey> = new Set(['moon', 'jupiter', 'uranus', 'neptune']);
+/** "지금 당장"에 별자리는 최대 2개(별자리가 자리를 다 차지하지 않게) */
+export const NOW_CONST_MAX = 2;
 const EQUIPMENT_RANK: Record<EquipmentKind, number> = { naked: 0, binoculars: 1, telescope: 2 };
 
 /** 방위가 시계 방향 구간 [start, end] 안에 있는가(구간이 360°를 넘어가도 처리) */
@@ -231,9 +248,23 @@ export function azInRanges(azDeg: number, ranges: [number, number][] | undefined
   return false;
 }
 
-function monthOf(date: Date, tz: string): number {
-  const m = new Intl.DateTimeFormat('en-US', { timeZone: tz, month: 'numeric' }).format(date);
-  return Number(m);
+/**
+ * 계절 시그니처용 "체감 달": 하늘은 한 달에 약 2시간씩 앞당겨지므로 창 중앙이 현지 21시보다 늦을수록 그만큼 뒤 달의 저녁 하늘이 된다
+ * (21:00 → +0, 01:00 → +2, 04:00 → +4개월).
+ */
+export function seasonMonthOf(date: Date, tz: string): number {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz,
+    month: 'numeric',
+    hour: 'numeric',
+    hourCycle: 'h23',
+  }).formatToParts(date);
+  const get = (t: string) => Number(parts.find((p) => p.type === t)?.value ?? '0');
+  const month = get('month');
+  const hour = get('hour');
+  const hoursAfterNoon = ((hour - 12 + 24) % 24) + 0.5;
+  const shift = Math.round((hoursAfterNoon - 9) / 2);
+  return ((((month - 1 + shift) % 12) + 12) % 12) + 1;
 }
 
 interface Sample {
@@ -245,7 +276,7 @@ interface Sample {
   moonVec: Vec3;
   moonIllum: number;
   cloud: number | undefined;
-  bodies: Map<BodyKey, { altDeg: number; azDeg: number; vec: Vec3 }>;
+  bodies: Map<BodyKey, { altDeg: number; azDeg: number; vec: Vec3; mag: number }>;
 }
 
 function buildSamples(input: RecommendInput, stepMin: number): Sample[] {
@@ -257,13 +288,14 @@ function buildSamples(input: RecommendInput, stepMin: number): Sample[] {
     const t = new Date(ms);
     const sun = bodyState('sun', t, input.observer);
     const moon = bodyState('moon', t, input.observer);
-    const bodies = new Map<BodyKey, { altDeg: number; azDeg: number; vec: Vec3 }>();
+    const bodies = new Map<BodyKey, { altDeg: number; azDeg: number; vec: Vec3; mag: number }>();
     for (const k of bodyKeys) {
       const s = k === 'sun' ? sun : k === 'moon' ? moon : bodyState(k, t, input.observer);
       bodies.set(k, {
         altDeg: s.altDeg,
         azDeg: s.azDeg,
         vec: raDecToUnitVector(s.raJ2000Deg, s.decJ2000Deg),
+        mag: s.magnitude,
       });
     }
     out.push({
@@ -286,7 +318,11 @@ function altTerm(altDeg: number): number {
 }
 
 function moonTerm(c: Candidate, s: Sample, sepDeg: number): number {
-  const pen = moonPenaltyMag({ illumination: s.moonIllum, altDeg: s.moonAlt, separationDeg: sepDeg });
+  const pen = moonPenaltyMag({
+    illumination: s.moonIllum,
+    altDeg: s.moonAlt,
+    separationDeg: sepDeg,
+  });
   return WEIGHTS.moon * pen * (c.extended ? 1 : WEIGHTS.moonPointFactor);
 }
 
@@ -298,10 +334,17 @@ function isNowInWindow(input: RecommendInput): boolean {
 interface Measured extends RecMetrics {
   peakMoonTerm: number;
   peakSample: Sample | null;
+  /** 달을 빼고 계산한 판정(점수용) */
+  scoreVerdicts: Record<EquipmentKind, Verdict>;
 }
 
 /** 후보 하나의 창 안 궤적 → 지표 */
-function measure(c: Candidate, samples: Sample[], input: RecommendInput, stepMin: number): Measured {
+function measure(
+  c: Candidate,
+  samples: Sample[],
+  input: RecommendInput,
+  stepMin: number,
+): Measured {
   const vec = c.bodyKey ? null : raDecToUnitVector(c.raJ2000Deg, c.decJ2000Deg);
   const siteMin = input.site?.minAltDeg ?? 0;
   let bestQ = Number.NEGATIVE_INFINITY;
@@ -311,6 +354,9 @@ function measure(c: Candidate, samples: Sample[], input: RecommendInput, stepMin
   let peakSep = 180;
   let peakMoon = 0;
   let peakSample: Sample | null = null;
+  /** 행성·달의 등급(샘플마다 변함) — 최적 샘플 값, 없으면 지금 값 */
+  let bodyMag: number | undefined;
+  let nowBodyMag: number | undefined;
   let maxAlt = -90;
   let minutesVisible = 0;
   let minutesAbove30 = 0;
@@ -331,11 +377,13 @@ function measure(c: Candidate, samples: Sample[], input: RecommendInput, stepMin
     let altDeg: number;
     let azDeg: number;
     let eqVec: Vec3;
+    let sampleMag: number | undefined;
     if (c.bodyKey) {
       const b = s.bodies.get(c.bodyKey)!;
       altDeg = b.altDeg;
       azDeg = b.azDeg;
       eqVec = b.vec;
+      sampleMag = b.mag;
     } else {
       const hor = sceneToAltAz(applyMat3(s.m, vec!));
       altDeg = apparentAltitude(hor.altDeg);
@@ -359,6 +407,7 @@ function measure(c: Candidate, samples: Sample[], input: RecommendInput, stepMin
       nowDist = d;
       nowAlt = altDeg;
       nowAz = azDeg;
+      nowBodyMag = sampleMag;
       visibleNow = visible && d <= stepMin * 60_000;
       nowCause = visible ? null : cause;
     }
@@ -382,6 +431,7 @@ function measure(c: Candidate, samples: Sample[], input: RecommendInput, stepMin
         peakSep = sep;
         peakMoon = mt;
         peakSample = s;
+        bodyMag = sampleMag;
       }
     } else if (prevCause === null) {
       lastCause = cause; // 직전 샘플은 보였고 이번 샘플부터 안 보임
@@ -389,22 +439,30 @@ function measure(c: Candidate, samples: Sample[], input: RecommendInput, stepMin
     prevCause = cause;
   }
   const bortle = input.site?.bortle ?? 7;
+  const photometry = {
+    mag: c.bodyKey ? (bodyMag ?? nowBodyMag) : c.mag,
+    majArcmin: c.majArcmin,
+    minArcmin: c.minArcmin,
+    extended: c.extended,
+    kind: c.kind,
+    category: c.category,
+  };
+  const altForVerdict = peakAt ? peakAlt : Math.max(nowAlt, 1);
+  // 그룹 배치용 판정은 달을 반영, 점수용 판정(scoreVerdicts)은 달 제외 — 달 영향은 M 항에서만 한 번 센다(이중 감점 방지)
   const v = allVerdicts(
-    {
-      mag: c.mag,
-      majArcmin: c.majArcmin,
-      minArcmin: c.minArcmin,
-      extended: c.extended,
-      kind: c.kind,
-      category: c.category,
-    },
+    photometry,
     {
       bortle,
-      altDeg: peakAt ? peakAlt : Math.max(nowAlt, 1),
+      altDeg: altForVerdict,
       moon: peakSample
         ? { illumination: peakSample.moonIllum, altDeg: peakSample.moonAlt, separationDeg: peakSep }
         : undefined,
     },
+    input.equipmentProfile ?? DEFAULT_EQUIPMENT,
+  );
+  const sv = allVerdicts(
+    photometry,
+    { bortle, altDeg: altForVerdict },
     input.equipmentProfile ?? DEFAULT_EQUIPMENT,
   );
   return {
@@ -423,7 +481,16 @@ function measure(c: Candidate, samples: Sample[], input: RecommendInput, stepMin
     nowAltDeg: nowAlt,
     nowAzDeg: nowAz,
     moonSepDeg: peakSep,
-    verdicts: { naked: v.naked.verdict, binoculars: v.binoculars.verdict, telescope: v.telescope.verdict },
+    verdicts: {
+      naked: v.naked.verdict,
+      binoculars: v.binoculars.verdict,
+      telescope: v.telescope.verdict,
+    },
+    scoreVerdicts: {
+      naked: sv.naked.verdict,
+      binoculars: sv.binoculars.verdict,
+      telescope: sv.telescope.verdict,
+    },
     clippedBySite: clipped,
     peakMoonTerm: peakMoon,
     peakSample,
@@ -434,7 +501,8 @@ function findEvent(c: Candidate, input: RecommendInput): SpecialEvent | undefine
   if (!input.events) return undefined;
   const mid = (input.window.from.getTime() + input.window.to.getTime()) / 2;
   return input.events.find(
-    (e) => e.objectId === c.id && Math.abs(e.at.getTime() - mid) <= (e.withinDays ?? 7) * 86_400_000,
+    (e) =>
+      e.objectId === c.id && Math.abs(e.at.getTime() - mid) <= (e.withinDays ?? 7) * 86_400_000,
   );
 }
 
@@ -462,10 +530,17 @@ function equipmentGroups(c: Candidate, m: RecMetrics): { groups: RecGroup[]; cha
   const vb = m.verdicts.binoculars;
   const vt = m.verdicts.telescope;
   if (ok(vn)) groups.push('naked');
+  if (isBody) {
+    // 쌍안경으로 볼 만한 천체: 달(크레이터)·목성(갈릴레이 위성)·천왕성·해왕성(점으로 확인). 나머지 행성은 망원경.
+    if (c.bodyKey && BINOCULAR_BODIES.has(c.bodyKey) && ok(vb)) groups.push('binoculars');
+    groups.push('telescope');
+    return { groups, challenge };
+  }
   const binoShow = c.extended && (c.majArcmin ?? 0) >= 20 && SHOWPIECE_BINO.has(c.category ?? '');
-  if (ok(vb) && (vn !== 'easy' || binoShow || c.doubleSplit === 'binoculars')) groups.push('binoculars');
+  if (ok(vb) && (vn !== 'easy' || binoShow || c.doubleSplit === 'binoculars'))
+    groups.push('binoculars');
   const teleShow = SHOWPIECE_TELE.has(c.category ?? '');
-  if (isBody || isDouble) groups.push('telescope');
+  if (isDouble) groups.push('telescope');
   else if (ok(vt) && (vb !== 'easy' || teleShow)) groups.push('telescope');
   else if (vt === 'hard' && c.kind === 'dso') {
     groups.push('telescope');
@@ -478,7 +553,7 @@ export function recommend(input: RecommendInput): RecommendResult {
   const stepMin = input.sampleMin ?? 10;
   const samples = buildSamples(input, stepMin);
   const mid = new Date((input.window.from.getTime() + input.window.to.getTime()) / 2);
-  const month = input.month ?? monthOf(mid, input.night.tz);
+  const month = input.month ?? seasonMonthOf(mid, input.night.tz);
   const nowIn = isNowInWindow(input);
   const siteFiltered = !!(input.site?.visibleAz?.length || (input.site?.minAltDeg ?? 0) > 0);
   const items: Recommendation[] = [];
@@ -488,15 +563,18 @@ export function recommend(input: RecommendInput): RecommendResult {
     const m = measure(c, samples, input, stepMin);
     if (!m.peakAt || !m.peakSample) continue; // 창 안에서 한 번도 보이지 않음
     const isBody = c.kind === 'planet' || c.kind === 'moon';
+    const classical = isBody && !!c.bodyKey && CLASSICAL.has(c.bodyKey);
     const v: Verdict = c.kind === 'const' ? 'possible' : m.verdicts[input.equipment];
-    if (v === 'no' && !isBody) continue;
+    // 달·고전 5행성만 "안 보임"이어도 남긴다(그래도 밝은 점으로 보인다); 천왕성·해왕성은 일반 규칙
+    if (v === 'no' && !classical) continue;
+    const scoreV: Verdict = c.kind === 'const' ? 'possible' : m.scoreVerdicts[input.equipment];
 
     let score = altTerm(m.peakAltDeg);
     score += WEIGHTS.duration30 * Math.min(1, m.minutesAbove30 / WEIGHTS.duration30FullMin);
     score -= m.peakMoonTerm;
-    score += WEIGHTS.verdict[v];
+    score += WEIGHTS.verdict[scoreV];
     if (isBody) {
-      const bonus = c.bodyKey && CLASSICAL.has(c.bodyKey) ? WEIGHTS.planet : WEIGHTS.iceGiant;
+      const bonus = classical ? WEIGHTS.planet : WEIGHTS.iceGiant;
       score += v === 'no' ? bonus * WEIGHTS.planetInvisibleFactor : bonus;
     }
     const event = findEvent(c, input);
@@ -533,7 +611,6 @@ export function recommend(input: RecommendInput): RecommendResult {
     } else if (
       nowIn &&
       !m.visibleNow &&
-      (m.nowCause === 'horizon' || m.nowCause === 'site') &&
       m.firstVisibleAt &&
       m.firstVisibleAt.getTime() > input.now.getTime() &&
       (m.firstCause === 'horizon' || m.firstCause === 'site') &&
@@ -547,7 +624,14 @@ export function recommend(input: RecommendInput): RecommendResult {
     const reasons: ReasonPart[] = [];
     if (nowIn && m.visibleNow)
       reasons.push({ type: 'position', azDeg: m.nowAzDeg, altDeg: m.nowAltDeg, when: 'now' });
-    else reasons.push({ type: 'position', azDeg: m.peakAzDeg, altDeg: m.peakAltDeg, when: 'peak', at: m.peakAt });
+    else
+      reasons.push({
+        type: 'position',
+        azDeg: m.peakAzDeg,
+        altDeg: m.peakAltDeg,
+        when: 'peak',
+        at: m.peakAt,
+      });
     if (setsAt)
       reasons.push({
         type: 'setsAt',
@@ -572,7 +656,7 @@ export function recommend(input: RecommendInput): RecommendResult {
     reasons.push({ type: 'verdict', equipment: input.equipment, verdict: v });
     if (fresh) reasons.push({ type: 'fresh' });
 
-    const { peakMoonTerm: _pm, peakSample: _ps, ...metrics } = m;
+    const { peakMoonTerm: _pm, peakSample: _ps, scoreVerdicts: _sv, ...metrics } = m;
     items.push({
       id: c.id,
       kind: c.kind,
@@ -599,12 +683,16 @@ export function recommend(input: RecommendInput): RecommendResult {
     rising: [],
   };
   for (const it of items) for (const g of it.groups) groups[g].push(it);
-  groups.now = groups.now.slice(0, NOW_MAX);
+  let nowConst = 0;
+  groups.now = groups.now
+    .filter((it) => (it.kind === 'const' ? nowConst++ < NOW_CONST_MAX : true))
+    .slice(0, NOW_MAX);
   groups.settingSoon.sort(
     (a, b) => (a.metrics.lastVisibleAt?.getTime() ?? 0) - (b.metrics.lastVisibleAt?.getTime() ?? 0),
   );
   groups.rising.sort(
-    (a, b) => (a.metrics.firstVisibleAt?.getTime() ?? 0) - (b.metrics.firstVisibleAt?.getTime() ?? 0),
+    (a, b) =>
+      (a.metrics.firstVisibleAt?.getTime() ?? 0) - (b.metrics.firstVisibleAt?.getTime() ?? 0),
   );
   groups.rising = groups.rising.slice(0, RISING_MAX);
   // 망원경 그룹: 도전(hard)은 꼬리로

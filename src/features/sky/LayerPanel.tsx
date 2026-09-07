@@ -23,7 +23,7 @@ function Row({ id, label, alphaKey }: { id: BooleanLayerKey; label: string; alph
           value={alpha}
           onChange={(e) => set(alphaKey, Number(e.target.value))}
           aria-label={`${label} opacity`}
-          className="-mt-2 mb-1 ml-4 w-[calc(100%-2rem)]"
+          className="-mt-2 mb-2 ml-4 w-[calc(100%-2rem)]"
           data-testid={`layer-${alphaKey}`}
         />
       )}
@@ -31,7 +31,11 @@ function Row({ id, label, alphaKey }: { id: BooleanLayerKey; label: string; alph
   );
 }
 
-/** 레이어 토글 패널 (task-01 §5). 값은 layerStore(Dexie 저장). */
+/**
+ * 레이어 토글 패널 (task-01 §5). 값은 layerStore(Dexie 저장).
+ * 왼쪽에서 열리는 전체 높이 불투명 사이드 패널(유리 없음) — 헤더는 떠 있는 상태 캡슐 아래(pt-status),
+ * 목록 끝은 떠 있는 탭 pill 아래로 이어진다(pb-tab + 아래쪽 페이드).
+ */
 export function LayerPanel({ onClose }: { onClose(): void }) {
   const { t } = useTranslation();
   const labelLang = useLayerStore((s) => s.labelLang);
@@ -41,24 +45,24 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
   const set = useLayerStore((s) => s.set);
   return (
     <div
-      className="absolute inset-y-0 left-0 z-20 flex w-[min(20rem,85vw)] flex-col border-r border-border bg-overlay backdrop-blur-sm"
+      className="absolute inset-y-0 left-0 z-20 flex w-[min(20rem,85vw)] flex-col rounded-r-2xl bg-surface text-fg shadow-float squircle"
       data-testid="layer-panel"
       role="dialog"
       aria-label={t('sky.layers')}
     >
-      <header className="safe-top flex min-h-12 shrink-0 items-center px-4">
-        <h2 className="flex-1 text-sm font-semibold">{t('sky.layers')}</h2>
+      <header className="hairline-b flex shrink-0 items-center gap-2 pt-status pr-2 pb-2 pl-5">
+        <h2 className="flex-1 truncate text-title">{t('sky.layers')}</h2>
         <button
           type="button"
           onClick={onClose}
-          className="min-h-11 min-w-11 text-muted"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-pill text-fg/80 transition-colors duration-150 active:bg-surface-2"
           aria-label={t('common.close')}
           data-testid="close-layers"
         >
           ✕
         </button>
       </header>
-      <div className="min-h-0 flex-1 overflow-y-auto pb-6 text-sm">
+      <div className="scroll-fade-y min-h-0 flex-1 overflow-y-auto pb-tab pt-2 text-body-sm">
         <Toggle
           id="layer-realSky"
           label={t('sky.layer.realSky')}
@@ -67,8 +71,8 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
           onChange={(v) => set('realSky', v)}
         />
         {realSky && (
-          <div className="px-4 pb-2">
-            <label htmlFor="layer-bortle" className="block text-[13px] text-muted">
+          <div className="px-4 pb-3">
+            <label htmlFor="layer-bortle" className="block text-caption text-muted">
               {bortle > 0 ? t('realSky.bortle', { n: bortle }) : t('realSky.bortleAuto')}
             </label>
             <input
@@ -113,7 +117,7 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
         <Row id="magnifyBodies" label={t('sky.layer.magnifyBodies')} />
         <Row id="showViewInfo" label={t('sky.layer.viewInfo')} />
         <div className="px-4 pt-2">
-          <label htmlFor="layer-saturation" className="block text-[15px]">
+          <label htmlFor="layer-saturation" className="block text-body">
             {t('sky.layer.starSaturation')}
           </label>
           <input

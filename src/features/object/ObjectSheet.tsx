@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { navigate } from '@/app/router';
+import { navigate, useRoute } from '@/app/router';
 import { computeObjectDetails, type ObjectDetails } from '@/astro/objectDetails';
 import { displayName, loadCatalog, secondaryName, type Catalog } from '@/catalog/catalog';
 import type { ObjectId } from '@/catalog/objectId';
@@ -29,6 +29,19 @@ import {
 
 const REFRESH_MS = 10_000;
 const SWIPE_PX = 70;
+
+/* 디자인 브리프(D-021) 레시피 — 프리미티브 컴포넌트 대신 클래스 문자열로 인라인 */
+const ICON_BTN =
+  'flex h-11 w-11 shrink-0 items-center justify-center rounded-pill text-fg/80 transition-[background-color,color] duration-150 ease-standard active:bg-surface-2';
+const PRIMARY_BTN =
+  'inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-pill bg-accent px-5 text-body font-semibold text-accent-fg transition-[transform,opacity] duration-150 ease-standard active:scale-[0.97] disabled:opacity-40';
+const SECONDARY_BTN =
+  'inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 rounded-pill bg-surface-3 px-4 text-body-sm font-medium text-fg transition-[background-color,color,transform,opacity] duration-150 ease-standard active:scale-[0.97] disabled:opacity-40 aria-pressed:bg-accent-soft aria-pressed:text-accent';
+const TERTIARY_BTN =
+  'inline-flex min-h-8 shrink-0 items-center justify-center rounded-pill px-3 text-body-sm font-medium text-accent transition-[background-color,transform] duration-150 ease-standard active:scale-[0.97] active:bg-accent-soft';
+const CHIP_BTN =
+  'inline-flex min-h-9 items-center gap-1 rounded-pill bg-surface-3 px-3.5 text-body-sm font-medium text-fg transition-[background-color,color,transform] duration-150 ease-standard active:scale-95';
+const TILE = 'rounded-sm bg-surface-3/70 px-2 py-2';
 
 interface Loaded {
   target: ObjectTarget;
@@ -69,11 +82,11 @@ function Row({
 }) {
   return (
     <div className="flex items-baseline justify-between gap-3 py-1">
-      <span className="text-xs text-muted" title={tip}>
+      <span className="text-caption text-muted" title={tip}>
         {label}
-        {tip && <span className="ml-1 text-[10px] opacity-70">ⓘ</span>}
+        {tip && <span className="ml-1 text-label opacity-70">ⓘ</span>}
       </span>
-      <span className="text-right text-sm font-semibold" data-testid={testId}>
+      <span className="text-right text-body-sm font-semibold tabular-nums" data-testid={testId}>
         {value}
       </span>
     </div>
@@ -82,8 +95,8 @@ function Row({
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="mt-3 rounded-xl bg-surface-2/60 px-3 py-2">
-      <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-muted">{title}</h3>
+    <section className="mt-3 rounded-md bg-surface-2/70 px-3.5 py-3">
+      <h3 className="mb-1.5 text-body-sm font-semibold text-muted">{title}</h3>
       {children}
     </section>
   );
@@ -94,12 +107,12 @@ function CopyRow({ label, value }: { label: string; value: string }) {
   const [copied, setCopied] = useState(false);
   return (
     <div className="flex items-center justify-between gap-2 py-1">
-      <span className="text-xs text-muted">{label}</span>
-      <span className="flex items-center gap-2">
-        <span className="font-mono text-sm">{value}</span>
+      <span className="text-caption text-muted">{label}</span>
+      <span className="flex items-center gap-1">
+        <span className="font-mono text-body-sm tabular-nums">{value}</span>
         <button
           type="button"
-          className="min-h-8 rounded-full bg-surface px-2 text-[11px] text-muted"
+          className={TERTIARY_BTN}
           onClick={() => {
             void navigator.clipboard?.writeText(value).then(() => {
               setCopied(true);
@@ -114,19 +127,21 @@ function CopyRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-const VERDICT_COLOR: Record<ObjectDetails['verdicts']['naked']['verdict'], string> = {
-  easy: 'var(--success)',
-  possible: 'var(--accent)',
-  hard: 'var(--planet)',
-  no: 'var(--muted)',
+const VERDICT_CLASS: Record<ObjectDetails['verdicts']['naked']['verdict'], string> = {
+  easy: 'text-success',
+  possible: 'text-accent',
+  hard: 'text-planet',
+  no: 'text-muted',
 };
 
 /**
  * 천체 상세 바텀 시트(task-03 §3.2). 반쯤/전체 2단계, 핸들 스와이프로 단계 전환·닫기.
  * 값은 10초마다 다시 계산(순수 함수 `computeObjectDetails`).
+ * 하늘 뷰 위에서 반쯤 열렸을 때만 유리(glass-strong); 전체 열림·드래그 중·리스트 위에서는 불투명(glass-off).
  */
 export function ObjectSheet() {
   const { t } = useTranslation();
+  const route = useRoute();
   const open = useSelectionStore((s) => s.sheetOpen);
   const id = useSelectionStore((s) => s.selectedId);
   const stage = useSelectionStore((s) => s.sheetStage);
@@ -244,35 +259,46 @@ export function ObjectSheet() {
       ? t('object.month', { m })
       : new Date(2000, m - 1, 1).toLocaleString('en', { month: 'long' });
 
+  // 유리는 하늘이 실제로 뒤에 있을 때(하늘 탭 + 반쯤 열림)만. 드래그 중에는 WebGL 프레임 보호를 위해 끈다.
+  const overSky = route === 'sky' && stage === 'half';
+  const surfaceClass = overSky && !dragging ? 'glass-strong' : 'glass-off';
+  const motionClass = dragging
+    ? 'transition-none'
+    : 'transition-[height,transform] duration-[450ms] ease-spring';
+
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-30 flex flex-col rounded-t-2xl border-t border-border bg-surface text-fg shadow-2xl"
+      className={`fixed inset-x-0 bottom-0 z-30 isolate flex flex-col overflow-hidden rounded-t-2xl text-fg shadow-sheet squircle ${surfaceClass} ${motionClass}`}
       style={{
-        height: stage === 'full' ? 'calc(100% - var(--status-height) - 8px)' : '46%',
+        height:
+          stage === 'full'
+            ? 'calc(100% - var(--status-height) - env(safe-area-inset-top) - 8px)'
+            : '46%',
         transform: dragY ? `translateY(${Math.max(0, dragY)}px)` : undefined,
-        transition: !dragging ? 'height 200ms ease, transform 150ms ease' : 'none',
       }}
       role="dialog"
       aria-label={name}
       data-testid="object-sheet"
       data-stage={stage}
+      data-over-sky={overSky ? '1' : '0'}
+      data-dragging={dragging ? '1' : undefined}
     >
       <div
-        className="flex shrink-0 cursor-grab touch-none flex-col items-center pb-1 pt-2"
+        className="flex shrink-0 cursor-grab touch-none flex-col items-center pt-2.5 pb-2"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
         data-testid="sheet-handle"
       >
-        <div className="h-1.5 w-10 rounded-full bg-border" />
+        <div className="h-[5px] w-9 rounded-pill bg-fg/25" />
       </div>
-      <header className="flex shrink-0 items-start gap-2 px-4 pb-2">
+      <header className="flex shrink-0 items-start gap-2 px-4 pb-3">
         <div className="min-w-0 flex-1">
-          <h2 className="truncate text-lg font-semibold" data-testid="sheet-name">
+          <h2 className="truncate text-title" data-testid="sheet-name">
             {name}
           </h2>
-          <p className="truncate text-xs text-muted">
+          <p className="truncate text-caption text-muted">
             {[secondary, t(`sky.kind.${kind}`), conName].filter(Boolean).join(' · ')}
           </p>
         </div>
@@ -283,8 +309,7 @@ export function ObjectSheet() {
           onClick={() => {
             void toggleBookmark(id).then(setBookmarked);
           }}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-xl"
-          style={{ color: bookmarked ? 'var(--marker)' : 'var(--muted)' }}
+          className={`${ICON_BTN} text-title ${bookmarked ? 'text-marker' : ''}`}
           data-testid="sheet-bookmark"
         >
           {bookmarked ? '★' : '☆'}
@@ -294,7 +319,7 @@ export function ObjectSheet() {
           onClick={() =>
             useSelectionStore.getState().setSheetStage(stage === 'full' ? 'half' : 'full')
           }
-          className="flex h-10 w-10 items-center justify-center rounded-full text-muted"
+          className={`${ICON_BTN} text-body-lg`}
           aria-label={stage === 'full' ? t('object.collapse') : t('object.expand')}
           data-testid="sheet-stage"
         >
@@ -303,7 +328,7 @@ export function ObjectSheet() {
         <button
           type="button"
           onClick={close}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-muted"
+          className={`${ICON_BTN} text-body-lg`}
           aria-label={t('common.close')}
           data-testid="sheet-close"
         >
@@ -311,11 +336,10 @@ export function ObjectSheet() {
         </button>
       </header>
 
-      <div className="flex shrink-0 gap-2 overflow-x-auto px-4 pb-2">
+      <div className="flex shrink-0 items-center gap-2 overflow-x-auto px-4 pb-3 [scrollbar-width:none]">
         <button
           type="button"
-          className="min-h-9 shrink-0 rounded-full px-3 text-xs font-semibold"
-          style={{ background: 'var(--accent)', color: 'var(--accent-fg)' }}
+          className={PRIMARY_BTN}
           onClick={() => {
             flyToObject(id, tg ? fovForTarget(tg) : undefined);
             useSelectionStore.getState().setTarget(id);
@@ -329,7 +353,7 @@ export function ObjectSheet() {
         {targetId === id && (
           <button
             type="button"
-            className="min-h-9 shrink-0 rounded-full bg-surface-2 px-3 text-xs"
+            className={SECONDARY_BTN}
             onClick={() => useSelectionStore.getState().setTarget(null)}
             data-testid="sheet-clear-target"
           >
@@ -340,7 +364,7 @@ export function ObjectSheet() {
           type="button"
           disabled
           title={t('object.later.telescope')}
-          className="min-h-9 shrink-0 rounded-full bg-surface-2 px-3 text-xs opacity-40"
+          className={SECONDARY_BTN}
           data-testid="sheet-telescope"
         >
           {t('object.action.telescope')}
@@ -349,7 +373,7 @@ export function ObjectSheet() {
           type="button"
           disabled
           title={t('object.later.log')}
-          className="min-h-9 shrink-0 rounded-full bg-surface-2 px-3 text-xs opacity-40"
+          className={SECONDARY_BTN}
           data-testid="sheet-log"
         >
           {t('object.action.log')}
@@ -357,8 +381,7 @@ export function ObjectSheet() {
         <button
           type="button"
           aria-pressed={bookmarked}
-          className="min-h-9 shrink-0 rounded-full bg-surface-2 px-3 text-xs"
-          style={{ color: bookmarked ? 'var(--marker)' : undefined }}
+          className={SECONDARY_BTN}
           onClick={() => {
             void toggleBookmark(id).then(setBookmarked);
           }}
@@ -366,34 +389,35 @@ export function ObjectSheet() {
         >
           {bookmarked ? t('object.action.planned') : t('object.action.plan')}
         </button>
-        <button
-          type="button"
-          disabled
-          title={t('object.later.story')}
-          className="min-h-9 shrink-0 rounded-full bg-surface-2 px-3 text-xs opacity-40"
-        >
+        <button type="button" disabled title={t('object.later.story')} className={SECONDARY_BTN}>
           {t('object.action.story')}
         </button>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-6" data-testid="sheet-body">
-        {!d && <p className="py-3 text-sm text-muted">{t('common.loading')}</p>}
+      <div
+        className="min-h-0 flex-1 overflow-y-auto px-4 pb-[calc(env(safe-area-inset-bottom)+24px)]"
+        data-testid="sheet-body"
+      >
+        {!d && <p className="py-3 text-body-sm text-muted">{t('common.loading')}</p>}
         {d && tg && (
           <>
             <Section title={t('object.section.now')}>
-              <div className="flex items-center justify-between py-1">
-                <span className="text-2xl font-bold" data-testid="sheet-altaz">
+              <div className="flex items-center justify-between gap-3 py-1">
+                <span
+                  className="inline-flex items-baseline gap-2 text-display tabular-nums"
+                  data-testid="sheet-altaz"
+                >
                   {formatAlt(d.now.altDeg)}
-                  <span className="ml-2 text-base font-semibold">
+                  <span className="text-body-lg font-semibold text-muted">
                     {formatAzimuth(d.now.azDeg, lang)}
                   </span>
                 </span>
                 <span
-                  className="rounded-full px-2 py-0.5 text-xs font-semibold"
-                  style={{
-                    background: d.now.status === 'visible' ? 'var(--success)' : 'var(--surface)',
-                    color: d.now.status === 'visible' ? 'var(--accent-fg)' : 'var(--muted)',
-                  }}
+                  className={`inline-flex shrink-0 items-center gap-1 rounded-pill px-2.5 py-1 text-label font-semibold ${
+                    d.now.status === 'visible'
+                      ? 'bg-success-soft text-success'
+                      : 'bg-surface-3 text-muted'
+                  }`}
                   data-testid="sheet-status"
                   data-status={d.now.status}
                 >
@@ -431,16 +455,19 @@ export function ObjectSheet() {
 
             <Section title={t('object.section.today')}>
               {d.today.rtsStatus === 'circumpolar' && (
-                <p className="text-xs text-muted">{t('object.circumpolar')}</p>
+                <p className="text-caption text-muted">{t('object.circumpolar')}</p>
               )}
               {d.today.rtsStatus === 'neverRises' && (
-                <p className="text-xs text-muted">{t('object.neverRises')}</p>
+                <p className="text-caption text-muted">{t('object.neverRises')}</p>
               )}
               <div className="grid grid-cols-3 gap-2 py-1 text-center">
                 {(['rise', 'transit', 'set'] as const).map((k) => (
-                  <div key={k} className="rounded-lg bg-surface px-2 py-1">
-                    <div className="text-[11px] text-muted">{t(`object.${k}`)}</div>
-                    <div className="font-mono text-base font-semibold" data-testid={`sheet-${k}`}>
+                  <div key={k} className={TILE}>
+                    <div className="text-label text-muted">{t(`object.${k}`)}</div>
+                    <div
+                      className="text-body font-semibold tabular-nums"
+                      data-testid={`sheet-${k}`}
+                    >
                       {formatTime(d.today[k])}
                     </div>
                   </div>
@@ -493,26 +520,19 @@ export function ObjectSheet() {
                   {(['naked', 'binoculars', 'telescope'] as const).map((k) => {
                     const v = d.verdicts[k];
                     return (
-                      <div
-                        key={k}
-                        className="rounded-lg bg-surface px-2 py-1"
-                        data-testid={`sheet-verdict-${k}`}
-                      >
-                        <div className="text-[11px] text-muted">{t(`object.equipment.${k}`)}</div>
-                        <div
-                          className="text-sm font-semibold"
-                          style={{ color: VERDICT_COLOR[v.verdict] }}
-                        >
+                      <div key={k} className={TILE} data-testid={`sheet-verdict-${k}`}>
+                        <div className="text-label text-muted">{t(`object.equipment.${k}`)}</div>
+                        <div className={`text-body-sm font-semibold ${VERDICT_CLASS[v.verdict]}`}>
                           {t(`object.verdict.${v.verdict}`)}
                         </div>
-                        <div className="text-[10px] text-muted">
+                        <div className="text-label text-muted tabular-nums">
                           {t('object.limit', { mag: v.limitMag.toFixed(1) })}
                         </div>
                       </div>
                     );
                   })}
                 </div>
-                <p className="text-[11px] text-muted">
+                <p className="mt-1.5 text-caption text-muted">
                   {t('object.verdictNote', { bortle: d.bortle })}
                 </p>
               </Section>
@@ -562,31 +582,24 @@ function ConstellationExtras({
   return (
     <Section title={t('object.section.constellation')}>
       {season && <Row label={t('object.con.season')} value={t(`object.season.${season}`)} />}
-      <div className="text-xs text-muted">{t('object.con.mainStars')}</div>
+      <div className="text-caption text-muted">{t('object.con.mainStars')}</div>
       <ul className="mb-2 flex flex-wrap gap-1.5 py-1">
         {stars.map((s) => (
           <li key={s.id}>
-            <button
-              type="button"
-              onClick={() => openChild(s.id)}
-              className="min-h-8 rounded-full bg-surface px-2.5 text-xs"
-            >
-              {displayName(cat, s.id, lang)} <span className="text-muted">{s.mag.toFixed(1)}</span>
+            <button type="button" onClick={() => openChild(s.id)} className={CHIP_BTN}>
+              {displayName(cat, s.id, lang)}{' '}
+              <span className="text-muted tabular-nums">{s.mag.toFixed(1)}</span>
             </button>
           </li>
         ))}
       </ul>
       {dsos.length > 0 && (
         <>
-          <div className="text-xs text-muted">{t('object.con.dsos')}</div>
+          <div className="text-caption text-muted">{t('object.con.dsos')}</div>
           <ul className="flex flex-wrap gap-1.5 py-1">
             {dsos.map((d) => (
               <li key={d.id}>
-                <button
-                  type="button"
-                  onClick={() => openChild(d.id)}
-                  className="min-h-8 rounded-full bg-surface px-2.5 text-xs"
-                >
+                <button type="button" onClick={() => openChild(d.id)} className={CHIP_BTN}>
                   {displayName(cat, d.id, lang)}
                 </button>
               </li>

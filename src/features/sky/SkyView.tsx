@@ -27,14 +27,20 @@ function formatView(alt: number, az: number, fov: number): string {
   return `${alt >= 0 ? '+' : ''}${alt.toFixed(1)}° / ${az.toFixed(1)}° · FOV ${fov.toFixed(0)}°`;
 }
 
-/** 화면 중심 alt/az·FOV 텍스트 — viewStore(≤10Hz 갱신)만 구독해 하늘 뷰 전체 리렌더를 막는다. */
+/**
+ * 화면 중심 alt/az·FOV 텍스트 — viewStore(≤10Hz 갱신)만 구독해 하늘 뷰 전체 리렌더를 막는다.
+ * 상태 캡슐 아래 HUD 줄(레이어 버튼·AR 버튼 사이) 가운데. 찾아가기 pill이 같은 자리를 쓰므로 목표가 있으면 한 줄 아래로.
+ */
 function ViewInfo() {
   const alt = useViewStore((s) => s.centerAlt);
   const az = useViewStore((s) => s.centerAz);
   const fov = useViewStore((s) => s.fovDeg);
+  const hasTarget = useSelectionStore((s) => Boolean(s.targetId));
   return (
     <div
-      className="pointer-events-none absolute left-1/2 top-2 -translate-x-1/2 rounded-full bg-overlay px-3 py-1 font-mono text-[11px] text-muted"
+      className={`pointer-events-none absolute left-1/2 top-[calc(var(--status-height)+env(safe-area-inset-top)+18px)] z-10 flex h-8 -translate-x-1/2 items-center whitespace-nowrap rounded-pill glass-sm px-3 text-caption text-fg tabular-nums shadow-[inset_0_0_0_1px_var(--hairline)] transition-transform duration-[350ms] ease-spring-fast ${
+        hasTarget ? 'translate-y-[46px]' : ''
+      }`}
       data-testid="view-info"
     >
       {formatView(alt, az, fov)}
@@ -46,6 +52,9 @@ function ViewInfo() {
  * 하늘 뷰(T1): Three.js 씬 + HTML 라벨 오버레이 + 시간 바 + 레이어 패널 + 선택 툴팁.
  * React 상태와 렌더 루프는 분리: 씬은 스토어를 getState()로 읽고, 스토어 변경은 invalidate()만 호출한다.
  * 해시 쿼리(`#/sky?t=ISO&alt=&az=&fov=`)로 시각·시점을 고정할 수 있다(테스트·공유).
+ *
+ * 레이아웃(D-021): 뷰는 뷰포트를 가득 채우고 크롬은 그 위에 떠 있다 — 위 HUD 줄은 상태 캡슐 아래
+ * (`--status-height` + safe-area + 12px), 아래 컨트롤 스택(툴팁 → 실제 하늘 토글 → 시간 바)은 탭 pill 위(`bottom-sky`).
  */
 export function SkyView() {
   const { t } = useTranslation();
@@ -201,7 +210,7 @@ export function SkyView() {
 
       {!ready && (
         <div
-          className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-muted"
+          className="pointer-events-none absolute inset-0 flex items-center justify-center text-body-sm text-muted"
           data-testid="sky-loading"
         >
           {t('common.loading')}
@@ -210,12 +219,14 @@ export function SkyView() {
 
       {showViewInfo && <ViewInfo />}
 
+      {/* 위 HUD 줄: 왼쪽 레이어 버튼 · 오른쪽 AR 클러스터(ArToggle) — 상태 캡슐 바로 아래 */}
       <button
         type="button"
         aria-label={t('sky.layers')}
+        aria-expanded={layersOpen}
         onClick={() => setLayersOpen((o) => !o)}
         data-testid="open-layers"
-        className="absolute left-2 top-2 flex h-11 w-11 items-center justify-center rounded-full bg-overlay text-fg"
+        className="absolute left-3 top-[calc(var(--status-height)+env(safe-area-inset-top)+12px)] z-10 flex h-11 w-11 items-center justify-center rounded-pill glass text-fg shadow-float transition-transform duration-150 ease-standard active:scale-95"
       >
         <IconLayers size={20} />
       </button>
@@ -228,20 +239,26 @@ export function SkyView() {
 
       <TargetGuide />
 
-      <div className="absolute bottom-24 right-2 z-10">
-        <RealSkyToggle />
+      {/* 아래 컨트롤 스택: 탭 pill 위(bottom-sky)에 툴팁 → 실제 하늘 토글 → 시간 바 순으로 쌓인다 */}
+      {/* 시트가 열려 있으면 독을 숨긴다(유리 위 유리·불필요한 블러 방지). 훅(실제 하늘 동기화)은 계속 살아 있게 마운트는 유지 */}
+      <div
+        className={`pointer-events-none absolute inset-x-0 bottom-sky z-10 flex justify-center px-3 ${sheetOpen ? 'invisible' : ''}`}
+      >
+        <div className="flex w-full max-w-md flex-col gap-2">
+          {shownInfo && (
+            <SelectionTooltip
+              info={shownInfo}
+              onClose={() => sceneRef.current?.select(null)}
+              onCenter={() => sceneRef.current?.flyToObject(shownInfo.id)}
+              onDetails={() => openObject(shownInfo.id, 'half')}
+            />
+          )}
+          <div className="flex justify-end">
+            <RealSkyToggle />
+          </div>
+          <TimeBar />
+        </div>
       </div>
-
-      {shownInfo && (
-        <SelectionTooltip
-          info={shownInfo}
-          onClose={() => sceneRef.current?.select(null)}
-          onCenter={() => sceneRef.current?.flyToObject(shownInfo.id)}
-          onDetails={() => openObject(shownInfo.id, 'half')}
-        />
-      )}
-
-      <TimeBar />
     </div>
   );
 }

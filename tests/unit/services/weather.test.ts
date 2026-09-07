@@ -48,8 +48,12 @@ function sample(): OpenMeteoResponse {
 
 describe('Open-Meteo 파싱', () => {
   it('현지 시각 문자열 + 오프셋 → UTC 순간', () => {
-    expect(localIsoToDate('2026-09-07T21:00', 32400).toISOString()).toBe('2026-09-07T12:00:00.000Z');
-    expect(localIsoToDate('2026-09-07T21:00:00', -14400).toISOString()).toBe('2026-09-08T01:00:00.000Z');
+    expect(localIsoToDate('2026-09-07T21:00', 32400).toISOString()).toBe(
+      '2026-09-07T12:00:00.000Z',
+    );
+    expect(localIsoToDate('2026-09-07T21:00:00', -14400).toISOString()).toBe(
+      '2026-09-08T01:00:00.000Z',
+    );
   });
   it('URL에 필요한 변수·timezone=auto가 들어간다', () => {
     const u = openMeteoUrl(36.37, 127.36);
@@ -82,7 +86,10 @@ describe('Open-Meteo 파싱', () => {
 describe('getWeather: 캐시·실패 처리', () => {
   it('첫 호출은 fetch, 두 번째는 캐시(1시간)', async () => {
     const fetchImpl = vi.fn(async () => new Response(JSON.stringify(sample()), { status: 200 }));
-    const a = await getWeather(36.37, 127.36, { fetchImpl: fetchImpl as unknown as typeof fetch, now: () => new Date('2026-09-07T10:00:00Z') });
+    const a = await getWeather(36.37, 127.36, {
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      now: () => new Date('2026-09-07T10:00:00Z'),
+    });
     expect(a?.hours.length).toBe(48);
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(await cacheGet('weather:36.37,127.36')).toBeTruthy();
@@ -97,7 +104,9 @@ describe('getWeather: 캐시·실패 처리', () => {
       throw new TypeError('Failed to fetch');
     });
     expect(await getWeather(1, 3, { fetchImpl: throwing as unknown as typeof fetch })).toBeNull();
-    const empty = vi.fn(async () => new Response(JSON.stringify({ hourly: { time: [] } }), { status: 200 }));
+    const empty = vi.fn(
+      async () => new Response(JSON.stringify({ hourly: { time: [] } }), { status: 200 }),
+    );
     expect(await getWeather(1, 4, { fetchImpl: empty as unknown as typeof fetch })).toBeNull();
   });
 });

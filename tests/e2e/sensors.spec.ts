@@ -132,6 +132,7 @@ test('관측지: 추가(붙여넣기 파서·범위 선택기) → 선택 → �
   await expect(page.getByTestId('site-lon')).toHaveValue('127.36667');
   // 범위: 링 클릭 → 90° 구간 생성
   const picker = page.getByTestId('sky-range-picker').locator('svg');
+  await picker.scrollIntoViewIfNeeded(); // 새 레이아웃에서는 링이 첫 화면 아래에 있을 수 있다
   const pb = (await picker.boundingBox())!;
   await page.mouse.click(pb.x + pb.width / 2, pb.y + pb.height * 0.85); // 남쪽
   await expect(page.getByTestId('range-text')).toContainText('→');

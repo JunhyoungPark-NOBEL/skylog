@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { navigate } from '@/app/router';
 import { bodyKeyFromObjectId, bodyState } from '@/astro/bodies';
@@ -24,6 +24,7 @@ import { useClockStore } from '@/state/clockStore';
 import { useLocationStore } from '@/state/locationStore';
 import { useSearchStore, type SearchCategory } from '@/state/searchStore';
 import { useSettingsStore } from '@/state/settingsStore';
+import { IconSearch } from '@/ui/icons';
 
 const DEBOUNCE_MS = 300;
 const CATEGORIES: SearchCategory[] = [
@@ -36,6 +37,20 @@ const CATEGORIES: SearchCategory[] = [
   'galaxy',
   'messier',
 ];
+
+/* ---- 디자인 레시피(D-021) — 프리미티브 대신 인라인 클래스 ---- */
+/** Chip / 필터 pill(단일 선택: aria-selected 강조 채움) */
+const CHIP_CLASS =
+  'inline-flex min-h-9 shrink-0 items-center rounded-pill bg-surface-2 px-3.5 text-body-sm font-medium text-fg transition-[background-color,color,transform] duration-150 ease-standard active:scale-95';
+const CHIP_SELECTED = 'aria-selected:bg-accent aria-selected:text-accent-fg';
+/** 다중 선택 스위치: 톤(success) 선택 */
+const CHIP_CHECKED =
+  'gap-1 aria-checked:bg-success-soft aria-checked:text-success aria-checked:shadow-[inset_0_0_0_1px_var(--success)]';
+/** 인셋 그룹(리스트) — 행 사이는 hairline(box-shadow, 레이아웃 영향 없음) */
+const GROUP_CLASS =
+  'mx-4 overflow-hidden rounded-lg bg-surface squircle [&>li+li>button]:hairline-t';
+/** 섹션 헤더 — 문장 케이스 */
+const SECTION_HEADER_CLASS = 'px-5 pb-2 pt-6 text-body-sm font-semibold text-muted';
 
 /** 지금 상태 계산기: 회전행렬 1개 + 카탈로그 벡터(별·DSO), 행성은 bodyState */
 interface NowState {
@@ -132,12 +147,13 @@ const KIND_GLYPH: Record<SearchKind, string> = {
   const: '⋰',
 };
 
+/** 행 앞 아이콘: 캡슐 surface-3 글리프(행성·태양은 planet 톤) */
 function KindIcon({ kind }: { kind: SearchKind }) {
+  const tone = kind === 'planet' || kind === 'sun' ? 'text-planet' : 'text-fg';
   return (
     <span
-      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-2 text-base"
+      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-pill bg-surface-3 text-body ${tone}`}
       aria-hidden
-      style={{ color: kind === 'planet' || kind === 'sun' ? 'var(--planet)' : 'var(--fg)' }}
     >
       {KIND_GLYPH[kind]}
     </span>
@@ -173,38 +189,50 @@ function ResultRow({ id, kind, cat, lang, alt, daytime, mag, con, onOpen }: RowP
         : daytime && kind !== 'sun' && kind !== 'moon' && kind !== 'planet'
           ? t('search.state.day')
           : t('search.state.above', { alt: alt.toFixed(0) });
+  /* 떠 있음(밤·지평선 위): 색 + ▲ 글리프를 함께 — 야간 모드에서는 색 구분이 사라진다 */
+  const up = alt !== undefined && alt > 0 && !daytime;
   return (
     <li>
       <button
         type="button"
         onClick={() => onOpen(id)}
-        className="flex min-h-14 w-full items-center gap-3 px-4 py-2 text-left"
+        className="flex min-h-14 w-full items-center gap-3 px-4 py-2 text-left transition-colors duration-150 active:bg-surface-2"
         data-testid="search-result"
         data-object-id={id}
       >
         <KindIcon kind={kind} />
         <span className="min-w-0 flex-1">
-          <span className="block truncate text-[15px]" data-testid="search-result-name">
+          <span className="block truncate text-body" data-testid="search-result-name">
             {name}
           </span>
-          <span className="block truncate text-xs text-muted">
+          <span className="block truncate text-caption text-muted">
             {[t(`sky.kind.${kind}`), secondary, conName].filter(Boolean).join(' · ')}
           </span>
         </span>
-        <span className="shrink-0 text-right text-xs text-muted">
-          {mag !== undefined && <span className="block font-mono">{mag.toFixed(1)}</span>}
+        <span className="shrink-0 text-right text-caption text-muted tabular-nums">
+          {mag !== undefined && <span className="block">{mag.toFixed(1)}</span>}
           <span
-            className="block"
-            style={{
-              color: alt !== undefined && alt > 0 && !daytime ? 'var(--success)' : undefined,
-            }}
+            className={`block ${up ? 'font-medium text-success' : 'text-muted'}`}
             data-testid="search-result-state"
           >
+            {up && <span aria-hidden>▲ </span>}
             {state}
           </span>
         </span>
       </button>
     </li>
+  );
+}
+
+/** 섹션 헤더(문장 케이스) — 오른쪽에 3차 버튼을 둘 수 있다 */
+function SectionHeader({ children, action }: { children: ReactNode; action?: ReactNode }) {
+  if (!action) return <div className={SECTION_HEADER_CLASS}>{children}</div>;
+  /* 액션 버튼(min-h-8)은 -my-2로 행 높이에 영향을 주지 않게 — 헤더 간격이 레시피와 같게 유지된다 */
+  return (
+    <div className={`${SECTION_HEADER_CLASS} flex items-center justify-between pr-3`}>
+      <span>{children}</span>
+      {action}
+    </div>
   );
 }
 
@@ -295,10 +323,16 @@ export function SearchScreen() {
   const showEmpty = !debounced.trim();
 
   return (
-    <section className="flex h-full flex-col" data-testid="search-screen">
-      <div className="shrink-0 px-4 pt-3">
+    /* 상·하 여백은 App(pt-status / pb-tab)이 준다 — 루트에는 패딩 없음 */
+    <section className="flex min-h-full flex-col" data-testid="search-screen">
+      <div className="sticky top-0 z-10 shrink-0 bg-bg px-4 pt-2">
         <h1 className="sr-only">{t('search.title')}</h1>
+        {/* 캡슐 검색 입력 */}
         <div className="relative">
+          <IconSearch
+            size={20}
+            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted"
+          />
           <input
             ref={inputRef}
             type="search"
@@ -311,7 +345,7 @@ export function SearchScreen() {
             enterKeyHint="search"
             aria-label={t('search.title')}
             data-testid="search-input"
-            className="min-h-11 w-full rounded-full border border-border bg-surface pl-4 pr-10 text-fg placeholder:text-muted"
+            className="min-h-12 w-full appearance-none rounded-pill bg-surface-2 pl-11 pr-11 text-body text-fg outline-none transition-[background-color,box-shadow] duration-150 placeholder:text-muted focus:bg-surface-3 focus-visible:shadow-[0_0_0_2px_var(--accent-glow)] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:appearance-none"
           />
           {query && (
             <button
@@ -321,14 +355,15 @@ export function SearchScreen() {
                 setQuery('');
                 inputRef.current?.focus();
               }}
-              className="absolute right-1 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center text-muted"
+              className="absolute right-1.5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-pill text-muted transition-[background-color,transform] duration-150 ease-standard active:scale-95 active:bg-surface-3"
             >
               ✕
             </button>
           )}
         </div>
+        {/* 카테고리 칩(단일 선택) + "지금 보이는 것만" 스위치(톤 선택) */}
         <div
-          className="-mx-4 mt-2 flex gap-1.5 overflow-x-auto px-4 pb-2"
+          className="-mx-4 flex gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none]"
           role="tablist"
           aria-label={t('search.title')}
         >
@@ -341,12 +376,7 @@ export function SearchScreen() {
                 role="tab"
                 aria-selected={active}
                 onClick={() => useSearchStore.getState().setCategory(c)}
-                className="min-h-8 shrink-0 rounded-full border px-3 text-xs"
-                style={{
-                  background: active ? 'var(--accent)' : 'transparent',
-                  color: active ? 'var(--accent-fg)' : 'var(--fg)',
-                  borderColor: active ? 'var(--accent)' : 'var(--border)',
-                }}
+                className={`${CHIP_CLASS} ${CHIP_SELECTED}`}
                 data-testid={`search-cat-${c}`}
               >
                 {t(`search.category.${c}`)}
@@ -358,34 +388,33 @@ export function SearchScreen() {
             role="switch"
             aria-checked={visibleOnly}
             onClick={() => useSearchStore.getState().setVisibleOnly(!visibleOnly)}
-            className="min-h-8 shrink-0 rounded-full border px-3 text-xs"
-            style={{
-              background: visibleOnly ? 'var(--success)' : 'transparent',
-              color: visibleOnly ? 'var(--accent-fg)' : 'var(--fg)',
-              borderColor: visibleOnly ? 'var(--success)' : 'var(--border)',
-            }}
+            className={`${CHIP_CLASS} ${CHIP_CHECKED}`}
             data-testid="search-visible-only"
           >
+            {visibleOnly && <span aria-hidden>✓</span>}
             {t('search.visibleOnly')}
           </button>
         </div>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto" data-testid="search-results">
-        {!ready && <p className="px-4 py-3 text-sm text-muted">{t('search.loading')}</p>}
+      <div className="flex-1 pb-4" data-testid="search-results">
+        {!ready && <p className="px-5 py-3 text-body-sm text-muted">{t('search.loading')}</p>}
         {cat && showEmpty && recent.length > 0 && (
           <>
-            <div className="flex items-center justify-between px-4 pt-3 text-xs text-muted">
-              <span>{t('search.recent')}</span>
-              <button
-                type="button"
-                onClick={() => useSearchStore.getState().clearRecent()}
-                className="min-h-8 px-2"
-              >
-                {t('search.clearRecent')}
-              </button>
-            </div>
-            <ul data-testid="search-recent">
+            <SectionHeader
+              action={
+                <button
+                  type="button"
+                  onClick={() => useSearchStore.getState().clearRecent()}
+                  className="-my-2 min-h-8 rounded-pill px-3 text-body-sm font-medium text-accent transition-[background-color,transform] duration-150 ease-standard active:scale-95 active:bg-accent-soft"
+                >
+                  {t('search.clearRecent')}
+                </button>
+              }
+            >
+              {t('search.recent')}
+            </SectionHeader>
+            <ul className={GROUP_CLASS} data-testid="search-recent">
               {recent.map((id) => (
                 <ResultRow
                   key={id}
@@ -405,10 +434,8 @@ export function SearchScreen() {
         )}
         {cat && showEmpty && (
           <>
-            <div className="px-4 pt-3 text-xs text-muted">
-              {daytime ? t('search.suggestDay') : t('search.suggest')}
-            </div>
-            <ul data-testid="search-suggest">
+            <SectionHeader>{daytime ? t('search.suggestDay') : t('search.suggest')}</SectionHeader>
+            <ul className={GROUP_CLASS} data-testid="search-suggest">
               {suggestions.map((id) => (
                 <ResultRow
                   key={id}
@@ -429,9 +456,11 @@ export function SearchScreen() {
         {cat && !showEmpty && (
           <>
             {hits.length === 0 && ready && (
-              <p className="px-4 py-3 text-sm text-muted">{t('search.noResults')}</p>
+              <p className="mx-4 mt-2 rounded-lg bg-surface px-4 py-6 text-center text-body-sm text-muted squircle">
+                {t('search.noResults')}
+              </p>
             )}
-            <ul>
+            <ul className={`${GROUP_CLASS} mt-2`}>
               {hits.map((h) => (
                 <ResultRow
                   key={h.id}
@@ -449,7 +478,7 @@ export function SearchScreen() {
             </ul>
             {hits.length > 0 && (
               <p
-                className="px-4 py-2 text-right font-mono text-[11px] text-muted"
+                className="px-5 py-2 text-right text-label text-muted tabular-nums"
                 data-testid="search-count"
               >
                 {t('search.resultCount', { n: hits.length, ms: ms.toFixed(1) })}

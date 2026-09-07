@@ -44,9 +44,13 @@ export function phenomenonTitle(
     case 'moonQuarter':
       return t(`phenomena.quarter.${p.quarter ?? 0}`);
     case 'lunarEclipse':
-      return t('phenomena.lunarEclipse', { kind: t(`phenomena.eclipseKind.${p.eclipseKind ?? 'partial'}`) });
+      return t('phenomena.lunarEclipse', {
+        kind: t(`phenomena.eclipseKind.${p.eclipseKind ?? 'partial'}`),
+      });
     case 'solarEclipse':
-      return t('phenomena.solarEclipse', { kind: t(`phenomena.eclipseKind.${p.eclipseKind ?? 'partial'}`) });
+      return t('phenomena.solarEclipse', {
+        kind: t(`phenomena.eclipseKind.${p.eclipseKind ?? 'partial'}`),
+      });
     case 'perigeeFullMoon':
       return t('phenomena.perigeeFullMoon');
     case 'greatestBrilliancy':

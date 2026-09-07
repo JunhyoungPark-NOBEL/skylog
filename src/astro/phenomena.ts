@@ -10,6 +10,7 @@
 import {
   ApsisKind,
   Body,
+  Illumination,
   NextLunarApsis,
   NextMoonQuarter,
   SearchGlobalSolarEclipse,
@@ -22,7 +23,7 @@ import {
   SearchRelativeLongitude,
   type AstroTime,
 } from 'astronomy-engine';
-import { bodyState, BODY_OF_KEY, objectIdOfBody, type BodyKey } from '@/astro/bodies';
+import { AU_KM, bodyState, BODY_OF_KEY, objectIdOfBody, type BodyKey } from '@/astro/bodies';
 import { twilight } from '@/astro/events';
 import { eqjToAltAzSlow, makeObserver, type ObserverLike } from '@/astro/frames';
 import { observingNight } from '@/astro/night';
@@ -126,7 +127,9 @@ export function meteorCondition(
   const bestAt = new Date(peakDate.getTime() + 26 * 3_600_000);
   const radiant = eqjToAltAzSlow(bestAt, observer, shower.radiant.ra, shower.radiant.dec, 'normal');
   const illum = night.moon.illumination;
-  const spanMin = night.darkSpan ? (night.darkSpan.to.getTime() - night.darkSpan.from.getTime()) / 60_000 : 0;
+  const spanMin = night.darkSpan
+    ? (night.darkSpan.to.getTime() - night.darkSpan.from.getTime()) / 60_000
+    : 0;
   const darkFraction = spanMin > 0 ? Math.min(1, night.darkTotalMin / spanMin) : 0;
   const moonFactor = illum * (1 - darkFraction);
   let condition: MeteorCondition;
@@ -145,9 +148,48 @@ export function meteorCondition(
   };
 }
 
+/**
+ * 슈퍼문 판정(Espenak): 망 순간 지심 거리 ≤ 근지점 + 10% × (원지점 − 근지점). 근·원지점은 망 앞뒤 궤도의 것.
+ * ±1일 규칙은 2026-01-03·11-24 슈퍼문(근지점 30~36시간 차)을 놓친다.
+ */
+export function isSupermoon(
+  full: Date,
+): { distanceKm: number; perigeeKm: number; apogeeKm: number } | null {
+  let a = SearchLunarApsis(toAstroTime(new Date(full.getTime() - 20 * DAY_MS)));
+  let perigeeKm = Number.NaN;
+  let apogeeKm = Number.NaN;
+  for (let i = 0; i < 3; i++) {
+    if (a.kind === ApsisKind.Pericenter) perigeeKm = a.dist_km;
+    else apogeeKm = a.dist_km;
+    if (
+      a.time.date.getTime() > full.getTime() &&
+      !Number.isNaN(perigeeKm) &&
+      !Number.isNaN(apogeeKm)
+    )
+      break;
+    a = NextLunarApsis(a);
+  }
+  if (Number.isNaN(perigeeKm) || Number.isNaN(apogeeKm)) return null;
+  const distanceKm = Illumination(Body.Moon, toAstroTime(full)).geo_dist * AU_KM;
+  return distanceKm <= perigeeKm + 0.1 * (apogeeKm - perigeeKm)
+    ? { distanceKm, perigeeKm, apogeeKm }
+    : null;
+}
+
 /** 최대이각 때 시민박명(태양 −6°) 시각의 행성 고도 — 한국에서 실제로 보이는지 */
-function elongationAltitude(key: BodyKey, at: Date, visibility: 'morning' | 'evening', observer: ObserverLike): number {
-  const t = twilight(observer, new Date(at.getTime() - 12 * 3_600_000), 'civil', visibility === 'morning' ? +1 : -1, 2);
+function elongationAltitude(
+  key: BodyKey,
+  at: Date,
+  visibility: 'morning' | 'evening',
+  observer: ObserverLike,
+): number {
+  const t = twilight(
+    observer,
+    new Date(at.getTime() - 12 * 3_600_000),
+    'civil',
+    visibility === 'morning' ? +1 : -1,
+    2,
+  );
   if (!t) return 0;
   return bodyState(key, t, observer).altDeg;
 }
@@ -188,10 +230,20 @@ export function monthPhenomena(
     const body = BODY_OF_KEY[key];
     const inf = SearchRelativeLongitude(body, 0, startT);
     if (inRange(inf, r))
-      out.push({ kind: 'inferiorConjunction', at: inf.date, bodyKey: key, objectId: objectIdOfBody(key) });
+      out.push({
+        kind: 'inferiorConjunction',
+        at: inf.date,
+        bodyKey: key,
+        objectId: objectIdOfBody(key),
+      });
     const sup = SearchRelativeLongitude(body, 180, startT);
     if (inRange(sup, r))
-      out.push({ kind: 'superiorConjunction', at: sup.date, bodyKey: key, objectId: objectIdOfBody(key) });
+      out.push({
+        kind: 'superiorConjunction',
+        at: sup.date,
+        bodyKey: key,
+        objectId: objectIdOfBody(key),
+      });
     let from: AstroTime = startT;
     for (let i = 0; i < 3; i++) {
       const el = SearchMaxElongation(body, from);
@@ -215,7 +267,13 @@ export function monthPhenomena(
   try {
     const peak = SearchPeakMagnitude(Body.Venus, startT);
     if (inRange(peak.time, r))
-      out.push({ kind: 'greatestBrilliancy', at: peak.time.date, bodyKey: 'venus', objectId: 'planet:venus', magnitude: peak.mag });
+      out.push({
+        kind: 'greatestBrilliancy',
+        at: peak.time.date,
+        bodyKey: 'venus',
+        objectId: 'planet:venus',
+        magnitude: peak.mag,
+      });
   } catch {
     /* 엔진이 못 찾으면 생략 */
   }
@@ -234,17 +292,16 @@ export function monthPhenomena(
     if (mq.quarter === 2) fullMoons.push(mq.time.date);
     mq = NextMoonQuarter(mq);
   }
-  // 근지점 보름달
+  // 근지점 보름달(슈퍼문, Espenak 규칙): 망 순간의 지심 거리 ≤ 근지점 + 0.1 × (원지점 − 근지점), 이 궤도의 근·원지점 기준
   for (const full of fullMoons) {
-    let apsis = SearchLunarApsis(toAstroTime(new Date(full.getTime() - 3 * DAY_MS)));
-    if (apsis.kind !== ApsisKind.Pericenter) apsis = NextLunarApsis(apsis);
-    if (Math.abs(apsis.time.date.getTime() - full.getTime()) <= DAY_MS)
+    const sm = isSupermoon(full);
+    if (sm)
       out.push({
         kind: 'perigeeFullMoon',
         at: full,
         bodyKey: 'moon',
         objectId: 'moon',
-        distanceAu: apsis.dist_au,
+        distanceAu: sm.distanceKm / AU_KM,
       });
   }
 
@@ -285,7 +342,8 @@ export function monthPhenomena(
       altAtPeakDeg: local?.peak.altitude,
       durationMin: local
         ? Math.round(
-            (local.partial_end.time.date.getTime() - local.partial_begin.time.date.getTime()) / 60_000,
+            (local.partial_end.time.date.getTime() - local.partial_begin.time.date.getTime()) /
+              60_000,
           )
         : undefined,
     });
@@ -316,16 +374,43 @@ export interface SpecialEventLite {
   withinDays?: number;
 }
 
-/** 추천 엔진용 특별 이벤트(충·최대이각·근지점 보름달) 추출 */
+/** 유성우 복사점 별자리(추천 카드는 별자리 후보에 극대 보너스를 준다). CAP(염소자리)는 ZHR 5라 제외 */
+export const SHOWER_RADIANT_CON: Record<string, ObjectId> = {
+  QUA: 'const:Boo',
+  LYR: 'const:Lyr',
+  ETA: 'const:Aqr',
+  SDA: 'const:Aqr',
+  PER: 'const:Per',
+  DRA: 'const:Dra',
+  ORI: 'const:Ori',
+  STA: 'const:Tau',
+  NTA: 'const:Tau',
+  LEO: 'const:Leo',
+  GEM: 'const:Gem',
+  URS: 'const:UMi',
+};
+
+/** 추천 엔진용 특별 이벤트(충·최대이각·근지점 보름달·유성우 극대) 추출 */
 export function specialEventsFrom(events: Phenomenon[]): SpecialEventLite[] {
   const out: SpecialEventLite[] = [];
   for (const e of events) {
     if (e.kind === 'opposition' && e.objectId)
-      out.push({ objectId: e.objectId, kind: 'opposition', at: e.at, withinDays: 21 });
-    else if (e.kind === 'maxElongation' && e.objectId)
+      out.push({ objectId: e.objectId, kind: 'opposition', at: e.at, withinDays: 30 });
+    else if (e.kind === 'maxElongation' && e.objectId && e.visibleLocally !== false)
       out.push({ objectId: e.objectId, kind: 'elongation', at: e.at, withinDays: 10 });
     else if (e.kind === 'perigeeFullMoon')
       out.push({ objectId: 'moon', kind: 'fullMoon', at: e.at, withinDays: 1 });
+    else if (e.kind === 'meteorPeak' && e.meteor && e.meteor.condition !== 'poor') {
+      const con = SHOWER_RADIANT_CON[e.meteor.id];
+      // 극대 "밤"의 현지 자정 근처를 기준으로 ±2일
+      if (con)
+        out.push({
+          objectId: con,
+          kind: 'meteorPeak',
+          at: new Date(e.at.getTime() + 12 * 3_600_000),
+          withinDays: 2,
+        });
+    }
   }
   return out;
 }

@@ -25,6 +25,12 @@ const KIND_GLYPH: Record<SearchKind, string> = {
 };
 const GROUPS: RecGroup[] = ['now', 'naked', 'binoculars', 'telescope', 'settingSoon', 'rising'];
 
+/** 행 사이는 hairline(box-shadow) — 불투명 디바이더 없음 */
+const ROW_LIST = '[&>li+li]:hairline-t';
+/** 3차(텍스트) 버튼 */
+const TEXT_BUTTON =
+  'inline-flex min-h-8 items-center rounded-pill px-3 text-body-sm font-medium text-accent transition-[background-color,transform] duration-150 ease-standard active:scale-[0.97] active:bg-accent-soft';
+
 function Row({
   rec,
   cat,
@@ -41,31 +47,34 @@ function Row({
   const { t } = useTranslation();
   const m = rec.metrics;
   return (
-    <li className="flex items-center gap-3 py-2" data-testid="rec-item" data-object-id={rec.id}>
+    <li className="flex min-h-14 items-center gap-1" data-testid="rec-item" data-object-id={rec.id}>
       <button
         type="button"
         onClick={() => openObject(rec.id, 'half')}
-        className="flex min-w-0 flex-1 items-center gap-3 text-left"
+        className="-mx-2 flex min-h-14 min-w-0 flex-1 items-center gap-3 rounded-md px-2 py-2 text-left transition-colors duration-150 active:bg-surface-2"
         data-testid="rec-open"
       >
         <span
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-pill bg-surface-2 text-base"
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-pill bg-surface-3 text-body ${
+            rec.kind === 'planet' ? 'text-planet' : 'text-fg'
+          }`}
           aria-hidden
-          style={{ color: rec.kind === 'planet' ? 'var(--planet)' : 'var(--fg)' }}
         >
           {KIND_GLYPH[rec.kind]}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block truncate text-[15px] font-semibold" data-testid="rec-name">
+          <span className="block truncate text-body font-semibold" data-testid="rec-name">
             {displayName(cat, rec.id, lang)}
           </span>
-          <span className="block truncate text-xs text-muted" data-testid="rec-reason">
+          <span className="block truncate text-caption text-muted" data-testid="rec-reason">
             {reasonSentence(rec.reasons, lang, t)}
           </span>
         </span>
-        <span className="shrink-0 text-right">
-          <span className="block font-mono text-sm">{m.peakAt ? formatTime(m.peakAt) : '—'}</span>
-          <span className="block text-[11px] text-muted">
+        <span className="shrink-0 text-right tabular-nums">
+          <span className="block text-body-sm font-medium">
+            {m.peakAt ? formatTime(m.peakAt) : '—'}
+          </span>
+          <span className="block text-label text-muted">
             {compass16(m.peakAzDeg, lang)} {formatAlt(m.peakAltDeg, 0)}
           </span>
         </span>
@@ -76,8 +85,9 @@ function Row({
           aria-pressed={planned}
           aria-label={t('recommend.addToPlan')}
           onClick={() => onPlan(rec.id)}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-pill text-lg"
-          style={{ color: planned ? 'var(--marker)' : 'var(--muted)' }}
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-pill text-body-lg transition-[transform,background-color,color] duration-150 ease-standard active:scale-95 active:bg-surface-2 ${
+            planned ? 'text-marker' : 'text-muted'
+          }`}
           data-testid="rec-plan-toggle"
         >
           {planned ? '★' : '☆'}
@@ -111,27 +121,50 @@ export function RecommendCard({
   return (
     <Card
       title={t('recommend.title')}
-      aside={siteFiltered ? <Chip tone="success" selected className="min-h-6 text-[11px]">{t('recommend.siteBadge')}</Chip> : undefined}
+      aside={
+        siteFiltered ? (
+          <Chip tone="success" selected>
+            {t('recommend.siteBadge')}
+          </Chip>
+        ) : undefined
+      }
       testId="recommend-card"
     >
-      {!result && <p className="text-sm text-muted">{computing ? t('recommend.computing') : t('common.loading')}</p>}
-      {result && available.length === 0 && <p className="text-sm text-muted">{t('recommend.none')}</p>}
+      {!result && (
+        <p className="text-body-sm text-muted">
+          {computing ? t('recommend.computing') : t('common.loading')}
+        </p>
+      )}
+      {result && available.length === 0 && (
+        <p className="text-body-sm text-muted">{t('recommend.none')}</p>
+      )}
       {result && available.length > 0 && cat && (
         <>
-          <ChipRow label={t('recommend.title')}>
+          <ChipRow label={t('recommend.title')} className="-mt-2">
             {available.map((g) => (
-              <Chip key={g} role="tab" selected={g === active} onClick={() => setGroup(g)} testId={`rec-group-${g}`}>
-                {t(`recommend.group.${g}`)} <span className="opacity-70">{result.groups[g].length}</span>
+              <Chip
+                key={g}
+                role="tab"
+                selected={g === active}
+                onClick={() => setGroup(g)}
+                testId={`rec-group-${g}`}
+              >
+                {t(`recommend.group.${g}`)}{' '}
+                <span className="opacity-70 tabular-nums">{result.groups[g].length}</span>
               </Chip>
             ))}
           </ChipRow>
-          <ul className="mt-1 divide-y divide-border/50" data-testid="rec-list">
+          <ul className={`mt-1 ${ROW_LIST}`} data-testid="rec-list">
             {shown.map((r) => (
               <Row key={r.id} rec={r} cat={cat} lang={lang} />
             ))}
           </ul>
           {list.length > 8 && (
-            <button type="button" className="mt-1 min-h-9 text-sm text-accent" onClick={() => setExpanded((e) => !e)}>
+            <button
+              type="button"
+              className={`-ml-3 mt-1 ${TEXT_BUTTON}`}
+              onClick={() => setExpanded((e) => !e)}
+            >
               {expanded ? t('common.less') : t('common.more', { n: list.length - 8 })}
             </button>
           )}
@@ -142,7 +175,15 @@ export function RecommendCard({
 }
 
 /** 오늘 밤 계획(시간순 ≤ 12, ☆로 Dexie bookmarks에 저장) */
-export function PlanCard({ result, cat, lang }: { result: RecommendResult | null; cat: Catalog | null; lang: Lang }) {
+export function PlanCard({
+  result,
+  cat,
+  lang,
+}: {
+  result: RecommendResult | null;
+  cat: Catalog | null;
+  lang: Lang;
+}) {
   const { t } = useTranslation();
   const [planned, setPlanned] = useState<Set<ObjectId>>(new Set());
   useEffect(() => {
@@ -167,9 +208,16 @@ export function PlanCard({ result, cat, lang }: { result: RecommendResult | null
   };
   return (
     <Card title={t('recommend.plan')} aside={t('recommend.planHint')} testId="plan-card">
-      <ul className="divide-y divide-border/50">
+      <ul className={ROW_LIST}>
         {result.plan.map((r) => (
-          <Row key={r.id} rec={r} cat={cat} lang={lang} planned={planned.has(r.id)} onPlan={onPlan} />
+          <Row
+            key={r.id}
+            rec={r}
+            cat={cat}
+            lang={lang}
+            planned={planned.has(r.id)}
+            onPlan={onPlan}
+          />
         ))}
       </ul>
     </Card>
@@ -200,13 +248,19 @@ export function HighlightsCard({
       const d = (p.at.getTime() - now.getTime()) / 86_400_000;
       if (d < -1 || d > 14) return false;
       if (p.kind === 'meteorPeak') return p.meteor?.condition !== 'poor';
-      return p.kind === 'opposition' || p.kind === 'maxElongation' || p.kind === 'lunarEclipse' || p.kind === 'solarEclipse' || p.kind === 'perigeeFullMoon';
+      return (
+        p.kind === 'opposition' ||
+        p.kind === 'maxElongation' ||
+        p.kind === 'lunarEclipse' ||
+        p.kind === 'solarEclipse' ||
+        p.kind === 'perigeeFullMoon'
+      );
     })
     .slice(0, 2);
   if (bodies.length === 0 && soon.length === 0) return null;
   return (
     <Card title={t('recommend.highlights')} testId="highlights-card">
-      <ul className="divide-y divide-border/50">
+      <ul className={ROW_LIST}>
         {bodies.map((r) => (
           <Row key={r.id} rec={r} cat={cat} lang={lang} />
         ))}
@@ -215,7 +269,7 @@ export function HighlightsCard({
         <ul className="mt-2 flex flex-wrap gap-2" data-testid="highlight-events">
           {soon.map((p, i) => (
             <li key={i}>
-              <Chip tone="accent" selected className="min-h-8">
+              <Chip tone="accent" selected>
                 {phenomenonTitle(p, cat, lang, t, showers)} · {formatDateShort(p.at, lang)}
               </Chip>
             </li>
@@ -225,4 +279,3 @@ export function HighlightsCard({
     </Card>
   );
 }
-

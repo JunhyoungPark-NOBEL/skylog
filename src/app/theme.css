@@ -147,9 +147,10 @@
 /* ------------------------------------------------------------------ */
 html[data-theme='night'] {
   --bg: #000000;
-  --surface: #0d0202;
-  --surface-2: #170403;
-  --surface-3: #220706;
+  /* 검정 위에서 층이 보이도록 실제 톤 차이를 둔다(그룹 가장자리는 hairline-strong) */
+  --surface: #120303;
+  --surface-2: #1c0605;
+  --surface-3: #260807;
 
   --surface-glass: color-mix(in srgb, var(--surface) 85%, transparent);
   --surface-glass-strong: color-mix(in srgb, var(--surface) 92%, transparent);
@@ -318,9 +319,9 @@ html[data-glass='off'] {
 /* 5. 커스텀 유틸리티                                                   */
 /* ------------------------------------------------------------------ */
 /* 유리: 하늘이 뒤에 있는 내비게이션 층에만(상태 캡슐·탭 pill·반쯤 열린 시트·하늘 컨트롤). 리스트·본문 카드에는 쓰지 않는다. */
+/* 그림자는 포함하지 않는다 — `glass shadow-float`, `glass-strong shadow-sheet`처럼 명시적으로 조합한다 */
 @utility glass {
   background: var(--surface-glass-fallback);
-  box-shadow: var(--elev-float);
   @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
     background: var(--surface-glass);
     -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
@@ -329,7 +330,6 @@ html[data-glass='off'] {
 }
 @utility glass-strong {
   background: var(--surface-glass-fallback);
-  box-shadow: var(--elev-sheet);
   @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
     background: var(--surface-glass-strong);
     -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
@@ -365,15 +365,14 @@ html[data-glass='off'] {
     corner-shape: squircle;
   }
 }
-/* 떠 있는 바 아래로 스크롤 콘텐츠가 부드럽게 사라지게 */
+/* 떠 있는 탭 바 아래로 스크롤 콘텐츠가 부드럽게 사라지게(아래쪽만 — 위쪽 첫 줄은 흐리지 않는다) */
 @utility scroll-fade-y {
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 20px,
-    black calc(100% - 28px),
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(to bottom, black, black calc(100% - 28px), transparent);
+  mask-image: linear-gradient(to bottom, black, black calc(100% - 28px), transparent);
+}
+/* 하늘 뷰 하단 컨트롤(시간 바·툴팁 등)이 떠 있는 탭 pill 위에 오도록 하는 기준 높이 */
+@utility bottom-sky {
+  bottom: calc(var(--tab-height) + var(--tab-inset) + env(safe-area-inset-bottom) + 8px);
 }
 /* 떠 있는 탭 바 아래 스크롤 콘텐츠 여백 */
 @utility pb-tab {
@@ -387,39 +386,42 @@ html[data-glass='off'] {
 /* ------------------------------------------------------------------ */
 /* 6. 베이스                                                            */
 /* ------------------------------------------------------------------ */
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-sans);
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-  overscroll-behavior: none;
-  text-rendering: optimizeLegibility;
-}
-button,
-input,
-select {
-  font: inherit;
-  color: inherit;
-}
-button {
-  background: none;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  touch-action: manipulation;
-}
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-input[type='range'] {
-  accent-color: var(--accent);
+/* 베이스 리셋은 반드시 @layer base 안에 — 레이어 밖 규칙은 Tailwind 유틸리티(@layer utilities)를 이기므로
+   `button { background: none; padding: 0 }`가 밖에 있으면 bg-accent·px-* 가 전부 무시된다. */
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+    text-rendering: optimizeLegibility;
+  }
+  button,
+  input,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+  button {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  input[type='range'] {
+    accent-color: var(--accent);
+  }
 }
 
 /* 야간 모드에서 래스터 이미지도 붉게 */

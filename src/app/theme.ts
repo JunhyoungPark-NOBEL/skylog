@@ -32,14 +32,15 @@ function cssVarName(key: PaletteKey): string {
   return `--${key.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)}`;
 }
 
-/** 스타일시트가 없을 때(테스트·SSR)의 기본값. theme.css의 :root와 동일하게 유지한다. */
+/** 스타일시트가 없을 때(테스트·SSR)의 기본값. theme.css의 :root와 동일하게 유지한다.
+ *  PALETTE_KEYS의 토큰은 반드시 리터럴 색이어야 한다(color-mix/var 값은 getComputedStyle이 풀어 주지 않아 Three.js Color가 못 읽는다). */
 const FALLBACK: Palette = {
   bg: '#05070d',
-  fg: '#e6e9f2',
-  muted: '#8a93a8',
+  fg: '#e8ecf5',
+  muted: '#8f98ad',
   accent: '#5aa9ff',
   danger: '#ff5c5c',
-  overlay: 'rgba(5, 7, 13, 0.78)',
+  overlay: 'rgba(5, 7, 13, 0.6)',
   star: '#ffffff',
   planet: '#ffd98a',
   moon: '#e8e8e8',

@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { meteorCondition, monthPhenomena, monthRange, specialEventsFrom } from '@/astro/phenomena';
+import {
+  isSupermoon,
+  meteorCondition,
+  monthPhenomena,
+  monthRange,
+  specialEventsFrom,
+} from '@/astro/phenomena';
 import type { MeteorShower } from '@/catalog/meteors';
 import meteors from '../../../public/data/meteors.v1.json';
 
@@ -51,12 +57,45 @@ describe('이달의 천문 현상', () => {
     const c = meteorCondition(gem, 2026, SITE);
     expect(c.bestAt.getTime() - c.peakNight.getTime()).toBe(26 * 3_600_000);
     expect(c.radiantAltDeg).toBeGreaterThan(30); // 새벽 2시 쌍둥이자리는 높다
-    const per2025 = meteorCondition(SHOWERS.find((s) => s.id === 'PER')!, 2025, SITE);
+    const per2025 = meteorCondition(
+      SHOWERS.find((s) => s.id === 'PER')!,
+      2025,
+      SITE,
+    );
     expect(per2025.condition).toBe('poor'); // 2025-08-12 극대는 보름(8/9) 직후 달이 밝다
   });
-  it('특별 이벤트 추출', () => {
+  it('특별 이벤트 추출: 토성 충 + 유성우 극대(복사점 별자리)', () => {
     const ev = monthPhenomena(SITE, 2026, 10, SHOWERS);
     const sp = specialEventsFrom(ev);
     expect(sp.some((e) => e.kind === 'opposition' && e.objectId === 'planet:saturn')).toBe(true);
+    // 용자리 유성우(10-08, 달 5%) → const:Dra 극대 이벤트
+    expect(sp.some((e) => e.kind === 'meteorPeak' && e.objectId === 'const:Dra')).toBe(true);
+  });
+  it('슈퍼문(Espenak 규칙): 2026-11-24·12-24 보름달은 슈퍼문, 10-26은 아니다', () => {
+    const nov = monthPhenomena(SITE, 2026, 11).filter((e) => e.kind === 'perigeeFullMoon');
+    const dec = monthPhenomena(SITE, 2026, 12).filter((e) => e.kind === 'perigeeFullMoon');
+    const oct = monthPhenomena(SITE, 2026, 10).filter((e) => e.kind === 'perigeeFullMoon');
+    expect(nov.length).toBe(1);
+    expect(Math.abs(nov[0]!.at.getTime() - Date.parse('2026-11-24T14:54:00Z'))).toBeLessThan(
+      3_600_000,
+    );
+    expect(dec.length).toBe(1);
+    expect(oct.length).toBe(0);
+    expect(isSupermoon(new Date('2026-12-24T01:28:00Z'))).not.toBeNull();
+  });
+  it('수성 최대이각: 2026-10-12 저녁은 낮아서 안 보임, 11-21 새벽은 보임; 금성 최대 밝기 9월', () => {
+    const oct = monthPhenomena(SITE, 2026, 10);
+    const merc = oct.find((e) => e.kind === 'maxElongation' && e.bodyKey === 'mercury');
+    expect(merc).toBeDefined();
+    expect(merc!.visibility).toBe('evening');
+    expect(merc!.visibleLocally).toBe(false);
+    const nov = monthPhenomena(SITE, 2026, 11);
+    const merc2 = nov.find((e) => e.kind === 'maxElongation' && e.bodyKey === 'mercury');
+    expect(merc2?.visibility).toBe('morning');
+    expect(merc2?.visibleLocally).toBe(true);
+    const sep = monthPhenomena(SITE, 2026, 9);
+    const venus = sep.find((e) => e.kind === 'greatestBrilliancy');
+    expect(venus).toBeDefined();
+    expect(venus!.magnitude).toBeLessThan(-4.5);
   });
 });

@@ -167,7 +167,11 @@ export async function getWeather(
     if (!json?.hourly?.time?.length) return null;
     const fetchedAt = now();
     try {
-      await cacheSet(key, { json, fetchedAt: fetchedAt.toISOString() } satisfies CachedForecast, WEATHER_TTL_MS);
+      await cacheSet(
+        key,
+        { json, fetchedAt: fetchedAt.toISOString() } satisfies CachedForecast,
+        WEATHER_TTL_MS,
+      );
     } catch {
       /* 캐시 저장 실패는 무시 */
     }

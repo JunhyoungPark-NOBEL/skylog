@@ -119,11 +119,11 @@ export function equipmentVerdict(
     return { verdict: 'easy', marginMag: 99, limitMag: limit };
   if (target.mag === undefined) return { verdict: 'possible', marginMag: 0, limitMag: limit };
 
-  // 밝고 큰 산개성단(플레이아데스·프레세페·히아데스 등)은 별들의 집합이라 표면 밝기 모델이 "어려움"으로 오판한다 →
-  // 총 등급이 한계등급보다 1등급 이상 밝으면 보임, 2등급 이상이면 잘 보임
-  if (target.category === 'openCluster' && target.mag <= limit - 1) {
-    const margin = limit - target.mag;
-    return { verdict: margin >= 2 ? 'easy' : 'possible', marginMag: margin, limitMag: limit };
+  // 크고 밝은 산개성단(플레이아데스·프레세페·히아데스 등)은 별들의 집합이라 표면 밝기 모델이 오판한다 →
+  // 가장 밝은 구성원의 대략값(적분 등급 + 1.5)을 점광원처럼 판정한다(M45 잘 보임 / M44 어려움 / Bortle 4에서 M44 잘 보임)
+  if (target.category === 'openCluster' && (target.majArcmin ?? 0) >= 30) {
+    const margin = limit - (target.mag + 1.5);
+    return { verdict: verdictFromMargin(margin), marginMag: margin, limitMag: limit };
   }
   if (target.extended && target.majArcmin && target.majArcmin > 0.5) {
     const sbArcmin = surfaceBrightnessArcmin2(target.mag, target.majArcmin, target.minArcmin);

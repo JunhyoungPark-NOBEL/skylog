@@ -155,3 +155,19 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 ```
 
 규칙: astronomy-engine의 `Horizon`/`DefineStar`/`Constellation`은 `frames.ts`·`events.ts` 밖에서 호출하지 않는다(RA hours·EQD 실수 방지). 검증: 무작위 별 150개 빠른/느린 경로 ≤ 0.01°, JPL Horizons 기준 표(`tests/fixtures/reference-altaz.json`) ≤ 0.1°, 출몰 해석식 ±2분.
+
+## 날씨·추천·천문 현상·실제 하늘처럼 (T3b, D-020)
+
+- **날씨**(`services/weather.ts`): Open-Meteo 시간별 예보(`hourly.time`은 현지 시각 문자열 → `utc_offset_seconds`로 UTC 변환). `getWeather(lat, lon)`은 Dexie `cache`(1시간 TTL)를 먼저 보고, 실패·오프라인·8초 타임아웃이면 `null`(카드 숨김). `summarizeWeather(forecast, window)` = 구름 ≤ 30% 최장 구간·평균·결로(기온−이슬점 < 2°C)·바람·강수. 7Timer는 CORS 헤더가 없어 쓰지 않는다.
+- **추천 엔진**(`astro/recommend.ts`, 순수): 입력 = 후보(`catalog/recommendCandidates.ts`: 행성·달·밝은 별·이중성·메시에/콜드웰/이름 있는 DSO·대표 별자리) + 관측지·창·관측 밤·장비·구름 함수·이벤트·계절 시그니처. 10분 샘플마다 `eqjToSceneMatrix` 1개로 모든 고정 후보를 변환하고 행성은 `bodyState`. 샘플 가시 조건과 안 보이는 이유(horizon/site/twilight/cloud)를 기록한다. 출력 = `items`(점수순), `groups`(now/naked/binoculars/telescope/settingSoon/rising), `plan`(최적 시각순 ≤ 12), `reasons`(구조화 ReasonPart → `features/tonight/reasonText.ts`가 i18n 문장으로). 가중치는 파일 상단 `WEIGHTS` 표(근거 주석).
+- **장비 판정**(`astro/equipment.ts`): 점광원 = 한계등급 여유, 확산 천체 = 표면 밝기 vs Bortle 하늘 배경(+광학계 보너스), 은하·구상성단 중심부 +1.5, 큰 산개성단은 적분 등급+1.5를 점광원처럼. 근사이며 UI에 "참고" 표기.
+- **천문 현상**(`astro/phenomena.ts`, astronomy-engine 검색 함수는 이 파일 안에서만): `monthPhenomena(observer, y, m, showers)` → 충·합·최대이각(시민박명 고도로 가시 판정)·금성 최대 밝기·달 위상·월식/일식(지역 가시)·슈퍼문(Espenak)·유성우 극대(등급). `specialEventsFrom()`이 추천 보너스 이벤트로 변환(유성우는 복사점 별자리 `SHOWER_RADIANT_CON`).
+- **오늘 밤 탭**(`features/tonight/`): `useTonight` 훅이 관측 밤 → 창(프리셋: 지금부터 2h / 저녁(일몰~01:00) / 깊은 밤 / 새벽 / 직접) → 날씨 → 이달·다음 달 현상(관측지·달별 캐시) → 추천(입력 키가 바뀔 때 비동기 재계산, 이전 결과 유지)을 조립. 카드 순서: 하늘 상태(구름 겹침) → 날씨 → 하이라이트 → 추천(그룹 칩) → 계획(☆ = Dexie bookmarks) → 이달의 현상 → 유성우. 상태는 `state/tonightStore.ts`(프리셋·장비 persist).
+- **실제 하늘처럼**(`astro/realSky.ts`, `features/sky/useRealSkySync.ts`): 켜면 30초마다 Bortle(레이어 설정 > 관측지 > 7)·달로 한계등급을 계산해 `layerStore.limitingMag`에 넣는다(끄면 6.5). 박명·낮은 렌더러가 따로 처리.
+- **관측지 제약**(`features/settings/useSiteRecord.ts`): `locationStore.siteId`로 Dexie `sites`를 읽어 `visibleAz`/`minAltDeg`/`bortle`을 추천·시트에 공급.
+
+## UI 디자인 시스템 v2 (D-021)
+
+- 토큰은 `src/app/theme.css` 하나(반지름·표면 층·헤어라인·톤 상태색·그림자·유리·스프링 이징·타이포). Tailwind v4 `@theme`/`@theme inline`/`@utility`. 렌더러 팔레트(`app/theme.ts`)가 읽는 토큰은 리터럴 색이어야 한다(color-mix 금지).
+- 구조: 떠 있는 상태 캡슐(`pt-status`로 콘텐츠 여백) + 떠 있는 pill 탭 바(`pb-tab`, 하늘 컨트롤은 `bottom-sky`) + 28px 유리 바텀 시트(하늘 위·반쯤일 때만 유리). 공용 프리미티브 `ui/Card.tsx`·`ui/Chip.tsx`·`ui/PillButton.tsx`·`ui/Toggle.tsx`·`ui/Segmented.tsx`.
+- 야간 모드는 토큰 교체만(필터 hack 금지). 의미는 색 + 글리프/문구로.
