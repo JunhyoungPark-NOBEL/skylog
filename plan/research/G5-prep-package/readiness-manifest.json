@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "createdAt": "2026-09-07",
+  "status": "preparation-not-publishable",
+  "basis": "첨부 G3 배치1 초안과 G2 별자리 표; 정식 콘텐츠 인덱스 미제공",
+  "counts": {
+    "paths": 6,
+    "missions": 24,
+    "badges": 16,
+    "quiz": 100
+  },
+  "availableDraftContentIds": [
+    "moon",
+    "planet:jupiter",
+    "planet:mars",
+    "planet:mercury",
+    "planet:neptune",
+    "planet:saturn",
+    "planet:uranus",
+    "planet:venus",
+    "star:HIP102098",
+    "star:HIP11767",
+    "star:HIP21421",
+    "star:HIP24436",
+    "star:HIP27989",
+    "star:HIP32349",
+    "star:HIP69673",
+    "star:HIP80763",
+    "star:HIP91262",
+    "star:HIP97649",
+    "sun"
+  ],
+  "excludedContentIds": {
+    "star:HIP24608": "G3에서 low이며 분광형 충돌이 남아 있어 이번 대상·정답·미션에서 제외"
+  },
+  "unavailablePublishedIndex": "content/v1/index.json",
+  "coverageGaps": {
+    "quizMinimum": 150,
+    "quizGenerated": 100,
+    "quizRemainingToMinimum": 50,
+    "skyPickMinimum": 30,
+    "skyPickGenerated": 20,
+    "skyPickRemainingToMinimum": 10,
+    "tutorialsRequired": 4,
+    "tutorialsAuthored": 3,
+    "missingTutorial": "스타 호핑으로 성단 찾기"
+  },
+  "sourceFiles": [
+    {
+      "path": "inputs/G5-request.md",
+      "sha256": "46f3632bb953139cefd36059407c9f25415d82c443c99852a390bf04572e3980"
+    },
+    {
+      "path": "inputs/catalog-values.v1.csv",
+      "sha256": "a372c581814827928319f10a63c361071b0c3af37831abd964855e44a80d74f6"
+    },
+    {
+      "path": "inputs/constellations_ko.csv",
+      "sha256": "84e506ebdce9568510f57ccd29da22114916d29a4040b8e7f7a27fcd17f062a3"
+    },
+    {
+      "path": "inputs/content-targets.v1.csv",
+      "sha256": "f3e38b67118a826a6df0f63c86159ce5f127da835b37188bdd899d7b32e2db53"
+    },
+    {
+      "path": "inputs/g3-content-draft.json",
+      "sha256": "8ad8a43f7374dcbc42a8d527885bd9b1d3685cd925e8768f9521b23eaff9077c"
+    }
+  ]
+}

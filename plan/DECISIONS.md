@@ -115,3 +115,4 @@
 - **위치**: `getCurrentPosition`(12초) → 정확도 > 100m면 `watchPosition`으로 30초까지 개선. 마지막 위치는 Dexie `settings('sensor.lastFix')`. 시작 시 기본 관측지 > 마지막 GPS > 대전 프리셋. `coords.heading`은 쓰지 않는다(이동 방향).
 - **관측지 범위(C15)**: `Site.visibleAz = [[start, end]]`(단일 구간, 시계 방향), `minAltDeg`. T3 추천의 하드 필터. 하늘 화면의 범위 밖 어둡게 표시는 보류.
 - **미검증(실기기 필요)**: iOS heading 축·자세별 동작, Android 편각 부호 체감, 실제 지연·떨림, 화면 회전. 결과 반영 후 `task-2-done`.
+- **2026-09-07 추기**: 사용자 실기기 테스트 통과("매우 괜찮음, 문제 없이 잘 됨"). 덤프·기기 정보 없이 통과 보고만 있어 위 기본값을 그대로 확정하고 `task-2-done` 태그. iOS 축·편각 가설은 문제 보고가 있을 때 덤프로 재검토.

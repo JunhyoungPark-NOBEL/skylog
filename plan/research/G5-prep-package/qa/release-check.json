@@ -1,0 +1,359 @@
+{
+  "date": "2026-09-07",
+  "mode": "release",
+  "status": "blocked",
+  "checksPassed": 61,
+  "checksTotal": 61,
+  "errors": [],
+  "checks": [
+    {
+      "name": "paths schema",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "paths unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "paths NFC normalization",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "missions schema",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "missions unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "missions NFC normalization",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "badges schema",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "badges unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "badges NFC normalization",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "quiz schema",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "quiz unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "quiz NFC normalization",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "global ids unique",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "references inside 19 permitted G3 drafts",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "mission quiz badge prerequisites resolved",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "path mission refs resolved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "every mission assigned to exactly one path",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "path levels match missions",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "6 paths 2 per equipment level",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "24 missions 8 per equipment level",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "season balance five each plus four any",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "3 to 6 steps each",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "16 badges",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "100 quizzes 60mc 20tf 20skyPick",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "difficulty 40/40/20",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "mc integer index not boolean and within choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "mc choices distinct",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "tf bool only",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "tf ten true ten false",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "skyPick answer agrees with objectId",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "constellation valid and matches catalog",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "prerequisite graph acyclic",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "questions have no exact duplicates",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all explanations nonempty",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no unreviewed capella target",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no sun mercury venus direct observation mission",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no solar system skyPick",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no quality rating forced for completion",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "sun learning only and safety references exist",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "one evidence entry for every quiz",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "ledger content references resolve",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all missions have runtime gate records",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all badges have readiness records",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "three tutorial drafts, fourth explicitly pending",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "20 fixed-star missions have approximate windows",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "4 dynamic missions explicitly unverified",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "visibility examples meet margin and solar limits",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "distinct skyPick target circles do not overlap in input",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "full-sky isolation not misreported as verified",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "summer badge mission has 3 real observe steps",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "draft data has no sources or extra metadata fields added to schema",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "JSON roundtrip stable",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "badge icons are one grapheme and contain emoji",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "validator self-test: mc boolean rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "validator self-test: unknown quiz key rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "validator self-test: tf choices rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "validator self-test: skyPick numeric answer rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "validator self-test: unsupported step rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "validator self-test: too many steps rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "validator self-test: wrong rule payload rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "validator self-test: cycle detected",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "releaseReady": false,
+  "releaseBlockers": [
+    {
+      "id": "published-index-missing",
+      "reason": "정식 content/v1/index.json과 19개 초안의 실제 게시 상태를 확인하지 못함."
+    },
+    {
+      "id": "content-editorial-review",
+      "reason": "G3 초안 기반 문항을 작성했으며 원본의 승인/출처 전수 재검증을 대신하지 않음. 50개 이상 추가 문항은 이후 성단·은하·별자리 콘텐츠로 확장해야 함."
+    },
+    {
+      "id": "quiz-total-incomplete",
+      "reason": "최소 150 중 100 작성; 50 부족."
+    },
+    {
+      "id": "skyPick-total-incomplete",
+      "reason": "최소 30 중 20 작성; 10 부족. 현재 20개는 서로 다른 별 20개가 아니라 7별의 학습 목표 변형."
+    },
+    {
+      "id": "cluster-tutorial-missing",
+      "reason": "성단 콘텐츠가 없어 네 번째 필수 튜토리얼(스타 호핑으로 성단 찾기)은 작성/활성화 보류."
+    },
+    {
+      "id": "app-capabilities-unverified",
+      "reason": "Task7 실제 스텝 핸들러, T2/T5 센서·정렬·스케치·FOV·백업 기능 미검증."
+    },
+    {
+      "id": "runtime-visibility-unverified",
+      "reason": "현재 천체력, 정식 카탈로그 epoch, 달/행성 가시성 및 장애물·날씨 검사가 필요."
+    },
+    {
+      "id": "skyPick-isolation-unverified",
+      "reason": "전천 밝은별 목록과 실제 렌더러의 3° hit-test, 달/행성 근접 검사 미검증."
+    },
+    {
+      "id": "badge-semantics-pending",
+      "reason": "constellationCount/quizStreak/firstStarHop/align2 등 이벤트·집계 정의 승인 필요. 수여 조건을 데이터만으로 확정하지 않음."
+    }
+  ],
+  "environment": {
+    "python": "3.13.5",
+    "jsonschema": "4.26.0"
+  },
+  "scope": "사전 작업 데이터·검증기 검사. 앱의 TypeScript 테스트/실기기 테스트/저장소 병합이 아님."
+}

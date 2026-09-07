@@ -1,0 +1,2011 @@
+[
+  {
+    "quizId": "q-sirius-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP32349",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "https://www.sciencetimes.co.kr/?p=249691"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-arcturus-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP69673",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/resource/whats-up-september-2021/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-vega-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-rigel-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP24436",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap230407.html",
+      "https://science.nasa.gov/resource/help-from-orion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-betelgeuse-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP27989",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-altair-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP97649",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://chara.gsu.edu/photos-videos/image-gallery/altair",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/skywatching/",
+      "https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-aldebaran-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP21421",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150326.html",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+      "https://www.jpl.nasa.gov/videos/whats-up-march-2022/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-antares-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP80763",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/skywatching/",
+      "https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/",
+      "https://www.eso.org/public/news/eso1726/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-deneb-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP102098",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://arxiv.org/html/0912.1954v1",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-polaris-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP11767",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con",
+      "constellations_ko.csv"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "https://www.cfa.harvard.edu/news/polaris-north-star",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-sun-kind",
+    "basis": "provided-content",
+    "contentId": "sun",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/5550",
+      "https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/sun/facts/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-moon-kind",
+    "basis": "provided-content",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-moon-light",
+    "basis": "provided-content",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-mercury-nearest-sun",
+    "basis": "provided-content",
+    "contentId": "planet:mercury",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/mercury/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-venus-phase",
+    "basis": "provided-content",
+    "contentId": "planet:venus",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/venus/venus-facts/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4300"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-mars-color",
+    "basis": "provided-content",
+    "contentId": "planet:mars",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/mars/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-jupiter-kind",
+    "basis": "provided-content",
+    "contentId": "planet:jupiter",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-saturn-feature",
+    "basis": "provided-content",
+    "contentId": "planet:saturn",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/saturn/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-uranus-kind",
+    "basis": "provided-content",
+    "contentId": "planet:uranus",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/uranus/facts/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-neptune-eye",
+    "basis": "provided-content",
+    "contentId": "planet:neptune",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/neptune/neptune-facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-vega-tradition",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "koreanTradition",
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-altair-tradition",
+    "basis": "provided-content",
+    "contentId": "star:HIP97649",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "koreanTradition",
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://chara.gsu.edu/photos-videos/image-gallery/altair",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/skywatching/",
+      "https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-deneb-triangle",
+    "basis": "provided-content",
+    "contentId": "star:HIP102098",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://arxiv.org/html/0912.1954v1",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-sun-safe-choice",
+    "basis": "provided-content",
+    "contentId": "sun",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "safety",
+      "howToFind.ko"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/5550",
+      "https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/sun/facts/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-moon-sequence",
+    "basis": "provided-content-plus-external-verification",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "sources"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님.",
+    "externalSupport": [
+      {
+        "title": "NASA — Moon Phases",
+        "url": "https://science.nasa.gov/moon/moon-phases/",
+        "accessedAt": "2026-09-07",
+        "supports": "주요 위상 순서와 조명 배치에 따른 변화. 지구 그림자로 인한 월식과 보통 위상을 구분."
+      }
+    ]
+  },
+  {
+    "quizId": "q-moon-terminator",
+    "basis": "provided-content",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-moon-maria",
+    "basis": "provided-content",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-moon-support",
+    "basis": "provided-content",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-venus-two-names",
+    "basis": "provided-content",
+    "contentId": "planet:venus",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "koreanTradition",
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/venus/venus-facts/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4300"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-venus-surface",
+    "basis": "provided-content",
+    "contentId": "planet:venus",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/venus/venus-facts/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4300"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-mercury-horizon",
+    "basis": "provided-content",
+    "contentId": "planet:mercury",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/mercury/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-mars-size",
+    "basis": "provided-content",
+    "contentId": "planet:mars",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/mars/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-jupiter-moons",
+    "basis": "provided-content",
+    "contentId": "planet:jupiter",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-saturn-ring-tilt",
+    "basis": "provided-content",
+    "contentId": "planet:saturn",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/saturn/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-uranus-point",
+    "basis": "provided-content",
+    "contentId": "planet:uranus",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/uranus/facts/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-neptune-identify",
+    "basis": "provided-content",
+    "contentId": "planet:neptune",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/neptune/neptune-facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-arcturus-guide",
+    "basis": "provided-content",
+    "contentId": "star:HIP69673",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/resource/whats-up-september-2021/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-sirius-guide",
+    "basis": "provided-content",
+    "contentId": "star:HIP32349",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "howToFind.ko"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "https://www.sciencetimes.co.kr/?p=249691"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-rigel-color",
+    "basis": "provided-content",
+    "contentId": "star:HIP24436",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap230407.html",
+      "https://science.nasa.gov/resource/help-from-orion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-betelgeuse-report",
+    "basis": "provided-content",
+    "contentId": "star:HIP27989",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-altair-shape",
+    "basis": "provided-content",
+    "contentId": "star:HIP97649",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://chara.gsu.edu/photos-videos/image-gallery/altair",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/skywatching/",
+      "https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-aldebaran-membership",
+    "basis": "provided-content",
+    "contentId": "star:HIP21421",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150326.html",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+      "https://www.jpl.nasa.gov/videos/whats-up-march-2022/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-antares-city",
+    "basis": "provided-content",
+    "contentId": "star:HIP80763",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/skywatching/",
+      "https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/",
+      "https://www.eso.org/public/news/eso1726/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-deneb-body",
+    "basis": "provided-content",
+    "contentId": "star:HIP102098",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://arxiv.org/html/0912.1954v1",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-polaris-brightest",
+    "basis": "provided-content",
+    "contentId": "star:HIP11767",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "https://www.cfa.harvard.edu/news/polaris-north-star",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-vega-disk",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-sunspot-kind",
+    "basis": "provided-content",
+    "contentId": "sun",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/5550",
+      "https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/sun/facts/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-mercury-venus-temperature",
+    "basis": "provided-content",
+    "contentId": "planet:mercury",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/mercury/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-sirius-companion",
+    "basis": "provided-content",
+    "contentId": "star:HIP32349",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "facts",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "https://www.sciencetimes.co.kr/?p=249691"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-arcturus-temperature",
+    "basis": "provided-content",
+    "contentId": "star:HIP69673",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/resource/whats-up-september-2021/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-vega-myth-reality",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko",
+      "koreanTradition"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-rigel-occultation",
+    "basis": "provided-content",
+    "contentId": "star:HIP24436",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap230407.html",
+      "https://science.nasa.gov/resource/help-from-orion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-betelgeuse-dimming",
+    "basis": "provided-content",
+    "contentId": "star:HIP27989",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-altair-method",
+    "basis": "provided-content",
+    "contentId": "star:HIP97649",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://chara.gsu.edu/photos-videos/image-gallery/altair",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/skywatching/",
+      "https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-aldebaran-depth",
+    "basis": "provided-content",
+    "contentId": "star:HIP21421",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150326.html",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+      "https://www.jpl.nasa.gov/videos/whats-up-march-2022/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-antares-atmosphere",
+    "basis": "provided-content",
+    "contentId": "star:HIP80763",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/skywatching/",
+      "https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/",
+      "https://www.eso.org/public/news/eso1726/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-deneb-distance-uncertainty",
+    "basis": "provided-content",
+    "contentId": "star:HIP102098",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "meta.needsReview"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://arxiv.org/html/0912.1954v1",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-polaris-two-companions",
+    "basis": "provided-content",
+    "contentId": "star:HIP11767",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko",
+      "observing.telescope"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "https://www.cfa.harvard.edu/news/polaris-north-star",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-mars-retrograde",
+    "basis": "provided-content",
+    "contentId": "planet:mars",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/mars/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-moon-shadow-not-phase",
+    "basis": "provided-content-plus-external-verification",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "sources"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님.",
+    "externalSupport": [
+      {
+        "title": "NASA — Moon Phases",
+        "url": "https://science.nasa.gov/moon/moon-phases/",
+        "accessedAt": "2026-09-07",
+        "supports": "주요 위상 순서와 조명 배치에 따른 변화. 지구 그림자로 인한 월식과 보통 위상을 구분."
+      }
+    ]
+  },
+  {
+    "quizId": "q-sun-sunglasses",
+    "basis": "provided-content",
+    "contentId": "sun",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "safety"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/5550",
+      "https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/sun/facts/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-moon-not-star",
+    "basis": "provided-content",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-mercury-rocky",
+    "basis": "provided-content",
+    "contentId": "planet:mercury",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/mercury/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-venus-two-objects",
+    "basis": "provided-content",
+    "contentId": "planet:venus",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "koreanTradition"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/venus/venus-facts/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4300"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-mars-orange",
+    "basis": "provided-content",
+    "contentId": "planet:mars",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/mars/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-summer-members",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-polaris-in-ursa-minor",
+    "basis": "provided-content",
+    "contentId": "star:HIP11767",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "facts",
+      "catalog.con"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "https://www.cfa.harvard.edu/news/polaris-north-star",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-neptune-easy-eye",
+    "basis": "provided-content",
+    "contentId": "planet:neptune",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/neptune/neptune-facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-moon-full-best-always",
+    "basis": "provided-content",
+    "contentId": "moon",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://folkency.nfm.go.kr/topic/detail/9790",
+      "https://science.nasa.gov/eclipses/safety/",
+      "https://science.nasa.gov/moon/facts/",
+      "https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html",
+      "https://science.nasa.gov/moon/moon-phases/",
+      "https://science.nasa.gov/moon/viewing-tips/",
+      "https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-jupiter-always-four",
+    "basis": "provided-content",
+    "contentId": "planet:jupiter",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-saturn-angle",
+    "basis": "provided-content",
+    "contentId": "planet:saturn",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/saturn/facts/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-aldebaran-foreground",
+    "basis": "provided-content",
+    "contentId": "star:HIP21421",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150326.html",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+      "https://www.jpl.nasa.gov/videos/whats-up-march-2022/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-sirius-flicker",
+    "basis": "provided-content",
+    "contentId": "star:HIP32349",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "https://www.sciencetimes.co.kr/?p=249691"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-arcturus-point",
+    "basis": "provided-content",
+    "contentId": "star:HIP69673",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/resource/whats-up-september-2021/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-deneb-not-single-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP102098",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://arxiv.org/html/0912.1954v1",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-uranus-chart",
+    "basis": "provided-content",
+    "contentId": "planet:uranus",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/uranus/facts/",
+      "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-polaris-exact-pole",
+    "basis": "provided-content",
+    "contentId": "star:HIP11767",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "https://www.cfa.harvard.edu/news/polaris-north-star",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-betelgeuse-date",
+    "basis": "provided-content",
+    "contentId": "star:HIP27989",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "observing"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-altair-interferometry",
+    "basis": "provided-content",
+    "contentId": "star:HIP97649",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://chara.gsu.edu/photos-videos/image-gallery/altair",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/skywatching/",
+      "https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-vega-tradition-separate",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "story.ko",
+      "koreanTradition"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-sirius-name",
+    "basis": "provided-content",
+    "contentId": "star:HIP32349",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "https://www.sciencetimes.co.kr/?p=249691"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-arcturus-name",
+    "basis": "provided-content",
+    "contentId": "star:HIP69673",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/resource/whats-up-september-2021/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-vega-name",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-rigel-name",
+    "basis": "provided-content",
+    "contentId": "star:HIP24436",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap230407.html",
+      "https://science.nasa.gov/resource/help-from-orion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-betelgeuse-name",
+    "basis": "provided-content",
+    "contentId": "star:HIP27989",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-deneb-name",
+    "basis": "provided-content",
+    "contentId": "star:HIP102098",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://arxiv.org/html/0912.1954v1",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-polaris-name",
+    "basis": "provided-content",
+    "contentId": "star:HIP11767",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "https://www.cfa.harvard.edu/news/polaris-north-star",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-vega-weaver",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-sirius-constellation",
+    "basis": "provided-content",
+    "contentId": "star:HIP32349",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "https://www.sciencetimes.co.kr/?p=249691"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-arcturus-arc",
+    "basis": "provided-content",
+    "contentId": "star:HIP69673",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/resource/whats-up-september-2021/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-vega-lyra",
+    "basis": "provided-content",
+    "contentId": "star:HIP91262",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://encykorea.aks.ac.kr/Article/E0002170",
+      "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "https://science.nasa.gov/skywatching/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-rigel-foot",
+    "basis": "provided-content",
+    "contentId": "star:HIP24436",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap230407.html",
+      "https://science.nasa.gov/resource/help-from-orion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-betelgeuse-shoulder",
+    "basis": "provided-content",
+    "contentId": "star:HIP27989",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-deneb-tail",
+    "basis": "provided-content",
+    "contentId": "star:HIP102098",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://arxiv.org/html/0912.1954v1",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-polaris-north",
+    "basis": "provided-content",
+    "contentId": "star:HIP11767",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "https://www.cfa.harvard.edu/news/polaris-north-star",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-deneb-triangle",
+    "basis": "provided-content",
+    "contentId": "star:HIP102098",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://apod.nasa.gov/apod/ap150627.html",
+      "https://arxiv.org/html/0912.1954v1",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-sirius-remnant",
+    "basis": "provided-content",
+    "contentId": "star:HIP32349",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "https://www.sciencetimes.co.kr/?p=249691"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-arcturus-giant",
+    "basis": "provided-content",
+    "contentId": "star:HIP69673",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/resource/whats-up-september-2021/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stars/types/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-betelgeuse-dust",
+    "basis": "provided-content",
+    "contentId": "star:HIP27989",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  },
+  {
+    "quizId": "q-pick-polaris-role",
+    "basis": "provided-content",
+    "contentId": "star:HIP11767",
+    "contentFile": "inputs/g3-content-draft.json",
+    "fields": [
+      "summary.ko",
+      "story.ko",
+      "facts"
+    ],
+    "sourceUrls": [
+      "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "https://science.nasa.gov/skywatching/",
+      "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "https://www.cfa.harvard.edu/news/polaris-north-star",
+      "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440"
+    ],
+    "rationale": "첨부 G3 초안의 해당 문장과 카탈로그 소속을 재구성했다.",
+    "publicationGate": "skyPick-full-field-isolation-and-runtime-hit-test",
+    "acceptanceRadiusDeg": 3,
+    "isolationStatus": "not-verified-against-full-sky-catalog",
+    "sourceUrlsRole": "G3 항목의 상위 출처 목록. 해당 URL 모두를 이번에 다시 열거나 각 문장 근거로 승인한 것은 아님."
+  }
+]

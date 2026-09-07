@@ -1,0 +1,177 @@
+{
+  "quizCount": 20,
+  "distinctAnswerObjects": 7,
+  "acceptanceRadiusDeg": 3,
+  "pairwiseAnswerDistanceMinimumDeg": 18.605958,
+  "providedStarRows": 31,
+  "nearestProvidedNeighbors": [
+    {
+      "objectId": "star:HIP102098",
+      "nearestOtherInProvided31Stars": "star:HIP95947",
+      "separationDeg": 22.285464,
+      "fullSkyIsolationVerified": false
+    },
+    {
+      "objectId": "star:HIP11767",
+      "nearestOtherInProvided31Stars": "star:HIP72607",
+      "separationDeg": 16.577982,
+      "fullSkyIsolationVerified": false
+    },
+    {
+      "objectId": "star:HIP24436",
+      "nearestOtherInProvided31Stars": "star:HIP26311",
+      "separationDeg": 8.838908,
+      "fullSkyIsolationVerified": false
+    },
+    {
+      "objectId": "star:HIP27989",
+      "nearestOtherInProvided31Stars": "star:HIP25336",
+      "separationDeg": 7.530531,
+      "fullSkyIsolationVerified": false
+    },
+    {
+      "objectId": "star:HIP32349",
+      "nearestOtherInProvided31Stars": "star:HIP26727",
+      "separationDeg": 21.656837,
+      "fullSkyIsolationVerified": false
+    },
+    {
+      "objectId": "star:HIP69673",
+      "nearestOtherInProvided31Stars": "star:HIP67301",
+      "separationDeg": 30.655101,
+      "fullSkyIsolationVerified": false
+    },
+    {
+      "objectId": "star:HIP91262",
+      "nearestOtherInProvided31Stars": "star:HIP95947",
+      "separationDeg": 15.562918,
+      "fullSkyIsolationVerified": false
+    }
+  ],
+  "pairs": [
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP11767",
+      "separationDeg": 44.693461
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP24436",
+      "separationDeg": 122.193618
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP27989",
+      "separationDeg": 115.497248
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP32349",
+      "separationDeg": 142.502841
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP69673",
+      "separationDeg": 80.856735
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP91262",
+      "separationDeg": 23.84738
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP24436",
+      "separationDeg": 97.643355
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP27989",
+      "separationDeg": 82.128678
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP32349",
+      "separationDeg": 106.384816
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP69673",
+      "separationDeg": 71.551668
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP91262",
+      "separationDeg": 51.572732
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP27989",
+      "separationDeg": 18.605958
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP32349",
+      "separationDeg": 23.67325
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP69673",
+      "separationDeg": 135.326375
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP91262",
+      "separationDeg": 144.249413
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP32349",
+      "separationDeg": 27.104557
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP69673",
+      "separationDeg": 119.767997
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP91262",
+      "separationDeg": 132.801349
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP69673",
+      "separationDeg": 116.266063
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP91262",
+      "separationDeg": 157.859489
+    },
+    {
+      "a": "star:HIP69673",
+      "b": "star:HIP91262",
+      "separationDeg": 59.120148
+    }
+  ],
+  "status": "blocked-until-full-catalog-and-renderer-validation",
+  "limitations": [
+    "첨부31별은 전천 밝은별 목록이 아니므로 가까운 누락별이 있을 수 있다.",
+    "첨부 mag의 측광 대역이 미확인이므로 V등급 컷의 근거로 사용하지 않았다.",
+    "HEASARC BSC5P 문서를 확인했으나 전체 수치 테이블 다운로드가 실패하여 전천 검사는 수행하지 못했다.",
+    "동적 달·행성의 근접과 실제 시야의 선택 가능 별을 출제 시 다시 검사해야 한다."
+  ],
+  "requiredRuntimePolicy": {
+    "minimumAltitudeDeg": 25,
+    "solarAltitudeMaxDeg": -12,
+    "acceptanceRadiusDeg": 3,
+    "fullCatalogBrightnessBand": "verified V",
+    "candidateBrightnessLimitV": 4,
+    "minDistanceToOtherRenderedBrightObjectsDeg": 3,
+    "minDistanceBetweenAlternativeAnswerCentersDeg": 6,
+    "disambiguation": "가까운 다른 표시 객체가 있으면 문항을 보류; 다른 객체를 탭했는데 정답 원 안이라는 이유만으로 통과시키지 않음",
+    "practiceMode": "시간 여행·실내 지도 연습은 실제 observe 이벤트나 관측 배지를 발생시키지 않음",
+    "repeatPolicy": "같은 대상의 문항 변형은 같은 출제 묶음에 중복 배치하지 않음"
+  }
+}

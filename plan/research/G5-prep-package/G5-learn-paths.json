@@ -1,0 +1,104 @@
+[
+  {
+    "id": "naked-first-directions",
+    "title": {
+      "ko": "맨눈 1 · 이름과 방향"
+    },
+    "description": {
+      "ko": "밝은 길잡이와 달에서 관측 기록을 시작합니다. 목록 순서는 강제 잠금 순서가 아닙니다. 오늘 관측 가능한 미션부터 선택하세요."
+    },
+    "level": "naked",
+    "season": "any",
+    "missionIds": [
+      "spring-arcturus-first",
+      "spring-polaris-direction",
+      "winter-sirius-beacon",
+      "any-moon-phase"
+    ]
+  },
+  {
+    "id": "naked-season-bridges",
+    "title": {
+      "ko": "맨눈 2 · 계절의 연결"
+    },
+    "description": {
+      "ko": "여름 삼각형과 낮은 남쪽 별, 가을에 이어지는 길잡이를 비교합니다. 목록 순서는 강제 잠금 순서가 아닙니다. 오늘 관측 가능한 미션부터 선택하세요."
+    },
+    "level": "naked",
+    "season": "any",
+    "missionIds": [
+      "summer-triangle-three",
+      "summer-antares-window",
+      "autumn-deneb-bridge",
+      "autumn-aldebaran-arrival"
+    ]
+  },
+  {
+    "id": "binocular-first-field",
+    "title": {
+      "ko": "쌍안경 1 · 시야와 안정"
+    },
+    "description": {
+      "ko": "10×50의 실제 시야를 설정하고 별의 색과 달의 지형을 살핍니다. 목록 순서는 강제 잠금 순서가 아닙니다. 오늘 관측 가능한 미션부터 선택하세요."
+    },
+    "level": "binoculars",
+    "season": "any",
+    "missionIds": [
+      "summer-vega-fov",
+      "spring-arcturus-binocular",
+      "spring-orion-color-pair",
+      "any-moon-binocular"
+    ]
+  },
+  {
+    "id": "binocular-pattern-depth",
+    "title": {
+      "ko": "쌍안경 2 · 배열과 공간"
+    },
+    "description": {
+      "ko": "별밭과 짧은 줄, 투영 효과와 대기의 영향을 구별합니다. 목록 순서는 강제 잠금 순서가 아닙니다. 오늘 관측 가능한 미션부터 선택하세요."
+    },
+    "level": "binoculars",
+    "season": "any",
+    "missionIds": [
+      "summer-deneb-starfield",
+      "autumn-altair-line",
+      "winter-aldebaran-depth",
+      "winter-sirius-steady"
+    ]
+  },
+  {
+    "id": "telescope-first-record",
+    "title": {
+      "ko": "망원경 1 · 정렬과 기록"
+    },
+    "description": {
+      "ko": "지원이 확인된 기능으로 1별 정렬·스케치·백업을 연습합니다. 목록 순서는 강제 잠금 순서가 아닙니다. 오늘 관측 가능한 미션부터 선택하세요."
+    },
+    "level": "telescope",
+    "season": "any",
+    "missionIds": [
+      "summer-vega-align-one",
+      "any-moon-first-sketch",
+      "any-jupiter-visit",
+      "autumn-polaris-backup"
+    ]
+  },
+  {
+    "id": "telescope-honest-view",
+    "title": {
+      "ko": "망원경 2 · 눈으로 본 범위"
+    },
+    "description": {
+      "ko": "밝은 별의 접안 모습과 연구로 알려진 성질을 나누어 기록합니다. 목록 순서는 강제 잠금 순서가 아닙니다. 오늘 관측 가능한 미션부터 선택하세요."
+    },
+    "level": "telescope",
+    "season": "any",
+    "missionIds": [
+      "spring-polaris-center",
+      "autumn-deneb-point",
+      "winter-rigel-scale",
+      "winter-betelgeuse-record"
+    ]
+  }
+]

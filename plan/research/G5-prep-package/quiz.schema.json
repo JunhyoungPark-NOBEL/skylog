@@ -1,0 +1,280 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G5 quiz — 첨부 Task7 규약",
+  "type": "array",
+  "items": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+          },
+          "objectId": {
+            "type": "string",
+            "pattern": "^(?:star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|planet:[a-z]+|const:[A-Z][A-Za-z]{2}|moon|sun)$"
+          },
+          "constellation": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Za-z]{2}$"
+          },
+          "question": {
+            "type": "object",
+            "properties": {
+              "ko": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ko"
+            ],
+            "additionalProperties": false
+          },
+          "explanation": {
+            "type": "object",
+            "properties": {
+              "ko": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ko"
+            ],
+            "additionalProperties": false
+          },
+          "difficulty": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "mc"
+          },
+          "answer": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "choices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ko": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ko"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 3,
+            "maxItems": 4
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "question",
+          "answer",
+          "explanation",
+          "difficulty",
+          "tags",
+          "choices"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+          },
+          "objectId": {
+            "type": "string",
+            "pattern": "^(?:star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|planet:[a-z]+|const:[A-Z][A-Za-z]{2}|moon|sun)$"
+          },
+          "constellation": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Za-z]{2}$"
+          },
+          "question": {
+            "type": "object",
+            "properties": {
+              "ko": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ko"
+            ],
+            "additionalProperties": false
+          },
+          "explanation": {
+            "type": "object",
+            "properties": {
+              "ko": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ko"
+            ],
+            "additionalProperties": false
+          },
+          "difficulty": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "trueFalse"
+          },
+          "answer": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "question",
+          "answer",
+          "explanation",
+          "difficulty",
+          "tags"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+          },
+          "objectId": {
+            "type": "string",
+            "pattern": "^(?:star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|planet:[a-z]+|const:[A-Z][A-Za-z]{2}|moon|sun)$"
+          },
+          "constellation": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Za-z]{2}$"
+          },
+          "question": {
+            "type": "object",
+            "properties": {
+              "ko": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ko"
+            ],
+            "additionalProperties": false
+          },
+          "explanation": {
+            "type": "object",
+            "properties": {
+              "ko": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ko"
+            ],
+            "additionalProperties": false
+          },
+          "difficulty": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "skyPick"
+          },
+          "answer": {
+            "type": "string",
+            "pattern": "^(?:star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|planet:[a-z]+|const:[A-Z][A-Za-z]{2}|moon|sun)$"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "question",
+          "answer",
+          "explanation",
+          "difficulty",
+          "tags"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  }
+}

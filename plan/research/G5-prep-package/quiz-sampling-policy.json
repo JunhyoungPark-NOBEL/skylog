@@ -1,0 +1,75 @@
+{
+  "status": "implementation-contract-proposal",
+  "allQuizTextsAreKorean": true,
+  "difficultyIsEditorialNotMeasured": true,
+  "sampling": {
+    "respectDifficultyRatio": [
+      0.4,
+      0.4,
+      0.2
+    ],
+    "maxSkyPickPerSameObjectPerSession": 1,
+    "sameObjectConstellationMcAndSkyPick": "같은 묶음에 연달아 배치하지 않음",
+    "avoidRepeatedSameQuestionForQuizStreak": true,
+    "skyPickLabels": "정답을 직접 노출하는 이름 라벨/선택 강조를 출제 전에 해제",
+    "noVisibleTarget": "오답 처리 대신 문항 보류·다른 문제 선택",
+    "practiceDoesNotCompleteObservation": true
+  },
+  "skyPickVariantGroups": [
+    {
+      "objectId": "star:HIP102098",
+      "quizIds": [
+        "q-pick-deneb-name",
+        "q-pick-deneb-tail",
+        "q-pick-deneb-triangle"
+      ]
+    },
+    {
+      "objectId": "star:HIP11767",
+      "quizIds": [
+        "q-pick-polaris-name",
+        "q-pick-polaris-north",
+        "q-pick-polaris-role"
+      ]
+    },
+    {
+      "objectId": "star:HIP24436",
+      "quizIds": [
+        "q-pick-rigel-name",
+        "q-pick-rigel-foot"
+      ]
+    },
+    {
+      "objectId": "star:HIP27989",
+      "quizIds": [
+        "q-pick-betelgeuse-name",
+        "q-pick-betelgeuse-shoulder",
+        "q-pick-betelgeuse-dust"
+      ]
+    },
+    {
+      "objectId": "star:HIP32349",
+      "quizIds": [
+        "q-pick-sirius-name",
+        "q-pick-sirius-constellation",
+        "q-pick-sirius-remnant"
+      ]
+    },
+    {
+      "objectId": "star:HIP69673",
+      "quizIds": [
+        "q-pick-arcturus-name",
+        "q-pick-arcturus-arc",
+        "q-pick-arcturus-giant"
+      ]
+    },
+    {
+      "objectId": "star:HIP91262",
+      "quizIds": [
+        "q-pick-vega-name",
+        "q-pick-vega-weaver",
+        "q-pick-vega-lyra"
+      ]
+    }
+  ]
+}

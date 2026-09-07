@@ -1,0 +1,119 @@
+[
+  {
+    "badgeId": "badge-first-look",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "관측·학습 이벤트의 실제 구현 및 판정 규약 승인"
+    ]
+  },
+  {
+    "badgeId": "badge-first-sketch",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "스케치 저장 성공 이벤트"
+    ]
+  },
+  {
+    "badgeId": "badge-first-hop",
+    "state": "blocked-missing-cluster-content",
+    "requirements": [
+      "성단 G3 콘텐츠",
+      "starhop 기능",
+      "성단 찾기 튜토리얼"
+    ]
+  },
+  {
+    "badgeId": "badge-two-star-check",
+    "state": "blocked-g4-and-implementation",
+    "requirements": [
+      "T5의 align2",
+      "G4 코드 리뷰",
+      "정렬 성공과 실제 오차의 구별"
+    ]
+  },
+  {
+    "badgeId": "badge-missions-3",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "관측·학습 이벤트의 실제 구현 및 판정 규약 승인"
+    ]
+  },
+  {
+    "badgeId": "badge-missions-6",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "관측·학습 이벤트의 실제 구현 및 판정 규약 승인"
+    ]
+  },
+  {
+    "badgeId": "badge-missions-12",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "관측·학습 이벤트의 실제 구현 및 판정 규약 승인"
+    ]
+  },
+  {
+    "badgeId": "badge-missions-24",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "관측·학습 이벤트의 실제 구현 및 판정 규약 승인"
+    ]
+  },
+  {
+    "badgeId": "badge-quiz-3",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "서로 다른 문항의 최초 응답 기준 연속 정답 규약"
+    ]
+  },
+  {
+    "badgeId": "badge-quiz-5",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "서로 다른 문항의 최초 응답 기준 연속 정답 규약"
+    ]
+  },
+  {
+    "badgeId": "badge-quiz-10",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "서로 다른 문항의 최초 응답 기준 연속 정답 규약"
+    ]
+  },
+  {
+    "badgeId": "badge-constellations-2",
+    "state": "blocked-rule-semantics",
+    "requirements": [
+      "별 관측의 소속 별자리 중복 제거로 셀지, 별자리 직접 관측만 셀지 T7 결정 필요"
+    ]
+  },
+  {
+    "badgeId": "badge-constellations-4",
+    "state": "blocked-rule-semantics",
+    "requirements": [
+      "별 관측의 소속 별자리 중복 제거로 셀지, 별자리 직접 관측만 셀지 T7 결정 필요"
+    ]
+  },
+  {
+    "badgeId": "badge-constellations-6",
+    "state": "blocked-rule-semantics",
+    "requirements": [
+      "별 관측의 소속 별자리 중복 제거로 셀지, 별자리 직접 관측만 셀지 T7 결정 필요"
+    ]
+  },
+  {
+    "badgeId": "badge-summer-guide",
+    "state": "requires-implementation-verification",
+    "requirements": [
+      "베가·알타이르·데네브의 실제 observe 3건; find 또는 skyPick만으로 수여 금지"
+    ]
+  },
+  {
+    "badgeId": "badge-messier-three",
+    "state": "blocked-missing-dso-content",
+    "requirements": [
+      "DSO 콘텐츠와 관측 미션",
+      "별칭 중복을 제거한 메시에 집계"
+    ]
+  }
+]

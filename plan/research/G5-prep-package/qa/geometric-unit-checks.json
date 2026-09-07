@@ -1,0 +1,36 @@
+{
+  "purpose": "기획용 고도 선별기의 기본 구면식 검사. G4 코드 리뷰 아님.",
+  "checks": [
+    {
+      "name": "equator-meridian",
+      "actual": 90.0,
+      "expected": 90,
+      "passed": true
+    },
+    {
+      "name": "equator-horizon",
+      "actual": 3.508354649267438e-15,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "north-pole-altitude",
+      "actual": 36.35,
+      "expected": 36.35,
+      "passed": true
+    },
+    {
+      "name": "south-pole-altitude",
+      "actual": -36.35,
+      "expected": -36.35,
+      "passed": true
+    },
+    {
+      "name": "antares-upper-transit",
+      "actual": 27.217999999999996,
+      "expected": 27.218,
+      "passed": true
+    }
+  ],
+  "allPassed": true
+}

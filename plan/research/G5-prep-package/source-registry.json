@@ -1,0 +1,114 @@
+[
+  {
+    "id": "S01",
+    "title": "NASA — Moon Phases",
+    "url": "https://science.nasa.gov/moon/moon-phases/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "달 위상 순서 및 배치 설명"
+  },
+  {
+    "id": "S02",
+    "title": "NASA — Moon Viewing Tips",
+    "url": "https://science.nasa.gov/moon/viewing-tips/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "명암 경계, 지형과 지지된 쌍안경 관측"
+  },
+  {
+    "id": "S03",
+    "title": "NASA — Eclipse Viewing Safety",
+    "url": "https://science.nasa.gov/eclipses/safety/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "태양 필터, 일식 안경과 광학 장비의 구분"
+  },
+  {
+    "id": "S04",
+    "title": "한국천문연구원 — 여름철 대삼각형",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "베가·알타이르·데네브와 직녀·견우 대응. 정삼각형이라는 원문 표현은 데이터에 채택하지 않음."
+  },
+  {
+    "id": "S05",
+    "title": "NASA — What is the North Star and How Do You Find It?",
+    "url": "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "폴라리스 소속과 북쪽 길잡이 역할"
+  },
+  {
+    "id": "S06",
+    "title": "NASA — Discovering the Universe Through the Constellation Orion",
+    "url": "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "리겔·베텔게우스의 위치와 색 대비"
+  },
+  {
+    "id": "S07",
+    "title": "USNO — Computing Approximate Sidereal Time",
+    "url": "https://aa.usno.navy.mil/faq/GAST",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "근사 항성시 계산"
+  },
+  {
+    "id": "S08",
+    "title": "USNO — Computing Altitude and Azimuth",
+    "url": "https://aa.usno.navy.mil/faq/alt_az",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "시각·위도·적경·적위에서 고도 계산"
+  },
+  {
+    "id": "S09",
+    "title": "USNO — Computing Approximate Solar Coordinates",
+    "url": "https://aa.usno.navy.mil/faq/sun_approx",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "계획용 박명 선별"
+  },
+  {
+    "id": "S10",
+    "title": "NASA HEASARC — Bright Star Catalog BSC5P",
+    "url": "https://heasarc.gsfc.nasa.gov/W3Browse/star-catalog/bsc5p.html",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "카탈로그의 범위·좌표·측광 설명만 확인. 수치 데이터 다운로드는 실패."
+  },
+  {
+    "id": "S11",
+    "title": "NASA — Jupiter Facts",
+    "url": "https://science.nasa.gov/jupiter/jupiter-facts/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "거대 가스 행성. 자료의 변동 가능한 위성 수·과거 미션 계획은 문항에 채택하지 않음."
+  },
+  {
+    "id": "S12",
+    "title": "NASA — Saturn Facts",
+    "url": "https://science.nasa.gov/saturn/facts/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "토성의 고리와 행성 분류"
+  },
+  {
+    "id": "S13",
+    "title": "NASA — Uranus Facts",
+    "url": "https://science.nasa.gov/uranus/facts/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "거대 얼음 행성 분류"
+  },
+  {
+    "id": "S14",
+    "title": "NASA — Neptune Facts",
+    "url": "https://science.nasa.gov/neptune/neptune-facts/",
+    "accessedAt": "2026-09-07",
+    "status": "current-session-checked-document",
+    "scope": "해왕성 분류와 일반 성질"
+  }
+]

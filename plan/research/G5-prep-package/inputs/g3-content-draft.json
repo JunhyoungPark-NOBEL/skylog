@@ -1,0 +1,1914 @@
+[
+  {
+    "id": "sun",
+    "version": 1,
+    "title": {
+      "ko": "태양",
+      "en": "Sun"
+    },
+    "oneLiner": {
+      "ko": "안전한 태양 필터를 갖춘 뒤 만나는 가장 가까운 별"
+    },
+    "summary": {
+      "ko": "태양은 필터 없이 절대 보지 말아야 하며, 쌍안경과 망원경에는 입구에 고정하는 전용 태양 필터가 필요합니다. 태양은 중심에서 수소를 헬륨으로 바꾸는 핵융합으로 빛나는 별입니다. 안전 장비를 갖추면 광구(눈에 보이는 표면)의 흑점을 살펴볼 수 있지만, 흑점이 없는 날도 있습니다. 흑점은 구멍이 아니라 주변보다 온도가 낮아 어둡게 보이는 영역입니다. 백색광 태양 필터(가시광선을 줄이는 전용 필터)로 보는 모습과 홍염을 보여 주는 특수 태양망원경의 모습은 다릅니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "주계열별(중심에서 수소 핵융합을 하는 별)",
+        "source": "https://science.nasa.gov/universe/stars/types/"
+      },
+      {
+        "label": "지구에서의 평균 거리",
+        "value": "약 1 AU",
+        "source": "https://science.nasa.gov/sun/facts/"
+      },
+      {
+        "label": "나이",
+        "value": "약 46억 년",
+        "source": "https://science.nasa.gov/sun/facts/"
+      },
+      {
+        "label": "주요 구성",
+        "value": "수소와 헬륨",
+        "source": "https://science.nasa.gov/sun/facts/"
+      },
+      {
+        "label": "에너지원",
+        "value": "중심핵의 핵융합",
+        "source": "https://science.nasa.gov/sun/facts/"
+      },
+      {
+        "label": "관측하는 층",
+        "value": "백색광 관측에서는 주로 광구",
+        "source": "https://science.nasa.gov/sun/facts/"
+      }
+    ],
+    "story": {
+      "ko": "한국의 고구려 고분벽화에는 태양과 연결된 삼족오(다리가 셋인 새)가 등장합니다. 이는 태양 안에 실제 새가 산다는 천문학적 설명이 아니라, 당시 사람들이 하늘을 표현한 문화적 상징입니다. 현대 천문학은 같은 태양을 뜨거운 플라스마(전기를 띤 입자들의 기체 상태)와 자기장이 활동하는 별로 연구합니다. 안전한 장비로 여러 날의 흑점을 비교하면 위치와 모양이 달라지는 모습을 기록할 수 있습니다. 다만 하나의 점을 매일 같은 흑점이라고 판단하려면 날짜와 태양 원반의 방향도 함께 남겨야 합니다. 옛 벽화의 상징을 읽는 일과 오늘의 태양을 측정하는 일은 서로 다른 방식으로 같은 하늘을 바라보는 경험입니다.",
+      "cultures": [
+        "한국",
+        "동아시아",
+        "기타"
+      ],
+      "sources": [
+        "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+        "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2",
+        "NASA — Sun Facts | https://science.nasa.gov/sun/facts/"
+      ]
+    },
+    "howToFind": {
+      "ko": "태양은 밤하늘 별을 따라 찾는 대상이 아닙니다. 계절과 관계없이 낮에 전문 관측자의 도움으로 전용 태양 관측 장비를 준비하세요. 태양을 직접 보거나 파인더를 들여다보며 조준하지 말고, 안전한 태양용 조준 장치를 사용하세요. 준비가 안 됐다면 직접 관측 대신 앱의 태양 설명을 읽으세요.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "맨눈 직접 관측은 금지합니다. 손상 없는 전용 일식 안경이나 태양 관측용 뷰어를 올바르게 사용한 경우에만 원반을 봅니다. 보통 선글라스는 사용할 수 없습니다.",
+      "binoculars": "10×50 양쪽 대물렌즈 앞에 용도에 맞는 전용 태양 필터를 단단히 고정한 경우에만 관측합니다. 큰 흑점이 있을 때 찾을 수 있으며, 일식 안경만 쓴 채 쌍안경을 보면 안 됩니다.",
+      "telescope": "90mm 굴절망원경의 입구에 적합한 태양 필터를 고정하고 파인더도 안전 처리한 뒤 20~80배로 관측합니다. 흑점이 있으면 군집과 어두운 중심부를 살펴볼 수 있습니다. 장비 점검과 감독이 먼저입니다.",
+      "difficulty": 3
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=sun)",
+      "NASA — Sun Facts | https://science.nasa.gov/sun/facts/",
+      "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+      "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+      "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+      "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "흑점은 태양 표면에 뚫린 구멍이 아니라 주변보다 서늘한 영역입니다.",
+      "태양은 고체가 아니어서 위도에 따라 자전 속도가 다릅니다."
+    ],
+    "koreanTradition": {
+      "name": "해",
+      "note": "고구려 고분벽화의 삼족오는 태양을 나타내는 문화적 상징입니다. 현대 천체의 고유명이나 실제 태양 구조와 혼동하지 않습니다.",
+      "sources": [
+        "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+        "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2"
+      ]
+    },
+    "safety": "필터 없이 절대 보지 말 것. 태양을 맨눈이나 무필터 광학 장비로 보면 심각한 눈 손상이 생길 수 있습니다. 쌍안경·망원경·카메라에는 태양을 향한 입구에 해당 장비용 전용 태양 필터를 안전하게 고정해야 합니다. 일식 안경을 쓰고 무필터 쌍안경이나 망원경을 들여다보지 마세요. 선글라스·그을린 유리·접안렌즈에 끼우는 태양 필터는 사용하지 마세요. 안전 장비가 불확실하면 관측하지 마세요."
+  },
+  {
+    "id": "moon",
+    "version": 1,
+    "title": {
+      "ko": "달",
+      "en": "Moon"
+    },
+    "oneLiner": {
+      "ko": "도시에서도 지형과 위상 변화를 따라갈 수 있는 이웃"
+    },
+    "summary": {
+      "ko": "달은 지구의 자연위성이며, 스스로 빛나는 대신 태양빛을 반사합니다. 밝게 보이는 부분의 모양이 달라지는 위상 변화는 달이 지구 주위를 돌면서 생깁니다. 맨눈으로 보이는 어두운 무늬는 주로 오래된 용암이 굳은 평원으로, 물이 없는 곳이지만 전통적으로 바다라고 부릅니다. 크레이터와 산의 입체감을 보려면 보름보다 반달 무렵이 좋습니다. 밝은 부분과 어두운 부분의 경계에 긴 그림자가 생기기 때문입니다. 도시에서도 여러 밤 같은 지형을 비교하며 관측을 시작하기 좋습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "지구의 자연위성",
+        "source": "https://science.nasa.gov/moon/facts/"
+      },
+      {
+        "label": "지구에서의 평균 거리",
+        "value": "약 0.00257 AU(출처의 거리에서 환산)",
+        "source": "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+      },
+      {
+        "label": "위상 반복 주기",
+        "value": "약 29.5일",
+        "source": "https://science.nasa.gov/moon/moon-phases/"
+      },
+      {
+        "label": "빛의 근원",
+        "value": "반사한 태양빛",
+        "source": "https://science.nasa.gov/moon/viewing-tips/"
+      },
+      {
+        "label": "바다라 부르는 무늬",
+        "value": "주로 용암이 굳은 어두운 평원",
+        "source": "https://science.nasa.gov/moon/viewing-tips/"
+      },
+      {
+        "label": "크레이터 관측에 좋은 때",
+        "value": "보름 이외의 위상, 특히 명암 경계 부근",
+        "source": "https://science.nasa.gov/moon/viewing-tips/"
+      }
+    ],
+    "story": {
+      "ko": "한국과 동아시아의 달 이미지에는 토끼와 두꺼비가 등장합니다. 고구려 고분벽화에도 이러한 동물로 달을 표현한 사례가 있습니다. 이것은 달 표면의 동물을 관측했다는 기록이 아니라 하늘에 의미를 담은 문화적 표현입니다. 현대 관측에서는 같은 달무늬를 암석과 지형으로 읽습니다. 맨눈으로 매끈해 보이던 부분을 쌍안경으로 보면 충돌 흔적과 산줄기의 윤곽이 드러납니다. 특히 명암 경계(낮과 밤이 나뉘는 선)가 이동하면 전날 잘 보이지 않던 지형에 그림자가 생깁니다. 한 번의 사진보다 며칠간 같은 곳을 비교한 기록이 지형을 이해하는 데 도움이 됩니다. 익숙한 달에서 이야기를 읽고, 다시 눈앞의 무늬를 확인해 보세요.",
+      "cultures": [
+        "한국",
+        "동아시아",
+        "기타"
+      ],
+      "sources": [
+        "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+        "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+        "NASA — Moon Facts | https://science.nasa.gov/moon/facts/"
+      ]
+    },
+    "howToFind": {
+      "ko": "계절보다 날짜와 시각을 먼저 확인하세요. 앱에서 관측지의 달 위치와 위상을 확인한 뒤 실제 하늘의 밝은 원반을 찾습니다. 초승달은 일몰 뒤 서쪽, 상현달은 저녁 하늘, 보름달은 해질 무렵 동쪽에서 찾는 것이 기본입니다. 태양 가까운 가는 달은 입문 관측에서 제외하세요.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "도시에서도 위상과 큰 명암 무늬가 보입니다. 작은 크레이터를 하나씩 맨눈으로 구별하는 것을 첫 목표로 삼지 마세요.",
+      "binoculars": "10×50을 팔받침이나 삼각대로 안정시키면 큰 크레이터와 바다의 경계를 살펴볼 수 있습니다. 명암 경계를 따라 천천히 이동하세요.",
+      "telescope": "90mm, 20~80배에서 크레이터 테두리와 산의 그림자가 관측 목표입니다. 낮은 배율부터 시작하고 대기가 흔들리면 배율을 낮추세요. 전체 원반이 한 시야에 들어오는지는 접안렌즈에 따라 다릅니다.",
+      "difficulty": 1
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=moon)",
+      "NASA — Moon Facts | https://science.nasa.gov/moon/facts/",
+      "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+      "NASA — Moon Phases | https://science.nasa.gov/moon/moon-phases/",
+      "NASA/JPL — Astrodynamic Parameters | https://ssd.jpl.nasa.gov/astro_par.html",
+      "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+      "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+      "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "달의 바다는 물이 고인 바다가 아니라 주로 굳은 용암 평원입니다.",
+      "지구에서 반사된 햇빛 때문에 초승달의 어두운 부분이 희미하게 보이기도 합니다."
+    ],
+    "koreanTradition": {
+      "note": "한국을 포함한 동아시아에서 달을 토끼와 두꺼비로 표현해 온 사례가 있습니다. 실제 달 표면에 동물이 있다는 설명이 아닙니다.",
+      "sources": [
+        "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790"
+      ]
+    },
+    "safety": "태양 가까이에 있는 가는 달을 찾으려고 쌍안경이나 망원경으로 낮하늘을 훑지 마세요."
+  },
+  {
+    "id": "planet:mercury",
+    "version": 1,
+    "title": {
+      "ko": "수성",
+      "en": "Mercury"
+    },
+    "oneLiner": {
+      "ko": "해질 무렵의 낮은 하늘에서 잠깐 만나는 작은 행성"
+    },
+    "summary": {
+      "ko": "수성은 태양에 가장 가까운 암석 행성입니다. 지구에서 보면 태양과 크게 떨어지지 않아, 해질 무렵 서쪽이나 해뜨기 전 동쪽의 낮은 하늘에서 주로 찾습니다. 관측 가능 여부는 계절 이름보다 태양과의 각거리, 지평선의 높이, 박명(해뜨기 전이나 해진 뒤의 어스름)의 밝기에 좌우됩니다. 표면에는 많은 충돌구가 있지만 작은 망원경으로 달처럼 자세히 보이지는 않습니다. 입문 단계에서는 안전한 시간에 수성을 확인하는 것 자체를 목표로 삼으세요. 태양이 지평선 아래에 있어야 하며, 흐린 날 무리하게 찾지 않는 편이 좋습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "암석 행성",
+        "source": "https://science.nasa.gov/mercury/facts/"
+      },
+      {
+        "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+        "value": "약 0.4 AU; 지구에서의 거리가 아님",
+        "source": "https://science.nasa.gov/mercury/facts/"
+      },
+      {
+        "label": "공전 주기",
+        "value": "약 88일",
+        "source": "https://science.nasa.gov/mercury/facts/"
+      },
+      {
+        "label": "자전 주기",
+        "value": "약 59일",
+        "source": "https://science.nasa.gov/mercury/facts/"
+      },
+      {
+        "label": "자연위성",
+        "value": "없음",
+        "source": "https://science.nasa.gov/mercury/facts/"
+      },
+      {
+        "label": "겉보기등급",
+        "value": "시기별로 변함(첨부 값: variable)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:mercury)"
+      }
+    ],
+    "story": {
+      "ko": "그리스·로마 문화권에서 영어 이름 Mercury는 날렵한 로마 신의 이름과 연결됩니다. 실제 수성도 태양을 도는 공전 주기가 짧지만, 이름의 이야기를 행성의 물리적 원인으로 받아들여서는 안 됩니다. 수성은 겉모습이 달처럼 충돌구로 덮여 있어도 내부 구조와 태양 주변 환경은 다릅니다. 또한 태양에 가장 가깝다고 태양계에서 가장 뜨거운 행성인 것은 아닙니다. 열을 붙잡는 두꺼운 대기가 있는 금성의 표면이 더 뜨겁습니다. 수성을 관측할 때 기록할 것은 커다란 지형보다 낮은 하늘의 위치와 관측 시각입니다. 주변 별과 비교한 작은 위치 변화가, 눈앞의 빛점이 별이 아니라 움직이는 행성임을 이해하는 단서가 됩니다.",
+      "cultures": [
+        "그리스·로마",
+        "기타"
+      ],
+      "sources": [
+        "NASA — Mercury Facts | https://science.nasa.gov/mercury/facts/",
+        "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+      ]
+    },
+    "howToFind": {
+      "ko": "앱에서 관측일의 수성 위치와 태양 고도를 확인합니다. 일몰 뒤 서쪽에서 볼 수 있는 시기를 고르고, 그날 수성이 놓인 황도(태양이 하늘에서 지나는 길) 주변 별자리의 밝은 별을 지도에서 먼저 확인하세요. 해가 완전히 지평선 아래로 내려간 뒤 트인 서쪽 하늘에서 낮은 빛점을 찾습니다. 새벽 관측은 일출 전에 종료합니다. 기준 별자리는 날짜마다 달라 고정하지 않습니다.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "조건이 좋은 박명에는 작은 빛점으로 보이지만 도시의 건물·연무에 쉽게 가려집니다. 지평선이 트인 장소가 중요합니다.",
+      "binoculars": "10×50은 위치 확인에 도움을 주지만 태양이 완전히 진 뒤에만 사용합니다. 표면 무늬나 위상 관측을 기본 성과로 기대하지 마세요.",
+      "telescope": "90mm, 20~80배에서는 조건이 좋을 때 작은 원반과 위상을 시도할 수 있으나 낮은 고도의 대기 흔들림이 큽니다. 충돌구 관측은 기대하지 마세요.",
+      "difficulty": 3
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:mercury)",
+      "NASA — Mercury Facts | https://science.nasa.gov/mercury/facts/",
+      "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/",
+      "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "태양에 가장 가까운 수성보다 금성의 표면이 더 뜨겁습니다.",
+      "수성의 태양일(한 번의 낮과 밤 주기)은 약 176일입니다."
+    ],
+    "safety": "태양이 떠 있는 동안 수성을 찾으려고 쌍안경·망원경으로 하늘을 훑지 마세요. 일몰 후 관측을 권장하며 새벽에는 일출 전에 종료하세요."
+  },
+  {
+    "id": "planet:venus",
+    "version": 1,
+    "title": {
+      "ko": "금성",
+      "en": "Venus",
+      "alt": [
+        "샛별",
+        "개밥바라기"
+      ]
+    },
+    "oneLiner": {
+      "ko": "밝은 빛점 속에서 달처럼 변하는 위상을 찾는 행성"
+    },
+    "summary": {
+      "ko": "금성은 지구보다 안쪽 궤도를 돌아 새벽이나 저녁 하늘에서 밝게 보이는 행성입니다. 밝기는 구름이 햇빛을 잘 반사하는 성질과 지구와의 배치에 영향을 받습니다. 맨눈으로는 빛점이지만 망원경에서는 반달이나 초승달 같은 위상을 보일 수 있습니다. 구름이 두껍게 덮여 있어 소형 망원경으로 단단한 지표면을 보지는 못합니다. 태양과 가까운 방향에 있으므로 해가 진 뒤 안전한 시간에 관측하세요. 밤새 보이는 대상은 아니며, 관측하기 좋은 달도 해마다 달라집니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "암석 행성",
+        "source": "https://science.nasa.gov/venus/venus-facts/"
+      },
+      {
+        "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+        "value": "약 0.72 AU; 지구에서의 거리가 아님",
+        "source": "https://science.nasa.gov/venus/venus-facts/"
+      },
+      {
+        "label": "공전 주기",
+        "value": "약 225일",
+        "source": "https://science.nasa.gov/venus/venus-facts/"
+      },
+      {
+        "label": "자전 주기",
+        "value": "약 243일, 대부분의 행성과 반대 방향",
+        "source": "https://science.nasa.gov/venus/venus-facts/"
+      },
+      {
+        "label": "관측 특징",
+        "value": "달과 비슷한 위상 변화",
+        "source": "https://science.nasa.gov/venus/venus-facts/"
+      },
+      {
+        "label": "겉보기등급",
+        "value": "시기별로 변함(첨부 값: variable)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:venus)"
+      }
+    ],
+    "story": {
+      "ko": "한국에서는 새벽에 보이는 금성을 샛별, 저녁에 보이는 금성을 개밥바라기라고 부릅니다. 이름이 달라도 서로 다른 두 별이 아니라 같은 행성을 가리킵니다. 그리스·로마 문화권의 Venus는 사랑과 아름다움의 여신에서 왔지만, 실제 금성은 두꺼운 대기가 열을 가두는 뜨거운 세계입니다. 과학사에서는 갈릴레오가 망원경으로 확인한 여러 위상이 금성이 태양 주위를 돈다는 설명을 뒷받침했습니다. 오늘의 작은 망원경으로도 이 변화의 일부를 따라갈 수 있습니다. 같은 배율로 날짜를 바꾸어 그리면 밝은 면의 비율과 겉보기 크기가 함께 달라지는 것을 비교할 수 있습니다. 관측 기록에 샛별인지 저녁 금성인지도 남겨 보세요. 이름과 관측 시각, 작은 원반의 변화가 하나의 행성으로 연결됩니다.",
+      "cultures": [
+        "한국",
+        "그리스·로마",
+        "기타"
+      ],
+      "sources": [
+        "한국천문연구원 — 금성과 목성의 접근; 샛별·개밥바라기 명칭 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4300",
+        "NASA — Venus Facts | https://science.nasa.gov/venus/venus-facts/",
+        "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+      ]
+    },
+    "howToFind": {
+      "ko": "계절에 맞춰 별자리를 고정하지 말고 앱에서 금성이 저녁과 새벽 중 언제 보이는지 확인하세요. 저녁 관측이 가능한 때, 해가 완전히 진 뒤 서쪽 하늘의 매우 밝은 빛점을 찾습니다. 그날 금성 주변의 황도(태양이 하늘에서 지나는 길) 주변 별자리와 밝은 별의 배치를 지도와 비교하세요. 태양과 너무 가깝거나 지평선에 걸리면 관측을 건너뜁니다.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "도시에서도 밝은 빛점으로 쉽게 보일 때가 많습니다. 맨눈으로 위상이나 표면을 구별하는 것은 기본 목표가 아닙니다.",
+      "binoculars": "10×50에서는 주로 매우 밝은 점으로 보입니다. 큰 초승달 위상일 때 삼각대에 고정하면 모양이 길어 보일 수 있으나 분명한 위상을 보장하지 않습니다.",
+      "telescope": "90mm, 20~80배에서는 조건에 따라 반달 또는 초승달 모양을 구별할 수 있습니다. 구름 너머 지표면은 보이지 않으며 대기의 흔들림과 눈부심이 영향을 줍니다.",
+      "difficulty": 1
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:venus)",
+      "NASA — Venus Facts | https://science.nasa.gov/venus/venus-facts/",
+      "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+      "한국천문연구원 — 금성과 목성의 접근; 샛별·개밥바라기 명칭 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4300",
+      "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "금성은 자전 한 바퀴에 걸리는 시간이 공전 한 바퀴보다 깁니다.",
+      "위상이 가늘어질 때 겉보기 크기는 오히려 커질 수 있습니다."
+    ],
+    "koreanTradition": {
+      "name": "샛별·개밥바라기",
+      "note": "한국어 하늘 안내에서 새벽 금성은 샛별, 저녁 금성은 개밥바라기로 부릅니다. 두 이름은 서로 다른 천체가 아니라 보이는 때에 따른 같은 행성의 이름입니다.",
+      "sources": [
+        "한국천문연구원 — 금성과 목성의 접근; 샛별·개밥바라기 명칭 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4300"
+      ]
+    },
+    "safety": "금성을 찾으려고 낮에 무필터 쌍안경이나 망원경으로 태양 근처를 훑지 마세요. 입문자는 일몰 후 관측하고 새벽에는 일출 전에 종료하세요."
+  },
+  {
+    "id": "planet:mars",
+    "version": 1,
+    "title": {
+      "ko": "화성",
+      "en": "Mars"
+    },
+    "oneLiner": {
+      "ko": "붉은 빛과 계절마다 달라지는 관측 크기를 비교하는 행성"
+    },
+    "summary": {
+      "ko": "화성은 산화철(녹 성분)이 섞인 먼지 때문에 붉게 보이는 암석 행성입니다. 맨눈으로도 색을 비교할 수 있지만 망원경에서 얼마나 크게 보이는지는 지구와의 거리에 크게 좌우됩니다. 충(지구에서 태양의 반대쪽에 놓이는 때) 전후가 대체로 유리하며, 충마다 조건이 같지는 않습니다. 소형 망원경에서는 작은 주황빛 원반이 기본 모습입니다. 가까이 있을 때 대기가 안정되면 극관이나 큰 어두운 무늬를 시도할 수 있지만, 탐사선 사진 같은 지형을 기대하면 실망하기 쉽습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "암석 행성",
+        "source": "https://science.nasa.gov/mars/facts/"
+      },
+      {
+        "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+        "value": "약 1.5 AU; 지구에서의 거리가 아님",
+        "source": "https://science.nasa.gov/mars/facts/"
+      },
+      {
+        "label": "공전 주기",
+        "value": "약 687일",
+        "source": "https://science.nasa.gov/mars/facts/"
+      },
+      {
+        "label": "붉은색의 주요 원인",
+        "value": "표면 먼지와 암석의 산화철",
+        "source": "https://science.nasa.gov/mars/facts/"
+      },
+      {
+        "label": "자연위성",
+        "value": "포보스와 데이모스",
+        "source": "https://science.nasa.gov/mars/facts/"
+      },
+      {
+        "label": "겉보기등급",
+        "value": "시기별로 변함(첨부 값: variable)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:mars)"
+      }
+    ],
+    "story": {
+      "ko": "그리스·로마 문화권에서 화성의 영어 이름 Mars는 로마의 전쟁 신에서 왔습니다. 붉은 색을 전쟁과 연결한 것은 문화적 해석이며, 현대 과학은 그 색을 표면 물질로 설명합니다. 화성은 행성 운동을 이해하는 데도 흥미로운 대상입니다. 여러 주 동안 주변 별에 대한 위치를 표시하면 이동 방향이 잠시 뒤집히는 역행을 볼 수 있습니다. 화성이 실제 궤도에서 뒤로 달리는 것이 아니라, 더 안쪽 궤도를 도는 지구가 화성을 추월하며 시선 방향이 변하기 때문입니다. 한 번의 관측에서는 빛점이지만, 날짜가 붙은 여러 기록을 모으면 태양계의 입체적인 배치가 드러납니다. 표면 무늬가 보이지 않는 밤에도 위치를 기록할 이유가 여기에 있습니다.",
+      "cultures": [
+        "그리스·로마",
+        "기타"
+      ],
+      "sources": [
+        "NASA — Mars Facts | https://science.nasa.gov/mars/facts/",
+        "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+      ]
+    },
+    "howToFind": {
+      "ko": "관측일의 앱 하늘지도에서 화성이 있는 황도(태양이 하늘에서 지나는 길) 주변 별자리를 확인합니다. 그 별자리의 밝은 별 두세 개를 먼저 맨눈으로 찾고, 지도에 표시된 붉은 빛점과 대조하세요. 붉은 별도 있으므로 색만으로 확정하지 않습니다. 같은 시각에 며칠 간격으로 주변 별과의 위치를 비교하면 도움이 됩니다. 좋은 계절은 해마다 달라집니다.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "도시에서도 관측에 유리한 시기에는 붉거나 주황빛 도는 점으로 보입니다. 밝기가 항상 목성처럼 강한 것은 아닙니다.",
+      "binoculars": "10×50으로 위치와 주변 별을 비교하기 좋습니다. 표면의 극관이나 어두운 지형을 구별하는 것은 기대하지 마세요.",
+      "telescope": "90mm, 20~80배에서는 대부분 작은 주황색 원반입니다. 충 무렵 크기가 충분하고 대기가 안정적이면 60~80배에서 극관이나 큰 명암 무늬를 시도할 수 있지만 성공을 보장하지 않습니다.",
+      "difficulty": 1
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:mars)",
+      "NASA — Mars Facts | https://science.nasa.gov/mars/facts/",
+      "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "역행은 지구와 화성의 상대 운동으로 생기는 겉보기 방향 변화입니다.",
+      "같은 화성이라도 지구와의 거리에 따라 망원경에서 보이는 크기가 달라집니다."
+    ]
+  },
+  {
+    "id": "planet:jupiter",
+    "version": 1,
+    "title": {
+      "ko": "목성",
+      "en": "Jupiter"
+    },
+    "oneLiner": {
+      "ko": "밝은 원반과 자리를 바꾸는 위성들을 함께 보는 행성"
+    },
+    "summary": {
+      "ko": "목성은 태양계에서 가장 큰 행성으로, 주로 수소와 헬륨으로 이루어져 있습니다. 맨눈으로는 밝은 빛점이지만 작은 망원경에서는 원반과 구름 띠를 볼 수 있습니다. 주변의 작은 점은 이오·유로파·가니메데·칼리스토인 경우가 있으며, 이를 갈릴레이 위성이라고 부릅니다. 위성은 목성 앞이나 뒤로 가거나 그림자에 들어가므로 항상 네 개가 모두 보이지는 않습니다. 도시에서도 비교적 시도하기 좋은 대상이며, 같은 밤에 시간을 두고 다시 보면 위성의 위치가 달라지는 것을 확인할 수 있습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "가스 거대행성",
+        "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+      },
+      {
+        "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+        "value": "약 5.2 AU; 지구에서의 거리가 아님",
+        "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+      },
+      {
+        "label": "공전 주기",
+        "value": "약 12년",
+        "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+      },
+      {
+        "label": "자전 주기",
+        "value": "약 9.9시간",
+        "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+      },
+      {
+        "label": "갈릴레이 위성",
+        "value": "이오·유로파·가니메데·칼리스토",
+        "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+      },
+      {
+        "label": "겉보기등급",
+        "value": "시기별로 변함(첨부 값: variable)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:jupiter)"
+      }
+    ],
+    "story": {
+      "ko": "그리스·로마 문화권에서 Jupiter는 로마 신들의 왕의 이름입니다. 현대 천문학에서 목성은 작은 장비가 생각의 범위를 넓혀 준 사례로 자주 등장합니다. 갈릴레오는 1610년 망원경으로 목성 가까이의 작은 빛점들을 관측했고, 그 점들이 목성 주위를 돈다는 사실을 알아냈습니다. 이는 모든 천체가 지구만을 중심으로 돌아야 한다는 생각에 중요한 반례가 되었습니다. 지금도 관측자는 목성 양옆의 점을 간단히 그린 뒤 시간을 두고 다시 비교할 수 있습니다. 점 하나가 사라졌다고 위성이 없어진 것은 아닙니다. 행성 뒤에 숨거나 그림자로 들어가는 등 여러 배치가 가능하므로 관측 시각을 함께 기록해야 합니다. 단순한 스케치에도 천체 운동을 읽을 정보가 담깁니다.",
+      "cultures": [
+        "그리스·로마",
+        "기타"
+      ],
+      "sources": [
+        "NASA — Jupiter Facts | https://science.nasa.gov/jupiter/jupiter-facts/",
+        "NASA — Spot the King of Planets: Observe Jupiter | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/"
+      ]
+    },
+    "howToFind": {
+      "ko": "목성이 잘 보이는 계절은 해마다 달라집니다. 앱에서 관측일에 목성이 놓인 황도(태양이 하늘에서 지나는 길) 주변 별자리와 고도를 확인한 뒤, 주변의 밝은 별을 먼저 찾아 지도의 무늬와 맞추세요. 이어 밝게 빛나는 목성 후보를 확인합니다. 안정적으로 빛나는 모습은 참고가 되지만, 반짝임만으로 행성과 별을 구별하지 마세요.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "관측하기 좋은 시기에는 도시에서도 밝은 빛점으로 보입니다. 구름 띠와 위성은 맨눈의 기본 관측 대상이 아닙니다.",
+      "binoculars": "10×50을 단단히 받치면 목성에서 충분히 떨어진 갈릴레이 위성 몇 개를 작은 점으로 볼 수 있습니다. 본체와 겹치거나 가까운 위성은 놓칠 수 있습니다.",
+      "telescope": "90mm, 20~80배에서 원반과 갈릴레이 위성을 확인하고, 40~80배에서 주요 구름 띠를 살펴보세요. 대적점과 위성 그림자는 시각·고도·대기 안정도에 따라 어려우므로 기본 성공 조건으로 삼지 않습니다.",
+      "difficulty": 1
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:jupiter)",
+      "NASA — Jupiter Facts | https://science.nasa.gov/jupiter/jupiter-facts/",
+      "NASA — Spot the King of Planets: Observe Jupiter | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "갈릴레이 위성은 항상 네 개가 동시에 보이는 것이 아닙니다.",
+      "목성의 줄무늬는 단단한 표면의 줄이 아니라 대기의 구름 구조입니다."
+    ]
+  },
+  {
+    "id": "planet:saturn",
+    "version": 1,
+    "title": {
+      "ko": "토성",
+      "en": "Saturn"
+    },
+    "oneLiner": {
+      "ko": "고리가 열리는 각도에 따라 모습이 달라지는 행성"
+    },
+    "summary": {
+      "ko": "토성은 수소와 헬륨이 주성분인 거대행성이며, 주변에 넓은 고리계를 갖고 있습니다. 고리는 한 장의 단단한 판이 아니라 주로 얼음 조각과 암석 물질이 도는 구조입니다. 맨눈으로는 고리가 보이지 않지만 소형 망원경에서는 본체 양옆으로 뻗은 형태를 살펴볼 수 있습니다. 지구에서 바라보는 고리의 기울기가 해마다 달라지므로 사진처럼 넓게 펼쳐져 보이지 않을 때도 있습니다. 도시에서도 도전할 수 있으나, 고도가 낮거나 대기가 흔들리면 고리와 본체의 틈을 구별하기 어려워집니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "가스 거대행성",
+        "source": "https://science.nasa.gov/saturn/facts/"
+      },
+      {
+        "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+        "value": "약 9.5 AU; 지구에서의 거리가 아님",
+        "source": "https://science.nasa.gov/saturn/facts/"
+      },
+      {
+        "label": "공전 주기",
+        "value": "약 29.4년",
+        "source": "https://science.nasa.gov/saturn/facts/"
+      },
+      {
+        "label": "자전 주기",
+        "value": "약 10.7시간",
+        "source": "https://science.nasa.gov/saturn/facts/"
+      },
+      {
+        "label": "고리의 구성",
+        "value": "주로 얼음 조각, 암석과 먼지",
+        "source": "https://science.nasa.gov/saturn/facts/"
+      },
+      {
+        "label": "겉보기등급",
+        "value": "시기별로 변함(첨부 값: variable)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:saturn)"
+      }
+    ],
+    "story": {
+      "ko": "그리스·로마 문화권에서 Saturn은 농경과 관련된 로마 신의 이름입니다. 실제 토성의 고리는 멀리서 하나의 장식처럼 보이지만, 각각 움직이는 수많은 입자의 집합입니다. 관측자가 만나는 고리의 모습도 고정되어 있지 않습니다. 지구와 토성의 배치가 달라지면 고리가 넓게 열리거나 가늘게 눕는 것처럼 보입니다. 그래서 다른 해의 사진과 오늘의 접안 모습을 곧바로 비교해 망원경이 잘못됐다고 판단하면 안 됩니다. 같은 배율로 해마다 스케치를 남기면 이 변화가 더 분명해집니다. 사진에서 보이는 고리 사이의 가는 틈을 모두 찾는 것보다 본체와 고리의 방향을 기록하는 일을 첫 목표로 삼으세요. 작은 관측도 시간과 함께 쌓이면 행성의 공간적 배치를 보여 줍니다.",
+      "cultures": [
+        "그리스·로마",
+        "기타"
+      ],
+      "sources": [
+        "NASA — Saturn Facts | https://science.nasa.gov/saturn/facts/",
+        "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+      ]
+    },
+    "howToFind": {
+      "ko": "앱에서 관측 날짜의 토성 위치와 그 주변 황도(태양이 하늘에서 지나는 길) 주변 별자리를 확인합니다. 먼저 별자리의 밝은 별을 찾고 지도에 표시된 위치로 시선을 옮겨 누르스름한 빛점을 대조하세요. 맨눈으로 위치를 확인한 뒤 망원경 저배율로 고리를 찾습니다. 특정 계절로 고정하지 말고 토성이 충분히 높아지는 시간을 고르세요.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "도시에서 별 같은 누르스름한 점으로 볼 수 있습니다. 맨눈으로 고리가 드러나지는 않습니다.",
+      "binoculars": "10×50에서는 대체로 별 같은 점이며 고리를 본체와 분리하기 어렵습니다. 고정 상태와 고리 기울기가 좋으면 길쭉한 느낌이 들 수 있으나 확정적 형태 관측으로 기록하지 마세요.",
+      "telescope": "90mm, 20~80배에서는 고리가 열린 시기에 40~80배로 본체와 고리 형태를 시도합니다. 카시니 간극은 고리 기울기와 대기 상태에 민감하며 이 배율 범위의 입문 관측에서 보장하지 않습니다.",
+      "difficulty": 2
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:saturn)",
+      "NASA — Saturn Facts | https://science.nasa.gov/saturn/facts/",
+      "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "토성 고리는 하나의 단단한 원판이 아니라 많은 입자로 이루어져 있습니다.",
+      "고리가 가늘게 보이는 시기에도 고리 자체가 사라진 것은 아닙니다."
+    ]
+  },
+  {
+    "id": "planet:uranus",
+    "version": 1,
+    "title": {
+      "ko": "천왕성",
+      "en": "Uranus"
+    },
+    "oneLiner": {
+      "ko": "별 지도와 비교해 찾아내는 희미한 얼음 거대행성"
+    },
+    "summary": {
+      "ko": "천왕성은 태양에서 일곱 번째 행성으로, 해왕성과 함께 얼음 거대행성으로 분류됩니다. 이 말은 겉면이 얼음판이라는 뜻이 아니라 내부 조성에서 물·암모니아·메테인 계열 물질이 중요하다는 뜻입니다. 자전축이 크게 기울어 옆으로 누운 듯 도는 것도 특징입니다. 도시에서는 맨눈 관측보다 쌍안경과 지도로 위치를 확인하는 방법이 현실적입니다. 소형 망원경에서는 아주 작은 청록빛 원반을 시도할 수 있지만, 사진처럼 선명한 색과 구름 무늬가 보이리라고 기대하지 마세요."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "얼음 거대행성",
+        "source": "https://science.nasa.gov/uranus/facts/"
+      },
+      {
+        "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+        "value": "약 19 AU; 지구에서의 거리가 아님",
+        "source": "https://science.nasa.gov/uranus/facts/"
+      },
+      {
+        "label": "공전 주기",
+        "value": "약 84년",
+        "source": "https://science.nasa.gov/uranus/facts/"
+      },
+      {
+        "label": "자전축 기울기",
+        "value": "약 97.77°(궤도면의 수직 방향 기준)",
+        "source": "https://science.nasa.gov/uranus/facts/"
+      },
+      {
+        "label": "발견",
+        "value": "1781년 윌리엄 허셜의 망원경 관측",
+        "source": "https://science.nasa.gov/uranus/facts/"
+      },
+      {
+        "label": "겉보기등급",
+        "value": "시기별로 변함(첨부 값: variable)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:uranus)"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학사에서 천왕성은 망원경이 태양계의 범위를 넓힌 사례입니다. 윌리엄 허셜은 1781년 이 천체를 관측했지만 처음부터 새 행성이라고 확신한 것은 아니었습니다. 별과 다른 모습과 이후의 위치 관측이 쌓이면서 행성으로 받아들여졌습니다. 그리스·로마 문화권의 하늘 신을 가리키는 Uranus라는 이름 역시 발견 뒤 정착한 명칭입니다. 오늘 천왕성을 찾아보면 왜 꼼꼼한 비교가 필요했는지 짐작할 수 있습니다. 작은 쌍안경에서는 주변 별과 비슷한 점이기 때문입니다. 색 하나를 보고 결론내리기보다 별 지도의 배열을 맞추고 날짜를 달리해 위치를 확인하는 과정이 중요합니다. 발견의 놀라움은 큰 원반보다 평범한 빛점에서 차이를 알아보는 데 있습니다.",
+      "cultures": [
+        "그리스·로마",
+        "기타"
+      ],
+      "sources": [
+        "NASA — Uranus Facts | https://science.nasa.gov/uranus/facts/",
+        "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+      ]
+    },
+    "howToFind": {
+      "ko": "계절에 상관없이 먼저 앱에서 관측일의 천왕성 위치를 확인합니다. 그날 속한 황도(태양이 하늘에서 지나는 길) 주변 별자리를 맨눈으로 찾고, 지도에서 가장 가까운 밝은 별을 기준점으로 정하세요. 10×50 시야에 들어오는 별의 삼각형이나 줄을 차례로 맞추며 이동합니다. 마지막에는 주변 별 배열과 대조하고 날짜를 바꿔 위치 변화를 확인하세요.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "매우 어두운 하늘에서는 맨눈으로 가능할 수 있지만 도시에서는 맨눈 목표로 삼지 않는 편이 좋습니다.",
+      "binoculars": "10×50으로 별 같은 희미한 점을 찾는 것이 목표입니다. 원반을 분리하기보다 별 지도와 정확히 대조하고 손떨림을 줄이세요.",
+      "telescope": "90mm, 20~80배에서는 60~80배와 안정된 대기에서 아주 작은 원반 느낌을 시도할 수 있습니다. 청록색이 뚜렷하지 않을 수 있고 고리·위성·구름 무늬는 기본 목표에서 제외합니다.",
+      "difficulty": 4
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:uranus)",
+      "NASA — Uranus Facts | https://science.nasa.gov/uranus/facts/",
+      "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "천왕성의 자전축은 크게 기울어 옆으로 누워 도는 듯한 모습입니다.",
+      "얼음 거대행성이라는 분류가 단단한 얼음 표면을 뜻하는 것은 아닙니다."
+    ]
+  },
+  {
+    "id": "planet:neptune",
+    "version": 1,
+    "title": {
+      "ko": "해왕성",
+      "en": "Neptune"
+    },
+    "oneLiner": {
+      "ko": "눈에 잘 띄지 않는 빛점에서 예측과 관측의 만남을 읽다"
+    },
+    "summary": {
+      "ko": "해왕성은 태양에서 가장 바깥쪽을 도는 여덟 번째 행성이며 얼음 거대행성입니다. 맨눈으로는 보이지 않아 별 지도와 광학 장비가 필요합니다. 어두운 곳에서는 쌍안경으로 위치를 확인할 수 있지만 도시의 10×50 관측은 쉽지 않습니다. 90mm 망원경에서는 희미하고 매우 작은 점 또는 원반처럼 보이며, 푸른 색이나 표면 무늬를 분명히 기대하지 않는 편이 좋습니다. 고배율 사진의 인상보다 주변 별과의 위치를 맞추는 과정이 중요합니다. 관측 시기와 별자리는 날짜에 따라 확인해야 합니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "얼음 거대행성",
+        "source": "https://science.nasa.gov/neptune/neptune-facts/"
+      },
+      {
+        "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+        "value": "약 30 AU; 지구에서의 거리가 아님",
+        "source": "https://science.nasa.gov/neptune/neptune-facts/"
+      },
+      {
+        "label": "공전 주기",
+        "value": "약 165년",
+        "source": "https://science.nasa.gov/neptune/neptune-facts/"
+      },
+      {
+        "label": "자전 주기",
+        "value": "약 16시간",
+        "source": "https://science.nasa.gov/neptune/neptune-facts/"
+      },
+      {
+        "label": "발견",
+        "value": "1846년, 궤도 예측을 바탕으로 위치 확인",
+        "source": "https://science.nasa.gov/neptune/neptune-facts/"
+      },
+      {
+        "label": "겉보기등급",
+        "value": "시기별로 변함(첨부 값: variable)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:neptune)"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학사에서 해왕성은 계산으로 예상한 위치를 관측으로 확인한 행성으로 알려져 있습니다. 천왕성의 움직임이 예측과 맞지 않자 르베리에는 아직 알려지지 않은 행성의 중력이 영향을 줄 수 있다고 계산했습니다. 그가 보낸 위치 예측을 바탕으로 갈레는 1846년 베를린에서 해왕성을 확인했습니다. 그리스·로마 문화권에서 Neptune은 로마의 바다 신을 가리키지만, 그 이름이 실제 표면에 바다가 있다는 뜻은 아닙니다. 관측자에게 중요한 점은 발견된 천체조차 작은 빛점이었다는 사실입니다. 오늘도 별 지도를 정확히 맞추어 희미한 점을 찾아내는 방식으로 이 과정을 체험할 수 있습니다. 보이지 않는 구름 무늬를 상상해 적기보다 확인한 위치와 조건을 남겨 보세요.",
+      "cultures": [
+        "그리스·로마",
+        "기타"
+      ],
+      "sources": [
+        "NASA — Neptune Facts | https://science.nasa.gov/neptune/neptune-facts/",
+        "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+      ]
+    },
+    "howToFind": {
+      "ko": "먼저 앱에서 관측일의 해왕성 위치와 주변 황도(태양이 하늘에서 지나는 길) 주변 별자리를 확인합니다. 그날 가까운 밝은 별을 기준으로 쌍안경 또는 망원경 저배율에서 별 배열을 맞추며 이동하세요. 마지막에는 주변의 더 어두운 별들과 상대 위치를 대조합니다. 계절을 고정하지 않고, 달빛이 약하며 해왕성이 충분히 높은 밤을 고릅니다.",
+      "season": "any",
+      "hopFrom": []
+    },
+    "observing": {
+      "nakedEye": "맨눈으로는 보이지 않습니다. 하늘이 어둡더라도 맨눈 확인을 완료 조건으로 삼지 마세요.",
+      "binoculars": "10×50에서는 어둡고 투명한 하늘에서 희미한 점으로 도전할 수 있습니다. 도시에서는 찾지 못할 수 있으며 청색이나 원반 형태로 식별하려 하지 마세요.",
+      "telescope": "90mm, 20~80배에서 지도와 대조해 확인하는 것이 우선입니다. 상단 배율에서도 별과 비슷하게 보일 수 있고 원반 확인이 어렵습니다. 대기 무늬와 위성 관측은 기본 목표가 아닙니다.",
+      "difficulty": 5
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:neptune)",
+      "NASA — Neptune Facts | https://science.nasa.gov/neptune/neptune-facts/",
+      "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "high"
+    },
+    "funFacts": [
+      "해왕성은 수학적 위치 예측을 바탕으로 발견된 행성입니다.",
+      "해왕성이라는 이름이 직접 볼 수 있는 물바다가 있다는 뜻은 아닙니다."
+    ]
+  },
+  {
+    "id": "star:HIP32349",
+    "version": 1,
+    "title": {
+      "ko": "시리우스",
+      "en": "Sirius"
+    },
+    "oneLiner": {
+      "ko": "밝은 빛 속에 작은 동반성을 숨긴 겨울의 길잡이"
+    },
+    "summary": {
+      "ko": "시리우스는 큰개자리에서 빛나는, 밤하늘의 별 가운데 가장 밝게 보이는 별입니다. 가까운 거리에 있는 데다 본래도 밝아 겨울 하늘에서 눈에 잘 띕니다. 우리가 쉽게 보는 빛은 주로 시리우스 A에서 오며, 곁에는 백색왜성(작은 크기로 수축한 별의 잔해)인 시리우스 B가 있습니다. 다만 동반성은 밝은 주성의 빛에 묻혀 입문용 장비의 쉬운 대상이 아닙니다. 첫 관측에서는 별 하나의 밝기와 오리온자리에서 이어지는 위치를 확인하세요. 지평선 가까이에서 심하게 반짝이면 더 높이 뜰 때 다시 비교하는 편이 좋습니다."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "8.6광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "-1.44등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "A0m...",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)"
+      },
+      {
+        "label": "별자리",
+        "value": "큰개자리 (CMa)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "밝은 주성과 백색왜성이 함께 있는 쌍성계",
+        "source": "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "겨울철 대육각형의 꼭짓점",
+        "source": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005"
+      }
+    ],
+    "story": {
+      "ko": "동아시아에서는 시리우스를 천랑성, 곧 하늘의 늑대별과 연결해 불렀습니다. 서양의 Dog Star라는 표현과 함께 보면 같은 빛점에도 문화마다 다른 이름이 붙었음을 알 수 있습니다. 현대 천문학에서 시리우스의 또 다른 이야기는 희미한 동반성입니다. 밝은 A 옆의 B는 백색왜성으로, 태양과 비슷한 별이 진화한 뒤 남을 수 있는 작은 잔해입니다. 허블 우주망원경은 밝은 주성의 방해 속에서 이 동반성의 빛을 분석하는 데 쓰였습니다. 맨눈의 밝기만으로 별의 크기나 진화 단계를 판단할 수 없다는 점이 드러나는 사례입니다. 접안경에서 B가 보이지 않아도 실패가 아닙니다. 우선 확인 가능한 A와 주변 별의 위치를 기록하고 두 천체의 차이는 설명으로 연결해 보세요.",
+      "cultures": [
+        "동아시아",
+        "기타"
+      ],
+      "sources": [
+        "사이언스타임즈 — 시리우스, 겨울 밤하늘과 위대한 발견 | https://www.sciencetimes.co.kr/?p=249691",
+        "NASA/ESA Hubble — The Dog Star, Sirius, and its Tiny Companion | https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+        "NASA — Measuring a White Dwarf Star | https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 겨울 저녁, 먼저 오리온자리 허리띠의 세 별을 찾습니다. 세 별이 나란한 방향을 천구상 남동쪽으로 연장하면 매우 밝은 시리우스가 있습니다. 알데바란으로 이어지는 북서쪽 연장과 반대 방향입니다. 주변 큰개자리 별과 대조해 확인하고, 낮은 지평선보다는 충분히 높아진 시간을 고르세요.",
+      "season": "winter",
+      "hopFrom": [
+        "const:Ori",
+        "star:HIP26727"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 밝은 청백색 점으로 잘 보입니다. 낮은 고도에서 나타나는 색의 흔들림을 별의 빠른 변화로 해석하지 마세요.",
+      "binoculars": "10×50에서는 밝은 점과 주변 별들이 보입니다. 시리우스 B를 분리하는 장비로 기대하지 마세요.",
+      "telescope": "90mm, 20~80배에서는 밝은 주성과 주변 별을 관측합니다. 시리우스 B 분리는 밝기 차이와 대기 상태에 매우 민감하므로 기본 관측 목표에서 제외합니다.",
+      "difficulty": 1,
+      "bestMonths": [
+        1,
+        2,
+        3
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)",
+      "NASA/ESA Hubble — The Dog Star, Sirius, and its Tiny Companion | https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "NASA — Measuring a White Dwarf Star | https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+      "한국천문연구원 — 가장 밝은 별, 시리우스 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "사이언스타임즈 — 시리우스, 겨울 밤하늘과 위대한 발견 | https://www.sciencetimes.co.kr/?p=249691",
+      "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+        "분광형 A0m...은 첨부의 축약 문자열입니다. 생략 기호를 임의로 풀어 쓰지 않았습니다."
+      ]
+    },
+    "funFacts": [
+      "밝게 보이는 시리우스 곁에는 훨씬 희미한 백색왜성이 있습니다.",
+      "시리우스는 겨울철 대육각형의 꼭짓점 가운데 하나입니다."
+    ],
+    "koreanTradition": {
+      "name": "천랑성",
+      "note": "동아시아에서 시리우스에 연결한 전통 이름입니다. 한국 고천문 성군의 경계나 다른 재구성 명칭과 자동으로 동일시하지 않습니다.",
+      "sources": [
+        "사이언스타임즈 — 시리우스, 겨울 밤하늘과 위대한 발견 | https://www.sciencetimes.co.kr/?p=249691"
+      ]
+    }
+  },
+  {
+    "id": "star:HIP69673",
+    "version": 1,
+    "title": {
+      "ko": "아르크투루스",
+      "en": "Arcturus"
+    },
+    "oneLiner": {
+      "ko": "북두칠성 손잡이의 곡선을 따라 만나는 주황빛 별"
+    },
+    "summary": {
+      "ko": "아르크투루스는 목동자리의 밝은 주황빛 별입니다. 중심의 수소 연료가 줄어든 뒤 크게 부푼 적색거성 단계에 있으며, 이름과 달리 맨눈에서는 짙은 빨강보다 주황이나 황금빛으로 느껴질 수 있습니다. 북두칠성의 손잡이가 만드는 곡선을 따라가면 찾기 쉬워 봄철 길잡이로 알맞습니다. 망원경을 사용해도 원반의 표면이 커다랗게 드러나는 대상은 아닙니다. 밝기만 비교하기보다 베가 같은 흰 별과 색을 번갈아 살펴보세요. 도시에서도 보이지만 주위 가로등을 피하면 색 비교가 한결 편해집니다."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "36.7광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "-0.05등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "K2IIIp",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)"
+      },
+      {
+        "label": "별자리",
+        "value": "목동자리 (Boo)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "적색거성",
+        "source": "https://science.nasa.gov/universe/stars/types/"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "북두칠성 손잡이 곡선의 연장",
+        "source": "https://science.nasa.gov/resource/whats-up-september-2021/"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학은 적색거성을 단순히 붉은 별이라는 말보다 별의 진화 단계로 설명합니다. 별은 중심의 수소 핵융합이 이어지는 긴 시기를 지나면 내부 구조가 바뀌고 바깥층이 팽창할 수 있습니다. 표면 온도가 낮아져도 넓어진 표면 때문에 전체적으로 밝게 빛날 수 있으므로, 차가운 색과 어두운 밝기는 같은 뜻이 아닙니다. 아르크투루스는 이 차이를 맨눈 관측과 연결하기 좋은 사례입니다. 북두칠성 손잡이의 곡선을 이어 이 별을 찾은 뒤 색을 기록해 보세요. 이름을 아는 것에서 한 걸음 나아가 어떤 종류의 별인지 생각하게 됩니다. 다만 그날의 고도와 대기 상태도 색 인상에 영향을 주므로, 한 번의 느낌으로 온도를 재었다고 적지는 않는 편이 좋습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+        "NASA/JPL — What’s Up: September 2021 | https://science.nasa.gov/resource/whats-up-september-2021/"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 봄 저녁에는 북쪽 하늘의 북두칠성을 먼저 찾습니다. 손잡이 끝까지 따라간 뒤 그 휘어진 곡선을 같은 방향으로 길게 연장하세요. 눈에 띄는 밝은 주황빛 별이 아르크투루스입니다. 주변 별이 목동자리의 길쭉한 형태와 맞는지 앱의 별자리 그림으로 확인합니다.",
+      "season": "spring",
+      "hopFrom": [
+        "const:UMa",
+        "star:HIP67301"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 밝은 주황빛 점으로 보입니다. 주변 조명의 직접적인 눈부심을 피하며 색을 관찰하세요.",
+      "binoculars": "10×50에서는 밝은 한 점과 주변 별을 봅니다. 별의 표면을 확대하는 것보다 다른 밝은 별과 색을 비교하는 데 의미가 있습니다.",
+      "telescope": "90mm, 20~80배에서도 별 자체는 점처럼 보입니다. 낮은 배율부터 색과 초점 상태를 살피고 표면 무늬는 기대하지 마세요.",
+      "difficulty": 1,
+      "bestMonths": [
+        4,
+        5,
+        6
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)",
+      "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+      "NASA/JPL — What’s Up: September 2021 | https://science.nasa.gov/resource/whats-up-september-2021/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+      ]
+    },
+    "funFacts": [
+      "적색거성도 눈에는 주황빛이나 황금빛으로 보일 수 있습니다.",
+      "북두칠성 손잡이의 곡선을 따라가면 찾는 데 도움이 됩니다."
+    ]
+  },
+  {
+    "id": "star:HIP91262",
+    "version": 1,
+    "title": {
+      "ko": "베가",
+      "en": "Vega",
+      "alt": [
+        "직녀성"
+      ]
+    },
+    "oneLiner": {
+      "ko": "칠석의 직녀성이자 여름 대삼각형의 밝은 길잡이"
+    },
+    "summary": {
+      "ko": "베가는 거문고자리의 밝은 흰 별이며, 알타이르·데네브와 함께 여름철 대삼각형을 이룹니다. 한국에서는 칠석 이야기의 직녀성으로도 친숙합니다. 태양처럼 중심에서 수소 핵융합을 하는 단계의 별이지만, 눈에 보이는 색과 실제 성질은 태양과 다릅니다. 주변에는 먼지 원반이 연구되어 왔으나 작은 쌍안경이나 망원경으로 그 원반을 직접 볼 수는 없습니다. 입문 관측에서는 베가를 찾은 뒤 주변의 작은 거문고자리 모양과 다른 두 꼭짓점을 연결해 보세요. 도시에서도 밝은 세 별은 비교적 찾기 쉽습니다."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "25광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "0.03등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "A0Vvar",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)"
+      },
+      {
+        "label": "별자리",
+        "value": "거문고자리 (Lyr)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "중심에서 수소를 융합하는 별",
+        "source": "https://apod.nasa.gov/apod/ap150627.html"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "여름철 대삼각형의 꼭짓점",
+        "source": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+      }
+    ],
+    "story": {
+      "ko": "한국과 동아시아에 전해지는 칠석 이야기에서 직녀는 견우와 은하수를 사이에 두고 떨어져 지냅니다. 까마귀와 까치가 놓은 오작교 덕분에 음력 칠월 칠석에 만난다는 전승이 널리 알려져 있습니다. 한국천문연구원의 하늘 안내에서는 베가를 직녀성, 알타이르를 견우성으로 연결합니다. 이는 두 별이 실제로 해마다 서로 가까이 이동한다는 설명은 아닙니다. 현대 관측은 베가 주변의 먼지를 우주망원경으로 연구해, 같은 하늘의 별을 또 다른 질문으로 바라봅니다. 오늘 밤에는 먼저 베가와 알타이르를 찾고 그 사이 하늘을 살펴보세요. 도시에서 은하수가 보이지 않더라도 두 별의 자리를 확인할 수 있습니다. 전승의 장면과 실제로 확인한 하늘 모습을 나누어 기록하면 이야기가 관측을 대신하지 않습니다.",
+      "cultures": [
+        "한국",
+        "동아시아",
+        "기타"
+      ],
+      "sources": [
+        "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+        "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+        "NASA — Hubble, Webb Probe Surprisingly Smooth Disk Around Vega | https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 여름 저녁, 높은 동쪽 하늘에서 크게 벌어진 여름철 대삼각형을 찾습니다. 세 꼭짓점 중 가장 밝게 보이는 흰 별이 베가입니다. 베가 남쪽으로 거문고자리의 작은 평행사변형을 확인하고, 다른 꼭짓점인 알타이르와 데네브를 연결해 위치를 다시 맞추세요. 시간에 따라 하늘 전체가 이동하므로 화면 방향도 확인합니다.",
+      "season": "summer",
+      "hopFrom": [
+        "const:Lyr",
+        "star:HIP97649",
+        "star:HIP102098"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 밝은 흰 점으로 잘 보입니다. 주변의 어두운 거문고자리 별은 광해 때문에 일부가 빠질 수 있습니다.",
+      "binoculars": "10×50에서는 베가와 거문고자리 주변 별들의 배치를 봅니다. 먼지 원반이나 별 표면은 보이지 않습니다.",
+      "telescope": "90mm, 20~80배에서도 베가는 밝은 점입니다. 주변 별로 시야를 옮기는 길잡이로 쓰고 우주망원경의 먼지 원반 사진을 접안 모습으로 기대하지 마세요.",
+      "difficulty": 1,
+      "bestMonths": [
+        7,
+        8,
+        9
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)",
+      "NASA — Hubble, Webb Probe Surprisingly Smooth Disk Around Vega | https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+      "한국천문연구원 — 직녀성(Vega) | https://www.kasi.re.kr/kor/publication/post/photoGallery/4351",
+      "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+      "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+      ]
+    },
+    "funFacts": [
+      "직녀성은 한국에서 베가를 가리키는 익숙한 이름입니다.",
+      "베가 주변의 먼지 원반은 작은 관측 장비로 직접 보이지 않습니다."
+    ],
+    "koreanTradition": {
+      "name": "직녀성",
+      "note": "한국의 칠석 안내에서 베가를 직녀성에 대응시킵니다. 오작교는 설화 속 다리이며 두 별의 실제 접근 현상을 뜻하지 않습니다.",
+      "sources": [
+        "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+        "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170"
+      ]
+    }
+  },
+  {
+    "id": "star:HIP24608",
+    "version": 1,
+    "title": {
+      "ko": "카펠라",
+      "en": "Capella"
+    },
+    "oneLiner": {
+      "ko": "한 점처럼 보이는 빛 속에 두 거성이 함께 있는 별"
+    },
+    "summary": {
+      "ko": "카펠라는 마차부자리의 밝은 황금빛 별로 겨울 하늘에서 눈에 잘 띕니다. 맨눈으로는 하나의 빛점이지만 주된 빛을 내는 구성원은 가까이 도는 두 거성입니다. 두 밝은 별은 서로의 주위를 돌고 있으며, 연구자들은 별빛의 스펙트럼(빛을 파장별로 나눈 정보)과 간섭 관측을 함께 이용해 그 운동을 조사했습니다. 90mm 망원경의 일반 관측 배율로 두 밝은 별을 나누어 보는 대상은 아닙니다. 처음에는 마차부자리의 큰 오각형에서 카펠라를 확인하고, 황소자리와 오리온자리로 이어지는 겨울 하늘의 전체 배치를 익혀 보세요."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "42.8광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "0.08등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)"
+      },
+      {
+        "label": "분광형(첨부 원문·검토 보류)",
+        "value": "M1: comp",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)"
+      },
+      {
+        "label": "별자리",
+        "value": "마차부자리 (Aur)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "두 밝은 G형 거성을 포함한 다중성계",
+        "source": "https://arxiv.org/html/1505.07461v1"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "겨울철 대육각형의 꼭짓점",
+        "source": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005"
+      },
+      {
+        "label": "분광형(외부 연구와 비교)",
+        "value": "밝은 두 구성원: G8 III + G0 III; 첨부 값의 자동 대체 아님",
+        "source": "https://arxiv.org/html/1505.07461v1"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서 카펠라는 하나의 빛점이 여러 별의 빛을 합친 모습일 수 있음을 보여 줍니다. 밝은 두 거성은 가까이 돌기 때문에 보통의 소형 망원경에서는 분리되지 않습니다. 연구자들은 분광선(빛을 파장별로 나누었을 때 나타나는 무늬)의 이동과 간섭 관측을 함께 사용해 두 별의 운동을 연구했습니다. 더 멀리에는 어두운 적색왜성 한 쌍도 연결되어 있어 계층적인 다중성계를 이룹니다. 이처럼 맨눈으로 센 별의 개수와 실제 구성원의 개수는 다를 수 있습니다. 관측 노트에는 오늘 직접 본 것은 한 점이라고 쓰고, 두 거성이라는 설명은 연구로 확인한 정보라고 구분해 보세요. 눈앞의 모습과 측정으로 알아낸 구조를 함께 이해하는 연습이 됩니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "Torres 외(2015) — Capella revisited: new binary orbit, physical properties, and evolutionary state | https://arxiv.org/html/1505.07461v1"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 겨울 저녁에 먼저 오리온자리와 황소자리의 알데바란을 찾습니다. 알데바란에서 천구상 북쪽으로 시선을 크게 옮겨 높은 하늘의 밝은 황금빛 별을 찾으세요. 그 주변의 큰 오각형이 마차부자리이며 밝은 꼭짓점이 카펠라입니다. 실제 좌우 방향은 시각에 따라 달라지므로 지도와 별 무늬를 함께 맞춥니다.",
+      "season": "winter",
+      "hopFrom": [
+        "star:HIP21421",
+        "const:Aur"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 밝은 황금빛 점으로 보입니다. 가까운 두 밝은 구성원은 맨눈으로 구별되지 않습니다.",
+      "binoculars": "10×50에서는 카펠라 주변의 별 배열을 확인합니다. 주된 두 거성을 분리할 수 있다는 기대는 하지 마세요.",
+      "telescope": "90mm, 20~80배에서 카펠라는 밝은 한 점입니다. 근접한 밝은 쌍성의 분리와 표면 관측은 이 장비 범위의 목표가 아닙니다.",
+      "difficulty": 1,
+      "bestMonths": [
+        12,
+        1,
+        2
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)",
+      "Torres 외(2015) — Capella revisited: new binary orbit, physical properties, and evolutionary state | https://arxiv.org/html/1505.07461v1",
+      "한국천문연구원 — 가장 밝은 별, 시리우스 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "low",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+        "첨부 spect=M1: comp는 밝은 두 구성원을 G8 III+G0 III로 분류한 연구와 맞지 않습니다. 원문은 보존하되 승인된 분광형으로 표시하지 말고 T0b 레코드의 성분·출처를 확인해야 합니다."
+      ]
+    },
+    "funFacts": [
+      "카펠라의 주된 빛에는 두 거성의 빛이 합쳐져 있습니다.",
+      "눈에 보이는 한 점이 실제로는 다중성계일 수 있습니다."
+    ]
+  },
+  {
+    "id": "star:HIP24436",
+    "version": 1,
+    "title": {
+      "ko": "리겔",
+      "en": "Rigel"
+    },
+    "oneLiner": {
+      "ko": "오리온의 발에서 베텔게우스와 색을 대비시키는 푸른 별"
+    },
+    "summary": {
+      "ko": "리겔은 오리온자리의 발 부분에 놓인 밝은 청백색 초거성입니다. 오리온의 어깨에 있는 붉은 베텔게우스와 비교하면 별의 색이 서로 다르다는 점을 쉽게 느낄 수 있습니다. 리겔은 태양보다 훨씬 크고 밝은 별이지만 멀리 있어, 작은 망원경으로 보아도 표면이 펼쳐지는 것이 아니라 점처럼 보입니다. 겨울 저녁에는 허리띠의 세 별을 먼저 찾고 그 남서쪽의 밝은 꼭짓점을 확인하세요. 도시에서도 주된 별은 보이지만 주변의 희미한 성운과 사진 속 반짝이는 배경까지 같은 모습으로 드러나지는 않습니다."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "862.9광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "0.18등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "B8Ia",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)"
+      },
+      {
+        "label": "별자리",
+        "value": "오리온자리 (Ori)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "청색 초거성",
+        "source": "https://apod.nasa.gov/apod/ap230407.html"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "오리온자리의 발 부분",
+        "source": "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+      }
+    ],
+    "story": {
+      "ko": "현대 우주 탐사에서는 익숙한 길잡이 별이 과학 측정에도 쓰입니다. 토성 탐사선 카시니는 토성 대기 뒤로 리겔이 가려졌다가 나타나는 모습을 관측했습니다. 대기를 통과한 별빛의 변화를 살피면 대기의 구조를 연구할 수 있기 때문입니다. 지구의 관측자가 오리온자리의 모양을 맞추는 데 사용하는 빛점이, 다른 행성 가까이에서는 대기를 조사하는 배경 광원이 되는 셈입니다. 리겔의 청백색과 베텔게우스의 붉은색은 별 표면의 온도가 다름을 보여 주지만, 색만으로 모든 물리량을 정할 수는 없습니다. 오늘은 두 별의 색을 번갈아 보고 날짜와 하늘 상태를 남겨 보세요. 눈으로 확인한 대비와 탐사선이 측정한 정보가 서로 다른 규모의 관측을 연결합니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA/Cassini — Help from Orion | https://science.nasa.gov/resource/help-from-orion/",
+        "NASA/APOD — Rigel Wide, 2023-04-07 | https://apod.nasa.gov/apod/ap230407.html",
+        "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 겨울 저녁에 오리온자리 허리띠의 나란한 세 별을 찾습니다. 허리띠에서 천구상 남서쪽의 밝은 청백색 꼭짓점으로 이동하면 리겔입니다. 반대편 북동쪽의 붉은 베텔게우스와 함께 큰 사각형을 이루는지 확인하세요. 화면의 왼쪽·오른쪽보다 별 무늬를 기준으로 찾습니다.",
+      "season": "winter",
+      "hopFrom": [
+        "const:Ori",
+        "star:HIP25930",
+        "star:HIP27989"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 밝은 청백색 점으로 보입니다. 베텔게우스와 번갈아 보며 색 차이를 확인할 수 있습니다.",
+      "binoculars": "10×50에서는 리겔과 오리온자리의 주변 별을 봅니다. 사진 속 어두운 성운이 함께 보일 것으로 기대하지 마세요.",
+      "telescope": "90mm, 20~80배에서 밝은 점과 주변 별을 확인합니다. 희미한 동반성 분리는 조건에 민감하므로 기본 목표는 주성의 색과 위치로 정합니다. 별 표면은 보이지 않습니다.",
+      "difficulty": 1,
+      "bestMonths": [
+        12,
+        1,
+        2
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)",
+      "NASA/APOD — Rigel Wide, 2023-04-07 | https://apod.nasa.gov/apod/ap230407.html",
+      "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "NASA/Cassini — Help from Orion | https://science.nasa.gov/resource/help-from-orion/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+      ]
+    },
+    "funFacts": [
+      "리겔의 청백색은 붉은 베텔게우스와 색을 비교하기 좋은 기준입니다.",
+      "카시니 탐사선은 토성 대기를 통과하는 리겔의 빛을 관측했습니다."
+    ]
+  },
+  {
+    "id": "star:HIP27989",
+    "version": 1,
+    "title": {
+      "ko": "베텔게우스",
+      "en": "Betelgeuse"
+    },
+    "oneLiner": {
+      "ko": "밝기 변화를 기록하며 별의 활동을 배울 수 있는 붉은 초거성"
+    },
+    "summary": {
+      "ko": "베텔게우스는 오리온자리의 어깨를 이루는 붉은 초거성입니다. 매우 커진 바깥층과 활동적인 대기를 가진 별로, 겉보기 밝기가 변하기 때문에 카탈로그 숫자를 오늘의 밝기로 읽으면 안 됩니다. 리겔과 색을 비교하고 주변 별에 대한 밝기 인상을 여러 밤 기록해 보세요. 맨눈으로도 알아보기 좋은 대상이지만 작은 망원경에서 표면 무늬가 보이는 것은 아닙니다. 미래에는 초신성으로 생을 마칠 것으로 설명되지만, 한 번 어두워졌다는 이유로 곧 폭발한다고 판단하거나 날짜를 예고할 수는 없습니다."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "498광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP27989)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "0.45등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP27989)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "M2Ib",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP27989)"
+      },
+      {
+        "label": "별자리",
+        "value": "오리온자리 (Ori)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP27989)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "밝기가 변하는 적색초거성",
+        "source": "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "오리온자리의 어깨 부분",
+        "source": "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서 베텔게우스는 밝기가 달라졌을 때 원인을 성급히 정하면 안 된다는 사례를 남겼습니다. 2019년 말부터 2020년 초까지 크게 어두워지자 많은 관심이 모였습니다. 허블 우주망원경의 관측을 분석한 연구는 별에서 나온 물질이 식어 먼지를 만들고, 그 먼지가 별빛 일부를 가렸다는 설명을 제시했습니다. 이 변화는 별이 즉시 초신성으로 폭발한다는 증거가 아니었습니다. 입문 관측에서도 같은 태도가 중요합니다. 오늘 어둡게 보였다면 먼저 구름·고도·주변 조명·눈의 적응 상태를 함께 적어 보세요. 같은 비교 별을 사용한 여러 날의 기록이 한 번의 인상보다 유용합니다. 별의 이야기를 읽는 일과 아직 확인되지 않은 사건을 예언하는 일은 분리해야 합니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Hubble Finds that Betelgeuse’s Mysterious Dimming Is Due to a Traumatic Outburst | https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+        "NASA — What is Betelgeuse? Inside the Strange, Volatile Star | https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 겨울 저녁, 오리온자리 허리띠의 세 별을 먼저 찾습니다. 허리띠에서 천구상 북동쪽으로 올라가 큰 사각형의 붉은 꼭짓점을 확인하면 베텔게우스입니다. 사각형의 반대편 남서쪽 리겔과 색을 대조하세요. 밝기는 변할 수 있으므로 밝기 하나만으로 찾지 않습니다.",
+      "season": "winter",
+      "hopFrom": [
+        "const:Ori",
+        "star:HIP26727",
+        "star:HIP24436"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 붉거나 주황빛의 밝은 점으로 보입니다. 같은 주변 별과 비교하며 날짜별 밝기 인상을 기록하기 좋습니다.",
+      "binoculars": "10×50에서는 붉은 점과 주변 별 배열을 확인합니다. 별의 표면이나 과거의 먼지 구름을 직접 보는 관측은 아닙니다.",
+      "telescope": "90mm, 20~80배에서도 주된 모습은 점입니다. 표면 세포나 분출물을 사진처럼 기대하지 말고 색과 위치를 관측하세요.",
+      "difficulty": 1,
+      "bestMonths": [
+        12,
+        1,
+        2
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP27989)",
+      "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "NASA — What is Betelgeuse? Inside the Strange, Volatile Star | https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/",
+      "NASA — Hubble Finds that Betelgeuse’s Mysterious Dimming Is Due to a Traumatic Outburst | https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+        "거리 498광년과 분광형 M2Ib는 첨부 값을 그대로 보존했습니다. 거리 추정과 분광 분류는 자료마다 다르므로 원출처·불확도·측정 대상을 확인해야 합니다.",
+        "0.45등급은 첨부의 대표 값이며 현재의 관측 등급이나 변광 범위를 뜻하지 않습니다."
+      ]
+    },
+    "funFacts": [
+      "카탈로그의 한 등급 값은 변광성의 모든 날짜를 대표하지 않습니다.",
+      "큰 어두워짐이 곧바로 초신성 폭발의 예고를 뜻하지는 않습니다."
+    ]
+  },
+  {
+    "id": "star:HIP97649",
+    "version": 1,
+    "title": {
+      "ko": "알타이르",
+      "en": "Altair",
+      "alt": [
+        "견우성"
+      ]
+    },
+    "oneLiner": {
+      "ko": "견우성으로 익숙한, 빠르게 자전하는 여름의 별"
+    },
+    "summary": {
+      "ko": "알타이르는 독수리자리의 밝은 별로, 베가와 데네브를 연결한 여름철 대삼각형의 한 꼭짓점입니다. 한국의 칠석 안내에서는 견우성으로 연결합니다. 비교적 가까운 별이며 매우 빠른 자전 때문에 적도 부분이 부푼 모양이 연구되어 왔습니다. 이 모양은 여러 망원경의 빛을 합치는 간섭 관측으로 알아낸 것으로, 작은 망원경에서 납작한 원반을 직접 볼 수는 없습니다. 입문자는 양옆의 별이 만드는 짧은 줄과 여름 대삼각형의 배치를 확인해 보세요. 도시에서는 어두운 이웃별 일부가 잘 보이지 않을 수 있습니다."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "16.7광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "0.76등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "A7IV-V",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)"
+      },
+      {
+        "label": "별자리",
+        "value": "독수리자리 (Aql)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "빠르게 자전하는 별",
+        "source": "https://chara.gsu.edu/photos-videos/image-gallery/altair"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "여름철 대삼각형의 꼭짓점",
+        "source": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+      }
+    ],
+    "story": {
+      "ko": "한국과 동아시아의 칠석 전승에서 견우는 직녀와 떨어져 지내다 오작교에서 만나는 인물입니다. 오늘의 하늘 안내는 알타이르를 견우성으로 연결하지만, 전통 천문학의 비슷한 이름을 모두 같은 별로 합치면 혼동이 생길 수 있습니다. 현대 과학이 들려주는 알타이르의 이야기는 빠른 자전입니다. 연구자들은 여러 망원경의 빛을 결합해 별의 표면을 영상화했고, 적도가 부풀고 극과 적도의 밝기가 달라지는 모습을 조사했습니다. 이는 중력과 자전이 별의 형태에 영향을 준다는 관측입니다. 작은 망원경에서는 이 구조가 보이지 않으므로 오늘 본 모습은 밝은 점이라고 기록하는 것이 맞습니다. 설화 속 인물과 연구로 얻은 별의 성질을 함께 읽되, 눈으로 확인한 범위는 분명하게 남겨 보세요.",
+      "cultures": [
+        "한국",
+        "동아시아",
+        "기타"
+      ],
+      "sources": [
+        "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+        "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+        "CHARA Array — Altair: gravity-darkened stellar surface | https://chara.gsu.edu/photos-videos/image-gallery/altair",
+        "Monnier 외(2007) — Imaging the Surface of Altair | https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 여름 저녁에 베가와 데네브를 먼저 찾아 큰 삼각형을 그립니다. 두 별보다 천구상 남쪽에 있는 밝은 꼭짓점이 알타이르입니다. 밝기가 더 약한 별들이 양옆에 놓여 짧은 줄처럼 보이는지 확인하고, 독수리자리 지도와 맞춥니다. 시간에 따라 기울어진 방향은 달라질 수 있습니다.",
+      "season": "summer",
+      "hopFrom": [
+        "star:HIP91262",
+        "star:HIP102098",
+        "const:Aql"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 밝은 흰 점으로 보이며 양옆 별은 하늘 밝기에 따라 보이거나 빠질 수 있습니다.",
+      "binoculars": "10×50에서는 알타이르와 이웃별의 줄 모양을 확인하기 좋습니다. 부푼 적도나 표면의 밝기 차이는 보이지 않습니다.",
+      "telescope": "90mm, 20~80배에서도 점처럼 보입니다. 자전 때문에 납작해진 형태는 이 장비로 직접 확인하는 목표가 아닙니다.",
+      "difficulty": 1,
+      "bestMonths": [
+        7,
+        8,
+        9
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)",
+      "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+      "CHARA Array — Altair: gravity-darkened stellar surface | https://chara.gsu.edu/photos-videos/image-gallery/altair",
+      "Monnier 외(2007) — Imaging the Surface of Altair | https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+      "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+      ]
+    },
+    "funFacts": [
+      "알타이르는 빠른 자전 때문에 적도 부분이 부풀어 있습니다.",
+      "견우성과 직녀성을 찾는 데 은하수가 맨눈으로 보여야 하는 것은 아닙니다."
+    ],
+    "koreanTradition": {
+      "name": "견우성",
+      "note": "여기서는 한국의 칠석 안내에서 알타이르에 대응시키는 이름으로 사용합니다. 전통 성군 이름 전체와 같은 식별자로 병합하지 않습니다.",
+      "sources": [
+        "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+        "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170"
+      ]
+    }
+  },
+  {
+    "id": "star:HIP21421",
+    "version": 1,
+    "title": {
+      "ko": "알데바란",
+      "en": "Aldebaran"
+    },
+    "oneLiner": {
+      "ko": "히아데스 앞에서 빛나는 황소자리의 주황빛 눈"
+    },
+    "summary": {
+      "ko": "알데바란은 황소자리에서 눈 부분을 이루는 밝은 주황빛 거성입니다. V자 모양의 히아데스 성단과 같은 방향에 보여 성단의 대표 별처럼 느껴지지만, 실제로는 성단보다 앞쪽에 놓인 별입니다. 밤하늘에서 서로 가까워 보인다는 이유만으로 실제 공간에서도 가까운 것은 아닙니다. 겨울 저녁 오리온자리 허리띠를 시리우스와 반대 방향으로 연장하면 찾기 쉽습니다. 맨눈으로 색을 확인한 뒤 쌍안경으로 V자 별무리를 살펴보세요. 도시에서는 성단의 어두운 별이 줄어들어도 알데바란 자체는 비교적 잘 보입니다."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "66.6광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP21421)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "0.87등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP21421)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "K5III",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP21421)"
+      },
+      {
+        "label": "별자리",
+        "value": "황소자리 (Tau)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP21421)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "태양보다 표면이 서늘한 거성",
+        "source": "https://apod.nasa.gov/apod/ap150326.html"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "황소자리의 눈, 히아데스 앞쪽의 별",
+        "source": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서 알데바란과 히아데스는 하늘의 투영 효과를 설명하기 좋은 조합입니다. 눈으로 보면 밝은 알데바란이 V자 성단의 한자리를 차지하므로 같은 집단이라고 생각하기 쉽습니다. 그러나 거리 정보를 더하면 알데바란은 앞쪽에, 성단은 뒤쪽에 놓입니다. 사진의 한 화면에 잡힌 천체도 실제로는 깊이가 다른 공간에 흩어져 있을 수 있는 것입니다. 오리온자리 허리띠를 따라 알데바란에 도착한 뒤 쌍안경으로 주변 별들을 넓게 살펴보세요. 관측 노트에는 함께 보인다는 사실과 같은 성단에 속한다는 판단을 분리해 적으면 좋습니다. 별자리 모양을 외우는 데서 그치지 않고 밤하늘이 평면 지도처럼 보이는 입체 공간이라는 점을 이해하게 해 주는 관측입니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Spot the Young Stars of the Hyades and Pleiades | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+        "NASA/JPL — What’s Up: March 2022 | https://www.jpl.nasa.gov/videos/whats-up-march-2022/",
+        "NASA/APOD — Orion Spring, 2015-03-26 | https://apod.nasa.gov/apod/ap150326.html"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 늦가을과 겨울 저녁에 오리온자리 허리띠의 세 별을 찾습니다. 그 줄을 천구상 북서쪽, 시리우스와 반대 방향으로 연장하면 주황빛 알데바란이 있습니다. 곁의 V자 별무리인 히아데스를 확인해 황소자리의 얼굴과 맞추세요. 도시에서 V자 전체가 희미하면 먼저 밝은 별만 연결합니다.",
+      "season": "winter",
+      "hopFrom": [
+        "const:Ori",
+        "star:HIP25930",
+        "const:Tau"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 주황빛 별을 찾기 좋습니다. V자 성단의 어두운 구성원은 일부만 보일 수 있습니다.",
+      "binoculars": "10×50으로 알데바란과 히아데스의 넓은 배치를 살펴보세요. 장비 시야에 따라 V자 전체가 한 번에 들어오지 않을 수도 있습니다.",
+      "telescope": "90mm, 20~80배에서는 알데바란은 밝은 점입니다. 낮은 배율로 주변 별을 보되 넓은 히아데스 전체를 한 시야에 담기는 어렵습니다. 별 표면은 보이지 않습니다.",
+      "difficulty": 1,
+      "bestMonths": [
+        11,
+        12,
+        1,
+        2
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP21421)",
+      "NASA — Spot the Young Stars of the Hyades and Pleiades | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+      "NASA/JPL — What’s Up: March 2022 | https://www.jpl.nasa.gov/videos/whats-up-march-2022/",
+      "NASA/APOD — Orion Spring, 2015-03-26 | https://apod.nasa.gov/apod/ap150326.html",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+      ]
+    },
+    "funFacts": [
+      "알데바란은 히아데스와 같은 방향에 보이지만 성단의 구성원이 아닙니다.",
+      "오리온 허리띠에서 시리우스와 반대 방향으로 찾을 수 있습니다."
+    ]
+  },
+  {
+    "id": "star:HIP80763",
+    "version": 1,
+    "title": {
+      "ko": "안타레스",
+      "en": "Antares"
+    },
+    "oneLiner": {
+      "ko": "낮은 남쪽 하늘에서 전갈의 심장을 표시하는 붉은 별"
+    },
+    "summary": {
+      "ko": "안타레스는 전갈자리의 중심부에 놓인 밝은 붉은 초거성입니다. 태양보다 훨씬 커진 바깥층을 지니지만 표면은 비교적 서늘해 붉은빛을 냅니다. 한국의 중위도에서는 남쪽 하늘에 낮게 뜨므로 도시의 건물과 산, 지평선의 연무가 관측에 큰 영향을 줍니다. 먼저 본체의 붉은색과 전갈자리의 굽은 별줄기를 확인하는 것이 좋습니다. 작은 망원경에서 별 표면이나 거대한 대기의 구조가 직접 드러나지는 않습니다. 충분히 높아지는 시간을 고르고, 붉은 행성 화성과 혼동하지 않도록 주변 별의 무늬를 함께 확인하세요."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "553.8광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "1.06등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "M1Ib + B2.5V",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)"
+      },
+      {
+        "label": "별자리",
+        "value": "전갈자리 (Sco)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "크게 팽창한 적색초거성",
+        "source": "https://www.eso.org/public/news/eso1726/"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "전갈자리의 붉은 중심 별",
+        "source": "https://www.eso.org/public/news/eso1726/"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서는 안타레스의 겉으로 보이는 표면뿐 아니라 넓게 퍼진 대기까지 서로 다른 파장의 빛으로 조사합니다. ESO의 간섭 관측은 여러 망원경의 빛을 합쳐 별 표면과 대기 물질의 움직임을 연구했습니다. ALMA와 다른 전파망원경의 관측은 그 바깥 대기의 크기와 온도를 살펴보는 데 쓰였습니다. 눈에는 한 점인 별이 연구 장비에서는 복잡한 구조로 나타나는 것입니다. 그렇다고 입문용 망원경의 희미한 번짐을 별 대기라고 기록해서는 안 됩니다. 한국에서 낮게 보이는 안타레스는 지구 대기의 영향도 많이 받습니다. 오늘은 붉은색과 주변 별에 대한 위치를 확인하고, 전문 관측에서 얻은 구조는 별도의 지식으로 연결해 보세요.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "ESO — Best Ever Image of a Star’s Surface and Atmosphere, 2017-08-23 | https://www.eso.org/public/news/eso1726/",
+        "ALMA — Supergiant Atmosphere of Antares Revealed by Radio Telescopes | https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 여름 저녁에 남쪽 지평선이 트인 곳을 고릅니다. 앱에서 전갈자리의 굽은 긴 별줄기를 확인하고 머리 부근에서 꼬리 쪽으로 시선을 옮기세요. 몸통의 눈에 띄는 붉은 별이 안타레스입니다. 화성도 붉게 보일 수 있으므로 색만 보지 말고 전갈자리의 주변 별 배열과 대조합니다.",
+      "season": "summer",
+      "hopFrom": [
+        "const:Sco"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 남쪽이 트이고 대기가 맑으면 붉은 점이 보입니다. 낮은 고도 때문에 산과 건물에 가릴 수 있습니다.",
+      "binoculars": "10×50에서는 색과 전갈자리 주변 별들의 배치를 확인합니다. 낮은 고도의 흔들림과 빛 번짐에 주의하세요.",
+      "telescope": "90mm, 20~80배에서는 붉은 주성을 관측합니다. 가까운 어두운 동반성 분리는 입문 목표로 삼지 않고, 전문 관측의 표면·대기 영상을 기대하지 않습니다.",
+      "difficulty": 2,
+      "bestMonths": [
+        6,
+        7,
+        8
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)",
+      "ESO — Best Ever Image of a Star’s Surface and Atmosphere, 2017-08-23 | https://www.eso.org/public/news/eso1726/",
+      "ALMA — Supergiant Atmosphere of Antares Revealed by Radio Telescopes | https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+        "분광형 M1Ib + B2.5V는 첨부의 복합 문자열을 보존했습니다. 두 성분에 대한 분류와 HIP 레코드의 대응을 병합 단계에서 확인해야 합니다."
+      ]
+    },
+    "funFacts": [
+      "붉은색이 별 전체에서 방출하는 빛의 양이 작다는 뜻은 아닙니다.",
+      "안타레스의 대기는 빛의 파장에 따라 서로 다른 부분이 관측됩니다."
+    ]
+  },
+  {
+    "id": "star:HIP102098",
+    "version": 1,
+    "title": {
+      "ko": "데네브",
+      "en": "Deneb"
+    },
+    "oneLiner": {
+      "ko": "여름 대삼각형에서 백조자리의 꼬리를 찾는 길잡이"
+    },
+    "summary": {
+      "ko": "데네브는 백조자리의 꼬리를 표시하는 밝은 흰 초거성이며, 베가·알타이르와 여름철 대삼각형을 이룹니다. 세 별을 하늘의 같은 무늬로 묶지만 실제 거리는 크게 다릅니다. 데네브는 다른 두 별보다 훨씬 멀리 있는 별로 설명되며, 거리 추정에는 자료에 따른 차이가 있어 숫자를 읽을 때 출처와 불확도를 함께 살펴야 합니다. 도시에서는 북십자의 밝은 별 위주로 찾아보고, 어두운 곳에서는 그 주변 은하수의 별무리까지 연결해 보세요. 쌍안경이 보여 주는 수많은 점과 사진 속 성운의 색은 같은 수준으로 보이지 않습니다."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "1411.9광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "1.25등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "A2Ia",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)"
+      },
+      {
+        "label": "별자리",
+        "value": "백조자리 (Cyg)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "밝은 초거성",
+        "source": "https://apod.nasa.gov/apod/ap150627.html"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "여름 대삼각형과 북십자의 길잡이",
+        "source": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/"
+      }
+    ],
+    "story": {
+      "ko": "아랍 문화권에서 유래한 데네브의 이름은 꼬리라는 뜻과 연결되며, 현대 별자리 그림에서는 백조의 꼬리에 놓입니다. 이 별에서 백조의 몸통과 목을 따라가면 밝은 별들이 큰 십자 무늬를 이룹니다. 현대 천문학의 거리 자료를 함께 읽으면 또 다른 차이가 드러납니다. 베가·알타이르·데네브는 하나의 삼각형으로 보이지만 서로 같은 거리에 있는 별의 무리가 아닙니다. 특히 데네브의 거리는 어떤 측정과 가정을 쓰느냐에 따라 서로 다른 값이 논의되어 왔습니다. 관측자는 눈에 보이는 위치를 먼저 익히고, 거리 숫자에는 출처와 불확도가 필요하다는 점도 기억하면 좋습니다. 익숙한 도형을 찾는 일은 쉬운 출발점이고, 그 도형에 실제 공간의 깊이를 더하는 일은 다음 배움이 됩니다.",
+      "cultures": [
+        "아랍",
+        "기타"
+      ],
+      "sources": [
+        "NASA — Summer Triangle Corner: Deneb, 2026-08-15 | https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+        "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+        "Meilland 외(2010) — Resolving the dusty circumstellar environment of HD 62623; Deneb 거리 가정 비교 | https://arxiv.org/html/0912.1954v1"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국의 여름과 초가을 저녁에 베가와 알타이르를 찾아 큰 삼각형을 만듭니다. 베가에서 천구상 북동쪽에 있는 밝은 꼭짓점이 데네브입니다. 데네브에서 삼각형 안쪽의 알비레오 방향으로 별줄기를 잇고, 중간에서 양쪽으로 뻗는 별들이 북십자를 만드는지 확인하세요.",
+      "season": "summer",
+      "hopFrom": [
+        "star:HIP91262",
+        "star:HIP97649",
+        "const:Cyg"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 데네브와 북십자의 주요 별을 찾을 수 있습니다. 은하수 띠가 반드시 함께 보이는 것은 아닙니다.",
+      "binoculars": "10×50에서는 백조자리의 풍부한 별밭을 따라갈 수 있습니다. 도시에서는 보이는 별 수가 줄고 성운의 사진 같은 색은 기대하지 않습니다.",
+      "telescope": "90mm, 20~80배에서도 데네브 자체는 밝은 점입니다. 낮은 배율로 주변 별을 찾아가는 기준점으로 쓰며 별의 표면은 보이지 않습니다.",
+      "difficulty": 1,
+      "bestMonths": [
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)",
+      "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "NASA — Summer Triangle Corner: Deneb, 2026-08-15 | https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+      "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+      "Meilland 외(2010) — Resolving the dusty circumstellar environment of HD 62623; Deneb 거리 가정 비교 | https://arxiv.org/html/0912.1954v1",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+        "거리 1411.9광년은 첨부 값을 보존한 것입니다. 문헌에 다른 거리 가정이 있으며 원출처·추정법·불확도를 확인하기 전 정밀한 확정 거리로 표시하지 마세요."
+      ]
+    },
+    "funFacts": [
+      "여름 대삼각형은 같은 거리에 모여 있는 하나의 성단이 아닙니다.",
+      "데네브는 백조의 머리가 아니라 꼬리를 표시합니다."
+    ]
+  },
+  {
+    "id": "star:HIP11767",
+    "version": 1,
+    "title": {
+      "ko": "폴라리스",
+      "en": "Polaris",
+      "alt": [
+        "북극성"
+      ]
+    },
+    "oneLiner": {
+      "ko": "가장 밝아서가 아니라 북쪽 가까이에 있어 중요한 별"
+    },
+    "summary": {
+      "ko": "폴라리스는 지금의 북극성으로, 지구 자전축이 가리키는 천구의 북극 가까이에 있습니다. 밤하늘에서 가장 밝은 별은 아니지만 밤 동안 위치 변화가 작아 방향을 찾는 데 유용합니다. 북두칠성 국자 끝의 두 별을 이용하면 접근하기 쉽습니다. 실제로는 밝기가 변하는 초거성과 동반성들이 있는 계이며, 북극성이라는 역할과 별 자체의 성질은 구분해야 합니다. 폴라리스는 천구의 북극과 완전히 같은 점이 아니므로 대략적인 북쪽 찾기에 쓰고, 정밀한 정렬에는 앱의 시각·위치 계산을 따르세요."
+    },
+    "facts": [
+      {
+        "label": "거리(첨부 카탈로그)",
+        "value": "432.6광년",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)"
+      },
+      {
+        "label": "겉보기등급(대역 검토 필요)",
+        "value": "1.97등급; 첨부 mag, V 대역 미확인",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "F7:Ib-IIv SB",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)"
+      },
+      {
+        "label": "별자리",
+        "value": "작은곰자리 (UMi)",
+        "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)"
+      },
+      {
+        "label": "별의 성격",
+        "value": "세페이드 변광성을 포함한 다중성계",
+        "source": "https://www.cfa.harvard.edu/news/polaris-north-star"
+      },
+      {
+        "label": "관측 길잡이",
+        "value": "작은곰자리 꼬리 끝, 천구 북극 부근",
+        "source": "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서 북극성은 별의 고유한 물리 종류가 아니라 하늘에서 맡는 역할입니다. 지구 자전축의 방향은 아주 긴 시간에 걸쳐 변하므로 오늘의 폴라리스가 모든 시대의 북극성이었던 것은 아닙니다. 폴라리스 자체에도 별도의 이야기가 있습니다. 주된 별은 팽창과 수축에 따라 밝기가 달라지는 세페이드 변광성이며, 가까운 동반성과 더 멀리 떨어진 동반성이 있습니다. 넓게 떨어진 동반성 B는 작은 망원경의 대상이 될 수 있지만, 가까운 Ab를 같은 장비로 볼 수 있다고 기대하면 안 됩니다. 오늘 북쪽을 찾았다는 관측과 이 별의 변광·다중성 구조를 알게 되었다는 학습을 나누어 기록해 보세요. 익숙한 길잡이 별도 위치와 물리적 성격이라는 서로 다른 정보를 담고 있습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+        "Harvard & Smithsonian CfA — Polaris, the North Star | https://www.cfa.harvard.edu/news/polaris-north-star",
+        "NASA/ESA Hubble — Hubble Images Polaris’s Companion | https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/"
+      ]
+    },
+    "howToFind": {
+      "ko": "한국에서는 계절과 관계없이 북쪽 하늘을 살핍니다. 북두칠성의 국자 바깥 끝에 있는 메라크에서 두베로 향한 선을 두 별 사이 간격의 약 다섯 배 더 연장하면 폴라리스 근처에 닿습니다. 작은곰자리의 꼬리 끝인지 확인하세요. 북두칠성이 가려졌다면 카시오페이아자리와 앱의 북쪽 지도를 함께 사용합니다.",
+      "season": "any",
+      "hopFrom": [
+        "const:UMa",
+        "star:HIP54061",
+        "const:Cas"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 북쪽 시야가 트이면 찾을 수 있지만 시리우스처럼 압도적으로 밝지는 않습니다. 작은곰자리의 어두운 별들은 잘 안 보일 수 있습니다.",
+      "binoculars": "10×50에서는 폴라리스와 주변 별의 배치를 확인합니다. 가까운 동반성이나 미세한 밝기 변화를 바로 구별하는 관측은 아닙니다.",
+      "telescope": "90mm, 20~80배에서 주성을 확인하고, 좋은 조건이면 60~80배로 넓게 떨어진 동반성 B를 시도할 수 있습니다. 밝은 주성의 번짐이 방해하며 매우 가까운 Ab는 보이지 않습니다.",
+      "difficulty": 2,
+      "bestMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "sources": [
+      "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)",
+      "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "Harvard & Smithsonian CfA — Polaris, the North Star | https://www.cfa.harvard.edu/news/polaris-north-star",
+      "NASA/ESA Hubble — Hubble Images Polaris’s Companion | https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+      "한국천문연구원 — 별자리의 종류와 유래 | https://www.kasi.re.kr/kor/publication/post/videoGallery/10440",
+      "한국천문연구원 — 북두칠성; 북극성 찾기의 약 5배 연장 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+        "겉보기등급 1.97과 거리 432.6광년은 첨부 대표 값입니다. 변광성과 다중성계의 성분·측정 시점을 포함한 원출처를 확인해야 합니다."
+      ]
+    },
+    "funFacts": [
+      "북극성은 밤하늘에서 가장 밝은 별이 아닙니다.",
+      "북극성이라는 역할은 지구 자전축의 장기 변화에 따라 다른 별로 옮겨갑니다."
+    ],
+    "koreanTradition": {
+      "name": "북극성",
+      "note": "현재 한국어 하늘 안내에서 폴라리스를 부르는 역할명입니다. 모든 시대의 북극 관련 별이나 전통 북극 성군 전체를 폴라리스 한 별로 합치지 않습니다.",
+      "sources": [
+        "한국천문연구원 — 별자리의 종류와 유래 | https://www.kasi.re.kr/kor/publication/post/videoGallery/10440",
+        "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/"
+      ]
+    }
+  }
+]
