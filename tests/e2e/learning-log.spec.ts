@@ -117,6 +117,7 @@ test('이야기 읽음·미션 진도·퀴즈와 영어 화면', async ({ page }
   await page.goto('#/learn');
   await expect(page.getByTestId('learn-screen')).toBeVisible();
   await page.screenshot({ path: 'tests/e2e/__screenshots__/learn-home.png' });
+  await page.getByTestId('learn-tab-courses').click();
   await page.getByTestId('path-naked-first-directions').click();
   await page.getByTestId('mission-any-moon-phase').click();
   await page.getByTestId('mission-start').click();
@@ -133,7 +134,7 @@ test('이야기 읽음·미션 진도·퀴즈와 영어 화면', async ({ page }
   await page.goto('#/settings');
   await page.getByRole('radio', { name: 'English', exact: true }).click();
   await page.goto('#/learn');
-  await expect(page.getByRole('heading', { name: 'A little closer to the stars' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Learn', exact: true })).toBeVisible();
   await page.getByTestId('learn-quiz-start').click();
   await expect(page.getByRole('button', { name: 'Check answer' })).toBeDisabled();
   await page.getByTestId('quiz-choice-0').click();
@@ -147,6 +148,7 @@ test('이야기 첫 열람 뒤 새로고침·오프라인 재열람', async ({ p
   });
   await page.reload();
   await expect(page.getByTestId('learn-screen')).toBeVisible();
+  await page.getByTestId('learn-tab-courses').click();
   await page.getByTestId('path-naked-first-directions').click();
   await page.getByTestId('mission-any-moon-phase').click();
   await page.getByTestId('mission-start').click();
@@ -166,8 +168,6 @@ test('이야기 첫 열람 뒤 새로고침·오프라인 재열람', async ({ p
   await context.setOffline(true);
   await page.reload();
   await expect(page.getByTestId('learn-screen')).toBeVisible();
-  await page.getByTestId('path-naked-first-directions').click();
-  await page.getByTestId('mission-any-moon-phase').click();
   await page
     .getByRole('button', { name: /이야기 읽기/ })
     .first()

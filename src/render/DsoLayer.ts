@@ -35,6 +35,7 @@ export class DsoLayer {
       fragmentShader: dsoFrag,
       uniforms: {
         uEqjToScene: { value: new THREE.Matrix3() },
+        uShowBelowHorizon: { value: 1 },
         uRefraction: { value: 1 },
         uPixelRatio: { value: 1 },
         uDegPerPixel: { value: 0.1 },
@@ -87,6 +88,7 @@ export class DsoLayer {
     color: string,
     alpha: number,
     refraction: boolean,
+    showBelowHorizon = false,
   ): void {
     const u = this.material.uniforms;
     const lim = dsoMagLimits(fovDeg);
@@ -96,6 +98,7 @@ export class DsoLayer {
     u['uPixelRatio']!.value = pixelRatio;
     (u['uColor']!.value as THREE.Color).set(color);
     u['uAlpha']!.value = alpha;
+    u['uShowBelowHorizon']!.value = showBelowHorizon ? 1 : 0;
     u['uRefraction']!.value = refraction ? 1 : 0;
   }
 

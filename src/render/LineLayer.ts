@@ -69,6 +69,10 @@ export class LineLayer {
     this.material.uniforms['uAlpha']!.value = alpha;
   }
 
+  setFadeBelowHorizon(on: boolean): void {
+    this.material.uniforms['uFadeBelowHorizon']!.value = on ? 1 : 0;
+  }
+
   setRefraction(on: boolean): void {
     this.material.uniforms['uRefraction']!.value = on ? 1 : 0;
   }

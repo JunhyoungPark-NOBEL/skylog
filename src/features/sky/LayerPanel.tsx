@@ -113,6 +113,7 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
         <Row id="ecliptic" label={t('sky.layer.ecliptic')} />
         <Row id="meridian" label={t('sky.layer.meridian')} />
         <Row id="ground" label={t('sky.layer.ground')} />
+        <Row id="showBelowHorizon" label={t('sky.layer.showBelowHorizon')} />
         <Row id="groundOpaque" label={t('sky.layer.groundOpaque')} />
         <Row id="atmosphere" label={t('sky.layer.atmosphere')} />
         <Row id="extinction" label={t('sky.layer.extinction')} />

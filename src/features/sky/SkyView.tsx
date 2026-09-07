@@ -16,7 +16,7 @@ import { registerSkyScene } from '@/features/sky/skyApi';
 import { TimeBar } from '@/features/sky/TimeBar';
 import { SkyScene, type ObjectInfo } from '@/render/SkyScene';
 import { useClockStore } from '@/state/clockStore';
-import { useLayerStore } from '@/state/layerStore';
+import { showsBelowHorizon, useLayerStore } from '@/state/layerStore';
 import { useLocationStore } from '@/state/locationStore';
 import { useLogStore, type LogState } from '@/state/logStore';
 import { useSelectionStore } from '@/state/selectionStore';
@@ -32,6 +32,21 @@ function formatView(alt: number, az: number, fov: number): string {
  * 화면 중심 alt/az·FOV 텍스트 — viewStore(≤10Hz 갱신)만 구독해 하늘 뷰 전체 리렌더를 막는다.
  * 상태 캡슐 아래 HUD 줄(레이어 버튼·AR 버튼 사이) 가운데. 찾아가기 pill이 같은 자리를 쓰므로 목표가 있으면 한 줄 아래로.
  */
+function BelowHorizonHint() {
+  const { t } = useTranslation();
+  const below = useViewStore((s) => s.centerAlt < 0);
+  const show = useLayerStore(showsBelowHorizon);
+  if (!below || !show) return null;
+  return (
+    <p
+      data-testid="below-horizon-hint"
+      className="self-center rounded-pill glass-sm px-3 py-2 text-center text-caption text-muted"
+    >
+      {t('sky.belowHorizonHint')}
+    </p>
+  );
+}
+
 function ViewInfo() {
   const alt = useViewStore((s) => s.centerAlt);
   const az = useViewStore((s) => s.centerAz);
@@ -258,6 +273,7 @@ export function SkyView() {
         className={`pointer-events-none absolute inset-x-0 bottom-sky z-10 flex justify-center px-3 ${sheetOpen ? 'invisible' : ''}`}
       >
         <div className="flex w-full max-w-md flex-col gap-2">
+          <BelowHorizonHint />
           {shownInfo && (
             <SelectionTooltip
               info={shownInfo}

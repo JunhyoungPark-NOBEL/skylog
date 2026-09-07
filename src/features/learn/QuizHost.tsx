@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { readLearning, recordAnswer, selectQuiz } from '@/learn/runtime';
+import { readLearning, recordAnswer, recordStageAnswer, selectQuiz } from '@/learn/runtime';
+import { QUIZ_STAGES, stageQuestions, type StageResult } from '@/learn/stages';
+import { newId } from '@/db/database';
 import type { QuizItem, Text } from '@/learn/schema';
 import { useLearnUiStore, type QuizRequest } from '@/state/learnUiStore';
 import { useSettingsStore } from '@/state/settingsStore';
@@ -10,12 +12,16 @@ import { ScrollArea } from '@/ui/ScrollArea';
 export function QuizHost() {
   const request = useLearnUiStore((s) => s.quiz);
   const close = useLearnUiStore((s) => s.closeQuiz);
-  return request ? <QuizSession request={request} onClose={close} /> : null;
+  return request ? <QuizSession key={request.sessionId} request={request} onClose={close} /> : null;
 }
 function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): void }) {
   const { t } = useTranslation();
   const lang = useSettingsStore((s) => s.lang);
   const text = (v: Text) => (lang === 'en' ? (v.en ?? v.ko) : v.ko);
+  const stage = QUIZ_STAGES.find((s) => s.id === request.stageId);
+  const [runId] = useState(newId);
+  const [stageResult, setStageResult] = useState<StageResult | null>(null);
+  const dialog = useRef<HTMLDivElement>(null);
   const [questions, setQuestions] = useState<QuizItem[] | null>(null);
   const [index, setIndex] = useState(0);
   const [choice, setChoice] = useState<number | boolean | null>(null);
@@ -30,7 +36,11 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
     void readLearning()
       .then((s) => {
         if (alive) {
-          setQuestions(selectQuiz(s, request));
+          if (request.stageId) {
+            if (!stage || !s.journey.find((p) => p.stage.id === stage.id)?.unlocked)
+              throw new Error('Stage locked');
+            setQuestions(stageQuestions(stage, s.data.quiz));
+          } else setQuestions(selectQuiz(s, request));
           setError(false);
         }
       })
@@ -40,7 +50,7 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
     return () => {
       alive = false;
     };
-  }, [request, retry]);
+  }, [request, retry, stage]);
   useEffect(() => {
     heading.current?.focus();
     const escape = (event: KeyboardEvent) => {
@@ -48,7 +58,26 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
     };
     window.addEventListener('keydown', escape);
     return () => window.removeEventListener('keydown', escape);
-  }, [onClose, index]);
+  }, [onClose, index, questions]);
+  useEffect(() => {
+    const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const root = dialog.current;
+    if (!root) return;
+    const siblings = [...(root.parentElement?.children ?? [])].filter(
+      (el): el is HTMLElement => el instanceof HTMLElement && el !== root,
+    );
+    const inert = siblings.map((el) => el.inert);
+    siblings.forEach((el) => {
+      el.inert = true;
+    });
+    root.focus();
+    return () => {
+      siblings.forEach((el, i) => {
+        el.inert = inert[i]!;
+      });
+      previous?.focus({ preventScroll: true });
+    };
+  }, []);
   const q = questions?.[index];
   const submitted = answers.length > index;
   const done = questions !== null && index >= questions.length;
@@ -65,7 +94,11 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
     setBusy(true);
     setError(false);
     try {
-      const correct = await recordAnswer(q, choice);
+      const response = stage
+        ? await recordStageAnswer(stage.id, runId, index, choice)
+        : { correct: await recordAnswer(q, choice), result: null };
+      const correct = response.correct;
+      if (response.result) setStageResult(response.result);
       setAnswers((a) => [...a, correct]);
     } catch {
       setError(true);
@@ -81,6 +114,35 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
   };
   return (
     <div
+      ref={dialog}
+      tabIndex={-1}
+      onKeyDown={(event) => {
+        if (event.key !== 'Tab') return;
+        const buttons = [
+          ...(dialog.current?.querySelectorAll<HTMLElement>(
+            'button:not(:disabled), [href], [tabindex="0"]',
+          ) ?? []),
+        ].filter(
+          (el) => el.tabIndex >= 0 && !el.matches(':disabled') && el.getClientRects().length > 0,
+        );
+        const first = buttons[0],
+          last = buttons.at(-1);
+        if (!first) {
+          event.preventDefault();
+          return;
+        }
+        if (
+          event.shiftKey &&
+          (document.activeElement === first ||
+            !buttons.includes(document.activeElement as HTMLElement))
+        ) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }}
       className="fixed inset-0 z-[60] flex flex-col bg-bg text-fg"
       role="dialog"
       aria-modal="true"
@@ -88,7 +150,11 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
       data-testid="quiz-host"
     >
       <header className="flex shrink-0 items-center justify-between gap-3 px-5 pb-3 pt-[calc(env(safe-area-inset-top)+16px)]">
-        <span className="text-label font-semibold tracking-[0.18em] text-accent">SKY NOTES</span>
+        <span className="text-label font-semibold tracking-[0.18em] text-accent">
+          {stage
+            ? t('journey.stageHeading', { n: QUIZ_STAGES.indexOf(stage) + 1 })
+            : t('study.quiz')}
+        </span>
         <button
           className="flex h-11 w-11 items-center justify-center rounded-full bg-surface-2"
           aria-label={t('common.close')}
@@ -111,7 +177,7 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
           {q && (
             <>
               <div className="flex items-center justify-between text-caption text-muted">
-                <span>{t('study.smallSteps')}</span>
+                <span>{stage ? t('journey.themes.' + stage.theme) : t('study.smallSteps')}</span>
                 <span className="tabular-nums">
                   {index + 1} / {questions!.length}
                 </span>
@@ -155,6 +221,38 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
                       type="button"
                       role="radio"
                       aria-checked={selected}
+                      tabIndex={choice === null ? (i === 0 ? 0 : -1) : selected ? 0 : -1}
+                      onKeyDown={(event) => {
+                        if (
+                          ![
+                            'ArrowDown',
+                            'ArrowUp',
+                            'ArrowLeft',
+                            'ArrowRight',
+                            'Home',
+                            'End',
+                          ].includes(event.key)
+                        )
+                          return;
+                        event.preventDefault();
+                        const nextIndex =
+                          event.key === 'Home'
+                            ? 0
+                            : event.key === 'End'
+                              ? options.length - 1
+                              : (i +
+                                  (event.key === 'ArrowDown' || event.key === 'ArrowRight'
+                                    ? 1
+                                    : -1) +
+                                  options.length) %
+                                options.length;
+                        setChoice(options[nextIndex]!.value);
+                        dialog.current
+                          ?.querySelector<HTMLElement>(
+                            '[data-testid="quiz-choice-' + nextIndex + '"]',
+                          )
+                          ?.focus();
+                      }}
                       disabled={submitted || busy}
                       onClick={() => setChoice(option.value)}
                       data-testid={'quiz-choice-' + i}
@@ -234,7 +332,15 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
                 ✦
               </div>
               <h1 ref={heading} tabIndex={-1} className="text-headline">
-                {t(questions.length ? 'study.finished' : 'study.noQuestions')}
+                {t(
+                  stageResult
+                    ? stageResult.cleared
+                      ? 'journey.cleared'
+                      : 'journey.tryAgainTitle'
+                    : questions.length
+                      ? 'study.finished'
+                      : 'study.noQuestions',
+                )}
               </h1>
               {questions.length > 0 && (
                 <>
@@ -242,11 +348,51 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
                     {answers.filter(Boolean).length}
                     <span className="text-title text-muted"> / {questions.length}</span>
                   </p>
-                  <p className="text-body leading-7 text-muted">{t('study.reviewLater')}</p>
+                  {stageResult ? (
+                    <div className="space-y-3" data-testid="stage-result">
+                      <p
+                        className="text-3xl tracking-widest text-accent"
+                        aria-label={t('journey.stars', { n: stageResult.stars })}
+                      >
+                        {'★'.repeat(stageResult.stars)}
+                        {'☆'.repeat(3 - stageResult.stars)}
+                      </p>
+                      <p className="text-title">{t('journey.score', { n: stageResult.score })}</p>
+                      <p className="text-body-sm leading-6 text-muted">
+                        {t(
+                          stageResult.cleared
+                            ? stage?.id === QUIZ_STAGES.at(-1)?.id
+                              ? 'journey.finishedJourney'
+                              : 'journey.nextUnlocked'
+                            : 'journey.tryAgainNote',
+                        )}
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-body leading-7 text-muted">{t('study.reviewLater')}</p>
+                  )}
                 </>
               )}
+              {stage && stageResult && (
+                <button
+                  className="min-h-12 w-full rounded-pill bg-accent px-5 font-semibold text-accent-fg"
+                  data-testid="stage-continue"
+                  onClick={() => {
+                    const next = stageResult.cleared
+                      ? QUIZ_STAGES[QUIZ_STAGES.indexOf(stage) + 1]
+                      : undefined;
+                    useLearnUiStore.getState().openQuiz({ stageId: next?.id ?? stage.id });
+                  }}
+                >
+                  {t(
+                    stageResult.cleared && QUIZ_STAGES[QUIZ_STAGES.indexOf(stage) + 1]
+                      ? 'journey.nextStage'
+                      : 'journey.replay',
+                  )}
+                </button>
+              )}
               <button
-                className="min-h-12 w-full rounded-pill bg-accent px-5 font-semibold text-accent-fg"
+                className="min-h-12 w-full rounded-pill bg-surface-2 px-5 font-semibold text-accent"
                 onClick={onClose}
               >
                 {t('study.backToLearning')}

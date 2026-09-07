@@ -12,6 +12,7 @@ export interface StarLayerParams {
   limitingMag: number;
   saturation: number;
   extinction: boolean;
+  showBelowHorizon?: boolean;
   night: boolean;
   alpha: number;
 }
@@ -35,6 +36,7 @@ export class StarLayer {
         uPixelRatio: { value: 1 },
         uFovDeg: { value: 90 },
         uLimitingMag: { value: 6.5 },
+        uShowBelowHorizon: { value: 1 },
         uExtinction: { value: 1 },
         uRefraction: { value: 1 },
         uMinSizePx: { value: 1.2 },
@@ -88,6 +90,7 @@ export class StarLayer {
     u['uPixelRatio']!.value = p.pixelRatio;
     u['uLimitingMag']!.value = p.limitingMag;
     u['uSaturation']!.value = p.saturation;
+    u['uShowBelowHorizon']!.value = p.showBelowHorizon ? 1 : 0;
     u['uExtinction']!.value = p.extinction ? 1 : 0;
     u['uNight']!.value = p.night ? 1 : 0;
     (u['uNightColor']!.value as THREE.Color).set(palette.star);

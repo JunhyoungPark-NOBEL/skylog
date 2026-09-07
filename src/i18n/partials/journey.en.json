@@ -1,0 +1,111 @@
+{
+  "journey": {
+    "intro": "Your own journey through the night sky",
+    "navigation": "Learning sections",
+    "sections": {
+      "quiz": "Quizzes",
+      "courses": "Courses",
+      "stories": "Stories",
+      "achievements": "Badges"
+    },
+    "stageHeading": "Stage {{n}}",
+    "themes": {
+      "solar": "Moon & planets",
+      "stars": "Stars & constellations",
+      "deep": "The deep sky"
+    },
+    "chapters": {
+      "1": {
+        "title": "First light",
+        "level": "Basics",
+        "description": "Start with familiar names and features. Meet the Moon, planets and constellations."
+      },
+      "2": {
+        "title": "Observer",
+        "level": "Applied",
+        "description": "Where should you look, and what will you see? Connect your knowledge to the real sky."
+      },
+      "3": {
+        "title": "Detective",
+        "level": "Advanced",
+        "description": "Read the clues in starlight and observations. Explore what we know and what remains uncertain."
+      }
+    },
+    "yourNext": "Your next challenge",
+    "allDone": "Every stage complete",
+    "start": "Start stage",
+    "continue": "Continue journey",
+    "replay": "Try again",
+    "questions": "{{n}} questions",
+    "questionCount": "{{n}} questions · Take your time",
+    "completedCount": "{{n}} / {{total}} stamps",
+    "personalScore": "Personal best total {{n}} pts",
+    "chapterSelect": "Choose a quiz chapter",
+    "locked": "Earn 2 stars in the previous stage to unlock",
+    "best": "Best {{n}} pts · Replay anytime",
+    "stars": "{{n}} stars",
+    "rules": "Score 80% to earn a stamp and unlock the next stage. Earn stars at 60%, 80% and 100%, and up to 1,000 points for accuracy. There is no timer. Your total adds only your best score from each stage.",
+    "freePractice": "Practice 5 questions",
+    "freePracticeNote": "Explore freely, without stage scores",
+    "cleared": "You earned a stamp!",
+    "tryAgainTitle": "One step further",
+    "score": "{{n}} points",
+    "nextUnlocked": "You earned at least two stars. Ready for the next challenge?",
+    "tryAgainNote": "Read the explanations and try again. Score at least 80% to unlock the next stage.",
+    "nextStage": "Next stage",
+    "library": "Story library",
+    "searchStories": "Find stories by object name",
+    "storyCount": "{{n}} stories",
+    "storyFilter": "Story category",
+    "filters": {
+      "all": "All stories",
+      "unread": "Unread stories",
+      "star": "Stars",
+      "const": "Constellations",
+      "dso": "The deep sky",
+      "planet": "Planets",
+      "moon": "Moon",
+      "sun": "Sun"
+    },
+    "noStories": "No stories match. Try another name.",
+    "read": "Read",
+    "myCollection": "My collection",
+    "badgeCount": "{{n}} badges collected",
+    "badgesIntro": "Small moments of observing, recording and learning become achievements.",
+    "earnedOnly": "Show earned badges only",
+    "noBadges": "Your collection starts with your first observation.",
+    "earned": "Earned",
+    "inProgress": "In progress",
+    "title": "Learn",
+    "finishedJourney": "You completed all 28 stages! Replay to collect three stars on each one.",
+    "badgeGoals": {
+      "firstObservation": "Record your first sighting",
+      "firstSketch": "Save an observing sketch",
+      "firstStarHop": "Complete a star hop",
+      "align2Success": "Complete a two-star alignment",
+      "missionsCompleted": "Complete {{n}} observing missions",
+      "quizStreak": "Answer {{n}} new questions correctly in a row",
+      "constellationCount": "Record sightings of {{n}} different constellations",
+      "seasonSignature": "Record every star in the {{signature}}",
+      "messierCount": "Record {{n}} different Messier objects",
+      "caldwellCount": "Record {{n}} different Caldwell objects",
+      "planetsAll": "Record sightings of 7 planets",
+      "moonPhasesAll": "Record the main Moon phases",
+      "streakNights": "Observe on {{n}} consecutive nights"
+    },
+    "signatures": {
+      "summerTriangle": "Summer Triangle",
+      "winterDiamond": "Winter Hexagon",
+      "springTriangle": "Spring Triangle",
+      "autumnSquare": "Great Square"
+    }
+  },
+  "sky": {
+    "layer": {
+      "showBelowHorizon": "Show objects below the horizon",
+      "ground": "Translucent ground",
+      "groundOpaque": "Make ground opaque"
+    },
+    "belowHorizonHint": "Below the horizon · Hidden from real view"
+  }
+}

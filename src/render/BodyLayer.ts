@@ -66,6 +66,7 @@ export class BodyLayer {
       vertexShader: bodyVert,
       fragmentShader: bodyFrag,
       uniforms: {
+        uShowBelowHorizon: { value: 1 },
         uNight: { value: 0 },
         uNightColor: { value: new THREE.Color('#ff3b30') },
         uPixelRatio: { value: 1 },
@@ -156,6 +157,12 @@ export class BodyLayer {
 
   get sunPlacement(): BodyPlacement | undefined {
     return this.placements.find((p) => p.key === 'sun');
+  }
+
+  setShowBelowHorizon(show: boolean): void {
+    this.material.uniforms['uShowBelowHorizon']!.value = show ? 1 : 0;
+    const moon = this.placements.find((p) => p.key === 'moon');
+    this.moon.visible = !!moon && (show || moon.state.altDeg >= 0);
   }
 
   setStyle(night: boolean, nightColor: string, moonColor: string, pixelRatio: number): void {

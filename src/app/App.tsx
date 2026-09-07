@@ -6,6 +6,7 @@ import { StatusBar } from '@/app/StatusBar';
 import { TabBar } from '@/app/TabBar';
 import { AboutScreen } from '@/features/settings/AboutScreen';
 import { DebugDataPage } from '@/features/debug/DebugDataPage';
+import { returnToLearning } from '@/features/learn/learnNavigation';
 import { LearnScreen } from '@/features/learn/LearnScreen';
 import { BackupScreen } from '@/features/log/BackupScreen';
 import { LogScreen } from '@/features/log/LogScreen';
@@ -65,7 +66,16 @@ export function App() {
   useEffect(() => startLogSync(), []);
   useEffect(() => startReadSync(), []);
 
-  if (route === 'settings') return <SettingsScreen onBack={() => navigate('sky')} />;
+  if (route === 'settings')
+    return (
+      <SettingsScreen
+        onBack={() => {
+          if (new URLSearchParams(window.location.hash.split('?')[1]).get('from') === 'learn')
+            returnToLearning();
+          else navigate('sky');
+        }}
+      />
+    );
   if (route === 'about') return <AboutScreen onBack={() => navigate('settings')} />;
   if (route === 'sites') return <SitesScreen onBack={() => navigate('settings')} />;
   if (route === 'backup')
@@ -80,7 +90,7 @@ export function App() {
 
   return (
     <div className="relative h-full bg-bg text-fg">
-      <StatusBar />
+      {route !== 'learn' && <StatusBar />}
       {/* 본문은 뷰포트를 가득 채우고 크롬은 그 위에 떠 있다. 하늘 뷰는 가장자리까지(자체 pt-status/bottom-sky). */}
       <main className="relative isolate h-full overflow-hidden">
         {route === 'sky' && <SkyView />}
@@ -99,13 +109,9 @@ export function App() {
             <LogScreen />
           </TabScreen>
         )}
-        {route === 'learn' && (
-          <TabScreen>
-            <LearnScreen />
-          </TabScreen>
-        )}
+        {route === 'learn' && <LearnScreen />}
       </main>
-      <TabBar active={route} onSelect={(r) => navigate(r)} />
+      <TabBar active={route} onSelect={(r) => (r === 'learn' ? returnToLearning() : navigate(r))} />
       <ObjectSheet />
       <StoryHost />
       <ObservationFormHost />

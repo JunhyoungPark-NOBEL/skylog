@@ -4,6 +4,7 @@ attribute float aMag;      // 999 = 미상
 attribute float aSizeArcmin;
 attribute float aMessier;  // 0/1
 
+uniform float uShowBelowHorizon;
 uniform mat3 uEqjToScene;
 uniform float uRefraction;
 uniform float uPixelRatio;
@@ -24,7 +25,7 @@ void main() {
 
   bool show = (aMessier > 0.5) ? (aMag <= uMessierLimit) : (aMag <= uMagLimit);
   float alpha = show ? 1.0 : 0.0;
-  alpha *= smoothstep(-4.0, -1.0, alt);
+  if (uShowBelowHorizon < 0.5) alpha *= step(0.0, alt);
 
   float angPx = (aSizeArcmin / 60.0) / max(uDegPerPixel, 1e-6);
   float size = clamp(angPx, 7.0, 48.0) * uPixelRatio;

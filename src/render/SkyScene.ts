@@ -1,3 +1,4 @@
+import { showsBelowHorizon } from '@/state/layerStore';
 /**
  * 하늘 씬 오케스트레이터 (task-01 §3.1). 카메라는 원점, 천체는 R=100 천구 방향.
  * 프레임마다 eqjToSceneMatrix 1개 → 별·별자리·DSO·은하수의 uniform. 행성·달·태양은 CPU(bodies.ts).
@@ -330,6 +331,7 @@ export class SkyScene {
     const view = this.controller.getView();
     const layers = this.opts.getLayers();
     const p = this.palette;
+    const showBelow = showsBelowHorizon(layers);
     const dpp = degPerPixel(view.fovDeg, this.width, this.height);
     this.controller.applyToCamera(this.width, this.height);
 
@@ -352,6 +354,7 @@ export class SkyScene {
         limitingMag,
         saturation: layers.starSaturation,
         extinction: layers.extinction && layers.atmosphere,
+        showBelowHorizon: showBelow,
         night: p.night,
         alpha: 1,
       },
@@ -367,6 +370,8 @@ export class SkyScene {
     );
 
     this.constellations.setMatrix(this.matrix);
+    this.constellations.lines.setFadeBelowHorizon(!showBelow);
+    this.constellations.bounds.setFadeBelowHorizon(!showBelow);
     this.constellations.lines.visible = layers.constellationLines;
     this.constellations.lines.setStyle(p.constellation, layers.constellationLinesAlpha);
     this.constellations.bounds.visible = layers.constellationBounds;
@@ -384,11 +389,12 @@ export class SkyScene {
 
     this.dso.setMatrix(this.matrix);
     this.dso.points.visible = layers.dso;
-    this.dso.setParams(view.fovDeg, dpp, this.pixelRatio, p.label, 0.85 * dayFade, true);
+    this.dso.setParams(view.fovDeg, dpp, this.pixelRatio, p.label, 0.85 * dayFade, true, showBelow);
 
     this.horizon.ground.visible = layers.ground;
     this.horizon.setStyle(p.night ? '#050000' : '#0b0d12', layers.groundOpaque, p.horizon);
 
+    this.bodies.setShowBelowHorizon(showBelow);
     this.bodies.setStyle(p.night, p.star, p.moon, this.pixelRatio);
 
     this.renderer.render(this.scene, this.controller.camera);
@@ -409,7 +415,7 @@ export class SkyScene {
         pixelRatio: this.pixelRatio,
         width: W,
         height: H,
-        ground: layers.ground,
+        ground: !showBelow,
       });
     } else this.markers.clear();
   }
@@ -601,6 +607,8 @@ export class SkyScene {
   // ---------- 선택 ----------
 
   pick(x: number, y: number): ObjectId | null {
+    const layers = this.opts.getLayers();
+    const showBelow = showsBelowHorizon(layers);
     const cat = this.catalog;
     const candidates: Candidate[] = [];
     const view = this.controller.getView();
@@ -608,6 +616,7 @@ export class SkyScene {
     const center = altAzToScene(view.altDeg, view.azDeg);
     // 행성·달·태양
     for (const b of this.bodies.placements) {
+      if ((!showBelow && b.dir[1] < 0) || b.sizePx <= 0) continue;
       const px = this.controller.directionToPixel(b.dir, this.width, this.height);
       if (!px) continue;
       const id = b.key === 'sun' || b.key === 'moon' ? b.key : (`planet:${b.key}` as ObjectId);
@@ -624,7 +633,10 @@ export class SkyScene {
     const pack = this.packs.get(packName);
     const limits = dsoMagLimits(view.fovDeg);
     if (pack) {
-      const maxMag = view.fovDeg > 40 ? 6.5 : view.fovDeg > 15 ? 8 : 99;
+      const maxMag = Math.min(
+        view.fovDeg > 40 ? 6.5 : view.fovDeg > 15 ? 8 : 99,
+        this.effectiveLimitingMag(layers) + 0.5,
+      );
       for (let i = 0; i < pack.count; i++) {
         if (pack.mag[i]! > maxMag) continue;
         const v: Vec3 = [
@@ -635,6 +647,7 @@ export class SkyScene {
         const s = applyMat3(this.matrix, v);
         if (s[0] * center[0] + s[1] * center[1] + s[2] * center[2] < cosFov) continue;
         const dir = this.j2000ToSceneDir(v);
+        if (!showBelow && dir[1] < 0) continue;
         const px = this.controller.directionToPixel(dir, this.width, this.height);
         if (!px) continue;
         candidates.push({
@@ -656,11 +669,9 @@ export class SkyScene {
           cat.dsoVectors[i * 3 + 1]!,
           cat.dsoVectors[i * 3 + 2]!,
         ];
-        const px = this.controller.directionToPixel(
-          this.j2000ToSceneDir(v),
-          this.width,
-          this.height,
-        );
+        const dir = this.j2000ToSceneDir(v);
+        if (!showBelow && dir[1] < 0) return;
+        const px = this.controller.directionToPixel(dir, this.width, this.height);
         if (!px) return;
         candidates.push({ id: d.id, x: px.x, y: px.y, mag: Math.min(mag, 6), radiusPx: 8 });
       });
@@ -759,6 +770,7 @@ export class SkyScene {
   // ---------- 라벨 ----------
 
   private updateLabels(view: ViewState, layers: LayerValues, limitingMag: number): void {
+    const showBelow = showsBelowHorizon(layers);
     const cat = this.catalog;
     const lang = this.opts.getLang();
     const labelLang: Lang = layers.labelLang === 'auto' ? lang : layers.labelLang;
@@ -785,7 +797,7 @@ export class SkyScene {
     // 행성·달·태양
     if (cat) {
       for (const b of this.bodies.placements) {
-        if (b.state.altDeg < -2) continue;
+        if (!showBelow && b.state.altDeg < 0) continue;
         if (b.key !== 'sun' && b.key !== 'moon' && b.state.magnitude > limitingMag) continue;
         const px = proj(b.dir);
         if (!px) continue;
@@ -797,6 +809,7 @@ export class SkyScene {
           text: displayName(cat, id, labelLang),
           priority: 1,
           kind: 'body',
+          alpha: b.dir[1] < 0 ? 0.6 : 1,
           dx: b.sizePx / 2 / this.pixelRatio + 4,
           dy: -8,
         });
@@ -819,7 +832,7 @@ export class SkyScene {
         const sc = applyMat3(this.matrix, v);
         if (sc[0] * center[0] + sc[1] * center[1] + sc[2] * center[2] < cosFov) return;
         const dir = this.j2000ToSceneDir(v);
-        if (dir[1] < -0.02) return;
+        if (!showBelow && dir[1] < 0) return;
         const px = proj(dir);
         if (!px) return;
         items.push({
@@ -829,6 +842,7 @@ export class SkyScene {
           text: named,
           priority: 2 + s.mag / 10,
           kind: 'star',
+          alpha: dir[1] < 0 ? 0.6 : 1,
         });
       });
     }
@@ -842,7 +856,7 @@ export class SkyScene {
           cat.dsoVectors[i * 3 + 2]!,
         ];
         const dir = this.j2000ToSceneDir(v);
-        if (dir[1] < -0.02) return;
+        if (!showBelow && dir[1] < 0) return;
         const px = proj(dir);
         if (!px) return;
         const text =
@@ -854,6 +868,7 @@ export class SkyScene {
           text,
           priority: 3 + (d.mag ?? 8) / 10,
           kind: 'messier',
+          alpha: dir[1] < 0 ? 0.6 : 1,
           dy: 6,
         });
       });
@@ -870,7 +885,7 @@ export class SkyScene {
           Math.cos(dec * rad) * Math.sin(ra * rad),
           Math.sin(dec * rad),
         ]);
-        if (dir[1] < 0.01) continue;
+        if (!showBelow && dir[1] < 0) continue;
         const px = proj(dir);
         if (!px || px.x < 0 || px.y < 0 || px.x > W || px.y > H) continue;
         items.push({
@@ -881,14 +896,15 @@ export class SkyScene {
           priority: 4,
           kind: 'constellation',
           center: true,
-          alpha: layers.constellationNamesAlpha,
+          alpha: layers.constellationNamesAlpha * (dir[1] < 0 ? 0.6 : 1),
         });
         budget--;
       }
     }
     // 선택
     if (this.selectedId && cat) {
-      const px = this.project(this.selectedId);
+      const dir = this.objectDirection(this.selectedId);
+      const px = dir && (showBelow || dir[1] >= 0) ? this.project(this.selectedId) : null;
       if (px) {
         items.push({
           key: `sel:${this.selectedId}`,

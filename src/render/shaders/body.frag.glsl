@@ -1,4 +1,5 @@
 precision highp float;
+varying float vVisibility;
 uniform float uNight;
 uniform vec3 uNightColor;
 uniform float uPixelRatio;
@@ -8,6 +9,7 @@ varying float vRingTilt;
 varying float vSizePx;
 
 void main() {
+  if (vVisibility < 0.5) discard;
   vec2 q = (gl_PointCoord - vec2(0.5)) * 2.0; // −1..1
   float r = length(q);
   float a = 0.0;

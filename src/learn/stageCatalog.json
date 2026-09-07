@@ -1,0 +1,830 @@
+[
+  {
+    "id": "journey-1-solar-1",
+    "version": 1,
+    "chapter": 1,
+    "theme": "solar",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-sun-kind",
+        "version": 1
+      },
+      {
+        "id": "q-moon-kind",
+        "version": 1
+      },
+      {
+        "id": "q-moon-light",
+        "version": 1
+      },
+      {
+        "id": "q-mercury-nearest-sun",
+        "version": 1
+      },
+      {
+        "id": "q-venus-phase",
+        "version": 1
+      },
+      {
+        "id": "q-mars-color",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-solar-2",
+    "version": 1,
+    "chapter": 1,
+    "theme": "solar",
+    "part": 2,
+    "questions": [
+      {
+        "id": "q-jupiter-kind",
+        "version": 1
+      },
+      {
+        "id": "q-saturn-feature",
+        "version": 1
+      },
+      {
+        "id": "q-uranus-kind",
+        "version": 1
+      },
+      {
+        "id": "q-neptune-eye",
+        "version": 1
+      },
+      {
+        "id": "q-sun-safe-choice",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-solar-3",
+    "version": 1,
+    "chapter": 1,
+    "theme": "solar",
+    "part": 3,
+    "questions": [
+      {
+        "id": "q-sun-sunglasses",
+        "version": 1
+      },
+      {
+        "id": "q-moon-not-star",
+        "version": 1
+      },
+      {
+        "id": "q-mercury-rocky",
+        "version": 1
+      },
+      {
+        "id": "q-venus-two-objects",
+        "version": 1
+      },
+      {
+        "id": "q-mars-orange",
+        "version": 1
+      },
+      {
+        "id": "q-neptune-easy-eye",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-stars-1",
+    "version": 1,
+    "chapter": 1,
+    "theme": "stars",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-sirius-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-arcturus-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-vega-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-rigel-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-betelgeuse-constellation",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-stars-2",
+    "version": 1,
+    "chapter": 1,
+    "theme": "stars",
+    "part": 2,
+    "questions": [
+      {
+        "id": "q-altair-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-aldebaran-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-antares-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-deneb-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-polaris-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-vega-tradition",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-stars-3",
+    "version": 1,
+    "chapter": 1,
+    "theme": "stars",
+    "part": 3,
+    "questions": [
+      {
+        "id": "q-altair-tradition",
+        "version": 1
+      },
+      {
+        "id": "q-deneb-triangle",
+        "version": 1
+      },
+      {
+        "id": "q-summer-members",
+        "version": 1
+      },
+      {
+        "id": "q-polaris-in-ursa-minor",
+        "version": 1
+      },
+      {
+        "id": "q-albireo-visual",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-stars-4",
+    "version": 1,
+    "chapter": 1,
+    "theme": "stars",
+    "part": 4,
+    "questions": [
+      {
+        "id": "q-spica-membership",
+        "version": 1
+      },
+      {
+        "id": "q-alpheratz-membership",
+        "version": 1
+      },
+      {
+        "id": "q-regulus-membership",
+        "version": 1
+      },
+      {
+        "id": "q-procyon-membership",
+        "version": 1
+      },
+      {
+        "id": "q-alpheratz-all-pegasus",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-deep-1",
+    "version": 1,
+    "chapter": 1,
+    "theme": "deep",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-m45-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m44-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m13-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m3-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m31-kind",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-deep-2",
+    "version": 1,
+    "chapter": 1,
+    "theme": "deep",
+    "part": 2,
+    "questions": [
+      {
+        "id": "q-m81-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m82-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m57-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m27-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m78-light",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-deep-3",
+    "version": 1,
+    "chapter": 1,
+    "theme": "deep",
+    "part": 3,
+    "questions": [
+      {
+        "id": "q-m42-birth",
+        "version": 1
+      },
+      {
+        "id": "q-m33-kind",
+        "version": 1
+      },
+      {
+        "id": "q-m35-kind",
+        "version": 1
+      },
+      {
+        "id": "q-double-cluster-meaning",
+        "version": 1
+      },
+      {
+        "id": "q-saturn-nebula-kind",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-1-deep-4",
+    "version": 1,
+    "chapter": 1,
+    "theme": "deep",
+    "part": 4,
+    "questions": [
+      {
+        "id": "q-m45-single-star",
+        "version": 1
+      },
+      {
+        "id": "q-m44-blended-light",
+        "version": 1
+      },
+      {
+        "id": "q-m31-foreground-star",
+        "version": 1
+      },
+      {
+        "id": "q-m13-globular",
+        "version": 1
+      },
+      {
+        "id": "q-ngc457-open-cluster",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-solar-1",
+    "version": 1,
+    "chapter": 2,
+    "theme": "solar",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-moon-sequence",
+        "version": 1
+      },
+      {
+        "id": "q-moon-terminator",
+        "version": 1
+      },
+      {
+        "id": "q-moon-maria",
+        "version": 1
+      },
+      {
+        "id": "q-moon-support",
+        "version": 1
+      },
+      {
+        "id": "q-venus-two-names",
+        "version": 1
+      },
+      {
+        "id": "q-venus-surface",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-solar-2",
+    "version": 1,
+    "chapter": 2,
+    "theme": "solar",
+    "part": 2,
+    "questions": [
+      {
+        "id": "q-mercury-horizon",
+        "version": 1
+      },
+      {
+        "id": "q-mars-size",
+        "version": 1
+      },
+      {
+        "id": "q-jupiter-moons",
+        "version": 1
+      },
+      {
+        "id": "q-saturn-ring-tilt",
+        "version": 1
+      },
+      {
+        "id": "q-uranus-point",
+        "version": 1
+      },
+      {
+        "id": "q-neptune-identify",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-solar-3",
+    "version": 1,
+    "chapter": 2,
+    "theme": "solar",
+    "part": 3,
+    "questions": [
+      {
+        "id": "q-sunspot-kind",
+        "version": 1
+      },
+      {
+        "id": "q-mercury-venus-temperature",
+        "version": 1
+      },
+      {
+        "id": "q-moon-full-best-always",
+        "version": 1
+      },
+      {
+        "id": "q-jupiter-always-four",
+        "version": 1
+      },
+      {
+        "id": "q-saturn-angle",
+        "version": 1
+      },
+      {
+        "id": "q-uranus-chart",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-stars-1",
+    "version": 1,
+    "chapter": 2,
+    "theme": "stars",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-arcturus-guide",
+        "version": 1
+      },
+      {
+        "id": "q-sirius-guide",
+        "version": 1
+      },
+      {
+        "id": "q-rigel-color",
+        "version": 1
+      },
+      {
+        "id": "q-betelgeuse-report",
+        "version": 1
+      },
+      {
+        "id": "q-altair-shape",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-stars-2",
+    "version": 1,
+    "chapter": 2,
+    "theme": "stars",
+    "part": 2,
+    "questions": [
+      {
+        "id": "q-aldebaran-membership",
+        "version": 1
+      },
+      {
+        "id": "q-antares-city",
+        "version": 1
+      },
+      {
+        "id": "q-deneb-body",
+        "version": 1
+      },
+      {
+        "id": "q-polaris-brightest",
+        "version": 1
+      },
+      {
+        "id": "q-vega-disk",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-stars-3",
+    "version": 1,
+    "chapter": 2,
+    "theme": "stars",
+    "part": 3,
+    "questions": [
+      {
+        "id": "q-aldebaran-foreground",
+        "version": 1
+      },
+      {
+        "id": "q-sirius-flicker",
+        "version": 1
+      },
+      {
+        "id": "q-arcturus-point",
+        "version": 1
+      },
+      {
+        "id": "q-deneb-not-single-constellation",
+        "version": 1
+      },
+      {
+        "id": "q-albireo-binding",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-deep-1",
+    "version": 1,
+    "chapter": 2,
+    "theme": "deep",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-m45-wide-field",
+        "version": 1
+      },
+      {
+        "id": "q-m45-blue-dust",
+        "version": 1
+      },
+      {
+        "id": "q-m44-route",
+        "version": 1
+      },
+      {
+        "id": "q-m13-keystone",
+        "version": 1
+      },
+      {
+        "id": "q-m31-start",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-deep-2",
+    "version": 1,
+    "chapter": 2,
+    "theme": "deep",
+    "part": 2,
+    "questions": [
+      {
+        "id": "q-m31-realistic",
+        "version": 1
+      },
+      {
+        "id": "q-m42-sword",
+        "version": 1
+      },
+      {
+        "id": "q-m42-eyepiece",
+        "version": 1
+      },
+      {
+        "id": "q-ngc869-screen-direction",
+        "version": 1
+      },
+      {
+        "id": "q-ngc884-independent",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-deep-3",
+    "version": 1,
+    "chapter": 2,
+    "theme": "deep",
+    "part": 3,
+    "questions": [
+      {
+        "id": "q-m57-life-stage",
+        "version": 1
+      },
+      {
+        "id": "q-m27-shape",
+        "version": 1
+      },
+      {
+        "id": "q-m51-spiral-expectation",
+        "version": 1
+      },
+      {
+        "id": "q-m81-m82-comparison",
+        "version": 1
+      },
+      {
+        "id": "q-m46-projection",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-deep-4",
+    "version": 1,
+    "chapter": 2,
+    "theme": "deep",
+    "part": 4,
+    "questions": [
+      {
+        "id": "q-m101-background",
+        "version": 1
+      },
+      {
+        "id": "q-ngc7000-starfield",
+        "version": 1
+      },
+      {
+        "id": "q-ngc457-name",
+        "version": 1
+      },
+      {
+        "id": "q-m45-star-count",
+        "version": 1
+      },
+      {
+        "id": "q-m33-total-light",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-2-deep-5",
+    "version": 1,
+    "chapter": 2,
+    "theme": "deep",
+    "part": 5,
+    "questions": [
+      {
+        "id": "q-m46-front-nebula",
+        "version": 1
+      },
+      {
+        "id": "q-m81-m82-two-objects",
+        "version": 1
+      },
+      {
+        "id": "q-m45-photo-color",
+        "version": 1
+      },
+      {
+        "id": "q-m57-planet-ring",
+        "version": 1
+      },
+      {
+        "id": "q-m78-reflection",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-3-solar-1",
+    "version": 1,
+    "chapter": 3,
+    "theme": "solar",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-mars-retrograde",
+        "version": 1
+      },
+      {
+        "id": "q-moon-shadow-not-phase",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-3-stars-1",
+    "version": 1,
+    "chapter": 3,
+    "theme": "stars",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-sirius-companion",
+        "version": 1
+      },
+      {
+        "id": "q-arcturus-temperature",
+        "version": 1
+      },
+      {
+        "id": "q-vega-myth-reality",
+        "version": 1
+      },
+      {
+        "id": "q-rigel-occultation",
+        "version": 1
+      },
+      {
+        "id": "q-betelgeuse-dimming",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-3-stars-2",
+    "version": 1,
+    "chapter": 3,
+    "theme": "stars",
+    "part": 2,
+    "questions": [
+      {
+        "id": "q-altair-method",
+        "version": 1
+      },
+      {
+        "id": "q-aldebaran-depth",
+        "version": 1
+      },
+      {
+        "id": "q-antares-atmosphere",
+        "version": 1
+      },
+      {
+        "id": "q-deneb-distance-uncertainty",
+        "version": 1
+      },
+      {
+        "id": "q-polaris-two-companions",
+        "version": 1
+      },
+      {
+        "id": "q-polaris-exact-pole",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-3-stars-3",
+    "version": 1,
+    "chapter": 3,
+    "theme": "stars",
+    "part": 3,
+    "questions": [
+      {
+        "id": "q-betelgeuse-date",
+        "version": 1
+      },
+      {
+        "id": "q-altair-interferometry",
+        "version": 1
+      },
+      {
+        "id": "q-vega-tradition-separate",
+        "version": 1
+      },
+      {
+        "id": "q-ursa-major-extent",
+        "version": 1
+      },
+      {
+        "id": "q-andromeda-scales",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-3-stars-4",
+    "version": 1,
+    "chapter": 3,
+    "theme": "stars",
+    "part": 4,
+    "questions": [
+      {
+        "id": "q-hercules-story-scope",
+        "version": 1
+      },
+      {
+        "id": "q-albireo-bound-proof",
+        "version": 1
+      },
+      {
+        "id": "q-regulus-research-image",
+        "version": 1
+      },
+      {
+        "id": "q-ursa-major-always-up",
+        "version": 1
+      },
+      {
+        "id": "q-andromeda-separate-ids",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "journey-3-deep-1",
+    "version": 1,
+    "chapter": 3,
+    "theme": "deep",
+    "part": 1,
+    "questions": [
+      {
+        "id": "q-m31-history-method",
+        "version": 1
+      },
+      {
+        "id": "q-m3-detection-measurement",
+        "version": 1
+      },
+      {
+        "id": "q-m13-resolution",
+        "version": 1
+      },
+      {
+        "id": "q-m78-m42-emission",
+        "version": 1
+      },
+      {
+        "id": "q-saturn-nebula-distance-policy",
+        "version": 1
+      }
+    ]
+  }
+]

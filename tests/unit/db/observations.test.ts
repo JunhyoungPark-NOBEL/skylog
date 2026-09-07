@@ -165,7 +165,10 @@ describe('logStore', () => {
     await addObservation(input({ objectId: 'dso:M13' }));
     await addObservation(input({ objectId: 'dso:M51', outcome: 'notSeen' }));
     await toggleBookmark('dso:M31');
-    await new Promise((r) => setTimeout(r, 20));
+    await vi.waitFor(() => {
+      expect(markerKindOf(useLogStore.getState(), 'dso:M31')).toBe('bookmarked');
+      expect(useLogStore.getState().recent.length).toBe(2);
+    });
     const s = useLogStore.getState();
     expect(s.ready).toBe(true);
     expect(markerKindOf(s, 'dso:M13')).toBe('observed');

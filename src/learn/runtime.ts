@@ -22,6 +22,17 @@ import {
 } from './schema';
 import { initialSr, reviewSr, dueForReview, type SrState } from './sr';
 
+import {
+  QUIZ_STAGES,
+  stageQuestions,
+  stageProgress,
+  parseStageRun,
+  gradeStage,
+  validAnswer,
+  type StageRun,
+  type StageAnswer,
+} from './stages';
+
 let packPromise: Promise<LearnData> | null = null;
 export function loadLearnData(): Promise<LearnData> {
   packPromise ??= Promise.all(
@@ -179,6 +190,15 @@ export async function readLearning() {
     badges,
     starts,
     sr,
+    journey: stageProgress(
+      data.quiz,
+      [...values.entries()]
+        .filter(([k]) => k.startsWith('learn.stage:'))
+        .flatMap(([, v]) => {
+          const run = parseStageRun(v);
+          return run ? [run] : [];
+        }),
+    ),
     due: dueForReview(sr.values(), new Date()),
   };
 }
@@ -204,7 +224,8 @@ export async function recordAnswer(
   answer: number | boolean | string,
   at = new Date(),
 ) {
-  if (q.enabled === false || q.type === 'skyPick') throw new Error('Question unavailable');
+  if (q.enabled === false || q.type === 'skyPick' || !validAnswer(q, answer))
+    throw new Error('Question unavailable');
   const correct = answer === q.answer;
   const db = getDb();
   await db.transaction('rw', db.progress, async () => {
@@ -268,4 +289,69 @@ export function selectQuiz(
     out.push(candidates.splice(index, 1)[0]!);
   }
   return out;
+}
+
+/** 마지막 응답·복습·스테이지 완료를 함께 저장한다. runId+index로 재전송의 중복 채점을 막는다. */
+export async function recordStageAnswer(
+  stageId: string,
+  runId: string,
+  index: number,
+  answer: StageAnswer['answer'],
+) {
+  const data = await loadLearnData();
+  const stage = QUIZ_STAGES.find((s) => s.id === stageId);
+  if (!stage || !runId || !Number.isInteger(index)) throw new Error('Unknown stage');
+  const questions = stageQuestions(stage, data.quiz);
+  const q = questions[index];
+  if (!q || !validAnswer(q, answer)) throw new Error('Invalid answer');
+  const db = getDb();
+  const result = await db.transaction('rw', db.progress, async () => {
+    const rows = await db.progress.toArray();
+    const completed = rows.find((r) => !r.deletedAt && r.key === 'learn.stage:' + runId);
+    const draft = rows.find((r) => !r.deletedAt && r.key === 'learn.stage-draft:' + runId);
+    const saved = (completed?.value ?? draft?.value) as
+      { stageId: string; stageVersion: number; answers: StageAnswer[] } | undefined;
+    if (saved && (saved.stageId !== stage.id || saved.stageVersion !== stage.version))
+      throw new Error('Session mismatch');
+    const answers = saved?.answers ?? [];
+    if (index < answers.length) {
+      if (answers[index]?.answer !== answer) throw new Error('Answer already submitted');
+      return {
+        correct: answer === q.answer,
+        result: completed ? gradeStage(stage, data.quiz, answers) : null,
+      };
+    }
+    if (index !== answers.length) throw new Error('Answer out of order');
+    const runs = rows
+      .filter((r) => !r.deletedAt && r.key.startsWith('learn.stage:'))
+      .flatMap((r) => {
+        const run = parseStageRun(r.value);
+        return run ? [run] : [];
+      });
+    if (!stageProgress(data.quiz, runs).find((p) => p.stage.id === stage.id)?.unlocked)
+      throw new Error('Stage locked');
+    const at = new Date();
+    const correct = await recordAnswer(q, answer, at);
+    const next = [...answers, { quizId: q.id, version: q.version ?? 1, answer }];
+    const final = next.length === questions.length;
+    const value = {
+      runId,
+      stageId,
+      stageVersion: stage.version,
+      answers: next,
+      completedAt: at.toISOString(),
+    } satisfies StageRun;
+    await db.progress.put({
+      id: final ? newId() : (draft?.id ?? newId()),
+      key: (final ? 'learn.stage:' : 'learn.stage-draft:') + runId,
+      value,
+      schemaVersion: 1,
+      createdAt: draft?.createdAt ?? at.toISOString(),
+      updatedAt: at.toISOString(),
+    });
+    if (final && draft) await db.progress.delete(draft.id);
+    return { correct, result: final ? gradeStage(stage, data.quiz, next) : null };
+  });
+  emitDbChange('progress');
+  return result;
 }

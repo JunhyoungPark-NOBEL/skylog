@@ -11,6 +11,6 @@ varying float vAlt;
 void main() {
   if (uDashDeg > 0.0 && fract(vDist / uDashDeg) > 0.5) discard;
   float a = uAlpha;
-  if (uFadeBelowHorizon > 0.5) a *= smoothstep(-6.0, -1.0, vAlt);
+  if (uFadeBelowHorizon > 0.5) a *= step(0.0, vAlt);
   gl_FragColor = vec4(uColor, a);
 }

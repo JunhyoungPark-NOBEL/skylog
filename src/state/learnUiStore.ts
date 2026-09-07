@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import type { ObjectId } from '@/catalog/objectId';
 export interface QuizRequest {
+  stageId?: string;
+  sessionId?: string;
   ids?: string[];
   objectId?: ObjectId;
   review?: boolean;
@@ -12,6 +14,6 @@ export const useLearnUiStore = create<{
   closeQuiz(): void;
 }>((set) => ({
   quiz: null,
-  openQuiz: (quiz = {}) => set({ quiz }),
+  openQuiz: (quiz = {}) => set({ quiz: { ...quiz, sessionId: crypto.randomUUID() } }),
   closeQuiz: () => set({ quiz: null }),
 }));

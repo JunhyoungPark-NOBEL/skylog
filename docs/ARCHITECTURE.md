@@ -181,3 +181,10 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - App에 ObservationFormHost/StoryHost/QuizHost/ToastHost를 하나씩 둔다. QuizHost는 관측 기록을 만들지 않는다. StoryView의 읽음도 명시적 버튼이다. 스크롤 영역은 ScrollArea, 그림 캔버스는 드래그 스크롤에서 제외한다.
 - 백업은 관측/설정/학습과 blob을 함께 포함한다. 일괄 가져오기는 하나의 트랜잭션이며 실패 시 롤백한다. JSON 참조 ID 및 중복 정책은 db/exportImport에 모은다.
 - T7 미완료: 전천 skyPick 판정/격리, T5 장비 실작업 증거, 일별 복습 누적 상한, 영구 배지 이력/연출. 장문 콘텐츠 영어 번역과 JS 코드 분할은 후속이다.
+
+## 배우기 탐색·퀴즈 여정과 지평선 (D-026·D-027)
+- LearnScreen은 고정 제목/4개 메뉴 + ScrollArea. URL: #/learn?section=quiz|courses|stories|achievements, path/mission/chapter 선택. learnNavigation은 배우기 경로만 기억해 다른 탭의 hashchange가 복귀 위치를 덮어쓰지 않게 한다.
+- QuizJourney는 stages.stageProgress의 unlocked/result를 표시한다. stageCatalog.json은 source에 포함되는 별도 버전 계약이며 질문 배열의 자동 정렬/재구성 금지. stageQuestions가 활성화/문항 버전을 검사하고 gradeStage가 전체 응답을 검증한다.
+- QuizHost의 stage 요청은 고정 순서로 출제하며 일반 selectQuiz의 적응형 정렬과 분리된다. useLearnUiStore의 sessionId로 다음 스테이지/재도전 때 UI를 새로 만든다. recordStageAnswer가 잠금·순서·재전송을 검사하고 마지막 응답/복습/완료 이력을 함께 저장한다. readLearning은 로컬 완료 이력에서 단계별 최고점과 해제를 파생한다.
+- 관측/미션·기존 퀴즈/SR·읽음·스테이지 기록은 서로 다른 progress 키를 쓴다. quiz는 observations를 만들지 않는다. DB/백업 형식 변경 없음. 온라인 순위/계정은 현재 없다.
+- layerStore.showsBelowHorizon이 렌더/라벨/선택/마커를 일치시킨다. 지면은 opacity .28, 불투명 설정 우선. 셰이더 uShowBelowHorizon, 선의 uFadeBelowHorizon, BodyLayer 달 가시성으로 구현한다. below-horizon-hint는 viewStore의 중심 고도만 구독한다. 천문/관측 가시성 계산에는 영향 없음.

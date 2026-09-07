@@ -16,6 +16,8 @@ export interface LayerValues {
   meridian: boolean;
   ground: boolean;
   groundOpaque: boolean;
+  /** 학습용 투시: 지평선 아래 천체도 표시(실제 관측 가능 판정에는 영향 없음) */
+  showBelowHorizon: boolean;
   milkyWay: boolean;
   milkyWayAlpha: number;
   dso: boolean;
@@ -61,6 +63,7 @@ export const DEFAULT_LAYERS: LayerValues = {
   meridian: false,
   ground: true,
   groundOpaque: false,
+  showBelowHorizon: true,
   milkyWay: true,
   milkyWayAlpha: 0.6,
   dso: true,
@@ -106,4 +109,11 @@ export function waitForLayerHydration(): Promise<void> {
       resolve();
     });
   });
+}
+
+/** 불투명 지면은 투시보다 우선한다. 저장된 사용자 설정은 그대로 유지한다. */
+export function showsBelowHorizon(
+  layers: Pick<LayerValues, 'ground' | 'groundOpaque' | 'showBelowHorizon'>,
+): boolean {
+  return layers.showBelowHorizon && !(layers.ground && layers.groundOpaque);
 }

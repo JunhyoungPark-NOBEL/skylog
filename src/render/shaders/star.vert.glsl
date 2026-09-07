@@ -7,6 +7,7 @@ uniform mat3 uEqjToScene;
 uniform float uPixelRatio;
 uniform float uFovDeg;        // 짧은 변 기준
 uniform float uLimitingMag;   // 이보다 어두운 별은 페이드
+uniform float uShowBelowHorizon;
 uniform float uExtinction;    // 0/1
 uniform float uRefraction;    // 0/1
 uniform float uMinSizePx;     // 서브픽셀 별의 최소 크기(보통 1)
@@ -32,6 +33,7 @@ void main() {
 
   // 소광: 지평선 근처 어두워짐 → 크기와 알파 둘 다 줄인다
   float extMag = uExtinction > 0.5 ? skylogExtinctionMag(trueAlt) : 0.0;
+  if (uShowBelowHorizon > 0.5 && trueAlt < 0.0) extMag *= smoothstep(-6.0, 0.0, trueAlt);
   float effMag = aMag + extMag;
   size = s0 * pow(10.0, -0.2 * effMag);
 
@@ -44,7 +46,7 @@ void main() {
   // 한계등급 페이드(±0.5등급 구간)
   alpha *= 1.0 - smoothstep(uLimitingMag - 0.5, uLimitingMag + 0.5, effMag);
   // 지평선 아래 2° 이하는 숨김(땅이 투명해도 지구 뒤편은 그리지 않음)
-  alpha *= smoothstep(-6.0, -2.0, trueAlt);
+  if (uShowBelowHorizon < 0.5) alpha *= step(0.0, trueAlt);
 
   vColorBv = skylogBvToRgb(aBv);
   vAlpha = alpha;

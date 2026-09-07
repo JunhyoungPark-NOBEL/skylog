@@ -24,7 +24,7 @@ export class HorizonLayer {
       color: new THREE.Color('#0b0d12'),
       side: THREE.BackSide,
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.28,
       depthWrite: false,
       depthTest: false,
     });
@@ -42,7 +42,7 @@ export class HorizonLayer {
 
   setStyle(groundColor: string, groundOpaque: boolean, ringColor: string): void {
     this.groundMaterial.color.set(groundColor);
-    this.groundMaterial.opacity = groundOpaque ? 1 : 0.85;
+    this.groundMaterial.opacity = groundOpaque ? 1 : 0.28;
     this.ring.setStyle(ringColor, 0.8);
   }
 
