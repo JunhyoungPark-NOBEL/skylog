@@ -1,6 +1,6 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, lazy, Suspense, type ReactNode } from 'react';
 import { setLanguage } from '@/app/i18n';
-import { navigate, useRoute } from '@/app/router';
+import { navigate, useRoute, useHash } from '@/app/router';
 import { applyTheme } from '@/app/theme';
 import { StatusBar } from '@/app/StatusBar';
 import { TabBar } from '@/app/TabBar';
@@ -28,6 +28,10 @@ import { StoryHost } from '@/features/content/StoryHost';
 import { QuizHost } from '@/features/learn/QuizHost';
 import { startReadSync } from '@/content/readProgress';
 import { ToastHost } from '@/ui/Toast';
+const TelescopeMode = lazy(() => import('@/features/telescope/TelescopeMode'));
+const Equipment = lazy(() =>
+  import('@/features/telescope/Equipment').then((m) => ({ default: m.Equipment })),
+);
 
 /**
  * 스크롤되는 탭 화면 래퍼(D-021·D-022). 떠 있는 상태 캡슐·탭 pill 아래로 콘텐츠가 이어지도록
@@ -46,6 +50,7 @@ function TabScreen({ children }: { children: ReactNode }) {
 /** 앱 셸: 떠 있는 상태 캡슐 + 라우트된 화면 + 떠 있는 탭 pill. 설정·정보·디버그는 전체 화면 라우트. */
 export function App() {
   const route = useRoute();
+  const hash = useHash();
   const theme = useSettingsStore((s) => s.theme);
   const lang = useSettingsStore((s) => s.lang);
   const keepAwake = useSettingsStore((s) => s.keepAwake);
@@ -77,6 +82,30 @@ export function App() {
       />
     );
   if (route === 'about') return <AboutScreen onBack={() => navigate('settings')} />;
+  if (route === 'telescope')
+    return (
+      <Suspense
+        fallback={
+          <div role="status" className="p-6">
+            …
+          </div>
+        }
+      >
+        <TelescopeMode key={hash} />
+      </Suspense>
+    );
+  if (route === 'equipment')
+    return (
+      <Suspense
+        fallback={
+          <div role="status" className="p-6">
+            …
+          </div>
+        }
+      >
+        <Equipment onBack={() => navigate('settings')} />
+      </Suspense>
+    );
   if (route === 'sites') return <SitesScreen onBack={() => navigate('settings')} />;
   if (route === 'backup')
     return (

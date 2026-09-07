@@ -224,6 +224,7 @@ test('오늘 밤: 하늘 상태 카드(일몰·박명·월출몰·어두운 창)
   await openSky(page);
   await page.getByTestId('tab-tonight').click();
   const card = page.getByTestId('sky-status-card');
+  await page.getByTestId('tonight-tab-conditions').click();
   await expect(card).toBeVisible({ timeout: 15_000 });
   // USNO(고도 0m): 일몰 18:52, 시민박명 끝 19:18, 일출 06:06; 프리셋 고도 70m라 ±2분
   await expect(page.getByTestId('status-sunset')).toHaveText(/18:5[1-4]/);

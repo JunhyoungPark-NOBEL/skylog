@@ -17,6 +17,8 @@ import { TimeBar } from '@/features/sky/TimeBar';
 import { SkyScene, type ObjectInfo } from '@/render/SkyScene';
 import { useClockStore } from '@/state/clockStore';
 import { showsBelowHorizon, useLayerStore } from '@/state/layerStore';
+import { openTelescope } from '@/features/telescope/navigation';
+import { FovOverlay } from '@/features/telescope/FovOverlay';
 import { useLocationStore } from '@/state/locationStore';
 import { useLogStore, type LogState } from '@/state/logStore';
 import { useSelectionStore } from '@/state/selectionStore';
@@ -260,6 +262,15 @@ export function SkyView() {
       </button>
 
       <ArToggle onOpenWizard={() => setWizardOpen(true)} />
+      <button
+        aria-label={t('guide.title')}
+        onClick={() => openTelescope(useSelectionStore.getState().selectedId ?? undefined)}
+        data-testid="sky-telescope"
+        className="absolute left-3 top-[calc(var(--status-height)+env(safe-area-inset-top)+64px)] z-10 flex h-11 w-11 items-center justify-center rounded-pill glass text-accent"
+      >
+        ◎
+      </button>
+      <FovOverlay />
       {simulator && arActive && <SensorSimPanel />}
       {wizardOpen && <CalibrationWizard onClose={() => setWizardOpen(false)} />}
 

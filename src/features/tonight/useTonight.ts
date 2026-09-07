@@ -27,6 +27,7 @@ import { useClockStore } from '@/state/clockStore';
 import { useLocationStore } from '@/state/locationStore';
 import { useLogStore } from '@/state/logStore';
 import { useTonightStore, type WindowPreset } from '@/state/tonightStore';
+import { useTelescopeStore, equipmentProfile } from '@/state/telescopeStore';
 import { zonedDateTime } from '@/ui/format';
 
 const RECOMPUTE_MS = 5 * 60_000;
@@ -134,6 +135,7 @@ export function useTonight(): TonightData {
   const customFrom = useTonightStore((s) => s.customFromHour);
   const customTo = useTonightStore((s) => s.customToHour);
   const equipment = useTonightStore((s) => s.equipment);
+  const profile = useTelescopeStore((s) => s.profile);
   // T4: 기록(★)·예정(☆) 집합 — logStore가 DB 변경마다 새 Set으로 바꾸고 version을 올린다
   const observedSet = useLogStore((s) => s.observedSet);
   const bookmarkedSet = useLogStore((s) => s.bookmarkedSet);
@@ -231,6 +233,7 @@ export function useTonight(): TonightData {
             window_.to.getTime(),
             Math.floor(now.getTime() / 60_000),
             equipment,
+            JSON.stringify(profile),
             JSON.stringify(constraints),
             weather?.fetchedAt.getTime() ?? 0,
             site.lat,
@@ -245,6 +248,7 @@ export function useTonight(): TonightData {
       night,
       now,
       equipment,
+      profile,
       constraints,
       weather,
       site.lat,
@@ -271,6 +275,7 @@ export function useTonight(): TonightData {
         night,
         site: constraints,
         equipment,
+        equipmentProfile: equipmentProfile(profile),
         cloudAt: weather ? (t) => hourAt(weather, t)?.cloud : undefined,
         observedSet,
         bookmarkedSet,
@@ -295,6 +300,7 @@ export function useTonight(): TonightData {
     bookmarkedSet,
     constraints,
     equipment,
+    profile,
     weather,
     phenomena,
     nextMonthPhenomena,

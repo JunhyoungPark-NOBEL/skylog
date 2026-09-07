@@ -1,21 +1,49 @@
 import { useTranslation } from 'react-i18next';
 import type { LearningState } from '@/learn/runtime';
-import { QUIZ_STAGES } from '@/learn/stages';
+import { QUIZ_STAGES, stageTrack, stageNumber } from '@/learn/stages';
 import { useLearnUiStore } from '@/state/learnUiStore';
 import { navigateLearn } from './learnNavigation';
 
-export function QuizJourney({ value, chapter }: { value: LearningState; chapter?: number }) {
+export function QuizJourney({
+  value,
+  chapter,
+  track = 'sky',
+}: {
+  value: LearningState;
+  chapter?: number;
+  track?: string;
+}) {
   const { t } = useTranslation();
   const openQuiz = useLearnUiStore((s) => s.openQuiz);
-  const current =
-    value.journey.find((p) => p.unlocked && !p.result?.cleared) ?? value.journey.at(-1)!;
+  const journey = value.journey.filter((p) => stageTrack(p.stage) === track);
+  const trackStages = QUIZ_STAGES.filter((s) => stageTrack(s) === track);
+  const chapterKey = track === 'observing' ? 'observingCourse.chapters.' : 'journey.chapters.';
+  const current = journey.find((p) => p.unlocked && !p.result?.cleared) ?? journey.at(-1)!;
   const selectedChapter = [1, 2, 3].includes(chapter ?? 0) ? chapter! : current.stage.chapter;
-  const stages = value.journey.filter((p) => p.stage.chapter === selectedChapter);
-  const cleared = value.journey.filter((p) => p.result?.cleared).length;
-  const score = value.journey.reduce((sum, p) => sum + (p.result?.score ?? 0), 0);
-  const allDone = cleared === QUIZ_STAGES.length;
+  const stages = journey.filter((p) => p.stage.chapter === selectedChapter);
+  const cleared = journey.filter((p) => p.result?.cleared).length;
+  const score = journey.reduce((sum, p) => sum + (p.result?.score ?? 0), 0);
+  const allDone = cleared === trackStages.length;
   return (
     <div className="space-y-6" data-testid="quiz-journey">
+      <div className="grid grid-cols-2 gap-2" aria-label={t('observingCourse.choose')}>
+        {['sky', 'observing'].map((key) => (
+          <button
+            key={key}
+            data-testid={'quiz-track-' + key}
+            aria-pressed={track === key}
+            onClick={() => navigateLearn('quiz', { track: key })}
+            className={
+              'min-h-14 rounded-2xl border px-3 text-body-sm font-semibold ' +
+              (track === key
+                ? 'border-accent bg-accent-soft text-accent'
+                : 'border-hairline bg-surface')
+            }
+          >
+            {t('observingCourse.' + key)}
+          </button>
+        ))}
+      </div>
       <section className="relative overflow-hidden rounded-3xl border border-hairline bg-surface p-6">
         <svg
           aria-hidden
@@ -34,26 +62,26 @@ export function QuizJourney({ value, chapter }: { value: LearningState; chapter?
             {t(allDone ? 'journey.allDone' : 'journey.yourNext')}
           </p>
           <h2 className="mt-3 max-w-[80%] text-headline">
-            {t('journey.chapters.' + current.stage.chapter + '.title')}
+            {t(chapterKey + current.stage.chapter + '.title')}
           </h2>
           <p className="mt-2 text-body-sm text-muted">
-            {t('journey.stageHeading', { n: QUIZ_STAGES.indexOf(current.stage) + 1 })} ·{' '}
+            {t('journey.stageHeading', { n: stageNumber(current.stage) })} ·{' '}
             {t('journey.themes.' + current.stage.theme)}
           </p>
           <button
-          className="mt-5 flex min-h-12 w-full items-center justify-between gap-3 rounded-pill bg-accent px-5 py-3 font-semibold text-accent-fg"
+            className="mt-5 flex min-h-12 w-full items-center justify-between gap-3 rounded-pill bg-accent px-5 py-3 font-semibold text-accent-fg"
             data-testid="learn-quiz-start"
             onClick={() => openQuiz({ stageId: current.stage.id })}
           >
             <span>
               {t(allDone ? 'journey.replay' : cleared ? 'journey.continue' : 'journey.start')}
             </span>
-          <span className="shrink-0 whitespace-nowrap text-caption">
+            <span className="shrink-0 whitespace-nowrap text-caption">
               {t('journey.questions', { n: current.stage.questions.length })} →
             </span>
           </button>
           <div className="mt-4 flex flex-wrap justify-between gap-2 text-caption text-muted">
-            <span>{t('journey.completedCount', { n: cleared, total: QUIZ_STAGES.length })}</span>
+            <span>{t('journey.completedCount', { n: cleared, total: trackStages.length })}</span>
             <span data-testid="journey-total">
               {t('journey.personalScore', { n: score.toLocaleString() })}
             </span>
@@ -67,7 +95,7 @@ export function QuizJourney({ value, chapter }: { value: LearningState; chapter?
               key={n}
               aria-pressed={selectedChapter === n}
               data-testid={'journey-chapter-' + n}
-              onClick={() => navigateLearn('quiz', { chapter: n })}
+              onClick={() => navigateLearn('quiz', { chapter: n, track })}
               className={
                 'min-h-16 rounded-2xl border px-2 py-3 text-center ' +
                 (selectedChapter === n
@@ -76,16 +104,16 @@ export function QuizJourney({ value, chapter }: { value: LearningState; chapter?
               }
             >
               <span className="block text-caption text-muted">
-                0{n} · {t('journey.chapters.' + n + '.level')}
+                0{n} · {t(chapterKey + n + '.level')}
               </span>
               <span className="mt-1 block text-body-sm font-semibold">
-                {t('journey.chapters.' + n + '.title')}
+                {t(chapterKey + n + '.title')}
               </span>
             </button>
           ))}
         </div>
         <p className="px-1 pb-2 pt-4 text-body-sm leading-6 text-muted">
-          {t('journey.chapters.' + selectedChapter + '.description')}
+          {t(chapterKey + selectedChapter + '.description')}
         </p>
         <ol className="mt-2 space-y-3">
           {stages.map((p, i) => (
@@ -117,9 +145,7 @@ export function QuizJourney({ value, chapter }: { value: LearningState; chapter?
                         : 'border-hairline text-muted')
                   }
                 >
-                  {p.result?.cleared
-                    ? '✓'
-                    : String(QUIZ_STAGES.indexOf(p.stage) + 1).padStart(2, '0')}
+                  {p.result?.cleared ? '✓' : String(stageNumber(p.stage)).padStart(2, '0')}
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-body font-semibold">

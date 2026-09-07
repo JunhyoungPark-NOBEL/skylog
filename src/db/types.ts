@@ -92,6 +92,11 @@ export interface Telescope extends BaseRecord {
   focalLengthMm: number;
   mountType: 'altaz' | 'eq' | 'goto';
   finder?: { kind: 'rdf' | 'optical'; magnification?: number; fovDeg?: number };
+  opticalDesign?: 'refractor' | 'reflector' | 'compound';
+  diagonal?: boolean;
+  imageOrientation?: 'upright' | 'rotate180' | 'mirror' | 'flipBoth';
+  rotationDeg?: number;
+  correctImageFinder?: boolean;
 }
 
 export interface Eyepiece extends BaseRecord {

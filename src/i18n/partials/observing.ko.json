@@ -1,0 +1,40 @@
+{
+  "journey": {
+    "themes": {
+      "observing": "관측 첫걸음",
+      "design": "망원경의 종류",
+      "mounts": "받침과 움직임",
+      "optics": "빛과 배율",
+      "planning": "장비와 대상 고르기",
+      "field": "시야와 상 방향",
+      "alignment": "별에 맞추는 원리",
+      "conditions": "하늘 상태 읽기",
+      "calculations": "관측 계산 연습",
+      "diagnosis": "흐린 상과 오차 해결",
+      "strategy": "관측 계획 응용",
+      "navigation": "별길 안내 활용"
+    }
+  },
+  "observingCourse": {
+    "choose": "퀴즈 코스",
+    "sky": "별하늘 탐험",
+    "observing": "관측·망원경",
+    "chapters": {
+      "1": {
+        "level": "기초",
+        "title": "장비와 친해지기",
+        "description": "눈으로 보는 관측부터 렌즈·거울·마운트와 배율을 익혀요. 4스테이지, 20문항이에요."
+      },
+      "2": {
+        "level": "실전",
+        "title": "밤하늘로 나가기",
+        "description": "목표에 맞는 장비, 시야 방향, 별 정렬과 하늘 상태를 연습해요. 4스테이지, 20문항이에요."
+      },
+      "3": {
+        "level": "응용",
+        "title": "스스로 해결하기",
+        "description": "배율·시야 계산부터 흐린 상의 원인과 스타호핑 계획까지 응용해요. 4스테이지, 20문항이에요."
+      }
+    }
+  }
+}

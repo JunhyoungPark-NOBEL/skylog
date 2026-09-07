@@ -14,6 +14,8 @@ export type Route =
   | 'about'
   | 'sites'
   | 'backup'
+  | 'equipment'
+  | 'telescope'
   | 'debug/data'
   | 'debug/sensors';
 
@@ -23,6 +25,8 @@ const ALL_ROUTES: readonly Route[] = [
   'about',
   'sites',
   'backup',
+  'equipment',
+  'telescope',
   'debug/data',
   'debug/sensors',
 ];
@@ -56,6 +60,13 @@ function getSnapshot(): Route {
 
 export function useRoute(): Route {
   return useSyncExternalStore(subscribe, getSnapshot, () => 'sky');
+}
+export function useHash(): string {
+  return useSyncExternalStore(
+    subscribe,
+    () => window.location.hash,
+    () => '#/sky',
+  );
 }
 
 export function navigate(route: Route, replace = false): void {

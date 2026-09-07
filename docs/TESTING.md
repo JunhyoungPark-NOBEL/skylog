@@ -122,3 +122,23 @@ T3b e2e(`tests/e2e/tonight.spec.ts`): Open-Meteo를 `page.route`로 목(서비�
 
 - 추가 접근성 보완: index.html의 user-scalable=no 제거, 읽기 화면의 브라우저 확대 허용. 하늘 캔버스의 touch-action:none은 유지한다.
 - 브라우저 배율 에뮬레이션으로 visualViewport.scale 1→1.5 확인. Headless 합성 핀치로는 배율 변화를 재현하지 못해 실제 손가락 확대는 실기기 항목으로 남긴다.
+
+## T5·관측 퀴즈·오늘 밤 (2026-09-08)
+
+- Vitest 356개: 물리 +Y/화면 회전 분리, 1/2별 정렬·노이즈·불충분한 별 조합 거부, 0/360 경계·천정, 지평↔시간각 역변환, 태양 근접, 차트 투영/반전/회전/역투영, 실제 카탈로그 M13/M57/M31/M27/M11 호핑. 상대 센서 거부·유효하지 않은 이벤트·중단 후 세션 무효화·권한 대기 중 종료 포함.
+- Playwright 전체 33개: 기존 스크롤/센서/천구/검색/기록/백업/오프라인/학습 회귀, 새 장비500mm+25mm→20배/2.6°, 물리 +Y 합성 상대 이벤트로 Altair/Deneb 정렬(잔차0.0°)→M13 시야 자동 전환→스타호핑/업적, 태양 차단/같은 route 목표 교체/센서 없는 차트/드래그/360px/English/야간. FOV10° 화면에서 6.5° 원의 실제 canvas 지름 ±2% 및 표시 끄기.
+- 관측 코스 첫 단계 완주→도장/다음 해제→기존 하늘 점수 분리→새로고침 복원→영어 문항/해설. 오늘 밤 3개 패널/시간·장비/계획/예보 실패 회귀.
+- 주요 스크린샷: `tonight-picks.png`, `tonight-conditions.png`, `observing-journey.png`, `observing-quiz-en.png`, `telescope-equipment.png`, `telescope-aligned.png`, `starhop-m13.png`, `telescope-fov.png`, `telescope-en.png`, `telescope-night.png` (`tests/e2e/__screenshots__/`). 합성 센서는 실제 홀더·자이로 정확도를 보증하지 않는다.
+- 표준 optics의 도립(180°)과 상하좌우 반전은 같은 변환이다. 둘을 서로 다른 이미지라고 주장하지 않으며 upright/mirror/180 및 임의 회전의 단위 검증으로 원래 T5 문서의 4개 이미지 구분 요구를 정정한다.
+
+### 배포 후 실기기 체크리스트
+
+- [ ] 배우기 → 관측·망원경: 첫 5문항/해설/도장, 앱 재실행 후 진도, 한국어/English 가독성.
+- [ ] 오늘 밤 3개 메뉴와 변경/더 보기/시간순 계획, 한 손 스크롤.
+- [ ] 실제 장비 사양을 저장한 뒤 휴대폰 **윗변**을 경통과 평행하게 고정. 밝은 별 하나 정렬→다른 별의 실제 파인더 도입 오차 확인.
+- [ ] 서로 충분히 떨어지고 높이가 다른 두 별 정렬→세 번째 별 차이 기록. 화면 회전 및 10분 뒤 오차도 기록하고 필요하면 재정렬.
+- [ ] 잠금/다른 앱 전환/센서 끄기 후 재정렬 안내. 거부 시 차트·스타호핑은 사용 가능.
+- [ ] 파인더·접안렌즈/쌍안경의 실제 시야·상의 반전·회전과 차트 비교. 차트 드래그가 정렬에 영향을 주지 않는지 확인.
+- [ ] 현재 떠 있는 M13/M31 등으로 실제 스타호핑 후 ‘찾았어요’를 눌러 업적 반영. 야간 글자·버튼·진동 확인.
+
+G4 요청에는 `astro/pointing.ts`, `astro/finder.ts`, `sensors/telescopeOrientation.ts`, `sensors/orientation/{math,filter,calibration}.ts`, `tests/unit/astro/pointing.test.ts`, `tests/unit/sensors/telescope.test.ts`를 함께 첨부한다. 기존 `plan/gpt-pro-requests.md` G4에 물리 +Y·상대 yaw/장착축 식별성·센서 재시작/드리프트 검토를 추가하면 된다. T5 완료 태그는 실기기 결과를 받은 뒤 붙인다.

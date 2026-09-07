@@ -93,7 +93,7 @@ export function LearnScreen() {
               )}
             </div>
           ) : nav.section === 'quiz' ? (
-            <QuizJourney value={value} chapter={nav.chapter} />
+            <QuizJourney value={value} chapter={nav.chapter} track={nav.track} />
           ) : nav.section === 'courses' ? (
             <CoursesScreen value={value} pathId={nav.pathId} missionId={nav.missionId} />
           ) : nav.section === 'stories' ? (

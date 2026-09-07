@@ -82,6 +82,11 @@ export function SettingsScreen({ onBack }: { onBack(): void }) {
         />
         <LinkRow label={t('sites.title')} onClick={() => navigate('sites')} testId="link-sites" />
         <LinkRow
+          label={t('guide.equipment')}
+          onClick={() => navigate('equipment')}
+          testId="link-equipment"
+        />
+        <LinkRow
           label={t('settings.backup')}
           onClick={() => navigate('backup')}
           testId="link-backup"

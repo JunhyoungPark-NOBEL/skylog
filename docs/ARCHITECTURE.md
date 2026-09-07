@@ -180,7 +180,7 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - learn/runtime의 readLearning이 관측·읽음·시작 시각·체크리스트·응답에서 미션/배지를 파생한다. 미션 키는 ID+steps 해시. learn.attempt는 불변 응답, learn.sr는 덮어쓰는 복습 일정이며 같은 트랜잭션으로 저장한다. 시작 전 관측은 사용자가 연결을 선택한 경우만 사용한다.
 - App에 ObservationFormHost/StoryHost/QuizHost/ToastHost를 하나씩 둔다. QuizHost는 관측 기록을 만들지 않는다. StoryView의 읽음도 명시적 버튼이다. 스크롤 영역은 ScrollArea, 그림 캔버스는 드래그 스크롤에서 제외한다.
 - 백업은 관측/설정/학습과 blob을 함께 포함한다. 일괄 가져오기는 하나의 트랜잭션이며 실패 시 롤백한다. JSON 참조 ID 및 중복 정책은 db/exportImport에 모은다.
-- T7 미완료: 전천 skyPick 판정/격리, T5 장비 실작업 증거, 일별 복습 누적 상한, 영구 배지 이력/연출. 장문 콘텐츠 영어 번역과 JS 코드 분할은 후속이다.
+- T7 미완료: 전천 skyPick 판정/격리, 일별 복습 누적 상한, 영구 배지 이력/연출. T5 장비 실작업 증거는 D-029에서 연결했다. 기존 장문 콘텐츠 영어 번역과 JS 코드 분할은 후속이다.
 
 ## 배우기 탐색·퀴즈 여정과 지평선 (D-026·D-027)
 - LearnScreen은 고정 제목/4개 메뉴 + ScrollArea. URL: #/learn?section=quiz|courses|stories|achievements, path/mission/chapter 선택. learnNavigation은 배우기 경로만 기억해 다른 탭의 hashchange가 복귀 위치를 덮어쓰지 않게 한다.
@@ -188,3 +188,14 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - QuizHost의 stage 요청은 고정 순서로 출제하며 일반 selectQuiz의 적응형 정렬과 분리된다. useLearnUiStore의 sessionId로 다음 스테이지/재도전 때 UI를 새로 만든다. recordStageAnswer가 잠금·순서·재전송을 검사하고 마지막 응답/복습/완료 이력을 함께 저장한다. readLearning은 로컬 완료 이력에서 단계별 최고점과 해제를 파생한다.
 - 관측/미션·기존 퀴즈/SR·읽음·스테이지 기록은 서로 다른 progress 키를 쓴다. quiz는 observations를 만들지 않는다. DB/백업 형식 변경 없음. 온라인 순위/계정은 현재 없다.
 - layerStore.showsBelowHorizon이 렌더/라벨/선택/마커를 일치시킨다. 지면은 opacity .28, 불투명 설정 우선. 셰이더 uShowBelowHorizon, 선의 uFadeBelowHorizon, BodyLayer 달 가시성으로 구현한다. below-horizon-hint는 viewStore의 중심 고도만 구독한다. 천문/관측 가시성 계산에는 영향 없음.
+
+## 관측 코스·별길 가이드 (D-028·D-029)
+
+- 코스 구분 `sky|observing`을 `stages.ts`에서 파생한다. 기존 단계는 명시적 track 없이 sky로 해석한다. observingStages.json의 새 ID 12개를 덧붙이되 nextStage/unlock/score는 코스별로 계산한다. `#/learn?track=observing`과 학습 복귀 상태를 지원한다. build-learn은 G5 구조 대조 후 독자 작성 60문항을 병합한다.
+- TonightScreen은 추천/관측 조건/일정 패널을 나누고 기존 useTonight 결과를 공유한다. `equipmentProfile(telescopeStore.profile)`가 추천 계산 키와 ObjectSheet 계산 입력에 포함된다.
+- `#/equipment`, `#/telescope?target=...&view=guide|align|finder|hop`는 지연 로드된다. App의 useHash가 동일 route의 목표 쿼리 변경도 반영한다. 진입 경로는 하늘 ◎/천체 상세/학습 미션, 장비 설정은 설정 메뉴에서도 가능하다.
+- `telescopeOrientation.ts`는 기존 AR manager와 수명 주기를 공유하지 않는 상대 센서다. 30Hz 입력/65ms slerp/약16Hz 발행, 기기 물리 축 사용. 실제 상대 입력이 없으면 나침반으로 대체하지 않는다. 1.5초 중단 시 sessionId를 바꿔 이전 정렬을 무효화한다.
+- `astro/pointing.ts`는 1/2별 yaw+장착축 정렬, 3번째 별 잔차, 경위/적도 차이·태양 근접 판정을 담당한다. 순수 함수는 합성 회전/노이즈/독립 좌표 테스트를 갖는다. 시간과 센서 freshness는 컴포넌트 외부 함수에서 읽는다.
+- `telescopeStore`는 장비 프로필·FOV 표시·최근 정렬 참고값만 Dexie settings에 보존한다. 활성 정렬은 현재 sensor.sessionId/provider/profileKey가 모두 같아야 한다. 재실행 시 저장값을 적용하지 않는다. 장비 CRUD는 기존 repos와 선택 필드 추가를 사용해 DB v2 및 JSON 백업을 유지한다.
+- `FovOverlay`는 sphere ring→실제 CameraController projection, `FinderChart`는 gnomonic chart→2D canvas다. `astro/finder.ts`는 상 방향·회전과 역투영을 제공한다. 차트 드래그는 미리보기 중심만 바꾸며 ScrollArea 드래그에서 제외한다. deep 팩은 chart 진입 때 지연 로드하고 9등급 한계를 표시한다.
+- `astro/starHop.ts`는 실제 FOV 기반의 제한 탐색, `StarHop.tsx`는 단계별 확인과 하늘 경로를 담당한다. actual emitSkill(align1/align2/starhop/fovSetup)만 미션·배지 증거로 쓰고 시뮬레이션 정렬/스타호핑은 제외한다. 카메라 plate solving·GoTo 모터 제어는 없다.

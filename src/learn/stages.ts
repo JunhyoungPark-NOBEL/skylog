@@ -1,4 +1,5 @@
 import catalog from './stageCatalog.json' with { type: 'json' };
+import observing from './observingStages.json' with { type: 'json' };
 import type { QuizItem } from './schema';
 
 /** 문항·보기 버전이 고정된 여정. 출제 구성을 바꿀 때 stage version도 올린다(D-026). */
@@ -8,9 +9,18 @@ export interface QuizStage {
   chapter: number;
   theme: string;
   part: number;
+  track?: string;
   questions: { id: string; version: number }[];
 }
-export const QUIZ_STAGES: readonly QuizStage[] = catalog;
+export const QUIZ_STAGES: readonly QuizStage[] = [...catalog, ...observing];
+export const stageTrack = (stage: QuizStage) => stage.track ?? 'sky';
+export function nextStage(stage: QuizStage) {
+  const list = QUIZ_STAGES.filter((s) => stageTrack(s) === stageTrack(stage));
+  return list[list.indexOf(stage) + 1];
+}
+export function stageNumber(stage: QuizStage) {
+  return QUIZ_STAGES.filter((s) => stageTrack(s) === stageTrack(stage)).indexOf(stage) + 1;
+}
 export interface StageAnswer {
   quizId: string;
   version: number;
@@ -103,11 +113,12 @@ export function stageProgress(quiz: readonly QuizItem[], runs: readonly StageRun
       /* 이전 버전·불완전한 복원 데이터는 진도에 포함하지 않는다. */
     }
   }
-  let precedingCleared = true;
+  const precedingCleared = new Map<string, boolean>();
   return QUIZ_STAGES.map((stage) => {
     const result = best.get(stage.id);
-    const unlocked = precedingCleared;
-    precedingCleared = precedingCleared && !!result?.cleared;
+    const track = stageTrack(stage);
+    const unlocked = precedingCleared.get(track) ?? true;
+    precedingCleared.set(track, unlocked && !!result?.cleared);
     return { stage, result, unlocked };
   });
 }

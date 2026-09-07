@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { readLearning, recordAnswer, recordStageAnswer, selectQuiz } from '@/learn/runtime';
-import { QUIZ_STAGES, stageQuestions, type StageResult } from '@/learn/stages';
+import {
+  QUIZ_STAGES,
+  stageQuestions,
+  nextStage,
+  stageNumber,
+  type StageResult,
+} from '@/learn/stages';
 import { newId } from '@/db/database';
 import type { QuizItem, Text } from '@/learn/schema';
 import { useLearnUiStore, type QuizRequest } from '@/state/learnUiStore';
@@ -151,9 +157,7 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
     >
       <header className="flex shrink-0 items-center justify-between gap-3 px-5 pb-3 pt-[calc(env(safe-area-inset-top)+16px)]">
         <span className="text-label font-semibold tracking-[0.18em] text-accent">
-          {stage
-            ? t('journey.stageHeading', { n: QUIZ_STAGES.indexOf(stage) + 1 })
-            : t('study.quiz')}
+          {stage ? t('journey.stageHeading', { n: stageNumber(stage) }) : t('study.quiz')}
         </span>
         <button
           className="flex h-11 w-11 items-center justify-center rounded-full bg-surface-2"
@@ -361,7 +365,7 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
                       <p className="text-body-sm leading-6 text-muted">
                         {t(
                           stageResult.cleared
-                            ? stage?.id === QUIZ_STAGES.at(-1)?.id
+                            ? stage && !nextStage(stage)
                               ? 'journey.finishedJourney'
                               : 'journey.nextUnlocked'
                             : 'journey.tryAgainNote',
@@ -378,14 +382,12 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
                   className="min-h-12 w-full rounded-pill bg-accent px-5 font-semibold text-accent-fg"
                   data-testid="stage-continue"
                   onClick={() => {
-                    const next = stageResult.cleared
-                      ? QUIZ_STAGES[QUIZ_STAGES.indexOf(stage) + 1]
-                      : undefined;
+                    const next = stageResult.cleared ? nextStage(stage) : undefined;
                     useLearnUiStore.getState().openQuiz({ stageId: next?.id ?? stage.id });
                   }}
                 >
                   {t(
-                    stageResult.cleared && QUIZ_STAGES[QUIZ_STAGES.indexOf(stage) + 1]
+                    stageResult.cleared && nextStage(stage)
                       ? 'journey.nextStage'
                       : 'journey.replay',
                   )}

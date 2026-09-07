@@ -43,7 +43,7 @@ it('전체 이야기와 학습 팩의 ID·필수 필드·참조가 서로 맞는
   ).toEqual([]);
   for (const values of [data.paths, data.missions, data.badges, data.quiz])
     expect(new Set(values.map((e) => e.id)).size).toBe(values.length);
-  expect(data.quiz.filter((q) => q.enabled !== false)).toHaveLength(144);
+  expect(data.quiz.filter((q) => q.enabled !== false)).toHaveLength(204);
   for (const m of data.missions.filter((m) => m.enabled !== false))
     for (const step of m.steps)
       if (step.type === 'quiz')
@@ -56,7 +56,9 @@ it('180문항의 근거 스냅샷이 첨부 G3 정본과 정확히 일치한다'
   const evidence = read<
     { quizId: string; evidence: { contentId: string; pointer: string; suppliedText: unknown }[] }[]
   >(root + 'G5/evidence/quiz-evidence.json');
-  expect(new Set(evidence.map((e) => e.quizId))).toEqual(new Set(data.quiz.map((q) => q.id)));
+  expect(new Set(evidence.map((e) => e.quizId))).toEqual(
+    new Set(data.quiz.filter((q) => !q.id.startsWith('obs-')).map((q) => q.id)),
+  );
   for (const e of evidence)
     for (const ref of e.evidence) {
       let value: unknown = originals.find((o) => o.id === ref.contentId);

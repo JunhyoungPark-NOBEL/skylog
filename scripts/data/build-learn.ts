@@ -5,8 +5,8 @@
  * 1) 원본(G5-original)과 구조 대조: 산문 외 필드(id·level·season·steps의 type/objectId/quizIds/answer·rule…)가
  *    바이트 단위로 같아야 한다. 다르면 실패.
  * 2) `validateLearnData`(스키마·참조 무결성·카탈로그 id·게시된 콘텐츠 id).
- * 3) 실행 정책(D-025): skyPick 36문항은 전천 검증 전 비활성, 앱에 없는 기능(align1·fovSetup·starhop → T5)이 필요한 미션과
- *    2별 정렬 배지(align2Success → T5)는 비활성 + 이유. 문항 version=1.
+ * 3) 실행 정책(D-025·D-029): skyPick 36문항은 전천 검증 전 비활성. T5 실제 이벤트 연결 후 미션 30/배지 18 활성.
+ *    G5 구조 대조 뒤 별도 observing-quiz.json(한·영 60문항)을 병합한다. 문항 version=1.
  * 4) 리뷰 로그: data-src/learn-raw/review-log.md
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -29,7 +29,15 @@ const LEARN_OUT = path.join(OUT_DIR, 'learn', 'v1');
 const REVIEW_LOG = path.join(LEARN_RAW, 'review-log.md');
 
 /** 앱에 이미 있는 기능(스킬). 없는 것은 미션 비활성. */
-const AVAILABLE_SKILLS = new Set(['arMode', 'sketch', 'backup']);
+const AVAILABLE_SKILLS = new Set([
+  'arMode',
+  'sketch',
+  'backup',
+  'align1',
+  'align2',
+  'starhop',
+  'fovSetup',
+]);
 const SKILL_REASON: Record<string, string> = {
   align1: '망원경의 별 정렬은 망원경 가이드에서 열려요. 현재 휴대전화 방향 보정과는 별도예요.',
   fovSetup: '망원경·쌍안경 시야원 설정은 다음 업데이트(망원경 가이드)에서 열려요.',
@@ -142,23 +150,14 @@ function main(): void {
     }
     return { ...m, enabled: true };
   });
-  const badges = data.badges.map((b) => {
-    if (b.rule.key === 'align2Success' || b.rule.key === 'firstStarHop') {
-      lines.push(`- 배지 비활성: ${b.id} (${b.rule.key} → T5)`);
-      return {
-        ...b,
-        enabled: false,
-        disabledReason: SKILL_REASON[b.rule.key === 'firstStarHop' ? 'starhop' : 'align2']!,
-      };
-    }
-    return { ...b, enabled: true };
-  });
+  const badges = data.badges.map((b) => ({ ...b, enabled: true }));
   const quiz = data.quiz.map((q) =>
     q.type === 'skyPick'
       ? { ...q, version: 1, enabled: false, disabledReason: SKYPICK_REASON }
       : { ...q, version: 1, enabled: true },
   );
-  const final: LearnData = { paths: data.paths, missions, badges, quiz };
+  const additional = readJson<QuizItem[]>(path.join(LEARN_RAW, 'observing-quiz.json'));
+  const final: LearnData = { paths: data.paths, missions, badges, quiz: [...quiz, ...additional] };
 
   // 2) 검증
   const { errors, warnings } = validateLearnData(final, {
@@ -199,7 +198,7 @@ function main(): void {
   });
   writeFileSync(
     REVIEW_LOG,
-    `# 학습 팩 빌드 리뷰 로그\n\n입력: ${IN}\n생성: ${new Date().toISOString()} · 경로 ${final.paths.length} · 미션 ${final.missions.length} · 배지 ${final.badges.length} · 문항 ${final.quiz.length}(하늘 선택 ${skyPick}, 비활성)\n\n${lines.join('\n')}\n`,
+    `# 학습 팩 빌드 리뷰 로그\n\n입력: ${IN} + observing-quiz.json(독자 작성 60문항, docs/OBSERVING-CONTENT.md)\n생성: ${new Date().toISOString()} · 경로 ${final.paths.length} · 미션 ${final.missions.length} · 배지 ${final.badges.length} · 문항 ${final.quiz.length}(하늘 선택 ${skyPick}, 비활성)\n\n${lines.join('\n')}\n`,
   );
   log(
     `learn/v1: 경로 ${final.paths.length} · 미션 ${final.missions.length}(비활성 ${final.missions.filter((m) => !m.enabled).length}) · 배지 ${final.badges.length} · 문항 ${final.quiz.length} · 경고 ${warnings.length} → ${REVIEW_LOG}`,

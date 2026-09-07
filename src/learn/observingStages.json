@@ -1,0 +1,362 @@
+[
+  {
+    "id": "observing-1-observing",
+    "version": 1,
+    "track": "observing",
+    "chapter": 1,
+    "theme": "observing",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-001",
+        "version": 1
+      },
+      {
+        "id": "obs-002",
+        "version": 1
+      },
+      {
+        "id": "obs-003",
+        "version": 1
+      },
+      {
+        "id": "obs-004",
+        "version": 1
+      },
+      {
+        "id": "obs-005",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-1-design",
+    "version": 1,
+    "track": "observing",
+    "chapter": 1,
+    "theme": "design",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-006",
+        "version": 1
+      },
+      {
+        "id": "obs-007",
+        "version": 1
+      },
+      {
+        "id": "obs-008",
+        "version": 1
+      },
+      {
+        "id": "obs-009",
+        "version": 1
+      },
+      {
+        "id": "obs-010",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-1-mounts",
+    "version": 1,
+    "track": "observing",
+    "chapter": 1,
+    "theme": "mounts",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-011",
+        "version": 1
+      },
+      {
+        "id": "obs-012",
+        "version": 1
+      },
+      {
+        "id": "obs-013",
+        "version": 1
+      },
+      {
+        "id": "obs-014",
+        "version": 1
+      },
+      {
+        "id": "obs-015",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-1-optics",
+    "version": 1,
+    "track": "observing",
+    "chapter": 1,
+    "theme": "optics",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-016",
+        "version": 1
+      },
+      {
+        "id": "obs-017",
+        "version": 1
+      },
+      {
+        "id": "obs-018",
+        "version": 1
+      },
+      {
+        "id": "obs-019",
+        "version": 1
+      },
+      {
+        "id": "obs-020",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-2-planning",
+    "version": 1,
+    "track": "observing",
+    "chapter": 2,
+    "theme": "planning",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-021",
+        "version": 1
+      },
+      {
+        "id": "obs-022",
+        "version": 1
+      },
+      {
+        "id": "obs-023",
+        "version": 1
+      },
+      {
+        "id": "obs-024",
+        "version": 1
+      },
+      {
+        "id": "obs-025",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-2-field",
+    "version": 1,
+    "track": "observing",
+    "chapter": 2,
+    "theme": "field",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-026",
+        "version": 1
+      },
+      {
+        "id": "obs-027",
+        "version": 1
+      },
+      {
+        "id": "obs-028",
+        "version": 1
+      },
+      {
+        "id": "obs-029",
+        "version": 1
+      },
+      {
+        "id": "obs-030",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-2-alignment",
+    "version": 1,
+    "track": "observing",
+    "chapter": 2,
+    "theme": "alignment",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-031",
+        "version": 1
+      },
+      {
+        "id": "obs-032",
+        "version": 1
+      },
+      {
+        "id": "obs-033",
+        "version": 1
+      },
+      {
+        "id": "obs-034",
+        "version": 1
+      },
+      {
+        "id": "obs-035",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-2-conditions",
+    "version": 1,
+    "track": "observing",
+    "chapter": 2,
+    "theme": "conditions",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-036",
+        "version": 1
+      },
+      {
+        "id": "obs-037",
+        "version": 1
+      },
+      {
+        "id": "obs-038",
+        "version": 1
+      },
+      {
+        "id": "obs-039",
+        "version": 1
+      },
+      {
+        "id": "obs-040",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-3-calculations",
+    "version": 1,
+    "track": "observing",
+    "chapter": 3,
+    "theme": "calculations",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-041",
+        "version": 1
+      },
+      {
+        "id": "obs-042",
+        "version": 1
+      },
+      {
+        "id": "obs-043",
+        "version": 1
+      },
+      {
+        "id": "obs-044",
+        "version": 1
+      },
+      {
+        "id": "obs-045",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-3-diagnosis",
+    "version": 1,
+    "track": "observing",
+    "chapter": 3,
+    "theme": "diagnosis",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-046",
+        "version": 1
+      },
+      {
+        "id": "obs-047",
+        "version": 1
+      },
+      {
+        "id": "obs-048",
+        "version": 1
+      },
+      {
+        "id": "obs-049",
+        "version": 1
+      },
+      {
+        "id": "obs-050",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-3-strategy",
+    "version": 1,
+    "track": "observing",
+    "chapter": 3,
+    "theme": "strategy",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-051",
+        "version": 1
+      },
+      {
+        "id": "obs-052",
+        "version": 1
+      },
+      {
+        "id": "obs-053",
+        "version": 1
+      },
+      {
+        "id": "obs-054",
+        "version": 1
+      },
+      {
+        "id": "obs-055",
+        "version": 1
+      }
+    ]
+  },
+  {
+    "id": "observing-3-navigation",
+    "version": 1,
+    "track": "observing",
+    "chapter": 3,
+    "theme": "navigation",
+    "part": 1,
+    "questions": [
+      {
+        "id": "obs-056",
+        "version": 1
+      },
+      {
+        "id": "obs-057",
+        "version": 1
+      },
+      {
+        "id": "obs-058",
+        "version": 1
+      },
+      {
+        "id": "obs-059",
+        "version": 1
+      },
+      {
+        "id": "obs-060",
+        "version": 1
+      }
+    ]
+  }
+]

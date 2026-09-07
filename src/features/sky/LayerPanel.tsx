@@ -3,6 +3,7 @@ import { useLayerStore, type BooleanLayerKey, type LayerValues } from '@/state/l
 import { ScrollArea } from '@/ui/ScrollArea';
 import { Segmented } from '@/ui/Segmented';
 import { Toggle } from '@/ui/Toggle';
+import { useTelescopeStore } from '@/state/telescopeStore';
 
 type AlphaKey = {
   [K in keyof LayerValues]: LayerValues[K] extends number ? K : never;
@@ -43,6 +44,8 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
   const saturation = useLayerStore((s) => s.starSaturation);
   const realSky = useLayerStore((s) => s.realSky);
   const bortle = useLayerStore((s) => s.bortle);
+  const rings = useTelescopeStore((s) => s.fovRings);
+  const hopRoute = useTelescopeStore((s) => s.route);
   const set = useLayerStore((s) => s.set);
   return (
     <div
@@ -64,6 +67,20 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
         </button>
       </header>
       <ScrollArea className="pb-tab pt-2 text-body-sm" fadeBottom="28px" fadeColor="var(--surface)">
+        <Toggle
+          id="layer-fovRings"
+          label={t('guide.fovRings')}
+          checked={rings}
+          onChange={(on) => useTelescopeStore.getState().setRings(on)}
+        />
+        {hopRoute && (
+          <button
+            className="min-h-12 px-4 text-accent"
+            onClick={() => useTelescopeStore.getState().setRoute(null)}
+          >
+            {t('guide.clearRoute')}
+          </button>
+        )}
         <Toggle
           id="layer-realSky"
           label={t('sky.layer.realSky')}

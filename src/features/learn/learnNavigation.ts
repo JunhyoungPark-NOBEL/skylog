@@ -26,6 +26,7 @@ export function useLearnNavigation() {
     pathId: params.get('path'),
     missionId: params.get('mission'),
     chapter: Number(params.get('chapter')) || undefined,
+    track: params.get('track') === 'observing' ? 'observing' : 'sky',
   };
 }
 export function navigateLearn(

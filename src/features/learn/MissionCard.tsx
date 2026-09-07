@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { navigate } from '@/app/router';
+import { openTelescope } from '@/features/telescope/navigation';
 import { displayName } from '@/catalog/catalog';
 import type { MissionStatus } from '@/learn/engine';
 import {
@@ -117,6 +118,13 @@ export function MissionCard({
           className={BUTTON}
           onClick={() => {
             if (step.skill === 'backup') navigate('backup');
+            else if (step.skill === 'fovSetup') navigate('equipment');
+            else if (step.skill === 'align1' || step.skill === 'align2' || step.skill === 'starhop')
+              openTelescope(
+                m.steps.find((s) => s.type === 'observe' || s.type === 'find')?.objectId ??
+                  'dso:M13',
+                step.skill === 'starhop' ? 'hop' : 'align',
+              );
             else if (step.skill === 'sketch')
               openObservationForm({
                 objectId: m.steps.find((s) => s.type === 'observe')?.objectId ?? 'moon',

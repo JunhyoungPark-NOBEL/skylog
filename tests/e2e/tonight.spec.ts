@@ -71,6 +71,9 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
   );
   await openSky(page);
   await page.getByTestId('tab-tonight').click();
+  await expect(page.getByTestId('recommend-card').getByTestId('rec-list')).toBeVisible();
+  await page.screenshot({ path: `${SHOTS}/tonight-picks.png` });
+  await page.getByTestId('tonight-tab-conditions').click();
   await expect(page.getByTestId('sky-status-card')).toBeVisible({ timeout: 15_000 });
 
   // 날씨: 요약 한 줄(21:00~02:00 구름 10%) · 결로 경고 · 출처
@@ -80,12 +83,14 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
   await expect(page.getByTestId('weather-summary')).toContainText('02:00');
   await expect(page.getByTestId('weather-dew')).toBeVisible();
   await expect(weather).toContainText('Open-Meteo');
+  await page.screenshot({ path: `${SHOTS}/tonight-conditions.png` });
   // 하늘 상태 타임라인에 구름 막대가 겹쳐 그려진다
   expect(
     await page.getByTestId('sky-status-card').locator('rect[fill="var(--muted)"]').count(),
   ).toBeGreaterThan(5);
 
   // 추천: 계산 완료 후 그룹 칩 · 토성이 목록에 있고 '지금 당장' 그룹에 있다
+  await page.getByTestId('tonight-tab-picks').click();
   const rec = page.getByTestId('recommend-card');
   await expect(rec.getByTestId('rec-list')).toBeVisible({ timeout: 20_000 });
   await expect(rec.getByTestId('rec-group-now')).toBeVisible();
@@ -101,10 +106,12 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
   expect(await rec.getByTestId('rec-item').count()).toBeGreaterThan(0);
 
   // 하이라이트: 행성 1개 이상
+  await page.getByText('오늘의 볼거리 더 보기', { exact: true }).click();
   await expect(page.getByTestId('highlights-card')).toBeVisible();
 
   // 시간대 프리셋: 저녁 = 일몰(18:51)부터 → 지금부터 2시간 → 창 라벨 변경, 장비 전환
   await expect(page.getByTestId('window-label')).toContainText('18:5');
+  await page.getByTestId('tonight-filters').click();
   await page.getByTestId('preset-next2h').click();
   await expect(page.getByTestId('window-label')).toContainText('21:00 ~ 23:00');
   await page.getByTestId('equip-telescope').click();
@@ -113,6 +120,7 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
 
   // 계획: ☆ → ★ (Dexie bookmarks)
   const plan = page.getByTestId('plan-card');
+  await page.getByText('시간순 관측 계획', { exact: true }).click();
   await expect(plan).toBeVisible({ timeout: 20_000 });
   const star = plan.getByTestId('rec-plan-toggle').first();
   await star.click();
@@ -121,6 +129,7 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
 
   // 이달의 현상: 9월 목록에 달 위상, 10월 탭에 토성 충
   const phen = page.getByTestId('phenomena-card');
+  await page.getByTestId('tonight-tab-events').click();
   await expect(phen.locator('[data-kind="moonQuarter"]').first()).toBeVisible();
   await phen.getByTestId('phen-next').click();
   await expect(phen.getByTestId('phenomena-list')).toContainText('토성 충');
@@ -132,6 +141,7 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
 
   await page.screenshot({ path: `${SHOTS}/tonight-full.png`, fullPage: true });
   // 추천 항목 탭 → 상세 시트
+  await page.getByTestId('tonight-tab-picks').click();
   await rec.getByTestId('rec-group-now').click();
   await rec.locator('[data-object-id="planet:saturn"] [data-testid="rec-open"]').click();
   await expect(page.getByTestId('object-sheet')).toBeVisible();
@@ -144,7 +154,10 @@ test('오늘 밤(오프라인/실패): 날씨 카드는 조용히 숨고 추천�
   await page.route(OPEN_METEO, (route) => route.abort('failed'));
   await openSky(page);
   await page.getByTestId('tab-tonight').click();
+  await page.getByTestId('tonight-tab-conditions').click();
   await expect(page.getByTestId('sky-status-card')).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByTestId('weather-card')).toHaveCount(0);
+  await page.getByTestId('tonight-tab-picks').click();
   await expect(page.getByTestId('recommend-card').getByTestId('rec-list')).toBeVisible({
     timeout: 20_000,
   });

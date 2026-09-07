@@ -1,0 +1,40 @@
+{
+  "journey": {
+    "themes": {
+      "observing": "Observing basics",
+      "design": "Telescope designs",
+      "mounts": "Mounts and motion",
+      "optics": "Light and power",
+      "planning": "Choosing a setup",
+      "field": "Fields and orientation",
+      "alignment": "Alignment principles",
+      "conditions": "Reading the sky",
+      "calculations": "Practical calculations",
+      "diagnosis": "Troubleshooting",
+      "strategy": "Observing strategy",
+      "navigation": "Using Starpath"
+    }
+  },
+  "observingCourse": {
+    "choose": "Quiz course",
+    "sky": "Explore the sky",
+    "observing": "Observing & scopes",
+    "chapters": {
+      "1": {
+        "level": "Basics",
+        "title": "Meet your gear",
+        "description": "Learn observing, lenses, mirrors, mounts and power. Four stages, 20 questions."
+      },
+      "2": {
+        "level": "Practice",
+        "title": "Under the stars",
+        "description": "Choose equipment, understand field orientation, align to stars and assess conditions. Four stages, 20 questions."
+      },
+      "3": {
+        "level": "Applied",
+        "title": "Solve it yourself",
+        "description": "Calculate fields and power, diagnose blurred images and plan star hops. Four stages, 20 questions."
+      }
+    }
+  }
+}

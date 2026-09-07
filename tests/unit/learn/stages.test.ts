@@ -6,6 +6,8 @@ import {
   stageProgress,
   stageQuestions,
   parseStageRun,
+  stageTrack,
+  nextStage,
   type StageRun,
 } from '@/learn/stages';
 import { recordStageAnswer } from '@/learn/runtime';
@@ -33,21 +35,23 @@ beforeAll(() => {
 });
 afterAll(() => vi.unstubAllGlobals());
 describe('주제별 퀴즈 여정', () => {
-  it('활성 144문항을 정확히 한 번 배치하고 기초→응용→심화로 진행한다', () => {
+  it('활성 204문항은 각 코스에서 한 번 배치되며 기존 28단계도 유지한다', () => {
     const active = quiz.filter((q) => q.enabled !== false && q.type !== 'skyPick');
     const refs = QUIZ_STAGES.flatMap((s) => stageQuestions(s, quiz));
-    expect(refs).toHaveLength(144);
-    expect(new Set(refs.map((q) => q.id)).size).toBe(144);
+    expect(refs).toHaveLength(204);
+    expect(new Set(refs.map((q) => q.id)).size).toBe(204);
     expect(refs.map((q) => q.id).sort()).toEqual(active.map((q) => q.id).sort());
-    expect(QUIZ_STAGES).toHaveLength(28);
-    expect(new Set(QUIZ_STAGES.map((s) => s.id)).size).toBe(28);
-    let previous = 1;
+    expect(QUIZ_STAGES).toHaveLength(40);
+    expect(new Set(QUIZ_STAGES.map((s) => s.id)).size).toBe(40);
+    const original = JSON.parse(readFileSync('src/learn/stageCatalog.json', 'utf8'));
+    expect(QUIZ_STAGES.slice(0, 28)).toEqual(original);
+    const previous = new Map<string, number>();
     for (const s of QUIZ_STAGES) {
       expect(s.questions.length).toBeGreaterThanOrEqual(2);
       expect(s.questions.length).toBeLessThanOrEqual(6);
-      expect(s.chapter).toBeGreaterThanOrEqual(previous);
+      expect(s.chapter).toBeGreaterThanOrEqual(previous.get(stageTrack(s)) ?? 1);
       expect(stageQuestions(s, quiz).every((q) => q.difficulty === s.chapter)).toBe(true);
-      previous = s.chapter;
+      previous.set(stageTrack(s), s.chapter);
     }
   });
   it('전체 응답만 채점하며 80%에서 해제, 100%에서 별 셋을 준다', () => {
@@ -82,9 +86,12 @@ describe('주제별 퀴즈 여정', () => {
   });
   it('최고 점수만 반영하고 다음 단계만 연다. 이전 버전과 불완전한 진도는 무시한다', () => {
     const empty = stageProgress(quiz, []);
-    expect(empty.filter((p) => p.unlocked)).toHaveLength(1);
+    expect(empty.filter((p) => p.unlocked)).toHaveLength(2);
     const result = stageProgress(quiz, [run, { ...run, runId: 'replay' }]);
-    expect(result.filter((p) => p.unlocked)).toHaveLength(2);
+    expect(result.filter((p) => p.unlocked)).toHaveLength(3);
+    expect(result[28]!.unlocked).toBe(true);
+    expect(result[29]!.unlocked).toBe(false);
+    expect(nextStage(QUIZ_STAGES[27]!)).toBeUndefined();
     expect(result.reduce((sum, p) => sum + (p.result?.score ?? 0), 0)).toBe(1000);
     expect(stageProgress(quiz, [{ ...run, stageVersion: 2 }])[1]?.unlocked).toBe(false);
     expect(stageProgress(quiz, [{ ...run, answers: [] }])[1]?.unlocked).toBe(false);

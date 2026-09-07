@@ -14,7 +14,8 @@ async function openTonight(page: Page): Promise<void> {
   await page.goto(`#/sky?t=${T}&preserve=1`);
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
   await page.getByTestId('tab-tonight').click();
-  await expect(page.getByTestId('sky-status-card')).toBeVisible({ timeout: 15_000 });
+  await page.getByTestId('tonight-filters').click();
+  await page.getByText('시간순 관측 계획', { exact: true }).click();
   await expect(page.getByTestId('recommend-card').getByTestId('rec-list')).toBeVisible({
     timeout: 20_000,
   });
@@ -69,7 +70,13 @@ test('마우스: 콘텐츠를 잡아 끌면 스크롤되고 놓으면 관성으�
   const btn = (await page.getByTestId('preset-next2h').boundingBox())!;
   const bx = btn.x + btn.width / 2;
   const by = btn.y + btn.height / 2;
-  expect(await page.evaluate(([px, py]) => document.elementFromPoint(px!, py!)?.closest('[data-testid="preset-next2h"]') !== null, [bx, by])).toBe(true);
+  expect(
+    await page.evaluate(
+      ([px, py]) =>
+        document.elementFromPoint(px!, py!)?.closest('[data-testid="preset-next2h"]') !== null,
+      [bx, by],
+    ),
+  ).toBe(true);
   await page.mouse.move(bx, by);
   await page.mouse.down();
   await page.mouse.move(bx, by - 80, { steps: 6 });

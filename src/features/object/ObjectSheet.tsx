@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { openTelescope } from '@/features/telescope/navigation';
+import { useTelescopeStore, equipmentProfile } from '@/state/telescopeStore';
 import { navigate, useRoute } from '@/app/router';
 import { computeObjectDetails, type ObjectDetails } from '@/astro/objectDetails';
 import { displayName, loadCatalog, secondaryName, type Catalog } from '@/catalog/catalog';
@@ -148,6 +150,7 @@ const VERDICT_CLASS: Record<ObjectDetails['verdicts']['naked']['verdict'], strin
  * 하늘 뷰 위에서 반쯤 열렸을 때만 유리(glass-strong); 전체 열림·드래그 중·리스트 위에서는 불투명(glass-off).
  */
 export function ObjectSheet() {
+  const profile = useTelescopeStore((s) => s.profile);
   const actionScroll = useDragScroll<HTMLDivElement>();
   const { t } = useTranslation();
   const route = useRoute();
@@ -193,7 +196,13 @@ export function ObjectSheet() {
         return;
       }
       const night = getObservingNight(site, now);
-      setLoaded({ target, details: computeObjectDetails(target, now, site, night, { bortle }) });
+      setLoaded({
+        target,
+        details: computeObjectDetails(target, now, site, night, {
+          bortle,
+          equipment: equipmentProfile(profile),
+        }),
+      });
     };
     const first = window.setTimeout(compute, 0);
     const timer = window.setInterval(compute, REFRESH_MS);
@@ -207,7 +216,7 @@ export function ObjectSheet() {
       window.clearInterval(timer);
       unsub();
     };
-  }, [open, id, cat, site, bortle]);
+  }, [open, id, cat, site, bortle, profile]);
 
   if (!open || !id) return null;
   const close = () => useSelectionStore.getState().closeSheet();
@@ -386,8 +395,7 @@ export function ObjectSheet() {
         )}
         <button
           type="button"
-          disabled
-          title={t('object.later.telescope')}
+          onClick={() => openTelescope(id)}
           className={SECONDARY_BTN}
           data-testid="sheet-telescope"
         >
