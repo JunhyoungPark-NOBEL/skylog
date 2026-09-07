@@ -1,0 +1,1957 @@
+```json
+[
+  {
+    "id": "dso:M45",
+    "version": 1,
+    "title": {
+      "ko": "플레이아데스성단",
+      "en": "Pleiades"
+    },
+    "oneLiner": {
+      "ko": "넓은 쌍안경 시야에 담아 보는 겨울의 작은 별무리"
+    },
+    "summary": {
+      "ko": "플레이아데스성단은 황소자리에서 작은 별무리로 보이는 산개성단(서로 관련된 별들이 비교적 성기게 모인 집단)입니다. 한국에서는 좀생이별이라는 이름으로도 불립니다. 맨눈으로 보이는 별의 수는 하늘 밝기와 시력에 따라 달라지므로 일정한 개수를 정답으로 삼지 않습니다. 10×50 쌍안경에서는 여러 밝은 별과 그 사이의 작은 별들이 함께 드러납니다. 사진 속 푸른 안개는 별빛을 반사하는 먼지이며, 도시에서 접안렌즈를 들여다볼 때 같은 색과 넓이로 보인다고 기대하면 안 됩니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Messier 45: The Pleiades — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-45/"
+      },
+      {
+        "label": "별자리",
+        "value": "황소자리 (Tau)",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.2등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "150′ × 150′",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M45",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "443광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "한국에는 좀생이별과 달의 상대적인 모습을 살펴 농사의 풍흉을 점치던 좀생이보기 풍속이 전해집니다. 한국민족문화대백과사전은 이를 음력 이월 초순의 세시풍속으로 소개합니다. 이것은 당시 사람들이 하늘의 변화를 생활의 시간표와 연결한 문화적 기록이지, 오늘날 검증된 수확량 예측 방법은 아닙니다. 현대 관측자는 같은 별무리를 보며 맨눈과 쌍안경이 보여 주는 별의 수를 비교할 수 있습니다. 별 사이의 푸른 먼지를 드러내는 사진과 자신의 스케치를 나란히 놓으면 관측 도구가 정보의 종류를 바꾼다는 점도 알 수 있습니다. 옛 풍속과 천문학적 설명은 한 대상을 서로 다른 질문으로 바라본다는 점에서 구별해 읽는 편이 좋습니다.",
+      "cultures": [
+        "한국",
+        "동아시아",
+        "기타"
+      ],
+      "sources": [
+        "한국민족문화대백과사전 — 좀생이보기 — https://encykorea.aks.ac.kr/Article/E0052883",
+        "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20) — https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20",
+        "NASA APOD — M45: The Pleiades Star Cluster (2016-10-19) — https://science.nasa.gov/image-article/apod-2016-october-19-m45-the-pleiades-star-cluster/"
+      ]
+    },
+    "howToFind": {
+      "ko": "늦가을부터 겨울 저녁에 오리온자리 허리띠의 세 별을 찾고 황소자리의 알데바란 쪽으로 시선을 옮기세요. 알데바란 주변의 V자 별무리를 확인한 뒤, 천구의 서북쪽으로 약 14° 떨어진 작은 별무리를 찾습니다. 한 번에 망원경을 크게 움직이기보다 맨눈으로 위치를 짚고 10×50의 넓은 시야로 주변 별 배열을 확인하세요.",
+      "season": "winter",
+      "hopFrom": [
+        "star:HIP21421",
+        "const:Tau"
+      ]
+    },
+    "observing": {
+      "nakedEye": "밝은 별 몇 개가 밀집한 모습입니다. 도시에서도 일부 별은 보일 수 있지만 일정 개수의 확인을 성공 조건으로 삼지 마세요.",
+      "binoculars": "10×50의 넓은 시야가 성단 전체와 주변을 비교하기에 알맞습니다. 팔이나 삼각대로 흔들림을 줄이면 작은 별을 더 찾기 쉽습니다.",
+      "telescope": "90mm에서는 20배의 넓은 시야부터 시작합니다. 접안렌즈에 따라 성단 전체가 잘릴 수 있으며, 80배는 일부 별 주변을 보는 용도입니다. 반사성운 검출을 목표로 삼지 마세요.",
+      "bestMonths": [
+        11,
+        12,
+        1,
+        2
+      ],
+      "difficulty": 2
+    },
+    "funFacts": [
+      "좀생이별은 한 별이 아니라 성단을 가리키는 전통 이름입니다.",
+      "사진 속 푸른 안개와 접안렌즈로 보이는 별무리는 같은 모습이 아닙니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 45: The Pleiades — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-45/",
+      "NASA APOD — M45: The Pleiades Star Cluster (2016-10-19) — https://science.nasa.gov/image-article/apod-2016-october-19-m45-the-pleiades-star-cluster/",
+      "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20) — https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20",
+      "한국민족문화대백과사전 — 좀생이보기 — https://encykorea.aks.ac.kr/Article/E0052883",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    },
+    "koreanTradition": {
+      "name": "좀생이별",
+      "asterism": "묘성(昴星) 관련 별무리",
+      "note": "한국의 좀생이보기에서 달과의 상대 모습을 살피던 별무리입니다. 이름을 알키오네 등 한 구성별의 독점 별칭으로 사용하지 않습니다. 풍흉 점치기는 문화적 풍속이며 검증된 예측법이 아닙니다.",
+      "sources": [
+        "한국민족문화대백과사전 — 좀생이보기 — https://encykorea.aks.ac.kr/Article/E0052883",
+        "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20) — https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20"
+      ]
+    }
+  },
+  {
+    "id": "dso:M44",
+    "version": 1,
+    "title": {
+      "ko": "프레세페성단",
+      "en": "Beehive Cluster"
+    },
+    "oneLiner": {
+      "ko": "봄 하늘의 흐릿한 얼룩을 별들로 풀어 보는 성단"
+    },
+    "summary": {
+      "ko": "프레세페성단은 게자리의 산개성단으로, 벌집성단이라는 이름으로도 알려져 있습니다. 어두운 하늘에서는 맨눈에 작은 구름처럼 보이지만 쌍안경으로 보면 여러 별로 나뉩니다. 실제 가스구름이 아니라 많은 별의 빛이 합쳐져 그렇게 보이는 것입니다. 게자리에는 눈에 잘 띄는 기준 별이 적으므로 쌍둥이자리의 폴룩스와 사자자리의 레굴루스 사이에서 위치를 잡는 편이 좋습니다. 10×50은 넓게 퍼진 별무리를 한눈에 보기 좋고, 도시에서는 맨눈 검출보다 쌍안경으로 별 배열을 확인하는 일을 첫 목표로 삼을 수 있습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Messier 44: The Beehive Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/"
+      },
+      {
+        "label": "별자리",
+        "value": "게자리 (Cnc)",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.1등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "108.6′",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M44",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "607광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "근대 유럽의 관측사에서 프레세페는 흐릿한 빛이 무엇인지 묻는 좋은 사례입니다. 맨눈으로는 안개 같은 대상이었지만 갈릴레오의 망원경 관측은 그 안에 여러 별이 있음을 보여 주었습니다. 지금도 초보자가 맨눈에서 쌍안경으로 도구를 바꾸면 이 차이를 직접 비교할 수 있습니다. 허블우주망원경은 성단 전체를 한 번에 보기보다 일부 영역을 자세히 관측했으며, 그 영상에는 훨씬 뒤에 있는 은하들도 담겼습니다. 같은 화면에 나타난다고 모두 같은 성단 구성원은 아니라는 뜻입니다. 넓게 보고 별무리를 알아보는 일과 좁게 확대해 배경 천체를 구별하는 일은 서로 다른 관측 질문이며, 어느 쪽도 단순히 배율이 높다는 이유만으로 대신할 수 없습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 44: The Beehive Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/"
+      ]
+    },
+    "howToFind": {
+      "ko": "봄 저녁에 쌍둥이자리의 폴룩스와 사자자리의 레굴루스를 먼저 찾으세요. 두 별 사이의 게자리 영역을 맨눈으로 짚고, 쌍안경으로 작은 별들이 밀집한 구역을 천천히 훑습니다. 지도가 보여 주는 게자리의 뒤집힌 Y자 안쪽을 대조하면 성단을 일반 배경별과 구분하는 데 도움이 됩니다.",
+      "season": "spring",
+      "hopFrom": [
+        "star:HIP37826",
+        "star:HIP49669",
+        "const:Cnc"
+      ]
+    },
+    "observing": {
+      "nakedEye": "달빛이 적고 어두운 곳에서는 흐릿한 얼룩으로 보입니다. 도시에서는 보이지 않아도 쌍안경 관측 실패를 뜻하지 않습니다.",
+      "binoculars": "10×50에서 넓게 퍼진 여러 별을 한 시야로 비교할 수 있습니다. 주변보다 별이 모인 영역의 경계를 대략 스케치해 보세요.",
+      "telescope": "90mm 20배와 넓은 접안 시야를 먼저 씁니다. 80배에서는 전체 모습보다 일부 별만 남기 쉬우며, 도시 광해는 희미한 구성별을 지웁니다.",
+      "bestMonths": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "difficulty": 2
+    },
+    "funFacts": [
+      "맨눈에서 구름처럼 보여도 주요 빛의 정체는 별들입니다.",
+      "성단을 찍은 고해상도 사진에는 훨씬 먼 배경 은하가 섞일 수 있습니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 44: The Beehive Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M42",
+    "version": 1,
+    "title": {
+      "ko": "오리온대성운",
+      "en": "Orion Nebula"
+    },
+    "oneLiner": {
+      "ko": "오리온의 칼에서 별이 태어나는 가스구름을 찾기"
+    },
+    "summary": {
+      "ko": "오리온대성운은 오리온자리 허리띠 아래의 칼 부분에 있는 별 탄생 영역입니다. 가스와 먼지 속에서 젊은 별들이 형성되며, 뜨거운 별의 에너지로 주변 가스가 빛납니다. 성운 한가운데의 트라페지움(작은 사다리꼴 별무리)은 성운 자체와 구별할 수 있는 관측 대상입니다. 도시에서도 밝은 중심부를 시도할 만하지만 사진처럼 넓고 붉은 구름이 보이는 것은 아닙니다. 쌍안경에서는 번진 빛과 별들이 섞이고, 소형 망원경에서는 밝은 부분의 윤곽을 비교하는 방식으로 관측을 시작하는 것이 좋습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "별 탄생 성운(젊은 성단 동반)",
+        "source": "NASA — Messier 42: The Orion Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/"
+      },
+      {
+        "label": "별자리",
+        "value": "오리온자리 (Ori)",
+        "source": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "4등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "90′ × 60′",
+        "source": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M42",
+        "source": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서 오리온대성운은 별의 탄생을 연구하는 가까운 실험실 역할을 합니다. 중심의 젊고 뜨거운 별들은 주변 가스를 빛나게 하는 동시에 바람과 복사로 그 모양을 바꿉니다. 허블우주망원경은 이 영역에서 어린 별 주변의 원반과 복잡한 가스 구조를 자세히 관측했습니다. 하지만 작은 망원경으로 같은 원반을 찾아내야 한다는 뜻은 아닙니다. 입문자는 밝은 중심과 퍼져 나가는 빛, 그 안에서 구별되는 별을 기록하면 됩니다. 별의 탄생을 설명하는 사진과 실제 눈에 들어오는 희미한 윤곽 사이에는 장비와 파장, 노출 시간의 차이가 있습니다. 눈으로 얻은 정보와 연구로 알게 된 정보를 기록에서 따로 표시하면 작은 관측도 과장 없이 과학 이야기와 연결됩니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 42: The Orion Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/"
+      ]
+    },
+    "howToFind": {
+      "ko": "겨울 저녁에 오리온자리의 나란한 허리띠 세 별을 찾으세요. 그 가운데 아래쪽, 천구의 남쪽으로 늘어선 칼의 별무리로 시선을 내립니다. 칼 가운데의 번져 보이는 부분을 쌍안경으로 확인한 뒤 망원경 저배율로 옮기세요. 허리띠 별 자체와 성운을 혼동하지 않도록 주변 별 배열도 맞춥니다.",
+      "season": "winter",
+      "hopFrom": [
+        "const:Ori",
+        "star:HIP26727",
+        "star:HIP25930"
+      ]
+    },
+    "observing": {
+      "nakedEye": "칼 부분이 약간 번진 모습으로 보일 수 있습니다. 도시에서는 별무리와 성운의 빛을 맨눈만으로 분리했다고 단정하지 마세요.",
+      "binoculars": "10×50에서 밝은 중심의 흐릿한 빛과 주변 별이 함께 보일 수 있습니다. 분홍색 사진을 기준으로 색을 찾지 않습니다.",
+      "telescope": "90mm 20~40배에서 성운의 밝은 중심과 펼쳐진 윤곽을 보고, 60~80배에서 트라페지움의 주요 별 분리를 시도합니다. 별 네 개의 검출은 대기·초점 조건에 따라 달라집니다.",
+      "bestMonths": [
+        12,
+        1,
+        2,
+        3
+      ],
+      "difficulty": 2
+    },
+    "funFacts": [
+      "성운을 밝히는 젊은 별무리와 주변 가스는 서로 다른 구성 요소입니다.",
+      "오리온 허리띠가 아니라 그 아래 칼 부분에서 찾습니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 42: The Orion Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "첨부 type=Cl+N (openCluster)는 성단과 성운을 함께 담은 표기입니다. 본문은 NASA의 별 탄생 성운 설명을 사용했으며 G5 분류를 openCluster 하나로 자동 결정하지 마세요.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+        "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M31",
+    "version": 1,
+    "title": {
+      "ko": "안드로메다은하",
+      "en": "Andromeda Galaxy"
+    },
+    "oneLiner": {
+      "ko": "가을 하늘의 희미한 타원에서 우리은하 밖을 바라보기"
+    },
+    "summary": {
+      "ko": "안드로메다은하는 안드로메다자리 방향에 있는 큰 나선은하입니다. 하늘에서 가까워 보이는 앞쪽 별들과 달리 우리은하 밖의 별·가스·먼지 집합입니다. 어두운 곳에서는 맨눈에 작은 얼룩으로 보이지만 도시에서는 쌍안경이나 망원경으로 밝은 중심부부터 찾는 편이 현실적입니다. 전체 빛은 넓게 퍼져 있으므로 목록의 등급만으로 밝은 별과 같은 난이도라고 판단하면 안 됩니다. 저배율에서는 길쭉한 중심의 방향을 살피고, 사진의 나선팔이나 개별 별을 눈으로 찾아내려 하기보다 실제로 확인한 범위를 기록하세요."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "나선은하",
+        "source": "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+      },
+      {
+        "label": "별자리",
+        "value": "안드로메다자리 (And)",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.44등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "177.83′ × 69.66′",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M31",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+      }
+    ],
+    "story": {
+      "ko": "근대 천문학에서 안드로메다는 우주의 크기를 바꾼 질문의 무대였습니다. 한때 성운이라고 불리던 이 흐릿한 대상에서 에드윈 허블은 밝기가 규칙적으로 바뀌는 세페이드 변광성을 조사했습니다. 헨리에타 리비트가 밝힌 주기와 광도의 관계는 그 별까지의 거리를 추정하는 길을 열었습니다. 그 결과 안드로메다가 우리은하 안의 작은 구름이 아니라 훨씬 먼 별들의 집합임을 이해하게 되었습니다. 오늘 밤 쌍안경에 보이는 빛으로 그 변광성을 직접 확인할 수는 없습니다. 다만 작은 타원형 얼룩이 사진과 반복 측정을 통해 전혀 다른 규모의 대상으로 해석되었다는 역사를 떠올릴 수 있습니다. 보이는 모양에 이름을 붙이는 것과 실제 거리를 측정하는 것은 다른 단계입니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Celebrates Edwin Hubble’s Discovery of a New Universe (2025-01-15) — https://science.nasa.gov/missions/hubble/nasa-celebrates-edwin-hubbles-discovery-of-a-new-universe/",
+        "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+      ]
+    },
+    "howToFind": {
+      "ko": "가을 저녁의 페가수스 대사각형에서 알페라츠를 찾으세요. 알페라츠에서 안드로메다자리의 별 사슬을 따라 미라크로 이동한 뒤, 미라크에서 뮤별 쪽인 천구의 북서쪽으로 꺾어 더 나아갑니다. 지도에 표시된 은하 위치와 주변 별을 쌍안경으로 대조하세요. 도시에서는 넓은 원반보다 밝은 중심의 얼룩을 찾습니다.",
+      "season": "autumn",
+      "hopFrom": [
+        "star:HIP677",
+        "const:And",
+        "const:Peg"
+      ]
+    },
+    "observing": {
+      "nakedEye": "달빛이 적은 어두운 관측지에서 작은 흐릿한 얼룩으로 도전합니다. 도시 맨눈 검출을 기본 미션으로 강제하지 않습니다.",
+      "binoculars": "10×50을 안정되게 잡고 길쭉한 희미한 빛을 찾습니다. 중심만 보이면 그 범위를 기록하고 사진 크기까지 보았다고 적지 마세요.",
+      "telescope": "90mm 20~40배에서 밝은 중심과 긴 축의 방향을 확인합니다. 높은 배율이 원반 전체를 더 잘 보여 주는 것은 아니며 도시에서 나선팔이나 개별 별의 검출을 기대하지 않습니다.",
+      "bestMonths": [
+        9,
+        10,
+        11
+      ],
+      "difficulty": 3
+    },
+    "funFacts": [
+      "화면에 겹친 밝은 점들 중에는 우리은하의 앞쪽 별이 포함됩니다.",
+      "목록의 총등급이 밝아도 넓게 퍼진 빛은 도시에서 찾기 어렵습니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/",
+      "NASA — Celebrates Edwin Hubble’s Discovery of a New Universe (2025-01-15) — https://science.nasa.gov/missions/hubble/nasa-celebrates-edwin-hubbles-discovery-of-a-new-universe/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "low",
+      "needsReview": [
+        "거리 수치 게시 보류: 첨부 544광년과 NASA 소개의 약 250만 광년이 규모부터 다릅니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M13",
+    "version": 1,
+    "title": {
+      "ko": "헤르쿨레스 대성단",
+      "en": "Hercules Globular Cluster"
+    },
+    "oneLiner": {
+      "ko": "작은 솜뭉치 같은 빛 속에 모인 오래된 별들의 집단"
+    },
+    "summary": {
+      "ko": "헤르쿨레스 대성단 M13은 허큘리스자리 방향의 구상성단(많은 별이 공 모양으로 조밀하게 모인 집단)입니다. 쌍안경에서는 흐릿하고 둥근 얼룩으로 보이며, 작은 망원경에서는 중심으로 갈수록 밝아지는 모습을 살피기 좋습니다. 플레이아데스처럼 밝은 별이 넓게 흩어진 산개성단과는 관측 인상이 다릅니다. 90mm로 성단 전체를 수많은 별로 분해하는 것을 기본 목표로 잡지 말고 중심과 가장자리의 밝기 차이를 기록하세요. 어두운 하늘은 도움이 되지만 고배율만으로 광해를 없앨 수는 없습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "구상성단",
+        "source": "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/"
+      },
+      {
+        "label": "별자리",
+        "value": "허큘리스자리 (Her)",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "5.8등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "16.5′",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M13",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/"
+      }
+    ],
+    "story": {
+      "ko": "근대 유럽의 관측사에서 M13은 에드먼드 핼리의 관측과 함께 널리 알려졌습니다. 작은 광학 장비에 흐릿하게 보이던 빛은 더 큰 망원경과 정밀한 영상에서 수많은 별로 나뉩니다. 성단 중심에는 별들이 조밀하게 모여 있어, 태양 주변의 비교적 성긴 별 환경과 다른 조건을 연구할 수 있습니다. 사진의 별 하나하나를 작은 망원경으로 재현하려 애쓸 필요는 없습니다. 중심이 얼마나 밝고 바깥 빛이 어디까지 이어지는지를 같은 배율에서 여러 밤 비교하는 것만으로도 관측 조건의 영향을 배울 수 있습니다. 둥근 모습은 성단의 집단적 구조를 보여 주지만, 접안렌즈에 보이는 얼룩 자체가 별 한 개이거나 가스 덩어리라는 뜻은 아닙니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/",
+        "ESA/Hubble — The crowded heart of the Hercules globular cluster — https://esahubble.org/images/potw1011a/"
+      ]
+    },
+    "howToFind": {
+      "ko": "초여름과 여름 저녁에 베가와 아르크투루스 사이에서 허큘리스자리의 찌그러진 사각형인 키스톤을 찾으세요. 키스톤 서쪽 변의 에타별과 제타별을 지도와 맞추고, 에타별에서 제타별 쪽으로 약 삼분의 일 내려온 위치를 저배율로 살핍니다. 밝은 점이 아닌 둥근 얼룩을 주변 별과 구분하세요.",
+      "season": "summer",
+      "hopFrom": [
+        "const:Her",
+        "star:HIP91262",
+        "star:HIP69673"
+      ]
+    },
+    "observing": {
+      "nakedEye": "아주 어두운 하늘에서만 도전 대상으로 두며, 도시 맨눈 관측은 기대하지 않습니다.",
+      "binoculars": "10×50에서 작은 둥근 얼룩을 찾는 것이 목표입니다. 성단의 별 하나하나가 보일 것을 기대하지 않습니다.",
+      "telescope": "90mm 20~80배로 중심과 가장자리의 밝기 차이를 비교하세요. 좋은 조건에서 바깥이 거칠어 보일 수 있지만 개별 별 분해를 성공 조건으로 요구하지 않습니다.",
+      "bestMonths": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "difficulty": 3
+    },
+    "funFacts": [
+      "둥근 얼룩의 주요 빛은 가스가 아니라 모여 있는 별들에서 옵니다.",
+      "산개성단과 구상성단을 저배율로 번갈아 보면 빛의 분포가 다릅니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/",
+      "ESA/Hubble — The crowded heart of the Hercules globular cluster — https://esahubble.org/images/potw1011a/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "low",
+      "needsReview": [
+        "거리 수치 게시 보류: 첨부 40118광년과 NASA·ESA 소개의 약 25000광년 사이에 큰 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "첨부 title의 헤르쿨레스 표기는 보존했습니다. G2 표준 별자리명 허큘리스자리와의 표시 정책을 T6에서 통일하세요.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "star:HIP95947",
+    "version": 1,
+    "title": {
+      "ko": "알비레오",
+      "en": "Albireo"
+    },
+    "oneLiner": {
+      "ko": "한 점의 빛을 금빛과 푸른빛 두 별로 나누어 보기"
+    },
+    "summary": {
+      "ko": "알비레오는 백조자리의 북십자에서 데네브 반대쪽 끝에 있는 별입니다. 맨눈에는 한 점으로 보이지만 소형 망원경에서는 색이 다른 두 밝은 성분을 구별할 수 있어 이중성 관측의 입문 대상으로 쓰입니다. 밝은 쪽은 노랑이나 금빛, 다른 쪽은 푸른빛으로 묘사되지만 느끼는 색은 눈과 장비, 하늘 상태에 따라 달라집니다. 두 별이 나란히 보인다는 사실과 두 별이 중력으로 묶여 함께 도는 쌍성이라는 판단은 다릅니다. 사진의 강한 색을 그대로 재현하기보다 실제로 구분한 두 점과 색 인상을 기록하세요."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "항성(망원경에서 두 밝은 성분으로 보임)",
+        "source": "NASA APOD — Beautiful Albireo AB (2022-02-24) — https://science.nasa.gov/image-article/apod-2022-february-24-beautiful-albireo-ab/"
+      },
+      {
+        "label": "별자리",
+        "value": "백조자리 (Cyg)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.05등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 표기)",
+        "value": "K3II+...",
+        "source": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "434.3광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "현대 관측 교육에서 알비레오는 이중성이라는 말의 두 가지 뜻을 생각하게 합니다. 망원경으로 가까운 두 점을 구별하는 것은 하늘에서의 배열을 확인하는 일입니다. 두 별이 실제로 서로 중력으로 묶였는지는 거리와 운동을 더 측정해야 알 수 있습니다. 알비레오의 밝은 A 성분 자체도 더 복잡한 계로 연구되어 왔고, 넓게 떨어져 보이는 A와 B의 결합 여부는 간단히 단정하지 않는 편이 안전합니다. 초보자의 관측은 이 연구를 대신하지 않습니다. 대신 같은 날 같은 배율에서 두 별의 색을 따로 적어 보면 한 점으로 보이던 대상에도 구별할 정보가 있음을 배울 수 있습니다. 눈에 보이는 이중성과 물리적인 쌍성의 구분은 이후 다른 별을 읽을 때도 유용합니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "Jack 외 (2022) — Yet another star in the Albireo system — https://www.aanda.org/articles/aa/full_html/2022/05/aa43255-22/aa43255-22.html",
+        "NASA Night Sky Network — Seeing Double (2024-08-01) — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/"
+      ]
+    },
+    "howToFind": {
+      "ko": "여름 저녁에 베가·데네브·알타이르의 여름 대삼각형을 찾으세요. 데네브에서 백조자리 십자의 긴 몸통을 따라 대삼각형 안쪽으로 내려와 반대쪽 끝의 별을 짚습니다. 그 별이 알비레오인지 지도와 주변 별 배열로 확인한 뒤 망원경에서 저배율부터 두 점을 분리해 보세요.",
+      "season": "summer",
+      "hopFrom": [
+        "star:HIP102098",
+        "const:Cyg"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서도 하늘 상태가 좋으면 한 점의 별로 찾을 수 있습니다. 두 성분을 맨눈으로 분리하는 대상은 아닙니다.",
+      "binoculars": "10×50에서는 위치를 확인하는 데 집중하세요. 손떨림과 눈 상태에 따라 분리가 불안정하므로 두 점 확인을 필수 조건으로 삼지 않습니다.",
+      "telescope": "90mm 20~80배에서 두 밝은 성분의 분리를 시도하고 색을 비교합니다. 초점을 맞춘 뒤 과도한 배율보다 안정된 두 점을 우선하세요. 복잡한 내부 성분까지 모두 보이는 것은 아닙니다.",
+      "bestMonths": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2
+    },
+    "funFacts": [
+      "두 별이 나란히 보이는 것만으로 중력 결합이 입증되지는 않습니다.",
+      "밝은 A 성분 자체에도 더 가까운 동반성이 연구되어 있습니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA APOD — Beautiful Albireo AB (2022-02-24) — https://science.nasa.gov/image-article/apod-2022-february-24-beautiful-albireo-ab/",
+      "NASA Night Sky Network — Seeing Double (2024-08-01) — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+      "Jack 외 (2022) — Yet another star in the Albireo system — https://www.aanda.org/articles/aa/full_html/2022/05/aa43255-22/aa43255-22.html",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "분광형 K3II+...은 첨부의 축약 문자열을 보존했습니다. 생략 내용을 풀어 쓰거나 두 밝은 성분의 공통 분광형으로 사용하지 마세요.",
+        "첨부 HIP의 거리·등급이 어느 성분 또는 합성광에 대응하는지 확인해야 합니다. 넓은 A/B 쌍의 중력 결합은 확정하지 않았습니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+      ]
+    }
+  },
+  {
+    "id": "star:HIP65474",
+    "version": 1,
+    "title": {
+      "ko": "스피카",
+      "en": "Spica"
+    },
+    "oneLiner": {
+      "ko": "북두칠성 손잡이의 곡선을 따라 만나는 봄의 밝은 별"
+    },
+    "summary": {
+      "ko": "스피카는 처녀자리에서 밝게 보이는 별로, 봄철 하늘의 방향을 잡는 길잡이입니다. 북두칠성 손잡이의 곡선을 따라 아르크투루스에 도착한 뒤 같은 흐름을 더 이어 가면 찾을 수 있습니다. 눈에는 한 점으로 보이지만 실제로는 서로 가까이 도는 별들로 이루어진 계입니다. 이런 가까운 성분은 소형 망원경에서 두 점으로 분리하는 대상이 아니라 스펙트럼(빛을 파장별로 나눈 정보)의 변화로 연구합니다. 도시에서도 밝은 별의 위치와 색 인상을 비교할 수 있지만 알비레오처럼 두 별이 갈라질 것이라고 기대하면 안 됩니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "가까운 쌍성계의 밝은 별",
+        "source": "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22) — https://www.cfa.harvard.edu/news/understanding-spica"
+      },
+      {
+        "label": "별자리",
+        "value": "처녀자리 (Vir)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "0.98등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 표기)",
+        "value": "B1V",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "249.7광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서 스피카는 눈에 보이지 않는 동반성을 어떻게 알아내는지 보여 줍니다. 별빛을 파장별로 나누면 원소가 남긴 선무늬가 나타나며, 별이 다가오거나 멀어질 때 그 선의 위치가 바뀝니다. 스피카에서는 이런 반복 변화를 통해 가까운 두 별의 운동을 조사합니다. 망원경 배율을 높여 두 점을 나누는 관측과는 다른 방법입니다. 한국 전통 천문학을 재구성한 Stellarium 자료에서는 이 위치의 별을 각 별무리의 좌각으로 대응시킵니다. 이는 해당 재구성의 문화적 이름이며 현대 별자리인 처녀자리의 명칭과 같은 분류 체계는 아닙니다. 하나의 별을 현대 위치 체계와 옛 하늘 지도, 분광 관측이라는 서로 다른 관점에서 읽어 볼 수 있습니다.",
+      "cultures": [
+        "기타",
+        "한국",
+        "동아시아"
+      ],
+      "sources": [
+        "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22) — https://www.cfa.harvard.edu/news/understanding-spica",
+        "NASA — What’s Up: September 2021 — https://science.nasa.gov/resource/whats-up-september-2021/",
+        "Stellarium — korean skyculture index.json — https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json"
+      ]
+    },
+    "howToFind": {
+      "ko": "봄 저녁 북두칠성 손잡이의 휘어진 선을 바깥으로 연장해 주황빛 아르크투루스를 찾으세요. 그 곡선을 더 이어 천구의 남쪽으로 내려가 처녀자리의 밝은 스피카를 찾습니다. 달이나 행성이 근처에 있을 수 있으므로 밝기만 보지 말고 지도에서 주변 별 배열과 위치를 확인하세요.",
+      "season": "spring",
+      "hopFrom": [
+        "const:UMa",
+        "star:HIP69673"
+      ]
+    },
+    "observing": {
+      "nakedEye": "밝은 한 점으로 위치와 흰빛 또는 청백색 인상을 살핍니다. 낮은 고도에서는 대기의 영향으로 색이 달라 보일 수 있습니다.",
+      "binoculars": "10×50에서는 주변 별과의 위치를 확인합니다. 가까운 쌍성 성분을 둘로 분리하는 용도로 사용하지 않습니다.",
+      "telescope": "90mm 20~80배에서도 주요 성분은 한 점으로 보입니다. 배율을 높여 쌍성 분리를 강제하기보다 초점과 별상 상태를 확인하는 밝은 기준별로 사용하세요.",
+      "bestMonths": [
+        4,
+        5,
+        6
+      ],
+      "difficulty": 1
+    },
+    "funFacts": [
+      "소형 망원경에서 한 점이어도 스펙트럼으로 동반성 운동을 연구할 수 있습니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22) — https://www.cfa.harvard.edu/news/understanding-spica",
+      "NASA — What’s Up: September 2021 — https://science.nasa.gov/resource/whats-up-september-2021/",
+      "Stellarium — korean skyculture index.json — https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "좌각 대응은 G2 및 Stellarium korean 공개 재구성에 한정합니다. 시대를 초월한 유일한 한국 고유명으로 일반화하거나 구조화 전통 데이터의 라이선스 검토를 생략하지 마세요.",
+        "첨부 분광형 B1V는 원문 보존값이며 분광 쌍성 전체의 성분별 분류를 뜻한다고 단정하지 않습니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+      ]
+    },
+    "koreanTradition": {
+      "name": "좌각(左角)",
+      "asterism": "각(角)",
+      "note": "Stellarium korean 재구성에서 HIP 65474를 좌각으로, 각 별무리의 구성별로 대응시킵니다. 해당 데이터의 재구성 범위를 명시하며 모든 한국 문헌에서 동일한 이름이라는 뜻은 아닙니다.",
+      "sources": [
+        "Stellarium — korean skyculture index.json — https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json"
+      ]
+    }
+  },
+  {
+    "id": "star:HIP677",
+    "version": 1,
+    "title": {
+      "ko": "알페라츠",
+      "en": "Alpheratz"
+    },
+    "oneLiner": {
+      "ko": "가을 대사각형과 안드로메다 별 사슬이 만나는 길잡이"
+    },
+    "summary": {
+      "ko": "알페라츠는 가을 대사각형의 한 꼭짓점을 이루면서 안드로메다자리에 속하는 밝은 별입니다. 대사각형을 이루는 나머지 세 별은 페가수스자리에 있으므로 도형 이름만으로 네 별의 소속을 같다고 판단하면 안 됩니다. 알페라츠에서 안드로메다자리의 별 사슬을 따라가면 안드로메다은하를 찾는 출발점을 만들 수 있습니다. 맨눈에서는 넓은 별 배열을 먼저 확인하고 쌍안경으로 주변을 대조하세요. 소형 망원경으로 보이는 밝은 한 점의 모습보다 다른 대상에 도달하도록 길을 이어 주는 역할이 중요한 별입니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "항성",
+        "source": "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/"
+      },
+      {
+        "label": "별자리",
+        "value": "안드로메다자리 (And)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "2.07등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 표기)",
+        "value": "B9p",
+        "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "97광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서 알페라츠는 별자리와 성군의 차이를 설명하기에 좋은 별입니다. 국제천문연맹의 별자리는 경계로 나눈 하늘의 영역이며, 대사각형 같은 성군은 눈에 띄는 별 배열을 묶어 부르는 도형입니다. 따라서 페가수스 대사각형이라는 익숙한 이름이 있어도 그 꼭짓점 하나인 알페라츠의 현대 소속은 안드로메다자리입니다. 지도에 선을 어떻게 그리느냐와 좌표가 어느 경계 안에 드느냐는 다른 질문인 셈입니다. 관측할 때는 이 별에서 사각형을 한 바퀴 확인한 다음 안드로메다 쪽의 별 사슬을 따라가 보세요. 익숙한 도형을 출발점으로 삼되 이름만으로 소속이나 물리적 관계를 추정하지 않는 습관은 더 복잡한 별지도를 읽는 데 도움이 됩니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/",
+        "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+      ]
+    },
+    "howToFind": {
+      "ko": "가을 저녁에 밝은 별 네 개가 만드는 큰 사각형을 찾으세요. 안드로메다자리의 별 사슬이 이어져 나가는 북동쪽 꼭짓점이 알페라츠입니다. 북동쪽은 천구 방향을 뜻하므로 휴대전화나 접안렌즈 화면의 오른쪽 위와 같다고 가정하지 마세요. 지도에서 And 소속과 사각형의 다른 꼭짓점을 함께 확인합니다.",
+      "season": "autumn",
+      "hopFrom": [
+        "const:Peg",
+        "const:And"
+      ]
+    },
+    "observing": {
+      "nakedEye": "하늘이 맑으면 도시에서도 대사각형의 꼭짓점으로 시도할 만합니다. 별 하나의 밝기만으로 식별하지 말고 네 별의 배열을 함께 봅니다.",
+      "binoculars": "10×50으로 주변 별을 대조하되 대사각형 전체는 한 시야에 들어오지 않습니다. 맨눈으로 넓은 도형을 확인한 뒤 사용하세요.",
+      "telescope": "90mm 20~80배에서는 밝은 점광원으로 봅니다. 이 콘텐츠의 목표는 별의 원반이나 동반성 분리가 아니라 정확한 위치 확인과 다음 목표로의 길찾기입니다.",
+      "bestMonths": [
+        9,
+        10,
+        11
+      ],
+      "difficulty": 1
+    },
+    "funFacts": [
+      "페가수스 대사각형의 네 꼭짓점이 모두 페가수스자리 소속은 아닙니다.",
+      "공식 별자리의 경계와 별을 이어 그린 도형은 서로 다른 개념입니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "첨부 spect=B9p를 그대로 보존했습니다. p의 세부 원소 분포나 성분별 분류는 이 입력만으로 풀어 쓰지 않았습니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M57",
+    "version": 1,
+    "title": {
+      "ko": "고리성운",
+      "en": "Ring Nebula"
+    },
+    "oneLiner": {
+      "ko": "거문고자리의 두 별 사이에서 찾는 작은 별의 흔적"
+    },
+    "summary": {
+      "ko": "고리성운 M57은 거문고자리에 있는 행성상성운(별이 진화하며 내보낸 가스가 빛나는 영역)입니다. 행성이라는 말이 들어가지만 행성이나 행성의 고리를 뜻하지 않습니다. 하늘에서 작게 보이므로 맨눈 대상이 아니며, 쌍안경에서도 별과 구분하기가 쉽지 않습니다. 소형 망원경의 저배율로 위치를 확인한 다음 배율을 올려 작은 원반이나 고리 같은 윤곽을 살펴보세요. 도시와 대기 상태에 따라 가운데가 덜 밝은 모습이 분명하지 않을 수 있습니다. 사진의 색깔이나 희미한 중심별을 검출하는 일을 기본 목표로 요구하지 않습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "행성상성운",
+        "source": "NASA — Messier 57: The Ring Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/"
+      },
+      {
+        "label": "별자리",
+        "value": "거문고자리 (Lyr)",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "8.8등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "1.27′",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M57",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "2567광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "고리성운이라는 이름은 작은 망원경에서 보이는 인상을 담고 있습니다. 현대 관측은 이 대상이 단순히 평평한 고리 한 장이 아니라 별이 내보낸 가스의 입체적인 구조임을 보여 줍니다. 허블은 가시광선에서, 제임스웹은 적외선에서 서로 다른 구조를 자세히 살폈습니다. 연구 영상의 색은 관측한 파장을 구분해 표현하기도 하므로 접안렌즈로 느끼는 색과 일치할 필요가 없습니다. 별이 흘려보낸 물질을 본다는 점에서 별 탄생 영역인 오리온대성운과 비교해 볼 수 있습니다. 둘 다 성운이라고 부르지만 별의 삶에서 맡는 위치가 다릅니다. 관측 기록에는 작은 원반만 구별했는지, 가운데가 어두운 인상까지 확인했는지를 나누어 적어 보세요.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 57: The Ring Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/",
+        "NASA/ESA/CSA — Ring Nebula, NIRCam Image (2023-08-21) — https://science.nasa.gov/asset/webb/ring-nebula-nircam-image/"
+      ]
+    },
+    "howToFind": {
+      "ko": "여름 저녁에 밝은 베가를 찾고 바로 옆 거문고자리의 작은 평행사변형을 확인하세요. 베가에서 먼 쪽 변을 이루는 베타별 셸리아크와 감마별 술라파트 사이가 목표 구역입니다. 두 별 사이를 저배율로 천천히 훑어 별처럼 날카롭지 않은 작은 얼룩을 찾은 뒤 배율을 높입니다.",
+      "season": "summer",
+      "hopFrom": [
+        "star:HIP91262",
+        "const:Lyr"
+      ]
+    },
+    "observing": {
+      "nakedEye": "맨눈으로는 관측하지 못하는 대상으로 잡습니다. 베가와 거문고자리의 기준 별을 찾는 단계까지만 진행하세요.",
+      "binoculars": "10×50에서는 안정된 지지와 어두운 하늘에서도 식별이 어려울 수 있습니다. 고리 모양을 쌍안경의 성공 조건으로 설정하지 않습니다.",
+      "telescope": "90mm 20~40배로 위치를 잡고 60~80배에서 작은 원반과 고리 같은 윤곽을 시도합니다. 도시에선 중심의 어두운 부분이 불분명할 수 있고 중심별은 목표로 삼지 않습니다.",
+      "bestMonths": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 4
+    },
+    "funFacts": [
+      "행성상성운은 행성의 고리나 행성이 뿜은 가스가 아닙니다.",
+      "적외선 영상의 표시 색과 접안렌즈에서 느끼는 색은 다를 수 있습니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 57: The Ring Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/",
+      "NASA/ESA/CSA — Ring Nebula, NIRCam Image (2023-08-21) — https://science.nasa.gov/asset/webb/ring-nebula-nircam-image/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "거리 2567광년은 첨부 값입니다. NASA 허블 소개의 약 2000광년과 웹 소개의 약 2500광년 등 추정이 다르므로 정밀 거리 퀴즈에 쓰지 않습니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M27",
+    "version": 1,
+    "title": {
+      "ko": "아령성운",
+      "en": "Dumbbell Nebula"
+    },
+    "oneLiner": {
+      "ko": "여우자리에서 별의 바깥층이 남긴 넓은 빛을 찾기"
+    },
+    "summary": {
+      "ko": "아령성운 M27은 여우자리에 있는 행성상성운입니다. 별이 진화 과정에서 내보낸 가스가 빛나는 대상으로, 망원경에서는 두터운 얼룩이나 가운데가 잘록한 모양으로 묘사됩니다. 고리성운보다 넓게 퍼진 인상을 줄 수 있지만 넓은 빛은 광해와 달빛에 쉽게 묻힙니다. 어두운 관측지에서 쌍안경으로 존재를 시도할 수 있고 소형 망원경에서는 먼저 전체 윤곽을 확인하는 편이 좋습니다. 사진의 붉고 푸른 구조를 눈으로 모두 구별하려 하기보다 둥근지 길쭉한지, 어느 쪽이 더 밝은지처럼 관측 가능한 특징을 기록하세요."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "행성상성운",
+        "source": "NASA — Messier 27: The Dumbbell Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/"
+      },
+      {
+        "label": "별자리",
+        "value": "여우자리 (Vul)",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "7.4등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "6.7′",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M27",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "1227광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "샤를 메시에가 아령성운을 관측해 목록에 넣었을 때 오늘날의 행성상성운이라는 물리적 설명은 아직 마련되지 않았습니다. 현대 천문학에서는 이 빛을 별이 바깥층을 내보낸 뒤 남은 진화 과정의 일부로 이해합니다. 허블의 확대 영상은 가스와 먼지의 작은 덩어리까지 보여 주며, 적외선 관측은 눈에 보이는 외형과 다른 정보를 드러냅니다. 아령이라는 별명은 물체가 운동기구처럼 생겼다는 관측상의 비유일 뿐입니다. 작은 망원경에서 그 이름과 똑같은 모양을 찾지 못해도 실패는 아닙니다. 관측 당시의 하늘 밝기와 사용 배율을 적고 빛의 긴 축이나 밝은 부분을 스케치하면, 다음 관측에서 실제 차이를 비교할 기준을 남길 수 있습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 27: The Dumbbell Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/",
+        "NASA/JPL-Caltech — Weighing in on the Dumbbell Nebula (2011-08-10) — https://science.nasa.gov/photojournal/weighing-in-on-the-dumbbell-nebula/"
+      ]
+    },
+    "howToFind": {
+      "ko": "늦여름 저녁에 알타이르와 알비레오를 찾고 그 사이에 있는 화살자리의 작은 화살 모양을 지도와 맞추세요. 화살자리 감마별에서 천구의 북쪽으로 약 3° 떨어진 여우자리 영역을 저배율로 살핍니다. 밝은 기준 별이 성운 안에 있다고 생각하지 말고 주변 별 배열과 넓은 얼룩을 함께 확인합니다.",
+      "season": "summer",
+      "hopFrom": [
+        "star:HIP97649",
+        "star:HIP95947"
+      ]
+    },
+    "observing": {
+      "nakedEye": "맨눈 검출을 기대하지 않습니다. 여름 대삼각형과 주변의 위치를 확인하는 단계로 삼으세요.",
+      "binoculars": "10×50에서는 달빛이 적고 어두운 곳에서 작은 얼룩을 시도할 수 있습니다. 도시에서 보이지 않으면 망원경이나 더 어두운 관측지를 이용하세요.",
+      "telescope": "90mm 20~60배에서 전체 윤곽을 먼저 확인합니다. 좋은 조건에서는 가운데가 잘록한 인상을 시도할 수 있지만 선명한 사진 모양이나 색 구분을 보장하지 않습니다.",
+      "bestMonths": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 3
+    },
+    "funFacts": [
+      "별의 탄생 구름이 아니라 진화한 별이 내보낸 가스를 보고 있습니다.",
+      "아령이라는 이름은 망원경에서 본 외형을 비유한 것입니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 27: The Dumbbell Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/",
+      "NASA/JPL-Caltech — Weighing in on the Dumbbell Nebula (2011-08-10) — https://science.nasa.gov/photojournal/weighing-in-on-the-dumbbell-nebula/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M35",
+    "version": 1,
+    "title": {
+      "ko": "M35",
+      "en": "Messier 35"
+    },
+    "oneLiner": {
+      "ko": "쌍둥이의 발치에서 여러 별로 풀리는 겨울의 성단"
+    },
+    "summary": {
+      "ko": "M35는 쌍둥이자리 발 부근의 산개성단입니다. 맨눈에서는 어두운 하늘이 필요하지만 쌍안경과 소형 망원경에서는 배경보다 별이 모인 영역을 찾을 수 있습니다. 성단의 별들은 같은 가스와 먼지 환경에서 형성되어 별의 성장을 비교하는 데 이용됩니다. 10×50으로 전체 위치를 확인한 뒤 90mm의 낮은 배율에서 밝은 별과 희미한 빛이 어떻게 섞이는지 살펴보세요. 도시에서는 구성별 일부만 남을 수 있으며 성단의 모든 별을 세려 하기보다 주변 별밭과의 밀도 차이를 확인하는 것을 목표로 삼는 편이 좋습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Messier 35: Messier 35 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/"
+      },
+      {
+        "label": "별자리",
+        "value": "쌍둥이자리 (Gem)",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "5.1등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "24′",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M35",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "2886광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "M35는 근대 관측자들이 흐릿한 대상을 목록으로 정리하던 시대부터 알려져 온 성단입니다. 현대의 허블 관측은 단순히 멋진 별무리를 촬영하는 데 그치지 않고 장비 감도의 변화를 확인하는 보정 프로그램에도 사용되었습니다. 이미 잘 알려진 별밭을 반복해 관측하면 새로운 영상에서 무엇이 장비 때문에 달라졌는지 살피는 기준이 될 수 있습니다. 성단의 별들은 비슷한 탄생 환경을 공유하지만 질량에 따라 서로 다른 속도로 진화합니다. 입문 관측에서는 이런 연구의 세부 측정을 대신하기보다 일정한 배율과 시야를 유지하며 관측 기록을 비교해 보세요. 같은 대상이라도 하늘 밝기와 초점, 흔들림이 달라지면 보이는 별 수가 바뀐다는 점을 배울 수 있습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 35: Messier 35 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/"
+      ]
+    },
+    "howToFind": {
+      "ko": "겨울 저녁에 쌍둥이자리의 카스토르와 폴룩스를 찾고, 카스토르 쪽 몸통을 따라 오리온자리 방향의 발 부근으로 내려가세요. 발끝을 표시하는 에타별 프로푸스를 지도와 맞춘 뒤 천구의 북서쪽 약 2° 구역을 쌍안경으로 살핍니다. 별이 주변보다 밀집한 부분을 찾으면 저배율 망원경으로 확인하세요.",
+      "season": "winter",
+      "hopFrom": [
+        "const:Gem",
+        "star:HIP36850",
+        "star:HIP37826"
+      ]
+    },
+    "observing": {
+      "nakedEye": "아주 어두운 하늘에서만 희미한 얼룩으로 시도합니다. 도시에서는 쌍둥이자리와 찾기 기준 별 확인을 우선하세요.",
+      "binoculars": "10×50에서 흐릿한 별무리와 일부 별이 섞여 보일 수 있습니다. 안정되게 지지하고 주변 별밭과 비교하세요.",
+      "telescope": "90mm 20~40배부터 성단을 시야 안에 놓고 여러 별의 배열을 확인합니다. 80배는 일부 구역을 보는 데 쓰며, 도시에서 희미한 별이 덜 보이는 점을 기록하세요.",
+      "bestMonths": [
+        12,
+        1,
+        2,
+        3
+      ],
+      "difficulty": 2
+    },
+    "funFacts": [
+      "허블은 M35를 장비 감도의 변화를 확인하는 관측에도 이용했습니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 35: Messier 35 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M37",
+    "version": 1,
+    "title": {
+      "ko": "M37",
+      "en": "Messier 37"
+    },
+    "oneLiner": {
+      "ko": "마차부자리 별밭에서 촘촘한 빛을 비교하는 성단"
+    },
+    "summary": {
+      "ko": "M37은 마차부자리의 산개성단으로, 같은 영역의 M36·M38과 함께 별무리를 비교하기 좋은 대상입니다. 서로 가까운 하늘에 보인다고 세 성단이 하나의 성단인 것은 아닙니다. 쌍안경에서는 조밀한 얼룩과 일부 별이 섞여 보일 수 있고, 소형 망원경에서는 저배율로 별들의 분포를 살펴볼 수 있습니다. 도심에서는 희미한 구성별이 줄어들어 사진보다 단순하게 보이므로 별 수를 고정된 성공 기준으로 삼지 않습니다. 별의 온도와 밝기 분포를 조사하는 연구와 접안렌즈로 알아본 별무리의 모습은 다른 수준의 정보입니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NSF NOIRLab — M37, NGC 2099 — https://noirlab.edu/public/images/noao-m37/"
+      },
+      {
+        "label": "별자리",
+        "value": "마차부자리 (Aur)",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "5.6등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "11.4′",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M37",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "4897광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "현대의 M37 연구는 눈에 띄는 밝은 별들뿐 아니라 진화를 거친 백색왜성(작은 크기로 남은 별의 잔해)에도 주목합니다. 이 성단과 관련된 행성상성운의 중심별을 분석한 연구도 발표되어 있습니다. 이런 천체들은 전문 장비와 정밀한 측정으로 확인하는 대상이며 작은 망원경으로 성단을 찾았다는 사실만으로 함께 관측했다고 기록하면 안 됩니다. 한 별무리에는 눈으로 보이는 인상보다 훨씬 다양한 별의 진화 정보가 담겨 있습니다. 입문 관측자는 우선 어떤 배율에서 성단의 경계와 조밀한 부분이 잘 드러나는지 비교해 보세요. 연구로 알려진 구성과 자신이 실제로 본 점들을 구별하면, 작은 별밭을 설명하는 콘텐츠도 사진에 보인 모든 것을 관측했다는 과장 없이 읽을 수 있습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NSF NOIRLab — M37, NGC 2099 — https://noirlab.edu/public/images/noao-m37/",
+        "Werner 외 (2023) — The unusual planetary nebula nucleus in the Galactic open cluster M37 — https://www.aanda.org/articles/aa/full_html/2023/10/aa47217-23/aa47217-23.html"
+      ]
+    },
+    "howToFind": {
+      "ko": "겨울 저녁에 밝은 카펠라를 포함한 마차부자리의 큰 오각형을 찾으세요. 남쪽 끝의 엘나트와 동쪽의 세타별을 잇는 변을 지도에서 확인하고 그 변의 천구상 동쪽 바깥 구역을 저배율로 훑습니다. M36·M38은 다른 위치에 있으므로 세 성단의 상대 배열을 지도와 비교해 M37을 확인하세요.",
+      "season": "winter",
+      "hopFrom": [
+        "const:Aur"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시 맨눈 관측의 대상으로 삼지 않습니다. 마차부자리 오각형의 위치를 잡는 데 맨눈을 사용하세요.",
+      "binoculars": "10×50에서는 작은 흐릿한 별무리로 보일 수 있습니다. 도시에서는 주변 별과 구분하기 어려우므로 더 어두운 조건에서 다시 비교하세요.",
+      "telescope": "90mm 20~60배에서 별이 모인 영역과 일부 구성별을 살펴봅니다. 80배가 항상 더 많은 별을 보여 주지는 않으며, 연구에 등장하는 백색왜성이나 행성상성운 검출은 요구하지 않습니다.",
+      "bestMonths": [
+        12,
+        1,
+        2,
+        3
+      ],
+      "difficulty": 3
+    },
+    "funFacts": [
+      "같은 마차부자리의 M36·M37·M38은 서로 다른 성단입니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NSF NOIRLab — M37, NGC 2099 — https://noirlab.edu/public/images/noao-m37/",
+      "Werner 외 (2023) — The unusual planetary nebula nucleus in the Galactic open cluster M37 — https://www.aanda.org/articles/aa/full_html/2023/10/aa47217-23/aa47217-23.html",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "M37 전문 연구는 검색 색인에 공개된 초록·본문 일부만 확인했습니다. 백색왜성 및 행성상성운 연구의 존재만 요약했고 원문 미열람 수치는 사용하지 않았습니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M81",
+    "version": 1,
+    "title": {
+      "ko": "보데은하",
+      "en": "Bode's Galaxy"
+    },
+    "oneLiner": {
+      "ko": "북쪽 하늘에서 길쭉한 이웃 은하와 비교하는 나선은하"
+    },
+    "summary": {
+      "ko": "M81은 큰곰자리 방향의 나선은하로 보데은하라고도 부릅니다. 하늘에서 가까운 M82와 함께 찾아 두 은하의 외형을 비교할 수 있습니다. M81은 밝은 중심을 가진 타원형 얼룩으로 보일 수 있지만 작은 장비로 사진의 나선팔이 그대로 드러난다고 기대하면 안 됩니다. 빛이 넓게 퍼진 은하는 달빛과 도시 광해의 영향을 크게 받습니다. 10×50에서는 어두운 하늘에서 존재를 확인하는 시도를 하고, 90mm에서는 낮은 배율로 중심의 위치와 길쭉한 방향을 기록하는 방식으로 시작하는 것이 좋습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "나선은하",
+        "source": "NASA — Messier 81: Messier 81 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/"
+      },
+      {
+        "label": "별자리",
+        "value": "큰곰자리 (UMa)",
+        "source": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "6.92등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "21.63′ × 11.25′",
+        "source": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M81",
+        "source": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "보데은하라는 이름은 근대의 관측자 요한 엘레르트 보데와 연결됩니다. 현대 연구에서는 나선팔의 젊은 별과 중심 주변의 별들을 여러 파장으로 관측하며 은하의 구조를 살핍니다. 가까운 하늘에 있는 M82와 비교하면 은하가 모두 같은 모양으로 보이지 않는다는 점도 알 수 있습니다. 다만 서로 다른 외형은 보는 방향과 실제 구조의 차이가 함께 반영된 것이므로 작은 스케치만으로 은하의 모든 성질을 결정할 수는 없습니다. 두 대상을 같은 배율과 같은 하늘 조건에서 번갈아 관측하면 비교 조건을 맞출 수 있습니다. 밝은 중심만 보인 밤과 바깥 빛이 더 넓게 보인 밤을 나누어 적는 것이 사진의 나선팔을 보았다고 추정하는 것보다 좋은 기록입니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 81: Messier 81 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/"
+      ]
+    },
+    "howToFind": {
+      "ko": "봄 저녁에 북두칠성의 그릇을 찾으세요. 그릇의 페크다에서 두베로 잇는 대각선을 확인하고 두베 너머로 비슷한 길이만큼 더 연장한 구역을 지도와 대조합니다. 정확한 은하 위치는 주변 별 배열로 좁힌 뒤 저배율로 찾으세요. M81을 찾으면 천구의 북쪽 약 0.6°에 있는 M82도 확인합니다.",
+      "season": "spring",
+      "hopFrom": [
+        "const:UMa",
+        "star:HIP54061"
+      ]
+    },
+    "observing": {
+      "nakedEye": "일반적인 맨눈 관측 대상이 아닙니다. 두 은하의 위치를 찾는 기준 별을 익히는 데 맨눈을 사용하세요.",
+      "binoculars": "10×50에서는 어두운 곳과 안정된 지지가 필요합니다. 한 시야 안에서 M82와 함께 희미한 얼룩을 시도하되 도시 검출을 보장하지 않습니다.",
+      "telescope": "90mm 20~50배에서 밝은 중심과 타원형 외형을 우선 확인합니다. 두 은하를 함께 담으려면 실제 접안 시야를 확인하고, 나선팔의 시각적 검출은 목표로 삼지 않습니다.",
+      "bestMonths": [
+        3,
+        4,
+        5
+      ],
+      "difficulty": 4
+    },
+    "funFacts": [
+      "M81과 M82는 쌍안경의 같은 시야에서 비교할 수 있을 만큼 가깝게 보입니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 81: Messier 81 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+        "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M82",
+    "version": 1,
+    "title": {
+      "ko": "시가은하",
+      "en": "Cigar Galaxy"
+    },
+    "oneLiner": {
+      "ko": "별이 활발히 만들어지는 은하의 가느다란 옆모습"
+    },
+    "summary": {
+      "ko": "M82는 큰곰자리 방향에서 M81 가까이에 보이는 은하로, 길쭉한 외형 때문에 시가은하라는 별명이 있습니다. 활발한 별 형성 활동을 보이며 이웃 은하와의 중력 상호작용이 연구됩니다. 사진에서 은하 밖으로 뻗는 붉은 가스 구조는 작은 망원경의 접안상과 다릅니다. 90mm에서는 가느다란 얼룩의 방향과 중심 부근의 밝기 차이를 우선 살펴보세요. 도시에서는 윤곽이 약해질 수 있고 M81보다 찾기가 어려울 수 있습니다. 두 은하의 모양을 같은 배율로 비교하면 은하 관측의 기초를 익히기 좋습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "별 형성이 활발한 은하",
+        "source": "NASA — Messier 82: The Cigar Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/"
+      },
+      {
+        "label": "별자리",
+        "value": "큰곰자리 (UMa)",
+        "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "8.3등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "10.99′ × 5.11′",
+        "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M82",
+        "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "현대 천문학에서 M82는 별이 활발하게 태어나는 은하를 연구하는 사례입니다. 여러 파장의 관측은 별빛뿐 아니라 가스와 먼지가 방출하는 빛도 구별해 보여 줍니다. 허블의 색 영상에 나타난 붉은 구조는 이런 관측 정보를 표현한 것이며 밤하늘에서 작은 망원경으로 붉은 연기를 보게 된다는 뜻은 아닙니다. 시가라는 이름도 외형에 대한 비유이지 실제 연소하는 물체를 가리키지 않습니다. 관측자는 먼저 가느다란 얼룩이 주변 별과 어떤 방향을 이루는지 기록할 수 있습니다. 이웃 M81의 비교적 넓은 중심과 번갈아 보면 사진의 화려함 없이도 두 은하의 관측 인상이 다르다는 점을 확인할 수 있습니다. 직접 본 윤곽과 연구로 알게 된 활동을 분리해 적어 보세요.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 82: The Cigar Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/",
+        "NASA — Messier 81: Messier 81 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/"
+      ]
+    },
+    "howToFind": {
+      "ko": "봄 저녁에 북두칠성을 길잡이로 M81을 먼저 찾으세요. M81에서 천구의 북쪽으로 약 0.6° 옮긴 자리에서 길쭉하고 작은 얼룩을 찾습니다. 저배율 시야에 두 은하를 함께 넣을 수 있는지 확인하되 접안렌즈에서 북쪽이 화면 위라고 가정하지 마세요. 주변 별과 상대 위치로 다시 대조합니다.",
+      "season": "spring",
+      "hopFrom": [
+        "dso:M81",
+        "const:UMa"
+      ]
+    },
+    "observing": {
+      "nakedEye": "맨눈 검출을 기대하지 않습니다. 북두칠성과 두 은하가 놓인 구역을 먼저 익히세요.",
+      "binoculars": "10×50에서는 어두운 하늘에서 M81과 같은 시야의 작은 얼룩으로 시도합니다. 도시에서는 보이지 않을 수 있으며 색은 목표가 아닙니다.",
+      "telescope": "90mm 20~60배에서 가느다란 빛의 방향을 살핍니다. 좋은 조건에서는 중심부의 불균일한 밝기를 시도할 수 있지만 붉은 가스 분출 구조의 검출은 요구하지 않습니다.",
+      "bestMonths": [
+        3,
+        4,
+        5
+      ],
+      "difficulty": 4
+    },
+    "funFacts": [
+      "시가라는 별명은 길쭉한 외형의 비유이며 실제 연기를 뜻하지 않습니다.",
+      "여러 파장으로 만든 천문 영상의 색이 육안 색과 같을 필요는 없습니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 82: The Cigar Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/",
+      "NASA — Messier 81: Messier 81 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+        "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M3",
+    "version": 1,
+    "title": {
+      "ko": "M3",
+      "en": "Messier 3"
+    },
+    "oneLiner": {
+      "ko": "봄 하늘에서 중심이 밝은 둥근 빛을 비교하는 성단"
+    },
+    "summary": {
+      "ko": "M3는 사냥개자리 방향의 구상성단입니다. 많은 별의 빛이 합쳐져 쌍안경에서는 둥근 얼룩으로 보이고 망원경에서는 중심과 가장자리의 밝기 차이를 살펴볼 수 있습니다. 아르크투루스를 출발점으로 위치를 잡으면 봄철 밝은 별에서 희미한 천체로 이동하는 연습이 됩니다. 연구에서는 밝기가 바뀌는 변광성이 중요한 역할을 하지만 소형 장비로 성단을 찾는 일과 그 별들의 변광을 측정하는 일은 다릅니다. 도시에서는 성단의 바깥 빛이 쉽게 사라지므로 개별 별 분해보다 존재와 전체 윤곽을 확인하는 것을 우선합니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "구상성단",
+        "source": "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/"
+      },
+      {
+        "label": "별자리",
+        "value": "사냥개자리 (CVn)",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "6.39등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "16.2′",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M3",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/"
+      }
+    ],
+    "story": {
+      "ko": "M3의 관측사는 흐릿한 대상의 정체가 어떻게 바뀌어 이해되는지 보여 줍니다. 메시에가 처음 기록했을 때는 별이 구별되지 않는 성운 같은 모습이었지만 더 나은 망원경으로는 개별 별을 나눌 수 있었습니다. 현대 연구에서 이 성단은 밝기가 시간에 따라 달라지는 많은 변광성으로도 알려져 있습니다. 적절한 종류의 변광성은 밝기 변화를 이용해 천체의 거리를 연구하는 데 도움을 줍니다. 그렇다고 입문자가 성단의 전체 빛을 한 번 본 것으로 변광성을 측정한 것은 아닙니다. 처음에는 같은 배율에서 중심과 가장자리의 인상을 기록하고, 여러 밤의 기록을 비교할 때 대기와 광해의 차이도 함께 살펴보세요. 관측 대상의 존재 확인과 물리량 측정은 연결되지만 서로 다른 단계입니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/",
+        "NASA — M3 Globular Cluster — https://science.nasa.gov/image-detail/m3/"
+      ]
+    },
+    "howToFind": {
+      "ko": "봄 저녁에 북두칠성 손잡이의 곡선을 따라 아르크투루스를 찾으세요. 그곳에서 사냥개자리의 코르카롤리 쪽으로 이어지는 선을 지도와 대조하고 중간 부근을 저배율로 살핍니다. 아르크투루스에서 천구의 북서쪽으로 약 12° 떨어진 구역이 목표입니다. 넓은 이동이므로 주변 별을 단계적으로 맞추며 좁히세요.",
+      "season": "spring",
+      "hopFrom": [
+        "star:HIP69673",
+        "const:Boo"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서는 맨눈 관측 대상으로 삼지 않습니다. 아르크투루스와 찾기 구역의 위치를 익히세요.",
+      "binoculars": "10×50에서 어두운 하늘이라면 작은 얼룩을 시도할 수 있습니다. 별처럼 날카로운 점과 구분하되 구성별 분해는 기대하지 않습니다.",
+      "telescope": "90mm 20~80배로 중심에 빛이 모이는 모습과 바깥의 흐린 윤곽을 비교합니다. 개별 별의 분리나 특정 변광성 측정을 필수 목표로 삼지 마세요.",
+      "bestMonths": [
+        4,
+        5,
+        6
+      ],
+      "difficulty": 3
+    },
+    "funFacts": [
+      "성단을 찾았다는 기록과 성단 속 변광성을 측정했다는 기록은 다릅니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/",
+      "NASA — M3 Globular Cluster — https://science.nasa.gov/image-detail/m3/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "low",
+      "needsReview": [
+        "거리 수치 게시 보류: 첨부 133127광년과 NASA 소개의 약 34000광년 사이에 큰 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M5",
+    "version": 1,
+    "title": {
+      "ko": "M5",
+      "en": "Messier 5"
+    },
+    "oneLiner": {
+      "ko": "뱀자리 머리 부근에서 찾아보는 오래된 구상성단"
+    },
+    "summary": {
+      "ko": "M5는 뱀자리의 머리 부분 방향에 놓인 구상성단입니다. 오래된 별들이 모여 있으며 쌍안경에서는 작고 흐릿한 빛으로, 망원경에서는 중심이 밝은 둥근 얼룩으로 보일 수 있습니다. 처녀자리의 스피카에서 뱀자리 쪽으로 위치를 넓혀 가는 늦봄 관측 대상으로 삼을 만합니다. 바로 옆 별과 성단을 구분하려면 저배율에서 별 배열과 번진 빛을 함께 살펴야 합니다. 도시에서는 빛의 바깥 부분이 약해지므로 성단 전체의 별을 분해하는 것보다 중심과 주변의 대비를 기록하는 것이 현실적인 첫 목표입니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "구상성단",
+        "source": "NASA — Messier 5: Messier 5 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/"
+      },
+      {
+        "label": "별자리",
+        "value": "뱀자리 (Ser) — 첨부 코드 Se1의 명시적 표준명 대응",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv; https://iauarchive.eso.org/public/themes/constellations/"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "5.95등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "15′",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M5",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "28636광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "M5는 메시에의 목록에 들어가기 전에도 유럽의 관측자에게 알려져 있던 성단입니다. 현대의 고해상도 영상에서는 흐릿한 빛이 많은 별의 모습으로 나뉩니다. 이 별들은 오래된 집단이지만 모두 같은 밝기와 색으로 보이지는 않습니다. 별의 질량과 진화 단계가 다르면 같은 성단 안에서도 서로 다른 관측 특성이 나타나기 때문입니다. 작은 망원경에서는 개별 별의 성질을 판정하기 전에 성단의 전체 빛과 중심을 알아보는 연습이 먼저입니다. M13이나 M3를 같은 배율로 관측한 기록이 있다면 중심이 얼마나 도드라졌는지 비교해 보세요. 각 대상의 실제 구조뿐 아니라 관측 당시 고도와 광해도 인상을 바꿀 수 있으므로, 단 한 번 본 모습만으로 별의 수나 나이를 판단하지 않는 편이 좋습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 5: Messier 5 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/",
+        "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+      ]
+    },
+    "howToFind": {
+      "ko": "늦봄과 초여름 저녁에 스피카를 찾고 그보다 천구의 동쪽에 있는 뱀자리 머리 구역을 지도에서 확인하세요. 뱀자리 5번 별 부근까지 별 배열을 따라 이동한 뒤 그 별의 천구상 북서쪽에 있는 작은 얼룩을 저배율로 찾습니다. 스피카에서 한 번에 크게 이동하지 말고 앱의 별지도로 중간 구역을 확인하세요.",
+      "season": "spring",
+      "hopFrom": [
+        "star:HIP65474"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시 맨눈 관측의 목표로 삼지 않습니다. 늦봄 하늘의 기준 별과 뱀자리 구역을 먼저 익히세요.",
+      "binoculars": "10×50에서는 달빛이 적고 어두운 곳에서 작은 얼룩으로 시도합니다. 옆의 별과 성단의 번진 빛을 구별하는 데 집중하세요.",
+      "telescope": "90mm 20~80배에서 중심부와 퍼진 빛을 확인합니다. 주변 별과 성단을 혼동하지 말고 개별 구성별 분해를 기본 성공 조건으로 삼지 않습니다.",
+      "bestMonths": [
+        5,
+        6,
+        7
+      ],
+      "difficulty": 3
+    },
+    "funFacts": [
+      "뱀자리 머리와 꼬리는 떨어진 두 영역이지만 공식 별자리는 하나입니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 5: Messier 5 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "첨부 con=Se1은 뱀자리 머리 영역의 원자료 표기이며 IAU 3글자 코드가 아닙니다. 콘텐츠는 뱀자리(Ser)로 설명하되 원본은 변경하지 않았습니다. 앱 참조 키의 Se1→Ser 정규화 승인이 필요합니다.",
+        "거리 28636광년과 등급 5.95는 원자료 값입니다. NASA 소개의 약 25000광년·6.7등급과 다르므로 측정 대역·목록 판본을 확인하고 숫자 비교 퀴즈에서 제외하세요.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M15",
+    "version": 1,
+    "title": {
+      "ko": "M15",
+      "en": "Messier 15"
+    },
+    "oneLiner": {
+      "ko": "가을 페가수스의 코 앞에서 찾는 조밀한 별무리"
+    },
+    "summary": {
+      "ko": "M15는 페가수스자리 방향의 구상성단입니다. 작은 장비에서는 별무리의 빛이 합쳐져 보이며 특히 중심이 도드라지는 인상을 살펴볼 수 있습니다. 가을 대사각형을 찾은 뒤 페가수스의 머리 방향으로 이동하면 위치를 좁히는 데 도움이 됩니다. 쌍안경에서는 별처럼 보이는 작은 번짐을 주변 점광원과 구별하고 망원경에서는 중심과 바깥 윤곽을 비교하세요. 도시에서는 희미한 부분이 사라질 수 있습니다. 전문 영상에 담긴 성단 속 특이 천체까지 소형 장비로 함께 보았다고 판단하지 않는 것이 중요합니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "구상성단",
+        "source": "NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/"
+      },
+      {
+        "label": "별자리",
+        "value": "페가수스자리 (Peg)",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "6.3등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "11.1′",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M15",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/"
+      }
+    ],
+    "story": {
+      "ko": "고해상도 영상으로 M15를 보면 조밀한 별들의 집단 안에도 서로 다른 진화 단계의 천체가 있음을 알 수 있습니다. 허블 영상에는 피스 1이라는 행성상성운도 나타나며, 이는 별이 내보낸 가스가 성단의 별빛과 함께 보이는 사례입니다. 그러나 90mm 망원경으로 M15의 존재를 확인하는 일과 그 작은 성운을 따로 검출하는 일은 다른 난이도의 관측입니다. 중심부가 밝아 보인다는 인상만으로 그곳의 특정 천체나 보이지 않는 질량을 직접 보았다고 할 수도 없습니다. 처음에는 밝은 중심이 주변으로 얼마나 부드럽게 퍼지는지 스케치해 보세요. 전문 연구로 알려진 내용은 설명란에, 직접 확인한 외형은 관측란에 남기면 사진의 정보와 자신의 관측을 혼동하지 않을 수 있습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/",
+        "NASA/ESA — Globular Cluster M15 (2002-09-17) — https://science.nasa.gov/asset/hubble/globular-cluster-m15/"
+      ]
+    },
+    "howToFind": {
+      "ko": "가을 저녁에 페가수스 대사각형을 찾고 말의 목과 머리 쪽으로 이어지는 별들을 따라 에니프로 이동하세요. 에니프에서 천구의 북서쪽으로 약 4° 떨어진 구역을 저배율로 살핍니다. M15의 작은 얼룩을 주변 별과 대조하고, 점처럼 보여도 배율을 바꾸며 약간 번지는지 확인하세요.",
+      "season": "autumn",
+      "hopFrom": [
+        "const:Peg",
+        "star:HIP677"
+      ]
+    },
+    "observing": {
+      "nakedEye": "도시에서는 맨눈 검출을 기대하지 않습니다. 대사각형과 에니프 방향을 찾는 단계까지만 맨눈으로 진행하세요.",
+      "binoculars": "10×50에서는 어두운 하늘에서 작은 흐릿한 점으로 시도합니다. 구성별이나 성단 속 성운까지 분리하지는 못합니다.",
+      "telescope": "90mm 20~80배에서 밝은 중심과 옅은 외곽을 비교합니다. 피스 1이나 특정 중심 천체 검출을 관측 목표로 요구하지 않습니다.",
+      "bestMonths": [
+        8,
+        9,
+        10
+      ],
+      "difficulty": 3
+    },
+    "funFacts": [
+      "성단 속 피스 1이 전문 영상에 보여도 소형 장비의 기본 관측 목표는 아닙니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/",
+      "NASA/ESA — Globular Cluster M15 (2002-09-17) — https://science.nasa.gov/asset/hubble/globular-cluster-m15/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "low",
+      "needsReview": [
+        "거리 수치 게시 보류: 첨부 62483광년은 NASA의 약 35000광년 및 과거 약 32600광년 소개와 크게 다릅니다. 외부 자료끼리도 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:NGC869",
+    "version": 1,
+    "title": {
+      "ko": "이중성단(h)",
+      "en": "Double Cluster (h Persei)"
+    },
+    "oneLiner": {
+      "ko": "이중성단의 한쪽을 따로 알아보는 넓은 별무리"
+    },
+    "summary": {
+      "ko": "NGC869는 페르세우스자리의 이중성단을 이루는 두 산개성단 중 h 쪽입니다. 이웃 NGC884와 하늘에서 나란히 보이지만 각각 별도의 성단과 식별자를 가집니다. 어두운 곳에서는 두 성단의 빛이 맨눈에 하나의 얼룩처럼 합쳐질 수 있고, 쌍안경에서는 별이 모인 두 중심을 비교할 수 있습니다. 작은 망원경에서도 낮은 배율과 넓은 시야를 먼저 쓰는 편이 좋습니다. 앱 화면이나 접안렌즈의 좌우는 회전과 반전으로 달라질 수 있으므로 왼쪽 성단이라는 말만으로 NGC869를 식별하지 마세요."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/"
+      },
+      {
+        "label": "별자리",
+        "value": "페르세우스자리 (Per)",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.7등급",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "14.4′",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "NGC869",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "8274광년",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "이중성단이라는 이름을 처음 들으면 별 두 개가 붙어 있는 이중성과 혼동하기 쉽습니다. 여기서는 별 하나씩이 아니라 많은 별이 모인 산개성단 두 개를 뜻합니다. 넓게 본 밤하늘의 한 얼룩이 쌍안경에서는 두 중심으로, 망원경에서는 다시 여러 별로 나뉘는 경험을 할 수 있습니다. 콜드웰 목록의 C14는 이 두 성단을 함께 가리키므로 개별 NGC 번호와 목록 번호의 범위를 구별해야 합니다. 관측 기록에는 두 성단을 한 시야에 담았는지, NGC869 쪽의 별 배열을 따로 확인했는지 나누어 적어 보세요. 같은 하늘 대상을 묶어 부르는 이름과 데이터베이스의 개별 항목을 구별하면 관측 개수나 배지를 중복 계산하는 실수도 피할 수 있습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+        "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/"
+      ]
+    },
+    "howToFind": {
+      "ko": "가을 저녁에 카시오페이아자리의 W 모양과 페르세우스자리의 밝은 별무리를 먼저 찾으세요. 두 별자리의 밝은 별들 사이를 쌍안경으로 훑어 별이 모인 두 중심을 찾습니다. 천구상 서쪽 성단이 NGC869인지 지도와 주위 별 배열로 확인하세요. 동쪽의 NGC884와 화면 좌우가 같다고 가정하지 않습니다.",
+      "season": "autumn",
+      "hopFrom": [
+        "const:Cas",
+        "const:Per"
+      ]
+    },
+    "observing": {
+      "nakedEye": "달빛이 적은 어두운 곳에서 두 성단이 합쳐진 얼룩으로 보일 수 있습니다. 맨눈만으로 두 ID를 각각 식별했다고 처리하지 않습니다.",
+      "binoculars": "10×50에서 두 성단의 중심을 한 시야에 놓고 비교하기 좋습니다. 도시에서는 희미한 별이 줄어들지만 두 밀집 영역을 시도할 수 있습니다.",
+      "telescope": "90mm 20~40배와 넓은 접안 시야로 시작합니다. 80배에서는 한쪽 일부가 잘릴 수 있으며 주변 별 배열을 지도와 대조해 NGC869를 식별하세요.",
+      "bestMonths": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "difficulty": 2
+    },
+    "funFacts": [
+      "콜드웰 C14는 NGC869와 NGC884를 묶는 하나의 목록 항목입니다.",
+      "이중성단은 별 두 개로 이루어진 이중성과 다른 말입니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+      "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "첨부 거리 8274광년과 등급 3.7은 NGC869 행의 값입니다. NASA C14의 집단 소개값을 개별 성단의 검증값으로 대입하지 않았습니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:NGC884",
+    "version": 1,
+    "title": {
+      "ko": "이중성단(χ)",
+      "en": "Double Cluster (χ Persei)"
+    },
+    "oneLiner": {
+      "ko": "이중성단의 다른 중심을 독립된 대상으로 확인하기"
+    },
+    "summary": {
+      "ko": "NGC884는 페르세우스자리 이중성단의 χ 쪽 산개성단입니다. NGC869와 가까이 보이므로 두 성단을 같은 시야에서 비교할 수 있지만 하나의 성단에 붙은 두 이름은 아닙니다. 밝은 별들 사이에 희미한 구성별이 섞여 있어 배율과 하늘 밝기에 따라 밀집된 정도가 달라 보일 수 있습니다. 쌍안경에서는 두 중심의 상대 위치를 먼저 확인하고, 망원경에서는 개별 성단의 별 배열을 살펴보세요. 도시에서 보이는 밝은 별만으로 성단의 전체 구성원을 세거나 사진의 별 색을 그대로 재현할 필요는 없습니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/"
+      },
+      {
+        "label": "별자리",
+        "value": "페르세우스자리 (Per)",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.8등급",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "10.5′",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "NGC884",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "8203광년",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "story": {
+      "ko": "NGC884를 관측하는 일은 이미 이중성단을 보았더라도 대상 식별을 한 단계 더 세밀하게 만드는 연습입니다. 넓은 시야에서 두 중심을 확인한 뒤 지도의 방향과 주변 별을 맞추면 어느 쪽이 χ 성단인지 구별할 수 있습니다. 이때 화면이 뒤집혀 있거나 회전되어 있으면 사진에서 기억한 좌우만으로는 틀리기 쉽습니다. 많은 별을 빠르게 세기보다 특징적인 배열 몇 개를 스케치하는 편이 대조에 도움이 됩니다. 두 성단은 함께 C14로 불리지만 개별 NGC 관측 기록을 남길 때는 실제로 각각을 식별했는지 확인해야 합니다. 한 얼룩의 관측이 자동으로 두 번의 성공이 되지는 않는다는 원칙은 가까이 놓인 은하나 복합 성운을 관측할 때도 적용할 수 있습니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+        "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/"
+      ]
+    },
+    "howToFind": {
+      "ko": "가을 저녁에 카시오페이아자리와 페르세우스자리 사이의 이중성단을 찾으세요. 먼저 두 밀집 중심을 쌍안경으로 확인하고, 천구상 동쪽의 NGC884를 지도와 대조합니다. NGC869에서 약 0.5° 떨어져 있지만 망원경 화면의 오른쪽이라는 뜻은 아닙니다. 주변 별 배열을 맞춘 뒤 한쪽씩 기록하세요.",
+      "season": "autumn",
+      "hopFrom": [
+        "dso:NGC869",
+        "const:Per"
+      ]
+    },
+    "observing": {
+      "nakedEye": "어두운 곳에서는 두 성단의 합쳐진 빛을 시도할 수 있지만 NGC884만 독립적으로 구별했다고 단정하지 않습니다.",
+      "binoculars": "10×50에서 NGC869와 함께 두 중심을 비교합니다. 손떨림을 줄이고 지도의 천구 방향을 맞추면 각 성단을 구분하는 데 도움이 됩니다.",
+      "telescope": "90mm 20~40배에서 넓게 비교한 뒤 필요하면 60~80배로 일부 별 배열을 봅니다. 화면 좌우 대신 지도와 성단 주변 별을 기준으로 식별하세요.",
+      "bestMonths": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "difficulty": 2
+    },
+    "funFacts": [
+      "NGC869와 NGC884는 개별 ID이고 C14는 두 성단을 함께 가리킵니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+      "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "medium",
+      "needsReview": [
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "첨부 거리 8203광년과 등급 3.8은 NGC884 행의 값입니다. 두 성단의 거리 차이를 원본 수치의 단순 뺄셈으로 확정하거나 정밀 비교 퀴즈에 쓰지 않습니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "dso:M51",
+    "version": 1,
+    "title": {
+      "ko": "소용돌이은하",
+      "en": "Whirlpool Galaxy"
+    },
+    "oneLiner": {
+      "ko": "사진 속 나선팔보다 먼저 두 은하의 흐린 중심을 찾기"
+    },
+    "summary": {
+      "ko": "소용돌이은하 M51은 사냥개자리 방향에서 나선 구조를 비교적 정면으로 보여 주는 은하입니다. 가까운 동반 은하 NGC5195와의 관계를 연구하는 대표적 대상으로 알려져 있습니다. 사진에는 감긴 나선팔과 두 은하의 구조가 뚜렷하지만 90mm 망원경에서는 훨씬 희미한 중심과 얼룩을 먼저 찾게 됩니다. 도시 광해에서는 존재 확인조차 어려울 수 있으므로 어두운 관측지를 권합니다. 전체 밝기를 나타내는 등급이 같더라도 별과 넓은 은하의 관측 난이도는 다르며, 나선팔을 보았다는 판단은 신중하게 해야 합니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "나선은하(동반 은하와 상호작용)",
+        "source": "NASA — Messier 51: The Whirlpool Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/"
+      },
+      {
+        "label": "별자리",
+        "value": "사냥개자리 (CVn)",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "8.36등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "13.71′ × 11.67′",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M51",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 51: The Whirlpool Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/"
+      }
+    ],
+    "story": {
+      "ko": "M51의 나선팔은 별과 가스가 은하 안에서 어떻게 분포하고 새로운 별이 어디에서 태어나는지 연구하는 단서입니다. 곁의 NGC5195와 중력적으로 영향을 주고받는 관계도 관심의 대상입니다. 우주망원경 영상은 밝은 별 무리와 어두운 먼지 띠를 세밀하게 구분하지만, 입문자의 접안렌즈에는 그 정보 대부분이 하나의 흐릿한 빛으로 합쳐집니다. 이름에 소용돌이가 들어간다고 실제 관측에서 감긴 팔을 반드시 알아보아야 하는 것은 아닙니다. 먼저 은하 위치와 중심의 존재를 확인하고 동반 은하의 빛까지 구분했는지 따로 적어 보세요. 전문 사진을 보고 기억한 모양을 관측 기록에 채우기보다, 그날 확인한 부분과 확인하지 못한 부분을 구별하는 것이 다음 시도의 기준이 됩니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Messier 51: The Whirlpool Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/",
+        "NASA Scientific Visualization Studio — A Flyby of the Whirlpool Galaxy — https://svs.gsfc.nasa.gov/31024/"
+      ]
+    },
+    "howToFind": {
+      "ko": "봄 저녁 북두칠성 손잡이 끝의 알카이드를 찾으세요. 그 별에서 천구의 남서쪽으로 약 3.6° 떨어진 구역을 지도와 맞추고 쌍안경 또는 망원경의 낮은 배율로 좁혀 갑니다. 주변 별 배열을 확인한 뒤 약한 얼룩을 찾으세요. 도시에서 보이지 않으면 무작정 배율을 올리기보다 어두운 조건에서 다시 시도합니다.",
+      "season": "spring",
+      "hopFrom": [
+        "star:HIP67301",
+        "const:UMa"
+      ]
+    },
+    "observing": {
+      "nakedEye": "맨눈 관측 대상이 아닙니다. 알카이드와 목표 구역을 찾는 단계까지만 맨눈을 사용하세요.",
+      "binoculars": "10×50에서는 어두운 하늘과 안정된 지지가 있어도 희미한 얼룩 검출이 도전입니다. 도시 검출이나 나선 구조 확인을 기대하지 않습니다.",
+      "telescope": "90mm 20~60배로 어두운 곳에서 중심의 얼룩을 먼저 찾습니다. 동반 은하의 빛을 분리하는 일은 추가 도전이며 나선팔·연결 구조·사진 색을 기본 성공 조건으로 삼지 않습니다.",
+      "bestMonths": [
+        4,
+        5,
+        6
+      ],
+      "difficulty": 5
+    },
+    "funFacts": [
+      "사진의 선명한 나선팔이 작은 망원경에서 그대로 보이는 것은 아닙니다.",
+      "M51과 동반 은하의 빛을 구별했는지는 따로 기록해야 합니다."
+    ],
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+      "NASA — Messier 51: The Whirlpool Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/",
+      "NASA Scientific Visualization Studio — A Flyby of the Whirlpool Galaxy — https://svs.gsfc.nasa.gov/31024/",
+      "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "low",
+      "needsReview": [
+        "거리 수치 게시 보류: 첨부 418광년은 NASA의 약 3100만/2500만 광년 소개와 규모부터 다릅니다. 외부 자료 중 하나를 최신 정밀값으로 확정하지 않았습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+        "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+        "M51은 문헌에서 주 은하 또는 동반 은하를 포함한 계를 가리키기도 합니다. 첨부 크기·등급의 적분 범위를 확인하고 NGC5195를 임의의 새 콘텐츠 ID로 추가하지 않습니다.",
+        "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+        "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+      ]
+    }
+  }
+]
+```

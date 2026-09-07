@@ -1,0 +1,419 @@
+{
+  "status": "draft-only-not-content/v1/index.json",
+  "approvedForPublication": false,
+  "items": [
+    {
+      "id": "sun",
+      "title": {
+        "ko": "태양",
+        "en": "Sun"
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "moon",
+      "title": {
+        "ko": "달",
+        "en": "Moon"
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "planet:mercury",
+      "title": {
+        "ko": "수성",
+        "en": "Mercury"
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "planet:venus",
+      "title": {
+        "ko": "금성",
+        "en": "Venus",
+        "alt": [
+          "샛별",
+          "개밥바라기"
+        ]
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "planet:mars",
+      "title": {
+        "ko": "화성",
+        "en": "Mars"
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "planet:jupiter",
+      "title": {
+        "ko": "목성",
+        "en": "Jupiter"
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "planet:saturn",
+      "title": {
+        "ko": "토성",
+        "en": "Saturn"
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "planet:uranus",
+      "title": {
+        "ko": "천왕성",
+        "en": "Uranus"
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "planet:neptune",
+      "title": {
+        "ko": "해왕성",
+        "en": "Neptune"
+      },
+      "confidence": "high",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP32349",
+      "title": {
+        "ko": "시리우스",
+        "en": "Sirius"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP69673",
+      "title": {
+        "ko": "아르크투루스",
+        "en": "Arcturus"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP91262",
+      "title": {
+        "ko": "베가",
+        "en": "Vega",
+        "alt": [
+          "직녀성"
+        ]
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP24608",
+      "title": {
+        "ko": "카펠라",
+        "en": "Capella"
+      },
+      "confidence": "low",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP24436",
+      "title": {
+        "ko": "리겔",
+        "en": "Rigel"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP27989",
+      "title": {
+        "ko": "베텔게우스",
+        "en": "Betelgeuse"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP97649",
+      "title": {
+        "ko": "알타이르",
+        "en": "Altair",
+        "alt": [
+          "견우성"
+        ]
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP21421",
+      "title": {
+        "ko": "알데바란",
+        "en": "Aldebaran"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP80763",
+      "title": {
+        "ko": "안타레스",
+        "en": "Antares"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP102098",
+      "title": {
+        "ko": "데네브",
+        "en": "Deneb"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP11767",
+      "title": {
+        "ko": "폴라리스",
+        "en": "Polaris",
+        "alt": [
+          "북극성"
+        ]
+      },
+      "confidence": "medium",
+      "pack": "G3-content-batch-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M45",
+      "title": {
+        "ko": "플레이아데스성단",
+        "en": "Pleiades"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M44",
+      "title": {
+        "ko": "프레세페성단",
+        "en": "Beehive Cluster"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M42",
+      "title": {
+        "ko": "오리온대성운",
+        "en": "Orion Nebula"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M31",
+      "title": {
+        "ko": "안드로메다은하",
+        "en": "Andromeda Galaxy"
+      },
+      "confidence": "low",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M13",
+      "title": {
+        "ko": "헤르쿨레스 대성단",
+        "en": "Hercules Globular Cluster"
+      },
+      "confidence": "low",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP95947",
+      "title": {
+        "ko": "알비레오",
+        "en": "Albireo"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP65474",
+      "title": {
+        "ko": "스피카",
+        "en": "Spica"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "star:HIP677",
+      "title": {
+        "ko": "알페라츠",
+        "en": "Alpheratz"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M57",
+      "title": {
+        "ko": "고리성운",
+        "en": "Ring Nebula"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M27",
+      "title": {
+        "ko": "아령성운",
+        "en": "Dumbbell Nebula"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M35",
+      "title": {
+        "ko": "M35",
+        "en": "Messier 35"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M37",
+      "title": {
+        "ko": "M37",
+        "en": "Messier 37"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M81",
+      "title": {
+        "ko": "보데은하",
+        "en": "Bode's Galaxy"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M82",
+      "title": {
+        "ko": "시가은하",
+        "en": "Cigar Galaxy"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M3",
+      "title": {
+        "ko": "M3",
+        "en": "Messier 3"
+      },
+      "confidence": "low",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M5",
+      "title": {
+        "ko": "M5",
+        "en": "Messier 5"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M15",
+      "title": {
+        "ko": "M15",
+        "en": "Messier 15"
+      },
+      "confidence": "low",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:NGC869",
+      "title": {
+        "ko": "이중성단(h)",
+        "en": "Double Cluster (h Persei)"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:NGC884",
+      "title": {
+        "ko": "이중성단(χ)",
+        "en": "Double Cluster (χ Persei)"
+      },
+      "confidence": "medium",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    },
+    {
+      "id": "dso:M51",
+      "title": {
+        "ko": "소용돌이은하",
+        "en": "Whirlpool Galaxy"
+      },
+      "confidence": "low",
+      "pack": "G3-content-priority-1",
+      "approved": false
+    }
+  ]
+}

@@ -51,6 +51,8 @@ export interface TargetPhotometry {
   /** 확산 천체 여부(성운·은하·성단). 행성·별은 false */
   extended: boolean;
   kind: 'star' | 'dso' | 'planet' | 'moon' | 'sun' | 'const';
+  /** DSO 분류(은하·구상성단은 중심부가 밝아 카탈로그 크기보다 작게 보인다 → 표면 밝기 보정) */
+  category?: string;
 }
 
 export interface SkyCondition {
@@ -92,6 +94,8 @@ function verdictFromMargin(margin: number): Verdict {
 }
 
 const EXTENDED_BONUS: Record<EquipmentKind, number> = { naked: 0, binoculars: 1.0, telescope: 2.0 };
+/** 은하·구상성단: 카탈로그 장축(D25 등광도)은 실제 보이는 밝은 중심부보다 훨씬 크므로 면적 1/4(= +1.5등급) 보정 */
+const CORE_BONUS_MAG: Record<string, number> = { galaxy: 1.5, globularCluster: 1.5 };
 
 export interface VerdictDetail {
   verdict: Verdict;
@@ -115,9 +119,15 @@ export function equipmentVerdict(
     return { verdict: 'easy', marginMag: 99, limitMag: limit };
   if (target.mag === undefined) return { verdict: 'possible', marginMag: 0, limitMag: limit };
 
+  // 밝고 큰 산개성단(플레이아데스·프레세페·히아데스 등)은 별들의 집합이라 표면 밝기 모델이 "어려움"으로 오판한다 →
+  // 총 등급이 한계등급보다 1등급 이상 밝으면 보임, 2등급 이상이면 잘 보임
+  if (target.category === 'openCluster' && target.mag <= limit - 1) {
+    const margin = limit - target.mag;
+    return { verdict: margin >= 2 ? 'easy' : 'possible', marginMag: margin, limitMag: limit };
+  }
   if (target.extended && target.majArcmin && target.majArcmin > 0.5) {
     const sbArcmin = surfaceBrightnessArcmin2(target.mag, target.majArcmin, target.minArcmin);
-    const sb = sbArcmin + ARCMIN2_TO_ARCSEC2;
+    const sb = sbArcmin + ARCMIN2_TO_ARCSEC2 - (CORE_BONUS_MAG[target.category ?? ''] ?? 0);
     const sky = BORTLE_SKY_SB[cond.bortle] - moonPenaltyMag(cond.moon) * 0.7;
     // 대비: 하늘보다 얼마나 밝은가(양수면 밝음). 소광은 대상 표면 밝기를 어둡게
     const contrast = sky - sb - extinctionPenaltyMag(cond.altDeg) + EXTENDED_BONUS[kind];

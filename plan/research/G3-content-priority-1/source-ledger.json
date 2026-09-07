@@ -1,0 +1,1814 @@
+[
+  {
+    "id": "dso:M45",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Messier 45: The Pleiades — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-45/"
+      },
+      {
+        "label": "별자리",
+        "value": "황소자리 (Tau)",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.2등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "150′ × 150′",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M45",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "443광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M45",
+        "title": "NASA — Messier 45: The Pleiades",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-45/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M45Dust",
+        "title": "NASA APOD — M45: The Pleiades Star Cluster (2016-10-19)",
+        "url": "https://science.nasa.gov/image-article/apod-2016-october-19-m45-the-pleiades-star-cluster/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": ""
+      },
+      {
+        "key": "PleiadesKorea",
+        "title": "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20)",
+        "url": "https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "좀생이별·묘성 명칭 대응에만 사용. 성운이 맨눈으로 보인다는 식으로 장비 한계를 일반화하지 않음."
+      },
+      {
+        "key": "Jom",
+        "title": "한국민족문화대백과사전 — 좀생이보기",
+        "url": "https://encykorea.aks.ac.kr/Article/E0052883",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "[출처 : 좀생이보기 - 한국민족문화대백과사전]. 풍흉 점치기는 문화적 풍속으로 서술하며 과학적 예측법으로 제시하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M45",
+          "M45Dust",
+          "PleiadesKorea",
+          "Jom"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "Jom",
+          "PleiadesKorea",
+          "M45Dust"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": [
+          "Jom",
+          "PleiadesKorea"
+        ]
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M44",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Messier 44: The Beehive Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/"
+      },
+      {
+        "label": "별자리",
+        "value": "게자리 (Cnc)",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.1등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "108.6′",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M44",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "607광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M44",
+        "title": "NASA — Messier 44: The Beehive Cluster",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M44"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M44"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M42",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "별 탄생 성운(젊은 성단 동반)",
+        "source": "NASA — Messier 42: The Orion Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/"
+      },
+      {
+        "label": "별자리",
+        "value": "오리온자리 (Ori)",
+        "source": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "4등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "90′ × 60′",
+        "source": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M42",
+        "source": "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M42",
+        "title": "NASA — Messier 42: The Orion Nebula",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M42"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M42"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 type=Cl+N (openCluster)는 성단과 성운을 함께 담은 표기입니다. 본문은 NASA의 별 탄생 성운 설명을 사용했으며 G5 분류를 openCluster 하나로 자동 결정하지 마세요.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+      "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+    ]
+  },
+  {
+    "id": "dso:M31",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "나선은하",
+        "source": "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+      },
+      {
+        "label": "별자리",
+        "value": "안드로메다자리 (And)",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.44등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "177.83′ × 69.66′",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M31",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M31",
+        "title": "NASA — Messier 31: The Andromeda Galaxy",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M31History",
+        "title": "NASA — Celebrates Edwin Hubble’s Discovery of a New Universe (2025-01-15)",
+        "url": "https://science.nasa.gov/missions/hubble/nasa-celebrates-edwin-hubbles-discovery-of-a-new-universe/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "V1·세페이드·거리 측정의 역사만 사용. 본문의 다른 거리 추정은 현재 카탈로그 대체값으로 적용하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M31",
+          "M31History"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M31History",
+          "M31"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "거리 수치 게시 보류: 첨부 544광년과 NASA 소개의 약 250만 광년이 규모부터 다릅니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M13",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "구상성단",
+        "source": "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/"
+      },
+      {
+        "label": "별자리",
+        "value": "허큘리스자리 (Her)",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "5.8등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "16.5′",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M13",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M13",
+        "title": "NASA — Messier 13: The Hercules Cluster",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M13ESA",
+        "title": "ESA/Hubble — The crowded heart of the Hercules globular cluster",
+        "url": "https://esahubble.org/images/potw1011a/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": ""
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M13",
+          "M13ESA"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M13",
+          "M13ESA"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "거리 수치 게시 보류: 첨부 40118광년과 NASA·ESA 소개의 약 25000광년 사이에 큰 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 title의 헤르쿨레스 표기는 보존했습니다. G2 표준 별자리명 허큘리스자리와의 표시 정책을 T6에서 통일하세요.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "star:HIP95947",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "항성(망원경에서 두 밝은 성분으로 보임)",
+        "source": "NASA APOD — Beautiful Albireo AB (2022-02-24) — https://science.nasa.gov/image-article/apod-2022-february-24-beautiful-albireo-ab/"
+      },
+      {
+        "label": "별자리",
+        "value": "백조자리 (Cyg)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.05등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 표기)",
+        "value": "K3II+...",
+        "source": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "434.3광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "Albireo",
+        "title": "NASA APOD — Beautiful Albireo AB (2022-02-24)",
+        "url": "https://science.nasa.gov/image-article/apod-2022-february-24-beautiful-albireo-ab/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": ""
+      },
+      {
+        "key": "Doubles",
+        "title": "NASA Night Sky Network — Seeing Double (2024-08-01)",
+        "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": ""
+      },
+      {
+        "key": "AlbireoResearch",
+        "title": "Jack 외 (2022) — Yet another star in the Albireo system",
+        "url": "https://www.aanda.org/articles/aa/full_html/2022/05/aa43255-22/aa43255-22.html",
+        "accessedAt": "2026-09-07",
+        "access": "검색 색인 초록 확인; 직접 열기 실패",
+        "notes": "A/B의 중력 결합을 확정하지 않는 근거로만 사용."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "Albireo",
+          "Doubles",
+          "AlbireoResearch"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "AlbireoResearch",
+          "Doubles"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "분광형 K3II+...은 첨부의 축약 문자열을 보존했습니다. 생략 내용을 풀어 쓰거나 두 밝은 성분의 공통 분광형으로 사용하지 마세요.",
+      "첨부 HIP의 거리·등급이 어느 성분 또는 합성광에 대응하는지 확인해야 합니다. 넓은 A/B 쌍의 중력 결합은 확정하지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+    ]
+  },
+  {
+    "id": "star:HIP65474",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "가까운 쌍성계의 밝은 별",
+        "source": "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22) — https://www.cfa.harvard.edu/news/understanding-spica"
+      },
+      {
+        "label": "별자리",
+        "value": "처녀자리 (Vir)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "0.98등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 표기)",
+        "value": "B1V",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "249.7광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "Spica",
+        "title": "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22)",
+        "url": "https://www.cfa.harvard.edu/news/understanding-spica",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": ""
+      },
+      {
+        "key": "SpicaNASA",
+        "title": "NASA — What’s Up: September 2021",
+        "url": "https://science.nasa.gov/resource/whats-up-september-2021/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "스피카가 가까운 쌍성이라는 설명만 사용. 2021년 행성 위치는 현재 관측 안내에 재사용하지 않음."
+      },
+      {
+        "key": "Korean",
+        "title": "Stellarium — korean skyculture index.json",
+        "url": "https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "HIP 65474=좌각 및 각(角) 구성 대응은 이 공개 재구성의 범위에 한정. 구조화 데이터 전체나 도형은 복제하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "Spica",
+          "SpicaNASA",
+          "Korean"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "Spica",
+          "SpicaNASA",
+          "Korean"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": [
+          "Korean"
+        ]
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "좌각 대응은 G2 및 Stellarium korean 공개 재구성에 한정합니다. 시대를 초월한 유일한 한국 고유명으로 일반화하거나 구조화 전통 데이터의 라이선스 검토를 생략하지 마세요.",
+      "첨부 분광형 B1V는 원문 보존값이며 분광 쌍성 전체의 성분별 분류를 뜻한다고 단정하지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+    ]
+  },
+  {
+    "id": "star:HIP677",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "항성",
+        "source": "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/"
+      },
+      {
+        "label": "별자리",
+        "value": "안드로메다자리 (And)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "2.07등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 표기)",
+        "value": "B9p",
+        "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "97광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "AndMap",
+        "title": "IAU Office of Astronomy for Education — Andromeda Constellation Map",
+        "url": "https://astro4edu.org/resources/diagram/6P43LB422a75/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "그림 파일은 재배포하지 않으며 텍스트 캡션의 알페라츠·대사각형 설명을 사용."
+      },
+      {
+        "key": "Const",
+        "title": "IAU — The Constellations",
+        "url": "https://iauarchive.eso.org/public/themes/constellations/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "현대 별자리 경계와 성군의 구분, Ser 표준 약어."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "AndMap",
+          "Const"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "AndMap",
+          "Const"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 spect=B9p를 그대로 보존했습니다. p의 세부 원소 분포나 성분별 분류는 이 입력만으로 풀어 쓰지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+    ]
+  },
+  {
+    "id": "dso:M57",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "행성상성운",
+        "source": "NASA — Messier 57: The Ring Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/"
+      },
+      {
+        "label": "별자리",
+        "value": "거문고자리 (Lyr)",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "8.8등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "1.27′",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M57",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "2567광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M57",
+        "title": "NASA — Messier 57: The Ring Nebula",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M57Webb",
+        "title": "NASA/ESA/CSA — Ring Nebula, NIRCam Image (2023-08-21)",
+        "url": "https://science.nasa.gov/asset/webb/ring-nebula-nircam-image/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "적외선 영상과 육안 외형을 구분. 약 2500광년이라는 다른 자료의 추정도 남김."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M57",
+          "M57Webb"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M57",
+          "M57Webb"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "거리 2567광년은 첨부 값입니다. NASA 허블 소개의 약 2000광년과 웹 소개의 약 2500광년 등 추정이 다르므로 정밀 거리 퀴즈에 쓰지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M27",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "행성상성운",
+        "source": "NASA — Messier 27: The Dumbbell Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/"
+      },
+      {
+        "label": "별자리",
+        "value": "여우자리 (Vul)",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "7.4등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "6.7′",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M27",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "1227광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M27",
+        "title": "NASA — Messier 27: The Dumbbell Nebula",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M27Spitzer",
+        "title": "NASA/JPL-Caltech — Weighing in on the Dumbbell Nebula (2011-08-10)",
+        "url": "https://science.nasa.gov/photojournal/weighing-in-on-the-dumbbell-nebula/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "내용 본문의 M27 설명을 사용; 페이지의 Target 메타데이터에 다른 성운명이 있어 그 필드는 사용하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M27",
+          "M27Spitzer"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M27",
+          "M27Spitzer"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M35",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Messier 35: Messier 35 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/"
+      },
+      {
+        "label": "별자리",
+        "value": "쌍둥이자리 (Gem)",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "5.1등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "24′",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M35",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "2886광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M35",
+        "title": "NASA — Messier 35: Messier 35",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M35"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M35"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M37",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NSF NOIRLab — M37, NGC 2099 — https://noirlab.edu/public/images/noao-m37/"
+      },
+      {
+        "label": "별자리",
+        "value": "마차부자리 (Aur)",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "5.6등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "11.4′",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M37",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "4897광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M37",
+        "title": "NSF NOIRLab — M37, NGC 2099",
+        "url": "https://noirlab.edu/public/images/noao-m37/",
+        "accessedAt": "2026-09-07",
+        "access": "검색 색인 본문 확인; 직접 열기는 접근 확인 페이지",
+        "notes": "마차부자리 산개성단이라는 검색 본문의 확인 범위만 사용. 별 수·지름·나이 수치는 인용하지 않음."
+      },
+      {
+        "key": "M37research",
+        "title": "Werner 외 (2023) — The unusual planetary nebula nucleus in the Galactic open cluster M37",
+        "url": "https://www.aanda.org/articles/aa/full_html/2023/10/aa47217-23/aa47217-23.html",
+        "accessedAt": "2026-09-07",
+        "access": "검색 색인 초록·본문 일부 확인; 직접 열기 실패",
+        "notes": "M37의 백색왜성 및 행성상성운 연구의 존재만 사용. 자세한 수치나 본문 미열람 내용을 추정하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M37",
+          "M37research"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M37",
+          "M37research"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "M37 전문 연구는 검색 색인에 공개된 초록·본문 일부만 확인했습니다. 백색왜성 및 행성상성운 연구의 존재만 요약했고 원문 미열람 수치는 사용하지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M81",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "나선은하",
+        "source": "NASA — Messier 81: Messier 81 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/"
+      },
+      {
+        "label": "별자리",
+        "value": "큰곰자리 (UMa)",
+        "source": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "6.92등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "21.63′ × 11.25′",
+        "source": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M81",
+        "source": "첨부 catalog-values.v1.csv — dso:M81; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M81",
+        "title": "NASA — Messier 81: Messier 81",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M81"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M81"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+      "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+    ]
+  },
+  {
+    "id": "dso:M82",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "별 형성이 활발한 은하",
+        "source": "NASA — Messier 82: The Cigar Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/"
+      },
+      {
+        "label": "별자리",
+        "value": "큰곰자리 (UMa)",
+        "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "8.3등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "10.99′ × 5.11′",
+        "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M82",
+        "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M82",
+        "title": "NASA — Messier 82: The Cigar Galaxy",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M81",
+        "title": "NASA — Messier 81: Messier 81",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M82",
+          "M81"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M82",
+          "M81"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+      "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+    ]
+  },
+  {
+    "id": "dso:M3",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "구상성단",
+        "source": "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/"
+      },
+      {
+        "label": "별자리",
+        "value": "사냥개자리 (CVn)",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "6.39등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "16.2′",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M3",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M3",
+        "title": "NASA — Messier 3: Messier 3",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M3History",
+        "title": "NASA — M3 Globular Cluster",
+        "url": "https://science.nasa.gov/image-detail/m3/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": ""
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M3",
+          "M3History"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M3",
+          "M3History"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "거리 수치 게시 보류: 첨부 133127광년과 NASA 소개의 약 34000광년 사이에 큰 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M5",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "구상성단",
+        "source": "NASA — Messier 5: Messier 5 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/"
+      },
+      {
+        "label": "별자리",
+        "value": "뱀자리 (Ser) — 첨부 코드 Se1의 명시적 표준명 대응",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv; https://iauarchive.eso.org/public/themes/constellations/"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "5.95등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "15′",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M5",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "28636광년",
+        "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M5",
+        "title": "NASA — Messier 5: Messier 5",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "Const",
+        "title": "IAU — The Constellations",
+        "url": "https://iauarchive.eso.org/public/themes/constellations/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "현대 별자리 경계와 성군의 구분, Ser 표준 약어."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M5",
+          "Const"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M5",
+          "Const"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 con=Se1은 뱀자리 머리 영역의 원자료 표기이며 IAU 3글자 코드가 아닙니다. 콘텐츠는 뱀자리(Ser)로 설명하되 원본은 변경하지 않았습니다. 앱 참조 키의 Se1→Ser 정규화 승인이 필요합니다.",
+      "거리 28636광년과 등급 5.95는 원자료 값입니다. NASA 소개의 약 25000광년·6.7등급과 다르므로 측정 대역·목록 판본을 확인하고 숫자 비교 퀴즈에서 제외하세요.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M15",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "구상성단",
+        "source": "NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/"
+      },
+      {
+        "label": "별자리",
+        "value": "페가수스자리 (Peg)",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "6.3등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "11.1′",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M15",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M15",
+        "title": "NASA — Messier 15: Messier 15",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M15Old",
+        "title": "NASA/ESA — Globular Cluster M15 (2002-09-17)",
+        "url": "https://science.nasa.gov/asset/hubble/globular-cluster-m15/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "32600광년이라는 과거 자료와 현재 소개의 35000광년을 구분. 하나를 최신 정밀값으로 확정하지 않음."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M15",
+          "M15Old"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M15",
+          "M15Old"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "거리 수치 게시 보류: 첨부 62483광년은 NASA의 약 35000광년 및 과거 약 32600광년 소개와 크게 다릅니다. 외부 자료끼리도 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:NGC869",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/"
+      },
+      {
+        "label": "별자리",
+        "value": "페르세우스자리 (Per)",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.7등급",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "14.4′",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "NGC869",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "8274광년",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "C14",
+        "title": "NASA — Caldwell 14: The Double Cluster",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "NGC869와 NGC884의 두 ID를 분리. 페이지 머리말의 복수 별자리 표현을 소속 코드로 사용하지 않음."
+      },
+      {
+        "key": "Per",
+        "title": "NSF NOIRLab — Perseus",
+        "url": "https://noirlab.edu/public/education/constellations/perseus/",
+        "accessedAt": "2026-09-07",
+        "access": "검색 색인 본문 확인; 직접 열기는 접근 확인 페이지",
+        "notes": "두 성단을 묶는 명칭과 어두운 하늘의 관측 설명만 사용."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "C14",
+          "Per"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "C14",
+          "Per"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 거리 8274광년과 등급 3.7은 NGC869 행의 값입니다. NASA C14의 집단 소개값을 개별 성단의 검증값으로 대입하지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:NGC884",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "산개성단",
+        "source": "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/"
+      },
+      {
+        "label": "별자리",
+        "value": "페르세우스자리 (Per)",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "3.8등급",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "10.5′",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "NGC884",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리(첨부 목록 기준)",
+        "value": "8203광년",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "C14",
+        "title": "NASA — Caldwell 14: The Double Cluster",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "NGC869와 NGC884의 두 ID를 분리. 페이지 머리말의 복수 별자리 표현을 소속 코드로 사용하지 않음."
+      },
+      {
+        "key": "Per",
+        "title": "NSF NOIRLab — Perseus",
+        "url": "https://noirlab.edu/public/education/constellations/perseus/",
+        "accessedAt": "2026-09-07",
+        "access": "검색 색인 본문 확인; 직접 열기는 접근 확인 페이지",
+        "notes": "두 성단을 묶는 명칭과 어두운 하늘의 관측 설명만 사용."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "C14",
+          "Per"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "C14",
+          "Per"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 거리 8203광년과 등급 3.8은 NGC884 행의 값입니다. 두 성단의 거리 차이를 원본 수치의 단순 뺄셈으로 확정하거나 정밀 비교 퀴즈에 쓰지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  {
+    "id": "dso:M51",
+    "rawNumericalSource": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행",
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "나선은하(동반 은하와 상호작용)",
+        "source": "NASA — Messier 51: The Whirlpool Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/"
+      },
+      {
+        "label": "별자리",
+        "value": "사냥개자리 (CVn)",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "8.36등급",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "각크기(첨부 목록 기준)",
+        "value": "13.71′ × 11.67′",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "M51",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "거리",
+        "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+        "source": "첨부 catalog-values.v1.csv — dso:M51; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 51: The Whirlpool Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/"
+      }
+    ],
+    "narrativeSources": [
+      {
+        "key": "M51",
+        "title": "NASA — Messier 51: The Whirlpool Galaxy",
+        "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+      },
+      {
+        "key": "M51Alt",
+        "title": "NASA Scientific Visualization Studio — A Flyby of the Whirlpool Galaxy",
+        "url": "https://svs.gsfc.nasa.gov/31024/",
+        "accessedAt": "2026-09-07",
+        "access": "본문 확인",
+        "notes": "약 2500만 광년이라는 소개값. NASA 카탈로그의 3100만 광년과 차이를 수정 제안에 명시."
+      }
+    ],
+    "claimFamilies": {
+      "classificationAndPhysicalDescription": {
+        "basis": "external-primary-sources",
+        "sourceKeys": [
+          "M51",
+          "M51Alt"
+        ]
+      },
+      "story": {
+        "basis": "cited-history-or-research-plus-editorial-observation-interpretation",
+        "sourceKeys": [
+          "M51",
+          "M51Alt"
+        ]
+      },
+      "traditionalName": {
+        "basis": "specific-named-cultural-sources-only",
+        "sourceKeys": []
+      },
+      "howToFind": {
+        "basis": "attached-RA-Dec-and-source-charts-plus-editorial-route",
+        "caution": "중간 기준별의 일부는 문장에만 있으며 경로 전체를 실기기로 시험하지 않음."
+      },
+      "observingAndMonths": {
+        "basis": "conservative-editorial-proposal-based-on-object-properties-and-sky-conditions",
+        "sourceKeys": [
+          "Sky",
+          "Dark"
+        ],
+        "measuredOnEquipment": false
+      }
+    },
+    "review": [
+      "거리 수치 게시 보류: 첨부 418광년은 NASA의 약 3100만/2500만 광년 소개와 규모부터 다릅니다. 외부 자료 중 하나를 최신 정밀값으로 확정하지 않았습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "M51은 문헌에서 주 은하 또는 동반 은하를 포함한 계를 가리키기도 합니다. 첨부 크기·등급의 적분 범위를 확인하고 NGC5195를 임의의 새 콘텐츠 ID로 추가하지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+]

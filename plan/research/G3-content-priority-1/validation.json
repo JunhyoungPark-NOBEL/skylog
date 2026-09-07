@@ -1,0 +1,329 @@
+{
+  "package": "G3-content-priority-1",
+  "generatedAt": "2026-09-07",
+  "validationScope": "본 패키지의 형식·원값 보존 정책·ID 참조·5개 각거리 일관성만 검증",
+  "mode": "draft",
+  "checkCount": 43,
+  "passedCount": 43,
+  "failedCount": 0,
+  "checks": [
+    {
+      "name": "schema-exact-keys-types-enums-and-lengths",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "new-array-count-20",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "new-ids-unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no-overlap-with-original-batch-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-new-ids-in-original-targets",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "new-category-counts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "input-targets-121-unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "catalog-121-unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "targets-and-catalog-id-sets-match",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-selected-raw-cells-preserved",
+      "passed": true,
+      "detail": {
+        "rows": 20,
+        "columns": 12,
+        "cells": 240
+      }
+    },
+    {
+      "name": "all-input-sha256-match-manifest",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "nonempty-input-titles-preserved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "magnitudes-preserved-not-labelled-verified-V",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "nonquarantined-distance-strings-preserved",
+      "passed": true,
+      "detail": {
+        "count": 12
+      }
+    },
+    {
+      "name": "blank-distances-not-filled",
+      "passed": true,
+      "detail": {
+        "count": 3
+      }
+    },
+    {
+      "name": "five-distance-quarantines-explicit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bad-distance-not-taught-as-fact",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "distance-candidates-not-auto-applied",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "star-spectral-strings-preserved",
+      "passed": true,
+      "detail": {
+        "count": 3
+      }
+    },
+    {
+      "name": "dso-angular-size-numbers-preserved",
+      "passed": true,
+      "detail": {
+        "count": 17
+      }
+    },
+    {
+      "name": "M42-composite-type-not-silently-overwritten",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "M5-Se1-normalization-explicit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "every-fact-has-source",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-story-sources-in-object-sources",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-tradition-sources-in-object-sources",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-content-external-urls-in-registry",
+      "passed": true,
+      "detail": {
+        "unregistered": []
+      }
+    },
+    {
+      "name": "source-registry-has-access-limitations",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-hop-ids-in-catalog",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no-self-hop-or-duplicate-hop",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-three-equipment-guides-present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-objects-have-review-flags",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "raw-low-objects-are-listed-in-review",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cumulative-array-keeps-previous-items-exact",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cumulative-40-unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "remaining-81-exact-priority-order",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "remaining-csv-json-equivalent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "draft-index-cannot-claim-published",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "single-codeblock-json-equals-json-artifact",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all-content-strings-NFC-normalized",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no-internal-citation-tokens-or-placeholders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "five-stated-hop-angle-and-direction-checks",
+      "passed": true,
+      "detail": [
+        {
+          "from": "star:HIP21421",
+          "to": "dso:M45",
+          "calculatedSeparationDeg": 13.652223,
+          "proseApproximationDeg": 14,
+          "positionAngleNorth0East90Deg": 305.768205,
+          "passed": true
+        },
+        {
+          "from": "star:HIP69673",
+          "to": "dso:M3",
+          "calculatedSeparationDeg": 11.955914,
+          "proseApproximationDeg": 12,
+          "positionAngleNorth0East90Deg": 321.818822,
+          "passed": true
+        },
+        {
+          "from": "star:HIP67301",
+          "to": "dso:M51",
+          "calculatedSeparationDeg": 3.622619,
+          "proseApproximationDeg": 3.6,
+          "positionAngleNorth0East90Deg": 235.893142,
+          "passed": true
+        },
+        {
+          "from": "dso:M81",
+          "to": "dso:M82",
+          "calculatedSeparationDeg": 0.614751,
+          "proseApproximationDeg": 0.6,
+          "positionAngleNorth0East90Deg": 2.638845,
+          "passed": true
+        },
+        {
+          "from": "dso:NGC869",
+          "to": "dso:NGC884",
+          "calculatedSeparationDeg": 0.483632,
+          "proseApproximationDeg": 0.5,
+          "positionAngleNorth0East90Deg": 86.442695,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "quarantine-counts-match-manifest",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "confidence-summary-5-low-15-medium",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "contentCounts": {
+    "new": 20,
+    "previous": 20,
+    "cumulative": 40,
+    "remaining": 81
+  },
+  "lengthsUnicodeCodePoints": {
+    "oneLiner": {
+      "min": 24,
+      "max": 29
+    },
+    "summary": {
+      "min": 263,
+      "max": 285
+    },
+    "story": {
+      "min": 344,
+      "max": 377
+    }
+  },
+  "factsPerObject": {
+    "min": 5,
+    "max": 6
+  },
+  "rawPreservation": {
+    "rows": 20,
+    "columns": 12,
+    "cells": 240,
+    "magnitudesDisplayedWithBandWarning": 20,
+    "distancesDisplayedUnchanged": 12,
+    "distancesQuarantined": 5,
+    "blankDistancesKeptBlank": 3,
+    "spectralStringsUnchanged": 3,
+    "angularSizesUnitFormattedOnly": 17
+  },
+  "release": {
+    "status": "blocked-pending-human-review",
+    "approvedItems": 0,
+    "automatedStructuralPassIsPublicationApproval": false,
+    "blockers": [
+      "거리 충돌 5개 항목의 T0b 원천 재검증",
+      "전체 mag 측광 대역·판본 확인 및 숫자 학습 정책 승인",
+      "M42 앱 종류 매핑 및 M5 Se1→Ser 키 정규화 승인",
+      "부분 열람 연구 및 전통 명칭 대응의 편집 검토",
+      "T6 실제 검증·콘텐츠 인덱스 게시 미수행",
+      "장비 관측 안내·달별 가시성의 현장/천체력 검증 미수행"
+    ]
+  }
+}

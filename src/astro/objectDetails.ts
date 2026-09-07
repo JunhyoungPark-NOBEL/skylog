@@ -243,6 +243,7 @@ export function computeObjectDetails(
       minArcmin: t.minArcmin,
       extended: t.extended,
       kind: t.kind,
+      category: t.category,
     },
     {
       bortle,

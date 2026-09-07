@@ -1,0 +1,44 @@
+{
+  "package": "G3-content-priority-1",
+  "generatedAt": "2026-09-07",
+  "status": "draft-reviewed-structure-not-published",
+  "contentFile": "G3-content-priority-1.json",
+  "selectionMode": "G5 prerequisite priority expansion; original batch 2 not renumbered",
+  "inputTargetCount": 121,
+  "previousCount": 20,
+  "newCount": 20,
+  "newCountsByIdCategory": {
+    "dso": 17,
+    "star": 3
+  },
+  "cumulativeUniqueCount": 40,
+  "remainingCount": 81,
+  "distanceQuarantineIds": [
+    "dso:M31",
+    "dso:M13",
+    "dso:M3",
+    "dso:M15",
+    "dso:M51"
+  ],
+  "originalBatch1Unmodified": true,
+  "rawInputMutation": false,
+  "inputSha256": {
+    "G3-content-batch-1.json": "8ad8a43f7374dcbc42a8d527885bd9b1d3685cd925e8768f9521b23eaff9077c",
+    "catalog-values.v1.csv": "a372c581814827928319f10a63c361071b0c3af37831abd964855e44a80d74f6",
+    "constellations_ko.csv": "84e506ebdce9568510f57ccd29da22114916d29a4040b8e7f7a27fcd17f062a3",
+    "content-targets.v1.csv": "f3e38b67118a826a6df0f63c86159ce5f127da835b37188bdd899d7b32e2db53"
+  },
+  "schemaCompatibility": {
+    "generatedByLiteral": "gpt-5-pro",
+    "meaning": "original requested schema compatibility value; not proof of actual model identity"
+  },
+  "externalResearchDate": "2026-09-07",
+  "notPerformed": [
+    "실기기·접안 관측",
+    "실제 T6 저장소 검증",
+    "content/v1/index.json 게시",
+    "앱 병합·커밋",
+    "전천 밝은별 근접 skyPick 검사",
+    "남은 카탈로그 전수 수치 교차매칭"
+  ]
+}

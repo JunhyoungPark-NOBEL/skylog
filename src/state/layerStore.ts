@@ -31,6 +31,10 @@ export interface LayerValues {
   /** 맨눈 한계등급(기본 6.5, T3의 "실제 하늘처럼" 모드가 갱신) */
   limitingMag: number;
   showViewInfo: boolean;
+  /** "실제 하늘처럼": Bortle·달빛만큼 별을 줄인다(T3b) */
+  realSky: boolean;
+  /** 하늘 밝기 Bortle 1..9, 0이면 관측지 설정(없으면 7) 따름 */
+  bortle: number;
 }
 
 export interface LayerState extends LayerValues {
@@ -66,6 +70,8 @@ export const DEFAULT_LAYERS: LayerValues = {
   magnifyBodies: false,
   limitingMag: 6.5,
   showViewInfo: true,
+  realSky: false,
+  bortle: 0,
 };
 
 export const LAYERS_PERSIST_NAME = 'layers';

@@ -1,0 +1,76 @@
+{
+  "status": "limited-coordinate-consistency-check",
+  "source": "inputs/catalog-values.v1.csv: original RA/Dec",
+  "angleConvention": "position angle: celestial north=0, east=90; not screen direction",
+  "checks": [
+    {
+      "from": "star:HIP21421",
+      "to": "dso:M45",
+      "calculatedSeparationDeg": 13.652223,
+      "proseApproximationDeg": 14,
+      "positionAngleNorth0East90Deg": 305.768205,
+      "passed": true
+    },
+    {
+      "from": "star:HIP69673",
+      "to": "dso:M3",
+      "calculatedSeparationDeg": 11.955914,
+      "proseApproximationDeg": 12,
+      "positionAngleNorth0East90Deg": 321.818822,
+      "passed": true
+    },
+    {
+      "from": "star:HIP67301",
+      "to": "dso:M51",
+      "calculatedSeparationDeg": 3.622619,
+      "proseApproximationDeg": 3.6,
+      "positionAngleNorth0East90Deg": 235.893142,
+      "passed": true
+    },
+    {
+      "from": "dso:M81",
+      "to": "dso:M82",
+      "calculatedSeparationDeg": 0.614751,
+      "proseApproximationDeg": 0.6,
+      "positionAngleNorth0East90Deg": 2.638845,
+      "passed": true
+    },
+    {
+      "from": "dso:NGC869",
+      "to": "dso:NGC884",
+      "calculatedSeparationDeg": 0.483632,
+      "proseApproximationDeg": 0.5,
+      "positionAngleNorth0East90Deg": 86.442695,
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "5개 명시 각거리만 수치 검사. 전체 중간별 경로의 현장 검증은 아님.",
+    "첨부 RA/Dec의 epoch·세차·고유운동은 확인·보정하지 않음.",
+    "bestMonths는 한국 중위도 저녁의 편집 제안이며 날짜별 고도·박명·달빛·날씨를 계산한 결과가 아님.",
+    "hopFrom의 카탈로그 존재와 설명 콘텐츠 게시 여부는 별개."
+  ],
+  "hopFromCatalogValidButNoDraftContent": [
+    "const:And",
+    "const:Aur",
+    "const:Boo",
+    "const:Cas",
+    "const:Cnc",
+    "const:Cyg",
+    "const:Gem",
+    "const:Her",
+    "const:Lyr",
+    "const:Ori",
+    "const:Peg",
+    "const:Per",
+    "const:Tau",
+    "const:UMa",
+    "star:HIP25930",
+    "star:HIP26727",
+    "star:HIP36850",
+    "star:HIP37826",
+    "star:HIP49669",
+    "star:HIP54061",
+    "star:HIP67301"
+  ]
+}

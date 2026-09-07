@@ -1,0 +1,696 @@
+[
+  {
+    "id": "dso:M45",
+    "raw": {
+      "id": "dso:M45",
+      "priority": "1",
+      "name_en": "Pleiades",
+      "name_ko": "플레이아데스성단",
+      "ra_deg": "56.86917",
+      "dec_deg": "24.10528",
+      "mag": "1.2",
+      "dist_ly": "443",
+      "spect": "",
+      "size_arcmin": "150x150",
+      "con": "Tau",
+      "type": "OCl (openCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "산개성단",
+      "별자리": "황소자리 (Tau)",
+      "겉보기등급(첨부·대역 미확인)": "1.2등급",
+      "각크기(첨부 목록 기준)": "150′ × 150′",
+      "목록 식별자": "M45",
+      "거리(첨부 목록 기준)": "443광년"
+    }
+  },
+  {
+    "id": "dso:M44",
+    "raw": {
+      "id": "dso:M44",
+      "priority": "1",
+      "name_en": "Beehive Cluster",
+      "name_ko": "프레세페성단",
+      "ra_deg": "130.0925",
+      "dec_deg": "19.67206",
+      "mag": "3.1",
+      "dist_ly": "607",
+      "spect": "",
+      "size_arcmin": "108.6",
+      "con": "Cnc",
+      "type": "OCl (openCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "산개성단",
+      "별자리": "게자리 (Cnc)",
+      "겉보기등급(첨부·대역 미확인)": "3.1등급",
+      "각크기(첨부 목록 기준)": "108.6′",
+      "목록 식별자": "M44",
+      "거리(첨부 목록 기준)": "607광년"
+    }
+  },
+  {
+    "id": "dso:M42",
+    "raw": {
+      "id": "dso:M42",
+      "priority": "1",
+      "name_en": "Orion Nebula",
+      "name_ko": "오리온대성운",
+      "ra_deg": "83.81867",
+      "dec_deg": "-5.38967",
+      "mag": "4",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "90x60",
+      "con": "Ori",
+      "type": "Cl+N (openCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "blank-preserved-omitted-from-facts"
+    },
+    "contentFactValues": {
+      "종류": "별 탄생 성운(젊은 성단 동반)",
+      "별자리": "오리온자리 (Ori)",
+      "겉보기등급(첨부·대역 미확인)": "4등급",
+      "각크기(첨부 목록 기준)": "90′ × 60′",
+      "목록 식별자": "M42"
+    }
+  },
+  {
+    "id": "dso:M31",
+    "raw": {
+      "id": "dso:M31",
+      "priority": "1",
+      "name_en": "Andromeda Galaxy",
+      "name_ko": "안드로메다은하",
+      "ra_deg": "10.68479",
+      "dec_deg": "41.26906",
+      "mag": "3.44",
+      "dist_ly": "544",
+      "spect": "",
+      "size_arcmin": "177.83x69.66",
+      "con": "And",
+      "type": "G (galaxy)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "quarantined-raw-kept-no-numeric-fact"
+    },
+    "contentFactValues": {
+      "종류": "나선은하",
+      "별자리": "안드로메다자리 (And)",
+      "겉보기등급(첨부·대역 미확인)": "3.44등급",
+      "각크기(첨부 목록 기준)": "177.83′ × 69.66′",
+      "목록 식별자": "M31",
+      "거리": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다."
+    }
+  },
+  {
+    "id": "dso:M13",
+    "raw": {
+      "id": "dso:M13",
+      "priority": "1",
+      "name_en": "Hercules Globular Cluster",
+      "name_ko": "헤르쿨레스 대성단",
+      "ra_deg": "250.42346",
+      "dec_deg": "36.46131",
+      "mag": "5.8",
+      "dist_ly": "40118",
+      "spect": "",
+      "size_arcmin": "16.5",
+      "con": "Her",
+      "type": "GCl (globularCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "quarantined-raw-kept-no-numeric-fact"
+    },
+    "contentFactValues": {
+      "종류": "구상성단",
+      "별자리": "허큘리스자리 (Her)",
+      "겉보기등급(첨부·대역 미확인)": "5.8등급",
+      "각크기(첨부 목록 기준)": "16.5′",
+      "목록 식별자": "M13",
+      "거리": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다."
+    }
+  },
+  {
+    "id": "star:HIP95947",
+    "raw": {
+      "id": "star:HIP95947",
+      "priority": "1",
+      "name_en": "Albireo",
+      "name_ko": "알비레오",
+      "ra_deg": "292.68035",
+      "dec_deg": "27.95968",
+      "mag": "3.05",
+      "dist_ly": "434.3",
+      "spect": "K3II+...",
+      "size_arcmin": "",
+      "con": "Cyg",
+      "type": "star"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "preserved-exact-string",
+      "size_arcmin": "not-applicable",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "항성(망원경에서 두 밝은 성분으로 보임)",
+      "별자리": "백조자리 (Cyg)",
+      "겉보기등급(첨부·대역 미확인)": "3.05등급",
+      "분광형(첨부 표기)": "K3II+...",
+      "거리(첨부 목록 기준)": "434.3광년"
+    }
+  },
+  {
+    "id": "star:HIP65474",
+    "raw": {
+      "id": "star:HIP65474",
+      "priority": "2",
+      "name_en": "Spica",
+      "name_ko": "스피카",
+      "ra_deg": "201.29825",
+      "dec_deg": "-11.16132",
+      "mag": "0.98",
+      "dist_ly": "249.7",
+      "spect": "B1V",
+      "size_arcmin": "",
+      "con": "Vir",
+      "type": "star"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "preserved-exact-string",
+      "size_arcmin": "not-applicable",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "가까운 쌍성계의 밝은 별",
+      "별자리": "처녀자리 (Vir)",
+      "겉보기등급(첨부·대역 미확인)": "0.98등급",
+      "분광형(첨부 표기)": "B1V",
+      "거리(첨부 목록 기준)": "249.7광년"
+    }
+  },
+  {
+    "id": "star:HIP677",
+    "raw": {
+      "id": "star:HIP677",
+      "priority": "2",
+      "name_en": "Alpheratz",
+      "name_ko": "알페라츠",
+      "ra_deg": "2.09687",
+      "dec_deg": "29.09043",
+      "mag": "2.07",
+      "dist_ly": "97",
+      "spect": "B9p",
+      "size_arcmin": "",
+      "con": "And",
+      "type": "star"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "preserved-exact-string",
+      "size_arcmin": "not-applicable",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "항성",
+      "별자리": "안드로메다자리 (And)",
+      "겉보기등급(첨부·대역 미확인)": "2.07등급",
+      "분광형(첨부 표기)": "B9p",
+      "거리(첨부 목록 기준)": "97광년"
+    }
+  },
+  {
+    "id": "dso:M57",
+    "raw": {
+      "id": "dso:M57",
+      "priority": "1",
+      "name_en": "Ring Nebula",
+      "name_ko": "고리성운",
+      "ra_deg": "283.39588",
+      "dec_deg": "33.02858",
+      "mag": "8.8",
+      "dist_ly": "2567",
+      "spect": "",
+      "size_arcmin": "1.27",
+      "con": "Lyr",
+      "type": "PN (planetaryNebula)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "행성상성운",
+      "별자리": "거문고자리 (Lyr)",
+      "겉보기등급(첨부·대역 미확인)": "8.8등급",
+      "각크기(첨부 목록 기준)": "1.27′",
+      "목록 식별자": "M57",
+      "거리(첨부 목록 기준)": "2567광년"
+    }
+  },
+  {
+    "id": "dso:M27",
+    "raw": {
+      "id": "dso:M27",
+      "priority": "1",
+      "name_en": "Dumbbell Nebula",
+      "name_ko": "아령성운",
+      "ra_deg": "299.90158",
+      "dec_deg": "22.72103",
+      "mag": "7.4",
+      "dist_ly": "1227",
+      "spect": "",
+      "size_arcmin": "6.7",
+      "con": "Vul",
+      "type": "PN (planetaryNebula)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "행성상성운",
+      "별자리": "여우자리 (Vul)",
+      "겉보기등급(첨부·대역 미확인)": "7.4등급",
+      "각크기(첨부 목록 기준)": "6.7′",
+      "목록 식별자": "M27",
+      "거리(첨부 목록 기준)": "1227광년"
+    }
+  },
+  {
+    "id": "dso:M35",
+    "raw": {
+      "id": "dso:M35",
+      "priority": "2",
+      "name_en": "",
+      "name_ko": "M35",
+      "ra_deg": "92.27108",
+      "dec_deg": "24.33864",
+      "mag": "5.1",
+      "dist_ly": "2886",
+      "spect": "",
+      "size_arcmin": "24",
+      "con": "Gem",
+      "type": "OCl (openCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "산개성단",
+      "별자리": "쌍둥이자리 (Gem)",
+      "겉보기등급(첨부·대역 미확인)": "5.1등급",
+      "각크기(첨부 목록 기준)": "24′",
+      "목록 식별자": "M35",
+      "거리(첨부 목록 기준)": "2886광년"
+    }
+  },
+  {
+    "id": "dso:M37",
+    "raw": {
+      "id": "dso:M37",
+      "priority": "2",
+      "name_en": "",
+      "name_ko": "M37",
+      "ra_deg": "88.07646",
+      "dec_deg": "32.553",
+      "mag": "5.6",
+      "dist_ly": "4897",
+      "spect": "",
+      "size_arcmin": "11.4",
+      "con": "Aur",
+      "type": "OCl (openCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "산개성단",
+      "별자리": "마차부자리 (Aur)",
+      "겉보기등급(첨부·대역 미확인)": "5.6등급",
+      "각크기(첨부 목록 기준)": "11.4′",
+      "목록 식별자": "M37",
+      "거리(첨부 목록 기준)": "4897광년"
+    }
+  },
+  {
+    "id": "dso:M81",
+    "raw": {
+      "id": "dso:M81",
+      "priority": "2",
+      "name_en": "Bode's Galaxy",
+      "name_ko": "보데은하",
+      "ra_deg": "148.88821",
+      "dec_deg": "69.06531",
+      "mag": "6.92",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "21.63x11.25",
+      "con": "UMa",
+      "type": "G (galaxy)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "blank-preserved-omitted-from-facts"
+    },
+    "contentFactValues": {
+      "종류": "나선은하",
+      "별자리": "큰곰자리 (UMa)",
+      "겉보기등급(첨부·대역 미확인)": "6.92등급",
+      "각크기(첨부 목록 기준)": "21.63′ × 11.25′",
+      "목록 식별자": "M81"
+    }
+  },
+  {
+    "id": "dso:M82",
+    "raw": {
+      "id": "dso:M82",
+      "priority": "2",
+      "name_en": "Cigar Galaxy",
+      "name_ko": "시가은하",
+      "ra_deg": "148.96971",
+      "dec_deg": "69.67939",
+      "mag": "8.3",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "10.99x5.11",
+      "con": "UMa",
+      "type": "G (galaxy)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "blank-preserved-omitted-from-facts"
+    },
+    "contentFactValues": {
+      "종류": "별 형성이 활발한 은하",
+      "별자리": "큰곰자리 (UMa)",
+      "겉보기등급(첨부·대역 미확인)": "8.3등급",
+      "각크기(첨부 목록 기준)": "10.99′ × 5.11′",
+      "목록 식별자": "M82"
+    }
+  },
+  {
+    "id": "dso:M3",
+    "raw": {
+      "id": "dso:M3",
+      "priority": "2",
+      "name_en": "",
+      "name_ko": "M3",
+      "ra_deg": "205.54679",
+      "dec_deg": "28.37544",
+      "mag": "6.39",
+      "dist_ly": "133127",
+      "spect": "",
+      "size_arcmin": "16.2",
+      "con": "CVn",
+      "type": "GCl (globularCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "quarantined-raw-kept-no-numeric-fact"
+    },
+    "contentFactValues": {
+      "종류": "구상성단",
+      "별자리": "사냥개자리 (CVn)",
+      "겉보기등급(첨부·대역 미확인)": "6.39등급",
+      "각크기(첨부 목록 기준)": "16.2′",
+      "목록 식별자": "M3",
+      "거리": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다."
+    }
+  },
+  {
+    "id": "dso:M5",
+    "raw": {
+      "id": "dso:M5",
+      "priority": "2",
+      "name_en": "",
+      "name_ko": "M5",
+      "ra_deg": "229.64063",
+      "dec_deg": "2.08269",
+      "mag": "5.95",
+      "dist_ly": "28636",
+      "spect": "",
+      "size_arcmin": "15",
+      "con": "Se1",
+      "type": "GCl (globularCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "explicit-Se1-to-Ser-display-only",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "구상성단",
+      "별자리": "뱀자리 (Ser) — 첨부 코드 Se1의 명시적 표준명 대응",
+      "겉보기등급(첨부·대역 미확인)": "5.95등급",
+      "각크기(첨부 목록 기준)": "15′",
+      "목록 식별자": "M5",
+      "거리(첨부 목록 기준)": "28636광년"
+    }
+  },
+  {
+    "id": "dso:M15",
+    "raw": {
+      "id": "dso:M15",
+      "priority": "2",
+      "name_en": "",
+      "name_ko": "M15",
+      "ra_deg": "322.49325",
+      "dec_deg": "12.16683",
+      "mag": "6.3",
+      "dist_ly": "62483",
+      "spect": "",
+      "size_arcmin": "11.1",
+      "con": "Peg",
+      "type": "GCl (globularCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "quarantined-raw-kept-no-numeric-fact"
+    },
+    "contentFactValues": {
+      "종류": "구상성단",
+      "별자리": "페가수스자리 (Peg)",
+      "겉보기등급(첨부·대역 미확인)": "6.3등급",
+      "각크기(첨부 목록 기준)": "11.1′",
+      "목록 식별자": "M15",
+      "거리": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다."
+    }
+  },
+  {
+    "id": "dso:NGC869",
+    "raw": {
+      "id": "dso:NGC869",
+      "priority": "1",
+      "name_en": "Double Cluster (h Persei)",
+      "name_ko": "이중성단(h)",
+      "ra_deg": "34.744",
+      "dec_deg": "57.11725",
+      "mag": "3.7",
+      "dist_ly": "8274",
+      "spect": "",
+      "size_arcmin": "14.4",
+      "con": "Per",
+      "type": "OCl (openCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "산개성단",
+      "별자리": "페르세우스자리 (Per)",
+      "겉보기등급(첨부·대역 미확인)": "3.7등급",
+      "각크기(첨부 목록 기준)": "14.4′",
+      "목록 식별자": "NGC869",
+      "거리(첨부 목록 기준)": "8274광년"
+    }
+  },
+  {
+    "id": "dso:NGC884",
+    "raw": {
+      "id": "dso:NGC884",
+      "priority": "2",
+      "name_en": "Double Cluster (χ Persei)",
+      "name_ko": "이중성단(χ)",
+      "ra_deg": "35.63375",
+      "dec_deg": "57.14411",
+      "mag": "3.8",
+      "dist_ly": "8203",
+      "spect": "",
+      "size_arcmin": "10.5",
+      "con": "Per",
+      "type": "OCl (openCluster)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "preserved-not-independently-certified"
+    },
+    "contentFactValues": {
+      "종류": "산개성단",
+      "별자리": "페르세우스자리 (Per)",
+      "겉보기등급(첨부·대역 미확인)": "3.8등급",
+      "각크기(첨부 목록 기준)": "10.5′",
+      "목록 식별자": "NGC884",
+      "거리(첨부 목록 기준)": "8203광년"
+    }
+  },
+  {
+    "id": "dso:M51",
+    "raw": {
+      "id": "dso:M51",
+      "priority": "2",
+      "name_en": "Whirlpool Galaxy",
+      "name_ko": "소용돌이은하",
+      "ra_deg": "202.46962",
+      "dec_deg": "47.19517",
+      "mag": "8.36",
+      "dist_ly": "418",
+      "spect": "",
+      "size_arcmin": "13.71x11.67",
+      "con": "CVn",
+      "type": "G (galaxy)"
+    },
+    "fieldPolicies": {
+      "ra_deg": "preserved-in-raw-only",
+      "dec_deg": "preserved-in-raw-and-geometry",
+      "mag": "preserved-not-verified-V",
+      "con": "raw-code-with-G2-name",
+      "type": "external-explanation-raw-kept",
+      "spect": "not-applicable",
+      "size_arcmin": "numbers-preserved-unit-format-only",
+      "dist_ly": "quarantined-raw-kept-no-numeric-fact"
+    },
+    "contentFactValues": {
+      "종류": "나선은하(동반 은하와 상호작용)",
+      "별자리": "사냥개자리 (CVn)",
+      "겉보기등급(첨부·대역 미확인)": "8.36등급",
+      "각크기(첨부 목록 기준)": "13.71′ × 11.67′",
+      "목록 식별자": "M51",
+      "거리": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다."
+    }
+  }
+]

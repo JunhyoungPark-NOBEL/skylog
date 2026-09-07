@@ -6,6 +6,7 @@ import { ArToggle } from '@/features/sky/ArToggle';
 import { CalibrationWizard } from '@/features/sky/CalibrationWizard';
 import { LayerPanel } from '@/features/sky/LayerPanel';
 import { SensorSimPanel } from '@/features/sky/SensorSimPanel';
+import { RealSkyToggle } from '@/features/sky/RealSkyToggle';
 import { sensorManager } from '@/sensors/orientation/manager';
 import { useSensorStore } from '@/state/sensorStore';
 import { SelectionTooltip } from '@/features/sky/SelectionTooltip';
@@ -226,6 +227,10 @@ export function SkyView() {
       {layersOpen && <LayerPanel onClose={() => setLayersOpen(false)} />}
 
       <TargetGuide />
+
+      <div className="absolute bottom-24 right-2 z-10">
+        <RealSkyToggle />
+      </div>
 
       {shownInfo && (
         <SelectionTooltip

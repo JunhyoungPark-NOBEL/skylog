@@ -1,0 +1,310 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G3 content v1 — batch array",
+  "type": "array",
+  "minItems": 20,
+  "maxItems": 20,
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^(?:sun|moon|planet:[a-z]+|star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|const:[A-Z][a-zA-Z]{2})$"
+      },
+      "version": {
+        "const": 1
+      },
+      "title": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1
+          },
+          "en": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alt": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "ko",
+          "en"
+        ],
+        "additionalProperties": false
+      },
+      "oneLiner": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "summary": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 200,
+            "maxLength": 400
+          },
+          "en": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "facts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "value": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "label",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 5,
+        "maxItems": 8
+      },
+      "story": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 300,
+            "maxLength": 600
+          },
+          "cultures": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "그리스·로마",
+                "동아시아",
+                "한국",
+                "아랍",
+                "이집트",
+                "기타"
+              ]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "ko",
+          "cultures",
+          "sources"
+        ],
+        "additionalProperties": false
+      },
+      "koreanTradition": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "asterism": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "note",
+          "sources"
+        ],
+        "additionalProperties": false
+      },
+      "howToFind": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1
+          },
+          "season": {
+            "enum": [
+              "spring",
+              "summer",
+              "autumn",
+              "winter",
+              "any"
+            ]
+          },
+          "hopFrom": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(?:sun|moon|planet:[a-z]+|star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|const:[A-Z][a-zA-Z]{2})$"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "observing": {
+        "type": "object",
+        "properties": {
+          "nakedEye": {
+            "type": "string",
+            "minLength": 1
+          },
+          "binoculars": {
+            "type": "string",
+            "minLength": 1
+          },
+          "telescope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bestMonths": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12
+            },
+            "uniqueItems": true
+          },
+          "difficulty": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          }
+        },
+        "required": [
+          "difficulty"
+        ],
+        "additionalProperties": false
+      },
+      "funFacts": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "maxItems": 3
+      },
+      "safety": {
+        "type": "string",
+        "minLength": 1
+      },
+      "sources": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "meta": {
+        "type": "object",
+        "properties": {
+          "generatedBy": {
+            "const": "gpt-5-pro"
+          },
+          "generatedAt": {
+            "type": "string",
+            "format": "date"
+          },
+          "confidence": {
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "needsReview": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "generatedBy",
+          "generatedAt",
+          "confidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "id",
+      "version",
+      "title",
+      "oneLiner",
+      "summary",
+      "facts",
+      "story",
+      "howToFind",
+      "observing",
+      "sources",
+      "meta"
+    ],
+    "additionalProperties": false
+  }
+}

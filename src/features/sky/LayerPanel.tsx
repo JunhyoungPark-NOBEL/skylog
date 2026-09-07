@@ -36,6 +36,8 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
   const { t } = useTranslation();
   const labelLang = useLayerStore((s) => s.labelLang);
   const saturation = useLayerStore((s) => s.starSaturation);
+  const realSky = useLayerStore((s) => s.realSky);
+  const bortle = useLayerStore((s) => s.bortle);
   const set = useLayerStore((s) => s.set);
   return (
     <div
@@ -57,6 +59,31 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
         </button>
       </header>
       <div className="min-h-0 flex-1 overflow-y-auto pb-6 text-sm">
+        <Toggle
+          id="layer-realSky"
+          label={t('sky.layer.realSky')}
+          hint={t('sky.layer.realSkyHint')}
+          checked={realSky}
+          onChange={(v) => set('realSky', v)}
+        />
+        {realSky && (
+          <div className="px-4 pb-2">
+            <label htmlFor="layer-bortle" className="block text-[13px] text-muted">
+              {bortle > 0 ? t('realSky.bortle', { n: bortle }) : t('realSky.bortleAuto')}
+            </label>
+            <input
+              id="layer-bortle"
+              type="range"
+              min={0}
+              max={9}
+              step={1}
+              value={bortle}
+              onChange={(e) => set('bortle', Number(e.target.value))}
+              className="w-full"
+              data-testid="layer-bortle"
+            />
+          </div>
+        )}
         <Row
           id="constellationLines"
           label={t('sky.layer.constellationLines')}

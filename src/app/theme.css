@@ -1,25 +1,54 @@
 @import 'tailwindcss';
 
 /*
- * 테마 토큰 (마스터 플랜 §4.2). 모든 색은 이 변수로만 지정한다.
- * - 기본(dark): 검은 하늘 위 회청색 UI
- * - night: html[data-theme="night"] — 적색 계열만 사용 (암순응 보호). 흰색이 남으면 안 된다.
- * 렌더러(Three.js)는 src/app/theme.ts의 getPalette()로 같은 토큰을 읽는다.
+ * skylog 테마 토큰 v2 (D-021) — "부드럽고 둥근" 다크 UI + 적색 야간 모드
+ *
+ * 구조
+ *  1) 색·그림자·모션처럼 테마(dark/night)나 접근성 설정에 따라 바뀌는 값은 :root / html[data-theme='night'] / @media 에 원시 변수로.
+ *  2) 원시 변수를 @theme inline 으로 Tailwind 유틸리티 이름에 연결한다(bg-surface-3, shadow-card, ease-spring, backdrop-blur-glass …).
+ *  3) 반지름·타이포·간격처럼 테마와 무관한 값은 @theme 에 직접 정의한다.
+ *  4) 외부 폰트·스크립트 없음. backdrop-filter 는 @supports 로 폴백. 렌더러(Three.js)는 src/app/theme.ts getPalette() 로 같은 변수를 읽는다.
+ *
+ * 반지름 스케일: xs 8 · sm 12 · md 16 · lg 20 · xl 24 · 2xl 28 · 3xl 32 · 4xl 40 · pill 9999 (Tailwind 기본 2xl=16 등은 덮어쓴다).
+ * 깊이는 그림자가 아니라 표면 층(bg → surface → surface-2 → surface-3) + 상단 1px 하이라이트로 표현한다(검정 위 그림자는 안 보인다).
+ * 선은 불투명 border 대신 fg 알파 헤어라인 → 야간 모드에서 자동으로 붉어진다.
  */
+
+/* ------------------------------------------------------------------ */
+/* 1. 원시 변수 — 기본(dark)                                            */
+/* ------------------------------------------------------------------ */
 :root {
   color-scheme: dark;
 
   --bg: #05070d;
-  --fg: #e6e9f2;
-  --muted: #8a93a8;
   --surface: #0f1421;
   --surface-2: #171d2e;
-  --border: #222b45;
+  --surface-3: #1c2337;
+
+  /* 반투명(유리) 표면 — 하늘이 뒤에 있는 내비게이션 층에만 */
+  --surface-glass: color-mix(in srgb, var(--surface) 72%, transparent);
+  --surface-glass-strong: color-mix(in srgb, var(--surface) 86%, transparent);
+  --surface-glass-fallback: color-mix(in srgb, var(--surface) 96%, transparent);
+  --overlay: rgba(5, 7, 13, 0.6);
+
+  --fg: #e8ecf5; /* 17:1 on bg */
+  --muted: #8f98ad; /* 7:1 on bg, 5.4:1 on surface-3 */
+  --muted-2: #5f6981; /* 장식 전용(구분점·비활성 아이콘). 본문 금지 */
+
+  --hairline: color-mix(in srgb, var(--fg) 10%, transparent);
+  --hairline-strong: color-mix(in srgb, var(--fg) 16%, transparent);
+  --edge-highlight: color-mix(in srgb, var(--fg) 7%, transparent);
+  --border: var(--hairline-strong); /* 하위 호환(border-border) */
+
   --accent: #5aa9ff;
   --accent-fg: #05070d;
-  --danger: #ff5c5c;
+  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+  --accent-glow: color-mix(in srgb, var(--accent) 40%, transparent);
   --success: #4ad48a;
-  --overlay: rgba(5, 7, 13, 0.78);
+  --success-soft: color-mix(in srgb, var(--success) 18%, transparent);
+  --danger: #ff5c5c;
+  --danger-soft: color-mix(in srgb, var(--danger) 18%, transparent);
+  --warning: #ffb020;
 
   /* 렌더러 전용 */
   --star: #ffffff;
@@ -33,23 +62,114 @@
   --label: #c8d0e0;
   --marker: #ffb020;
 
-  --tab-height: 56px;
-  --status-height: 36px;
+  /* 그림자: 상단 1px 하이라이트 + 넓고 옅은 앰비언트 */
+  --shadow-ink: rgba(0, 0, 0, 0.55);
+  --elev-card: inset 0 1px 0 0 var(--edge-highlight);
+  --elev-float:
+    inset 0 1px 0 0 var(--edge-highlight), 0 2px 6px rgba(0, 0, 0, 0.35),
+    0 12px 32px -12px var(--shadow-ink);
+  --elev-sheet: inset 0 1px 0 0 var(--edge-highlight), 0 -8px 40px -8px var(--shadow-ink);
+  --glow-select: 0 0 0 1px var(--accent-glow), 0 0 12px var(--accent-glow);
+
+  /* 유리 */
+  --glass-blur: 16px;
+  --glass-blur-sm: 8px;
+  --glass-saturate: 140%;
+
+  /* 레이아웃 */
+  --tab-height: 64px; /* 떠 있는 pill 탭 바 */
+  --tab-inset: 12px;
+  --status-height: 44px; /* HUD 캡슐 상태 바 */
   --touch-min: 44px;
+  --gutter: 16px;
+  --card-pad: 16px;
+  --stack: 12px;
+
+  /* 모션 */
+  --motion-duration-fast: 150ms;
+  --motion-duration-base: 250ms;
+  --motion-duration-slow: 400ms;
+  --motion-duration-sheet: 450ms;
+  --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-ease-exit: cubic-bezier(0.3, 0, 1, 1);
+  /* M3 Expressive default-spatial 스프링(ζ0.8, k380) 450ms 샘플, 오버슈트 1.5% */
+  --motion-ease-spring: linear(
+    0,
+    0.076,
+    0.239,
+    0.424,
+    0.594,
+    0.733,
+    0.839,
+    0.913,
+    0.961,
+    0.991,
+    1.007,
+    1.014,
+    1.015,
+    1.014,
+    1.011,
+    1.009,
+    1.006,
+    1.004,
+    1.002,
+    1.001,
+    1
+  );
+  /* fast-spatial 스프링(ζ0.6, k800) 350ms 샘플, 오버슈트 9.5% — 작은 요소 전용 */
+  --motion-ease-spring-fast: linear(
+    0,
+    0.099,
+    0.317,
+    0.561,
+    0.775,
+    0.934,
+    1.034,
+    1.083,
+    1.095,
+    1.084,
+    1.063,
+    1.04,
+    1.02,
+    1.005,
+    0.996,
+    0.992,
+    0.991,
+    0.992,
+    0.994,
+    0.996,
+    1
+  );
 }
 
+/* ------------------------------------------------------------------ */
+/* 2. 야간(night) — 흰색·파랑·초록이 남으면 안 된다                       */
+/* ------------------------------------------------------------------ */
 html[data-theme='night'] {
   --bg: #000000;
+  --surface: #0d0202;
+  --surface-2: #170403;
+  --surface-3: #220706;
+
+  --surface-glass: color-mix(in srgb, var(--surface) 85%, transparent);
+  --surface-glass-strong: color-mix(in srgb, var(--surface) 92%, transparent);
+  --surface-glass-fallback: color-mix(in srgb, var(--surface) 97%, transparent);
+  --overlay: rgba(0, 0, 0, 0.7);
+
   --fg: #ff3b30;
-  --muted: #7a1010;
-  --surface: #0a0000;
-  --surface-2: #160404;
-  --border: #3a0a0a;
+  --muted: #d9503f; /* 5.2:1 on black (기존 #7a1010은 1.9:1 — 안 보임) */
+  --muted-2: #8a2a1f;
+  --border: var(--hairline-strong);
+
   --accent: #ff3b30;
   --accent-fg: #000000;
+  --accent-soft: color-mix(in srgb, var(--accent) 22%, transparent);
+  --accent-glow: color-mix(in srgb, var(--accent) 45%, transparent);
+  --success: #ff3b30; /* 의미 구분은 색이 아니라 아이콘·문구·굵기로 */
+  --success-soft: color-mix(in srgb, var(--accent) 22%, transparent);
   --danger: #ff3b30;
-  --success: #ff3b30;
-  --overlay: rgba(0, 0, 0, 0.82);
+  --danger-soft: color-mix(in srgb, var(--accent) 22%, transparent);
+  --warning: #ff3b30;
 
   --star: #ff3b30;
   --planet: #ff5a4a;
@@ -61,26 +181,212 @@ html[data-theme='night'] {
   --milky-way: #4a0a0a;
   --label: #b02a20;
   --marker: #ff3b30;
+
+  --shadow-ink: rgba(0, 0, 0, 0.7);
+  --glow-select: 0 0 0 1px var(--accent-glow), 0 0 8px var(--accent-glow);
+  --glass-blur: 10px;
+  --glass-blur-sm: 6px;
+  --glass-saturate: 100%;
 }
 
-/* Tailwind v4: 토큰을 유틸리티 이름으로 노출 (bg-bg, text-fg, border-border …) */
+/* 접근성: 모션 축소 → 스프링 제거 */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-ease-spring: var(--motion-ease-standard);
+    --motion-ease-spring-fast: var(--motion-ease-standard);
+    --motion-duration-sheet: 250ms;
+    --motion-duration-slow: 250ms;
+  }
+}
+/* 접근성: 투명도 축소(iOS) + 수동 스위치 */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --surface-glass: var(--surface-glass-fallback);
+    --surface-glass-strong: var(--surface-glass-fallback);
+    --glass-blur: 0px;
+    --glass-blur-sm: 0px;
+  }
+}
+html[data-glass='off'] {
+  --surface-glass: var(--surface-glass-fallback);
+  --surface-glass-strong: var(--surface-glass-fallback);
+  --glass-blur: 0px;
+  --glass-blur-sm: 0px;
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Tailwind 유틸리티에 노출 — 테마 의존 값은 inline                     */
+/* ------------------------------------------------------------------ */
 @theme inline {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
+  --color-muted-2: var(--muted-2);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-glass: var(--surface-glass);
+  --color-glass-strong: var(--surface-glass-strong);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-edge: var(--edge-highlight);
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
-  --color-danger: var(--danger);
+  --color-accent-soft: var(--accent-soft);
   --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
   --color-overlay: var(--overlay);
+  --color-planet: var(--planet);
+  --color-marker: var(--marker);
+
+  --shadow-card: var(--elev-card);
+  --shadow-float: var(--elev-float);
+  --shadow-sheet: var(--elev-sheet);
+  --shadow-select: var(--glow-select);
+
+  --blur-glass: var(--glass-blur);
+  --blur-glass-sm: var(--glass-blur-sm);
+
+  --ease-standard: var(--motion-ease-standard);
+  --ease-exit: var(--motion-ease-exit);
+  --ease-spring: var(--motion-ease-spring);
+  --ease-spring-fast: var(--motion-ease-spring-fast);
+  --default-transition-duration: var(--motion-duration-fast);
+  --default-transition-timing-function: var(--motion-ease-standard);
+
   --font-sans:
     system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR',
     'Malgun Gothic', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Roboto Mono', monospace;
 }
 
+/* ------------------------------------------------------------------ */
+/* 4. 테마 무관 토큰 — 모양·타이포                                         */
+/* ------------------------------------------------------------------ */
+@theme {
+  --radius-*: initial;
+  --radius-xs: 8px; /* 배지·범례 스와치 */
+  --radius-sm: 12px; /* 작은 타일·HUD 툴팁·입력창(비캡슐) */
+  --radius-md: 16px; /* 카드 안 섹션·rise/transit/set 타일 */
+  --radius-lg: 20px; /* 리스트 그룹·작은 카드 */
+  --radius-xl: 24px; /* 카드 */
+  --radius-2xl: 28px; /* 바텀 시트 상단·다이얼로그 */
+  --radius-3xl: 32px;
+  --radius-4xl: 40px;
+  --radius-pill: 9999px; /* 캡슐 버튼·칩·탭 바 */
+
+  /* 타이포 — 한글 기준(본문 16px/24px, 자간 0~−0.02em). 새 코드는 의미 이름을 쓴다. */
+  --text-label: 11px;
+  --text-label--line-height: 14px;
+  --text-label--letter-spacing: 0.02em;
+  --text-label--font-weight: 500;
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 18px;
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+  --text-body--letter-spacing: -0.01em;
+  --text-body-lg: 17px;
+  --text-body-lg--line-height: 25px;
+  --text-body-lg--letter-spacing: -0.01em;
+  --text-title: 20px;
+  --text-title--line-height: 28px;
+  --text-title--letter-spacing: -0.015em;
+  --text-title--font-weight: 600;
+  --text-headline: 24px;
+  --text-headline--line-height: 32px;
+  --text-headline--letter-spacing: -0.02em;
+  --text-headline--font-weight: 700;
+  --text-display: 32px;
+  --text-display--line-height: 38px;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 700;
+
+  --font-weight-*: initial;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. 커스텀 유틸리티                                                   */
+/* ------------------------------------------------------------------ */
+/* 유리: 하늘이 뒤에 있는 내비게이션 층에만(상태 캡슐·탭 pill·반쯤 열린 시트·하늘 컨트롤). 리스트·본문 카드에는 쓰지 않는다. */
+@utility glass {
+  background: var(--surface-glass-fallback);
+  box-shadow: var(--elev-float);
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    background: var(--surface-glass);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  }
+}
+@utility glass-strong {
+  background: var(--surface-glass-fallback);
+  box-shadow: var(--elev-sheet);
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    background: var(--surface-glass-strong);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  }
+}
+@utility glass-sm {
+  background: var(--surface-glass-fallback);
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    background: var(--surface-glass);
+    -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+    backdrop-filter: blur(var(--glass-blur-sm));
+  }
+}
+/* 드래그 중·전체 시트에서는 블러를 끈다(WebGL 위 프레임 보호) */
+@utility glass-off {
+  background: var(--surface);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+/* 구분선: border 대신 안쪽 그림자 1px */
+@utility hairline-t {
+  box-shadow: inset 0 1px 0 0 var(--hairline);
+}
+@utility hairline-b {
+  box-shadow: inset 0 -1px 0 0 var(--hairline);
+}
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+@utility squircle {
+  @supports (corner-shape: squircle) {
+    corner-shape: squircle;
+  }
+}
+/* 떠 있는 바 아래로 스크롤 콘텐츠가 부드럽게 사라지게 */
+@utility scroll-fade-y {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20px,
+    black calc(100% - 28px),
+    transparent
+  );
+}
+/* 떠 있는 탭 바 아래 스크롤 콘텐츠 여백 */
+@utility pb-tab {
+  padding-bottom: calc(var(--tab-height) + var(--tab-inset) + env(safe-area-inset-bottom) + 12px);
+}
+/* 떠 있는 상태 캡슐 아래 콘텐츠 여백 */
+@utility pt-status {
+  padding-top: calc(var(--status-height) + env(safe-area-inset-top) + 8px);
+}
+
+/* ------------------------------------------------------------------ */
+/* 6. 베이스                                                            */
+/* ------------------------------------------------------------------ */
 html,
 body,
 #root {
@@ -92,15 +398,14 @@ body,
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
+  text-rendering: optimizeLegibility;
 }
-
 button,
 input,
 select {
   font: inherit;
   color: inherit;
 }
-
 button {
   background: none;
   border: 0;
@@ -108,16 +413,25 @@ button {
   cursor: pointer;
   touch-action: manipulation;
 }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+input[type='range'] {
+  accent-color: var(--accent);
+}
 
-/* 야간 모드에서 이미지·아이콘도 붉게 (SVG는 currentColor 사용, 래스터 이미지는 필터) */
+/* 야간 모드에서 래스터 이미지도 붉게 */
 html[data-theme='night'] img {
   filter: grayscale(1) sepia(1) saturate(6) hue-rotate(-20deg) brightness(0.8);
 }
 
-/* 하늘 뷰 라벨(HTML 오버레이, T1) */
+/* 하늘 뷰 라벨(HTML 오버레이) — text-shadow가 가장 싼 가독성 장치 */
 .sky-label {
   font-size: 11px;
   line-height: 14px;
+  letter-spacing: 0.01em;
   color: var(--label);
   text-shadow:
     0 0 3px var(--bg),
@@ -132,19 +446,16 @@ html[data-theme='night'] img {
 .sky-label-star {
   color: var(--label);
 }
-.sky-label-messier {
-  color: var(--muted);
-  font-size: 10px;
-}
+.sky-label-messier,
 .sky-label-dso {
   color: var(--muted);
   font-size: 10px;
 }
 .sky-label-constellation {
   color: var(--constellation);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 16px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .sky-label-cardinal {
@@ -165,11 +476,11 @@ html[data-theme='night'] img {
   height: 28px;
   border: 1.5px solid var(--accent);
   border-radius: 50%;
-  box-shadow: 0 0 6px var(--accent);
+  box-shadow: var(--glow-select);
   pointer-events: none;
 }
 html[data-theme='night'] .sky-label-constellation {
-  color: var(--muted);
+  color: var(--muted-2);
 }
 
 /* 보정 마법사 십자(T2) */
@@ -179,7 +490,7 @@ html[data-theme='night'] .sky-label-constellation {
   border: 1.5px solid var(--accent);
   border-radius: 50%;
   position: relative;
-  box-shadow: 0 0 10px var(--accent);
+  box-shadow: var(--glow-select);
 }
 .calib-crosshair::before,
 .calib-crosshair::after {
@@ -202,7 +513,7 @@ html[data-theme='night'] .sky-label-constellation {
   transform: translateY(-50%);
 }
 
-/* 피드백 플래시(T2): 화면 테두리 점멸 — 진동이 없는 iOS의 1차 피드백 */
+/* 피드백 플래시(T2) */
 html.flash-ok::after,
 html.flash-warn::after {
   content: '';
@@ -211,11 +522,11 @@ html.flash-warn::after {
   pointer-events: none;
   z-index: 9999;
   box-shadow: inset 0 0 0 6px var(--success);
-  animation: skylog-flash 250ms ease-out;
+  animation: skylog-flash var(--motion-duration-base) var(--motion-ease-exit);
 }
 html.flash-warn::after {
   box-shadow: inset 0 0 0 6px var(--danger);
-  animation-duration: 400ms;
+  animation-duration: var(--motion-duration-slow);
 }
 @keyframes skylog-flash {
   from {

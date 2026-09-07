@@ -20,7 +20,15 @@ export type StarId = `star:HIP${number}` | `star:HYG${number}`;
  * (히아데스 C41, 석탄자루 C99, 동굴성운 C9, 말머리 B33 등)는 콜드웰(C) 또는 바너드(B) 번호를 쓴다(D-014).
  */
 export type DsoId =
-  `dso:M${number}` | `dso:NGC${string}` | `dso:IC${string}` | `dso:C${number}` | `dso:B${number}`;
+  | `dso:M${number}`
+  | `dso:NGC${string}`
+  | `dso:IC${string}`
+  | `dso:C${number}`
+  | `dso:B${number}`
+  /** OpenNGC가 다른 카탈로그 이름만 가진 천체(Mel111 머리털자리 성단, Cr399 옷걸이, ESO/PGC/UGC…) — 데이터 팩 v1에 실재(D-020) */
+  | `dso:Mel${number}`
+  | `dso:Cr${number}`
+  | `dso:${'ESO' | 'PGC' | 'UGC' | 'HCG' | 'MWSC' | 'H'}${string}`;
 export type PlanetId = `planet:${PlanetKey}`;
 export type ConstellationId = `const:${string}`;
 export type ObjectId = StarId | DsoId | PlanetId | 'moon' | 'sun' | ConstellationId;
@@ -34,7 +42,7 @@ export function kindOf(id: ObjectId): ObjectKind {
 }
 
 const OBJECT_ID_RE =
-  /^(star:(HIP|HYG)\d+|dso:(M\d+|NGC[0-9A-Z-]+|IC[0-9A-Z-]+|C\d+|B\d+)|planet:(mercury|venus|mars|jupiter|saturn|uranus|neptune)|moon|sun|const:[A-Z][A-Za-z]{2})$/;
+  /^(star:(HIP|HYG)\d+|dso:(M\d+|NGC[0-9A-Z-]+|IC[0-9A-Z -]+|C\d+|B\d+|Mel\d+|Cr\d+|(ESO|PGC|UGC|HCG|MWSC|H)[0-9A-Z-]+)|planet:(mercury|venus|mars|jupiter|saturn|uranus|neptune)|moon|sun|const:[A-Z][A-Za-z]{2})$/;
 
 export function isObjectId(value: string): value is ObjectId {
   return OBJECT_ID_RE.test(value);

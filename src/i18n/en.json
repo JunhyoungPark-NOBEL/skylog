@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "Skylog",
-    "tagline": "See, find, log and learn the night sky"
+    "tagline": "Look up, find it, log it, learn it."
   },
   "tabs": {
     "sky": "Sky",
@@ -13,11 +13,11 @@
   "status": {
     "sensorOff": "Sensors off",
     "sensorOn": "Sensors on",
-    "manual": "manual",
+    "manual": "Manual",
     "aligned": "aligned",
-    "compass": "compass",
-    "relative": "relative",
-    "absolute": "absolute",
+    "compass": "Compass sync",
+    "relative": "Gyro only",
+    "absolute": "Compass",
     "manualTime": "Time travel"
   },
   "common": {
@@ -28,7 +28,10 @@
     "close": "Close",
     "unsupported": "Not supported on this device",
     "loading": "Loading…",
-    "comingSoon": "Coming in Task {{task}}"
+    "comingSoon": "Coming in Task {{task}}",
+    "more": "Show {{n}} more",
+    "less": "Show less",
+    "search": "Search"
   },
   "sky": {
     "placeholder": "Sky view — rendered in Task 1",
@@ -40,19 +43,22 @@
       "starLabels": "Star names",
       "dso": "Deep-sky objects",
       "milkyWay": "Milky Way",
-      "altAzGrid": "Alt-az grid",
+      "altAzGrid": "Alt/Az grid",
       "equator": "Celestial equator",
       "ecliptic": "Ecliptic",
       "meridian": "Meridian",
-      "ground": "Horizon (ground)",
-      "groundOpaque": "Opaque ground",
-      "atmosphere": "Atmosphere (twilight, daylight)",
-      "extinction": "Atmospheric extinction",
-      "magnifyBodies": "Magnify Moon & planets",
-      "viewInfo": "Show view info",
-      "starSaturation": "Star colour saturation",
+      "ground": "Ground",
+      "groundOpaque": "Solid ground",
+      "atmosphere": "Atmosphere (daylight & twilight)",
+      "extinction": "Horizon dimming (extinction)",
+      "magnifyBodies": "Enlarge Moon & planets",
+      "viewInfo": "View info",
+      "starSaturation": "Star color",
       "labelLang": "Label language",
-      "labelLangAuto": "Follow settings"
+      "labelLangAuto": "Same as app",
+      "realSky": "Real sky",
+      "realSkyHint": "Fewer stars, like your light-polluted sky. Adjust sky brightness below (1 darkest – 9 inner city).",
+      "bortle": "Sky brightness"
     },
     "time": {
       "now": "Now",
@@ -72,25 +78,25 @@
       "mag": "mag",
       "alt": "Alt",
       "az": "Az",
-      "illum": "Illum.",
-      "center": "Center on sky",
+      "illum": "Illuminated",
+      "center": "Center",
       "details": "Details"
     }
   },
   "search": {
     "title": "Search",
     "placeholder": "Saturn, Andromeda, M13, Vega…",
-    "recent": "Recent",
+    "recent": "Recent searches",
     "clearRecent": "Clear",
-    "suggest": "Famous objects up now",
+    "suggest": "Popular objects up now",
     "suggestDay": "Visible in daylight",
     "noResults": "No results",
-    "visibleOnly": "Up now only",
+    "visibleOnly": "Up now",
     "loading": "Loading search index…",
-    "resultCount": "{{n}} results · {{ms}}ms",
+    "resultCount": "{{n}} results · {{ms}} ms",
     "category": {
       "all": "All",
-      "bodies": "Planets·Moon",
+      "bodies": "Planets & Moon",
       "star": "Stars",
       "const": "Constellations",
       "cluster": "Clusters",
@@ -99,33 +105,33 @@
       "messier": "Messier"
     },
     "state": {
-      "above": "alt {{alt}}°",
-      "below": "below horizon",
-      "day": "daytime"
+      "above": "Alt {{alt}}°",
+      "below": "Below horizon",
+      "day": "Daylight"
     }
   },
   "tonight": {
     "title": "Tonight",
-    "skyStatus": "Sky status",
+    "skyStatus": "Sky conditions",
     "night": "Night of {{date}}",
     "sunset": "Sunset",
     "sunrise": "Sunrise",
-    "astroDusk": "Astro. dusk",
-    "astroDawn": "Astro. dawn",
-    "nauticalDusk": "Nautical dusk",
+    "astroDusk": "Fully dark",
+    "astroDawn": "First light",
+    "nauticalDusk": "Nearly dark",
     "moonrise": "Moonrise",
     "moonset": "Moonset",
-    "moonAge": "Moon age {{d}} d",
+    "moonAge": "{{d}} days old",
     "illum": "{{p}}% lit",
-    "darkWindow": "Dark window",
-    "darkWindowHint": "astronomical night · Moon below 10°",
-    "darkNone": "Moonlight all night",
-    "darkTotal": "total {{dur}}",
-    "now": "now",
+    "darkWindow": "Dark hours",
+    "darkWindowHint": "Fully dark · Moon below 10°",
+    "darkNone": "Moon up all night — no dark hours",
+    "darkTotal": "{{dur}} total",
+    "now": "Now",
     "legend": {
-      "darkness": "darkness",
-      "moon": "Moon",
-      "dark": "dark window"
+      "darkness": "Sky darkness",
+      "moon": "Moon up",
+      "dark": "Dark hours"
     },
     "moonPhase": {
       "new": "New Moon",
@@ -137,54 +143,66 @@
       "lastQuarter": "Last quarter",
       "waningCrescent": "Waning crescent"
     },
-    "comingSoon": "Recommendations, weather and events arrive in T3b"
+    "comingSoon": "Picks, weather and events coming in T3b",
+    "window": "When",
+    "preset": {
+      "next2h": "Next 2 hours",
+      "evening": "Evening",
+      "lateNight": "Late night",
+      "dawn": "Before dawn",
+      "custom": "Custom"
+    },
+    "from": "From",
+    "to": "To",
+    "equipment": "With",
+    "windowLabel": "{{from}} – {{to}}"
   },
   "log": {
-    "title": "Observation log"
+    "title": "Observing log"
   },
   "learn": {
     "title": "Learn"
   },
   "sensor": {
-    "ar": "Point phone at the sky (sensor mode)",
-    "unsupported": "Orientation sensors are not available in this device/browser. Drag to look around. (Settings → Developer → Sensor simulator lets you test the flow.)",
-    "anomaly": "Compass interference suspected — move away from metal or magnetic cases",
+    "ar": "Point your phone at the sky (sensor mode)",
+    "unsupported": "Motion sensors aren't available in this browser. Drag to look around. (You can try the flow with Settings › Developer › Sensor simulator.)",
+    "anomaly": "Possible compass interference — move away from metal or magnets",
     "resume": "Resume sensors",
-    "align": "Align on a star",
-    "realign": "Re-align",
-    "calibrated": "Calibrated ({{target}}, {{ago}})",
+    "align": "Align to a star",
+    "realign": "Realign",
+    "calibrated": "Aligned to {{target}} · {{ago}}",
     "justNow": "just now",
     "minutesAgo": "{{min}} min ago",
     "simulator": "Sensor simulator",
-    "simulatorHint": "Emulate phone attitude with alpha/beta/gamma sliders on desktop.",
+    "simulatorHint": "On desktop, use the alpha/beta/gamma sliders to mimic how the phone is held.",
     "source": {
-      "absolute": "Absolute (magnetic + declination)",
+      "absolute": "Compass (true north)",
       "compassSync": "Compass sync",
-      "relative": "Relative · not calibrated",
-      "manual": "Manual (sensors resume in 5 s)",
+      "relative": "Gyro only · not aligned",
+      "manual": "Paused · sensors resume in 5 s",
       "none": "No sensors"
     },
     "permission": {
-      "deniedHelp": "Orientation permission was denied. The app keeps working in manual mode.",
-      "deniedIosSteps": "iOS: fully close the Safari tab (or home-screen app), reopen it and tap this button again. If it still fails, delete this site's data in Settings › Safari › Advanced › Website Data and retry. (There is no separate toggle in the Settings app.)"
+      "deniedHelp": "Motion sensor access was denied. You can keep using the app in manual mode.",
+      "deniedIosSteps": "iOS: close the Safari tab (or the home-screen app) completely, reopen it and tap this button again. If that doesn't work, clear this site's data under Settings › Safari › Advanced › Website Data and try again. (There's no separate switch in the Settings app.)"
     },
     "geo": {
-      "unsupported": "This browser has no geolocation. Enter an observing site manually.",
-      "denied": "Location permission denied. Allow it in the browser site settings or enter a site manually.",
-      "timeout": "Could not get a location (timeout). Try again with a clear view of the sky.",
-      "unavailable": "Location is unavailable right now. Using the saved site."
+      "unsupported": "This browser can't provide your location. Add an observing site manually.",
+      "denied": "Location access was denied. Allow it in your browser's site settings, or add a site manually.",
+      "timeout": "Couldn't get your location (timed out). Try again with a clear view of the sky.",
+      "unavailable": "Location isn't available right now. Using your saved site."
     },
     "wizard": {
       "title": "Star alignment",
-      "later": "Later",
-      "step1": "Pick a bright object that is easy to see right now.",
-      "noCandidates": "No bright object is high enough right now. Use Polaris or the Moon if visible.",
-      "step2": "Point the back of the phone at it so it sits in the crosshair, then tap 'Aligned'.",
-      "currentError": "Current error",
-      "dragHint": "Drag left/right to fine-tune azimuth, up/down for altitude (0.5° steps).",
-      "aligned": "Aligned",
-      "done": "Calibrated on {{target}}. Check that other objects land near the crosshair.",
-      "again": "Again",
+      "later": "Not now",
+      "step1": "Pick a bright object you can see clearly right now.",
+      "noCandidates": "No bright objects are high enough right now. Use Polaris or the Moon if you can see them.",
+      "step2": "Point the back of your phone at it so it sits in the crosshairs, then tap “Lined up”.",
+      "currentError": "Current offset",
+      "dragHint": "Drag sideways to nudge azimuth, up or down to nudge altitude (0.5° steps).",
+      "aligned": "Lined up",
+      "done": "Aligned to {{target}}. Check that other objects land near the crosshairs too.",
+      "again": "Try again",
       "finish": "Done"
     },
     "debug": {
@@ -195,73 +213,89 @@
     },
     "settings": {
       "declination": "Magnetic declination correction",
-      "declinationHint": "Applies the WMM2025 declination to absolute (magnetic) headings. Currently {{d}}°",
-      "keepLevel": "Keep level",
-      "keepLevelHint": "Ignore device roll so the horizon stays level.",
-      "sound": "Feedback sound",
-      "compassAxis": "iOS compass reference axis",
-      "axisTop": "Phone top",
+      "declinationHint": "Corrects compass headings from magnetic to true north (WMM2025). Currently {{d}}°.",
+      "keepLevel": "Keep horizon level",
+      "keepLevelHint": "Ignores phone tilt (roll) so the horizon stays level.",
+      "sound": "Sound feedback",
+      "compassAxis": "iOS compass axis",
+      "axisTop": "Top of phone",
       "axisBack": "Rear camera"
     }
   },
   "sites": {
     "title": "Observing sites",
     "current": "Current site",
-    "useGps": "Use current location (GPS)",
+    "useGps": "Use my location",
     "gpsRequesting": "Locating…",
     "saved": "Saved sites",
     "add": "Add site",
     "edit": "Edit",
     "delete": "Delete",
-    "makeDefault": "Make default",
-    "name": "Name (e.g. balcony)",
+    "makeDefault": "Set as default",
+    "name": "Name (e.g. Home balcony)",
     "lat": "Latitude",
     "lon": "Longitude",
     "elevation": "Elevation (m)",
-    "pastePlaceholder": "Paste coordinates: 36.37, 127.36 / 36°22′N 127°22′E",
+    "pastePlaceholder": "Paste coordinates, e.g. 36.37, 127.36 or 36°22′N 127°22′E",
     "pasteApply": "Apply",
-    "range": "Visible sky range",
-    "rangeHint": "Drag on the ring to mark the azimuths actually visible from this spot (balcony, yard). Recommendations only consider this range.",
-    "rangeAll": "All",
-    "minAlt": "Min altitude",
+    "range": "Visible sky",
+    "rangeHint": "Drag on the ring to mark the directions you can actually see from here (balcony, yard). Tonight's picks only use this range.",
+    "rangeAll": "Whole sky",
+    "minAlt": "Minimum altitude",
     "save": "Save",
     "dir": {
       "n": "N",
       "e": "E",
       "s": "S",
       "w": "W"
+    },
+    "bortle": "Light pollution (sky brightness)",
+    "bortleNone": "Unknown",
+    "bortleLevel": "Level {{n}} · {{desc}}",
+    "bortleDesc": {
+      "1": "Excellent dark sky",
+      "2": "Truly dark",
+      "3": "Rural",
+      "4": "Rural/suburban",
+      "5": "Suburban",
+      "6": "Bright suburban",
+      "7": "Suburban/urban",
+      "8": "City",
+      "9": "Inner city"
     }
   },
   "settings": {
     "title": "Settings",
     "observing": "Observing",
     "display": "Display",
-    "nightMode": "Red night mode",
-    "nightModeHint": "Turns the whole UI red to protect dark adaptation.",
+    "nightMode": "Night mode (red)",
+    "nightModeHint": "Turns the whole app red to protect your night vision.",
     "language": "Language",
-    "keepAwake": "Keep screen awake",
-    "keepAwakeHint": "Prevents the screen from sleeping while observing (Wake Lock).",
+    "keepAwake": "Keep screen on",
+    "keepAwakeHint": "Stops the screen turning off while you observe.",
     "developer": "Developer",
     "debugHud": "Debug HUD",
     "debugHudHint": "Shows fps, frame time and draw calls.",
-    "debugData": "Data pack check",
-    "about": "About / Licenses",
-    "version": "Version"
+    "debugData": "Data packs",
+    "about": "About & licenses",
+    "version": "Version",
+    "glass": "Translucent panels",
+    "glassHint": "Turn off for solid panels over the sky — smoother on older phones."
   },
   "about": {
-    "title": "About / Licenses",
+    "title": "About & licenses",
     "codeLicense": "Code: MIT License",
-    "dataLicense": "Data packs: CC BY-SA 4.0 (derived from HYG · OpenNGC)",
+    "dataLicense": "Data packs: CC BY-SA 4.0 (based on HYG and OpenNGC)",
     "sources": "Data sources"
   },
   "debug": {
-    "title": "Data pack check",
+    "title": "Data packs",
     "noData": "No data packs yet (built in Task 0b).",
     "pack": "Pack",
     "version": "Version",
     "records": "Records",
     "bytes": "Size",
-    "generatedAt": "Generated",
+    "generatedAt": "Built",
     "stars": "Stars",
     "constellations": "Constellations",
     "dso": "DSO",
@@ -275,14 +309,14 @@
   },
   "error": {
     "title": "Something went wrong",
-    "reload": "Restart"
+    "reload": "Reload"
   },
   "object": {
     "section": {
       "now": "Now",
       "today": "Today",
       "coords": "Coordinates",
-      "equipment": "With this gear",
+      "equipment": "Visibility by equipment",
       "constellation": "Constellation"
     },
     "alt": "Altitude",
@@ -297,57 +331,57 @@
     "distance": "Distance",
     "mag": "Magnitude",
     "size": "Size",
-    "angularDiameter": "Angular diameter",
-    "moonSep": "From Moon",
-    "sunSep": "From Sun",
-    "illum": "Illumination",
+    "angularDiameter": "Apparent size",
+    "moonSep": "From the Moon",
+    "sunSep": "From the Sun",
+    "illum": "Illuminated",
     "rise": "Rise",
     "transit": "Transit",
     "set": "Set",
-    "transitAlt": "Max altitude",
+    "transitAlt": "Peak altitude",
     "circumpolar": "Never sets (circumpolar)",
     "neverRises": "Never rises",
-    "bestWindow": "Best observing window",
-    "bestWindowHint": "altitude ≥ {{alt}}° · dark sky",
-    "bestWindowNone": "Does not get high tonight",
+    "bestWindow": "Best time tonight",
+    "bestWindowHint": "Above {{alt}}° while the sky is fully dark",
+    "bestWindowNone": "Stays low tonight",
     "bestMonth": "Best month",
     "month": "Month {{m}}",
     "j2000": "J2000",
-    "jnow": "JNow",
+    "jnow": "Today (JNow)",
     "altaz": "Alt/Az",
     "copy": "Copy",
     "copied": "Copied",
     "equipment": {
       "naked": "Naked eye",
-      "binoculars": "Binoculars 10×50",
-      "telescope": "Telescope 90mm"
+      "binoculars": "10×50 binoculars",
+      "telescope": "90 mm telescope"
     },
     "verdict": {
       "easy": "Easy",
-      "possible": "Visible",
+      "possible": "Moderate",
       "hard": "Hard",
       "no": "Not visible"
     },
-    "verdictNote": "Approximate — from sky brightness (Bortle {{bortle}}), Moon and altitude. Extended objects use surface-brightness estimate.",
-    "limit": "limit mag {{mag}}",
+    "verdictNote": "Rough estimate from sky brightness (Bortle {{bortle}}), the Moon and altitude. Extended objects are judged by surface brightness.",
+    "limit": "Limiting mag {{mag}}",
     "action": {
       "showInSky": "Show in sky",
       "telescope": "Find with telescope",
       "log": "★ Log observation",
-      "plan": "☆ Plan",
+      "plan": "☆ Add to plan",
       "planned": "★ Planned",
       "story": "Story"
     },
     "later": {
-      "telescope": "Task 5",
-      "log": "Task 4",
-      "story": "Task 6"
+      "telescope": "Coming in Task 5",
+      "log": "Coming in Task 4",
+      "story": "Coming in Task 6"
     },
     "con": {
       "season": "Season",
-      "mainStars": "Main stars",
+      "mainStars": "Brightest stars",
       "dsos": "Deep-sky objects",
-      "now": "Now"
+      "now": "Position now"
     },
     "season": {
       "spring": "Spring",
@@ -359,8 +393,8 @@
     "tip": {
       "alt": "Height above the horizon. 0° is the horizon, 90° is overhead.",
       "az": "Direction measured clockwise from north. East 90°, south 180°, west 270°.",
-      "mag": "Apparent brightness. Smaller is brighter (1 mag = 2.5×).",
-      "twilight": "Time between sunset and full darkness. Astronomical twilight ends at −18°."
+      "mag": "Apparent brightness. Lower numbers are brighter — each magnitude is about 2.5× brighter.",
+      "twilight": "The time between sunset and full darkness. The sky is fully dark once the Sun is 18° below the horizon (end of astronomical twilight)."
     },
     "expand": "Expand",
     "collapse": "Collapse"
@@ -368,13 +402,126 @@
   "target": {
     "title": "Guide",
     "clear": "Clear target",
-    "remaining": "{{deg}}°",
-    "centered": "Centered!",
+    "remaining": "{{deg}}° away",
+    "centered": "On target!",
     "inView": "In view",
     "below": "Below horizon",
     "risesAt": "rises at {{time}}",
     "risesRel": "rises {{rel}}",
-    "noRise": "Does not rise today",
-    "jumpTime": "Jump to that time"
+    "noRise": "not up tonight",
+    "jumpTime": "Jump to rise"
+  },
+  "weather": {
+    "title": "Weather",
+    "updated": "updated {{time}}",
+    "summaryClear": "{{from}}–{{to}} clouds ≤ {{cloud}}% · good for observing",
+    "summaryCloudy": "Average cloud cover {{cloud}}% · no clear gap tonight",
+    "cloud": "Cloud %",
+    "cloudLow": "Low cloud",
+    "cloudMid": "Mid cloud",
+    "cloudHigh": "High cloud",
+    "humidity": "Humidity %",
+    "dew": "Dew likely from {{from}} ({{n}} h) — bring a dew heater or hood",
+    "dewInWindow": "Dew risk for {{dur}} of your window",
+    "wind": "Wind up to {{kmh}} km/h",
+    "precip": "Rain chance up to {{p}}%"
+  },
+  "recommend": {
+    "title": "Tonight’s picks",
+    "highlights": "Highlights",
+    "plan": "Tonight’s plan",
+    "planHint": "Tap ☆ to save to your plan",
+    "addToPlan": "Add to plan",
+    "computing": "Calculating the sky…",
+    "none": "Nothing to recommend in this window. Try another time or gear.",
+    "siteBadge": "From your spot",
+    "group": {
+      "now": "Right now",
+      "naked": "Naked eye",
+      "binoculars": "Binoculars",
+      "telescope": "Telescope",
+      "settingSoon": "Setting soon",
+      "rising": "Rising later"
+    },
+    "reason": {
+      "now": "now {{dir}} {{alt}}°",
+      "peakDir": "{{dir}} {{alt}}° at {{time}}",
+      "peakAt": "highest at {{time}} ({{alt}}°)",
+      "moonSep": "{{deg}}° from the Moon",
+      "moonDown": "no Moon",
+      "setsAt": "drops below {{alt}}° at {{time}} — hurry",
+      "risesAt": "from {{time}} in the {{dir}}",
+      "event": {
+        "opposition": "at opposition (biggest & brightest)",
+        "elongation": "greatest elongation",
+        "meteorPeak": "meteor shower peak",
+        "closeApproach": "close approach",
+        "fullMoon": "full Moon"
+      },
+      "moonClose": "moonlight — {{deg}}° from the {{illum}}% Moon",
+      "above30": "{{dur}} above 30°",
+      "double": "double star {{sep}} — split with {{equipment}}",
+      "siteClipped": "within your visible range only"
+    }
+  },
+  "phenomena": {
+    "title": "This month’s events",
+    "month": "Month {{m}}",
+    "visible": "Visible here",
+    "notVisible": "Not visible here",
+    "opposition": "{{name}} at opposition",
+    "oppositionDetail": "Brightest and largest of the year · mag {{mag}} · {{au}} AU",
+    "conjunction": "{{name}} in conjunction (behind the Sun)",
+    "inferiorConjunction": "{{name}} inferior conjunction",
+    "superiorConjunction": "{{name}} superior conjunction",
+    "maxElongation": {
+      "morning": "{{name}} greatest morning elongation ({{deg}}°)",
+      "evening": "{{name}} greatest evening elongation ({{deg}}°)"
+    },
+    "elongationDetail": {
+      "morning": "Look low in the east before sunrise",
+      "evening": "Look low in the west after sunset"
+    },
+    "quarter": {
+      "0": "New Moon",
+      "1": "First quarter",
+      "2": "Full Moon",
+      "3": "Last quarter"
+    },
+    "lunarEclipse": "{{kind}} lunar eclipse",
+    "solarEclipse": "{{kind}} solar eclipse",
+    "eclipseKind": {
+      "penumbral": "Penumbral",
+      "partial": "Partial",
+      "total": "Total",
+      "annular": "Annular"
+    },
+    "eclipseDetail": "Altitude {{alt}}° at maximum · about {{min}} min",
+    "eclipseElsewhere": "Only visible from other regions",
+    "perigeeFullMoon": "Supermoon (perigee full Moon)",
+    "perigeeDetail": "The Moon is near its closest point and looks slightly larger",
+    "meteorPeak": "{{name}} peak",
+    "meteorDetail": "Up to {{zhr}}/h · conditions {{cond}} · Moon {{moon}}% · best around {{time}}",
+    "condition": {
+      "good": "good",
+      "fair": "fair",
+      "poor": "poor (bright Moon)"
+    },
+    "greatestBrilliancy": "Venus at greatest brilliancy",
+    "brilliancyDetail": "Venus at its brightest for the year · mag {{mag}}",
+    "elongationHidden": "Large elongation, but it stays low near the horizon from Korea"
+  },
+  "meteor": {
+    "title": "Meteor showers",
+    "peak": "peak {{date}}",
+    "noneActive": "No meteor shower is active right now.",
+    "next": "Next peak: {{name}} on {{date}} · conditions {{cond}}"
+  },
+  "realSky": {
+    "toggle": "Show the sky as it really looks",
+    "short": "Real sky",
+    "hint": "Hides stars washed out by your light pollution (Bortle) and the Moon.",
+    "bortle": "Sky brightness (Bortle {{n}})",
+    "bortleAuto": "Use site setting"
   }
 }
