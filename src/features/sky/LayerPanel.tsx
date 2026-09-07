@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useLayerStore, type BooleanLayerKey, type LayerValues } from '@/state/layerStore';
+import { ScrollArea } from '@/ui/ScrollArea';
 import { Segmented } from '@/ui/Segmented';
 import { Toggle } from '@/ui/Toggle';
 
@@ -45,7 +46,7 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
   const set = useLayerStore((s) => s.set);
   return (
     <div
-      className="absolute inset-y-0 left-0 z-20 flex w-[min(20rem,85vw)] flex-col rounded-r-2xl bg-surface text-fg shadow-float squircle"
+      className="absolute inset-y-0 left-0 z-20 flex w-[min(20rem,85vw)] flex-col overflow-hidden rounded-r-2xl bg-surface text-fg shadow-float squircle"
       data-testid="layer-panel"
       role="dialog"
       aria-label={t('sky.layers')}
@@ -62,7 +63,7 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
           ✕
         </button>
       </header>
-      <div className="scroll-fade-y min-h-0 flex-1 overflow-y-auto pb-tab pt-2 text-body-sm">
+      <ScrollArea className="pb-tab pt-2 text-body-sm" fadeBottom="28px" fadeColor="var(--surface)">
         <Toggle
           id="layer-realSky"
           label={t('sky.layer.realSky')}
@@ -141,7 +142,7 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
           ]}
           onChange={(v) => set('labelLang', v)}
         />
-      </div>
+      </ScrollArea>
     </div>
   );
 }

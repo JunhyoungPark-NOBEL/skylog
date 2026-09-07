@@ -26,6 +26,7 @@ import {
   formatSeparation,
   formatTime,
 } from '@/ui/format';
+import { ScrollArea } from '@/ui/ScrollArea';
 
 const REFRESH_MS = 10_000;
 const SWIPE_PX = 70;
@@ -394,8 +395,8 @@ export function ObjectSheet() {
         </button>
       </div>
 
-      <div
-        className="min-h-0 flex-1 overflow-y-auto px-4 pb-[calc(env(safe-area-inset-bottom)+24px)]"
+      <ScrollArea
+        className="px-4 pb-[calc(env(safe-area-inset-bottom)+24px)]"
         data-testid="sheet-body"
       >
         {!d && <p className="py-3 text-body-sm text-muted">{t('common.loading')}</p>}
@@ -543,7 +544,7 @@ export function ObjectSheet() {
             )}
           </>
         )}
-      </div>
+      </ScrollArea>
     </div>
   );
 }

@@ -365,11 +365,8 @@ html[data-glass='off'] {
     corner-shape: squircle;
   }
 }
-/* 떠 있는 탭 바 아래로 스크롤 콘텐츠가 부드럽게 사라지게(아래쪽만 — 위쪽 첫 줄은 흐리지 않는다) */
-@utility scroll-fade-y {
-  -webkit-mask-image: linear-gradient(to bottom, black, black calc(100% - 28px), transparent);
-  mask-image: linear-gradient(to bottom, black, black calc(100% - 28px), transparent);
-}
+/* 스크롤러 아래쪽 페이드는 mask-image 대신 ScrollArea의 오버레이로 그린다(D-022) — 스크롤러에 mask를 걸면
+   합성기 스크롤 경로에서 벗어나 폰에서 끊긴다. */
 /* 하늘 뷰 하단 컨트롤(시간 바·툴팁 등)이 떠 있는 탭 pill 위에 오도록 하는 기준 높이 */
 @utility bottom-sky {
   bottom: calc(var(--tab-height) + var(--tab-inset) + env(safe-area-inset-bottom) + 8px);
@@ -421,6 +418,14 @@ html[data-glass='off'] {
   }
   input[type='range'] {
     accent-color: var(--accent);
+  }
+  /* 얇은 스크롤바(D-022): 마우스 환경에서도 존재감은 낮게. 색은 fg 알파라 야간 모드에서 붉어진다.
+     scrollbar-width는 상속되지 않으므로 전역, scrollbar-color는 상속되므로 html 한 곳에. */
+  * {
+    scrollbar-width: thin;
+  }
+  html {
+    scrollbar-color: color-mix(in srgb, var(--fg) 24%, transparent) transparent;
   }
 }
 

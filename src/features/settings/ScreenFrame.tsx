@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IconBack } from '@/ui/icons';
+import { ScrollArea } from '@/ui/ScrollArea';
 
 interface ScreenFrameProps {
   title: string;
@@ -29,7 +30,7 @@ export function ScreenFrame({ title, onBack, children, testId }: ScreenFrameProp
         </button>
         <h1 className="min-w-0 truncate text-title">{title}</h1>
       </header>
-      <div className="safe-bottom min-h-0 flex-1 overflow-y-auto pb-8">{children}</div>
+      <ScrollArea className="safe-bottom pb-8">{children}</ScrollArea>
     </div>
   );
 }

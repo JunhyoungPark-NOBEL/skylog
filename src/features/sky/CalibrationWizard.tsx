@@ -5,6 +5,7 @@ import { displayName } from '@/catalog/catalog';
 import type { ObjectId } from '@/catalog/objectId';
 import { getSkyScene } from '@/features/sky/skyApi';
 import { feedbackOk } from '@/sensors/feedback';
+import { useDragScroll } from '@/ui/useDragScroll';
 import {
   pickAlignmentCandidates,
   solveYawOffset,
@@ -35,6 +36,7 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
   const [errorDeg, setErrorDeg] = useState<number | null>(null);
   const [result, setResult] = useState<{ deltaAzDeg: number; pitchOffsetDeg: number } | null>(null);
   const scene = getSkyScene();
+  const listRef = useDragScroll<HTMLDivElement>();
 
   const candidates = useMemo<AlignmentCandidate[]>(() => {
     if (!scene?.catalog) return [];
@@ -159,6 +161,7 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
           <>
             <p className="mb-2 text-caption text-muted">{t('sensor.wizard.step1')}</p>
             <div
+              ref={listRef}
               className="flex max-h-[40vh] flex-wrap gap-2 overflow-y-auto"
               data-testid="calib-candidates"
             >

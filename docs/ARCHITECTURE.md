@@ -171,3 +171,4 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - 토큰은 `src/app/theme.css` 하나(반지름·표면 층·헤어라인·톤 상태색·그림자·유리·스프링 이징·타이포). Tailwind v4 `@theme`/`@theme inline`/`@utility`. 렌더러 팔레트(`app/theme.ts`)가 읽는 토큰은 리터럴 색이어야 한다(color-mix 금지).
 - 구조: 떠 있는 상태 캡슐(`pt-status`로 콘텐츠 여백) + 떠 있는 pill 탭 바(`pb-tab`, 하늘 컨트롤은 `bottom-sky`) + 28px 유리 바텀 시트(하늘 위·반쯤일 때만 유리). 공용 프리미티브 `ui/Card.tsx`·`ui/Chip.tsx`·`ui/PillButton.tsx`·`ui/Toggle.tsx`·`ui/Segmented.tsx`.
 - 야간 모드는 토큰 교체만(필터 hack 금지). 의미는 색 + 글리프/문구로.
+- 세로 스크롤 영역은 `ui/ScrollArea.tsx`(D-022): 네이티브 터치 스크롤 + 마우스 드래그 스크롤(`ui/useDragScroll.ts`, 6px 임계값·축 고정·관성·드래그 직후 click 억제) + 아래쪽 페이드 오버레이(`fadeBottom`). 스크롤러에 `mask-image`를 걸지 않는다. 높이 제한 컨테이너는 훅만 붙인다. 드래그 스크롤이 닿으면 안 되는 영역은 `touch-action: none` 또는 `data-drag-scroll="off"`.

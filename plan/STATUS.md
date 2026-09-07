@@ -44,6 +44,7 @@
 - **T4가 쓸 것**: `db/repos/bookmarks.ts`(☆ 관측 예정, 소프트 삭제), `recommend()`의 `observedSet` 입력(있으면 미관측 +5·`fresh` 이유), `ObjectSheet` 액션 슬롯(`★ 관측 기록` 버튼은 `data-testid="sheet-log"`로 비활성 자리), 계획 카드(`PlanCard`)의 ☆ 토글. `ObservationConditions`에 넣을 값은 `computeObjectDetails`(달 조도·각거리·고도·방위)와 `getWeather`(구름·습도·기온)에서 바로 나온다.
 - **T5가 쓸 것**: `ObjectSheet`의 `망원경으로 찾기` 버튼 자리(`sheet-telescope`), `DEFAULT_EQUIPMENT`(`astro/equipment.ts`)를 장비 프로필로 대체하면 추천·시트 판정이 함께 바뀐다. 이중성 표 `DOUBLE_STARS`(분리각·분해 장비).
 - **UI 규칙(D-021)**: 새 화면은 `docs/ARCHITECTURE.md` "UI 디자인 시스템 v2"와 토큰(`theme.css`)만 쓴다. 탭 화면은 App이 `pt-status pb-tab`을 감싸므로 자체 상하 여백을 두지 않는다. 카피는 D-021 용어집(해요체·평이한 용어)을 따른다.
+- **스크롤 규칙(D-022)**: 세로 스크롤 영역은 `ui/ScrollArea.tsx`(마우스 드래그 스크롤·관성·페이드 오버레이)로 만든다. 스크롤러에 `mask-image`를 걸지 않는다. 드래그 스크롤이 닿으면 안 되는 컨트롤은 `touch-action: none` 또는 `data-drag-scroll="off"`. 사용자 보고("스크롤이 뻑뻑하고 스크롤 바를 정확히 눌러야 함")에 대한 수정이며, 실기기 확인은 T3b 체크리스트의 스크롤 항목으로 받는다.
 - **주의(이 세션에서 겪은 것)**: 워크플로 에이전트가 "코드 스케치를 써 달라"는 프롬프트를 실제 경로에 파일을 만들었다가 지우는 바람에 `src/astro/phenomena.ts`가 사라진 적이 있다. 리서치용 에이전트 프롬프트에는 **"파일을 만들거나 고치지 말 것"**을 명시한다.
 - 검증 명령 전부 통과: `pnpm typecheck && pnpm lint && pnpm test`(172개) `&& pnpm build`, `pnpm test:e2e`(19개), `pnpm data:validate`. 초기 JS gzip ≈ 369KB(T3b 엔진·카드 포함, 코드 분할 없음 — T8에서 검토).
 - 데이터 원본(`data-src/raw/`)은 gitignore. 새 PC에서는 OneDrive 동기화로 `node_modules`·`data-src/raw`까지 같이 왔다(이 세션은 연구실 데스크톱에서 그대로 이어서 진행). 명령은 PowerShell + PATH 접두(`C:\Program Files\nodejs;C:\Program Files\GitHub CLI;%APPDATA%\npm`).

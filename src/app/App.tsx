@@ -19,14 +19,20 @@ import { ObjectSheet } from '@/features/object/ObjectSheet';
 import { releaseWakeLock, requestWakeLock } from '@/sensors/wakeLock';
 import { useSettingsStore } from '@/state/settingsStore';
 import { DebugHud } from '@/ui/DebugHud';
+import { ScrollArea } from '@/ui/ScrollArea';
 
 /**
- * 스크롤되는 탭 화면 래퍼(D-021). 떠 있는 상태 캡슐·탭 pill 아래로 콘텐츠가 이어지도록
+ * 스크롤되는 탭 화면 래퍼(D-021·D-022). 떠 있는 상태 캡슐·탭 pill 아래로 콘텐츠가 이어지도록
  * 위·아래 여백을 여기서만 잡는다 — 안쪽 화면은 자체 상·하 패딩을 두지 않는다.
+ * 마우스 드래그 스크롤·관성은 ScrollArea가 맡고, 아래쪽 페이드는 mask 대신 오버레이로 그린다.
  * 라우트마다 별도 슬롯에서 렌더되므로 탭을 바꾸면 스크롤 위치가 초기화된다.
  */
 function TabScreen({ children }: { children: ReactNode }) {
-  return <div className="scroll-fade-y pt-status pb-tab h-full overflow-y-auto">{children}</div>;
+  return (
+    <ScrollArea className="pt-status pb-tab" fadeBottom="28px" data-testid="tab-screen">
+      {children}
+    </ScrollArea>
+  );
 }
 
 /** 앱 셸: 떠 있는 상태 캡슐 + 라우트된 화면 + 떠 있는 탭 pill. 설정·정보·디버그는 전체 화면 라우트. */
