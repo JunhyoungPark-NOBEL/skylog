@@ -1,15 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import type { ObjectInfo } from '@/render/SkyScene';
 
-/** 선택 툴팁 (task-01 §3.8): 이름·종류·등급·alt/az·별자리. "자세히"는 T3에서 연결. */
+/** 선택 툴팁 (task-01 §3.8): 이름·종류·등급·alt/az·별자리. "자세히" → 상세 시트(T3). */
 export function SelectionTooltip({
   info,
   onClose,
   onCenter,
+  onDetails,
 }: {
   info: ObjectInfo;
   onClose(): void;
   onCenter(): void;
+  onDetails(): void;
 }) {
   const { t } = useTranslation();
   return (
@@ -64,8 +66,8 @@ export function SelectionTooltip({
         </button>
         <button
           type="button"
-          disabled
-          className="min-h-9 rounded-full bg-surface-2 px-3 text-xs opacity-40"
+          onClick={onDetails}
+          className="min-h-9 rounded-full bg-surface-2 px-3 text-xs"
           data-testid="tooltip-details"
         >
           {t('sky.tooltip.details')}

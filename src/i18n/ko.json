@@ -79,10 +79,65 @@
   },
   "search": {
     "title": "검색",
-    "placeholder": "토성, 안드로메다, M13, 직녀성…"
+    "placeholder": "토성, 안드로메다, M13, 직녀성…",
+    "recent": "최근 검색",
+    "clearRecent": "지우기",
+    "suggest": "지금 보이는 유명 천체",
+    "suggestDay": "낮에 볼 수 있는 것",
+    "noResults": "결과 없음",
+    "visibleOnly": "지금 보이는 것만",
+    "loading": "검색 인덱스 불러오는 중…",
+    "resultCount": "{{n}}개 · {{ms}}ms",
+    "category": {
+      "all": "전체",
+      "bodies": "행성·달",
+      "star": "별",
+      "const": "별자리",
+      "cluster": "성단",
+      "nebula": "성운",
+      "galaxy": "은하",
+      "messier": "메시에"
+    },
+    "state": {
+      "above": "고도 {{alt}}°",
+      "below": "지평선 아래",
+      "day": "낮"
+    }
   },
   "tonight": {
-    "title": "오늘 밤"
+    "title": "오늘 밤",
+    "skyStatus": "하늘 상태",
+    "night": "{{date}} 밤",
+    "sunset": "일몰",
+    "sunrise": "일출",
+    "astroDusk": "천문박명 끝",
+    "astroDawn": "천문박명 시작",
+    "nauticalDusk": "항해박명 끝",
+    "moonrise": "월출",
+    "moonset": "월몰",
+    "moonAge": "달 나이 {{d}}일",
+    "illum": "조도 {{p}}%",
+    "darkWindow": "어두운 창",
+    "darkWindowHint": "천문박명 사이 · 달 없음(고도 10° 미만)",
+    "darkNone": "오늘 밤은 달빛이 계속 있음",
+    "darkTotal": "총 {{dur}}",
+    "now": "지금",
+    "legend": {
+      "darkness": "어둠",
+      "moon": "달",
+      "dark": "어두운 창"
+    },
+    "moonPhase": {
+      "new": "삭(신월)",
+      "waxingCrescent": "초승달",
+      "firstQuarter": "상현달",
+      "waxingGibbous": "상현망간",
+      "full": "보름달",
+      "waningGibbous": "하현망간",
+      "lastQuarter": "하현달",
+      "waningCrescent": "그믐달"
+    },
+    "comingSoon": "추천·날씨·천문 현상은 T3b에서"
   },
   "log": {
     "title": "관측 기록"
@@ -170,7 +225,12 @@
     "rangeAll": "전체",
     "minAlt": "최소 고도",
     "save": "저장",
-    "dir": { "n": "북", "e": "동", "s": "남", "w": "서" }
+    "dir": {
+      "n": "북",
+      "e": "동",
+      "s": "남",
+      "w": "서"
+    }
   },
   "settings": {
     "title": "설정",
@@ -216,5 +276,105 @@
   "error": {
     "title": "문제가 생겼어요",
     "reload": "다시 시작"
+  },
+  "object": {
+    "section": {
+      "now": "지금",
+      "today": "오늘",
+      "coords": "좌표",
+      "equipment": "이 장비로",
+      "constellation": "별자리"
+    },
+    "alt": "고도",
+    "az": "방위",
+    "status": {
+      "visible": "보임",
+      "belowHorizon": "지평선 아래",
+      "daylight": "낮",
+      "twilight": "박명",
+      "nearSun": "태양 근접"
+    },
+    "distance": "거리",
+    "mag": "등급",
+    "size": "크기",
+    "angularDiameter": "각지름",
+    "moonSep": "달과 각거리",
+    "sunSep": "태양과 각거리",
+    "illum": "조도",
+    "rise": "뜸",
+    "transit": "남중",
+    "set": "짐",
+    "transitAlt": "최고 고도",
+    "circumpolar": "지지 않음(주극성)",
+    "neverRises": "뜨지 않음",
+    "bestWindow": "관측 최적 시간대",
+    "bestWindowHint": "고도 {{alt}}° 이상 · 어두운 시간",
+    "bestWindowNone": "오늘 밤은 높이 뜨지 않음",
+    "bestMonth": "가장 좋은 달",
+    "month": "{{m}}월",
+    "j2000": "J2000",
+    "jnow": "오늘 기준(JNow)",
+    "altaz": "고도/방위",
+    "copy": "복사",
+    "copied": "복사됨",
+    "equipment": {
+      "naked": "맨눈",
+      "binoculars": "쌍안경 10×50",
+      "telescope": "망원경 90mm"
+    },
+    "verdict": {
+      "easy": "잘 보임",
+      "possible": "보임",
+      "hard": "어려움",
+      "no": "안 보임"
+    },
+    "verdictNote": "참고: 하늘 밝기(Bortle {{bortle}})·달·고도로 어림한 값입니다. 확산 천체는 표면 밝기 근사.",
+    "limit": "한계 {{mag}}등급",
+    "action": {
+      "showInSky": "하늘에서 보기",
+      "telescope": "망원경으로 찾기",
+      "log": "★ 관측 기록",
+      "plan": "☆ 관측 예정",
+      "planned": "★ 예정됨",
+      "story": "스토리"
+    },
+    "later": {
+      "telescope": "Task 5에서",
+      "log": "Task 4에서",
+      "story": "Task 6에서"
+    },
+    "con": {
+      "season": "계절",
+      "mainStars": "주요 별",
+      "dsos": "성운·성단·은하",
+      "now": "지금 위치"
+    },
+    "season": {
+      "spring": "봄",
+      "summer": "여름",
+      "autumn": "가을",
+      "winter": "겨울",
+      "any": "연중"
+    },
+    "tip": {
+      "alt": "지평선에서 잰 높이. 0°가 지평선, 90°가 머리 위.",
+      "az": "북쪽 0°에서 시계 방향으로 잰 방향. 동 90°, 남 180°, 서 270°.",
+      "mag": "겉보기 밝기. 숫자가 작을수록 밝다(1등급 차이 = 2.5배).",
+      "twilight": "해가 진 뒤 하늘이 완전히 어두워지기까지. 천문박명(−18°) 끝나면 완전한 밤."
+    },
+    "expand": "전체 열기",
+    "collapse": "줄이기"
+  },
+  "target": {
+    "title": "찾아가기",
+    "clear": "목표 해제",
+    "remaining": "{{deg}}°",
+    "centered": "중앙!",
+    "inView": "시야 안",
+    "below": "지평선 아래",
+    "risesAt": "{{time}}에 뜸",
+    "risesRel": "{{rel}} 뜸",
+    "noRise": "오늘은 뜨지 않음",
+    "jumpTime": "그 시각으로"
   }
 }

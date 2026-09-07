@@ -1,0 +1,17 @@
+{
+  "description": "독립 기준(task-03 §6): USNO Astronomical Applications API rstt/oneday, 대전 36.37N 127.36E, tz=+9. 앱의 박명·출몰·월출몰 계산이 ±2분 안이어야 한다.",
+  "source": "https://aa.usno.navy.mil/api/rstt/oneday?date=YYYY-MM-DD&coords=36.37,127.36&tz=9 (API 4.0.1)",
+  "fetchedAt": "2026-09-07",
+  "site": { "lat": 36.37, "lon": 127.36, "elevationM": 0 },
+  "days": {
+    "2026-09-06": {
+      "sun": { "civilDawn": "05:39", "rise": "06:06", "transit": "12:29", "set": "18:52", "civilDusk": "19:18" },
+      "moon": { "rise": "00:02", "transit": "07:53", "set": "15:40", "fracillum": 0.30, "phase": "Waning Crescent" }
+    },
+    "2026-09-07": {
+      "sun": { "civilDawn": "05:40", "rise": "06:06", "transit": "12:29", "set": "18:50", "civilDusk": "19:17" },
+      "moon": { "rise": "01:12", "transit": "08:55", "set": "16:29", "fracillum": 0.20, "phase": "Waning Crescent" }
+    }
+  },
+  "lastQuarter": "2026-09-04T16:51+09:00"
+}

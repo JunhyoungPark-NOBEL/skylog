@@ -79,10 +79,65 @@
   },
   "search": {
     "title": "Search",
-    "placeholder": "Saturn, Andromeda, M13, Vega…"
+    "placeholder": "Saturn, Andromeda, M13, Vega…",
+    "recent": "Recent",
+    "clearRecent": "Clear",
+    "suggest": "Famous objects up now",
+    "suggestDay": "Visible in daylight",
+    "noResults": "No results",
+    "visibleOnly": "Up now only",
+    "loading": "Loading search index…",
+    "resultCount": "{{n}} results · {{ms}}ms",
+    "category": {
+      "all": "All",
+      "bodies": "Planets·Moon",
+      "star": "Stars",
+      "const": "Constellations",
+      "cluster": "Clusters",
+      "nebula": "Nebulae",
+      "galaxy": "Galaxies",
+      "messier": "Messier"
+    },
+    "state": {
+      "above": "alt {{alt}}°",
+      "below": "below horizon",
+      "day": "daytime"
+    }
   },
   "tonight": {
-    "title": "Tonight"
+    "title": "Tonight",
+    "skyStatus": "Sky status",
+    "night": "Night of {{date}}",
+    "sunset": "Sunset",
+    "sunrise": "Sunrise",
+    "astroDusk": "Astro. dusk",
+    "astroDawn": "Astro. dawn",
+    "nauticalDusk": "Nautical dusk",
+    "moonrise": "Moonrise",
+    "moonset": "Moonset",
+    "moonAge": "Moon age {{d}} d",
+    "illum": "{{p}}% lit",
+    "darkWindow": "Dark window",
+    "darkWindowHint": "astronomical night · Moon below 10°",
+    "darkNone": "Moonlight all night",
+    "darkTotal": "total {{dur}}",
+    "now": "now",
+    "legend": {
+      "darkness": "darkness",
+      "moon": "Moon",
+      "dark": "dark window"
+    },
+    "moonPhase": {
+      "new": "New Moon",
+      "waxingCrescent": "Waxing crescent",
+      "firstQuarter": "First quarter",
+      "waxingGibbous": "Waxing gibbous",
+      "full": "Full Moon",
+      "waningGibbous": "Waning gibbous",
+      "lastQuarter": "Last quarter",
+      "waningCrescent": "Waning crescent"
+    },
+    "comingSoon": "Recommendations, weather and events arrive in T3b"
   },
   "log": {
     "title": "Observation log"
@@ -170,7 +225,12 @@
     "rangeAll": "All",
     "minAlt": "Min altitude",
     "save": "Save",
-    "dir": { "n": "N", "e": "E", "s": "S", "w": "W" }
+    "dir": {
+      "n": "N",
+      "e": "E",
+      "s": "S",
+      "w": "W"
+    }
   },
   "settings": {
     "title": "Settings",
@@ -216,5 +276,105 @@
   "error": {
     "title": "Something went wrong",
     "reload": "Restart"
+  },
+  "object": {
+    "section": {
+      "now": "Now",
+      "today": "Today",
+      "coords": "Coordinates",
+      "equipment": "With this gear",
+      "constellation": "Constellation"
+    },
+    "alt": "Altitude",
+    "az": "Azimuth",
+    "status": {
+      "visible": "Visible",
+      "belowHorizon": "Below horizon",
+      "daylight": "Daylight",
+      "twilight": "Twilight",
+      "nearSun": "Near the Sun"
+    },
+    "distance": "Distance",
+    "mag": "Magnitude",
+    "size": "Size",
+    "angularDiameter": "Angular diameter",
+    "moonSep": "From Moon",
+    "sunSep": "From Sun",
+    "illum": "Illumination",
+    "rise": "Rise",
+    "transit": "Transit",
+    "set": "Set",
+    "transitAlt": "Max altitude",
+    "circumpolar": "Never sets (circumpolar)",
+    "neverRises": "Never rises",
+    "bestWindow": "Best observing window",
+    "bestWindowHint": "altitude ≥ {{alt}}° · dark sky",
+    "bestWindowNone": "Does not get high tonight",
+    "bestMonth": "Best month",
+    "month": "Month {{m}}",
+    "j2000": "J2000",
+    "jnow": "JNow",
+    "altaz": "Alt/Az",
+    "copy": "Copy",
+    "copied": "Copied",
+    "equipment": {
+      "naked": "Naked eye",
+      "binoculars": "Binoculars 10×50",
+      "telescope": "Telescope 90mm"
+    },
+    "verdict": {
+      "easy": "Easy",
+      "possible": "Visible",
+      "hard": "Hard",
+      "no": "Not visible"
+    },
+    "verdictNote": "Approximate — from sky brightness (Bortle {{bortle}}), Moon and altitude. Extended objects use surface-brightness estimate.",
+    "limit": "limit mag {{mag}}",
+    "action": {
+      "showInSky": "Show in sky",
+      "telescope": "Find with telescope",
+      "log": "★ Log observation",
+      "plan": "☆ Plan",
+      "planned": "★ Planned",
+      "story": "Story"
+    },
+    "later": {
+      "telescope": "Task 5",
+      "log": "Task 4",
+      "story": "Task 6"
+    },
+    "con": {
+      "season": "Season",
+      "mainStars": "Main stars",
+      "dsos": "Deep-sky objects",
+      "now": "Now"
+    },
+    "season": {
+      "spring": "Spring",
+      "summer": "Summer",
+      "autumn": "Autumn",
+      "winter": "Winter",
+      "any": "All year"
+    },
+    "tip": {
+      "alt": "Height above the horizon. 0° is the horizon, 90° is overhead.",
+      "az": "Direction measured clockwise from north. East 90°, south 180°, west 270°.",
+      "mag": "Apparent brightness. Smaller is brighter (1 mag = 2.5×).",
+      "twilight": "Time between sunset and full darkness. Astronomical twilight ends at −18°."
+    },
+    "expand": "Expand",
+    "collapse": "Collapse"
+  },
+  "target": {
+    "title": "Guide",
+    "clear": "Clear target",
+    "remaining": "{{deg}}°",
+    "centered": "Centered!",
+    "inView": "In view",
+    "below": "Below horizon",
+    "risesAt": "rises at {{time}}",
+    "risesRel": "rises {{rel}}",
+    "noRise": "Does not rise today",
+    "jumpTime": "Jump to that time"
   }
 }

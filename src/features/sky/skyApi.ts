@@ -39,13 +39,19 @@ export function getSkyScene(): SkyScene | null {
 
 /** 천체를 화면 중앙으로 (fovDeg 생략 시 현재 유지). "하늘에서 보기" 버튼이 쓴다. */
 export function flyToObject(id: ObjectId, fovDeg?: number): void {
+  const run = (scene: SkyScene) => {
+    // 카탈로그 로드 전이면 준비될 때까지 기다린다(검색 탭에서 하늘 탭으로 막 넘어온 경우)
+    void scene.ready.then(() => {
+      if (current !== scene) return;
+      scene.flyToObject(id, fovDeg);
+      scene.select(id);
+    });
+  };
   if (current) {
-    current.flyToObject(id, fovDeg);
-    current.select(id);
+    run(current);
     return;
   }
   pending = () => {
-    current?.flyToObject(id, fovDeg);
-    current?.select(id);
+    if (current) run(current);
   };
 }

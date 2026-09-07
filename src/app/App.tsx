@@ -15,6 +15,7 @@ import { SitesScreen } from '@/features/settings/Sites';
 import { initLocation } from '@/sensors/locationInit';
 import { SkyView } from '@/features/sky/SkyView';
 import { TonightScreen } from '@/features/tonight/TonightScreen';
+import { ObjectSheet } from '@/features/object/ObjectSheet';
 import { releaseWakeLock, requestWakeLock } from '@/sensors/wakeLock';
 import { useSettingsStore } from '@/state/settingsStore';
 import { DebugHud } from '@/ui/DebugHud';
@@ -56,6 +57,7 @@ export function App() {
         {route === 'learn' && <LearnScreen />}
       </main>
       <TabBar active={route} onSelect={(r) => navigate(r)} />
+      <ObjectSheet />
       {debugHud && <DebugHud />}
     </div>
   );

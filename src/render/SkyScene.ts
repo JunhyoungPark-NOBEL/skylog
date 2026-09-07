@@ -169,6 +169,12 @@ export class SkyScene {
     });
   }
 
+  private resolveReady: (() => void) | null = null;
+  /** 카탈로그·별 팩이 로드되어 objectDirection·flyToObject가 동작하는 시점(skyApi가 대기) */
+  readonly ready: Promise<void> = new Promise((resolve) => {
+    this.resolveReady = resolve;
+  });
+
   /** 데이터 로드(카탈로그·밝은 별 팩·은하수). 로드되는 대로 그린다. */
   async init(): Promise<void> {
     const [catalog, bright] = await Promise.all([loadCatalog(), loadStarPack('stars-bright')]);
@@ -179,6 +185,9 @@ export class SkyScene {
     this.constellations.setCatalog(catalog);
     this.dso.setCatalog(catalog);
     this.dirty = true;
+    // 캐시된 데이터로 즉시 로드되면 첫 프레임 전에 ready가 될 수 있다 → 행성 배치를 먼저 보장(objectDirection이 placements를 본다)
+    this.updateAstronomy(performance.now());
+    this.resolveReady?.();
     void this.milkyWay.load().then(() => {
       this.dirty = true;
     });
@@ -644,6 +653,29 @@ export class SkyScene {
     if (!altAz) return false;
     this.controller.flyTo({ ...altAz, fovDeg });
     return true;
+  }
+
+  /** 팩 전용 별(카탈로그에 이름이 없는 star:HIP…/HYG…)의 J2000 좌표·등급. 상세 시트의 폴백(T3). */
+  objectJ2000(id: ObjectId): { raDeg: number; decDeg: number; mag?: number } | null {
+    const m = /^star:(HIP|HYG)(\d+)$/.exec(id);
+    if (!m) return null;
+    const n = Number(m[2]);
+    for (const name of ['stars-bright', 'stars-deep'] as StarPackName[]) {
+      const pack = this.packs.get(name);
+      if (!pack) continue;
+      const arr = m[1] === 'HIP' ? pack.hip : pack.hygId;
+      for (let i = 0; i < pack.count; i++) {
+        if (arr[i] === n) {
+          const { raDeg, decDeg } = unitVectorToRaDec([
+            pack.positions[i * 3]!,
+            pack.positions[i * 3 + 1]!,
+            pack.positions[i * 3 + 2]!,
+          ]);
+          return { raDeg, decDeg, mag: pack.mag[i] };
+        }
+      }
+    }
+    return null;
   }
 
   // ---------- 라벨 ----------

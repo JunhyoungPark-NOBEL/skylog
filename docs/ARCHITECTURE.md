@@ -80,6 +80,16 @@ Provider(DOAbsolute | GenericAbs | DeviceOrientation | Simulator)   ── Orien
 - **T5 재사용 API**: `solveYawOffset(samples)`, `applyOffset(q, δ, pitch)`, `deviceAxisInScene(q, axis, θ)`(경통 축 `t_b`를 화면 회전 없이 넣을 것), `SensorManager.currentAltAz()`.
 - 위치: `sensors/geolocation.ts`(getCurrentPosition → watchPosition 개선, 마지막 위치 저장), `sensors/locationInit.ts`(시작 시 결정), 관측지 CRUD `db/repos/sites.ts` + `features/settings/Sites.tsx`(`SkyRangePicker`).
 
+## 검색·상세·찾아가기·관측 밤 (T3a, D-019)
+
+- **검색**(`catalog/searchIndex.ts`): `search-index.v1.json`(항목당 정규화 별칭)을 선형 탐색. 외부 라이브러리 없음. 정규화 함수는 `catalog/normalize.ts` 하나를 빌드 스크립트와 앱이 공유한다. 등급 exact < prefix < substring < fuzzy(편집 거리 1, 4자 이상), 초성 질의(`ㅈㄴㅅ`), 한국어 음역 확장(`koreanLatin.ts`: "알파 리라" → `alphalyr`, 약한 일치). 같은 등급 안에서 밝기 → 지평선 위 → 유명 천체(`famous.ts`) 보너스. 별자리의 "…자리" 뗀 별칭은 약한 별칭. `lastSearchMs`로 응답 시간 확인(< 50ms).
+- **지금 상태**(검색 결과·제안): `eqjToSceneMatrix` 1개 + 카탈로그 벡터(`SearchScreen.makeNowState`). 빈 검색어 제안은 `SUGGEST_ORDER` 중 고도 ≥ 10°.
+- **상세 시트**(`features/object/ObjectSheet.tsx`, 어디서든 `openObject(id)`): `catalog/objectTarget.ts`(id → J2000·등급·크기·거리, 팩 전용 별은 `SkyScene.objectJ2000` 폴백) → `astro/objectDetails.ts`(순수): 지금(느린 경로 alt/az·of-date·태양/달 각거리·상태), 오늘(정오→정오 출·남중·몰, 최적 시간대 = 어두운 구간 ∩ 고도 ≥ 30°(폴백 20°) 최장 연속, 가장 좋은 달 = 15일 자정 LST≈RA), 장비 판정(`astro/equipment.ts`: 점광원 = 한계등급 여유, 확산 천체 = 표면 밝기 vs Bortle 하늘 배경 + 광학계 보너스, **근사**). 10초마다 재계산. 반쯤/전체 2단계, 핸들 스와이프. ☆ 예정 = Dexie `bookmarks`(`db/repos/bookmarks.ts`, 소프트 삭제).
+- **찾아가기**(`features/sky/TargetGuide.tsx`, `selectionStore.targetId`): 80ms마다 `scene.objectDirection` → 화면 안이면 링, 밖이면 카메라 공간 x·y로 가장자리 화살표(`render/edgeArrow.ts`, 원근 나눗셈이 없으므로 뒤쪽도 뒤집지 않는다). 중앙 3° 안 피드백 1회(5° 밖으로 나가면 재무장). 지평선 아래면 다음 출 시각 + 시계 이동 버튼. "하늘에서 보기" FOV는 `fovForTarget`(행성 20°, 별 30°, DSO 크기 기반, 별자리 경계 맞춤).
+- **관측 밤**(`astro/night.ts`, `observingNight`): 현지 정오→정오(`nightKey`), 박명 구간 목록(`segments`), `darkSpan`(천문박명 사이, 없으면 항해), 달 위 구간·월출몰(여러 번 가능), 위상·조도·달 나이, **어두운 창** = darkSpan ∩ 달 고도 < 10°(5분 샘플 + 이분법). 캐시는 `features/tonight/useNight.ts`(밤 키+관측지). 위젯 `SkyStatusCard`(SVG 타임라인 18~06시, 일몰/일출이 벗어나면 확장; T3b가 구름 막대를 `clouds`로 겹친다).
+- **포맷**(`ui/format.ts`): 16방위, HMS/DMS, 현지 시각(Intl, `Asia/Seoul`), 시간 길이, 거리, 각크기, `zonedDateTime`/`tzOffsetMinutes`.
+- **씬 준비**: `SkyScene.ready`(카탈로그+첫 행성 배치) — `skyApi.flyToObject`는 이것을 기다린다(검색 탭 → 하늘 탭 전환 직후 호출되어도 동작).
+
 ## 디렉터리
 
 마스터 플랜 §6.4와 동일. 빈 디렉터리에는 `README.md` 한 줄.

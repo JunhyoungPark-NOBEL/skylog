@@ -209,13 +209,8 @@ export function round(v: number, digits: number): number {
 }
 
 /** 검색 인덱스용 별칭 정규화 (docs/ARCHITECTURE.md에 규칙 문서화) */
-export function normalizeAlias(s: string): string {
-  return s
-    .normalize('NFC')
-    .toLowerCase()
-    .replace(/[\s\-_.'’·]/g, '')
-    .replace(/[()]/g, '');
-}
+// 검색 정규화는 앱(`src/catalog/normalize.ts`)과 같은 함수를 쓴다(D-019) — 빌드와 질의가 어긋나지 않게.
+export { normalizeAlias } from '../../src/catalog/normalize.ts';
 
 const GREEK: Record<string, string> = {
   α: 'alpha',

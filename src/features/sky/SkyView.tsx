@@ -9,6 +9,8 @@ import { SensorSimPanel } from '@/features/sky/SensorSimPanel';
 import { sensorManager } from '@/sensors/orientation/manager';
 import { useSensorStore } from '@/state/sensorStore';
 import { SelectionTooltip } from '@/features/sky/SelectionTooltip';
+import { TargetGuide } from '@/features/sky/TargetGuide';
+import { openObject } from '@/features/object/objectApi';
 import { registerSkyScene } from '@/features/sky/skyApi';
 import { TimeBar } from '@/features/sky/TimeBar';
 import { SkyScene, type ObjectInfo } from '@/render/SkyScene';
@@ -59,6 +61,7 @@ export function SkyView() {
   const lang = useSettingsStore((s) => s.lang);
   const showViewInfo = useLayerStore((s) => s.showViewInfo);
   const selectedId = useSelectionStore((s) => s.selectedId);
+  const sheetOpen = useSelectionStore((s) => s.sheetOpen);
 
   // 씬 생성/파괴
   useEffect(() => {
@@ -82,7 +85,8 @@ export function SkyView() {
       },
       onViewChange: (v) => {
         const now = performance.now();
-        if (now - lastStoreSync > 100) {
+        // 10Hz로 제한하되, 애니메이션(flyTo·관성)이 끝나는 마지막 값은 반드시 반영한다
+        if (now - lastStoreSync > 100 || !scene.controller.isAnimating()) {
           lastStoreSync = now;
           const vs = useViewStore.getState();
           vs.setCenter(v.altDeg, v.azDeg);
@@ -183,7 +187,7 @@ export function SkyView() {
       window.clearInterval(id);
     };
   }, [selectedId, ready, lang]);
-  const shownInfo = selectedId && info && info.id === selectedId ? info : null;
+  const shownInfo = selectedId && !sheetOpen && info && info.id === selectedId ? info : null;
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-bg" data-testid="sky-view">
@@ -221,11 +225,14 @@ export function SkyView() {
 
       {layersOpen && <LayerPanel onClose={() => setLayersOpen(false)} />}
 
+      <TargetGuide />
+
       {shownInfo && (
         <SelectionTooltip
           info={shownInfo}
           onClose={() => sceneRef.current?.select(null)}
           onCenter={() => sceneRef.current?.flyToObject(shownInfo.id)}
+          onDetails={() => openObject(shownInfo.id, 'half')}
         />
       )}
 
