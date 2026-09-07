@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { navigate } from '@/app/router';
 import { useClockStore } from '@/state/clockStore';
 import { useLocationStore } from '@/state/locationStore';
+import { useSensorStore } from '@/state/sensorStore';
 import { useViewStore } from '@/state/viewStore';
 import { IconSettings } from '@/ui/icons';
 
@@ -21,6 +22,26 @@ export function StatusBar() {
   const offsetMs = useClockStore((s) => s.offsetMs);
   const notNow = clockMode === 'manual' || offsetMs !== 0;
   const viewMode = useViewStore((s) => s.mode);
+  const accuracyM = useLocationStore((s) => s.accuracyM);
+  const headingSource = useSensorStore((s) => s.headingSource);
+  const calibrated = useSensorStore((s) => s.calibration !== null);
+  const centerAz = useViewStore((s) => s.centerAz);
+  const centerAlt = useViewStore((s) => s.centerAlt);
+  const sensorText = (() => {
+    if (viewMode !== 'sensor') return t('status.sensorOff');
+    const dir = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'][Math.round(centerAz / 45) % 8];
+    const src =
+      headingSource === 'manual'
+        ? t('status.manual')
+        : calibrated
+          ? t('status.aligned')
+          : headingSource === 'compass-sync'
+            ? t('status.compass')
+            : headingSource === 'relative'
+              ? t('status.relative')
+              : t('status.absolute');
+    return `${dir} ${centerAz.toFixed(0)}° / ${centerAlt.toFixed(0)}° · ${src}`;
+  })();
   const [time, setTime] = useState(() => timeFmt.format(useClockStore.getState().now()));
 
   useEffect(() => {
@@ -42,6 +63,7 @@ export function StatusBar() {
     >
       <span className="truncate text-fg" data-testid="status-site">
         {siteName}
+        {accuracyM !== null ? <span className="text-muted"> ±{Math.round(accuracyM)}m</span> : null}
       </span>
       <span className="text-border">·</span>
       <span
@@ -55,8 +77,8 @@ export function StatusBar() {
         {notNow ? ` (${t('status.manualTime')})` : ''}
       </span>
       <span className="text-border">·</span>
-      <span data-testid="status-sensor">
-        {viewMode === 'sensor' ? t('status.sensorOn') : t('status.sensorOff')}
+      <span data-testid="status-sensor" className="truncate">
+        {sensorText}
       </span>
       <span className="flex-1" />
       <button

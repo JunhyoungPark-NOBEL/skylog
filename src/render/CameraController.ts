@@ -88,20 +88,50 @@ export class CameraController {
     if (notify) this.opts.onChange(this.getView());
   }
 
-  /** T2 센서 모드 진입점: 기기 방향 쿼터니언(씬 프레임 기준) → alt/az */
+  /** T2 센서 모드 진입점: 기기 방향 쿼터니언(씬 프레임 기준) → alt/az (롤 무시) */
   setOrientationQuaternion(q: THREE.Quaternion): void {
+    this.setSensorQuaternion(q, true);
+  }
+
+  private sensorQuat: THREE.Quaternion | null = null;
+
+  /**
+   * 센서 자세를 카메라에 적용. keepLevel=false면 롤(기기 기울기)도 그대로 화면에 반영(실제 AR처럼),
+   * true면 alt/az만 쓰고 수평을 유지한다. null이면 센서 모드 해제(드래그가 다시 카메라를 움직인다).
+   */
+  setSensorQuaternion(q: THREE.Quaternion | null, keepLevel = false): void {
+    if (!q) {
+      this.sensorQuat = null;
+      return;
+    }
     const { altDeg, azDeg } = quaternionToAltAz(q);
     this.fly = null;
     this.velocity = { alt: 0, az: 0 };
-    this.setView({ altDeg, azDeg });
+    this.sensorQuat = keepLevel ? null : q.clone();
+    this.view.altDeg = clamp(altDeg, -ALT_LIMIT_DEG, ALT_LIMIT_DEG);
+    this.view.azDeg = wrap360(azDeg);
+    this.opts.onChange(this.getView());
   }
+
+  get hasSensorQuaternion(): boolean {
+    return this.sensorQuat !== null;
+  }
+
+  /**
+   * 드래그를 가로채는 핸들러(보정 마법사의 미세 조정). 설정되면 드래그가 카메라를 움직이지 않고
+   * (Δaz, Δalt)(도)를 핸들러에 넘긴다.
+   */
+  dragHandler: ((dAzDeg: number, dAltDeg: number) => void) | null = null;
+  /** 드래그 시작 알림(센서 모드 일시 정지용) */
+  onDragStart: (() => void) | null = null;
 
   /** 카메라 파라미터를 현재 상태로 갱신(프레임마다 호출). */
   applyToCamera(width: number, height: number): void {
     const cam = this.camera;
     cam.aspect = width / Math.max(1, height);
     cam.fov = verticalFovDeg(this.view.fovDeg, width, height);
-    cam.quaternion.copy(altAzToQuaternion(this.view.altDeg, this.view.azDeg));
+    if (this.sensorQuat) cam.quaternion.copy(this.sensorQuat);
+    else cam.quaternion.copy(altAzToQuaternion(this.view.altDeg, this.view.azDeg));
     cam.updateProjectionMatrix();
     cam.updateMatrixWorld();
   }
@@ -221,6 +251,7 @@ export class CameraController {
     this.dragging = true;
     this.moved = false;
     this.downPos = { x: e.clientX, y: e.clientY };
+    this.onDragStart?.();
     if (this.pointers.length === 2) {
       const [a, b] = this.pointers as [Pointer, Pointer];
       this.lastPinchDist = Math.hypot(a.x - b.x, a.y - b.y);
@@ -240,6 +271,14 @@ export class CameraController {
       const cosAlt = Math.max(0.2, Math.cos((this.view.altDeg * Math.PI) / 180));
       const dAz = (-dx * dpp) / cosAlt;
       const dAlt = dy * dpp;
+      if (this.dragHandler) {
+        // 보정 미세 조정: 카메라 대신 핸들러로 (오른쪽 드래그 = 하늘을 오른쪽으로 = δ 감소)
+        this.dragHandler(dAz, dAlt);
+        p.x = e.clientX;
+        p.y = e.clientY;
+        return;
+      }
+      if (this.sensorQuat) this.sensorQuat = null; // 수동 드래그가 시작되면 센서 자세 해제
       this.view.altDeg = clamp(this.view.altDeg + dAlt, -ALT_LIMIT_DEG, ALT_LIMIT_DEG);
       this.view.azDeg = wrap360(this.view.azDeg + dAz);
       const now = performance.now();

@@ -9,7 +9,10 @@ import { DebugDataPage } from '@/features/debug/DebugDataPage';
 import { LearnScreen } from '@/features/learn/LearnScreen';
 import { LogScreen } from '@/features/log/LogScreen';
 import { SearchScreen } from '@/features/search/SearchScreen';
+import { SensorDebugScreen } from '@/features/settings/SensorDebug';
 import { SettingsScreen } from '@/features/settings/SettingsScreen';
+import { SitesScreen } from '@/features/settings/Sites';
+import { initLocation } from '@/sensors/locationInit';
 import { SkyView } from '@/features/sky/SkyView';
 import { TonightScreen } from '@/features/tonight/TonightScreen';
 import { releaseWakeLock, requestWakeLock } from '@/sensors/wakeLock';
@@ -32,10 +35,15 @@ export function App() {
     if (keepAwake) void requestWakeLock();
     else void releaseWakeLock();
   }, [keepAwake]);
+  useEffect(() => {
+    void initLocation();
+  }, []);
 
   if (route === 'settings') return <SettingsScreen onBack={() => navigate('sky')} />;
   if (route === 'about') return <AboutScreen onBack={() => navigate('settings')} />;
+  if (route === 'sites') return <SitesScreen onBack={() => navigate('settings')} />;
   if (route === 'debug/data') return <DebugDataPage onBack={() => navigate('settings')} />;
+  if (route === 'debug/sensors') return <SensorDebugScreen onBack={() => navigate('settings')} />;
 
   return (
     <div className="flex h-full flex-col bg-bg text-fg">

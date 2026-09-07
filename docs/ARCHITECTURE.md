@@ -62,6 +62,24 @@ pointer/wheel ────┴─► CameraController ─► camera(alt/az/fov) �
 - 외부 진입점 `features/sky/skyApi.ts`: `flyToObject(id, fov?)`(T3 "하늘에서 보기"), `getSkyScene()`. 테스트 훅 `window.__skylogScene / __skylogStats / __skylogAstro`.
 - 결정 상세: D-017.
 
+## 센서 파이프라인 (`src/sensors/`, T2)
+
+```
+Provider(DOAbsolute | GenericAbs | DeviceOrientation | Simulator)   ── OrientationSample{q_scene, northReference, compassHeading, raw}
+   └─► SensorManager.onSample
+         1. 자북이면 applyYawOffset(q, D)          D = WMM2025 편각(magvar), 절대 소스에만 한 번
+         2. OrientationFilter.push(q, t)           slerp τ100ms · 적응 이득 · 출력 데드밴드 0.2° · (절대) yaw τ500ms
+         3. 상대 소스: compassSyncCandidate → YawSync   iOS 상단축 heading으로 δ_sync (자세 조건 밖이면 갱신 중단)
+         4. q_cal = applyOffset(q_f, δ, pitch)     δ = 별 정렬 > 나침반 동기 > 0
+         5. CameraController.setSensorQuaternion(q_cal, keepLevel)   (수동 일시 정지 중이면 생략)
+         6. sensorStore.patch(≤10Hz)               디버그 패널·상태 바·배지
+```
+
+- **부호 규약**(반드시 유지): 기기 프레임 +x 오른쪽, +y 상단, +z 화면 밖. W3C α는 위에서 볼 때 반시계(heading = 360 − α). 씬 프레임 +X 동, +Y 천정, +Z 남, 카메라 −Z. `deviceOrientationToScene = qY(α)·qX(β)·qZ(−γ)·qX(−π/2)·qZ(−θ)`. 방위 `atan2(x, −z)`; `yawQuaternion(Δaz) = qY(−Δaz)`(+Y 양의 회전은 방위 감소). 편각 D 동 +: 진북 = 자북 + D. 테스트 벡터는 `tests/unit/sensors/orientation.test.ts`.
+- **iOS vs Android**: Android `deviceorientationabsolute`는 자북 절대 자세 → D 적용. iOS는 상대 자세 + `webkitCompassHeading`(자북, accuracy 음수면 무효) → 상단 축끼리 비교해 δ_sync. `requestPermission()`은 탭 핸들러 안에서만.
+- **T5 재사용 API**: `solveYawOffset(samples)`, `applyOffset(q, δ, pitch)`, `deviceAxisInScene(q, axis, θ)`(경통 축 `t_b`를 화면 회전 없이 넣을 것), `SensorManager.currentAltAz()`.
+- 위치: `sensors/geolocation.ts`(getCurrentPosition → watchPosition 개선, 마지막 위치 저장), `sensors/locationInit.ts`(시작 시 결정), 관측지 CRUD `db/repos/sites.ts` + `features/settings/Sites.tsx`(`SkyRangePicker`).
+
 ## 디렉터리
 
 마스터 플랜 §6.4와 동일. 빈 디렉터리에는 `README.md` 한 줄.

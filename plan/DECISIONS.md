@@ -103,3 +103,15 @@
 - **시간·시점 공유**: `#/sky?t=ISO&alt=&az=&fov=&rate=&select=` 해시 쿼리. 해시 변경 시 재적용. `preserve=1`은 테스트 전용(preserveDrawingBuffer).
 - **렌더 루프**: invalidate 패턴. 정지 시 draw 0(HUD로 확인). 실시간은 행렬 1초·행성 250ms 간격, 시간 점프(≥60s)는 즉시.
 - **T2 훅**: `CameraController.setOrientationQuaternion(q)` — 씬 프레임 쿼터니언 → alt/az. `viewStore.mode = 'sensor'`일 때 센서 프로바이더가 매 프레임 호출하면 된다.
+
+## D-018 · 2026-09-07 · T2 센서 계층 결정 (G1 리서치 반영, 실기기 검증 전)
+- **Provider 우선순위**(G1 §A7-1): `deviceorientationabsolute`(Android, 자북) → `AbsoluteOrientationSensor`(Generic Sensor, 선택적) → `deviceorientation`(absolute=true면 자북, 아니면 iOS 상대 + `webkitCompassHeading`). 1.5초 안에 유효 샘플이 없으면 다음 Provider. 데스크톱은 시뮬레이터(설정 → 개발자 → 센서 디버그). 권한 요청은 "폰으로 하늘 보기" 버튼 탭 안에서만(`requestPermission` 기능 감지, iOS 식별 아님).
+- **자세 변환**(`sensors/orientation/math.ts`): `q_scene = qY(α)·qX(β)·qZ(−γ)·qX(−π/2)·qZ(−θ)` — Three.js 구 DeviceOrientationControls와 동일, G1이 `S·Rz(α)Rx(β)Ry(γ)Rz(−θ)`와 동치임을 검산. 카메라 = 로컬 −Z(후면 카메라). α는 위에서 볼 때 반시계(heading = 360 − α). 방위 = `atan2(p_x, −p_z)`, **+Y 양의 회전은 방위를 줄이므로** `yawQuaternion(Δaz) = qY(−Δaz)`. 8개 테스트 벡터 × 화면 회전 4개 통과.
+- **편각**: WMM2025(`magvar` 2.2.0, MIT). 대전 2026-09 = **−8.70°**(서편각). 진북 방위 = 자북 방위 + D. 자북 소스(Android 절대, **iOS `webkitCompassHeading`도 자북** — WebKit `WebCoreMotionManager`가 `magneticHeading`을 전달한다는 G1 확인)에 한 번만 적용. 별 정렬 δ가 있으면 정렬이 편각을 흡수(재적용 금지). 설정에서 끌 수 있고 디버그 패널에 값 표시. task-02 초안의 "iOS 기본 미적용"은 G1 근거로 **적용**으로 바꿈 — 실기기 3-자세 프로토콜로 확정.
+- **iOS yaw 동기화**(`compassSyncCandidate`): 상단 축(+Y) 기준(`compassAxis='top'`, 미검증 상태), |β| ≤ 60°·|γ| ≤ 45°·투영 길이 ≥ 0.5·accuracy 0~15°·정지(각속도 < 10°/s)일 때만 δ 후보 = (heading + D) − 상단축 상대 방위. 초기값 5샘플 원형 평균, 이후 τ=3s 지수 평활, 15°/s 이상 튀는 값 무시. 세운 자세(β≈90°)·젖힌 자세에서는 갱신 중단(180° 반전 방지).
+- **필터**(`OrientationFilter`): slerp 저역통과 τ=100ms, 각속도는 100ms 창 변위로 측정(노이즈가 30°/s처럼 보이는 것 방지), > 30°/s면 이득 1, 출력 데드밴드 0.2°(추정치는 항상 갱신 — 첫 샘플 편향 고정 방지), 절대 소스는 yaw τ=500ms 별도 평활. 이상 감지: 한 샘플(≤120ms) 사이 yaw ≥ 15° & pitch 변화 < 5°. 단위 테스트: 정지 잔여 < 0.2°, 90° 스텝 2° 이내 ≤ 150ms.
+- **보정 모델**: `q_world = R_yaw(δ)·q_sensor` + 피치 오프셋(카메라 오른쪽 축). `solveYawOffset(samples[])`는 여러 별의 원형 평균·잔차를 내므로 T5 폰-경통 정렬로 확장 가능. 보정 마법사 3단계, 드래그 미세 조정, 저장된 보정은 같은 관측지 이름이면 재사용.
+- **AR UX**: 수동 드래그 → 5초 일시 정지("수동") 후 자동 복귀, "센서 복귀" 버튼. 롤은 기본 반영(설정 "수평 유지"로 무시). 진동은 Android만, 시각 플래시가 1차 피드백, 소리는 옵션.
+- **위치**: `getCurrentPosition`(12초) → 정확도 > 100m면 `watchPosition`으로 30초까지 개선. 마지막 위치는 Dexie `settings('sensor.lastFix')`. 시작 시 기본 관측지 > 마지막 GPS > 대전 프리셋. `coords.heading`은 쓰지 않는다(이동 방향).
+- **관측지 범위(C15)**: `Site.visibleAz = [[start, end]]`(단일 구간, 시계 방향), `minAltDeg`. T3 추천의 하드 필터. 하늘 화면의 범위 밖 어둡게 표시는 보류.
+- **미검증(실기기 필요)**: iOS heading 축·자세별 동작, Android 편각 부호 체감, 실제 지연·떨림, 화면 회전. 결과 반영 후 `task-2-done`.

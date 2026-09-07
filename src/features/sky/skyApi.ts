@@ -8,6 +8,7 @@ import { apparentAltitude } from '@/astro/refraction';
 import type { ObjectId } from '@/catalog/objectId';
 import type { SkyScene } from '@/render/SkyScene';
 import { renderStats } from '@/render/stats';
+import { useSensorStore } from '@/state/sensorStore';
 
 let current: SkyScene | null = null;
 let pending: (() => void) | null = null;
@@ -25,6 +26,10 @@ export function registerSkyScene(scene: SkyScene | null): void {
     w['__skylogScene'] = scene;
     w['__skylogStats'] = renderStats;
     w['__skylogAstro'] = { eqjToAltAzSlow, apparentAltitude, altAzToScene, sceneToAltAz };
+    Object.defineProperty(w, '__skylogSensor', {
+      configurable: true,
+      get: () => useSensorStore.getState(),
+    });
   }
 }
 

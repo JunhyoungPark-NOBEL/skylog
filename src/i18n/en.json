@@ -13,6 +13,11 @@
   "status": {
     "sensorOff": "Sensors off",
     "sensorOn": "Sensors on",
+    "manual": "manual",
+    "aligned": "aligned",
+    "compass": "compass",
+    "relative": "relative",
+    "absolute": "absolute",
     "manualTime": "Time travel"
   },
   "common": {
@@ -85,8 +90,91 @@
   "learn": {
     "title": "Learn"
   },
+  "sensor": {
+    "ar": "Point phone at the sky (sensor mode)",
+    "unsupported": "Orientation sensors are not available in this device/browser. Drag to look around. (Settings → Developer → Sensor simulator lets you test the flow.)",
+    "anomaly": "Compass interference suspected — move away from metal or magnetic cases",
+    "resume": "Resume sensors",
+    "align": "Align on a star",
+    "realign": "Re-align",
+    "calibrated": "Calibrated ({{target}}, {{ago}})",
+    "justNow": "just now",
+    "minutesAgo": "{{min}} min ago",
+    "simulator": "Sensor simulator",
+    "simulatorHint": "Emulate phone attitude with alpha/beta/gamma sliders on desktop.",
+    "source": {
+      "absolute": "Absolute (magnetic + declination)",
+      "compassSync": "Compass sync",
+      "relative": "Relative · not calibrated",
+      "manual": "Manual (sensors resume in 5 s)",
+      "none": "No sensors"
+    },
+    "permission": {
+      "deniedHelp": "Orientation permission was denied. The app keeps working in manual mode.",
+      "deniedIosSteps": "iOS: fully close the Safari tab (or home-screen app), reopen it and tap this button again. If it still fails, delete this site's data in Settings › Safari › Advanced › Website Data and retry. (There is no separate toggle in the Settings app.)"
+    },
+    "geo": {
+      "unsupported": "This browser has no geolocation. Enter an observing site manually.",
+      "denied": "Location permission denied. Allow it in the browser site settings or enter a site manually.",
+      "timeout": "Could not get a location (timeout). Try again with a clear view of the sky.",
+      "unavailable": "Location is unavailable right now. Using the saved site."
+    },
+    "wizard": {
+      "title": "Star alignment",
+      "later": "Later",
+      "step1": "Pick a bright object that is easy to see right now.",
+      "noCandidates": "No bright object is high enough right now. Use Polaris or the Moon if visible.",
+      "step2": "Point the back of the phone at it so it sits in the crosshair, then tap 'Aligned'.",
+      "currentError": "Current error",
+      "dragHint": "Drag left/right to fine-tune azimuth, up/down for altitude (0.5° steps).",
+      "aligned": "Aligned",
+      "done": "Calibrated on {{target}}. Check that other objects land near the crosshair.",
+      "again": "Again",
+      "finish": "Done"
+    },
+    "debug": {
+      "title": "Sensor debug",
+      "copy": "Copy dump",
+      "copied": "Copied",
+      "settings": "Sensor settings"
+    },
+    "settings": {
+      "declination": "Magnetic declination correction",
+      "declinationHint": "Applies the WMM2025 declination to absolute (magnetic) headings. Currently {{d}}°",
+      "keepLevel": "Keep level",
+      "keepLevelHint": "Ignore device roll so the horizon stays level.",
+      "sound": "Feedback sound",
+      "compassAxis": "iOS compass reference axis",
+      "axisTop": "Phone top",
+      "axisBack": "Rear camera"
+    }
+  },
+  "sites": {
+    "title": "Observing sites",
+    "current": "Current site",
+    "useGps": "Use current location (GPS)",
+    "gpsRequesting": "Locating…",
+    "saved": "Saved sites",
+    "add": "Add site",
+    "edit": "Edit",
+    "delete": "Delete",
+    "makeDefault": "Make default",
+    "name": "Name (e.g. balcony)",
+    "lat": "Latitude",
+    "lon": "Longitude",
+    "elevation": "Elevation (m)",
+    "pastePlaceholder": "Paste coordinates: 36.37, 127.36 / 36°22′N 127°22′E",
+    "pasteApply": "Apply",
+    "range": "Visible sky range",
+    "rangeHint": "Drag on the ring to mark the azimuths actually visible from this spot (balcony, yard). Recommendations only consider this range.",
+    "rangeAll": "All",
+    "minAlt": "Min altitude",
+    "save": "Save",
+    "dir": { "n": "N", "e": "E", "s": "S", "w": "W" }
+  },
   "settings": {
     "title": "Settings",
+    "observing": "Observing",
     "display": "Display",
     "nightMode": "Red night mode",
     "nightModeHint": "Turns the whole UI red to protect dark adaptation.",

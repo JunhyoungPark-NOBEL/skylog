@@ -172,6 +172,60 @@ html[data-theme='night'] .sky-label-constellation {
   color: var(--muted);
 }
 
+/* 보정 마법사 십자(T2) */
+.calib-crosshair {
+  width: 72px;
+  height: 72px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 10px var(--accent);
+}
+.calib-crosshair::before,
+.calib-crosshair::after {
+  content: '';
+  position: absolute;
+  background: var(--accent);
+}
+.calib-crosshair::before {
+  left: 50%;
+  top: -14px;
+  width: 1.5px;
+  height: 100px;
+  transform: translateX(-50%);
+}
+.calib-crosshair::after {
+  top: 50%;
+  left: -14px;
+  height: 1.5px;
+  width: 100px;
+  transform: translateY(-50%);
+}
+
+/* 피드백 플래시(T2): 화면 테두리 점멸 — 진동이 없는 iOS의 1차 피드백 */
+html.flash-ok::after,
+html.flash-warn::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: inset 0 0 0 6px var(--success);
+  animation: skylog-flash 250ms ease-out;
+}
+html.flash-warn::after {
+  box-shadow: inset 0 0 0 6px var(--danger);
+  animation-duration: 400ms;
+}
+@keyframes skylog-flash {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .safe-top {
   padding-top: env(safe-area-inset-top);
 }

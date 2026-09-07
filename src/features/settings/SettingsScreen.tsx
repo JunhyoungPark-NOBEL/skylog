@@ -62,7 +62,15 @@ export function SettingsScreen({ onBack }: { onBack(): void }) {
         onChange={(on) => s.setKeepAwake(on)}
       />
 
+      <SectionTitle>{t('settings.observing')}</SectionTitle>
+      <LinkRow label={t('sites.title')} onClick={() => navigate('sites')} testId="link-sites" />
+
       <SectionTitle>{t('settings.developer')}</SectionTitle>
+      <LinkRow
+        label={t('sensor.debug.title')}
+        onClick={() => navigate('debug/sensors')}
+        testId="link-debug-sensors"
+      />
       <Toggle
         id="setting-debug-hud"
         label={t('settings.debugHud')}

@@ -8,9 +8,16 @@ import { useSyncExternalStore } from 'react';
  */
 export const TAB_ROUTES = ['sky', 'search', 'tonight', 'log', 'learn'] as const;
 export type TabRoute = (typeof TAB_ROUTES)[number];
-export type Route = TabRoute | 'settings' | 'about' | 'debug/data';
+export type Route = TabRoute | 'settings' | 'about' | 'sites' | 'debug/data' | 'debug/sensors';
 
-const ALL_ROUTES: readonly Route[] = [...TAB_ROUTES, 'settings', 'about', 'debug/data'];
+const ALL_ROUTES: readonly Route[] = [
+  ...TAB_ROUTES,
+  'settings',
+  'about',
+  'sites',
+  'debug/data',
+  'debug/sensors',
+];
 
 export function parseHash(hash: string): Route {
   const path = hash

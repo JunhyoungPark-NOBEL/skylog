@@ -81,6 +81,15 @@ export function IconLayers(p: IconProps) {
     </svg>
   );
 }
+export function IconCompass(p: IconProps) {
+  return (
+    <svg {...base(p)}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" fill="currentColor" stroke="none" />
+      <path d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21" />
+    </svg>
+  );
+}
 export function IconChevron(p: IconProps) {
   return (
     <svg {...base(p)}>

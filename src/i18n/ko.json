@@ -13,6 +13,11 @@
   "status": {
     "sensorOff": "센서 꺼짐",
     "sensorOn": "센서 켜짐",
+    "manual": "수동",
+    "aligned": "보정됨",
+    "compass": "나침반",
+    "relative": "상대",
+    "absolute": "절대",
     "manualTime": "시간 여행"
   },
   "common": {
@@ -85,8 +90,91 @@
   "learn": {
     "title": "배우기"
   },
+  "sensor": {
+    "ar": "폰으로 하늘 보기(센서 모드)",
+    "unsupported": "이 기기·브라우저에서는 방향 센서를 쓸 수 없습니다. 손가락으로 끌어 둘러보세요. (설정 → 개발자 → 센서 시뮬레이터로 흐름을 확인할 수 있습니다.)",
+    "anomaly": "나침반 간섭 의심 — 금속·자석 케이스에서 떨어져 보세요",
+    "resume": "센서 복귀",
+    "align": "별로 정렬",
+    "realign": "재정렬",
+    "calibrated": "보정됨 ({{target}}, {{ago}})",
+    "justNow": "방금",
+    "minutesAgo": "{{min}}분 전",
+    "simulator": "센서 시뮬레이터",
+    "simulatorHint": "데스크톱에서 alpha/beta/gamma 슬라이더로 폰 자세를 흉내 냅니다.",
+    "source": {
+      "absolute": "절대 방향(자북+편각)",
+      "compassSync": "나침반 동기화",
+      "relative": "상대 방향 · 미보정",
+      "manual": "수동 (5초 후 센서 복귀)",
+      "none": "센서 없음"
+    },
+    "permission": {
+      "deniedHelp": "방향 센서 권한이 거부되었습니다. 앱은 수동 모드로 계속 쓸 수 있습니다.",
+      "deniedIosSteps": "iOS: Safari 탭(또는 홈 화면 앱)을 완전히 닫고 다시 연 뒤 이 버튼을 다시 눌러 주세요. 그래도 안 되면 설정 › Safari › 고급 › 웹사이트 데이터에서 이 사이트 데이터를 삭제 후 재시도합니다. (설정 앱에 별도 토글은 없습니다.)"
+    },
+    "geo": {
+      "unsupported": "이 브라우저는 위치를 지원하지 않습니다. 관측지를 직접 입력해 주세요.",
+      "denied": "위치 권한이 거부되었습니다. 브라우저 사이트 설정에서 허용하거나 관측지를 직접 입력해 주세요.",
+      "timeout": "위치를 가져오지 못했습니다(시간 초과). 하늘이 보이는 곳에서 다시 시도해 주세요.",
+      "unavailable": "지금은 위치를 알 수 없습니다. 저장된 관측지를 사용합니다."
+    },
+    "wizard": {
+      "title": "별 정렬",
+      "later": "다음에",
+      "step1": "지금 하늘에서 잘 보이는 밝은 천체를 고르세요.",
+      "noCandidates": "지금은 정렬에 쓸 밝은 천체가 높이 떠 있지 않습니다. 북극성이나 달이 보이면 그것을 쓰세요.",
+      "step2": "폰 뒷면을 이 천체로 향해 십자 안에 넣은 뒤 '맞췄어요'를 누르세요.",
+      "currentError": "현재 오차",
+      "dragHint": "화면을 좌우로 끌면 방위, 위아래로 끌면 고도가 0.5° 단위로 미세 조정됩니다.",
+      "aligned": "맞췄어요",
+      "done": "{{target}} 기준으로 보정했습니다. 다른 천체가 십자 근처에 오는지 확인해 보세요.",
+      "again": "다시",
+      "finish": "완료"
+    },
+    "debug": {
+      "title": "센서 디버그",
+      "copy": "덤프 복사",
+      "copied": "복사됨",
+      "settings": "센서 설정"
+    },
+    "settings": {
+      "declination": "자기 편각 보정",
+      "declinationHint": "절대 방향(자북)에 WMM2025 편각을 적용합니다. 현재 {{d}}°",
+      "keepLevel": "수평 유지",
+      "keepLevelHint": "켜면 폰을 기울여도 화면 수평을 유지합니다(롤 무시).",
+      "sound": "피드백 소리",
+      "compassAxis": "iOS 나침반 기준 축",
+      "axisTop": "폰 상단",
+      "axisBack": "후면 카메라"
+    }
+  },
+  "sites": {
+    "title": "관측지",
+    "current": "현재 관측지",
+    "useGps": "현재 위치(GPS) 사용",
+    "gpsRequesting": "위치 찾는 중…",
+    "saved": "저장된 관측지",
+    "add": "관측지 추가",
+    "edit": "편집",
+    "delete": "삭제",
+    "makeDefault": "기본으로",
+    "name": "이름 (예: 집 베란다)",
+    "lat": "위도",
+    "lon": "경도",
+    "elevation": "고도(m)",
+    "pastePlaceholder": "좌표 붙여넣기: 36.37, 127.36 / 36°22′N 127°22′E",
+    "pasteApply": "적용",
+    "range": "보이는 하늘 범위",
+    "rangeHint": "이 장소에서 실제로 보이는 방위 구간을 링에서 끌어 지정하세요(베란다·마당). 추천·오늘의 천체가 이 범위만 봅니다.",
+    "rangeAll": "전체",
+    "minAlt": "최소 고도",
+    "save": "저장",
+    "dir": { "n": "북", "e": "동", "s": "남", "w": "서" }
+  },
   "settings": {
     "title": "설정",
+    "observing": "관측",
     "display": "화면",
     "nightMode": "적색 야간 모드",
     "nightModeHint": "암순응을 보호하기 위해 모든 UI를 붉게 바꿉니다.",

@@ -2,7 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { hashQuery } from '@/app/router';
 import type { ObjectId } from '@/catalog/objectId';
+import { ArToggle } from '@/features/sky/ArToggle';
+import { CalibrationWizard } from '@/features/sky/CalibrationWizard';
 import { LayerPanel } from '@/features/sky/LayerPanel';
+import { SensorSimPanel } from '@/features/sky/SensorSimPanel';
+import { sensorManager } from '@/sensors/orientation/manager';
+import { useSensorStore } from '@/state/sensorStore';
 import { SelectionTooltip } from '@/features/sky/SelectionTooltip';
 import { registerSkyScene } from '@/features/sky/skyApi';
 import { TimeBar } from '@/features/sky/TimeBar';
@@ -46,6 +51,9 @@ export function SkyView() {
   const sceneRef = useRef<SkyScene | null>(null);
   const [ready, setReady] = useState(false);
   const [layersOpen, setLayersOpen] = useState(false);
+  const [wizardOpen, setWizardOpen] = useState(false);
+  const simulator = useSensorStore((s) => s.simulator);
+  const arActive = useSensorStore((s) => s.arActive);
   const [info, setInfo] = useState<ObjectInfo | null>(null);
   const theme = useSettingsStore((s) => s.theme);
   const lang = useSettingsStore((s) => s.lang);
@@ -88,6 +96,12 @@ export function SkyView() {
     });
     sceneRef.current = scene;
     registerSkyScene(scene);
+    sensorManager.attachCamera(scene.controller);
+    scene.controller.onDragStart = () => {
+      // 센서 모드에서 수동 드래그 → 5초 일시 정지(보정 미세 조정 중에는 dragHandler가 처리)
+      if (useSensorStore.getState().arActive && !scene.controller.dragHandler)
+        sensorManager.pauseForManual();
+    };
 
     // 시점·시각: 해시 쿼리(#/sky?t=&alt=&az=&fov=&rate=) > viewStore. 해시가 바뀌면 다시 적용(공유 링크·테스트).
     const applyHash = () => {
@@ -141,6 +155,8 @@ export function SkyView() {
       document.removeEventListener('visibilitychange', onVis);
       for (const u of unsubs) u();
       ro.disconnect();
+      sensorManager.stop();
+      sensorManager.attachCamera(null);
       registerSkyScene(null);
       scene.dispose();
       sceneRef.current = null;
@@ -198,6 +214,10 @@ export function SkyView() {
       >
         <IconLayers size={20} />
       </button>
+
+      <ArToggle onOpenWizard={() => setWizardOpen(true)} />
+      {simulator && arActive && <SensorSimPanel />}
+      {wizardOpen && <CalibrationWizard onClose={() => setWizardOpen(false)} />}
 
       {layersOpen && <LayerPanel onClose={() => setLayersOpen(false)} />}
 
