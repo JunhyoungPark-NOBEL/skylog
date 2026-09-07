@@ -1,0 +1,97 @@
+{
+  "id": "dso:M12",
+  "version": 1,
+  "title": {
+    "ko": "M12",
+    "en": "M12"
+  },
+  "oneLiner": {
+    "ko": "M10 곁의 다른 빛 분포에서 별 집단의 진화를 생각해요"
+  },
+  "summary": {
+    "ko": "M12는 뱀주인자리의 구상성단이며 M10과 가까운 하늘에서 관측할 수 있습니다. 두 번호가 가까워도 같은 성단을 두 번 본 것으로 혼동하지 않도록 주변 별을 다시 대조해야 합니다. 정밀 연구에서는 구성별의 분포와 중력에 의한 별의 손실이 논의되지만 작은 망원경으로 그 과정을 직접 보는 것은 아닙니다. 쌍안경에서는 흐림을, 90mm에서는 밝기의 분포를 먼저 목표로 삼으세요. 도시에서는 검출이 어려울 수 있습니다. 첨부 등급과 외부 자료의 차이는 보류하여 밝기 비교 퀴즈의 확정값으로 사용하지 않습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "구상성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 12 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-12/"
+    },
+    {
+      "label": "별자리",
+      "value": "뱀주인자리 (Oph)",
+      "source": "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "게시 보류 — 첨부 대역 미확인·외부 소개값 차이",
+      "source": "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 12 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-12/"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "11.1′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "20,591광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M12",
+      "source": "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "구상성단은 많은 별이 중력으로 묶인 집단이지만 영원히 모든 구성원을 그대로 유지하는 닫힌 상자는 아닙니다. NASA는 M12에서 저질량 별이 부족한 특징을 설명하며 우리 은하의 중력이 별들을 잃게 했을 가능성을 소개합니다. 이것은 별들의 수와 특성을 조사해 해석한 결과이지 접안렌즈에서 별이 빠져나가는 모습을 보았다는 뜻이 아닙니다. 관측자는 M10에서 M12로 옮겨 각 성단의 중심과 주변 빛 분포를 같은 조건으로 비교할 수 있습니다. 비슷하게 둥글어 보여도 집중 정도가 다르게 느껴지는지 적어 보세요. 그림에서 보이는 차이를 곧바로 특정 진화 과정의 증거라고 단정하지 않는 것이 중요합니다. 연구 설명은 천체의 가능한 역사를 이해하게 하고 관측 기록은 오늘 실제로 확인한 범위를 남긴다는 서로 다른 역할을 갖습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 12 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-12/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 뱀주인자리의 M10을 먼저 확인합니다. 천구의 북서쪽으로 약 3.3° 이동해 M12 위치를 지도와 대조합니다. 중간 별을 확인한 뒤 중심과 바깥 퍼짐을 같은 배율에서 비교하세요.",
+    "season": "summer",
+    "hopFrom": [
+      "dso:M10",
+      "const:Her"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시 맨눈 관측 대상으로 두지 않습니다.",
+    "binoculars": "10×50에서는 작은 흐림의 검출 자체가 과제입니다. M10 위치와 혼동하지 않도록 재확인합니다.",
+    "telescope": "90mm 20~80배로 성단의 존재와 밝기 분포를 살핍니다. 도시에서는 약한 외곽과 구성별 분해가 어려울 수 있습니다.",
+    "difficulty": 4,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: dso:M10, const:Her; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 12 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-12/",
+    "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 12 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-12/",
+    "첨부 catalog-values.v1.csv — dso:M12; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "입력 mag=6.07, 외부 소개값=7.7의 차이가 큽니다. 측광 대역·대상 범위를 일치시켜 재검토하기 전 숫자 표시와 밝기 비교 퀴즈를 보류합니다. 어느 값이 정답인지 확정하지 않았습니다.",
+      "참고 대조: 입력 거리 20591광년, NASA — Messier 12 소개값 약 23000광년. 본문 숫자는 입력 우선으로 보존했으며 차이의 원인을 측정법·자료 시점까지 확인한 것은 아닙니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

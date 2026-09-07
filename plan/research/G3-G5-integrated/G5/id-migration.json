@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "missionReplacements": [
+    {
+      "oldId": "spring-arcturus-binocular",
+      "newId": "spring-m44-binocular",
+      "progressPolicy": "no-auto-completion-transfer",
+      "reason": "학습 목표와 관측 대상이 바뀌었음"
+    },
+    {
+      "oldId": "autumn-altair-line",
+      "newId": "autumn-double-cluster",
+      "progressPolicy": "no-auto-completion-transfer",
+      "reason": "학습 목표와 관측 대상이 바뀌었음"
+    },
+    {
+      "oldId": "winter-sirius-steady",
+      "newId": "winter-m45-starhop",
+      "progressPolicy": "no-auto-completion-transfer",
+      "reason": "학습 목표와 관측 대상이 바뀌었음"
+    },
+    {
+      "oldId": "autumn-deneb-point",
+      "newId": "autumn-m31-core",
+      "progressPolicy": "no-auto-completion-transfer",
+      "reason": "학습 목표와 관측 대상이 바뀌었음"
+    }
+  ],
+  "quizPolicy": "기존 정답 의미는 보존하되 보기 순서를 바꿨으므로 과거 인덱스 응답은 원래 버전의 보기로 판정해야 함.",
+  "badgePolicy": "constellationCount는 실제 const: 관측만 집계. 기존 별 소속 대리 집계로 부여된 값은 재평가 전 새 별자리 배지로 승계하지 않음."
+}

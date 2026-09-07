@@ -1,0 +1,83 @@
+{
+  "id": "planet:jupiter",
+  "version": 1,
+  "title": {
+    "ko": "목성",
+    "en": "Jupiter"
+  },
+  "oneLiner": {
+    "ko": "밝은 원반과 자리를 바꾸는 위성들을 함께 보는 행성"
+  },
+  "summary": {
+    "ko": "목성은 태양계에서 가장 큰 행성으로, 주로 수소와 헬륨으로 이루어져 있습니다. 맨눈으로는 밝은 빛점이지만 작은 망원경에서는 원반과 구름 띠를 볼 수 있습니다. 주변의 작은 점은 이오·유로파·가니메데·칼리스토인 경우가 있으며, 이를 갈릴레이 위성이라고 부릅니다. 위성은 목성 앞이나 뒤로 가거나 그림자에 들어가므로 항상 네 개가 모두 보이지는 않습니다. 도시에서도 비교적 시도하기 좋은 대상이며, 같은 밤에 시간을 두고 다시 보면 위성의 위치가 달라지는 것을 확인할 수 있습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "가스 거대행성",
+      "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+    },
+    {
+      "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+      "value": "약 5.2 AU; 지구에서의 거리가 아님",
+      "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+    },
+    {
+      "label": "공전 주기",
+      "value": "약 12년",
+      "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+    },
+    {
+      "label": "자전 주기",
+      "value": "약 9.9시간",
+      "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+    },
+    {
+      "label": "갈릴레이 위성",
+      "value": "이오·유로파·가니메데·칼리스토",
+      "source": "https://science.nasa.gov/jupiter/jupiter-facts/"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "시기별로 변함(첨부 값: variable)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:jupiter)"
+    }
+  ],
+  "story": {
+    "ko": "그리스·로마 문화권에서 Jupiter는 로마 신들의 왕의 이름입니다. 현대 천문학에서 목성은 작은 장비가 생각의 범위를 넓혀 준 사례로 자주 등장합니다. 갈릴레오는 1610년 망원경으로 목성 가까이의 작은 빛점들을 관측했고, 그 점들이 목성 주위를 돈다는 사실을 알아냈습니다. 이는 모든 천체가 지구만을 중심으로 돌아야 한다는 생각에 중요한 반례가 되었습니다. 지금도 관측자는 목성 양옆의 점을 간단히 그린 뒤 시간을 두고 다시 비교할 수 있습니다. 점 하나가 사라졌다고 위성이 없어진 것은 아닙니다. 행성 뒤에 숨거나 그림자로 들어가는 등 여러 배치가 가능하므로 관측 시각을 함께 기록해야 합니다. 단순한 스케치에도 천체 운동을 읽을 정보가 담깁니다.",
+    "cultures": [
+      "그리스·로마",
+      "기타"
+    ],
+    "sources": [
+      "NASA — Jupiter Facts | https://science.nasa.gov/jupiter/jupiter-facts/",
+      "NASA — Spot the King of Planets: Observe Jupiter | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/"
+    ]
+  },
+  "howToFind": {
+    "ko": "목성이 잘 보이는 계절은 해마다 달라집니다. 앱에서 관측일에 목성이 놓인 황도(태양이 하늘에서 지나는 길) 주변 별자리와 고도를 확인한 뒤, 주변의 밝은 별을 먼저 찾아 지도의 무늬와 맞추세요. 이어 밝게 빛나는 목성 후보를 확인합니다. 안정적으로 빛나는 모습은 참고가 되지만, 반짝임만으로 행성과 별을 구별하지 마세요.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "관측하기 좋은 시기에는 도시에서도 밝은 빛점으로 보입니다. 구름 띠와 위성은 맨눈의 기본 관측 대상이 아닙니다.",
+    "binoculars": "10×50을 단단히 받치면 목성에서 충분히 떨어진 갈릴레이 위성 몇 개를 작은 점으로 볼 수 있습니다. 본체와 겹치거나 가까운 위성은 놓칠 수 있습니다.",
+    "telescope": "90mm, 20~80배에서 원반과 갈릴레이 위성을 확인하고, 40~80배에서 주요 구름 띠를 살펴보세요. 대적점과 위성 그림자는 시각·고도·대기 안정도에 따라 어려우므로 기본 성공 조건으로 삼지 않습니다.",
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:jupiter)",
+    "NASA — Jupiter Facts | https://science.nasa.gov/jupiter/jupiter-facts/",
+    "NASA — Spot the King of Planets: Observe Jupiter | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high"
+  },
+  "funFacts": [
+    "갈릴레이 위성은 항상 네 개가 동시에 보이는 것이 아닙니다.",
+    "목성의 줄무늬는 단단한 표면의 줄이 아니라 대기의 구름 구조입니다."
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "const:Peg",
+  "version": 1,
+  "title": {
+    "ko": "페가수스자리",
+    "en": "Pegasus"
+  },
+  "oneLiner": {
+    "ko": "가을 큰 사각형을 찾되 네 꼭짓점의 소속은 구분해요"
+  },
+  "summary": {
+    "ko": "페가수스자리는 가을 하늘의 큰 사각형으로 구역을 찾기 좋은 별자리입니다. 네 꼭짓점이 두드러져 보이지만 모두가 현대의 페가수스자리에 속하는 것은 아닙니다. 북동쪽 모서리의 알페라츠는 안드로메다자리의 별입니다. 큰 사각형이라는 길잡이 무늬와 공식 별자리 경계를 나누어 읽어야 하는 이유입니다. 도시에서는 사각형 안쪽의 약한 별이 적게 보일 수 있으므로 텅 빈 공간이라고 단정하지 마세요. 큰 형태는 맨눈으로 확인하고 개별 별이나 성단은 별도 목표로 탐색합니다. 별자리 그림의 날개 달린 말과 실제 관측 범위를 구분해 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Peg; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Peg",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Pegasi",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "큰 사각형, 안드로메다자리의 알페라츠",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, star:HIP102098, dso:M15; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "날개 달린 말; 큰 사각형 길잡이",
+      "source": "NSF NOIRLab — Pegasus — https://noirlab.edu/public/education/constellations/pegasus/?lang=es"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "가을 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "그리스 전승의 페가수스는 날개 달린 말입니다. 찬드라 관측소의 소개는 메두사와 페르세우스의 이야기와 연결되는 탄생 전승을 설명합니다. 하지만 현대의 큰 사각형을 찾는 관측에서는 말의 몸 전체보다 네 모서리의 위치가 더 직접적인 길잡이가 됩니다. 흥미로운 점은 그 네 모서리 중 알페라츠가 다른 별자리에 속한다는 것입니다. 문화적 그림과 쉽게 외우는 성군, 좌표로 정한 별자리 경계가 정확히 겹치지 않는 사례입니다. 오늘은 사각형을 그린 다음 알페라츠의 이름 옆에 안드로메다자리라고 적어 보세요. 지도에서 같은 별을 두 번 세거나 두 별자리의 별로 중복 등록하지 않는 연습이 됩니다. 전승을 기억하면서도 현재의 천체 식별 규칙을 분명하게 유지할 수 있습니다.",
+    "cultures": [
+      "그리스·로마"
+    ],
+    "sources": [
+      "NSF NOIRLab — Pegasus — https://noirlab.edu/public/education/constellations/pegasus/?lang=es",
+      "NSF NOIRLab — Andromeda — https://noirlab.edu/public/education/constellations/andromeda/?lang=es",
+      "Chandra X-ray Observatory — Pegasus — https://chandra.harvard.edu/photo/constellations/pegasus.html"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁 데네브에서 지도 기준 천구의 남동쪽으로 이동하며 큰 사각형을 찾습니다. 네 모서리를 확인한 뒤 북동쪽의 알페라츠를 별도 선택하세요. 안드로메다자리로 이어지는 길과 페가수스자리의 다른 방향을 구별합니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "star:HIP677",
+      "star:HIP102098",
+      "dso:M15"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 큰 사각형의 주요 모서리는 도전하기 좋습니다. 안쪽에 보이는 별이 적다고 실제로 비어 있는 영역은 아닙니다.",
+    "binoculars": "10×50으로 각 모서리 주변과 사각형 내부를 나누어 살펴봅니다. 전체 사각형이 한 시야에 들어가지는 않습니다.",
+    "telescope": "90mm 20~80배로 별도 선택한 M15 등의 개별 대상을 찾을 수 있습니다. 네 모서리 관측과 성단 검출은 따로 기록하세요.",
+    "bestMonths": [
+      9,
+      10,
+      11
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Peg; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Pegasus — https://noirlab.edu/public/education/constellations/pegasus/?lang=es",
+    "NSF NOIRLab — Andromeda — https://noirlab.edu/public/education/constellations/andromeda/?lang=es",
+    "Chandra X-ray Observatory — Pegasus — https://chandra.harvard.edu/photo/constellations/pegasus.html",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Peg; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Peg; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, star:HIP102098, dso:M15; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, star:HIP102098, dso:M15; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "큰 사각형의 알페라츠를 페가수스자리 소속으로 중복 등록하지 않습니다. 공식 소속은 And입니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "funFacts": [
+    "큰 사각형의 네 모서리가 모두 페가수스자리의 별은 아닙니다."
+  ]
+}

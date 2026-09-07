@@ -1,0 +1,83 @@
+{
+  "id": "planet:neptune",
+  "version": 1,
+  "title": {
+    "ko": "해왕성",
+    "en": "Neptune"
+  },
+  "oneLiner": {
+    "ko": "눈에 잘 띄지 않는 빛점에서 예측과 관측의 만남을 읽다"
+  },
+  "summary": {
+    "ko": "해왕성은 태양에서 가장 바깥쪽을 도는 여덟 번째 행성이며 얼음 거대행성입니다. 맨눈으로는 보이지 않아 별 지도와 광학 장비가 필요합니다. 어두운 곳에서는 쌍안경으로 위치를 확인할 수 있지만 도시의 10×50 관측은 쉽지 않습니다. 90mm 망원경에서는 희미하고 매우 작은 점 또는 원반처럼 보이며, 푸른 색이나 표면 무늬를 분명히 기대하지 않는 편이 좋습니다. 고배율 사진의 인상보다 주변 별과의 위치를 맞추는 과정이 중요합니다. 관측 시기와 별자리는 날짜에 따라 확인해야 합니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "얼음 거대행성",
+      "source": "https://science.nasa.gov/neptune/neptune-facts/"
+    },
+    {
+      "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+      "value": "약 30 AU; 지구에서의 거리가 아님",
+      "source": "https://science.nasa.gov/neptune/neptune-facts/"
+    },
+    {
+      "label": "공전 주기",
+      "value": "약 165년",
+      "source": "https://science.nasa.gov/neptune/neptune-facts/"
+    },
+    {
+      "label": "자전 주기",
+      "value": "약 16시간",
+      "source": "https://science.nasa.gov/neptune/neptune-facts/"
+    },
+    {
+      "label": "발견",
+      "value": "1846년, 궤도 예측을 바탕으로 위치 확인",
+      "source": "https://science.nasa.gov/neptune/neptune-facts/"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "시기별로 변함(첨부 값: variable)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:neptune)"
+    }
+  ],
+  "story": {
+    "ko": "현대 천문학사에서 해왕성은 계산으로 예상한 위치를 관측으로 확인한 행성으로 알려져 있습니다. 천왕성의 움직임이 예측과 맞지 않자 르베리에는 아직 알려지지 않은 행성의 중력이 영향을 줄 수 있다고 계산했습니다. 그가 보낸 위치 예측을 바탕으로 갈레는 1846년 베를린에서 해왕성을 확인했습니다. 그리스·로마 문화권에서 Neptune은 로마의 바다 신을 가리키지만, 그 이름이 실제 표면에 바다가 있다는 뜻은 아닙니다. 관측자에게 중요한 점은 발견된 천체조차 작은 빛점이었다는 사실입니다. 오늘도 별 지도를 정확히 맞추어 희미한 점을 찾아내는 방식으로 이 과정을 체험할 수 있습니다. 보이지 않는 구름 무늬를 상상해 적기보다 확인한 위치와 조건을 남겨 보세요.",
+    "cultures": [
+      "그리스·로마",
+      "기타"
+    ],
+    "sources": [
+      "NASA — Neptune Facts | https://science.nasa.gov/neptune/neptune-facts/",
+      "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ]
+  },
+  "howToFind": {
+    "ko": "먼저 앱에서 관측일의 해왕성 위치와 주변 황도(태양이 하늘에서 지나는 길) 주변 별자리를 확인합니다. 그날 가까운 밝은 별을 기준으로 쌍안경 또는 망원경 저배율에서 별 배열을 맞추며 이동하세요. 마지막에는 주변의 더 어두운 별들과 상대 위치를 대조합니다. 계절을 고정하지 않고, 달빛이 약하며 해왕성이 충분히 높은 밤을 고릅니다.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "맨눈으로는 보이지 않습니다. 하늘이 어둡더라도 맨눈 확인을 완료 조건으로 삼지 마세요.",
+    "binoculars": "10×50에서는 어둡고 투명한 하늘에서 희미한 점으로 도전할 수 있습니다. 도시에서는 찾지 못할 수 있으며 청색이나 원반 형태로 식별하려 하지 마세요.",
+    "telescope": "90mm, 20~80배에서 지도와 대조해 확인하는 것이 우선입니다. 상단 배율에서도 별과 비슷하게 보일 수 있고 원반 확인이 어렵습니다. 대기 무늬와 위성 관측은 기본 목표가 아닙니다.",
+    "difficulty": 5
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:neptune)",
+    "NASA — Neptune Facts | https://science.nasa.gov/neptune/neptune-facts/",
+    "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high"
+  },
+  "funFacts": [
+    "해왕성은 수학적 위치 예측을 바탕으로 발견된 행성입니다.",
+    "해왕성이라는 이름이 직접 볼 수 있는 물바다가 있다는 뜻은 아닙니다."
+  ]
+}

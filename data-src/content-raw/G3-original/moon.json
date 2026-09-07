@@ -1,0 +1,96 @@
+{
+  "id": "moon",
+  "version": 1,
+  "title": {
+    "ko": "달",
+    "en": "Moon"
+  },
+  "oneLiner": {
+    "ko": "도시에서도 지형과 위상 변화를 따라갈 수 있는 이웃"
+  },
+  "summary": {
+    "ko": "달은 지구의 자연위성이며, 스스로 빛나는 대신 태양빛을 반사합니다. 밝게 보이는 부분의 모양이 달라지는 위상 변화는 달이 지구 주위를 돌면서 생깁니다. 맨눈으로 보이는 어두운 무늬는 주로 오래된 용암이 굳은 평원으로, 물이 없는 곳이지만 전통적으로 바다라고 부릅니다. 크레이터와 산의 입체감을 보려면 보름보다 반달 무렵이 좋습니다. 밝은 부분과 어두운 부분의 경계에 긴 그림자가 생기기 때문입니다. 도시에서도 여러 밤 같은 지형을 비교하며 관측을 시작하기 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "지구의 자연위성",
+      "source": "https://science.nasa.gov/moon/facts/"
+    },
+    {
+      "label": "지구에서의 평균 거리",
+      "value": "약 0.00257 AU(출처의 거리에서 환산)",
+      "source": "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+    },
+    {
+      "label": "위상 반복 주기",
+      "value": "약 29.5일",
+      "source": "https://science.nasa.gov/moon/moon-phases/"
+    },
+    {
+      "label": "빛의 근원",
+      "value": "반사한 태양빛",
+      "source": "https://science.nasa.gov/moon/viewing-tips/"
+    },
+    {
+      "label": "바다라 부르는 무늬",
+      "value": "주로 용암이 굳은 어두운 평원",
+      "source": "https://science.nasa.gov/moon/viewing-tips/"
+    },
+    {
+      "label": "크레이터 관측에 좋은 때",
+      "value": "보름 이외의 위상, 특히 명암 경계 부근",
+      "source": "https://science.nasa.gov/moon/viewing-tips/"
+    }
+  ],
+  "story": {
+    "ko": "한국과 동아시아의 달 이미지에는 토끼와 두꺼비가 등장합니다. 고구려 고분벽화에도 이러한 동물로 달을 표현한 사례가 있습니다. 이것은 달 표면의 동물을 관측했다는 기록이 아니라 하늘에 의미를 담은 문화적 표현입니다. 현대 관측에서는 같은 달무늬를 암석과 지형으로 읽습니다. 맨눈으로 매끈해 보이던 부분을 쌍안경으로 보면 충돌 흔적과 산줄기의 윤곽이 드러납니다. 특히 명암 경계(낮과 밤이 나뉘는 선)가 이동하면 전날 잘 보이지 않던 지형에 그림자가 생깁니다. 한 번의 사진보다 며칠간 같은 곳을 비교한 기록이 지형을 이해하는 데 도움이 됩니다. 익숙한 달에서 이야기를 읽고, 다시 눈앞의 무늬를 확인해 보세요.",
+    "cultures": [
+      "한국",
+      "동아시아",
+      "기타"
+    ],
+    "sources": [
+      "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+      "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+      "NASA — Moon Facts | https://science.nasa.gov/moon/facts/"
+    ]
+  },
+  "howToFind": {
+    "ko": "계절보다 날짜와 시각을 먼저 확인하세요. 앱에서 관측지의 달 위치와 위상을 확인한 뒤 실제 하늘의 밝은 원반을 찾습니다. 초승달은 일몰 뒤 서쪽, 상현달은 저녁 하늘, 보름달은 해질 무렵 동쪽에서 찾는 것이 기본입니다. 태양 가까운 가는 달은 입문 관측에서 제외하세요.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "도시에서도 위상과 큰 명암 무늬가 보입니다. 작은 크레이터를 하나씩 맨눈으로 구별하는 것을 첫 목표로 삼지 마세요.",
+    "binoculars": "10×50을 팔받침이나 삼각대로 안정시키면 큰 크레이터와 바다의 경계를 살펴볼 수 있습니다. 명암 경계를 따라 천천히 이동하세요.",
+    "telescope": "90mm, 20~80배에서 크레이터 테두리와 산의 그림자가 관측 목표입니다. 낮은 배율부터 시작하고 대기가 흔들리면 배율을 낮추세요. 전체 원반이 한 시야에 들어오는지는 접안렌즈에 따라 다릅니다.",
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=moon)",
+    "NASA — Moon Facts | https://science.nasa.gov/moon/facts/",
+    "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+    "NASA — Moon Phases | https://science.nasa.gov/moon/moon-phases/",
+    "NASA/JPL — Astrodynamic Parameters | https://ssd.jpl.nasa.gov/astro_par.html",
+    "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+    "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+    "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high"
+  },
+  "funFacts": [
+    "달의 바다는 물이 고인 바다가 아니라 주로 굳은 용암 평원입니다.",
+    "지구에서 반사된 햇빛 때문에 초승달의 어두운 부분이 희미하게 보이기도 합니다."
+  ],
+  "koreanTradition": {
+    "note": "한국을 포함한 동아시아에서 달을 토끼와 두꺼비로 표현해 온 사례가 있습니다. 실제 달 표면에 동물이 있다는 설명이 아닙니다.",
+    "sources": [
+      "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790"
+    ]
+  },
+  "safety": "태양 가까이에 있는 가는 달을 찾으려고 쌍안경이나 망원경으로 낮하늘을 훑지 마세요."
+}

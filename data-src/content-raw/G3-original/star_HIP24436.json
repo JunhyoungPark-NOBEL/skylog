@@ -1,0 +1,96 @@
+{
+  "id": "star:HIP24436",
+  "version": 1,
+  "title": {
+    "ko": "리겔",
+    "en": "Rigel"
+  },
+  "oneLiner": {
+    "ko": "오리온의 발에서 베텔게우스와 색을 대비시키는 푸른 별"
+  },
+  "summary": {
+    "ko": "리겔은 오리온자리의 발 부분에 놓인 밝은 청백색 초거성입니다. 오리온의 어깨에 있는 붉은 베텔게우스와 비교하면 별의 색이 서로 다르다는 점을 쉽게 느낄 수 있습니다. 리겔은 태양보다 훨씬 크고 밝은 별이지만 멀리 있어, 작은 망원경으로 보아도 표면이 펼쳐지는 것이 아니라 점처럼 보입니다. 겨울 저녁에는 허리띠의 세 별을 먼저 찾고 그 남서쪽의 밝은 꼭짓점을 확인하세요. 도시에서도 주된 별은 보이지만 주변의 희미한 성운과 사진 속 반짝이는 배경까지 같은 모습으로 드러나지는 않습니다."
+  },
+  "facts": [
+    {
+      "label": "거리(첨부 카탈로그)",
+      "value": "862.9광년",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)"
+    },
+    {
+      "label": "겉보기등급(대역 검토 필요)",
+      "value": "0.18등급; 첨부 mag, V 대역 미확인",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "B8Ia",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)"
+    },
+    {
+      "label": "별자리",
+      "value": "오리온자리 (Ori)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)"
+    },
+    {
+      "label": "별의 성격",
+      "value": "청색 초거성",
+      "source": "https://apod.nasa.gov/apod/ap230407.html"
+    },
+    {
+      "label": "관측 길잡이",
+      "value": "오리온자리의 발 부분",
+      "source": "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    }
+  ],
+  "story": {
+    "ko": "현대 우주 탐사에서는 익숙한 길잡이 별이 과학 측정에도 쓰입니다. 토성 탐사선 카시니는 토성 대기 뒤로 리겔이 가려졌다가 나타나는 모습을 관측했습니다. 대기를 통과한 별빛의 변화를 살피면 대기의 구조를 연구할 수 있기 때문입니다. 지구의 관측자가 오리온자리의 모양을 맞추는 데 사용하는 빛점이, 다른 행성 가까이에서는 대기를 조사하는 배경 광원이 되는 셈입니다. 리겔의 청백색과 베텔게우스의 붉은색은 별 표면의 온도가 다름을 보여 주지만, 색만으로 모든 물리량을 정할 수는 없습니다. 오늘은 두 별의 색을 번갈아 보고 날짜와 하늘 상태를 남겨 보세요. 눈으로 확인한 대비와 탐사선이 측정한 정보가 서로 다른 규모의 관측을 연결합니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA/Cassini — Help from Orion | https://science.nasa.gov/resource/help-from-orion/",
+      "NASA/APOD — Rigel Wide, 2023-04-07 | https://apod.nasa.gov/apod/ap230407.html",
+      "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ]
+  },
+  "howToFind": {
+    "ko": "한국의 겨울 저녁에 오리온자리 허리띠의 나란한 세 별을 찾습니다. 허리띠에서 천구상 남서쪽의 밝은 청백색 꼭짓점으로 이동하면 리겔입니다. 반대편 북동쪽의 붉은 베텔게우스와 함께 큰 사각형을 이루는지 확인하세요. 화면의 왼쪽·오른쪽보다 별 무늬를 기준으로 찾습니다.",
+    "season": "winter",
+    "hopFrom": [
+      "const:Ori",
+      "star:HIP25930",
+      "star:HIP27989"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 밝은 청백색 점으로 보입니다. 베텔게우스와 번갈아 보며 색 차이를 확인할 수 있습니다.",
+    "binoculars": "10×50에서는 리겔과 오리온자리의 주변 별을 봅니다. 사진 속 어두운 성운이 함께 보일 것으로 기대하지 마세요.",
+    "telescope": "90mm, 20~80배에서 밝은 점과 주변 별을 확인합니다. 희미한 동반성 분리는 조건에 민감하므로 기본 목표는 주성의 색과 위치로 정합니다. 별 표면은 보이지 않습니다.",
+    "difficulty": 1,
+    "bestMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)",
+    "NASA/APOD — Rigel Wide, 2023-04-07 | https://apod.nasa.gov/apod/ap230407.html",
+    "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "NASA/Cassini — Help from Orion | https://science.nasa.gov/resource/help-from-orion/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+    ]
+  },
+  "funFacts": [
+    "리겔의 청백색은 붉은 베텔게우스와 색을 비교하기 좋은 기준입니다.",
+    "카시니 탐사선은 토성 대기를 통과하는 리겔의 빛을 관측했습니다."
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "id": "const:Dra",
+  "version": 1,
+  "title": {
+    "ko": "용자리",
+    "en": "Draco"
+  },
+  "oneLiner": {
+    "ko": "북쪽 별들 사이를 감아 도는 용과 움직이는 천구의 기준점"
+  },
+  "summary": {
+    "ko": "용자리는 북쪽 하늘에서 큰곰자리와 작은곰자리 사이를 길게 잇는 별자리입니다. 몸통과 머리의 별을 한 번에 외우기보다 북극성 주변에서 지도와 대조하며 구간별로 따라가는 편이 좋습니다. 북쪽 별자리라고 해서 대전에서 모든 부분이 항상 지평선 위에 있는 것은 아닙니다. 별마다 적위와 관측 시각을 확인해야 합니다. 투반과 과거 천구 북극의 관계는 지구 자전축의 방향이 오랜 시간에 걸쳐 변한다는 이야기를 연결해 줍니다. 도시에서는 흐린 몸통보다 주요 기준별부터 확인하세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 경계로 정한 하늘의 영역; 단일 천체가 아님",
+      "source": "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Dra",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Draconis",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "대표 그림·길잡이 무늬",
+      "value": "큰곰자리·작은곰자리 사이로 길게 휘어진 용",
+      "source": "NSF NOIRLab — draco — https://noirlab.edu/public/education/constellations/draco/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님"
+    },
+    {
+      "label": "찾기의 기준",
+      "value": "폴라리스 / 작은곰자리",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: star:HIP11767, const:UMi, const:UMa, const:Lyr"
+    },
+    {
+      "label": "관측 계절 안내",
+      "value": "여름 — 편집 분류, 실시간 가시성 보장 아님",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    }
+  ],
+  "story": {
+    "ko": "용자리의 투반은 과거의 천구 북극과 가까웠던 별로 소개됩니다. 지금의 북극성만을 영원한 기준으로 생각하면 낯설지만, 지구 자전축의 방향이 천천히 바뀌는 세차 때문에 하늘의 극이 가리키는 부근도 달라집니다. 이는 어느 날 별자리가 갑자기 교체된다는 뜻이 아니라 오랜 시간의 방향 변화를 말합니다. 오늘의 관측에서는 현재의 북극성으로 방향을 잡고, 용자리 몸통에서 투반의 위치를 지도와 비교해 보세요. 별자리 속 용의 길쭉한 형상과 천구 북극의 역사적 이동은 다른 설명이지만 같은 하늘에서 함께 살펴볼 수 있습니다. 기록에는 어느 시각에 어떤 구간이 건물 위로 보였는지도 남기면 좋습니다. 북쪽에 있다는 이유만으로 전체 용이 밤새 보인다고 가정하지 않는 연습이 됩니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — draco — https://noirlab.edu/public/education/constellations/draco/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 저녁 북극성과 작은곰자리, 북두칠성을 먼저 확인합니다. 그 사이에 감긴 용자리 몸통을 지도와 대조하며 구간별로 따라가고, 거문고자리 방향의 머리 배열을 별도로 찾습니다. 낮은 구간은 지평선 장애물을 확인하세요.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP11767",
+      "const:UMi",
+      "const:UMa",
+      "const:Lyr"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 길쭉한 몸통의 약한 별들이 빠지기 쉽습니다. 확인한 구간만 기록하세요.",
+    "binoculars": "10×50으로 몸통을 여러 시야에 나누어 따라갑니다. 하늘에서 머리와 꼬리가 어느 방향인지 지도와 함께 확인합니다.",
+    "telescope": "90mm 20~80배는 선택한 별 주변에 사용하고 전체 용은 맨눈 지도에서 봅니다. 북쪽의 낮은 구역은 장비가 커도 장애물을 통과해 볼 수 없습니다.",
+    "difficulty": 3,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Dra; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP11767, const:UMi, const:UMa, const:Lyr; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — draco — https://noirlab.edu/public/education/constellations/draco/",
+    "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+    "NSF NOIRLab — draco — https://noirlab.edu/public/education/constellations/draco/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: star:HIP11767, const:UMi, const:UMa, const:Lyr",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "G2의 북극/주극 계절 분류를 북위36.35°에서 별자리 전역이 주극이라는 보장으로 사용하지 않았습니다. 대표 좌표만으로 전역 가시성을 계산하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 RA/Dec는 대표 좌표입니다. 별자리 전체의 가시성·거리·등급·각크기를 이 한 점으로 판단하거나 누락 숫자를 만들어 넣지 않았습니다."
+    ]
+  }
+}

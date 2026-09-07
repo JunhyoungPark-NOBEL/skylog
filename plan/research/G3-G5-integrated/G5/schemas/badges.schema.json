@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G5 badges — 첨부 Task7 규약",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+      },
+      "title": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1
+          },
+          "en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "description": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1
+          },
+          "en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "icon": {
+        "type": "string",
+        "minLength": 1
+      },
+      "rule": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "key": {
+                "enum": [
+                  "firstObservation",
+                  "firstSketch",
+                  "firstStarHop",
+                  "align2Success",
+                  "planetsAll",
+                  "moonPhasesAll"
+                ]
+              }
+            },
+            "required": [
+              "key"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "key": {
+                "enum": [
+                  "messierCount",
+                  "constellationCount",
+                  "caldwellCount",
+                  "streakNights",
+                  "missionsCompleted",
+                  "quizStreak"
+                ]
+              },
+              "n": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "key",
+              "n"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "key": {
+                "const": "seasonSignature"
+              },
+              "id": {
+                "enum": [
+                  "summerTriangle",
+                  "winterDiamond",
+                  "springTriangle",
+                  "autumnSquare"
+                ]
+              }
+            },
+            "required": [
+              "key",
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "title",
+      "description",
+      "icon",
+      "rule"
+    ],
+    "additionalProperties": false
+  }
+}

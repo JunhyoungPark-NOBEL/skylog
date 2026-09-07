@@ -1,0 +1,8 @@
+{
+  "inputs/catalog-values.v1.csv": "a372c581814827928319f10a63c361071b0c3af37831abd964855e44a80d74f6",
+  "inputs/constellations_ko.csv": "84e506ebdce9568510f57ccd29da22114916d29a4040b8e7f7a27fcd17f062a3",
+  "inputs/content-targets.v1.csv": "f3e38b67118a826a6df0f63c86159ce5f127da835b37188bdd899d7b32e2db53",
+  "inputs/previous-cumulative-80.json": "880873e374ac02dd11dc8b83f9e13b298ac9981697c5b5778b416e5e7bf63b0a",
+  "inputs/previous-remaining-41.csv": "b7f78a4c25499d2c795304802da006b952b00c627991d4d346fb167bf142c4fd",
+  "inputs/star_names_ko.csv": "a5b96702b83f1c18b298cafd25e3e595ad41a2e35da5006f2a18194bc4c8e56e"
+}

@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-07",
+  "basisPolicy": "학습 문항은 첨부 G3에서 작성. 다음 외부 검토는 좌표·격리 검증 보조이며 G3 수치를 바꾸지 않음.",
+  "sources": [
+    {
+      "title": "USNO Computing Altitude and Azimuth",
+      "url": "https://aa.usno.navy.mil/faq/alt_az",
+      "access": "본문 확인",
+      "use": "고도식과 동경 부호"
+    },
+    {
+      "title": "USNO Computing Approximate Solar Coordinates",
+      "url": "https://aa.usno.navy.mil/faq/sun_approx",
+      "access": "본문 확인",
+      "use": "태양 고도 근사 선별"
+    },
+    {
+      "title": "USNO Approximate Sidereal Time",
+      "url": "https://aa.usno.navy.mil/faq/GAST",
+      "access": "이번 직접 열람 timeout; 기존 G5 제공 스크립트의 근사식 계승",
+      "use": "항성시 기획 근사; 새 정밀 검증 주장 금지"
+    },
+    {
+      "title": "NASA HEASARC Hipparcos Main Catalog",
+      "url": "https://heasarc.gsfc.nasa.gov/W3Browse/catalog/hipparcos.html",
+      "access": "본문 확인",
+      "use": "Johnson V와 ICRS epoch J1991.25 정의 확인; 원본 수치 파일 확보 아님"
+    },
+    {
+      "title": "ESA 1997 / CDS I/239 ReadMe",
+      "url": "https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/I/239?format=html&tex=true",
+      "access": "본문 확인",
+      "use": "Hipparcos 118218행과 Vmag/RAdeg/DEdeg 필드 정의 확인; 전천 수치 수집 아님"
+    },
+    {
+      "title": "NASA Spot the Young Stars of the Hyades and Pleiades",
+      "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+      "access": "본문 확인",
+      "use": "성단 찾기 보조 확인. 거리 숫자 신규 출제·대입 없음"
+    }
+  ],
+  "failedAcquisition": "VizieR TSV와 CDS 원본 다운로드는 수행 완료되지 않음. Python 직접 네트워크 DNS와 다운로드 도구/URL 제약을 만남.",
+  "result": "전천 격리 검증 미완료를 유지하며 수치 데이터가 첨부된 것으로 주장하지 않음."
+}

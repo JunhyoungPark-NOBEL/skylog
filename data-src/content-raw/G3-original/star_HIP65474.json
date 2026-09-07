@@ -1,0 +1,104 @@
+{
+  "id": "star:HIP65474",
+  "version": 1,
+  "title": {
+    "ko": "스피카",
+    "en": "Spica"
+  },
+  "oneLiner": {
+    "ko": "북두칠성 손잡이의 곡선을 따라 만나는 봄의 밝은 별"
+  },
+  "summary": {
+    "ko": "스피카는 처녀자리에서 밝게 보이는 별로, 봄철 하늘의 방향을 잡는 길잡이입니다. 북두칠성 손잡이의 곡선을 따라 아르크투루스에 도착한 뒤 같은 흐름을 더 이어 가면 찾을 수 있습니다. 눈에는 한 점으로 보이지만 실제로는 서로 가까이 도는 별들로 이루어진 계입니다. 이런 가까운 성분은 소형 망원경에서 두 점으로 분리하는 대상이 아니라 스펙트럼(빛을 파장별로 나눈 정보)의 변화로 연구합니다. 도시에서도 밝은 별의 위치와 색 인상을 비교할 수 있지만 알비레오처럼 두 별이 갈라질 것이라고 기대하면 안 됩니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "가까운 쌍성계의 밝은 별",
+      "source": "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22) — https://www.cfa.harvard.edu/news/understanding-spica"
+    },
+    {
+      "label": "별자리",
+      "value": "처녀자리 (Vir)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "0.98등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 표기)",
+      "value": "B1V",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "249.7광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "현대 천문학에서 스피카는 눈에 보이지 않는 동반성을 어떻게 알아내는지 보여 줍니다. 별빛을 파장별로 나누면 원소가 남긴 선무늬가 나타나며, 별이 다가오거나 멀어질 때 그 선의 위치가 바뀝니다. 스피카에서는 이런 반복 변화를 통해 가까운 두 별의 운동을 조사합니다. 망원경 배율을 높여 두 점을 나누는 관측과는 다른 방법입니다. 한국 전통 천문학을 재구성한 Stellarium 자료에서는 이 위치의 별을 각 별무리의 좌각으로 대응시킵니다. 이는 해당 재구성의 문화적 이름이며 현대 별자리인 처녀자리의 명칭과 같은 분류 체계는 아닙니다. 하나의 별을 현대 위치 체계와 옛 하늘 지도, 분광 관측이라는 서로 다른 관점에서 읽어 볼 수 있습니다.",
+    "cultures": [
+      "기타",
+      "한국",
+      "동아시아"
+    ],
+    "sources": [
+      "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22) — https://www.cfa.harvard.edu/news/understanding-spica",
+      "NASA — What’s Up: September 2021 — https://science.nasa.gov/resource/whats-up-september-2021/",
+      "Stellarium — korean skyculture index.json — https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁 북두칠성 손잡이의 휘어진 선을 바깥으로 연장해 주황빛 아르크투루스를 찾으세요. 그 곡선을 더 이어 천구의 남쪽으로 내려가 처녀자리의 밝은 스피카를 찾습니다. 달이나 행성이 근처에 있을 수 있으므로 밝기만 보지 말고 지도에서 주변 별 배열과 위치를 확인하세요.",
+    "season": "spring",
+    "hopFrom": [
+      "const:UMa",
+      "star:HIP69673"
+    ]
+  },
+  "observing": {
+    "nakedEye": "밝은 한 점으로 위치와 흰빛 또는 청백색 인상을 살핍니다. 낮은 고도에서는 대기의 영향으로 색이 달라 보일 수 있습니다.",
+    "binoculars": "10×50에서는 주변 별과의 위치를 확인합니다. 가까운 쌍성 성분을 둘로 분리하는 용도로 사용하지 않습니다.",
+    "telescope": "90mm 20~80배에서도 주요 성분은 한 점으로 보입니다. 배율을 높여 쌍성 분리를 강제하기보다 초점과 별상 상태를 확인하는 밝은 기준별로 사용하세요.",
+    "bestMonths": [
+      4,
+      5,
+      6
+    ],
+    "difficulty": 1
+  },
+  "funFacts": [
+    "소형 망원경에서 한 점이어도 스펙트럼으로 동반성 운동을 연구할 수 있습니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22) — https://www.cfa.harvard.edu/news/understanding-spica",
+    "NASA — What’s Up: September 2021 — https://science.nasa.gov/resource/whats-up-september-2021/",
+    "Stellarium — korean skyculture index.json — https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "좌각 대응은 G2 및 Stellarium korean 공개 재구성에 한정합니다. 시대를 초월한 유일한 한국 고유명으로 일반화하거나 구조화 전통 데이터의 라이선스 검토를 생략하지 마세요.",
+      "첨부 분광형 B1V는 원문 보존값이며 분광 쌍성 전체의 성분별 분류를 뜻한다고 단정하지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+    ]
+  },
+  "koreanTradition": {
+    "name": "좌각(左角)",
+    "asterism": "각(角)",
+    "note": "Stellarium korean 재구성에서 HIP 65474를 좌각으로, 각 별무리의 구성별로 대응시킵니다. 해당 데이터의 재구성 범위를 명시하며 모든 한국 문헌에서 동일한 이름이라는 뜻은 아닙니다.",
+    "sources": [
+      "Stellarium — korean skyculture index.json — https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json"
+    ]
+  }
+}

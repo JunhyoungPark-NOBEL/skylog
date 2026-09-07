@@ -1,0 +1,734 @@
+{
+  "iau": {
+    "title": "IAU — The Constellations",
+    "url": "https://iauarchive.eso.org/public/themes/constellations/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "좌표로 경계를 정한 별자리 영역과 IAU 약어·라틴어 속격.",
+    "publicationDate": null,
+    "contentIds": [
+      "star:HIP9884"
+    ],
+    "usedInContent": true
+  },
+  "types": {
+    "title": "NASA — Star Types",
+    "url": "https://science.nasa.gov/universe/stars/types/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "항성 종류와 백색왜성 등 일반적 개념.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Tau",
+      "star:HIP10826",
+      "star:HIP25336",
+      "star:HIP26311",
+      "star:HIP37279",
+      "star:HIP37826",
+      "star:HIP67301",
+      "star:HIP72607",
+      "star:HIP9884"
+    ],
+    "usedInContent": true
+  },
+  "dark": {
+    "title": "NASA — How to Find Good Places to Stargaze",
+    "url": "https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "광해·달빛·지형 장애물의 영향. 특정 장비의 검출 보장은 아님.",
+    "publicationDate": "2021-07-28",
+    "contentIds": [],
+    "usedInContent": false
+  },
+  "canopus": {
+    "title": "한국천문연구원 — 노인성",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4204",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "카노푸스의 노인성 명칭과 장수 전승, 남쪽에서의 관측 기록. 원문의 수치를 첨부 값에 덮어쓰지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "star:HIP30438"
+    ],
+    "usedInContent": true
+  },
+  "canopus2": {
+    "title": "한국천문연구원 — 노인성(Canopus), 소백산천문대 촬영",
+    "url": "https://www.kasi.re.kr/publication/post/photoGallery/4244?cPage=39",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "한국 남단 이외의 실제 촬영 사례. 위도만으로 국내 관측 불가능 지역을 단정하지 않음.",
+    "publicationDate": "2010-12-13",
+    "contentIds": [
+      "star:HIP30438"
+    ],
+    "usedInContent": true
+  },
+  "procyon": {
+    "title": "NASA Night Sky Network — Sirius and Procyon",
+    "url": "https://nightsky.jpl.nasa.gov/news/428/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "프로키온의 백색왜성 동반별과 연구 맥락.",
+    "publicationDate": "2025-01-17",
+    "contentIds": [
+      "star:HIP37279"
+    ],
+    "usedInContent": true
+  },
+  "procyonpaper": {
+    "title": "Bond 외 — Hubble Space Telescope Astrometry of the Procyon System",
+    "url": "https://ui.adsabs.harvard.edu/abs/2015ApJ...813..106B/abstract",
+    "accessedAt": "2026-09-07",
+    "access": "논문 초록 검색 발췌 확인",
+    "supportedScope": "프로키온 A의 F5 IV–V 분류와 백색왜성 B를 가진 계.",
+    "publicationDate": "2015",
+    "contentIds": [
+      "star:HIP37279"
+    ],
+    "usedInContent": true
+  },
+  "gemini-nasa": {
+    "title": "NASA — Find the Twins: Gemini Constellation",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "폴룩스·카스토르의 상대 밝기, 폴룩스 행성, 카스토르 여섯 별 계, M35와 길잡이.",
+    "publicationDate": "2026-02-13",
+    "contentIds": [
+      "const:Gem",
+      "star:HIP36850",
+      "star:HIP37826"
+    ],
+    "usedInContent": true
+  },
+  "fomalhaut-disk": {
+    "title": "NASA/ESA/CSA — Fomalhaut Dusty Debris Disk (MIRI Image)",
+    "url": "https://science.nasa.gov/asset/webb/fomalhaut-dusty-debris-disk-miri-image/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "웹 적외선 영상의 먼지 잔해 띠. 소형 망원경에서 보이는 구조가 아님.",
+    "publicationDate": "2023-05-08",
+    "contentIds": [
+      "star:HIP113368"
+    ],
+    "usedInContent": true
+  },
+  "fomalhaut-cloud": {
+    "title": "NASA/ESA — Fomalhaut cs2",
+    "url": "https://science.nasa.gov/asset/hubble/fomalhaut-cs2/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "2012·2023 관측의 밝은 점과 충돌 잔해 해석. 행성 확정 사례로 쓰지 않음.",
+    "publicationDate": "2025-12-18",
+    "contentIds": [
+      "star:HIP113368"
+    ],
+    "usedInContent": true
+  },
+  "regulus": {
+    "title": "CHARA Array — Regulus",
+    "url": "https://chara.gsu.edu/photos-videos/image-gallery/regulus",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "간섭계로 측정한 빠른 회전과 납작한 모양·극과 적도 차이.",
+    "publicationDate": null,
+    "contentIds": [
+      "star:HIP49669"
+    ],
+    "usedInContent": true
+  },
+  "leo-nasa": {
+    "title": "NASA — Celestial Wonders in Leo",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/celestial-wonders-in-leo/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "사자자리 낫 모양과 레굴루스, 봄 탐색.",
+    "publicationDate": "2026-04-07",
+    "contentIds": [
+      "const:Leo",
+      "star:HIP49669"
+    ],
+    "usedInContent": true
+  },
+  "mizar": {
+    "title": "NASA — What’s Up: April 2022",
+    "url": "https://science.nasa.gov/resource/whats-up-april-2022/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "북두칠성 미자르와 알코르, 단일 점과 다중성의 차이.",
+    "publicationDate": "2022-04",
+    "contentIds": [
+      "const:UMa",
+      "star:HIP65378"
+    ],
+    "usedInContent": true
+  },
+  "double": {
+    "title": "NASA Night Sky Network — Seeing Double",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "이중성 관측과 미자르·알코르, 알비레오. 90mm 성공률은 제시하지 않음.",
+    "publicationDate": "2024-08-01",
+    "contentIds": [
+      "const:Cyg",
+      "star:HIP36850",
+      "star:HIP65378"
+    ],
+    "usedInContent": true
+  },
+  "algol": {
+    "title": "American Astronomical Society — Algol: the Star of Frequent Changes",
+    "url": "https://aas.org/posts/news/2018/07/month-astronomical-history-0",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "식변광, 2.867일 주기, 아랍어 이름, 굿리크의 관측과 가림 가설.",
+    "publicationDate": "2018-09-19",
+    "contentIds": [
+      "const:Per",
+      "star:HIP14576"
+    ],
+    "usedInContent": true
+  },
+  "mira-period": {
+    "title": "AAVSO — Featured Variables / Mira",
+    "url": "https://www.aavso.org/featured-variables",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인 발췌만 확인; 상세 페이지 직접 열람 실패",
+    "supportedScope": "미라의 장주기 변광 및 약 332일의 대표 주기. 다음 극대 시각을 예측하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "star:HIP10826"
+    ],
+    "usedInContent": true
+  },
+  "mira-tail": {
+    "title": "NASA/JPL — Mira’s Tail: There All Along",
+    "url": "https://www.jpl.nasa.gov/images/pia09961-miras-tail-there-all-along/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "미라의 자외선 꼬리와 관측 파장의 차이.",
+    "publicationDate": "2007-08-15",
+    "contentIds": [
+      "star:HIP10826"
+    ],
+    "usedInContent": true
+  },
+  "dubhe": {
+    "title": "University of California Observatories — Astronomers detect starquakes",
+    "url": "https://www.ucolick.org/news/1999/99-07-27.html",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "두베를 밝은 황색 거성·쌍성계로 설명하는 당시 연구 보도. F7V comp의 정확한 성분 귀속을 결정하지 않음.",
+    "publicationDate": "1999-07-27",
+    "contentIds": [
+      "star:HIP54061"
+    ],
+    "usedInContent": true
+  },
+  "orion-depth": {
+    "title": "NASA — Discovering the Universe Through the Constellation Orion",
+    "url": "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "오리온 별들의 서로 다른 거리. 외부 소개 거리와 첨부 값을 혼합하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Ori",
+      "star:HIP25930",
+      "star:HIP26311",
+      "star:HIP26727"
+    ],
+    "usedInContent": true
+  },
+  "belt": {
+    "title": "NASA APOD — Alnitak, Alnilam, Mintaka",
+    "url": "https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "허리띠의 동쪽부터 세 별 순서, 뜨겁고 푸른 별과 거리 범위.",
+    "publicationDate": "2025-11-20",
+    "contentIds": [
+      "const:Ori",
+      "star:HIP25930",
+      "star:HIP26311",
+      "star:HIP26727"
+    ],
+    "usedInContent": true
+  },
+  "flame": {
+    "title": "NASA — A Flame in Orion’s Belt",
+    "url": "https://science.nasa.gov/photojournal/a-flame-in-orions-belt/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "알니탁 근처 성운의 영상과 위치 관계. 성운을 알니탁 단독으로 이온화한다고 주장하지 않음.",
+    "publicationDate": "2010-12-02",
+    "contentIds": [
+      "star:HIP26727"
+    ],
+    "usedInContent": true
+  },
+  "orion-hubble": {
+    "title": "NASA/ESA — Orion Constellation",
+    "url": "https://science.nasa.gov/asset/hubble/orion-constellation/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "베텔게우스·리겔·허리띠·검과 성운의 배열.",
+    "publicationDate": "2006-01-11",
+    "contentIds": [
+      "const:Ori",
+      "star:HIP25336"
+    ],
+    "usedInContent": true
+  },
+  "hyginus": {
+    "title": "Hyginus — Astronomica 2.18–43, Theoi 고전 번역",
+    "url": "https://www.theoi.com/Text/HyginusAstronomica2.html",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "양자리 황금양·프릭소스·헬레 전승. 다른 항목의 세부 전승을 이 자료로 무분별하게 보완하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Ari"
+    ],
+    "usedInContent": true
+  },
+  "gemini-myth": {
+    "title": "NSF NOIRLab Globe at Night — Gemini",
+    "url": "https://globeatnight.org/constellation/gemini/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "그리스 전승의 카스토르와 폴룩스, 필멸과 불멸의 대비.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Gem"
+    ],
+    "usedInContent": true
+  },
+  "cas-myth": {
+    "title": "Chandra X-ray Observatory — Cassiopeia",
+    "url": "https://chandra.harvard.edu/photo/constellations/cassiopeia.html",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "그리스 카시오페이아·케페우스·안드로메다·페르세우스 이야기.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:And",
+      "const:Cas",
+      "const:Per"
+    ],
+    "usedInContent": true
+  },
+  "peg-myth": {
+    "title": "Chandra X-ray Observatory — Pegasus",
+    "url": "https://chandra.harvard.edu/photo/constellations/pegasus.html",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "supportedScope": "그리스 날개 달린 말 전승과 메두사·페르세우스와의 관계.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Peg"
+    ],
+    "usedInContent": true
+  },
+  "noir-Ari": {
+    "title": "NSF NOIRLab — Aries",
+    "url": "https://noirlab.edu/public/education/constellations/aries/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Ari",
+      "star:HIP9884"
+    ],
+    "usedInContent": true
+  },
+  "noir-Tau": {
+    "title": "NSF NOIRLab — Taurus",
+    "url": "https://noirlab.edu/public/education/constellations/taurus/?nocache=true",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Tau"
+    ],
+    "usedInContent": true
+  },
+  "noir-Gem": {
+    "title": "NSF NOIRLab — Gemini",
+    "url": "https://noirlab.edu/public/education/constellations/gemini/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Gem"
+    ],
+    "usedInContent": true
+  },
+  "noir-Cnc": {
+    "title": "NSF NOIRLab — Cancer",
+    "url": "https://noirlab.edu/public/education/constellations/cancer/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Cnc"
+    ],
+    "usedInContent": true
+  },
+  "noir-Leo": {
+    "title": "NSF NOIRLab — Leo",
+    "url": "https://noirlab.edu/public/education/constellations/leo/?nocache=true",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Leo"
+    ],
+    "usedInContent": true
+  },
+  "noir-Vir": {
+    "title": "NSF NOIRLab — Virgo",
+    "url": "https://noirlab.edu/public/education/constellations/virgo/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Vir"
+    ],
+    "usedInContent": true
+  },
+  "noir-Lib": {
+    "title": "NSF NOIRLab — Libra",
+    "url": "https://noirlab.edu/public/education/constellations/libra/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Lib"
+    ],
+    "usedInContent": true
+  },
+  "noir-Sco": {
+    "title": "NSF NOIRLab — Scorpius",
+    "url": "https://noirlab.edu/public/education/constellations/scorpius/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Sco"
+    ],
+    "usedInContent": true
+  },
+  "noir-Sgr": {
+    "title": "NSF NOIRLab — Sagittarius",
+    "url": "https://noirlab.edu/public/education/constellations/sagittarius/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Sgr"
+    ],
+    "usedInContent": true
+  },
+  "noir-Cap": {
+    "title": "NSF NOIRLab — Capricornus",
+    "url": "https://noirlab.edu/public/education/constellations/capricornus/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Cap"
+    ],
+    "usedInContent": true
+  },
+  "noir-Aqr": {
+    "title": "NSF NOIRLab — Aquarius",
+    "url": "https://noirlab.edu/public/education/constellations/aquarius/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Aqr"
+    ],
+    "usedInContent": true
+  },
+  "noir-Psc": {
+    "title": "NSF NOIRLab — Pisces",
+    "url": "https://noirlab.edu/public/education/constellations/pisces/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Psc"
+    ],
+    "usedInContent": true
+  },
+  "noir-Ori": {
+    "title": "NSF NOIRLab — Orion",
+    "url": "https://noirlab.edu/public/education/constellations/orion/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Ori"
+    ],
+    "usedInContent": true
+  },
+  "noir-UMa": {
+    "title": "NSF NOIRLab — Ursa Major",
+    "url": "https://noirlab.edu/public/education/constellations/ursa-major/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:UMa"
+    ],
+    "usedInContent": true
+  },
+  "noir-UMi": {
+    "title": "NSF NOIRLab — Ursa Minor",
+    "url": "https://noirlab.edu/public/education/constellations/ursa-minor/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:UMi",
+      "star:HIP72607"
+    ],
+    "usedInContent": true
+  },
+  "noir-Cas": {
+    "title": "NSF NOIRLab — Cassiopeia",
+    "url": "https://noirlab.edu/public/education/constellations/cassiopeia/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Cas"
+    ],
+    "usedInContent": true
+  },
+  "noir-Cyg": {
+    "title": "NSF NOIRLab — Cygnus",
+    "url": "https://noirlab.edu/public/education/constellations/cygnus/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Cyg"
+    ],
+    "usedInContent": true
+  },
+  "noir-Lyr": {
+    "title": "NSF NOIRLab — Lyra",
+    "url": "https://noirlab.edu/public/education/constellations/lyra/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Lyr"
+    ],
+    "usedInContent": true
+  },
+  "noir-Aql": {
+    "title": "NSF NOIRLab — Aquila",
+    "url": "https://noirlab.edu/public/education/constellations/aquila/?lang=es",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Aql"
+    ],
+    "usedInContent": true
+  },
+  "noir-Peg": {
+    "title": "NSF NOIRLab — Pegasus",
+    "url": "https://noirlab.edu/public/education/constellations/pegasus/?lang=es",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Peg"
+    ],
+    "usedInContent": true
+  },
+  "noir-And": {
+    "title": "NSF NOIRLab — Andromeda",
+    "url": "https://noirlab.edu/public/education/constellations/andromeda/?lang=es",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:And",
+      "const:Peg"
+    ],
+    "usedInContent": true
+  },
+  "noir-Per": {
+    "title": "NSF NOIRLab — Perseus",
+    "url": "https://noirlab.edu/public/education/constellations/perseus/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Per"
+    ],
+    "usedInContent": true
+  },
+  "noir-Aur": {
+    "title": "NSF NOIRLab — Auriga",
+    "url": "https://noirlab.edu/public/education/constellations/auriga/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+    "supportedScope": "해당 별자리 이름·대표 별·형태 또는 명시된 전승만. 게자리의 Draco 문구, 천칭자리의 북반구 문구 등 오류 가능 문장은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Aur"
+    ],
+    "usedInContent": true
+  },
+  "asterisms": {
+    "title": "NASA — What Are Asterisms?",
+    "url": "https://science.nasa.gov/solar-system/what-are-asterisms/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "북두칠성·작은국자와 공식 별자리의 구별.",
+    "publicationDate": "2021-07-28",
+    "contentIds": [
+      "const:Sgr",
+      "const:UMa",
+      "const:UMi",
+      "star:HIP37279",
+      "star:HIP65378",
+      "star:HIP67301",
+      "star:HIP72607"
+    ],
+    "usedInContent": true
+  },
+  "orion-motion": {
+    "title": "ESA — The future of the Orion constellation",
+    "url": "https://www.esa.int/Science_Exploration/Space_Science/Gaia/The_future_of_the_Orion_constellation",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "가이아·히파르코스 자료로 본 오리온 별들의 장기적인 고유운동.",
+    "publicationDate": "2017-06-09",
+    "contentIds": [
+      "star:HIP25336"
+    ],
+    "usedInContent": true
+  },
+  "galactic-center": {
+    "title": "NASA/JPL — Telescopes Get Extraordinary View of Milky Way’s Black Hole",
+    "url": "https://www.jpl.nasa.gov/edu/resources/teachable-moment/telescopes-get-extraordinary-view-of-milky-ways-black-hole/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "궁수자리 방향 은하 중심과 직접 보이지 않는 중심 블랙홀.",
+    "publicationDate": "2024-10-09",
+    "contentIds": [
+      "const:Sgr"
+    ],
+    "usedInContent": true
+  },
+  "bigdipper": {
+    "title": "NASA APOD — The Big Dipper",
+    "url": "https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "국자 바깥쪽 두 별에서 북극성으로 이어지는 길과 장기적인 별 배열 변화.",
+    "publicationDate": "2013-04-21",
+    "contentIds": [
+      "const:UMa",
+      "const:UMi",
+      "star:HIP54061",
+      "star:HIP67301"
+    ],
+    "usedInContent": true
+  },
+  "sgr-kasi": {
+    "title": "한국천문연구원 — 궁수자리",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4269?cPage=4&clsf_cd=photo005",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "여름 남쪽 주전자 모양, 전갈자리 동쪽·독수리자리 남쪽, 남두육성의 구역. 태양 통과 날짜 등 오래된 범위는 사용하지 않음.",
+    "publicationDate": "2011-06-28",
+    "contentIds": [
+      "const:Sgr"
+    ],
+    "usedInContent": true
+  },
+  "chilseok": {
+    "title": "국립민속박물관 — 칠석",
+    "url": "https://nfm.go.kr/kids/elecontents/view.do?topic=228",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "견우와 직녀의 연례 만남이라는 칠석 전승. 실제 별의 접근 현상이 아님.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Aql",
+      "const:Lyr"
+    ],
+    "usedInContent": true
+  },
+  "weaver-story": {
+    "title": "한국학중앙연구원 — 견우직녀 설화",
+    "url": "https://encykorea.aks.ac.kr/Article/E0002170",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "은하수를 사이에 둔 인물과 한 해 한 번 오작교에서 만나는 전승. 별의 물리적 거리 변화가 아님.",
+    "publicationDate": null,
+    "contentIds": [
+      "const:Aql",
+      "const:Lyr"
+    ],
+    "usedInContent": true
+  },
+  "mira-pulsation": {
+    "title": "NASA/ESA — Hubble Separates Stars in the Mira Binary System",
+    "url": "https://science.nasa.gov/missions/hubble/hubble-separates-stars-in-the-mira-binary-system/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "미라의 팽창·수축 변광. 역사적 허블 관측 소개의 원자료와 갱신일을 구별하며 거리 400광년은 사용하지 않음.",
+    "publicationDate": null,
+    "contentIds": [
+      "star:HIP10826"
+    ],
+    "usedInContent": true
+  },
+  "hyades": {
+    "title": "NASA Night Sky Network — Spot the Young Stars of the Hyades and Pleiades",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인의 본문 발췌 확인",
+    "supportedScope": "히아데스와 플레이아데스, 알데바란은 앞쪽에 겹쳐 보이는 비구성원이라는 설명.",
+    "publicationDate": "2023-12-15",
+    "contentIds": [
+      "const:Tau"
+    ],
+    "usedInContent": true
+  }
+}

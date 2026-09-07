@@ -1,0 +1,94 @@
+{
+  "id": "dso:M8",
+  "version": 1,
+  "title": {
+    "ko": "라군성운",
+    "en": "Lagoon Nebula"
+  },
+  "oneLiner": {
+    "ko": "궁수자리의 별무리와 밝은 기체를 나누어 보는 라군성운"
+  },
+  "summary": {
+    "ko": "M8 라군성운은 궁수자리의 별 탄생 지역입니다. 젊고 뜨거운 별들이 주변 기체를 밝히며, 성운 가까이의 성단과 함께 관측할 수 있습니다. 별들이 보였다는 사실과 그 사이의 성운광을 검출했다는 사실은 구분해야 합니다. 대전 근교에서는 남쪽 고도가 낮아 건물과 대기 상태의 영향을 받기 쉽습니다. 10×50에서는 별무리와 흐림을, 90mm에서는 밝은 성운 부분과 어두운 틈의 존재를 차례로 살펴보세요. 장노출 사진의 넓은 붉은 구름은 도시의 눈 관측에서 그대로 드러나지 않을 수 있습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "발광 성운 — 원본 종류 Neb (nebula)",
+      "source": "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 8 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-8/"
+    },
+    {
+      "label": "별자리",
+      "value": "궁수자리 (Sgr)",
+      "source": "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "5.8등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "45′ × 30′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리",
+      "value": "미확정 — 첨부 빈칸·외부 소개값 또는 대상 범위 차이",
+      "source": "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 8 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-8/"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M8",
+      "source": "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "별이 태어나는 구름은 조용히 별을 담아 두는 배경만은 아닙니다. 라군성운의 뜨거운 별들이 내는 복사와 흐름은 주변 기체를 밝히고 구조를 바꿉니다. 사진에서는 별빛과 기체의 빛이 한 장면에 섞여 있어 성단과 성운을 같은 대상으로 느끼기 쉽습니다. 그러나 NGC6530의 별무리와 M8의 기체 영역은 구별해서 설명해야 합니다. 관측할 때에는 먼저 점처럼 분리되는 별들을 기록하고 다음으로 그 주변에 이어지는 흐린 빛이 있는지 확인해 보세요. 어두운 틈을 보았다면 물질이 전혀 없는 빈 공간이라고 즉시 단정하지 않는 것이 좋습니다. 먼지가 뒤의 빛을 가리는 경우도 있기 때문입니다. 같은 시야에서 별의 탄생과 주변 물질의 변화라는 이야기를 읽되, 접안렌즈로 실제 확인한 범위는 따로 남기는 관측을 권합니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 8 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-8/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 남쪽 하늘의 궁수자리를 찾고 주전자 모양의 별 배열을 지도와 맞춥니다. 그 서쪽 위의 M8 구역을 선택해 저배율로 이동합니다. 별무리를 확인한 뒤 주변에 퍼진 성운광을 별도로 살핍니다.",
+    "season": "summer",
+    "hopFrom": [
+      "const:Sgr"
+    ]
+  },
+  "observing": {
+    "nakedEye": "어두운 곳에서 성운과 별무리가 섞인 밝기를 느낄 수 있으나 도시 맨눈 검출을 보장하지 않습니다.",
+    "binoculars": "10×50으로 별무리와 퍼진 빛을 비교합니다. 낮은 남쪽의 광해가 크면 별만 남을 수 있습니다.",
+    "telescope": "90mm 20~80배로 밝은 성운 부분을 먼저 찾습니다. 어두운 곳의 선택적 성운 필터는 보조 수단이며 별빛·고도·광해 한계를 없애지는 않습니다.",
+    "difficulty": 3,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Sgr; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 8 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-8/",
+    "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 8 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-8/",
+    "첨부 catalog-values.v1.csv — dso:M8; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 거리는 빈칸입니다. NASA 페이지의 성운 소개 5200광년과 성단 관련 4350광년을 하나의 값으로 합치지 않고 거리 숫자를 보류했습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "const:Vir",
+  "version": 1,
+  "title": {
+    "ko": "처녀자리",
+    "en": "Virgo"
+  },
+  "oneLiner": {
+    "ko": "스피카에서 시작해 넓은 봄 하늘 영역을 천천히 익혀요"
+  },
+  "summary": {
+    "ko": "처녀자리는 밝은 스피카를 기준으로 찾지만 별자리 전체는 넓고 약한 별도 많습니다. 아르크투루스에서 스피카로 이어지는 봄철 길잡이를 이용해 시작점을 잡은 뒤 주변을 조금씩 확장해 보세요. 사람의 전신 그림이 도시에서 한 번에 보일 것이라 기대하지 않는 편이 좋습니다. 스피카의 별빛과 그 방향에서 관측되는 먼 은하는 서로 다른 대상이며, 하나의 별자리 거리를 부여할 수 없습니다. 넓은 영역을 관측했다는 말보다 어떤 기준별과 어떤 개별 천체를 찾았는지 구체적으로 남기는 것이 다음 관측에 도움이 됩니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Vir; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Vir",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Virginis",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "아르크투루스, 스피카",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP69673, star:HIP65474; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "여성 인물",
+      "source": "NSF NOIRLab — Virgo — https://noirlab.edu/public/education/constellations/virgo/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "봄 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "밝은 별 하나가 넓은 하늘 영역의 입구가 되는 경우가 있습니다. 처녀자리에서는 스피카가 그 역할을 합니다. NOIRLab의 소개는 스피카 자체가 여러 별의 관계로 연구되는 대상임을 설명하지만, 처음 보는 관측자에게는 우선 하나의 밝은 점입니다. 그 점을 찾았다는 사실을 처녀자리 안의 모든 대상을 확인한 것과 같게 기록하지 않는 것이 중요합니다. 먼저 스피카와 아르크투루스의 방향을 익히고, 그 주변에서 실제로 보이는 별을 차례로 표시해 보세요. 밝은 별이 적은 빈 공간처럼 느껴져도 지도에서는 여러 관측 대상으로 나뉩니다. 큰 영역의 이름과 개별 천체의 이름을 함께 읽는 연습을 하면 검색 결과에서 별자리와 별을 혼동하는 일도 줄어듭니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Virgo — https://noirlab.edu/public/education/constellations/virgo/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁 북두칠성 손잡이의 곡선을 따라 아르크투루스를 찾고, 그 곡선을 남쪽으로 더 이어 스피카를 찾습니다. 스피카를 중심으로 처녀자리의 넓은 영역을 지도와 대조하며 나누어 살펴보세요. 선을 기계적으로 연장하기보다 두 밝은 별의 이름을 먼저 확정합니다.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP69673",
+      "star:HIP65474"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 스피카부터 찾는 것이 좋습니다. 넓은 사람 모양 전체가 또렷하게 이어지지는 않을 수 있습니다.",
+    "binoculars": "10×50으로 스피카 주변과 약한 연결 별을 구역별로 확인합니다.",
+    "telescope": "90mm 20~80배로 스피카의 빛을 볼 수 있지만 그 가까운 계를 시각적으로 분리하는 목표로 삼지 않습니다. 은하 관측은 별도 대상과 어두운 조건을 준비하세요.",
+    "bestMonths": [
+      4,
+      5,
+      6
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Vir; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Virgo — https://noirlab.edu/public/education/constellations/virgo/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Vir; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Vir; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP69673, star:HIP65474; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP69673, star:HIP65474; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

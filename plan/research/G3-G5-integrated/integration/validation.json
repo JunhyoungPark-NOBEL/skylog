@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-09-07",
+  "draftValidationPassed": true,
+  "dataAuthoringComplete": true,
+  "appReleaseReady": false,
+  "checksTotal": 20,
+  "checksPassed": 20,
+  "checksFailed": 0,
+  "componentSuites": {
+    "G3": {
+      "checksTotal": 77,
+      "checksPassed": 77,
+      "scope": "Original G3 authored-data validator; publication not approved."
+    },
+    "G5": {
+      "checksTotal": 130,
+      "checksPassed": 130,
+      "scope": "G5 작성 데이터의 스키마·수량·참조·근거 계보·보조 보고서 일관성 및 음성 대조 시험. 천문학 전수 팩트체크/실제 앱 검증 아님."
+    },
+    "reference": {
+      "checksTotal": 40,
+      "checksPassed": 40,
+      "scope": "자체 작성한 Python 참조 판정기의 합성 데이터 단위 시험. 실제 앱·센서·렌더러·전천 검증이 아님."
+    }
+  },
+  "counts": {
+    "G3": 121,
+    "paths": 6,
+    "missions": 30,
+    "badges": 18,
+    "quiz": 180,
+    "skyPick": 36,
+    "distinctSkyPickTargets": 15
+  },
+  "runs": [
+    {
+      "suite": "G3",
+      "command": [
+        "python",
+        "G3/validate.py",
+        "--report",
+        "../G5/qa/g3-revalidation.json"
+      ],
+      "returnCode": 0,
+      "stdout": "Draft checks: 77/77 passed; publication: blocked",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "suite": "G5",
+      "command": [
+        "python",
+        "G5/scripts/validate.py"
+      ],
+      "returnCode": 0,
+      "stdout": "G5 draft checks: 130/130 passed. Release: blocked pending external verification.",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "suite": "skyPick-reference",
+      "command": [
+        "python",
+        "G5/scripts/test_skypick_reference.py"
+      ],
+      "returnCode": 0,
+      "stdout": "",
+      "stderr": "........................................\n----------------------------------------------------------------------\nRan 40 tests in 0.001s\n\nOK",
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "five-canonical-import-files",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no-archived-imports",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "manifest-counts-exact",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "g3-top-level-sha256-unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "g3-original-source-all-members-unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "g3-all-121-exact-schema",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "g3-all-121-text-lengths",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "g3-all-121-fact-counts-and-sources",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "g3-existing-review-preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "g3-remaining-targets-empty",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "shared-input-byte-match-catalog-values.v1.csv",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "shared-input-byte-match-content-targets.v1.csv",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "shared-input-byte-match-constellations_ko.csv",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "usage-covers-121-once",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "usage-references-resolve",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "usage-targets-match-quiz-objects",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "usage-62-g3-objects",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "draft-index-not-claimed-published",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "release-gates-seven-explicit",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "required-documentation-present",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "limitations": [
+    "출처 문장 계보와 제한적인 형식·계산 검사이지 G3 전수 사실 검증이 아님.",
+    "정식 앱 인덱스·UI·렌더러·센서·실제 장비 미검증.",
+    "skyPick 36개는 전체 현재 장면 검증 전 비활성화."
+  ],
+  "releaseBlockers": [
+    {
+      "id": "published-content-index",
+      "scope": "all",
+      "reason": "T6의 정식 게시 인덱스와 로딩 결과가 미제공. 이 ZIP의 인덱스는 초안 참조용."
+    },
+    {
+      "id": "editorial-claim-signoff",
+      "scope": "per-content/per-quiz",
+      "reason": "G3의 거리·등급·분광형 등 검토 상태를 보존. T6의 표시 정책과 T7의 문항별 근거 검토 필요."
+    },
+    {
+      "id": "app-handler-integration",
+      "scope": "per-mission/per-badge",
+      "reason": "실제 find/observe/read/quiz/skill/checklist 핸들러 및 스케치·시야원·백업·스타 호핑 성공 이벤트를 테스트하지 못함."
+    },
+    {
+      "id": "orientation-alignment",
+      "scope": "alignment-skills-and-badges",
+      "reason": "G4 대상 코드가 미제공. 센서/정렬 참조 문구는 코드 통과 판정이 아님."
+    },
+    {
+      "id": "runtime-visibility",
+      "scope": "all-observing-missions",
+      "reason": "정확한 현행 천체력·좌표 epoch·보조 별 경로·실제 장애물 및 관측 가능 여부 확인 필요. 26개 근사 구간은 현장 보장이 아님."
+    },
+    {
+      "id": "skypick-full-scene",
+      "scope": "36-skypick-items",
+      "reason": "전체 밝은별 수치 목록·측광 대역 및 렌더러의 3° 판정과 달/행성 근접 검증 미완료. 기본 비활성화."
+    },
+    {
+      "id": "free-constellation-observation",
+      "scope": "3-constellation-count-badges",
+      "reason": "별자리 자유 관측을 실제 배열 식별로 판정하는 UI와 이벤트가 검증되기 전에는 배지 보류."
+    }
+  ]
+}

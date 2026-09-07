@@ -22,8 +22,8 @@
 | T3b 날씨·추천·오늘 밤·천문 현상·실제 하늘처럼 + UI 리프레시·카피 | ✅ 완료 | 2026-09-07 | task-3-done | D-020·D-021. 7Timer는 CORS 불가로 생략. 실기기 체크리스트 전달 |
 | T4 관측 기록·북마크·통계 | ⬜ 대기 | | | |
 | T5 망원경/쌍안경 가이드 | ⬜ 대기 | | | `solveYawOffset`·`applyOffset`·`deviceAxisInScene` 재사용 |
-| T6 콘텐츠 팩(AI 요약 스토리) | ⬜ 대기 | | | G3 배치 1 도착(20개) |
-| T7 학습 시스템 | ⬜ 대기 | | | G5 퀴즈·미션 먼저 |
+| T6 콘텐츠 팩(AI 요약 스토리) | ⬜ 대기 | | | G3 121개 완료본 도착 → 자연어 재작성 후 게시 |
+| T7 학습 시스템 | ⬜ 대기 | | | G5 완료본 도착(경로 6·미션 30·배지 18·퀴즈 180) |
 | T8 마감·품질·릴리스 | ⬜ 대기 | | | |
 
 ## GPT Pro 요청 현황 (`gpt-pro-requests.md`)
@@ -32,9 +32,9 @@
 |---|---|---|---|
 | G1 모바일 브라우저 센서 API·앱 UX 벤치마크 딥리서치 | T2 전 | ✅ 반영(D-018) | `plan/research/G1-sensors-ux.md` |
 | G2 한국어 천체 이름·별자리 이름·전통 별자리 표 | T0 중 / T6 전 | ✅ 병합 완료(D-016) | `plan/research/G2-korean-names.md`, `*.csv`, `28-mansions-ko.md` |
-| G3 콘텐츠 팩 생성(유명 천체 ~120개) | T6 전 | 🟡 배치 1(20개) + 우선 확충팩 1(DSO 17·별 3, 누적 40) 도착 · 미작성 81개(`remaining-targets.csv`) 사용자 실행 중 | `data-src/content-raw/batch-1.json`, `priority-1.json`, `plan/research/G3-content-batch-1/`, `plan/research/G3-content-priority-1/`(검토 항목·거리 보류 5개·T6 전달문 포함) |
+| G3 콘텐츠 팩 생성(유명 천체 ~120개) | T6 전 | ✅ **완료본 도착(2026-09-07, 121개)** — G3+G5 통합팩. 정본은 `G3/G3-content-cumulative-121.json`(이전 배치·누적80과 중복 병합 금지). needsReview 112개(거리·등급 대역 보류 등)는 표시 정책으로 처리 | `plan/research/G3-G5-integrated/`(전체 팩, archive zip 제외), 항목별 분할 원본 `data-src/content-raw/G3-original/`, 자연어 재작성본 `data-src/content-raw/G3-natural/`(T6) |
 | G4 센서·정렬 수학 코드 2차 리뷰 | T2·T5 후 | ⬜ T5 후 한 번에 | 대상: `src/sensors/orientation/{math,filter,calibration}.ts` |
-| G5 퀴즈·미션 콘텐츠 생성 | T7 전 | 🟡 사전 작업팩 도착(경로 6·미션 24·배지 16·퀴즈 100 — 퀴즈 150·skyPick 30 목표 미달, 4번째 튜토리얼 보류). T7이 검증·병합 | `plan/research/G5-learn-{paths,missions,badges,quiz}.json`, 전체 팩 `plan/research/G5-prep-package/` |
+| G5 퀴즈·미션 콘텐츠 생성 | T7 전 | ✅ **완료본 도착(2026-09-07)** — 경로 6·미션 30·배지 18·퀴즈 180(객관식 108·참거짓 36·하늘 선택 36). 튜토리얼 4종 포함. 하늘 선택 36문항은 앱 검증 전 기본 비활성(팩 계약), 별자리 개수 배지 3개·2별 정렬 배지는 보류 조건 있음 | `plan/research/G3-G5-integrated/G5/`(정본 4 JSON + schemas·contracts·evidence·qa). 옛 준비팩 `plan/research/G5-prep-package/`는 참고용 |
 
 ## 다음 세션이 알아야 할 것
 

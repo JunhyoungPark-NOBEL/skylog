@@ -1,0 +1,101 @@
+{
+  "id": "dso:M13",
+  "version": 1,
+  "title": {
+    "ko": "헤르쿨레스 대성단",
+    "en": "Hercules Globular Cluster"
+  },
+  "oneLiner": {
+    "ko": "작은 솜뭉치 같은 빛 속에 모인 오래된 별들의 집단"
+  },
+  "summary": {
+    "ko": "헤르쿨레스 대성단 M13은 허큘리스자리 방향의 구상성단(많은 별이 공 모양으로 조밀하게 모인 집단)입니다. 쌍안경에서는 흐릿하고 둥근 얼룩으로 보이며, 작은 망원경에서는 중심으로 갈수록 밝아지는 모습을 살피기 좋습니다. 플레이아데스처럼 밝은 별이 넓게 흩어진 산개성단과는 관측 인상이 다릅니다. 90mm로 성단 전체를 수많은 별로 분해하는 것을 기본 목표로 잡지 말고 중심과 가장자리의 밝기 차이를 기록하세요. 어두운 하늘은 도움이 되지만 고배율만으로 광해를 없앨 수는 없습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "구상성단",
+      "source": "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/"
+    },
+    {
+      "label": "별자리",
+      "value": "허큘리스자리 (Her)",
+      "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "5.8등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "16.5′",
+      "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M13",
+      "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리",
+      "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+      "source": "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/"
+    }
+  ],
+  "story": {
+    "ko": "근대 유럽의 관측사에서 M13은 에드먼드 핼리의 관측과 함께 널리 알려졌습니다. 작은 광학 장비에 흐릿하게 보이던 빛은 더 큰 망원경과 정밀한 영상에서 수많은 별로 나뉩니다. 성단 중심에는 별들이 조밀하게 모여 있어, 태양 주변의 비교적 성긴 별 환경과 다른 조건을 연구할 수 있습니다. 사진의 별 하나하나를 작은 망원경으로 재현하려 애쓸 필요는 없습니다. 중심이 얼마나 밝고 바깥 빛이 어디까지 이어지는지를 같은 배율에서 여러 밤 비교하는 것만으로도 관측 조건의 영향을 배울 수 있습니다. 둥근 모습은 성단의 집단적 구조를 보여 주지만, 접안렌즈에 보이는 얼룩 자체가 별 한 개이거나 가스 덩어리라는 뜻은 아닙니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/",
+      "ESA/Hubble — The crowded heart of the Hercules globular cluster — https://esahubble.org/images/potw1011a/"
+    ]
+  },
+  "howToFind": {
+    "ko": "초여름과 여름 저녁에 베가와 아르크투루스 사이에서 허큘리스자리의 찌그러진 사각형인 키스톤을 찾으세요. 키스톤 서쪽 변의 에타별과 제타별을 지도와 맞추고, 에타별에서 제타별 쪽으로 약 삼분의 일 내려온 위치를 저배율로 살핍니다. 밝은 점이 아닌 둥근 얼룩을 주변 별과 구분하세요.",
+    "season": "summer",
+    "hopFrom": [
+      "const:Her",
+      "star:HIP91262",
+      "star:HIP69673"
+    ]
+  },
+  "observing": {
+    "nakedEye": "아주 어두운 하늘에서만 도전 대상으로 두며, 도시 맨눈 관측은 기대하지 않습니다.",
+    "binoculars": "10×50에서 작은 둥근 얼룩을 찾는 것이 목표입니다. 성단의 별 하나하나가 보일 것을 기대하지 않습니다.",
+    "telescope": "90mm 20~80배로 중심과 가장자리의 밝기 차이를 비교하세요. 좋은 조건에서 바깥이 거칠어 보일 수 있지만 개별 별 분해를 성공 조건으로 요구하지 않습니다.",
+    "bestMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "difficulty": 3
+  },
+  "funFacts": [
+    "둥근 얼룩의 주요 빛은 가스가 아니라 모여 있는 별들에서 옵니다.",
+    "산개성단과 구상성단을 저배율로 번갈아 보면 빛의 분포가 다릅니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/",
+    "ESA/Hubble — The crowded heart of the Hercules globular cluster — https://esahubble.org/images/potw1011a/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "거리 수치 게시 보류: 첨부 40118광년과 NASA·ESA 소개의 약 25000광년 사이에 큰 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 title의 헤르쿨레스 표기는 보존했습니다. G2 표준 별자리명 허큘리스자리와의 표시 정책을 T6에서 통일하세요.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

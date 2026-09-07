@@ -1,0 +1,95 @@
+{
+  "id": "dso:M101",
+  "version": 1,
+  "title": {
+    "ko": "바람개비은하",
+    "en": "Pinwheel Galaxy"
+  },
+  "oneLiner": {
+    "ko": "북두칠성 곁에서 넓고 옅은 원반을 찾는 바람개비은하"
+  },
+  "summary": {
+    "ko": "M101은 큰곰자리 방향에서 원반을 비교적 정면으로 보는 나선은하입니다. 북두칠성 손잡이 끝의 알카이드를 출발점으로 삼을 수 있지만, 가까운 위치에 있다는 사실이 쉽게 보인다는 뜻은 아닙니다. 넓게 퍼진 은하빛은 도시의 밝은 하늘에 묻히기 쉽습니다. 사진의 여러 나선팔과 별 탄생 구역은 연구 관측의 결과이며 90mm 접안 시야의 기본 모습이 아닙니다. 달빛 없는 어두운 장소에서 낮은 배율로 희미한 원반 검출을 먼저 시도하세요. 검출하지 못한 날의 조건도 다음 관측 계획에 도움이 됩니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "은하",
+      "source": "첨부 catalog-values.v1.csv — dso:M101; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 101 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-101/"
+    },
+    {
+      "label": "별자리",
+      "value": "큰곰자리 (UMa)",
+      "source": "첨부 catalog-values.v1.csv — dso:M101; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "7.9등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M101; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "23.99′ × 23.07′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M101; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(외부 소개값)",
+      "value": "약 2,500만 광년 — 첨부 빈칸; 해당 출처의 추정",
+      "source": "NASA — Messier 101 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-101/"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M101",
+      "source": "첨부 catalog-values.v1.csv — dso:M101; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "바람개비라는 이름은 나선팔이 펼쳐진 사진의 인상을 잘 전합니다. 그러나 M101의 상세한 허블 사진은 한 번에 전체 은하를 찍은 한 장의 접안 풍경이 아니라 여러 관측을 결합한 모자이크입니다. 원반 안의 별 탄생 지역과 팔의 구조는 그렇게 얻은 자료에서 두드러집니다. 입문 관측자가 같은 이름의 대상을 보더라도 실제로는 배경보다 조금 밝은 넓은 얼룩만 확인할 수 있습니다. 이름이 암시하는 바람개비를 보려고 고배율만 높이기보다, 충분한 시야와 어두운 배경을 확보하는 편이 우선입니다. 알카이드에서 출발한 경로와 최종적으로 밝기 차이를 확인한 범위를 기록해 보세요. 천체의 아름다운 별칭과 장비로 검출한 형태를 분리하면 실패를 과장하거나 보이지 않은 팔을 상상으로 채우지 않고 관측을 이어 갈 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 101 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-101/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁 북두칠성 손잡이 끝의 알카이드를 확인합니다. 천구의 북북동쪽으로 약 5.6° 떨어진 M101 위치를 지도에서 선택한 뒤 중간 별들을 따라 이동합니다. 낮은 배율로 넓은 원반의 밝기 차이를 살핍니다.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP67301",
+      "const:UMa"
+    ]
+  },
+  "observing": {
+    "nakedEye": "맨눈 관측 목표로 삼지 않습니다.",
+    "binoculars": "10×50에서는 매우 어두운 곳에서도 희미한 검출 과제입니다. 도시에서 보이지 않는 경우를 정상 한계로 봅니다.",
+    "telescope": "90mm 저배율로 밝기 차이 검출을 우선합니다. 선명한 나선팔이나 사진의 붉은 성운을 요구하지 않습니다.",
+    "difficulty": 5,
+    "bestMonths": [
+      4,
+      5,
+      6
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M101; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP67301, const:UMa; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 101 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-101/",
+    "첨부 catalog-values.v1.csv — dso:M101; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 101 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-101/",
+    "첨부 catalog-values.v1.csv — dso:M101; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "원본 거리 빈칸은 유지했습니다. 사실표의 거리는 외부 소개값임을 명시했으며 최신 단일 정답으로 취급하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

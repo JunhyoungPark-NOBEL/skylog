@@ -1,0 +1,98 @@
+{
+  "id": "dso:M78",
+  "version": 1,
+  "title": {
+    "ko": "M78",
+    "en": "M78"
+  },
+  "oneLiner": {
+    "ko": "기체가 스스로 빛나는 성운과 달리 별빛을 흩어 보내는 구름"
+  },
+  "summary": {
+    "ko": "M78은 오리온자리의 반사성운입니다. 먼지가 주변 별빛을 산란시켜, 즉 여러 방향으로 흩어 보내면서 구름처럼 보입니다. 별의 빛을 받아 기체가 강하게 방출하는 성운과 같은 방식으로 설명하면 안 됩니다. 오리온 허리띠의 알니탁을 출발점으로 위치를 좁혀 보세요. 도시에서는 성운광이 약해 별 몇 개만 남을 수 있습니다. 90mm에서는 작은 흐린 구역의 검출을 먼저 목표로 하며 사진의 푸른색을 필수로 요구하지 않습니다. 성운 필터가 모든 종류의 성운을 똑같이 개선한다고 가정하지 않는 것도 중요합니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "반사성운",
+      "source": "첨부 catalog-values.v1.csv — dso:M78; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 78 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-78/"
+    },
+    {
+      "label": "별자리",
+      "value": "오리온자리 (Ori)",
+      "source": "첨부 catalog-values.v1.csv — dso:M78; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "8등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M78; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "4.5′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M78; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(외부 소개값)",
+      "value": "약 1,600광년 — 첨부 빈칸; 해당 출처의 추정",
+      "source": "NASA — Messier 78 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-78/"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M78",
+      "source": "첨부 catalog-values.v1.csv — dso:M78; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "오리온자리에는 밝게 빛나는 여러 구름이 있지만 같은 성운이라는 이름 아래 서로 다른 빛의 원리가 있습니다. M78의 반사성운에서는 먼지가 주변 별빛을 흩어 보내는 산란이 중요한 역할을 합니다. 사진의 푸른 인상을 보고 작은 망원경에서도 같은 색을 반드시 느낄 것이라고 기대할 필요는 없습니다. NASA의 정밀 관측은 다른 파장으로 성운 속 별의 환경을 조사하지만 접안 관측에서는 흐림의 존재를 확인하는 일이 먼저입니다. M42의 밝은 기체 구름과 M78을 비교하며 두 대상이 어떻게 빛을 내거나 전달하는지 설명을 읽어 보세요. 실제로는 M78의 작은 빛얼룩만 보였더라도 과학적 차이를 이해하는 데 도움이 됩니다. 종류를 알면 필터나 배율을 무조건 올리기보다 대상의 빛과 관측 조건에 맞는 방법을 선택해야 한다는 점도 배울 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 78 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-78/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 오리온 허리띠 동쪽 끝의 알니탁을 찾습니다. 천구의 북동쪽으로 약 2.5° 이동해 M78을 선택하고 주변 별을 대조합니다. 작은 별 주변의 흐린 빛이 실제로 검출되는지 살펴보세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP26727",
+      "const:Ori",
+      "dso:M42"
+    ]
+  },
+  "observing": {
+    "nakedEye": "맨눈 성운 검출 목표로 두지 않습니다.",
+    "binoculars": "10×50에서는 어두운 곳에서도 어렵고 도시에서는 별만 보일 수 있습니다.",
+    "telescope": "90mm 20~80배로 어두운 하늘에서 작은 성운광을 시도합니다. 반사성운에 발광 성운용 협대역 필터가 항상 유리하다고 안내하지 않습니다.",
+    "difficulty": 5,
+    "bestMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M78; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP26727, const:Ori, dso:M42; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 78 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-78/",
+    "첨부 catalog-values.v1.csv — dso:M78; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 78 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-78/",
+    "첨부 catalog-values.v1.csv — dso:M78; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "반사성운의 필터·장비 안내는 빛의 종류에 근거한 보수적 편집 제안이며 특정 필터 조합의 실측 성능은 확인하지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "원본 거리 빈칸은 유지했습니다. 사실표의 거리는 외부 소개값임을 명시했으며 최신 단일 정답으로 취급하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

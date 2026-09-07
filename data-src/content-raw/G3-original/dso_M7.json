@@ -1,0 +1,96 @@
+{
+  "id": "dso:M7",
+  "version": 1,
+  "title": {
+    "ko": "프톨레마이오스성단",
+    "en": "Ptolemy Cluster"
+  },
+  "oneLiner": {
+    "ko": "고대 기록에 남은 넓은 별무리, 한국에서는 낮은 남쪽이 관건"
+  },
+  "summary": {
+    "ko": "M7은 전갈자리 꼬리 근처의 넓은 산개성단으로 프톨레마이오스성단이라고도 부릅니다. 고대의 관측 기록과 연결되는 대상이지만 현대 관측에서는 먼저 실제 위치와 고도를 확인해야 합니다. 대전 근교에서는 남쪽으로 낮게 지나가며 지평선의 빛과 장애물 때문에 별무리가 쉽게 약해집니다. 10×50이나 망원경의 낮은 배율로 넓은 배열을 살피는 편이 좋습니다. M6과 가까운 방향에 있지만 별개의 성단입니다. 고도 25° 이상이 필요한 국내 학습 미션의 성공 대상으로 사용하지 않습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 7 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-7/"
+    },
+    {
+      "label": "별자리",
+      "value": "전갈자리 (Sco)",
+      "source": "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "3.3등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "22.2′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "914광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M7",
+      "source": "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "프톨레마이오스의 기록에 남은 M7은 망원경 이전에도 하늘의 흐릿한 별무리에 관심을 기울였음을 보여 줍니다. 오늘날에는 그 빛이 산개성단의 여러 별에서 온다는 사실을 알고 있습니다. 같은 구름에서 태어난 별들이 한 무리를 이루지만 이런 집단은 영원히 같은 모습으로 남는 것은 아닙니다. 관측자가 마주하는 이름은 오랜 기록의 역사이고 실제 관측은 현재의 장소와 하늘 조건에 달려 있습니다. 대전에서는 남쪽 고도가 낮으므로 오래된 기록에 있다는 이유만으로 쉽게 보일 것이라 기대하지 마세요. 넓은 시야에 들어온 별들 가운데 어떤 배열을 확인했는지 지도와 대조하고, 가려진 부분은 관측하지 못했다고 남기는 편이 좋습니다. 역사적으로 알려진 대상도 관측지의 위도에 따라 전혀 다른 난이도를 갖는다는 사실을 배울 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 7 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-7/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 전갈자리의 꼬리 부근을 지도에서 확인하고 M7을 선택합니다. M6보다 동쪽이면서 더 남쪽에 놓인 위치를 대조하세요. 남쪽이 열린 장소에서 고도가 가장 높을 때 시도하되 장애물을 먼저 확인합니다.",
+    "season": "summer",
+    "hopFrom": [
+      "const:Sco",
+      "dso:M6"
+    ]
+  },
+  "observing": {
+    "nakedEye": "어두운 장소에서 흐린 별무리를 볼 가능성과 도시의 검출을 구분합니다. 대전에서는 낮은 고도가 크게 제한합니다.",
+    "binoculars": "10×50으로 넓은 별 배열을 살피기 좋지만 지평선 광해가 강하면 일부 별만 보입니다.",
+    "telescope": "90mm는 낮은 배율로 시작하고 실제 시야에 전체 배열이 들어오는지 확인합니다. 고배율이 낮은 고도나 광해를 해결하지는 않습니다.",
+    "difficulty": 4,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Sco, dso:M6; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 7 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-7/",
+    "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 7 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-7/",
+    "첨부 catalog-values.v1.csv — dso:M7; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "북위36.35°에서 첨부 적위로 계산한 최고 고도는 약18.86°입니다. G5의 고도25° 이상 조건에 부적합합니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "참고 대조: 입력 거리 914광년, NASA — Messier 7 소개값 약 980광년. 본문 숫자는 입력 우선으로 보존했으며 차이의 원인을 측정법·자료 시점까지 확인한 것은 아닙니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

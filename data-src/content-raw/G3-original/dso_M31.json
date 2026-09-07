@@ -1,0 +1,99 @@
+{
+  "id": "dso:M31",
+  "version": 1,
+  "title": {
+    "ko": "안드로메다은하",
+    "en": "Andromeda Galaxy"
+  },
+  "oneLiner": {
+    "ko": "가을 하늘의 희미한 타원에서 우리은하 밖을 바라보기"
+  },
+  "summary": {
+    "ko": "안드로메다은하는 안드로메다자리 방향에 있는 큰 나선은하입니다. 하늘에서 가까워 보이는 앞쪽 별들과 달리 우리은하 밖의 별·가스·먼지 집합입니다. 어두운 곳에서는 맨눈에 작은 얼룩으로 보이지만 도시에서는 쌍안경이나 망원경으로 밝은 중심부부터 찾는 편이 현실적입니다. 전체 빛은 넓게 퍼져 있으므로 목록의 등급만으로 밝은 별과 같은 난이도라고 판단하면 안 됩니다. 저배율에서는 길쭉한 중심의 방향을 살피고, 사진의 나선팔이나 개별 별을 눈으로 찾아내려 하기보다 실제로 확인한 범위를 기록하세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "나선은하",
+      "source": "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+    },
+    {
+      "label": "별자리",
+      "value": "안드로메다자리 (And)",
+      "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "3.44등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "177.83′ × 69.66′",
+      "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M31",
+      "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리",
+      "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+      "source": "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+    }
+  ],
+  "story": {
+    "ko": "근대 천문학에서 안드로메다는 우주의 크기를 바꾼 질문의 무대였습니다. 한때 성운이라고 불리던 이 흐릿한 대상에서 에드윈 허블은 밝기가 규칙적으로 바뀌는 세페이드 변광성을 조사했습니다. 헨리에타 리비트가 밝힌 주기와 광도의 관계는 그 별까지의 거리를 추정하는 길을 열었습니다. 그 결과 안드로메다가 우리은하 안의 작은 구름이 아니라 훨씬 먼 별들의 집합임을 이해하게 되었습니다. 오늘 밤 쌍안경에 보이는 빛으로 그 변광성을 직접 확인할 수는 없습니다. 다만 작은 타원형 얼룩이 사진과 반복 측정을 통해 전혀 다른 규모의 대상으로 해석되었다는 역사를 떠올릴 수 있습니다. 보이는 모양에 이름을 붙이는 것과 실제 거리를 측정하는 것은 다른 단계입니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Celebrates Edwin Hubble’s Discovery of a New Universe (2025-01-15) — https://science.nasa.gov/missions/hubble/nasa-celebrates-edwin-hubbles-discovery-of-a-new-universe/",
+      "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁의 페가수스 대사각형에서 알페라츠를 찾으세요. 알페라츠에서 안드로메다자리의 별 사슬을 따라 미라크로 이동한 뒤, 미라크에서 뮤별 쪽인 천구의 북서쪽으로 꺾어 더 나아갑니다. 지도에 표시된 은하 위치와 주변 별을 쌍안경으로 대조하세요. 도시에서는 넓은 원반보다 밝은 중심의 얼룩을 찾습니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "star:HIP677",
+      "const:And",
+      "const:Peg"
+    ]
+  },
+  "observing": {
+    "nakedEye": "달빛이 적은 어두운 관측지에서 작은 흐릿한 얼룩으로 도전합니다. 도시 맨눈 검출을 기본 미션으로 강제하지 않습니다.",
+    "binoculars": "10×50을 안정되게 잡고 길쭉한 희미한 빛을 찾습니다. 중심만 보이면 그 범위를 기록하고 사진 크기까지 보았다고 적지 마세요.",
+    "telescope": "90mm 20~40배에서 밝은 중심과 긴 축의 방향을 확인합니다. 높은 배율이 원반 전체를 더 잘 보여 주는 것은 아니며 도시에서 나선팔이나 개별 별의 검출을 기대하지 않습니다.",
+    "bestMonths": [
+      9,
+      10,
+      11
+    ],
+    "difficulty": 3
+  },
+  "funFacts": [
+    "화면에 겹친 밝은 점들 중에는 우리은하의 앞쪽 별이 포함됩니다.",
+    "목록의 총등급이 밝아도 넓게 퍼진 빛은 도시에서 찾기 어렵습니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/",
+    "NASA — Celebrates Edwin Hubble’s Discovery of a New Universe (2025-01-15) — https://science.nasa.gov/missions/hubble/nasa-celebrates-edwin-hubbles-discovery-of-a-new-universe/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "거리 수치 게시 보류: 첨부 544광년과 NASA 소개의 약 250만 광년이 규모부터 다릅니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

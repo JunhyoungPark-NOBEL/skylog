@@ -1,0 +1,96 @@
+{
+  "id": "dso:M35",
+  "version": 1,
+  "title": {
+    "ko": "M35",
+    "en": "Messier 35"
+  },
+  "oneLiner": {
+    "ko": "쌍둥이의 발치에서 여러 별로 풀리는 겨울의 성단"
+  },
+  "summary": {
+    "ko": "M35는 쌍둥이자리 발 부근의 산개성단입니다. 맨눈에서는 어두운 하늘이 필요하지만 쌍안경과 소형 망원경에서는 배경보다 별이 모인 영역을 찾을 수 있습니다. 성단의 별들은 같은 가스와 먼지 환경에서 형성되어 별의 성장을 비교하는 데 이용됩니다. 10×50으로 전체 위치를 확인한 뒤 90mm의 낮은 배율에서 밝은 별과 희미한 빛이 어떻게 섞이는지 살펴보세요. 도시에서는 구성별 일부만 남을 수 있으며 성단의 모든 별을 세려 하기보다 주변 별밭과의 밀도 차이를 확인하는 것을 목표로 삼는 편이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "NASA — Messier 35: Messier 35 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/"
+    },
+    {
+      "label": "별자리",
+      "value": "쌍둥이자리 (Gem)",
+      "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "5.1등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "24′",
+      "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M35",
+      "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "2886광년",
+      "source": "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "M35는 근대 관측자들이 흐릿한 대상을 목록으로 정리하던 시대부터 알려져 온 성단입니다. 현대의 허블 관측은 단순히 멋진 별무리를 촬영하는 데 그치지 않고 장비 감도의 변화를 확인하는 보정 프로그램에도 사용되었습니다. 이미 잘 알려진 별밭을 반복해 관측하면 새로운 영상에서 무엇이 장비 때문에 달라졌는지 살피는 기준이 될 수 있습니다. 성단의 별들은 비슷한 탄생 환경을 공유하지만 질량에 따라 서로 다른 속도로 진화합니다. 입문 관측에서는 이런 연구의 세부 측정을 대신하기보다 일정한 배율과 시야를 유지하며 관측 기록을 비교해 보세요. 같은 대상이라도 하늘 밝기와 초점, 흔들림이 달라지면 보이는 별 수가 바뀐다는 점을 배울 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 35: Messier 35 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁에 쌍둥이자리의 카스토르와 폴룩스를 찾고, 카스토르 쪽 몸통을 따라 오리온자리 방향의 발 부근으로 내려가세요. 발끝을 표시하는 에타별 프로푸스를 지도와 맞춘 뒤 천구의 북서쪽 약 2° 구역을 쌍안경으로 살핍니다. 별이 주변보다 밀집한 부분을 찾으면 저배율 망원경으로 확인하세요.",
+    "season": "winter",
+    "hopFrom": [
+      "const:Gem",
+      "star:HIP36850",
+      "star:HIP37826"
+    ]
+  },
+  "observing": {
+    "nakedEye": "아주 어두운 하늘에서만 희미한 얼룩으로 시도합니다. 도시에서는 쌍둥이자리와 찾기 기준 별 확인을 우선하세요.",
+    "binoculars": "10×50에서 흐릿한 별무리와 일부 별이 섞여 보일 수 있습니다. 안정되게 지지하고 주변 별밭과 비교하세요.",
+    "telescope": "90mm 20~40배부터 성단을 시야 안에 놓고 여러 별의 배열을 확인합니다. 80배는 일부 구역을 보는 데 쓰며, 도시에서 희미한 별이 덜 보이는 점을 기록하세요.",
+    "bestMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "difficulty": 2
+  },
+  "funFacts": [
+    "허블은 M35를 장비 감도의 변화를 확인하는 관측에도 이용했습니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M35; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 35: Messier 35 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "dso:M22",
+  "version": 1,
+  "title": {
+    "ko": "M22",
+    "en": "Sagittarius Cluster"
+  },
+  "oneLiner": {
+    "ko": "궁수자리의 낮은 남쪽 하늘에서 만나는 큰 별빛 덩어리"
+  },
+  "summary": {
+    "ko": "M22는 궁수자리의 구상성단입니다. 많은 별의 빛이 모여 둥근 흐림으로 보이며 남쪽 하늘이 열려 있을 때 찾아볼 만합니다. 대전 근교에서는 높은 천정 대상이 아니므로 지평선의 광해와 대기 상태가 관측에 큰 영향을 줄 수 있습니다. 쌍안경에서는 별과 다른 빛무리를 확인하고, 90mm에서는 밝은 중심과 바깥의 거친 느낌을 차례로 살펴보세요. 사진처럼 많은 별이 전체에 걸쳐 분리된 모습은 기본 기대치가 아닙니다. 성단이 보였는지와 별을 실제로 분해했는지를 서로 다른 결과로 기록하는 편이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "구상성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 22 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-22/"
+    },
+    {
+      "label": "별자리",
+      "value": "궁수자리 (Sgr)",
+      "source": "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "게시 보류 — 첨부 대역 미확인·외부 소개값 차이",
+      "source": "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 22 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-22/"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "12.6′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "12,359광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M22",
+      "source": "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "NASA는 M22를 토성을 살피던 관측 중 발견된 구상성단으로 소개합니다. 태양계의 행성을 보던 시선이 훨씬 멀리 있는 별의 집단을 만나게 된 셈입니다. 하늘에서는 같은 구역에 겹쳐 보여도 물리적 거리와 성질은 전혀 다를 수 있습니다. M22를 향한 빛은 우리와 성단 사이의 먼지 때문에 약해지기도 합니다. 따라서 밝기 숫자만 보고 관측이 쉬울 것이라고 결정하기보다 실제 고도와 하늘 상태를 함께 확인해야 합니다. 낮은 남쪽에서 성단의 둥근 빛을 검출한 뒤 배율을 조금 바꾸어 중심과 바깥 부분의 차이를 비교해 보세요. 별들이 몇 개로 분리되어 보였는지는 전체 성단을 검출했다는 사실과 따로 적을 수 있습니다. 우연한 발견의 이야기를 따라가면서 행성과 성단, 위치와 실제 거리를 구분하는 관측을 할 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 22 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-22/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 남쪽 궁수자리의 주전자 배열을 확인합니다. 지도에서 주전자 윗부분 동쪽의 M22를 선택하고 주변 별을 따라 저배율로 이동합니다. 관측 전에 남쪽의 산·건물과 달빛을 확인하세요.",
+    "season": "summer",
+    "hopFrom": [
+      "const:Sgr"
+    ]
+  },
+  "observing": {
+    "nakedEye": "아주 어두운 곳의 한계 관측과 도시 맨눈 검출을 구분합니다. 입문 미션은 장비 검출을 기준으로 합니다.",
+    "binoculars": "10×50에서 둥근 빛무리를 목표로 합니다. 낮은 남쪽이 밝으면 성단이 약해질 수 있습니다.",
+    "telescope": "90mm 20~80배로 중심과 주변 퍼짐을 살핍니다. 조건이 좋아야 바깥 별이 일부 드러날 수 있으며 전체 분해를 보장하지 않습니다.",
+    "difficulty": 3,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Sgr; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 22 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-22/",
+    "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 22 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-22/",
+    "첨부 catalog-values.v1.csv — dso:M22; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "입력 mag=6.17, 외부 소개값=5.1의 차이가 큽니다. 측광 대역·대상 범위를 일치시켜 재검토하기 전 숫자 표시와 밝기 비교 퀴즈를 보류합니다. 어느 값이 정답인지 확정하지 않았습니다.",
+      "참고 대조: 입력 거리 12359광년, NASA — Messier 22 소개값 약 10000광년. 본문 숫자는 입력 우선으로 보존했으며 차이의 원인을 측정법·자료 시점까지 확인한 것은 아닙니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

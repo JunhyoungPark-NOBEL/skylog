@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "difficultyProportions": {
+    "1": 0.4,
+    "2": 0.4,
+    "3": 0.2
+  },
+  "sameSkyPickTargetMaxPerSession": 1,
+  "avoidImmediateAnswerLeakage": true,
+  "repeatUnit": "quizId와 concept/target를 함께 추적. 같은 대상 이름·소속 변형 연속 출제 금지.",
+  "skyPickVisibilityMode": "승인된 현재 하늘 또는 명시적인 지도 연습 장면에서만",
+  "quizNeverCreatesObservation": true,
+  "readUnavailablePolicy": "해당 문항 보류",
+  "wrongAnswerPolicy": "설명을 제시하고 재시도 허용; 첫 응답 연속 정답 집계와 재시도 점수 분리"
+}

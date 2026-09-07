@@ -1,0 +1,94 @@
+{
+  "id": "const:Cap",
+  "version": 1,
+  "title": {
+    "ko": "염소자리",
+    "en": "Capricornus"
+  },
+  "oneLiner": {
+    "ko": "낮고 희미한 가을 남쪽 하늘에서 바다염소의 구역을 익혀요"
+  },
+  "summary": {
+    "ko": "염소자리는 가을 남쪽 하늘에서 찾는 비교적 희미한 별자리입니다. 전통 그림은 염소의 앞부분과 물고기의 꼬리가 합쳐진 바다염소로 표현되기도 합니다. 밝은 별 하나만 보고 곧바로 전체 윤곽을 알기 어렵기 때문에 독수리자리와 주변 남쪽 하늘을 기준으로 구역을 먼저 좁히는 것이 좋습니다. 도시의 낮은 고도에서는 약한 별들이 쉽게 사라집니다. 그림의 모양이 보이지 않더라도 실제로 식별한 점들을 지도에 표시해 보세요. 별자리의 계절 이름은 저녁 배치의 편집 분류이며 특정 날짜의 운세나 개인 성격을 설명하지 않습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Cap; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Cap",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Capricorni",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "알타이르 남쪽, 궁수자리의 천구 동쪽 구역",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP97649, const:Sgr; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "물고기 꼬리를 가진 바다염소",
+      "source": "NSF NOIRLab — Capricornus — https://noirlab.edu/public/education/constellations/capricornus/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "가을 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "바다염소라는 익숙하지 않은 형상은 옛 하늘 그림의 상상력을 보여 줍니다. NOIRLab의 설명은 염소자리를 뿔 달린 염소라는 이름과 물고기 꼬리를 가진 전통 모습으로 소개합니다. 이 독특한 형태를 별빛에서 반드시 그대로 찾아내야 하는 것은 아닙니다. 약한 별자리일수록 삽화를 먼저 떠올리면 보이지 않는 점을 상상으로 잇기 쉽습니다. 오늘은 주변의 밝은 기준을 찾고 염소자리 영역에서 실제로 확인한 별의 배열만 단순하게 그려 보세요. 나중에 그림을 켜면 관측한 점이 어떤 역할로 해석되었는지 비교할 수 있습니다. 이름의 유래를 배우는 일과 밤하늘을 식별하는 일은 서로 도움을 주지만 같은 작업은 아닙니다. 두 기록을 나누면 희미한 별자리도 실패감 없이 천천히 익힐 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Capricornus — https://noirlab.edu/public/education/constellations/capricornus/"
+    ]
+  },
+  "howToFind": {
+    "ko": "초가을 저녁 독수리자리의 알타이르를 먼저 찾고 그보다 남쪽의 염소자리 구역을 지도에서 좁힙니다. 궁수자리의 천구 동쪽 방향이라는 관계도 함께 확인하세요. 큰 바다염소 그림보다 주요 점들의 넓은 배열부터 맞춥니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "star:HIP97649",
+      "const:Sgr"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 전체 윤곽이 어렵습니다. 남쪽이 열린 곳에서 가장 눈에 띄는 몇 점부터 확인하세요.",
+    "binoculars": "10×50으로 약한 별을 보완하되 넓은 배열을 한 시야에 넣으려 하지 않습니다.",
+    "telescope": "90mm 20~40배로 개별 기준별을 확인할 수 있습니다. 별자리 식별 자체에는 맨눈과 넓은 지도가 더 유용합니다.",
+    "bestMonths": [
+      8,
+      9,
+      10
+    ],
+    "difficulty": 3
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Cap; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Capricornus — https://noirlab.edu/public/education/constellations/capricornus/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Cap; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Cap; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP97649, const:Sgr; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP97649, const:Sgr; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "계절·황도 별자리 이름을 점성술 날짜 구간이나 예측 기능으로 해석하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

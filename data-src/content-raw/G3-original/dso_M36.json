@@ -1,0 +1,98 @@
+{
+  "id": "dso:M36",
+  "version": 1,
+  "title": {
+    "ko": "M36",
+    "en": "Pinwheel Cluster"
+  },
+  "oneLiner": {
+    "ko": "마차부자리 세 성단을 비교할 때 조밀한 별무리부터 익혀요"
+  },
+  "summary": {
+    "ko": "M36은 마차부자리에 있는 산개성단으로 M37, M38과 함께 비교하기 좋은 겨울 목표입니다. 세 성단이 같은 별자리 방향에 있어도 하나의 거대한 성단으로 합쳐 부르면 안 됩니다. 먼저 각각의 위치를 확정하고 같은 장비와 배율로 보이는 별의 배열을 비교해 보세요. 쌍안경에서는 작은 흐림이나 밝은 점이 섞인 무리로 보일 수 있습니다. 90mm 망원경에서는 밝은 구성별을 확인하는 것이 첫 목표입니다. 도시에서는 약한 별이 빠져 실제 성단보다 단순한 배열로 느껴질 수 있습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행; NSF NOIRLab — M36 — https://noirlab.edu/public/images/noao-m36/"
+    },
+    {
+      "label": "별자리",
+      "value": "마차부자리 (Aur)",
+      "source": "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "6등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "7.2′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "3,906광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M36",
+      "source": "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "마차부자리의 M36, M37, M38은 번호가 이어지는 성단들을 한 관측 계획에 묶어 살펴볼 기회를 줍니다. 그러나 카탈로그 번호가 이웃한다고 별들이 같은 거리에 있거나 하나의 집단이라는 뜻은 아닙니다. NOIRLab은 이들을 같은 별자리의 서로 다른 산개성단으로 소개합니다. 초보자는 한 대상을 찾은 뒤 나머지도 보았다고 기록하기 쉽지만 각 위치에서 주변 별을 다시 대조해야 합니다. M36을 먼저 관측하고 같은 배율로 다른 성단을 찾아 밝은 점의 간격과 배경의 흐림을 비교해 보세요. 관측 조건을 비슷하게 유지하면 성단마다 눈에 들어오는 모습이 어떻게 다른지 자신의 기록에서 확인할 수 있습니다. 숫자를 순서대로 채우는 활동보다 대상의 위치와 실제로 구별한 배열을 함께 남기는 것이 세 성단 비교의 핵심입니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — M36 — https://noirlab.edu/public/images/noao-m36/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 마차부자리의 카펠라와 주요 배열을 확인합니다. 지도에서 M37 북서쪽 구역의 M36을 선택해 주변 별을 대조합니다. M38로 이어 갈 때에는 약 2.3° 북서쪽의 별도 위치를 다시 확인하세요.",
+    "season": "winter",
+    "hopFrom": [
+      "const:Aur",
+      "star:HIP24608",
+      "dso:M37",
+      "dso:M38"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서 성단을 맨눈으로 독립 확인하는 목표로 삼지 않습니다.",
+    "binoculars": "10×50으로 작은 별무리 또는 흐림을 찾고 M37·M38과 위치를 구분합니다.",
+    "telescope": "90mm 20~80배로 밝은 별들의 배열을 살핍니다. 도시에서는 약한 구성별이 줄어들 수 있으며 보이는 별 수를 전체 구성원 수로 해석하지 않습니다.",
+    "difficulty": 3,
+    "bestMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Aur, star:HIP24608, dso:M37, dso:M38; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — M36 — https://noirlab.edu/public/images/noao-m36/",
+    "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행; NSF NOIRLab — M36 — https://noirlab.edu/public/images/noao-m36/",
+    "첨부 catalog-values.v1.csv — dso:M36; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "제공된 카펠라는 위치 길잡이로만 참조하며 기존 분광형 충돌 상태를 바꾸지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

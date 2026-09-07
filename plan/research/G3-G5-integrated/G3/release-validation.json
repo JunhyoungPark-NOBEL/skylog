@@ -1,0 +1,442 @@
+{
+  "generatedAt": "2026-09-07",
+  "draftValidationPassed": true,
+  "checksTotal": 77,
+  "checksPassed": 77,
+  "checksFailed": 0,
+  "publicationApproved": false,
+  "releaseGate": "blocked: editorial, measurement-band and conflicting-catalog review; actual app integration and device observations not performed",
+  "releaseModeRequested": true,
+  "limits": [
+    "Schema, identity, provenance links, preservation and selected coordinate calculations only.",
+    "No claim that every scientific statement is independently proven.",
+    "No live URL availability validation in this script.",
+    "No image, app rendering, telescope field test or repository commit."
+  ],
+  "newContentLengths": {
+    "oneLiner": {
+      "min": 25,
+      "max": 37
+    },
+    "summary": {
+      "min": 259,
+      "max": 287
+    },
+    "story": {
+      "min": 372,
+      "max": 427
+    }
+  },
+  "counts": {
+    "previous": 80,
+    "newBatch": 40,
+    "finalBatch": 1,
+    "cumulative": 121,
+    "remaining": 0
+  },
+  "checks": [
+    {
+      "name": "new-40-count",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "final-1-count",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new-total-41",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "previous-count-80",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "cumulative-count-121",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "raw-catalog-has-121-unique-ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "target-list-has-121-unique-ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new-preserves-remaining-order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "batch40-has-7-constellations-33-dso",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "final-singleton-is-NGC7009",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "previous80-deep-equality-preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "cumulative-is-previous-plus-new",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no-duplicate-cumulative-ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no-new-old-overlap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "exact-coverage-of-target-list",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "exact-coverage-of-raw-catalog",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "remaining-json-empty",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "remaining-csv-header-only",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "selected-targets-csv-preserves-source-rows",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "raw-selected-preserves-every-cell",
+      "passed": true,
+      "details": {
+        "rows": 41,
+        "columns": 12,
+        "cells": 492
+      }
+    },
+    {
+      "name": "raw-string-values-retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "raw-blank-english-name-retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "source-inputs-sha256-manifest",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "schema-new40",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "schema-final1",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "schema-cumulative121",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "oneLiner-at-most-60",
+      "passed": true,
+      "details": {
+        "min": 25,
+        "max": 37
+      }
+    },
+    {
+      "name": "summary-200-to-400",
+      "passed": true,
+      "details": {
+        "min": 259,
+        "max": 287
+      }
+    },
+    {
+      "name": "story-300-to-600",
+      "passed": true,
+      "details": {
+        "min": 372,
+        "max": 427
+      }
+    },
+    {
+      "name": "facts-5-to-8",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new-every-object-six-facts",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-new-facts-have-source",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fact-sources-are-in-item-sources",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "story-sources-are-in-item-sources",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-new-items-have-external-source",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-new-external-urls-registered",
+      "passed": true,
+      "details": {
+        "registered": 48,
+        "used": 48
+      }
+    },
+    {
+      "name": "source-ledger-has-every-new-id",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "source-access-limitations-present",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new-summaries-distinct",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new-stories-distinct",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-hop-references-in-cumulative",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-hop-references-in-catalog",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no-self-hop-references",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-three-equipment-descriptions",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "editorial-observing-caveat-per-item",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "legacy-generator-enum-preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new-date-september-7-2026",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "draft-not-approved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "draft-index-exact-coverage",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-draft-index-items-require-review",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new-and-inherited-review-lists-cover-all",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "four-distance-conflicts-held",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "five-magnitude-conflicts-held",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-dso-band-uncertainty-declared",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "catalog-correction-proposals-not-auto-applied",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "proposal-raw-values-match-input",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "saturn-nebula-distance-has-two-primary-candidates",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "M16-original-code-and-type-retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "M46-projected-nebula-not-cluster-member",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Hercules-standard-name-and-alias",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no-invented-constellation-distance-mag-size",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Crux-travel-caveat-no-local-months",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "NGC7000-input-blanks-preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "blank-input-distances-explicit-external-label",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "English-label-fallback-is-only-id",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "exactly-16-guide-pairs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "guide-angle-independent-vector-check",
+      "passed": true,
+      "details": {
+        "maxDifferenceDeg": 4.965127864409169e-09
+      }
+    },
+    {
+      "name": "guide-rounding-error-less-than-point-zero-six",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all-41-altitude-ceilings-recomputed",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "constellation-altitude-limits-marked-representative",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "M6-and-M7-fail-25-degree-ceiling",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Crux-representative-below-geometric-horizon",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "cumulative-kind-counts-9-31-30-51",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "single-copyable-json-block-G3-content-expansion-40-2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "single-copyable-json-block-G3-content-final-1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "registry-uses-primary-institution-domains",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "required-companion-files-exist",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

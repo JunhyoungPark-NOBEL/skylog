@@ -1,0 +1,1117 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-07",
+  "status": "draft-only; not content/v1/index.json",
+  "publicationApproved": false,
+  "items": [
+    {
+      "id": "sun",
+      "title": {
+        "ko": "태양",
+        "en": "Sun"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "moon",
+      "title": {
+        "ko": "달",
+        "en": "Moon"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "planet:mercury",
+      "title": {
+        "ko": "수성",
+        "en": "Mercury"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "planet:venus",
+      "title": {
+        "ko": "금성",
+        "en": "Venus",
+        "alt": [
+          "샛별",
+          "개밥바라기"
+        ]
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "planet:mars",
+      "title": {
+        "ko": "화성",
+        "en": "Mars"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "planet:jupiter",
+      "title": {
+        "ko": "목성",
+        "en": "Jupiter"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "planet:saturn",
+      "title": {
+        "ko": "토성",
+        "en": "Saturn"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "planet:uranus",
+      "title": {
+        "ko": "천왕성",
+        "en": "Uranus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "planet:neptune",
+      "title": {
+        "ko": "해왕성",
+        "en": "Neptune"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP32349",
+      "title": {
+        "ko": "시리우스",
+        "en": "Sirius"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP69673",
+      "title": {
+        "ko": "아르크투루스",
+        "en": "Arcturus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP91262",
+      "title": {
+        "ko": "베가",
+        "en": "Vega",
+        "alt": [
+          "직녀성"
+        ]
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP24608",
+      "title": {
+        "ko": "카펠라",
+        "en": "Capella"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP24436",
+      "title": {
+        "ko": "리겔",
+        "en": "Rigel"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP27989",
+      "title": {
+        "ko": "베텔게우스",
+        "en": "Betelgeuse"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP97649",
+      "title": {
+        "ko": "알타이르",
+        "en": "Altair",
+        "alt": [
+          "견우성"
+        ]
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP21421",
+      "title": {
+        "ko": "알데바란",
+        "en": "Aldebaran"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP80763",
+      "title": {
+        "ko": "안타레스",
+        "en": "Antares"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP102098",
+      "title": {
+        "ko": "데네브",
+        "en": "Deneb"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP11767",
+      "title": {
+        "ko": "폴라리스",
+        "en": "Polaris",
+        "alt": [
+          "북극성"
+        ]
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M45",
+      "title": {
+        "ko": "플레이아데스성단",
+        "en": "Pleiades"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M44",
+      "title": {
+        "ko": "프레세페성단",
+        "en": "Beehive Cluster"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M42",
+      "title": {
+        "ko": "오리온대성운",
+        "en": "Orion Nebula"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M31",
+      "title": {
+        "ko": "안드로메다은하",
+        "en": "Andromeda Galaxy"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M13",
+      "title": {
+        "ko": "헤르쿨레스 대성단",
+        "en": "Hercules Globular Cluster"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP95947",
+      "title": {
+        "ko": "알비레오",
+        "en": "Albireo"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP65474",
+      "title": {
+        "ko": "스피카",
+        "en": "Spica"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP677",
+      "title": {
+        "ko": "알페라츠",
+        "en": "Alpheratz"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M57",
+      "title": {
+        "ko": "고리성운",
+        "en": "Ring Nebula"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M27",
+      "title": {
+        "ko": "아령성운",
+        "en": "Dumbbell Nebula"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M35",
+      "title": {
+        "ko": "M35",
+        "en": "Messier 35"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M37",
+      "title": {
+        "ko": "M37",
+        "en": "Messier 37"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M81",
+      "title": {
+        "ko": "보데은하",
+        "en": "Bode's Galaxy"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M82",
+      "title": {
+        "ko": "시가은하",
+        "en": "Cigar Galaxy"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M3",
+      "title": {
+        "ko": "M3",
+        "en": "Messier 3"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M5",
+      "title": {
+        "ko": "M5",
+        "en": "Messier 5"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M15",
+      "title": {
+        "ko": "M15",
+        "en": "Messier 15"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:NGC869",
+      "title": {
+        "ko": "이중성단(h)",
+        "en": "Double Cluster (h Persei)"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:NGC884",
+      "title": {
+        "ko": "이중성단(χ)",
+        "en": "Double Cluster (χ Persei)"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "dso:M51",
+      "title": {
+        "ko": "소용돌이은하",
+        "en": "Whirlpool Galaxy"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP30438",
+      "title": {
+        "ko": "카노푸스",
+        "en": "Canopus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP37279",
+      "title": {
+        "ko": "프로키온",
+        "en": "Procyon"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP37826",
+      "title": {
+        "ko": "폴룩스",
+        "en": "Pollux"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP113368",
+      "title": {
+        "ko": "포말하우트",
+        "en": "Fomalhaut"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP49669",
+      "title": {
+        "ko": "레굴루스",
+        "en": "Regulus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP36850",
+      "title": {
+        "ko": "카스토르",
+        "en": "Castor"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP65378",
+      "title": {
+        "ko": "미자르",
+        "en": "Mizar"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP14576",
+      "title": {
+        "ko": "알골",
+        "en": "Algol"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP10826",
+      "title": {
+        "ko": "미라",
+        "en": "Mira"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP54061",
+      "title": {
+        "ko": "두베",
+        "en": "Dubhe"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP67301",
+      "title": {
+        "ko": "알카이드",
+        "en": "Alkaid"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP26727",
+      "title": {
+        "ko": "알니탁",
+        "en": "Alnitak"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP26311",
+      "title": {
+        "ko": "알닐람",
+        "en": "Alnilam"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP25930",
+      "title": {
+        "ko": "민타카",
+        "en": "Mintaka"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP25336",
+      "title": {
+        "ko": "벨라트릭스",
+        "en": "Bellatrix"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP9884",
+      "title": {
+        "ko": "하말",
+        "en": "Hamal"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "star:HIP72607",
+      "title": {
+        "ko": "코카브",
+        "en": "Kochab"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Ari",
+      "title": {
+        "ko": "양자리",
+        "en": "Aries"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Tau",
+      "title": {
+        "ko": "황소자리",
+        "en": "Taurus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Gem",
+      "title": {
+        "ko": "쌍둥이자리",
+        "en": "Gemini"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Cnc",
+      "title": {
+        "ko": "게자리",
+        "en": "Cancer"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Leo",
+      "title": {
+        "ko": "사자자리",
+        "en": "Leo"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Vir",
+      "title": {
+        "ko": "처녀자리",
+        "en": "Virgo"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Lib",
+      "title": {
+        "ko": "천칭자리",
+        "en": "Libra"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Sco",
+      "title": {
+        "ko": "전갈자리",
+        "en": "Scorpius"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Sgr",
+      "title": {
+        "ko": "궁수자리",
+        "en": "Sagittarius"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Cap",
+      "title": {
+        "ko": "염소자리",
+        "en": "Capricornus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Aqr",
+      "title": {
+        "ko": "물병자리",
+        "en": "Aquarius"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Psc",
+      "title": {
+        "ko": "물고기자리",
+        "en": "Pisces"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Ori",
+      "title": {
+        "ko": "오리온자리",
+        "en": "Orion"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:UMa",
+      "title": {
+        "ko": "큰곰자리",
+        "en": "Ursa Major"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:UMi",
+      "title": {
+        "ko": "작은곰자리",
+        "en": "Ursa Minor"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Cas",
+      "title": {
+        "ko": "카시오페이아자리",
+        "en": "Cassiopeia"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Cyg",
+      "title": {
+        "ko": "백조자리",
+        "en": "Cygnus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Lyr",
+      "title": {
+        "ko": "거문고자리",
+        "en": "Lyra"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Aql",
+      "title": {
+        "ko": "독수리자리",
+        "en": "Aquila"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Peg",
+      "title": {
+        "ko": "페가수스자리",
+        "en": "Pegasus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:And",
+      "title": {
+        "ko": "안드로메다자리",
+        "en": "Andromeda"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Per",
+      "title": {
+        "ko": "페르세우스자리",
+        "en": "Perseus"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:Aur",
+      "title": {
+        "ko": "마차부자리",
+        "en": "Auriga"
+      },
+      "status": "needs-review",
+      "batch": "inherited-80"
+    },
+    {
+      "id": "const:CMa",
+      "title": {
+        "ko": "큰개자리",
+        "en": "Canis Major"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "const:CMi",
+      "title": {
+        "ko": "작은개자리",
+        "en": "Canis Minor"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "const:Her",
+      "title": {
+        "ko": "허큘리스자리",
+        "en": "Hercules",
+        "alt": [
+          "헤르쿨레스자리"
+        ]
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "const:Boo",
+      "title": {
+        "ko": "목동자리",
+        "en": "Boötes"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "const:Dra",
+      "title": {
+        "ko": "용자리",
+        "en": "Draco"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "const:Cet",
+      "title": {
+        "ko": "고래자리",
+        "en": "Cetus"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "const:Cru",
+      "title": {
+        "ko": "남십자자리",
+        "en": "Crux"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M32",
+      "title": {
+        "ko": "M32",
+        "en": "M32"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M110",
+      "title": {
+        "ko": "M110",
+        "en": "M110"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M33",
+      "title": {
+        "ko": "삼각형자리은하",
+        "en": "Triangulum Galaxy"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M43",
+      "title": {
+        "ko": "드 메랑 성운",
+        "en": "De Mairan's Nebula"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M92",
+      "title": {
+        "ko": "M92",
+        "en": "M92"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M101",
+      "title": {
+        "ko": "바람개비은하",
+        "en": "Pinwheel Galaxy"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M104",
+      "title": {
+        "ko": "솜브레로은하",
+        "en": "Sombrero Galaxy"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M8",
+      "title": {
+        "ko": "라군성운",
+        "en": "Lagoon Nebula"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M20",
+      "title": {
+        "ko": "삼렬성운",
+        "en": "Trifid Nebula"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M17",
+      "title": {
+        "ko": "오메가성운",
+        "en": "Omega Nebula"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M16",
+      "title": {
+        "ko": "독수리성운",
+        "en": "Eagle Nebula"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M22",
+      "title": {
+        "ko": "M22",
+        "en": "Sagittarius Cluster"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M11",
+      "title": {
+        "ko": "야생오리성단",
+        "en": "Wild Duck Cluster"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M6",
+      "title": {
+        "ko": "나비성단",
+        "en": "Butterfly Cluster"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M7",
+      "title": {
+        "ko": "프톨레마이오스성단",
+        "en": "Ptolemy Cluster"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M36",
+      "title": {
+        "ko": "M36",
+        "en": "Pinwheel Cluster"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M38",
+      "title": {
+        "ko": "M38",
+        "en": "Starfish Cluster"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M41",
+      "title": {
+        "ko": "M41",
+        "en": "M41"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M46",
+      "title": {
+        "ko": "M46",
+        "en": "M46"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M47",
+      "title": {
+        "ko": "M47",
+        "en": "M47"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M67",
+      "title": {
+        "ko": "M67",
+        "en": "M67"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M2",
+      "title": {
+        "ko": "M2",
+        "en": "M2"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M39",
+      "title": {
+        "ko": "M39",
+        "en": "M39"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M103",
+      "title": {
+        "ko": "M103",
+        "en": "M103"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M4",
+      "title": {
+        "ko": "M4",
+        "en": "M4"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M10",
+      "title": {
+        "ko": "M10",
+        "en": "M10"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M12",
+      "title": {
+        "ko": "M12",
+        "en": "M12"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M29",
+      "title": {
+        "ko": "M29",
+        "en": "M29"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M34",
+      "title": {
+        "ko": "M34",
+        "en": "M34"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M52",
+      "title": {
+        "ko": "M52",
+        "en": "M52"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:M78",
+      "title": {
+        "ko": "M78",
+        "en": "M78"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:NGC7000",
+      "title": {
+        "ko": "북아메리카성운",
+        "en": "North America Nebula"
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:NGC457",
+      "title": {
+        "ko": "ET성단",
+        "en": "Owl Cluster",
+        "alt": [
+          "ET 성단",
+          "올빼미성단"
+        ]
+      },
+      "status": "needs-review",
+      "batch": "expansion-40-2"
+    },
+    {
+      "id": "dso:NGC7009",
+      "title": {
+        "ko": "토성성운",
+        "en": "Saturn Nebula"
+      },
+      "status": "needs-review",
+      "batch": "final-1"
+    }
+  ]
+}

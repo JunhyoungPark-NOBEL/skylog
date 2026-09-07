@@ -1,0 +1,97 @@
+{
+  "id": "dso:M15",
+  "version": 1,
+  "title": {
+    "ko": "M15",
+    "en": "Messier 15"
+  },
+  "oneLiner": {
+    "ko": "가을 페가수스의 코 앞에서 찾는 조밀한 별무리"
+  },
+  "summary": {
+    "ko": "M15는 페가수스자리 방향의 구상성단입니다. 작은 장비에서는 별무리의 빛이 합쳐져 보이며 특히 중심이 도드라지는 인상을 살펴볼 수 있습니다. 가을 대사각형을 찾은 뒤 페가수스의 머리 방향으로 이동하면 위치를 좁히는 데 도움이 됩니다. 쌍안경에서는 별처럼 보이는 작은 번짐을 주변 점광원과 구별하고 망원경에서는 중심과 바깥 윤곽을 비교하세요. 도시에서는 희미한 부분이 사라질 수 있습니다. 전문 영상에 담긴 성단 속 특이 천체까지 소형 장비로 함께 보았다고 판단하지 않는 것이 중요합니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "구상성단",
+      "source": "NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/"
+    },
+    {
+      "label": "별자리",
+      "value": "페가수스자리 (Peg)",
+      "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "6.3등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "11.1′",
+      "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M15",
+      "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리",
+      "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+      "source": "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/"
+    }
+  ],
+  "story": {
+    "ko": "고해상도 영상으로 M15를 보면 조밀한 별들의 집단 안에도 서로 다른 진화 단계의 천체가 있음을 알 수 있습니다. 허블 영상에는 피스 1이라는 행성상성운도 나타나며, 이는 별이 내보낸 가스가 성단의 별빛과 함께 보이는 사례입니다. 그러나 90mm 망원경으로 M15의 존재를 확인하는 일과 그 작은 성운을 따로 검출하는 일은 다른 난이도의 관측입니다. 중심부가 밝아 보인다는 인상만으로 그곳의 특정 천체나 보이지 않는 질량을 직접 보았다고 할 수도 없습니다. 처음에는 밝은 중심이 주변으로 얼마나 부드럽게 퍼지는지 스케치해 보세요. 전문 연구로 알려진 내용은 설명란에, 직접 확인한 외형은 관측란에 남기면 사진의 정보와 자신의 관측을 혼동하지 않을 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/",
+      "NASA/ESA — Globular Cluster M15 (2002-09-17) — https://science.nasa.gov/asset/hubble/globular-cluster-m15/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁에 페가수스 대사각형을 찾고 말의 목과 머리 쪽으로 이어지는 별들을 따라 에니프로 이동하세요. 에니프에서 천구의 북서쪽으로 약 4° 떨어진 구역을 저배율로 살핍니다. M15의 작은 얼룩을 주변 별과 대조하고, 점처럼 보여도 배율을 바꾸며 약간 번지는지 확인하세요.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Peg",
+      "star:HIP677"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 맨눈 검출을 기대하지 않습니다. 대사각형과 에니프 방향을 찾는 단계까지만 맨눈으로 진행하세요.",
+    "binoculars": "10×50에서는 어두운 하늘에서 작은 흐릿한 점으로 시도합니다. 구성별이나 성단 속 성운까지 분리하지는 못합니다.",
+    "telescope": "90mm 20~80배에서 밝은 중심과 옅은 외곽을 비교합니다. 피스 1이나 특정 중심 천체 검출을 관측 목표로 요구하지 않습니다.",
+    "bestMonths": [
+      8,
+      9,
+      10
+    ],
+    "difficulty": 3
+  },
+  "funFacts": [
+    "성단 속 피스 1이 전문 영상에 보여도 소형 장비의 기본 관측 목표는 아닙니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M15; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/",
+    "NASA/ESA — Globular Cluster M15 (2002-09-17) — https://science.nasa.gov/asset/hubble/globular-cluster-m15/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "거리 수치 게시 보류: 첨부 62483광년은 NASA의 약 35000광년 및 과거 약 32600광년 소개와 크게 다릅니다. 외부 자료끼리도 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

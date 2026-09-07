@@ -1,0 +1,96 @@
+{
+  "id": "dso:M17",
+  "version": 1,
+  "title": {
+    "ko": "오메가성운",
+    "en": "Omega Nebula"
+  },
+  "oneLiner": {
+    "ko": "백조처럼 보이기도 하는 밝은 기체의 굽은 윤곽"
+  },
+  "summary": {
+    "ko": "M17은 궁수자리의 발광 성운으로 오메가성운 또는 백조성운이라 부릅니다. 뜨거운 별들이 주변 기체를 밝히고 변화시키는 별 탄생 지역입니다. 사진의 넓고 복잡한 구름과 작은 망원경에서 보이는 밝은 부분은 범위가 다를 수 있습니다. 저배율에서 성운의 존재를 확인한 뒤 길쭉하거나 굽은 밝은 윤곽이 드러나는지 살펴보세요. 도시에서는 대비가 낮아지고 약한 바깥 부분이 사라질 수 있습니다. 백조라는 이름은 외관을 기억하는 비유이며 성운이 그 모양의 단단한 물체라는 뜻은 아닙니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "발광 성운 — 원본 종류 Neb (nebula)",
+      "source": "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 17 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-17/"
+    },
+    {
+      "label": "별자리",
+      "value": "궁수자리 (Sgr)",
+      "source": "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "게시 보류 — 첨부 대역 미확인·외부 소개값 차이",
+      "source": "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 17 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-17/"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "12.6′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "5,436광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M17",
+      "source": "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "오메가와 백조라는 서로 다른 별칭은 같은 성운의 밝은 부분을 어떻게 이어 보느냐에 따라 생기는 인상을 보여 줍니다. M17의 연구 사진에서는 젊은 별들의 복사가 기체를 밝히고 주변 구조를 침식하는 모습을 살필 수 있습니다. 사진의 색은 관측한 파장과 표시 방법을 통해 기체의 성질을 드러내기도 하므로 눈으로 보는 색과 같다고 가정하면 안 됩니다. 입문자는 우선 성운광이 실제로 있는지 확인하고, 다음으로 밝은 부분이 어느 방향으로 길게 이어지는지 스케치해 보세요. 별칭을 먼저 알고 있으면 무의식중에 백조의 윤곽을 채워 넣기 쉬우므로 관찰한 선과 상상한 선을 구분하는 것이 좋습니다. 하나의 천체가 여러 이름을 가질 수 있다는 점과 물리적 설명은 그 별칭과 별도로 검증해야 한다는 점을 함께 익힐 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 17 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-17/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 궁수자리 북쪽의 은하수 구역을 지도에서 확인합니다. M17을 선택해 주변 별을 저배율로 대조하고 밝게 퍼진 구역을 찾습니다. M16을 함께 볼 때에는 두 천체의 위치를 따로 선택해 구분합니다.",
+    "season": "summer",
+    "hopFrom": [
+      "const:Sgr",
+      "dso:M16"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시 맨눈 관측 목표로 두지 않습니다.",
+    "binoculars": "10×50으로 어두운 곳에서 작은 성운광을 시도합니다. 별밭과 섞인 흐림을 무조건 성운이라고 판정하지 않습니다.",
+    "telescope": "90mm 20~80배로 밝고 길쭉한 부분을 살핍니다. 사진의 섬세한 가스 기둥과 색은 기대하지 않으며 광해가 크면 검출하지 못할 수 있습니다.",
+    "difficulty": 4,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Sgr, dso:M16; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 17 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-17/",
+    "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 17 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-17/",
+    "첨부 catalog-values.v1.csv — dso:M17; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "입력 mag=7, 외부 소개값=6.0의 차이가 큽니다. 측광 대역·대상 범위를 일치시켜 재검토하기 전 숫자 표시와 밝기 비교 퀴즈를 보류합니다. 어느 값이 정답인지 확정하지 않았습니다.",
+      "참고 대조: 입력 거리 5436광년, NASA — Messier 17 소개값 약 5500광년. 본문 숫자는 입력 우선으로 보존했으며 차이의 원인을 측정법·자료 시점까지 확인한 것은 아닙니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

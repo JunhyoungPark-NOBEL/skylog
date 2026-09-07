@@ -1,0 +1,97 @@
+{
+  "id": "dso:M110",
+  "version": 1,
+  "title": {
+    "ko": "M110",
+    "en": "M110"
+  },
+  "oneLiner": {
+    "ko": "M31 북서쪽에서 낮은 대비의 타원 빛을 찾는 동반 은하"
+  },
+  "summary": {
+    "ko": "M110은 안드로메다은하 M31의 동반 은하로, 하늘에서는 그 중심 북서쪽에 놓입니다. M32와 함께 비교하기 좋지만 퍼진 빛의 대비가 낮아 같은 장비에서 더 어렵게 느껴질 수 있습니다. 타원은하라는 이름이 내부에 젊은 별이나 먼지가 전혀 없다는 뜻은 아닙니다. 관측에서는 큰 사진의 세부보다 작은 타원형 밝기 차이를 확인하는 데 집중하세요. 도시 광해와 달빛이 있으면 M31이 보이는 날에도 M110은 사라질 수 있습니다. 충분히 어두운 곳에서 배경 하늘과의 차이를 천천히 살피는 대상으로 권합니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "은하",
+      "source": "첨부 catalog-values.v1.csv — dso:M110; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 110 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-110/"
+    },
+    {
+      "label": "별자리",
+      "value": "안드로메다자리 (And)",
+      "source": "첨부 catalog-values.v1.csv — dso:M110; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "8.15등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M110; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "16.22′ × 9.59′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M110; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(외부 소개값)",
+      "value": "약 270만 광년 — 첨부 빈칸; 해당 출처의 추정",
+      "source": "NASA — Messier 110 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-110/"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M110",
+      "source": "첨부 catalog-values.v1.csv — dso:M110; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "타원은하는 매끈한 빛 분포 때문에 모두 변화가 끝난 별의 집합처럼 설명되곤 합니다. 그러나 NASA가 소개하는 M110에는 젊은 별과 먼지도 있으며, 겉모양만으로 내부의 별 탄생 역사를 단정할 수 없습니다. 안드로메다은하 주변의 작은 은하들을 조사하면 하나의 큰 은하만 보아서는 놓치기 쉬운 다양한 별의 집단을 비교할 수 있습니다. 관측자는 M31, M32, M110이 같은 방향에 가깝게 보인다는 사실과 각 은하의 형태가 다르다는 사실을 나누어 기록해 보세요. M110이 보이지 않았다면 사진에서 익힌 타원형을 상상해 채우기보다 당시의 달빛과 하늘 밝기를 적는 편이 낫습니다. 밝은 중심이 있는 대상과 넓게 퍼진 대상이 서로 다르게 검출된다는 점은 총 밝기 하나만으로 관측 난이도를 결정할 수 없다는 좋은 예가 됩니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 110 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-110/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을에 M31 중심을 찾은 뒤 천구의 북서쪽으로 약 0.6° 이동합니다. M32가 있는 남쪽과 방향을 혼동하지 말고, 지도상의 M110 위치에서 넓고 흐린 타원 빛을 살핍니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "dso:M31",
+      "dso:M32",
+      "const:And"
+    ]
+  },
+  "observing": {
+    "nakedEye": "맨눈으로 독립된 은하를 확인하는 입문 목표로 삼지 않습니다.",
+    "binoculars": "10×50에서는 어두운 하늘에서도 매우 어려울 수 있습니다. M31의 주변 빛을 M110으로 오인하지 않도록 위치를 대조합니다.",
+    "telescope": "90mm 저배율로 어두운 장소에서 흐린 타원형 검출을 시도합니다. 도시에서는 보이지 않는 경우를 기본 한계로 설명합니다.",
+    "difficulty": 5,
+    "bestMonths": [
+      10,
+      11,
+      12
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M110; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: dso:M31, dso:M32, const:And; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 110 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-110/",
+    "첨부 catalog-values.v1.csv — dso:M110; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 110 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-110/",
+    "첨부 catalog-values.v1.csv — dso:M110; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "원본 거리 빈칸은 유지했습니다. 사실표의 거리는 외부 소개값임을 명시했으며 최신 단일 정답으로 취급하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

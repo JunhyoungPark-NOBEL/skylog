@@ -1,0 +1,85 @@
+{
+  "id": "planet:mercury",
+  "version": 1,
+  "title": {
+    "ko": "수성",
+    "en": "Mercury"
+  },
+  "oneLiner": {
+    "ko": "해질 무렵의 낮은 하늘에서 잠깐 만나는 작은 행성"
+  },
+  "summary": {
+    "ko": "수성은 태양에 가장 가까운 암석 행성입니다. 지구에서 보면 태양과 크게 떨어지지 않아, 해질 무렵 서쪽이나 해뜨기 전 동쪽의 낮은 하늘에서 주로 찾습니다. 관측 가능 여부는 계절 이름보다 태양과의 각거리, 지평선의 높이, 박명(해뜨기 전이나 해진 뒤의 어스름)의 밝기에 좌우됩니다. 표면에는 많은 충돌구가 있지만 작은 망원경으로 달처럼 자세히 보이지는 않습니다. 입문 단계에서는 안전한 시간에 수성을 확인하는 것 자체를 목표로 삼으세요. 태양이 지평선 아래에 있어야 하며, 흐린 날 무리하게 찾지 않는 편이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "암석 행성",
+      "source": "https://science.nasa.gov/mercury/facts/"
+    },
+    {
+      "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+      "value": "약 0.4 AU; 지구에서의 거리가 아님",
+      "source": "https://science.nasa.gov/mercury/facts/"
+    },
+    {
+      "label": "공전 주기",
+      "value": "약 88일",
+      "source": "https://science.nasa.gov/mercury/facts/"
+    },
+    {
+      "label": "자전 주기",
+      "value": "약 59일",
+      "source": "https://science.nasa.gov/mercury/facts/"
+    },
+    {
+      "label": "자연위성",
+      "value": "없음",
+      "source": "https://science.nasa.gov/mercury/facts/"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "시기별로 변함(첨부 값: variable)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:mercury)"
+    }
+  ],
+  "story": {
+    "ko": "그리스·로마 문화권에서 영어 이름 Mercury는 날렵한 로마 신의 이름과 연결됩니다. 실제 수성도 태양을 도는 공전 주기가 짧지만, 이름의 이야기를 행성의 물리적 원인으로 받아들여서는 안 됩니다. 수성은 겉모습이 달처럼 충돌구로 덮여 있어도 내부 구조와 태양 주변 환경은 다릅니다. 또한 태양에 가장 가깝다고 태양계에서 가장 뜨거운 행성인 것은 아닙니다. 열을 붙잡는 두꺼운 대기가 있는 금성의 표면이 더 뜨겁습니다. 수성을 관측할 때 기록할 것은 커다란 지형보다 낮은 하늘의 위치와 관측 시각입니다. 주변 별과 비교한 작은 위치 변화가, 눈앞의 빛점이 별이 아니라 움직이는 행성임을 이해하는 단서가 됩니다.",
+    "cultures": [
+      "그리스·로마",
+      "기타"
+    ],
+    "sources": [
+      "NASA — Mercury Facts | https://science.nasa.gov/mercury/facts/",
+      "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+    ]
+  },
+  "howToFind": {
+    "ko": "앱에서 관측일의 수성 위치와 태양 고도를 확인합니다. 일몰 뒤 서쪽에서 볼 수 있는 시기를 고르고, 그날 수성이 놓인 황도(태양이 하늘에서 지나는 길) 주변 별자리의 밝은 별을 지도에서 먼저 확인하세요. 해가 완전히 지평선 아래로 내려간 뒤 트인 서쪽 하늘에서 낮은 빛점을 찾습니다. 새벽 관측은 일출 전에 종료합니다. 기준 별자리는 날짜마다 달라 고정하지 않습니다.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "조건이 좋은 박명에는 작은 빛점으로 보이지만 도시의 건물·연무에 쉽게 가려집니다. 지평선이 트인 장소가 중요합니다.",
+    "binoculars": "10×50은 위치 확인에 도움을 주지만 태양이 완전히 진 뒤에만 사용합니다. 표면 무늬나 위상 관측을 기본 성과로 기대하지 마세요.",
+    "telescope": "90mm, 20~80배에서는 조건이 좋을 때 작은 원반과 위상을 시도할 수 있으나 낮은 고도의 대기 흔들림이 큽니다. 충돌구 관측은 기대하지 마세요.",
+    "difficulty": 3
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:mercury)",
+    "NASA — Mercury Facts | https://science.nasa.gov/mercury/facts/",
+    "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/",
+    "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high"
+  },
+  "funFacts": [
+    "태양에 가장 가까운 수성보다 금성의 표면이 더 뜨겁습니다.",
+    "수성의 태양일(한 번의 낮과 밤 주기)은 약 176일입니다."
+  ],
+  "safety": "태양이 떠 있는 동안 수성을 찾으려고 쌍안경·망원경으로 하늘을 훑지 마세요. 일몰 후 관측을 권장하며 새벽에는 일출 전에 종료하세요."
+}

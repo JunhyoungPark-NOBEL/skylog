@@ -1,0 +1,100 @@
+{
+  "id": "const:Per",
+  "version": 1,
+  "title": {
+    "ko": "페르세우스자리",
+    "en": "Perseus"
+  },
+  "oneLiner": {
+    "ko": "카시오페이아에서 이어지는 영웅의 구역, 변광성과 이중성단을 만나요"
+  },
+  "summary": {
+    "ko": "페르세우스자리는 가을 늦은 저녁부터 겨울에 걸쳐 카시오페이아와 황소자리 사이에서 찾기 좋은 별자리입니다. 유명한 알골은 밝기가 달라지는 별이고, 카시오페이아 쪽의 이중성단은 두 성단을 따로 식별하는 대상입니다. 이들은 별자리 그림 속 인물과 같은 종류의 천체가 아닙니다. 도시에서는 중심의 밝은 별무리부터 위치를 익히고 약한 성단의 검출은 장비와 조건을 따로 고려하세요. 별자리 대표점 하나를 알골이나 성단의 좌표로 대신 쓰면 찾기 경로가 틀어집니다. 맨눈의 큰 방향에서 개별 목표로 순서대로 좁혀 가는 것이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Per; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Per",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Persei",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "카시오페이아, 알골, 이중성단 두 구성 성단",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Cas, star:HIP14576, dso:NGC869, dso:NGC884; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "그리스 전승의 페르세우스",
+      "source": "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "가을 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "그리스의 페르세우스 이야기는 메두사와 안드로메다의 전승을 통해 이웃한 별자리들을 연결합니다. 별자리의 인물을 기억하는 데에는 도움이 되지만, 눈앞의 하늘에서 가장 중요한 것은 구역 안의 서로 다른 관측 대상을 구분하는 일입니다. 알골을 찾아 밝기를 비교하는 관측과 이중성단의 두 무리를 살피는 관측은 필요한 기록도 다릅니다. 알골에는 시각과 비교별이, 성단에는 시야와 별들의 분포가 중요합니다. 오늘은 카시오페이아에서 페르세우스 쪽으로 넘어오는 길을 먼저 익힌 다음 한 대상만 정해 자세히 관찰해 보세요. 영웅의 전체 그림을 완성하지 못해도 자신이 이동한 경로와 실제로 본 대상을 설명할 수 있다면 충분한 성과입니다. 이야기와 관측을 섞지 않고 이어 주는 연습이 됩니다.",
+    "cultures": [
+      "그리스·로마"
+    ],
+    "sources": [
+      "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+      "Chandra X-ray Observatory — Cassiopeia — https://chandra.harvard.edu/photo/constellations/cassiopeia.html",
+      "American Astronomical Society — Algol: the Star of Frequent Changes — https://aas.org/posts/news/2018/07/month-astronomical-history-0"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 늦은 저녁 카시오페이아 W자에서 황소자리 쪽으로 이어지는 페르세우스 구역을 찾습니다. 중심의 별 배열을 확인한 뒤 알골 쪽과 이중성단 쪽을 각각 별도 경로로 좁히세요. 두 목표가 같은 지점에 있는 것으로 표시하지 않습니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Cas",
+      "star:HIP14576",
+      "dso:NGC869",
+      "dso:NGC884"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 주요 별과 알골의 위치를 먼저 확인합니다. 이중성단의 맨눈 검출은 어두운 하늘의 별도 도전입니다.",
+    "binoculars": "10×50으로 카시오페이아 쪽 이중성단의 두 무리를 찾아보기 좋습니다. 도시에서는 별수가 줄어 보일 수 있습니다.",
+    "telescope": "90mm 20~40배로 성단을 살피고 실제 시야가 두 무리를 함께 담는지 확인합니다. 알골의 별 가림을 만드는 가까운 쌍을 직접 나누는 관측은 아닙니다.",
+    "bestMonths": [
+      10,
+      11,
+      12
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Per; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+    "Chandra X-ray Observatory — Cassiopeia — https://chandra.harvard.edu/photo/constellations/cassiopeia.html",
+    "American Astronomical Society — Algol: the Star of Frequent Changes — https://aas.org/posts/news/2018/07/month-astronomical-history-0",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Per; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Per; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: const:Cas, star:HIP14576, dso:NGC869, dso:NGC884; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Cas, star:HIP14576, dso:NGC869, dso:NGC884; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "이중성단은 NGC869와 NGC884를 각각 유지합니다. 별자리 콘텐츠를 이유로 두 대상의 관측 기록을 자동 합치지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

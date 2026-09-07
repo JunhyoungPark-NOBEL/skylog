@@ -1,0 +1,26 @@
+{
+  "package": "G3-content-completion",
+  "date": "2026-09-07",
+  "previousCount": 80,
+  "newCount": 41,
+  "batches": {
+    "G3-content-expansion-40-2.json": 40,
+    "G3-content-final-1.json": 1
+  },
+  "cumulativeCount": 121,
+  "remainingCount": 0,
+  "typeCounts": {
+    "solar-system": 9,
+    "star": 31,
+    "dso": 51,
+    "constellation": 30
+  },
+  "status": "All requested target drafts written; editorial/scientific review and application integration NOT complete.",
+  "publicationApproved": false,
+  "inputValuesOverwritten": 0,
+  "legacyGeneratedByTag": "gpt-5-pro is preserved solely to satisfy the user-supplied schema; it is not a new claim about runtime model identity.",
+  "sourceScope": "New41 researched this turn. Inherited80 preserved, not globally re-researched.",
+  "rawCellsPreserved": 492,
+  "externalSourceCount": 48,
+  "guidePairCount": 16
+}

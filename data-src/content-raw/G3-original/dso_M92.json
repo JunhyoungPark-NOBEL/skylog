@@ -1,0 +1,96 @@
+{
+  "id": "dso:M92",
+  "version": 1,
+  "title": {
+    "ko": "M92",
+    "en": "M92"
+  },
+  "oneLiner": {
+    "ko": "허큘리스자리에서 M13과 함께 비교하는 오래된 구상성단"
+  },
+  "summary": {
+    "ko": "M92는 허큘리스자리에 있는 구상성단으로, 많은 별의 빛이 모여 작은 둥근 얼룩처럼 보입니다. 같은 별자리의 M13과 함께 찾으면 성단의 중심 집중과 바깥 퍼짐을 비교하기 좋습니다. 오래되고 무거운 원소가 적은 별 집단을 연구하는 대상이지만 그 성질을 접안 시야의 색만으로 판정할 수는 없습니다. 쌍안경에서는 작은 빛무리로, 90mm 망원경에서는 밝은 중심과 주변의 흐림을 먼저 목표로 삼으세요. 첨부 거리와 외부 소개값의 차이가 커 이 초안에서는 확정 거리 숫자를 제시하지 않습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "구상성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/"
+    },
+    {
+      "label": "별자리",
+      "value": "허큘리스자리 (Her)",
+      "source": "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "6.52등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "14.4′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리",
+      "value": "게시 보류 — 원본과 외부 소개값 불일치",
+      "source": "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M92",
+      "source": "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "천문학에서 금속이라는 말은 일상적인 철이나 구리뿐 아니라 수소와 헬륨보다 무거운 원소들을 넓게 가리킵니다. M92처럼 그러한 원소가 적은 오래된 별 집단은 우리 은하의 이른 역사를 연구하는 자료가 됩니다. 그러나 작은 망원경으로 성단이 희게 보였다는 관찰만으로 금속 함량이나 나이를 알아내는 것은 아닙니다. 그런 해석에는 별빛의 성분과 밝기 등을 측정하는 연구가 필요합니다. 입문 관측에서는 M13과 M92를 각각 찾아 중심이 얼마나 두드러지는지 같은 배율에서 비교해 보세요. 과학적 설명을 읽는 활동과 직접 확인한 빛의 모양을 구분하면 관측 기록의 의미가 분명해집니다. 거리 자료가 서로 다르더라도 숫자를 임의로 골라 쓰지 않고 보류하는 태도 역시 천체를 신중하게 이해하는 과정의 일부입니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름에 허큘리스자리의 주요 배열을 먼저 확인합니다. M13에서 천구의 북동쪽으로 약 9.5° 떨어진 M92를 지도에서 선택하고, 중간 별들을 대조하며 저배율로 이동합니다. 두 성단은 보통 하나의 망원경 시야에 들어오지 않습니다.",
+    "season": "summer",
+    "hopFrom": [
+      "const:Her",
+      "dso:M13"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시 맨눈 관측 대상으로 삼지 않습니다.",
+    "binoculars": "10×50으로 별과 다른 작은 흐림을 찾습니다. 별 하나로 착각하지 않도록 주변 배치를 확인합니다.",
+    "telescope": "90mm 20~80배에서는 중심이 집중된 빛무리 검출을 기본 목표로 합니다. 어두운 하늘에서도 중심의 모든 별이 분해되는 것은 아닙니다.",
+    "difficulty": 3,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Her, dso:M13; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/",
+    "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/",
+    "첨부 catalog-values.v1.csv — dso:M92; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "입력 거리 58036광년과 외부 소개값 27000광년을 대조했으나 단일값을 확정하지 않았습니다. 원본은 보존하고 숫자 표시는 보류합니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

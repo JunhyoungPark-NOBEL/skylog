@@ -1,0 +1,109 @@
+{
+  "id": "const:Ori",
+  "version": 1,
+  "title": {
+    "ko": "오리온자리",
+    "en": "Orion"
+  },
+  "oneLiner": {
+    "ko": "허리띠 세 별에서 어깨·발·검으로 펼쳐지는 겨울 길잡이"
+  },
+  "summary": {
+    "ko": "오리온자리는 겨울 저녁 허리띠의 나란한 세 별과 주변의 밝은 어깨·발로 찾기 좋은 별자리입니다. 베텔게우스와 리겔을 먼저 익히면 허리띠와 검 쪽의 오리온대성운으로 탐색을 넓힐 수 있습니다. 사냥꾼 그림의 선은 실제로 별들을 연결하는 구조가 아니며 각 천체의 거리는 서로 다릅니다. 도시에서는 밝은 윤곽이 잘 드러나도 성운의 약한 빛이나 주변 성운 사진의 색까지 같게 보이지는 않습니다. 맨눈으로 큰 구조를 찾고, 쌍안경으로 허리띠와 검을 비교한 다음 망원경의 개별 목표로 이동하는 순서가 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Ori; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Ori",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Orionis",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "베텔게우스, 리겔, 허리띠, M42",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP27989, star:HIP24436, star:HIP26311, dso:M42; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "사냥꾼; 허리띠와 검 무늬",
+      "source": "NSF NOIRLab — Orion — https://noirlab.edu/public/education/constellations/orion/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "겨울 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "오리온 허리띠는 세 점만 기억해도 하늘에서 쉽게 되찾을 수 있는 무늬입니다. 한국에서 삼태성이라 부르는 용례도 있지만, 이 말이 다른 전통의 모든 세 별 묶음과 같은 대상이라는 뜻은 아닙니다. 그리스의 사냥꾼 그림과 한국의 성군 이름은 같은 하늘을 다르게 기억하는 방법으로 함께 읽을 수 있습니다. 천문학에서는 별자리 영역, 세 별 무늬, 검의 성운을 서로 다른 관측 대상으로 다룹니다. 오늘 허리띠를 보았다면 세 별의 이름과 순서를 남기고, 성운을 따로 찾았을 때에만 그 관측을 추가하세요. 별자리 전체의 이름 하나로 모든 관측을 합치지 않으면 어떤 도구가 무엇을 보여 주었는지 선명해집니다. 쉬운 겨울 길잡이가 관측 대상의 범위를 구별하는 연습장이 되는 셈입니다.",
+    "cultures": [
+      "그리스·로마",
+      "한국"
+    ],
+    "sources": [
+      "NSF NOIRLab — Orion — https://noirlab.edu/public/education/constellations/orion/",
+      "NASA/ESA — Orion Constellation — https://science.nasa.gov/asset/hubble/orion-constellation/",
+      "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+      "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 남동쪽에서 남쪽으로 이어지는 하늘에서 나란한 허리띠 세 별을 찾습니다. 위쪽의 베텔게우스와 벨라트릭스, 아래쪽의 리겔을 대조한 뒤 허리띠 남쪽에 늘어진 검 구역으로 이동하세요. M42는 검 안의 별도 목표로 선택해 확인합니다.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP27989",
+      "star:HIP24436",
+      "star:HIP26311",
+      "dso:M42"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 허리띠와 밝은 윤곽을 찾기 좋습니다. 검의 세부와 성운 검출은 별도로 기록하세요.",
+    "binoculars": "10×50으로 허리띠와 검 구역을 번갈아 살펴봅니다. 약한 성운의 모습은 사진과 다릅니다.",
+    "telescope": "90mm 20~80배로 M42 같은 개별 대상을 관측합니다. 별자리 전체를 한 시야에 넣을 필요는 없습니다.",
+    "bestMonths": [
+      12,
+      1,
+      2
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Ori; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Orion — https://noirlab.edu/public/education/constellations/orion/",
+    "NASA/ESA — Orion Constellation — https://science.nasa.gov/asset/hubble/orion-constellation/",
+    "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+    "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — const:Ori; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Ori; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP27989, star:HIP24436, star:HIP26311, dso:M42; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP27989, star:HIP24436, star:HIP26311, dso:M42; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "첨부 G2의 한국 전통 별자리 재구성은 허리띠 세 별을 삼장군·삼태성 용례와 연결합니다. 오리온 전체, 성군 전체, 구성별 한 개를 같은 검색 별칭으로 합치지 않습니다.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  }
+}

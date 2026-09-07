@@ -1,0 +1,100 @@
+{
+  "id": "const:UMi",
+  "version": 1,
+  "title": {
+    "ko": "작은곰자리",
+    "en": "Ursa Minor"
+  },
+  "oneLiner": {
+    "ko": "북극성과 코카브를 구분하며 작은국자의 약한 별들을 찾으세요"
+  },
+  "summary": {
+    "ko": "작은곰자리는 북극성으로 익숙한 북쪽 별자리이며 작은국자라는 무늬로도 알려져 있습니다. 북극성은 하늘의 북극 가까이에 있지만 밤하늘 전체에서 가장 밝은 별은 아닙니다. 코카브와 약한 연결 별들을 함께 찾으면 단순히 북쪽의 밝은 점 하나를 고르는 것보다 정확하게 구역을 익힐 수 있습니다. 도시에서는 작은국자의 손잡이나 몸통 일부가 사라져 보일 수 있습니다. 별자리 대표 좌표와 북극성 자체의 좌표를 혼동하지 마세요. 맨눈의 큰 위치를 확인한 뒤 쌍안경으로 약한 점들을 차례로 보완하는 순서가 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:UMi; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "UMi",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Ursae Minoris",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "북극성, 코카브, 북두칠성의 방향별",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, star:HIP72607, star:HIP54061; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "작은곰; 작은국자 무늬",
+      "source": "NSF NOIRLab — Ursa Minor — https://noirlab.edu/public/education/constellations/ursa-minor/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "연중(시간·지형 확인) — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "북쪽을 찾는 쉬운 규칙도 적용 범위를 알면 더 유용해집니다. 북극성은 북극 가까운 별이라는 뜻이지 가장 눈부신 점을 고르라는 뜻이 아닙니다. 작은곰자리에는 코카브처럼 따로 식별해야 할 밝은 별과 그 사이의 약한 점들이 있습니다. 북두칠성에서 얻은 방향을 작은국자 무늬로 다시 확인해 보세요. 도시에서 연결 별이 보이지 않는다면 보였다고 가정한 선 대신 지도에서 추정한 경로임을 표시하는 편이 좋습니다. 관측 기록에 북극성의 이름, 실제 확인한 점, 북쪽 장애물을 함께 남기면 센서 보정용 길잡이와 일반 별자리 식별의 차이도 이해할 수 있습니다. 작은국자 그림을 완성하는 일보다 기준별을 다른 별과 혼동하지 않는 일이 먼저입니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Ursa Minor — https://noirlab.edu/public/education/constellations/ursa-minor/",
+      "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+      "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/"
+    ]
+  },
+  "howToFind": {
+    "ko": "북두칠성의 메라크에서 두베로 향하는 방향을 더 이어 북극성을 찾습니다. 지도에서 작은곰자리 손잡이와 코카브 쪽 몸통을 확인하고 약한 연결 별을 나누어 찾으세요. 코카브를 북극성 대신 정북의 기준으로 선택하지 않도록 이름을 확인합니다.",
+    "season": "any",
+    "hopFrom": [
+      "star:HIP11767",
+      "star:HIP72607",
+      "star:HIP54061"
+    ]
+  },
+  "observing": {
+    "nakedEye": "북극성과 코카브는 도시에서 찾을 수 있는 편이지만 작은국자 전체는 더 어려울 수 있습니다.",
+    "binoculars": "10×50으로 약한 연결 별을 확인하되 넓은 국자 모양을 여러 시야로 나누어 봅니다.",
+    "telescope": "90mm 20~80배는 개별 별 관측에 사용합니다. 고배율 시야 하나만으로 전체 북쪽 방향을 판정하지 않습니다.",
+    "bestMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:UMi; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Ursa Minor — https://noirlab.edu/public/education/constellations/ursa-minor/",
+    "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+    "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:UMi; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:UMi; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, star:HIP72607, star:HIP54061; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, star:HIP72607, star:HIP54061; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "연중 분류는 대전의 북쪽 하늘 학습용입니다. 고정된 관측 가능 시간이나 모든 경계점의 주극성을 보장하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

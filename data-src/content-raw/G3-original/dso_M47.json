@@ -1,0 +1,97 @@
+{
+  "id": "dso:M47",
+  "version": 1,
+  "title": {
+    "ko": "M47",
+    "en": "M47"
+  },
+  "oneLiner": {
+    "ko": "밝은 별이 성기게 펼쳐지고 잃어버린 좌표의 역사가 남은 성단"
+  },
+  "summary": {
+    "ko": "M47은 고물자리의 산개성단입니다. 밝은 별들이 비교적 성기게 펼쳐져 있으며 같은 방향 가까이에 있는 M46과 비교하기 좋습니다. 두 성단은 하늘에서 가까워 보여도 실제 거리가 같은 한 쌍의 집단으로 취급하면 안 됩니다. 도시에서도 밝은 별 몇 개를 찾을 수 있으나 성단 전체 구성원이 모두 보이는 것은 아닙니다. 10×50이나 90mm의 낮은 배율로 넓은 배열부터 확인해 보세요. 번호를 선택한 뒤 주변 별을 대조하는 과정은 과거 좌표 기록의 혼동을 떠올리게 하는 좋은 학습 연결점입니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행; ESO — The Hot Blue Stars of Messier 47 — https://www.eso.org/public/news/eso1441/"
+    },
+    {
+      "label": "별자리",
+      "value": "고물자리 (Pup)",
+      "source": "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "4.4등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "19.8′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "1,576광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M47",
+      "source": "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "ESO가 소개하는 M47의 역사에는 천체를 보고도 기록의 좌표 때문에 대상을 잃어버린 일이 등장합니다. 메시에가 남긴 위치에 오류가 있어 해당 대상을 찾기 어려웠고, 나중에 그 기록이 NGC2422와 연결되면서 문제가 풀렸습니다. 이 이야기는 이름뿐 아니라 위치와 식별자를 함께 남겨야 하는 이유를 보여 줍니다. 오늘의 앱에서도 M47 버튼을 눌렀다는 사실만으로 관측을 완료하면 같은 오류를 다른 방식으로 반복할 수 있습니다. 실제 시야의 별 배열을 확인하고, 곁의 M46과 다른 위치를 보고 있는지 대조해 보세요. 두 성단은 하늘에서 이웃하지만 물리적으로 같은 거리에 있지는 않습니다. 밝은 별이 성기게 보이는 M47의 기록과 더 흐릿하게 보이는 M46의 기록을 따로 남기면 역사적 식별 문제와 현재의 관측 확인을 함께 이해할 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "ESO — The Hot Blue Stars of Messier 47 — https://www.eso.org/public/news/eso1441/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 시리우스를 찾고 동쪽의 고물자리 영역을 지도에서 확인합니다. M47을 선택해 밝은 별들이 성기게 모인 구역을 대조합니다. M46은 약 1.3° 동쪽의 별도 성단이므로 두 위치를 구별하세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP32349",
+      "const:CMa",
+      "dso:M46"
+    ]
+  },
+  "observing": {
+    "nakedEye": "어두운 곳의 흐린 별무리 검출과 도시 맨눈 성공을 구별합니다.",
+    "binoculars": "10×50으로 비교적 밝고 흩어진 별 배열을 찾습니다. M46과 각각 검출 여부를 기록하세요.",
+    "telescope": "90mm에서는 낮은 배율로 시작해 전체 배열을 확인합니다. 80배에서 일부만 보일 수 있으므로 높은 배율을 항상 더 좋은 관측으로 여기지 않습니다.",
+    "difficulty": 2,
+    "bestMonths": [
+      1,
+      2,
+      3
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP32349, const:CMa, dso:M46; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "ESO — The Hot Blue Stars of Messier 47 — https://www.eso.org/public/news/eso1441/",
+    "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행; ESO — The Hot Blue Stars of Messier 47 — https://www.eso.org/public/news/eso1441/",
+    "첨부 catalog-values.v1.csv — dso:M47; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "참고 대조: 입력 거리 1576광년, ESO — The Hot Blue Stars of Messier 47 소개값 약 1600광년. 본문 숫자는 입력 우선으로 보존했으며 차이의 원인을 측정법·자료 시점까지 확인한 것은 아닙니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

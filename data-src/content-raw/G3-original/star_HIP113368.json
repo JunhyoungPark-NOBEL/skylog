@@ -1,0 +1,99 @@
+{
+  "id": "star:HIP113368",
+  "version": 1,
+  "title": {
+    "ko": "포말하우트",
+    "en": "Fomalhaut"
+  },
+  "oneLiner": {
+    "ko": "가을 남쪽의 밝은 별, 사진 속 먼지 고리와 맨눈의 점을 구분해요"
+  },
+  "summary": {
+    "ko": "포말하우트는 남쪽물고기자리의 밝은 별로, 별이 드문 가을 남쪽 하늘에서 기준점이 됩니다. 이름이 비슷한 물고기자리와는 소속이 다릅니다. 우주망원경으로는 주변 먼지 잔해 구조가 연구되지만 맨눈이나 작은 망원경에는 별빛의 점으로 보입니다. 한국 중부에서는 남쪽으로 낮게 지나가므로 주변 건물과 뿌연 공기의 영향이 큽니다. 밝은 별 하나만 찾는 일과 희미한 별자리 윤곽을 모두 잇는 일은 따로 평가하세요. 낮게 떠 있다고 행성이나 비행기로 오인하지 않도록 위치를 지도와 맞춥니다."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "남쪽물고기자리 (PsA)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "25.1광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "1.17등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "A3V",
+      "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP113368",
+      "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "주변 구조",
+      "value": "우주망원경으로 연구하는 먼지 잔해 띠",
+      "source": "NASA/ESA/CSA — Fomalhaut Dusty Debris Disk (MIRI Image) — https://science.nasa.gov/asset/webb/fomalhaut-dusty-debris-disk-miri-image/"
+    }
+  ],
+  "story": {
+    "ko": "포말하우트 주변에서 발견된 밝은 점은 관측 결과의 해석이 바뀔 수 있음을 보여 줍니다. NASA의 후속 설명은 한때 행성 후보로 알려졌던 구조를 충돌로 생긴 먼지와 연결하고, 다른 시기에 나타난 밝은 구조도 비교합니다. 따라서 오래된 소개의 행성 발견 문장을 현재의 확정 사실처럼 옮기면 곤란합니다. 웹우주망원경이 본 먼지 띠 역시 맨눈에 보이는 별빛과는 다른 파장과 감도로 얻은 정보입니다. 오늘 관측에서 확인할 수 있는 것은 먼저 별의 위치와 밝기, 지평선 조건입니다. 사진 속 고리를 보지 못한 것을 실패로 적기보다 어떤 도구와 관측 방식이 그 구조를 드러냈는지 질문해 보세요. 같은 별이라도 관측 방법에 따라 전혀 다른 정보가 나타납니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA/ESA/CSA — Fomalhaut Dusty Debris Disk (MIRI Image) — https://science.nasa.gov/asset/webb/fomalhaut-dusty-debris-disk-miri-image/",
+      "NASA/ESA — Fomalhaut cs2 — https://science.nasa.gov/asset/hubble/fomalhaut-cs2/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁 페가수스의 큰 사각형을 찾은 뒤 남쪽으로 낮게 내려가 홀로 눈에 띄는 밝은 별을 찾습니다. 앱에서 남쪽물고기자리의 포말하우트라는 이름과 PsA 소속을 확인하세요. 남쪽 자오선에 가까울 때를 고르되 대전 부근에서는 최고 높이도 약 24°입니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Peg"
+    ]
+  },
+  "observing": {
+    "nakedEye": "남쪽이 열려 있으면 밝은 점으로 찾을 수 있습니다. 도시에서는 저공의 광해와 연무 때문에 잘 보이지 않을 수 있습니다.",
+    "binoculars": "10×50으로 주변 별 배열을 확인합니다. 망원경 사진의 먼지 고리는 보이지 않습니다.",
+    "telescope": "90mm 20~80배에서도 주된 관측 대상은 별빛입니다. 먼지 띠나 행성 후보의 분리를 성공 조건으로 삼지 않습니다.",
+    "bestMonths": [
+      9,
+      10,
+      11
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA/ESA/CSA — Fomalhaut Dusty Debris Disk (MIRI Image) — https://science.nasa.gov/asset/webb/fomalhaut-dusty-debris-disk-miri-image/",
+    "NASA/ESA — Fomalhaut cs2 — https://science.nasa.gov/asset/hubble/fomalhaut-cs2/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: const:Peg; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "북위 36.35°의 기하학적 최고 고도는 약 24.0°로, G5의 25° 이상 조건을 만족하지 못합니다.",
+      "행성 후보였던 밝은 구조의 해석이 바뀐 사례입니다. 포말하우트 b를 직접 촬영된 확정 행성으로 가르치지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "funFacts": [
+    "포말하우트의 소속은 물고기자리(Psc)가 아니라 남쪽물고기자리(PsA)입니다."
+  ]
+}

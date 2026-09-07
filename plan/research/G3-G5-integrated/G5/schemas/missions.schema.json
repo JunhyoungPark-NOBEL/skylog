@@ -1,0 +1,315 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G5 missions — 첨부 Task7 규약",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+      },
+      "title": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1
+          },
+          "en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "description": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1
+          },
+          "en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "level": {
+        "enum": [
+          "naked",
+          "binoculars",
+          "telescope"
+        ]
+      },
+      "season": {
+        "enum": [
+          "spring",
+          "summer",
+          "autumn",
+          "winter",
+          "any"
+        ]
+      },
+      "estimatedMinutes": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "requires": {
+        "type": "object",
+        "properties": {
+          "equipment": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "naked",
+                "binoculars",
+                "telescope"
+              ]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "darkSky": {
+            "type": "boolean"
+          },
+          "prerequisiteMissionIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "steps": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "find"
+                },
+                "objectId": {
+                  "type": "string",
+                  "pattern": "^(?:star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|planet:[a-z]+|const:[A-Z][A-Za-z]{2}|moon|sun)$"
+                },
+                "hint": {
+                  "type": "object",
+                  "properties": {
+                    "ko": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "en": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "ko"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "type",
+                "objectId",
+                "hint"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "observe"
+                },
+                "objectId": {
+                  "type": "string",
+                  "pattern": "^(?:star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|planet:[a-z]+|const:[A-Z][A-Za-z]{2}|moon|sun)$"
+                },
+                "minRating": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 5
+                }
+              },
+              "required": [
+                "type",
+                "objectId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "observeAny"
+                },
+                "category": {
+                  "enum": [
+                    "planet",
+                    "moon",
+                    "star",
+                    "doubleStar",
+                    "openCluster",
+                    "globularCluster",
+                    "nebula",
+                    "planetaryNebula",
+                    "galaxy",
+                    "constellation"
+                  ]
+                },
+                "count": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "type",
+                "category",
+                "count"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "read"
+                },
+                "contentId": {
+                  "type": "string",
+                  "pattern": "^(?:star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|planet:[a-z]+|const:[A-Z][A-Za-z]{2}|moon|sun)$"
+                }
+              },
+              "required": [
+                "type",
+                "contentId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "quiz"
+                },
+                "quizIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+                  },
+                  "minItems": 1
+                },
+                "passRatio": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "type",
+                "quizIds",
+                "passRatio"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "skill"
+                },
+                "skill": {
+                  "enum": [
+                    "arMode",
+                    "align1",
+                    "align2",
+                    "starhop",
+                    "sketch",
+                    "fovSetup",
+                    "backup"
+                  ]
+                }
+              },
+              "required": [
+                "type",
+                "skill"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "checklist"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ko": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "en": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "ko"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "type",
+                "items"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "minItems": 3,
+        "maxItems": 6
+      },
+      "rewardBadgeId": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+      },
+      "contentIds": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^(?:star:HIP[1-9][0-9]*|dso:[A-Za-z0-9+_-]+|planet:[a-z]+|const:[A-Z][A-Za-z]{2}|moon|sun)$"
+        },
+        "uniqueItems": true
+      }
+    },
+    "required": [
+      "id",
+      "title",
+      "description",
+      "level",
+      "estimatedMinutes",
+      "steps"
+    ],
+    "additionalProperties": false
+  }
+}

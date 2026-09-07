@@ -1,0 +1,2928 @@
+[
+  {
+    "id": "star:HIP30438",
+    "catalogRow": {
+      "id": "star:HIP30438",
+      "priority": "2",
+      "name_en": "Canopus",
+      "name_ko": "카노푸스",
+      "ra_deg": "95.98792",
+      "dec_deg": "-52.69566",
+      "mag": "-0.62",
+      "dist_ly": "309.2",
+      "spect": "F0Ib",
+      "size_arcmin": "",
+      "con": "Car",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "canopus",
+      "canopus2"
+    ],
+    "sourceAccess": {
+      "canopus": "검색 색인의 본문 발췌 확인",
+      "canopus2": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "용골자리 (Car)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "309.2광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "-0.62등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "F0Ib",
+        "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP30438",
+        "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "관측지 제약",
+        "value": "북위 36.35°에서 기하학적 최고 고도 약 1.0°",
+        "source": "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP32349"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP37279",
+    "catalogRow": {
+      "id": "star:HIP37279",
+      "priority": "2",
+      "name_en": "Procyon",
+      "name_ko": "프로키온",
+      "ra_deg": "114.8255",
+      "dec_deg": "5.22499",
+      "mag": "0.4",
+      "dist_ly": "11.5",
+      "spect": "F5IV-V",
+      "size_arcmin": "",
+      "con": "CMi",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "procyon",
+      "procyonpaper",
+      "types",
+      "asterisms"
+    ],
+    "sourceAccess": {
+      "procyon": "본문 확인",
+      "procyonpaper": "논문 초록 검색 발췌 확인",
+      "types": "검색 색인의 본문 발췌 확인",
+      "asterisms": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "작은개자리 (CMi)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "11.5광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "0.4등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "F5IV-V",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP37279",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "별의 구성",
+        "value": "밝은 주성과 백색왜성 동반별 B를 가진 계",
+        "source": "Bond 외 — Hubble Space Telescope Astrometry of the Procyon System — https://ui.adsabs.harvard.edu/abs/2015ApJ...813..106B/abstract"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP27989",
+      "star:HIP32349"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP37826",
+    "catalogRow": {
+      "id": "star:HIP37826",
+      "priority": "2",
+      "name_en": "Pollux",
+      "name_ko": "폴룩스",
+      "ra_deg": "116.32916",
+      "dec_deg": "28.0262",
+      "mag": "1.16",
+      "dist_ly": "33.8",
+      "spect": "K0IIIvar",
+      "size_arcmin": "",
+      "con": "Gem",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "gemini-nasa",
+      "types"
+    ],
+    "sourceAccess": {
+      "gemini-nasa": "본문 확인",
+      "types": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "쌍둥이자리 (Gem)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37826; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "33.8광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37826; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.16등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37826; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "K0IIIvar",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37826; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP37826",
+        "source": "첨부 catalog-values.v1.csv — star:HIP37826; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "알려진 동반 천체",
+        "value": "폴룩스 b라는 행성이 연구되어 있음",
+        "source": "NASA — Find the Twins: Gemini Constellation — https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP36850",
+      "const:Ori"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP113368",
+    "catalogRow": {
+      "id": "star:HIP113368",
+      "priority": "2",
+      "name_en": "Fomalhaut",
+      "name_ko": "포말하우트",
+      "ra_deg": "344.41257",
+      "dec_deg": "-29.62224",
+      "mag": "1.17",
+      "dist_ly": "25.1",
+      "spect": "A3V",
+      "size_arcmin": "",
+      "con": "PsA",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "fomalhaut-disk",
+      "fomalhaut-cloud"
+    ],
+    "sourceAccess": {
+      "fomalhaut-disk": "검색 색인의 본문 발췌 확인",
+      "fomalhaut-cloud": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "남쪽물고기자리 (PsA)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "25.1광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.17등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "A3V",
+        "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP113368",
+        "source": "첨부 catalog-values.v1.csv — star:HIP113368; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "주변 구조",
+        "value": "우주망원경으로 연구하는 먼지 잔해 띠",
+        "source": "NASA/ESA/CSA — Fomalhaut Dusty Debris Disk (MIRI Image) — https://science.nasa.gov/asset/webb/fomalhaut-dusty-debris-disk-miri-image/"
+      }
+    ],
+    "howToFindReferences": [
+      "const:Peg"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP49669",
+    "catalogRow": {
+      "id": "star:HIP49669",
+      "priority": "2",
+      "name_en": "Regulus",
+      "name_ko": "레굴루스",
+      "ra_deg": "152.09298",
+      "dec_deg": "11.96721",
+      "mag": "1.36",
+      "dist_ly": "79.3",
+      "spect": "B7V",
+      "size_arcmin": "",
+      "con": "Leo",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "regulus",
+      "leo-nasa"
+    ],
+    "sourceAccess": {
+      "regulus": "검색 색인의 본문 발췌 확인",
+      "leo-nasa": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "사자자리 (Leo)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "79.3광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.36등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "B7V",
+        "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP49669",
+        "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "연구로 확인한 특징",
+        "value": "빠른 회전에 따른 납작한 모양이 간섭계로 연구됨",
+        "source": "CHARA Array — Regulus — https://chara.gsu.edu/photos-videos/image-gallery/regulus"
+      }
+    ],
+    "howToFindReferences": [
+      "const:Leo",
+      "const:Gem"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP36850",
+    "catalogRow": {
+      "id": "star:HIP36850",
+      "priority": "2",
+      "name_en": "Castor",
+      "name_ko": "카스토르",
+      "ra_deg": "113.64951",
+      "dec_deg": "31.88828",
+      "mag": "1.58",
+      "dist_ly": "50.9",
+      "spect": "A2Vm",
+      "size_arcmin": "",
+      "con": "Gem",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "gemini-nasa",
+      "double"
+    ],
+    "sourceAccess": {
+      "gemini-nasa": "본문 확인",
+      "double": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "쌍둥이자리 (Gem)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "50.9광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.58등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "A2Vm",
+        "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP36850",
+        "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "별의 구성",
+        "value": "여섯 별로 이루어진 다중성계",
+        "source": "NASA — Find the Twins: Gemini Constellation — https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP37826"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP65378",
+    "catalogRow": {
+      "id": "star:HIP65378",
+      "priority": "1",
+      "name_en": "Mizar",
+      "name_ko": "미자르",
+      "ra_deg": "200.98121",
+      "dec_deg": "54.92536",
+      "mag": "2.23",
+      "dist_ly": "85.8",
+      "spect": "A2V",
+      "size_arcmin": "",
+      "con": "UMa",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "mizar",
+      "double",
+      "asterisms"
+    ],
+    "sourceAccess": {
+      "mizar": "검색 색인의 본문 발췌 확인",
+      "double": "본문 확인",
+      "asterisms": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "큰곰자리 (UMa)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "85.8광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "2.23등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "A2V",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP65378",
+        "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "관측 단계",
+        "value": "미자르–알코르의 넓은 짝과 미자르 내부의 가까운 쌍을 구별",
+        "source": "NASA Night Sky Network — Seeing Double — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP67301",
+      "const:UMa"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP14576",
+    "catalogRow": {
+      "id": "star:HIP14576",
+      "priority": "2",
+      "name_en": "Algol",
+      "name_ko": "알골",
+      "ra_deg": "47.04222",
+      "dec_deg": "40.95565",
+      "mag": "2.09",
+      "dist_ly": "89.9",
+      "spect": "B8V",
+      "size_arcmin": "",
+      "con": "Per",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "algol"
+    ],
+    "sourceAccess": {
+      "algol": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "페르세우스자리 (Per)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP14576; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "89.9광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP14576; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "2.09등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP14576; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "B8V",
+        "source": "첨부 catalog-values.v1.csv — star:HIP14576; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP14576",
+        "source": "첨부 catalog-values.v1.csv — star:HIP14576; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "변광 방식",
+        "value": "별의 가림으로 빛이 줄어드는 식변광",
+        "source": "American Astronomical Society — Algol: the Star of Frequent Changes — https://aas.org/posts/news/2018/07/month-astronomical-history-0"
+      }
+    ],
+    "howToFindReferences": [
+      "const:Cas",
+      "const:Per"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP10826",
+    "catalogRow": {
+      "id": "star:HIP10826",
+      "priority": "3",
+      "name_en": "Mira",
+      "name_ko": "미라",
+      "ra_deg": "34.83663",
+      "dec_deg": "-2.97764",
+      "mag": "6.47",
+      "dist_ly": "299",
+      "spect": "M5e-M9e",
+      "size_arcmin": "",
+      "con": "Cet",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "mira-period",
+      "mira-tail",
+      "types",
+      "mira-pulsation"
+    ],
+    "sourceAccess": {
+      "mira-period": "검색 색인 발췌만 확인; 상세 페이지 직접 열람 실패",
+      "mira-tail": "검색 색인의 본문 발췌 확인",
+      "types": "검색 색인의 본문 발췌 확인",
+      "mira-pulsation": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "고래자리 (Cet)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "299광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "6.47등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "M5e-M9e",
+        "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP10826",
+        "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "변광 성격",
+        "value": "별 자체의 맥동과 관련된 장주기 변광성",
+        "source": "NASA/ESA — Hubble Separates Stars in the Mira Binary System — https://science.nasa.gov/missions/hubble/hubble-separates-stars-in-the-mira-binary-system/"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP9884",
+      "const:Tau"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP54061",
+    "catalogRow": {
+      "id": "star:HIP54061",
+      "priority": "2",
+      "name_en": "Dubhe",
+      "name_ko": "두베",
+      "ra_deg": "165.93233",
+      "dec_deg": "61.75103",
+      "mag": "1.81",
+      "dist_ly": "122.9",
+      "spect": "F7V comp",
+      "size_arcmin": "",
+      "con": "UMa",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "dubhe",
+      "bigdipper"
+    ],
+    "sourceAccess": {
+      "dubhe": "본문 확인",
+      "bigdipper": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "큰곰자리 (UMa)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "122.9광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.81등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문·성분 해석 보류)",
+        "value": "F7V comp",
+        "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP54061",
+        "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "길잡이 역할",
+        "value": "메라크와 함께 북극성 방향을 찾는 기준",
+        "source": "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/"
+      }
+    ],
+    "howToFindReferences": [
+      "const:UMa",
+      "star:HIP11767"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP67301",
+    "catalogRow": {
+      "id": "star:HIP67301",
+      "priority": "2",
+      "name_en": "Alkaid",
+      "name_ko": "알카이드",
+      "ra_deg": "206.88531",
+      "dec_deg": "49.31327",
+      "mag": "1.85",
+      "dist_ly": "103.9",
+      "spect": "B3V SB",
+      "size_arcmin": "",
+      "con": "UMa",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "asterisms",
+      "bigdipper",
+      "types"
+    ],
+    "sourceAccess": {
+      "asterisms": "검색 색인의 본문 발췌 확인",
+      "bigdipper": "검색 색인의 본문 발췌 확인",
+      "types": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "큰곰자리 (UMa)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "103.9광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.85등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "B3V SB",
+        "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP67301",
+        "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "하늘 무늬의 위치",
+        "value": "북두칠성 손잡이의 끝별",
+        "source": "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/; 첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP65378",
+      "const:UMa"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP26727",
+    "catalogRow": {
+      "id": "star:HIP26727",
+      "priority": "1",
+      "name_en": "Alnitak",
+      "name_ko": "알니탁",
+      "ra_deg": "85.1897",
+      "dec_deg": "-1.94257",
+      "mag": "1.74",
+      "dist_ly": "736.3",
+      "spect": "O9.5Ib SB",
+      "size_arcmin": "",
+      "con": "Ori",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "belt",
+      "flame",
+      "orion-depth"
+    ],
+    "sourceAccess": {
+      "belt": "검색 색인의 본문 발췌 확인",
+      "flame": "검색 색인의 본문 발췌 확인",
+      "orion-depth": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "오리온자리 (Ori)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "736.3광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.74등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "O9.5Ib SB",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP26727",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "허리띠에서의 위치",
+        "value": "천구의 동쪽 끝",
+        "source": "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP26311",
+      "const:Ori"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP26311",
+    "catalogRow": {
+      "id": "star:HIP26311",
+      "priority": "1",
+      "name_en": "Alnilam",
+      "name_ko": "알닐람",
+      "ra_deg": "84.05339",
+      "dec_deg": "-1.20192",
+      "mag": "1.69",
+      "dist_ly": "1976.7",
+      "spect": "B0Ia",
+      "size_arcmin": "",
+      "con": "Ori",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "belt",
+      "orion-depth",
+      "types"
+    ],
+    "sourceAccess": {
+      "belt": "검색 색인의 본문 발췌 확인",
+      "orion-depth": "검색 색인의 본문 발췌 확인",
+      "types": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "오리온자리 (Ori)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "1976.7광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.69등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "B0Ia",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP26311",
+        "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "허리띠에서의 위치",
+        "value": "세 밝은 별의 가운데",
+        "source": "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP26727",
+      "star:HIP25930",
+      "const:Ori"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP25930",
+    "catalogRow": {
+      "id": "star:HIP25930",
+      "priority": "1",
+      "name_en": "Mintaka",
+      "name_ko": "민타카",
+      "ra_deg": "83.00168",
+      "dec_deg": "-0.29909",
+      "mag": "2.25",
+      "dist_ly": "692.5",
+      "spect": "O9.5II",
+      "size_arcmin": "",
+      "con": "Ori",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "belt",
+      "orion-depth"
+    ],
+    "sourceAccess": {
+      "belt": "검색 색인의 본문 발췌 확인",
+      "orion-depth": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "오리온자리 (Ori)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "692.5광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "2.25등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "O9.5II",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP25930",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "하늘 위치의 특징",
+        "value": "첨부 적위 −0.29909°로 천구 적도에 가까움",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP26311",
+      "const:Ori"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP25336",
+    "catalogRow": {
+      "id": "star:HIP25336",
+      "priority": "2",
+      "name_en": "Bellatrix",
+      "name_ko": "벨라트릭스",
+      "ra_deg": "81.28277",
+      "dec_deg": "6.3497",
+      "mag": "1.64",
+      "dist_ly": "252.4",
+      "spect": "B2III",
+      "size_arcmin": "",
+      "con": "Ori",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "orion-motion",
+      "orion-hubble",
+      "types"
+    ],
+    "sourceAccess": {
+      "orion-motion": "검색 색인의 본문 발췌 확인",
+      "orion-hubble": "검색 색인의 본문 발췌 확인",
+      "types": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "오리온자리 (Ori)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25336; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "252.4광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25336; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "1.64등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25336; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "B2III",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25336; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP25336",
+        "source": "첨부 catalog-values.v1.csv — star:HIP25336; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "오리온에서의 위치",
+        "value": "베텔게우스의 천구 서쪽 어깨 별",
+        "source": "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP27989",
+      "const:Ori"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP9884",
+    "catalogRow": {
+      "id": "star:HIP9884",
+      "priority": "3",
+      "name_en": "Hamal",
+      "name_ko": "하말",
+      "ra_deg": "31.79333",
+      "dec_deg": "23.46242",
+      "mag": "2.01",
+      "dist_ly": "65.8",
+      "spect": "K2III",
+      "size_arcmin": "",
+      "con": "Ari",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Ari",
+      "iau",
+      "types"
+    ],
+    "sourceAccess": {
+      "noir-Ari": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "iau": "본문 확인",
+      "types": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "양자리 (Ari)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "65.8광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "2.01등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "K2III",
+        "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP9884",
+        "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "별자리의 길잡이",
+        "value": "양자리에서 가장 밝게 보이는 별",
+        "source": "NSF NOIRLab — Aries — https://noirlab.edu/public/education/constellations/aries/"
+      }
+    ],
+    "howToFindReferences": [
+      "dso:M45",
+      "const:And"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "star:HIP72607",
+    "catalogRow": {
+      "id": "star:HIP72607",
+      "priority": "3",
+      "name_en": "Kochab",
+      "name_ko": "코카브",
+      "ra_deg": "222.67658",
+      "dec_deg": "74.15551",
+      "mag": "2.07",
+      "dist_ly": "130.9",
+      "spect": "K4IIIvar",
+      "size_arcmin": "",
+      "con": "UMi",
+      "type": "star"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered external sources + explicit observation advice",
+      "story": "registered external sources + authored educational interpretation",
+      "howToFind": "catalog geometry + source patterns + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-UMi",
+      "asterisms",
+      "types"
+    ],
+    "sourceAccess": {
+      "noir-UMi": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "asterisms": "검색 색인의 본문 발췌 확인",
+      "types": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "별자리",
+        "value": "작은곰자리 (UMi)",
+        "source": "첨부 catalog-values.v1.csv — star:HIP72607; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "거리(첨부 목록)",
+        "value": "130.9광년",
+        "source": "첨부 catalog-values.v1.csv — star:HIP72607; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "2.07등급",
+        "source": "첨부 catalog-values.v1.csv — star:HIP72607; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "분광형(첨부 원문)",
+        "value": "K4IIIvar",
+        "source": "첨부 catalog-values.v1.csv — star:HIP72607; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "star:HIP72607",
+        "source": "첨부 catalog-values.v1.csv — star:HIP72607; inputs/catalog-values.v1.csv의 해당 행"
+      },
+      {
+        "label": "천구 북극과의 각거리",
+        "value": "첨부 적위에서 계산한 약 15.84°",
+        "source": "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP11767",
+      "const:UMi"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "거리·등급·분광형 원문 보존, 측광 대역·오차·성분 미확인. 변수 밝기는 현재값 아님."
+  },
+  {
+    "id": "const:Ari",
+    "catalogRow": {
+      "id": "const:Ari",
+      "priority": "3",
+      "name_en": "Aries",
+      "name_ko": "양자리",
+      "ra_deg": "42",
+      "dec_deg": "22",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Ari",
+      "type": "constellation (가을)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Ari",
+      "hyginus"
+    ],
+    "sourceAccess": {
+      "noir-Ari": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "hyginus": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Ari; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Ari",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Arietis",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "하말, 플레이아데스 쪽 하늘",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP9884, dso:M45, const:And; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "그리스 전승의 양",
+        "source": "NSF NOIRLab — Aries — https://noirlab.edu/public/education/constellations/aries/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "가을 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP9884",
+      "dso:M45",
+      "const:And"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Tau",
+    "catalogRow": {
+      "id": "const:Tau",
+      "priority": "1",
+      "name_en": "Taurus",
+      "name_ko": "황소자리",
+      "ra_deg": "54",
+      "dec_deg": "15",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Tau",
+      "type": "constellation (겨울)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Tau",
+      "types",
+      "hyades"
+    ],
+    "sourceAccess": {
+      "noir-Tau": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "types": "검색 색인의 본문 발췌 확인",
+      "hyades": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Tau; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Tau",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Tauri",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "알데바란, 히아데스 구역, 플레이아데스",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP21421, dso:M45, const:Ori; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "황소",
+        "source": "NSF NOIRLab — Taurus — https://noirlab.edu/public/education/constellations/taurus/?nocache=true"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "겨울 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP21421",
+      "dso:M45",
+      "const:Ori"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Gem",
+    "catalogRow": {
+      "id": "const:Gem",
+      "priority": "2",
+      "name_en": "Gemini",
+      "name_ko": "쌍둥이자리",
+      "ra_deg": "107.25",
+      "dec_deg": "23.5",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Gem",
+      "type": "constellation (겨울)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Gem",
+      "gemini-myth",
+      "gemini-nasa"
+    ],
+    "sourceAccess": {
+      "noir-Gem": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "gemini-myth": "검색 색인의 본문 발췌 확인",
+      "gemini-nasa": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Gem; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Gem",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Geminorum",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "카스토르, 폴룩스, 발 쪽 M35",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP36850, star:HIP37826, dso:M35; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "그리스 전승의 쌍둥이",
+        "source": "NSF NOIRLab — Gemini — https://noirlab.edu/public/education/constellations/gemini/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "겨울 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP36850",
+      "star:HIP37826",
+      "dso:M35"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Cnc",
+    "catalogRow": {
+      "id": "const:Cnc",
+      "priority": "3",
+      "name_en": "Cancer",
+      "name_ko": "게자리",
+      "ra_deg": "128.25",
+      "dec_deg": "27",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Cnc",
+      "type": "constellation (봄)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Cnc"
+    ],
+    "sourceAccess": {
+      "noir-Cnc": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Cnc; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Cnc",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Cancri",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "쌍둥이자리, 레굴루스, 프레세페 M44",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Gem, star:HIP49669, dso:M44; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "게",
+        "source": "NSF NOIRLab — Cancer — https://noirlab.edu/public/education/constellations/cancer/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "봄 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "const:Gem",
+      "star:HIP49669",
+      "dso:M44"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Leo",
+    "catalogRow": {
+      "id": "const:Leo",
+      "priority": "2",
+      "name_en": "Leo",
+      "name_ko": "사자자리",
+      "ra_deg": "159",
+      "dec_deg": "15",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Leo",
+      "type": "constellation (봄)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Leo",
+      "leo-nasa"
+    ],
+    "sourceAccess": {
+      "noir-Leo": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "leo-nasa": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Leo; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Leo",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Leonis",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "레굴루스와 낫 모양",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP49669, const:Cnc, const:Gem; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "사자",
+        "source": "NSF NOIRLab — Leo — https://noirlab.edu/public/education/constellations/leo/?nocache=true"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "봄 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP49669",
+      "const:Cnc",
+      "const:Gem"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Vir",
+    "catalogRow": {
+      "id": "const:Vir",
+      "priority": "2",
+      "name_en": "Virgo",
+      "name_ko": "처녀자리",
+      "ra_deg": "199.5",
+      "dec_deg": "-4",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Vir",
+      "type": "constellation (봄)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Vir"
+    ],
+    "sourceAccess": {
+      "noir-Vir": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Vir; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Vir",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Virginis",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "아르크투루스, 스피카",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP69673, star:HIP65474; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "여성 인물",
+        "source": "NSF NOIRLab — Virgo — https://noirlab.edu/public/education/constellations/virgo/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "봄 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP69673",
+      "star:HIP65474"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Lib",
+    "catalogRow": {
+      "id": "const:Lib",
+      "priority": "3",
+      "name_en": "Libra",
+      "name_ko": "천칭자리",
+      "ra_deg": "231",
+      "dec_deg": "-26",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Lib",
+      "type": "constellation (여름)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Lib"
+    ],
+    "sourceAccess": {
+      "noir-Lib": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Lib; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Lib",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Librae",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "스피카와 안타레스 사이 구역",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP65474, star:HIP80763; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "저울",
+        "source": "NSF NOIRLab — Libra — https://noirlab.edu/public/education/constellations/libra/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "여름 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP65474",
+      "star:HIP80763"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Sco",
+    "catalogRow": {
+      "id": "const:Sco",
+      "priority": "1",
+      "name_en": "Scorpius",
+      "name_ko": "전갈자리",
+      "ra_deg": "249",
+      "dec_deg": "-38",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Sco",
+      "type": "constellation (여름)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Sco"
+    ],
+    "sourceAccess": {
+      "noir-Sco": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Sco; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Sco",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Scorpii",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "안타레스와 굽은 몸통",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP80763, const:Lib; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "전갈",
+        "source": "NSF NOIRLab — Scorpius — https://noirlab.edu/public/education/constellations/scorpius/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "여름 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP80763",
+      "const:Lib"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Sgr",
+    "catalogRow": {
+      "id": "const:Sgr",
+      "priority": "2",
+      "name_en": "Sagittarius",
+      "name_ko": "궁수자리",
+      "ra_deg": "292.5",
+      "dec_deg": "-34",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Sgr",
+      "type": "constellation (여름)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Sgr",
+      "sgr-kasi",
+      "galactic-center",
+      "asterisms"
+    ],
+    "sourceAccess": {
+      "noir-Sgr": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "sgr-kasi": "검색 색인의 본문 발췌 확인",
+      "galactic-center": "검색 색인의 본문 발췌 확인",
+      "asterisms": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Sgr; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Sgr",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Sagittarii",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "안타레스, 알타이르, 주전자 무늬",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP80763, star:HIP97649, const:Sco; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "궁수; 찾기에는 주전자 모양 사용",
+        "source": "NSF NOIRLab — Sagittarius — https://noirlab.edu/public/education/constellations/sagittarius/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "여름 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP80763",
+      "star:HIP97649",
+      "const:Sco"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Cap",
+    "catalogRow": {
+      "id": "const:Cap",
+      "priority": "3",
+      "name_en": "Capricornus",
+      "name_ko": "염소자리",
+      "ra_deg": "315",
+      "dec_deg": "-22",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Cap",
+      "type": "constellation (가을)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Cap"
+    ],
+    "sourceAccess": {
+      "noir-Cap": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Cap; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Cap",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Capricorni",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "알타이르 남쪽, 궁수자리의 천구 동쪽 구역",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP97649, const:Sgr; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "물고기 꼬리를 가진 바다염소",
+        "source": "NSF NOIRLab — Capricornus — https://noirlab.edu/public/education/constellations/capricornus/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "가을 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP97649",
+      "const:Sgr"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Aqr",
+    "catalogRow": {
+      "id": "const:Aqr",
+      "priority": "3",
+      "name_en": "Aquarius",
+      "name_ko": "물병자리",
+      "ra_deg": "337.5",
+      "dec_deg": "-5",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Aqr",
+      "type": "constellation (가을)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Aqr"
+    ],
+    "sourceAccess": {
+      "noir-Aqr": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Aqr; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Aqr",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Aquarii",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "페가수스 큰 사각형, 외부 길잡이 포말하우트",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Peg, star:HIP113368; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "물을 붓는 사람",
+        "source": "NSF NOIRLab — Aquarius — https://noirlab.edu/public/education/constellations/aquarius/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "가을 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "const:Peg",
+      "star:HIP113368"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Psc",
+    "catalogRow": {
+      "id": "const:Psc",
+      "priority": "3",
+      "name_en": "Pisces",
+      "name_ko": "물고기자리",
+      "ra_deg": "19.5",
+      "dec_deg": "15",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Psc",
+      "type": "constellation (가을)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Psc"
+    ],
+    "sourceAccess": {
+      "noir-Psc": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Psc; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Psc",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Piscium",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "페가수스 큰 사각형, 양자리 하말",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Peg, star:HIP9884; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "끈으로 연결한 두 물고기",
+        "source": "NSF NOIRLab — Pisces — https://noirlab.edu/public/education/constellations/pisces/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "가을 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "const:Peg",
+      "star:HIP9884"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Ori",
+    "catalogRow": {
+      "id": "const:Ori",
+      "priority": "1",
+      "name_en": "Orion",
+      "name_ko": "오리온자리",
+      "ra_deg": "84",
+      "dec_deg": "13",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Ori",
+      "type": "constellation (겨울)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Ori",
+      "orion-hubble",
+      "belt",
+      "orion-depth"
+    ],
+    "sourceAccess": {
+      "noir-Ori": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "orion-hubble": "검색 색인의 본문 발췌 확인",
+      "belt": "검색 색인의 본문 발췌 확인",
+      "orion-depth": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Ori; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Ori",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Orionis",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "베텔게우스, 리겔, 허리띠, M42",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP27989, star:HIP24436, star:HIP26311, dso:M42; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "사냥꾼; 허리띠와 검 무늬",
+        "source": "NSF NOIRLab — Orion — https://noirlab.edu/public/education/constellations/orion/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "겨울 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP27989",
+      "star:HIP24436",
+      "star:HIP26311",
+      "dso:M42"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:UMa",
+    "catalogRow": {
+      "id": "const:UMa",
+      "priority": "1",
+      "name_en": "Ursa Major",
+      "name_ko": "큰곰자리",
+      "ra_deg": "165",
+      "dec_deg": "48",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "UMa",
+      "type": "constellation (봄)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-UMa",
+      "asterisms",
+      "bigdipper",
+      "mizar"
+    ],
+    "sourceAccess": {
+      "noir-UMa": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "asterisms": "검색 색인의 본문 발췌 확인",
+      "bigdipper": "검색 색인의 본문 발췌 확인",
+      "mizar": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:UMa; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "UMa",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Ursae Majoris",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "북두칠성, 두베, 미자르, 알카이드",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP54061, star:HIP65378, star:HIP67301; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "큰곰; 그 일부의 국자 무늬",
+        "source": "NSF NOIRLab — Ursa Major — https://noirlab.edu/public/education/constellations/ursa-major/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "봄 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP54061",
+      "star:HIP65378",
+      "star:HIP67301"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:UMi",
+    "catalogRow": {
+      "id": "const:UMi",
+      "priority": "1",
+      "name_en": "Ursa Minor",
+      "name_ko": "작은곰자리",
+      "ra_deg": "226.5",
+      "dec_deg": "68",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "UMi",
+      "type": "constellation (북극)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-UMi",
+      "asterisms",
+      "bigdipper"
+    ],
+    "sourceAccess": {
+      "noir-UMi": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "asterisms": "검색 색인의 본문 발췌 확인",
+      "bigdipper": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:UMi; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "UMi",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Ursae Minoris",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "북극성, 코카브, 북두칠성의 방향별",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, star:HIP72607, star:HIP54061; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "작은곰; 작은국자 무늬",
+        "source": "NSF NOIRLab — Ursa Minor — https://noirlab.edu/public/education/constellations/ursa-minor/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "연중(시간·지형 확인) — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP11767",
+      "star:HIP72607",
+      "star:HIP54061"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Cas",
+    "catalogRow": {
+      "id": "const:Cas",
+      "priority": "1",
+      "name_en": "Cassiopeia",
+      "name_ko": "카시오페이아자리",
+      "ra_deg": "354",
+      "dec_deg": "55.5",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Cas",
+      "type": "constellation (가을)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Cas",
+      "cas-myth"
+    ],
+    "sourceAccess": {
+      "noir-Cas": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "cas-myth": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Cas; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Cas",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Cassiopeiae",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "북극성, W자, 페르세우스 방향",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, const:Per, dso:NGC869; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "왕비; W 또는 M으로 보이는 주요 배열",
+        "source": "NSF NOIRLab — Cassiopeia — https://noirlab.edu/public/education/constellations/cassiopeia/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "가을 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP11767",
+      "const:Per",
+      "dso:NGC869"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Cyg",
+    "catalogRow": {
+      "id": "const:Cyg",
+      "priority": "1",
+      "name_en": "Cygnus",
+      "name_ko": "백조자리",
+      "ra_deg": "307.5",
+      "dec_deg": "50",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Cyg",
+      "type": "constellation (여름)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Cyg",
+      "double"
+    ],
+    "sourceAccess": {
+      "noir-Cyg": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "double": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Cyg; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Cyg",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Cygni",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "데네브, 북십자, 알비레오",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP102098, star:HIP91262, star:HIP95947; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "백조; 북십자 무늬",
+        "source": "NSF NOIRLab — Cygnus — https://noirlab.edu/public/education/constellations/cygnus/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "여름 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP102098",
+      "star:HIP91262",
+      "star:HIP95947"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Lyr",
+    "catalogRow": {
+      "id": "const:Lyr",
+      "priority": "1",
+      "name_en": "Lyra",
+      "name_ko": "거문고자리",
+      "ra_deg": "279",
+      "dec_deg": "30",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Lyr",
+      "type": "constellation (여름)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Lyr",
+      "chilseok",
+      "weaver-story"
+    ],
+    "sourceAccess": {
+      "noir-Lyr": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "chilseok": "검색 색인의 본문 발췌 확인",
+      "weaver-story": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Lyr; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Lyr",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Lyrae",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "베가, 주변의 작은 별 배열, M57",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP91262, dso:M57; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "현악기",
+        "source": "NSF NOIRLab — Lyra — https://noirlab.edu/public/education/constellations/lyra/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "여름 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP91262",
+      "dso:M57"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Aql",
+    "catalogRow": {
+      "id": "const:Aql",
+      "priority": "1",
+      "name_en": "Aquila",
+      "name_ko": "독수리자리",
+      "ra_deg": "291",
+      "dec_deg": "8",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Aql",
+      "type": "constellation (여름)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Aql",
+      "weaver-story",
+      "chilseok"
+    ],
+    "sourceAccess": {
+      "noir-Aql": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "weaver-story": "검색 색인의 본문 발췌 확인",
+      "chilseok": "검색 색인의 본문 발췌 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Aql; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Aql",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Aquilae",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "알타이르와 양옆의 별, 여름 대삼각형",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP97649, star:HIP91262, star:HIP102098; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "독수리",
+        "source": "NSF NOIRLab — Aquila — https://noirlab.edu/public/education/constellations/aquila/?lang=es"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "여름 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP97649",
+      "star:HIP91262",
+      "star:HIP102098"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Peg",
+    "catalogRow": {
+      "id": "const:Peg",
+      "priority": "2",
+      "name_en": "Pegasus",
+      "name_ko": "페가수스자리",
+      "ra_deg": "334.5",
+      "dec_deg": "16",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Peg",
+      "type": "constellation (가을)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Peg",
+      "noir-And",
+      "peg-myth"
+    ],
+    "sourceAccess": {
+      "noir-Peg": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "noir-And": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "peg-myth": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Peg; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Peg",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Pegasi",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "큰 사각형, 안드로메다자리의 알페라츠",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, star:HIP102098, dso:M15; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "날개 달린 말; 큰 사각형 길잡이",
+        "source": "NSF NOIRLab — Pegasus — https://noirlab.edu/public/education/constellations/pegasus/?lang=es"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "가을 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP677",
+      "star:HIP102098",
+      "dso:M15"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:And",
+    "catalogRow": {
+      "id": "const:And",
+      "priority": "2",
+      "name_en": "Andromeda",
+      "name_ko": "안드로메다자리",
+      "ra_deg": "0.75",
+      "dec_deg": "43",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "And",
+      "type": "constellation (가을)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-And",
+      "cas-myth"
+    ],
+    "sourceAccess": {
+      "noir-And": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "cas-myth": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:And; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "And",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Andromedae",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "알페라츠, 큰 사각형, 별도 대상 M31",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, const:Peg, dso:M31; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "그리스 전승의 안드로메다",
+        "source": "NSF NOIRLab — Andromeda — https://noirlab.edu/public/education/constellations/andromeda/?lang=es"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "가을 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP677",
+      "const:Peg",
+      "dso:M31"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Per",
+    "catalogRow": {
+      "id": "const:Per",
+      "priority": "2",
+      "name_en": "Perseus",
+      "name_ko": "페르세우스자리",
+      "ra_deg": "66",
+      "dec_deg": "45",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Per",
+      "type": "constellation (가을)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Per",
+      "cas-myth",
+      "algol"
+    ],
+    "sourceAccess": {
+      "noir-Per": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단",
+      "cas-myth": "본문 확인",
+      "algol": "본문 확인"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Per; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Per",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Persei",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "카시오페이아, 알골, 이중성단 두 구성 성단",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Cas, star:HIP14576, dso:NGC869, dso:NGC884; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "그리스 전승의 페르세우스",
+        "source": "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "가을 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "const:Cas",
+      "star:HIP14576",
+      "dso:NGC869",
+      "dso:NGC884"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  },
+  {
+    "id": "const:Aur",
+    "catalogRow": {
+      "id": "const:Aur",
+      "priority": "2",
+      "name_en": "Auriga",
+      "name_ko": "마차부자리",
+      "ra_deg": "82.5",
+      "dec_deg": "37",
+      "mag": "",
+      "dist_ly": "",
+      "spect": "",
+      "size_arcmin": "",
+      "con": "Aur",
+      "type": "constellation (겨울)"
+    },
+    "basis": {
+      "title": "attached-catalog",
+      "facts": "per-fact source",
+      "summary": "catalog + registered source core + authored interpretation",
+      "story": "registered source core + authored educational interpretation",
+      "howToFind": "named markers and catalog membership + editorial route",
+      "observing": "editorial proposal; not instrument-tested"
+    },
+    "externalSourceKeys": [
+      "noir-Aur"
+    ],
+    "sourceAccess": {
+      "noir-Aur": "검색 색인의 본문 발췌 확인; 직접 페이지는 봇 차단"
+    },
+    "factSources": [
+      {
+        "label": "종류",
+        "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+        "source": "첨부 catalog-values.v1.csv — const:Aur; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "IAU 약어",
+        "value": "Aur",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "라틴어 속격",
+        "value": "Aurigae",
+        "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+      },
+      {
+        "label": "찾기의 주요 기준",
+        "value": "카펠라, 주변 주요 배열, M37",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP24608, const:Tau, dso:M37; inputs/catalog-values.v1.csv"
+      },
+      {
+        "label": "대표 그림·무늬",
+        "value": "마차를 모는 사람",
+        "source": "NSF NOIRLab — Auriga — https://noirlab.edu/public/education/constellations/auriga/"
+      },
+      {
+        "label": "저녁 관측 계절",
+        "value": "겨울 — 편집 분류, 실시간 가시성 아님",
+        "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+      }
+    ],
+    "howToFindReferences": [
+      "star:HIP24608",
+      "const:Tau",
+      "dso:M37"
+    ],
+    "contentStatus": "draft-not-published",
+    "externalReviewExhaustive": false,
+    "catalogNumericPolicy": "mag/dist_ly/spect/size_arcmin 빈칸 유지. 대표 RA/Dec는 배경자료에만 보존."
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "id": "star:HIP26727",
+  "version": 1,
+  "title": {
+    "ko": "알니탁",
+    "en": "Alnitak"
+  },
+  "oneLiner": {
+    "ko": "오리온 허리띠 동쪽 끝, 성운 사진과 별빛의 차이를 배워요"
+  },
+  "summary": {
+    "ko": "알니탁은 오리온 허리띠를 이루는 세 밝은 별 가운데 천구의 동쪽 끝에 있습니다. 가운데 알닐람, 서쪽 끝 민타카와 이름이 비슷해 순서를 확인하는 것이 좋습니다. 첨부 목록에서는 매우 뜨거운 O형 계열로 분류되며, 맨눈으로는 밝은 한 점처럼 보입니다. 근처에는 유명한 성운 사진의 대상들이 있지만 별 자체를 찾는 것과 성운을 검출하는 것은 난이도가 크게 다릅니다. 도시의 작은 망원경에서 사진 속 붉은 구름이나 말머리 모양을 기대하지 마세요. 먼저 세 별의 위치를 분명하게 익히는 것이 출발점입니다."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "오리온자리 (Ori)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "736.3광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "1.74등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "O9.5Ib SB",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP26727",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "허리띠에서의 위치",
+      "value": "천구의 동쪽 끝",
+      "source": "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/"
+    }
+  ],
+  "story": {
+    "ko": "알니탁 주변 사진에는 밝은 별과 성운이 한 장면에 놓입니다. 그 모습만 보고 작은 망원경에도 같은 구름과 색이 보일 것이라 기대하기 쉽지만, 사진의 노출과 감도는 눈의 관측과 다릅니다. NASA가 소개한 허리띠 주변 영상은 이 차이를 배우는 좋은 자료입니다. 별과 성운이 화면에서 가까이 보인다는 이유만으로 그 거리나 빛의 원인까지 하나로 묶어서도 안 됩니다. 오늘은 허리띠 세 별을 천구의 동서 순서로 기록하고, 알니탁 주변에서 실제로 확인한 별만 표시해 보세요. 사진을 참고했다면 사진에서만 본 구조는 별도 칸에 적습니다. 같은 장면을 두 가지 방법으로 기록하면 관측하지 못한 세부를 기억으로 채우는 일을 줄일 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+      "NASA — A Flame in Orion’s Belt — https://science.nasa.gov/photojournal/a-flame-in-orions-belt/",
+      "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 오리온의 베텔게우스와 리겔 사이에서 나란한 허리띠 세 별을 찾습니다. 천구의 동쪽 끝이 알니탁이며 가운데는 알닐람입니다. 화면이 돌아가면 좌우도 바뀌므로 RA가 커지는 동쪽 방향이나 별 이름을 함께 확인하세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP26311",
+      "const:Ori"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 허리띠 세 별의 하나로 찾기 좋은 편입니다. 실제 보이는 색은 약할 수 있습니다.",
+    "binoculars": "10×50으로 허리띠 주변의 별 배열을 비교합니다. 밝은 알니탁의 눈부심이 약한 대상 탐색을 방해할 수 있습니다.",
+    "telescope": "90mm 20~80배에서는 별과 주변 별무리를 우선 관찰합니다. 불꽃·말머리 성운이나 가까운 구성별의 분리를 기본 성공 조건으로 삼지 않습니다.",
+    "bestMonths": [
+      12,
+      1,
+      2
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+    "NASA — A Flame in Orion’s Belt — https://science.nasa.gov/photojournal/a-flame-in-orions-belt/",
+    "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — star:HIP26727; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP26311, const:Ori; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "첨부 거리의 유효숫자는 원값 보존용입니다. 허리띠 별들의 거리 순서·정밀 수치 퀴즈는 원카탈로그 오차와 성분 확인 전 보류합니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "첨부 G2에는 삼장군(三將軍) 및 삼태성이라 부르는 오리온 허리띠 성군의 구성별로 기록됩니다. 성군 전체의 이름을 알니탁 하나의 고유 별칭으로 합치지 않으며 다른 전통의 삼태와도 구별합니다.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  }
+}

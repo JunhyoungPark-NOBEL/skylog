@@ -1,0 +1,97 @@
+{
+  "id": "dso:M5",
+  "version": 1,
+  "title": {
+    "ko": "M5",
+    "en": "Messier 5"
+  },
+  "oneLiner": {
+    "ko": "뱀자리 머리 부근에서 찾아보는 오래된 구상성단"
+  },
+  "summary": {
+    "ko": "M5는 뱀자리의 머리 부분 방향에 놓인 구상성단입니다. 오래된 별들이 모여 있으며 쌍안경에서는 작고 흐릿한 빛으로, 망원경에서는 중심이 밝은 둥근 얼룩으로 보일 수 있습니다. 처녀자리의 스피카에서 뱀자리 쪽으로 위치를 넓혀 가는 늦봄 관측 대상으로 삼을 만합니다. 바로 옆 별과 성단을 구분하려면 저배율에서 별 배열과 번진 빛을 함께 살펴야 합니다. 도시에서는 빛의 바깥 부분이 약해지므로 성단 전체의 별을 분해하는 것보다 중심과 주변의 대비를 기록하는 것이 현실적인 첫 목표입니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "구상성단",
+      "source": "NASA — Messier 5: Messier 5 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/"
+    },
+    {
+      "label": "별자리",
+      "value": "뱀자리 (Ser) — 첨부 코드 Se1의 명시적 표준명 대응",
+      "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv; https://iauarchive.eso.org/public/themes/constellations/"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "5.95등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "15′",
+      "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M5",
+      "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "28636광년",
+      "source": "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "M5는 메시에의 목록에 들어가기 전에도 유럽의 관측자에게 알려져 있던 성단입니다. 현대의 고해상도 영상에서는 흐릿한 빛이 많은 별의 모습으로 나뉩니다. 이 별들은 오래된 집단이지만 모두 같은 밝기와 색으로 보이지는 않습니다. 별의 질량과 진화 단계가 다르면 같은 성단 안에서도 서로 다른 관측 특성이 나타나기 때문입니다. 작은 망원경에서는 개별 별의 성질을 판정하기 전에 성단의 전체 빛과 중심을 알아보는 연습이 먼저입니다. M13이나 M3를 같은 배율로 관측한 기록이 있다면 중심이 얼마나 도드라졌는지 비교해 보세요. 각 대상의 실제 구조뿐 아니라 관측 당시 고도와 광해도 인상을 바꿀 수 있으므로, 단 한 번 본 모습만으로 별의 수나 나이를 판단하지 않는 편이 좋습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 5: Messier 5 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    ]
+  },
+  "howToFind": {
+    "ko": "늦봄과 초여름 저녁에 스피카를 찾고 그보다 천구의 동쪽에 있는 뱀자리 머리 구역을 지도에서 확인하세요. 뱀자리 5번 별 부근까지 별 배열을 따라 이동한 뒤 그 별의 천구상 북서쪽에 있는 작은 얼룩을 저배율로 찾습니다. 스피카에서 한 번에 크게 이동하지 말고 앱의 별지도로 중간 구역을 확인하세요.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP65474"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시 맨눈 관측의 목표로 삼지 않습니다. 늦봄 하늘의 기준 별과 뱀자리 구역을 먼저 익히세요.",
+    "binoculars": "10×50에서는 달빛이 적고 어두운 곳에서 작은 얼룩으로 시도합니다. 옆의 별과 성단의 번진 빛을 구별하는 데 집중하세요.",
+    "telescope": "90mm 20~80배에서 중심부와 퍼진 빛을 확인합니다. 주변 별과 성단을 혼동하지 말고 개별 구성별 분해를 기본 성공 조건으로 삼지 않습니다.",
+    "bestMonths": [
+      5,
+      6,
+      7
+    ],
+    "difficulty": 3
+  },
+  "funFacts": [
+    "뱀자리 머리와 꼬리는 떨어진 두 영역이지만 공식 별자리는 하나입니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M5; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 5: Messier 5 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/",
+    "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 con=Se1은 뱀자리 머리 영역의 원자료 표기이며 IAU 3글자 코드가 아닙니다. 콘텐츠는 뱀자리(Ser)로 설명하되 원본은 변경하지 않았습니다. 앱 참조 키의 Se1→Ser 정규화 승인이 필요합니다.",
+      "거리 28636광년과 등급 5.95는 원자료 값입니다. NASA 소개의 약 25000광년·6.7등급과 다르므로 측정 대역·목록 판본을 확인하고 숫자 비교 퀴즈에서 제외하세요.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

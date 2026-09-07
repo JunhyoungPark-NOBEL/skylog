@@ -1,0 +1,95 @@
+{
+  "id": "star:HIP49669",
+  "version": 1,
+  "title": {
+    "ko": "레굴루스",
+    "en": "Regulus"
+  },
+  "oneLiner": {
+    "ko": "사자자리 낫의 밑에서, 빠르게 도는 별의 다른 모습을 상상해요"
+  },
+  "summary": {
+    "ko": "레굴루스는 봄 하늘 사자자리의 밝은 별로, 낫이나 뒤집힌 물음표처럼 보이는 머리 무늬의 아래쪽을 찾는 기준입니다. 우리 눈에는 점으로 보이지만 정밀한 간섭계 관측에서는 빠른 회전으로 납작해진 모양이 연구되었습니다. 별을 하나의 빛나는 구로만 생각할 때 놓치기 쉬운 특징입니다. 그렇다고 소형 망원경에서 타원형 표면을 볼 수 있는 것은 아닙니다. 도시에서는 레굴루스부터 찾고 주변의 약한 별들이 어느 정도 이어지는지 확인하세요. 별자리 형태의 완성보다 기준점 식별이 먼저입니다."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "사자자리 (Leo)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "79.3광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "1.36등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "B7V",
+      "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP49669",
+      "source": "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "연구로 확인한 특징",
+      "value": "빠른 회전에 따른 납작한 모양이 간섭계로 연구됨",
+      "source": "CHARA Array — Regulus — https://chara.gsu.edu/photos-videos/image-gallery/regulus"
+    }
+  ],
+  "story": {
+    "ko": "회전하는 별의 모양을 알아내려면 단순히 배율을 크게 하는 것과 다른 기술이 필요합니다. CHARA 관측은 여러 망원경에서 받은 빛을 결합하는 간섭계로 레굴루스의 모양을 조사했습니다. 빠른 회전과 적도 쪽으로 부푼 모습은 별빛 한 점에도 구조에 관한 정보가 담겨 있음을 보여 줍니다. 입문자의 접안렌즈에서 별이 길쭉하게 보였다고 같은 현상을 발견한 것은 아닙니다. 초점, 대기, 광학계의 흔들림을 먼저 점검해야 합니다. 오늘은 레굴루스와 사자자리 낫 모양의 상대 위치를 스케치하고, 연구 영상에서 확인한 모양은 별도의 학습 메모로 남겨 보세요. 직접 본 기록과 장비가 다른 연구의 결과를 나누는 습관이 과장을 막아 줍니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "CHARA Array — Regulus — https://chara.gsu.edu/photos-videos/image-gallery/regulus",
+      "NASA — Celestial Wonders in Leo — https://science.nasa.gov/solar-system/skywatching/night-sky-network/celestial-wonders-in-leo/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁 남동쪽에서 남쪽으로 이어지는 하늘에서 사자자리의 낫 모양을 찾으세요. 낫의 손잡이 아래에 놓인 밝은 별이 레굴루스입니다. 먼저 쌍둥이자리와 게자리 방향을 확인한 뒤 천구의 동쪽으로 이어 가면 사자자리 구역을 좁힐 수 있습니다.",
+    "season": "spring",
+    "hopFrom": [
+      "const:Leo",
+      "const:Gem"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 밝은 길잡이로 찾기 좋은 편입니다. 낫의 약한 별들까지 모두 보이는지는 별도로 기록하세요.",
+    "binoculars": "10×50으로 낫의 일부를 나누어 확인합니다. 사자자리 전체가 한 시야에 들어간다고 가정하지 않습니다.",
+    "telescope": "90mm 20~80배에서 별은 점상 광원으로 보입니다. 회전으로 납작해진 실제 표면을 관측하는 장비가 아닙니다.",
+    "bestMonths": [
+      3,
+      4,
+      5
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "CHARA Array — Regulus — https://chara.gsu.edu/photos-videos/image-gallery/regulus",
+    "NASA — Celestial Wonders in Leo — https://science.nasa.gov/solar-system/skywatching/night-sky-network/celestial-wonders-in-leo/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: const:Leo, const:Gem; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

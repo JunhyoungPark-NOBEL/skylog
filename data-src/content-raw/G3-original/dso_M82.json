@@ -1,0 +1,93 @@
+{
+  "id": "dso:M82",
+  "version": 1,
+  "title": {
+    "ko": "시가은하",
+    "en": "Cigar Galaxy"
+  },
+  "oneLiner": {
+    "ko": "별이 활발히 만들어지는 은하의 가느다란 옆모습"
+  },
+  "summary": {
+    "ko": "M82는 큰곰자리 방향에서 M81 가까이에 보이는 은하로, 길쭉한 외형 때문에 시가은하라는 별명이 있습니다. 활발한 별 형성 활동을 보이며 이웃 은하와의 중력 상호작용이 연구됩니다. 사진에서 은하 밖으로 뻗는 붉은 가스 구조는 작은 망원경의 접안상과 다릅니다. 90mm에서는 가느다란 얼룩의 방향과 중심 부근의 밝기 차이를 우선 살펴보세요. 도시에서는 윤곽이 약해질 수 있고 M81보다 찾기가 어려울 수 있습니다. 두 은하의 모양을 같은 배율로 비교하면 은하 관측의 기초를 익히기 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "별 형성이 활발한 은하",
+      "source": "NASA — Messier 82: The Cigar Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/"
+    },
+    {
+      "label": "별자리",
+      "value": "큰곰자리 (UMa)",
+      "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "8.3등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "10.99′ × 5.11′",
+      "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M82",
+      "source": "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "현대 천문학에서 M82는 별이 활발하게 태어나는 은하를 연구하는 사례입니다. 여러 파장의 관측은 별빛뿐 아니라 가스와 먼지가 방출하는 빛도 구별해 보여 줍니다. 허블의 색 영상에 나타난 붉은 구조는 이런 관측 정보를 표현한 것이며 밤하늘에서 작은 망원경으로 붉은 연기를 보게 된다는 뜻은 아닙니다. 시가라는 이름도 외형에 대한 비유이지 실제 연소하는 물체를 가리키지 않습니다. 관측자는 먼저 가느다란 얼룩이 주변 별과 어떤 방향을 이루는지 기록할 수 있습니다. 이웃 M81의 비교적 넓은 중심과 번갈아 보면 사진의 화려함 없이도 두 은하의 관측 인상이 다르다는 점을 확인할 수 있습니다. 직접 본 윤곽과 연구로 알게 된 활동을 분리해 적어 보세요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 82: The Cigar Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/",
+      "NASA — Messier 81: Messier 81 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁에 북두칠성을 길잡이로 M81을 먼저 찾으세요. M81에서 천구의 북쪽으로 약 0.6° 옮긴 자리에서 길쭉하고 작은 얼룩을 찾습니다. 저배율 시야에 두 은하를 함께 넣을 수 있는지 확인하되 접안렌즈에서 북쪽이 화면 위라고 가정하지 마세요. 주변 별과 상대 위치로 다시 대조합니다.",
+    "season": "spring",
+    "hopFrom": [
+      "dso:M81",
+      "const:UMa"
+    ]
+  },
+  "observing": {
+    "nakedEye": "맨눈 검출을 기대하지 않습니다. 북두칠성과 두 은하가 놓인 구역을 먼저 익히세요.",
+    "binoculars": "10×50에서는 어두운 하늘에서 M81과 같은 시야의 작은 얼룩으로 시도합니다. 도시에서는 보이지 않을 수 있으며 색은 목표가 아닙니다.",
+    "telescope": "90mm 20~60배에서 가느다란 빛의 방향을 살핍니다. 좋은 조건에서는 중심부의 불균일한 밝기를 시도할 수 있지만 붉은 가스 분출 구조의 검출은 요구하지 않습니다.",
+    "bestMonths": [
+      3,
+      4,
+      5
+    ],
+    "difficulty": 4
+  },
+  "funFacts": [
+    "시가라는 별명은 길쭉한 외형의 비유이며 실제 연기를 뜻하지 않습니다.",
+    "여러 파장으로 만든 천문 영상의 색이 육안 색과 같을 필요는 없습니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M82; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 82: The Cigar Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/",
+    "NASA — Messier 81: Messier 81 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+      "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+    ]
+  }
+}

@@ -1,0 +1,659 @@
+{
+  "quizCount": 36,
+  "distinctTargetCount": 15,
+  "acceptanceRadiusDeg": 3,
+  "providedStarRows": 31,
+  "minimumAnswerPairDistanceDeg": 16.577982,
+  "pairs": [
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP11767",
+      "separationDeg": 44.693461
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP24436",
+      "separationDeg": 122.193618
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP27989",
+      "separationDeg": 115.497248
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP32349",
+      "separationDeg": 142.502841
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP37279",
+      "separationDeg": 127.619552
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP37826",
+      "separationDeg": 105.588439
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP49669",
+      "separationDeg": 119.47696
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP65474",
+      "separationDeg": 111.282951
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP67301",
+      "separationDeg": 64.409707
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP677",
+      "separationDeg": 43.429062
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP69673",
+      "separationDeg": 80.856735
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP72607",
+      "separationDeg": 46.264243
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP91262",
+      "separationDeg": 23.84738
+    },
+    {
+      "a": "star:HIP102098",
+      "b": "star:HIP9884",
+      "separationDeg": 67.726226
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP24436",
+      "separationDeg": 97.643355
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP27989",
+      "separationDeg": 82.128678
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP32349",
+      "separationDeg": 106.384816
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP37279",
+      "separationDeg": 84.608374
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP37826",
+      "separationDeg": 61.828034
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP49669",
+      "separationDeg": 78.33465
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP65474",
+      "separationDeg": 101.866285
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP67301",
+      "separationDeg": 41.409149
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP677",
+      "separationDeg": 60.314
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP69673",
+      "separationDeg": 71.551668
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP72607",
+      "separationDeg": 16.577982
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP91262",
+      "separationDeg": 51.572732
+    },
+    {
+      "a": "star:HIP11767",
+      "b": "star:HIP9884",
+      "separationDeg": 65.805953
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP27989",
+      "separationDeg": 18.605958
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP32349",
+      "separationDeg": 23.67325
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP37279",
+      "separationDeg": 38.511076
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP37826",
+      "separationDeg": 51.368157
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP49669",
+      "separationDeg": 75.75357
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP65474",
+      "separationDeg": 119.766739
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP67301",
+      "separationDeg": 120.507811
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP677",
+      "separationDeg": 82.41481
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP69673",
+      "separationDeg": 135.326375
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP72607",
+      "separationDeg": 110.853423
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP91262",
+      "separationDeg": 144.249413
+    },
+    {
+      "a": "star:HIP24436",
+      "b": "star:HIP9884",
+      "separationDeg": 55.649557
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP32349",
+      "separationDeg": 27.104557
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP37279",
+      "separationDeg": 25.962034
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP37826",
+      "separationDeg": 33.198429
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP49669",
+      "separationDeg": 62.443926
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP65474",
+      "separationDeg": 113.412655
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP67301",
+      "separationDeg": 101.927195
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP677",
+      "separationDeg": 83.533598
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP69673",
+      "separationDeg": 119.767997
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP72607",
+      "separationDeg": 93.650056
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP91262",
+      "separationDeg": 132.801349
+    },
+    {
+      "a": "star:HIP27989",
+      "b": "star:HIP9884",
+      "separationDeg": 56.854062
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP37279",
+      "separationDeg": 25.701336
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP37826",
+      "separationDeg": 47.053746
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP49669",
+      "separationDeg": 57.828766
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP65474",
+      "separationDeg": 96.18076
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP67301",
+      "separationDeg": 112.705338
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP677",
+      "separationDeg": 105.873371
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP69673",
+      "separationDeg": 116.266063
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP72607",
+      "separationDeg": 114.387077
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP91262",
+      "separationDeg": 157.859489
+    },
+    {
+      "a": "star:HIP32349",
+      "b": "star:HIP9884",
+      "separationDeg": 78.857739
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP37826",
+      "separationDeg": 22.845922
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP49669",
+      "separationDeg": 37.423135
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP65474",
+      "separationDeg": 87.565298
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP67301",
+      "separationDeg": 87.379512
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP677",
+      "separationDeg": 106.9747
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP69673",
+      "separationDeg": 96.815387
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP72607",
+      "separationDeg": 89.755928
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP91262",
+      "separationDeg": 133.683299
+    },
+    {
+      "a": "star:HIP37279",
+      "b": "star:HIP9884",
+      "separationDeg": 81.542382
+    },
+    {
+      "a": "star:HIP37826",
+      "b": "star:HIP49669",
+      "separationDeg": 37.047074
+    },
+    {
+      "a": "star:HIP37826",
+      "b": "star:HIP65474",
+      "separationDeg": 90.859997
+    },
+    {
+      "a": "star:HIP37826",
+      "b": "star:HIP67301",
+      "separationDeg": 69.469026
+    },
+    {
+      "a": "star:HIP37826",
+      "b": "star:HIP677",
+      "separationDeg": 95.057426
+    },
+    {
+      "a": "star:HIP37826",
+      "b": "star:HIP69673",
+      "separationDeg": 87.459654
+    },
+    {
+      "a": "star:HIP37826",
+      "b": "star:HIP72607",
+      "separationDeg": 67.406661
+    },
+    {
+      "a": "star:HIP37826",
+      "b": "star:HIP91262",
+      "separationDeg": 111.30813
+    },
+    {
+      "a": "star:HIP37826",
+      "b": "star:HIP9884",
+      "separationDeg": 74.68137
+    },
+    {
+      "a": "star:HIP49669",
+      "b": "star:HIP65474",
+      "separationDeg": 54.060906
+    },
+    {
+      "a": "star:HIP49669",
+      "b": "star:HIP67301",
+      "separationDeg": 58.336889
+    },
+    {
+      "a": "star:HIP49669",
+      "b": "star:HIP677",
+      "separationDeg": 129.753834
+    },
+    {
+      "a": "star:HIP49669",
+      "b": "star:HIP69673",
+      "separationDeg": 59.706803
+    },
+    {
+      "a": "star:HIP49669",
+      "b": "star:HIP72607",
+      "separationDeg": 73.245949
+    },
+    {
+      "a": "star:HIP49669",
+      "b": "star:HIP91262",
+      "separationDeg": 109.302243
+    },
+    {
+      "a": "star:HIP49669",
+      "b": "star:HIP9884",
+      "separationDeg": 111.727584
+    },
+    {
+      "a": "star:HIP65474",
+      "b": "star:HIP67301",
+      "separationDeg": 60.674465
+    },
+    {
+      "a": "star:HIP65474",
+      "b": "star:HIP677",
+      "separationDeg": 154.654619
+    },
+    {
+      "a": "star:HIP65474",
+      "b": "star:HIP69673",
+      "separationDeg": 32.792908
+    },
+    {
+      "a": "star:HIP65474",
+      "b": "star:HIP72607",
+      "separationDeg": 86.375626
+    },
+    {
+      "a": "star:HIP65474",
+      "b": "star:HIP91262",
+      "separationDeg": 87.788634
+    },
+    {
+      "a": "star:HIP65474",
+      "b": "star:HIP9884",
+      "separationDeg": 164.151142
+    },
+    {
+      "a": "star:HIP67301",
+      "b": "star:HIP677",
+      "separationDeg": 98.541462
+    },
+    {
+      "a": "star:HIP67301",
+      "b": "star:HIP69673",
+      "separationDeg": 30.655101
+    },
+    {
+      "a": "star:HIP67301",
+      "b": "star:HIP72607",
+      "separationDeg": 25.743112
+    },
+    {
+      "a": "star:HIP67301",
+      "b": "star:HIP91262",
+      "separationDeg": 51.018857
+    },
+    {
+      "a": "star:HIP67301",
+      "b": "star:HIP9884",
+      "separationDeg": 107.092822
+    },
+    {
+      "a": "star:HIP677",
+      "b": "star:HIP69673",
+      "separationDeg": 122.789514
+    },
+    {
+      "a": "star:HIP677",
+      "b": "star:HIP72607",
+      "separationDeg": 73.350816
+    },
+    {
+      "a": "star:HIP677",
+      "b": "star:HIP91262",
+      "separationDeg": 67.096476
+    },
+    {
+      "a": "star:HIP677",
+      "b": "star:HIP9884",
+      "separationDeg": 27.139499
+    },
+    {
+      "a": "star:HIP69673",
+      "b": "star:HIP72607",
+      "separationDeg": 55.183352
+    },
+    {
+      "a": "star:HIP69673",
+      "b": "star:HIP91262",
+      "separationDeg": 59.120148
+    },
+    {
+      "a": "star:HIP69673",
+      "b": "star:HIP9884",
+      "separationDeg": 137.30494
+    },
+    {
+      "a": "star:HIP72607",
+      "b": "star:HIP91262",
+      "separationDeg": 43.956094
+    },
+    {
+      "a": "star:HIP72607",
+      "b": "star:HIP9884",
+      "separationDeg": 82.121593
+    },
+    {
+      "a": "star:HIP91262",
+      "b": "star:HIP9884",
+      "separationDeg": 91.42847
+    }
+  ],
+  "nearestProvidedNeighbors": [
+    {
+      "objectId": "star:HIP102098",
+      "nearestInProvided31": "star:HIP95947",
+      "separationDeg": 22.285464,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP11767",
+      "nearestInProvided31": "star:HIP72607",
+      "separationDeg": 16.577982,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP24436",
+      "nearestInProvided31": "star:HIP26311",
+      "separationDeg": 8.838908,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP27989",
+      "nearestInProvided31": "star:HIP25336",
+      "separationDeg": 7.530531,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP32349",
+      "nearestInProvided31": "star:HIP26727",
+      "separationDeg": 21.656837,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP37279",
+      "nearestInProvided31": "star:HIP37826",
+      "separationDeg": 22.845922,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP37826",
+      "nearestInProvided31": "star:HIP36850",
+      "separationDeg": 4.505705,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP49669",
+      "nearestInProvided31": "star:HIP37826",
+      "separationDeg": 37.047074,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP65474",
+      "nearestInProvided31": "star:HIP69673",
+      "separationDeg": 32.792908,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP67301",
+      "nearestInProvided31": "star:HIP65378",
+      "separationDeg": 6.675926,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP677",
+      "nearestInProvided31": "star:HIP9884",
+      "separationDeg": 27.139499,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP69673",
+      "nearestInProvided31": "star:HIP67301",
+      "separationDeg": 30.655101,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP72607",
+      "nearestInProvided31": "star:HIP11767",
+      "separationDeg": 16.577982,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP91262",
+      "nearestInProvided31": "star:HIP95947",
+      "separationDeg": 15.562918,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    },
+    {
+      "objectId": "star:HIP9884",
+      "nearestInProvided31": "star:HIP14576",
+      "separationDeg": 21.664501,
+      "fullSkyIsolationVerified": false,
+      "verifiedVmag": null
+    }
+  ],
+  "scope": "첨부31별 내부의 기하학만 검사. 전천·현재 표시 장면·측광 대역을 검증한 것이 아님.",
+  "fullCatalogStaticScreen": "not-completed",
+  "allSkyIsolationVerified": false,
+  "runtimeEnabledByDefault": false,
+  "retrievalNotes": "ESA/HEASARC/CDS의 Hipparcos Vmag와 좌표 정의는 확인했으나 전체 수치 파일은 확보하지 못함. 네트워크·다운로드 제약을 통과로 취급하지 않음.",
+  "requiredRuntimePolicy": {
+    "verifiedCandidateMaxV": 4,
+    "minAltitudeDeg": 25,
+    "sunMaxAltitudeDeg": -12,
+    "radiusDeg": 3,
+    "otherVisibleObjectClearanceDeg": 3.25,
+    "alternativeAnswerCenterSeparationDeg": 6,
+    "requireCompleteRenderedSnapshot": true,
+    "requireDynamicMoonPlanetScreen": true,
+    "unknownStatus": "disable-question",
+    "faintStars": "보이거나 선택 가능한 다른 객체를 임의로 무시하지 않음. 정규화한 미분리 성분은 같은 시스템 ID로 통합.",
+    "practice": "명시된 지도 연습은 가능하지만 관측 기록과 배지는 발생시키지 않음."
+  }
+}

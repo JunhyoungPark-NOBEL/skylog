@@ -1,0 +1,95 @@
+{
+  "id": "const:Aur",
+  "version": 1,
+  "title": {
+    "ko": "마차부자리",
+    "en": "Auriga"
+  },
+  "oneLiner": {
+    "ko": "카펠라의 밝은 점에서 겨울 마차부자리와 성단 탐색을 시작해요"
+  },
+  "summary": {
+    "ko": "마차부자리는 겨울 높은 하늘의 카펠라를 출발점으로 찾는 별자리입니다. 밝은 기준에서 주변의 넓은 다각형 배열을 확인한 뒤 성단이 있는 구역으로 탐색을 넓힐 수 있습니다. 별자리 그림에서 연결하는 무늬와 공식 경계는 같은 개념이 아니므로 주변 별의 소속도 따로 확인해야 합니다. M37은 이 영역에서 장비로 찾아볼 별도 산개성단입니다. 도시에서는 카펠라는 잘 보여도 약한 별이나 성단은 훨씬 어려울 수 있습니다. 높은 하늘을 볼 때에는 목을 무리하게 젖히기보다 편한 자세와 안정된 장비를 사용해 큰 배치부터 익혀 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Aur; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Aur",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Aurigae",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "카펠라, 주변 주요 배열, M37",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP24608, const:Tau, dso:M37; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "마차를 모는 사람",
+      "source": "NSF NOIRLab — Auriga — https://noirlab.edu/public/education/constellations/auriga/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "겨울 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "겨울의 카펠라는 밝은 기준 하나에서 넓은 관측 영역으로 넘어가게 해 줍니다. NOIRLab은 마차부자리의 이 밝은 별을 겨울 길잡이와 연결해 소개합니다. 관측자는 먼저 카펠라를 확정하고 주변의 주요 점을 확인한 뒤 M37 같은 성단으로 목표를 좁힐 수 있습니다. 카펠라를 쉽게 찾았더라도 같은 구역의 약한 성단까지 쉽게 드러나는 것은 아닙니다. 밝은 점을 중심에 넣는 관측과 퍼진 별무리를 확인하는 관측은 서로 다른 집중을 요구합니다. 오늘은 어떤 점을 기준으로 출발했는지와 성단의 별무리를 실제로 검출했는지를 나누어 남겨 보세요. 하나의 별자리 안에서도 밝은 맨눈 대상과 약한 망원경 대상의 관측 조건이 달라진다는 사실을 기록으로 이해할 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Auriga — https://noirlab.edu/public/education/constellations/auriga/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 황소자리와 페르세우스자리 위쪽 하늘에서 밝은 카펠라를 찾습니다. 지도에서 주변의 주요 배열을 맞춘 뒤 마차부자리 영역을 확인하세요. M37로 이동할 때는 성단의 좌표와 주변 별을 별도 선택해 경로를 좁힙니다.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP24608",
+      "const:Tau",
+      "dso:M37"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 카펠라와 주요 배열부터 찾습니다. 약한 점이 빠져도 지도 그림으로 관측 사실을 대신하지 마세요.",
+    "binoculars": "10×50으로 배열을 나누어 살피고 성단 구역을 별도 탐색합니다. 손떨림을 줄이면 약한 무리 확인에 도움이 됩니다.",
+    "telescope": "90mm 20~80배로 M37의 별무리를 관찰할 수 있으나 도시에서는 배경이 밝아 약한 별이 줄어듭니다. 별자리 전체를 한 시야에 넣으려 하지 않습니다.",
+    "bestMonths": [
+      12,
+      1,
+      2
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Aur; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Auriga — https://noirlab.edu/public/education/constellations/auriga/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Aur; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Aur; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP24608, const:Tau, dso:M37; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP24608, const:Tau, dso:M37; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "기존 카펠라 콘텐츠의 분광형 충돌·게시 보류 상태를 변경하지 않았습니다. 이 항목은 위치 길잡이로만 사용하며 미확정 분광형을 사실값으로 재사용하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

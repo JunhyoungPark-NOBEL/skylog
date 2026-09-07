@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "createdAt": "2026-09-07",
+  "purpose": "G3 및 G5 작성 데이터 통합 / Claude T6·T7 전달",
+  "dataAuthoringComplete": true,
+  "appReleaseReady": false,
+  "canonicalImportFiles": {
+    "G3": "G3/G3-content-cumulative-121.json",
+    "G5-paths": "G5/G5-learn-paths.json",
+    "G5-missions": "G5/G5-learn-missions.json",
+    "G5-badges": "G5/G5-learn-badges.json",
+    "G5-quiz": "G5/G5-learn-quiz.json"
+  },
+  "counts": {
+    "G3": 121,
+    "paths": 6,
+    "missions": 30,
+    "badges": 18,
+    "quiz": 180,
+    "skyPick": 36,
+    "distinctSkyPickTargets": 15
+  },
+  "g3ContentSha256": "f2af5e1e9aada31365a274f68f892f54871e15bd968b2ee01ee40af0edce5844",
+  "g3SourceUnmodified": true,
+  "G5Source": "첨부 G3 누적121개 + 제공된 G5 초안100문항 + G2 별자리 표 + 원본 요청서",
+  "notIncluded": [
+    "실제 앱 코드",
+    "G4 코드 리뷰 결과",
+    "정식 게시 content/v1/index.json",
+    "완료된 전천 하늘 선택 검증"
+  ],
+  "archivePolicy": "archive의 기존 G5 준비팩은 비교/재생성용이며 앱 import 금지. G3 하위의 과거 배치와 누적 파일을 중복 병합하지 않음."
+}

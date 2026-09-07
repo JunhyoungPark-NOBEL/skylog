@@ -1,0 +1,21 @@
+{
+  "scope": "시작/목표 좌표 각거리; 실제 장비 시야 및 중간 별 검증 아님",
+  "routes": [
+    {
+      "from": "star:HIP21421",
+      "to": "dso:M45",
+      "authoredApproxDeg": 14,
+      "vectorSeparationDeg": 13.652222793878499,
+      "independentCosineLawDeg": 13.652222793878478,
+      "differenceDeg": 2.1316282072803006e-14
+    },
+    {
+      "from": "star:HIP69673",
+      "to": "dso:M3",
+      "authoredApproxDeg": 12,
+      "vectorSeparationDeg": 11.955913948864215,
+      "independentCosineLawDeg": 11.955913948864234,
+      "differenceDeg": 1.9539925233402755e-14
+    }
+  ]
+}

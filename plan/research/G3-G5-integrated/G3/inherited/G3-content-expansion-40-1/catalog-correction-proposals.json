@@ -1,0 +1,17 @@
+{
+  "policy": "원문 자동 수정 없음; 과학적 검토와 구성별 귀속 확인 전 게시 승인 없음",
+  "proposals": [
+    {
+      "id": "star:HIP54061",
+      "field": "spect",
+      "originalValue": "F7V comp",
+      "proposedValue": null,
+      "action": "review-component-attribution",
+      "reason": "대학 관측소의 밝은 황색 거성 설명과 첨부 F7V comp의 대상 성분이 다를 수 있음. 단순 오타나 단일 주성의 분광형으로 확정하지 않음.",
+      "sources": [
+        "University of California Observatories — Astronomers detect starquakes — https://www.ucolick.org/news/1999/99-07-27.html",
+        "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+      ]
+    }
+  ]
+}

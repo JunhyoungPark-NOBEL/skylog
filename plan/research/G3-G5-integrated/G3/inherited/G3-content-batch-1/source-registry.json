@@ -1,0 +1,268 @@
+{
+  "sun": {
+    "title": "NASA — Sun Facts",
+    "url": "https://science.nasa.gov/sun/facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "safety": {
+    "title": "NASA — Eclipse Viewing Safety",
+    "url": "https://science.nasa.gov/eclipses/safety/",
+    "accessedAt": "2026-09-07"
+  },
+  "moon": {
+    "title": "NASA — Moon Facts",
+    "url": "https://science.nasa.gov/moon/facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "moonview": {
+    "title": "NASA — Moon Viewing Tips",
+    "url": "https://science.nasa.gov/moon/viewing-tips/",
+    "accessedAt": "2026-09-07"
+  },
+  "moonphase": {
+    "title": "NASA — Moon Phases",
+    "url": "https://science.nasa.gov/moon/moon-phases/",
+    "accessedAt": "2026-09-07"
+  },
+  "au": {
+    "title": "NASA/JPL — Astrodynamic Parameters",
+    "url": "https://ssd.jpl.nasa.gov/astro_par.html",
+    "accessedAt": "2026-09-07"
+  },
+  "mercury": {
+    "title": "NASA — Mercury Facts",
+    "url": "https://science.nasa.gov/mercury/facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "venus": {
+    "title": "NASA — Venus Facts",
+    "url": "https://science.nasa.gov/venus/venus-facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "venuskorean": {
+    "title": "한국천문연구원 — 금성과 목성의 접근; 샛별·개밥바라기 명칭",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4300",
+    "accessedAt": "2026-09-07",
+    "accessNote": "역사적 사진 설명에서 샛별·개밥바라기 명칭만 인용함. 2012년 행성 위치·등급은 현재값으로 사용하지 않음."
+  },
+  "mars": {
+    "title": "NASA — Mars Facts",
+    "url": "https://science.nasa.gov/mars/facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "jupiter": {
+    "title": "NASA — Jupiter Facts",
+    "url": "https://science.nasa.gov/jupiter/jupiter-facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "saturn": {
+    "title": "NASA — Saturn Facts",
+    "url": "https://science.nasa.gov/saturn/facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "uranus": {
+    "title": "NASA — Uranus Facts",
+    "url": "https://science.nasa.gov/uranus/facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "neptune": {
+    "title": "NASA — Neptune Facts",
+    "url": "https://science.nasa.gov/neptune/neptune-facts/",
+    "accessedAt": "2026-09-07"
+  },
+  "inner": {
+    "title": "Astronomical League — Solar System Observing Program: Inner Solar System",
+    "url": "https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+    "accessedAt": "2026-09-07"
+  },
+  "outer": {
+    "title": "Astronomical League — Solar System Observing Program: Outer Solar System",
+    "url": "https://www.astroleague.org/solar-system-observing-program-outer-solar-system/",
+    "accessedAt": "2026-09-07"
+  },
+  "jupview": {
+    "title": "NASA — Spot the King of Planets: Observe Jupiter",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/",
+    "accessedAt": "2026-09-07"
+  },
+  "sky": {
+    "title": "NASA — Skywatching Tips",
+    "url": "https://science.nasa.gov/skywatching/",
+    "accessedAt": "2026-09-07"
+  },
+  "sunbird": {
+    "title": "국립민속박물관 — 삼족오",
+    "url": "https://folkency.nfm.go.kr/topic/detail/5550",
+    "accessedAt": "2026-09-07",
+    "accessNote": "기관 페이지의 검색 결과 설명문에서 제한된 사실을 확인함. 동적 본문 전체를 읽었다고 보증하지 않음. 관련 전승의 세부 내용은 추가하지 않음."
+  },
+  "moonrabbit": {
+    "title": "국립민속박물관 — 토끼무늬",
+    "url": "https://folkency.nfm.go.kr/topic/detail/9790",
+    "accessedAt": "2026-09-07",
+    "accessNote": "기관 페이지의 검색 결과 설명문에서 제한된 사실을 확인함. 동적 본문 전체를 읽었다고 보증하지 않음. 관련 전승의 세부 내용은 추가하지 않음."
+  },
+  "murals": {
+    "title": "국립문화유산연구원 — 고구려 고분벽화 문양",
+    "url": "https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2",
+    "accessedAt": "2026-09-07",
+    "accessNote": "기관의 문양 목록 설명만 사용함. 이미지·도판 파일을 패키지에 복제하지 않음."
+  },
+  "sirius": {
+    "title": "NASA/ESA Hubble — The Dog Star, Sirius, and its Tiny Companion",
+    "url": "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+    "accessedAt": "2026-09-07"
+  },
+  "siriusmeasure": {
+    "title": "NASA — Measuring a White Dwarf Star",
+    "url": "https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+    "accessedAt": "2026-09-07"
+  },
+  "siriuskasi": {
+    "title": "한국천문연구원 — 가장 밝은 별, 시리우스",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+    "accessedAt": "2026-09-07"
+  },
+  "siriusculture": {
+    "title": "사이언스타임즈 — 시리우스, 겨울 밤하늘과 위대한 발견",
+    "url": "https://www.sciencetimes.co.kr/?p=249691",
+    "accessedAt": "2026-09-07"
+  },
+  "startypes": {
+    "title": "NASA — Star Types",
+    "url": "https://science.nasa.gov/universe/stars/types/",
+    "accessedAt": "2026-09-07"
+  },
+  "arcturusfind": {
+    "title": "NASA/JPL — What’s Up: September 2021",
+    "url": "https://science.nasa.gov/resource/whats-up-september-2021/",
+    "accessedAt": "2026-09-07"
+  },
+  "vegadisk": {
+    "title": "NASA — Hubble, Webb Probe Surprisingly Smooth Disk Around Vega",
+    "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+    "accessedAt": "2026-09-07"
+  },
+  "vegakasi": {
+    "title": "한국천문연구원 — 직녀성(Vega)",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4351",
+    "accessedAt": "2026-09-07"
+  },
+  "summer": {
+    "title": "한국천문연구원 — 여름철 대삼각형",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+    "accessedAt": "2026-09-07"
+  },
+  "chilseok": {
+    "title": "한국학중앙연구원 — 견우직녀 설화",
+    "url": "https://encykorea.aks.ac.kr/Article/E0002170",
+    "accessedAt": "2026-09-07"
+  },
+  "capella": {
+    "title": "Torres 외(2015) — Capella revisited: new binary orbit, physical properties, and evolutionary state",
+    "url": "https://arxiv.org/html/1505.07461v1",
+    "accessedAt": "2026-09-07"
+  },
+  "rigel": {
+    "title": "NASA/APOD — Rigel Wide, 2023-04-07",
+    "url": "https://apod.nasa.gov/apod/ap230407.html",
+    "accessedAt": "2026-09-07"
+  },
+  "orion": {
+    "title": "NASA — Discovering the Universe Through the Constellation Orion",
+    "url": "https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "accessedAt": "2026-09-07"
+  },
+  "rigelcassini": {
+    "title": "NASA/Cassini — Help from Orion",
+    "url": "https://science.nasa.gov/resource/help-from-orion/",
+    "accessedAt": "2026-09-07"
+  },
+  "betelgeuse": {
+    "title": "NASA — What is Betelgeuse? Inside the Strange, Volatile Star",
+    "url": "https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/",
+    "accessedAt": "2026-09-07"
+  },
+  "beteldimming": {
+    "title": "NASA — Hubble Finds that Betelgeuse’s Mysterious Dimming Is Due to a Traumatic Outburst",
+    "url": "https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+    "accessedAt": "2026-09-07"
+  },
+  "altair": {
+    "title": "CHARA Array — Altair: gravity-darkened stellar surface",
+    "url": "https://chara.gsu.edu/photos-videos/image-gallery/altair",
+    "accessedAt": "2026-09-07"
+  },
+  "altairpaper": {
+    "title": "Monnier 외(2007) — Imaging the Surface of Altair",
+    "url": "https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+    "accessedAt": "2026-09-07"
+  },
+  "aldefind": {
+    "title": "NASA/JPL — What’s Up: March 2022",
+    "url": "https://www.jpl.nasa.gov/videos/whats-up-march-2022/",
+    "accessedAt": "2026-09-07"
+  },
+  "hyades": {
+    "title": "NASA — Spot the Young Stars of the Hyades and Pleiades",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+    "accessedAt": "2026-09-07"
+  },
+  "orionspring": {
+    "title": "NASA/APOD — Orion Spring, 2015-03-26",
+    "url": "https://apod.nasa.gov/apod/ap150326.html",
+    "accessedAt": "2026-09-07"
+  },
+  "antares": {
+    "title": "ESO — Best Ever Image of a Star’s Surface and Atmosphere, 2017-08-23",
+    "url": "https://www.eso.org/public/news/eso1726/",
+    "accessedAt": "2026-09-07"
+  },
+  "antaresradio": {
+    "title": "ALMA — Supergiant Atmosphere of Antares Revealed by Radio Telescopes",
+    "url": "https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/",
+    "accessedAt": "2026-09-07"
+  },
+  "denebfind": {
+    "title": "NASA — Summer Triangle Corner: Deneb, 2026-08-15",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+    "accessedAt": "2026-09-07"
+  },
+  "denebdist": {
+    "title": "Meilland 외(2010) — Resolving the dusty circumstellar environment of HD 62623; Deneb 거리 가정 비교",
+    "url": "https://arxiv.org/html/0912.1954v1",
+    "accessedAt": "2026-09-07",
+    "accessNote": "데네브 자체의 전용 측정 논문은 아니며, 본문에서 비교하는 데네브 거리 가정의 차이만 근거로 사용함."
+  },
+  "trianglestars": {
+    "title": "NASA/APOD — Stars of a Summer Triangle, 2015-06-27",
+    "url": "https://apod.nasa.gov/apod/ap150627.html",
+    "accessedAt": "2026-09-07"
+  },
+  "polarisfind": {
+    "title": "NASA — What is the North Star and How Do You Find It?",
+    "url": "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+    "accessedAt": "2026-09-07"
+  },
+  "polaris": {
+    "title": "Harvard & Smithsonian CfA — Polaris, the North Star",
+    "url": "https://www.cfa.harvard.edu/news/polaris-north-star",
+    "accessedAt": "2026-09-07"
+  },
+  "polarisb": {
+    "title": "NASA/ESA Hubble — Hubble Images Polaris’s Companion",
+    "url": "https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+    "accessedAt": "2026-09-07"
+  },
+  "polariskasi": {
+    "title": "한국천문연구원 — 별자리의 종류와 유래",
+    "url": "https://www.kasi.re.kr/kor/publication/post/videoGallery/10440",
+    "accessedAt": "2026-09-07"
+  },
+  "polarisroute": {
+    "title": "한국천문연구원 — 북두칠성; 북극성 찾기의 약 5배 연장",
+    "url": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+    "accessedAt": "2026-09-07",
+    "accessNote": "북극성을 찾는 약 5배 연장 안내만 사용함. 다른 항성의 수치·역사 일화는 이 콘텐츠에 가져오지 않음."
+  }
+}

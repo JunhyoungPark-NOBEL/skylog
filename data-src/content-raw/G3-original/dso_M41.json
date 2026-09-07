@@ -1,0 +1,96 @@
+{
+  "id": "dso:M41",
+  "version": 1,
+  "title": {
+    "ko": "M41",
+    "en": "M41"
+  },
+  "oneLiner": {
+    "ko": "시리우스에서 남쪽으로 짧게 이동해 찾는 겨울 산개성단"
+  },
+  "summary": {
+    "ko": "M41은 큰개자리에서 시리우스 남쪽에 있는 산개성단입니다. 밝은 기준별을 출발점으로 삼을 수 있어 별 사이를 이동하는 스타 호핑 연습에 적합합니다. 다만 시리우스가 보인다고 성단도 반드시 드러나는 것은 아닙니다. 남쪽의 낮은 광해나 건물이 영향을 줄 수 있습니다. 10×50으로 밝은 별무리를 찾고 90mm에서는 구성별의 배열을 살펴보세요. 성단에 적색거성이 있다는 과학적 설명과 실제 눈으로 색을 구별했다는 기록은 나누어야 합니다. 처음에는 별무리의 존재와 위치 확인을 목표로 삼는 편이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행; NSF NOIRLab — M41 — https://noirlab.edu/public/images/noao-m41/"
+    },
+    {
+      "label": "별자리",
+      "value": "큰개자리 (CMa)",
+      "source": "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "4.5등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "12′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "2,398광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M41",
+      "source": "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "시리우스는 혼자서도 강하게 눈에 띄지만 그 남쪽의 M41은 여러 별의 빛이 모여 성단의 모습을 만듭니다. 한 밝은 점에서 작은 별무리로 옮겨 가는 경로는 밤하늘을 단계적으로 탐색하는 방법을 보여 줍니다. NOIRLab은 M41에 여러 적색거성이 포함되어 있다고 소개합니다. 그렇다고 관측자가 반드시 붉은 점을 쉽게 식별할 수 있는 것은 아닙니다. 색의 인상은 밝기와 하늘 상태, 개인의 시각에도 영향을 받기 때문입니다. 먼저 시리우스의 위치를 확정하고 남쪽으로 이동해 성단의 별들을 지도와 대조해 보세요. 그 다음에 실제로 색 차이가 느껴졌는지 별도로 기록합니다. 알고 있는 과학적 사실을 관측한 것처럼 적지 않는 습관을 익히면 익숙한 길잡이별 옆에서도 새로운 관측 목표를 신중하게 확장할 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — M41 — https://noirlab.edu/public/images/noao-m41/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 큰개자리의 시리우스를 찾습니다. 천구의 남쪽으로 약 4.0° 이동해 M41 위치를 확인합니다. 쌍안경의 실제 시야각을 알고 있다면 이동량을 가늠하되 최종적으로 주변 별 배열을 대조하세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP32349",
+      "const:CMa"
+    ]
+  },
+  "observing": {
+    "nakedEye": "아주 어두운 하늘의 약한 빛무리 검출과 도시 관측을 구분합니다. 입문에서는 쌍안경을 권합니다.",
+    "binoculars": "10×50으로 밝은 구성별과 주변의 모여 있는 느낌을 살핍니다. 시리우스의 눈부심에서 벗어나 성단 구역을 확인하세요.",
+    "telescope": "90mm 20~80배로 밝은 별들의 간격과 배열을 기록합니다. 모든 적색거성의 색을 구분하거나 전체 구성원을 세는 목표로 삼지 않습니다.",
+    "difficulty": 2,
+    "bestMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP32349, const:CMa; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — M41 — https://noirlab.edu/public/images/noao-m41/",
+    "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행; NSF NOIRLab — M41 — https://noirlab.edu/public/images/noao-m41/",
+    "첨부 catalog-values.v1.csv — dso:M41; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

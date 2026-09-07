@@ -1,0 +1,108 @@
+{
+  "id": "const:Lyr",
+  "version": 1,
+  "title": {
+    "ko": "거문고자리",
+    "en": "Lyra"
+  },
+  "oneLiner": {
+    "ko": "직녀성 베가 곁의 작은 별 배열에서 거문고자리를 펼쳐요"
+  },
+  "summary": {
+    "ko": "거문고자리는 여름 저녁 밝은 베가에서 시작하기 좋은 별자리입니다. 베가만 먼저 눈에 들어오더라도 주변의 약한 점들을 확인하면 작은 악기 그림의 구역을 익힐 수 있습니다. 한국에서 직녀성으로 알려진 베가는 은하수를 사이에 둔 칠석 이야기의 길잡이로도 쓰입니다. 전승의 인물과 별의 실제 운동은 구분해야 합니다. 이 구역에는 고리성운 M57처럼 별도 장비로 찾는 대상도 있지만 베가를 보았다고 함께 관측한 것은 아닙니다. 도시에서는 밝은 별과 약한 연결 별의 대비를 확인하고, 개별 대상의 검출 여부를 따로 남겨 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Lyr; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Lyr",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Lyrae",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "베가, 주변의 작은 별 배열, M57",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP91262, dso:M57; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "현악기",
+      "source": "NSF NOIRLab — Lyra — https://noirlab.edu/public/education/constellations/lyra/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "여름 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "한국에서 전해지는 견우직녀 이야기는 은하수를 사이에 둔 두 인물과 한 해 한 번의 만남을 말합니다. 거문고자리의 베가를 직녀성으로 부르는 용례는 이 이야기를 하늘에서 되짚는 표지가 됩니다. 국립민속박물관과 한국학중앙연구원의 설명은 이를 칠석의 유래와 풍속에 관한 전승으로 다룹니다. 별이 실제로 칠석날 가까워져 만나거나 하늘에 물리적인 다리가 생기는 현상은 아닙니다. 관측할 때는 먼저 베가의 위치와 거문고자리의 약한 배열을 확인하고 알타이르 쪽 방향을 찾아보세요. 은하수가 보이지 않는 도시에서도 두 기준별의 위치를 기록할 수 있습니다. 이야기의 연결선과 눈으로 확인한 빛을 따로 적으면 전통을 배우면서도 관측 사실을 과장하지 않을 수 있습니다.",
+    "cultures": [
+      "한국",
+      "동아시아"
+    ],
+    "sources": [
+      "NSF NOIRLab — Lyra — https://noirlab.edu/public/education/constellations/lyra/",
+      "국립민속박물관 — 칠석 — https://nfm.go.kr/kids/elecontents/view.do?topic=228",
+      "한국학중앙연구원 — 견우직녀 설화 — https://encykorea.aks.ac.kr/Article/E0002170"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 저녁 높은 하늘의 밝은 베가를 찾습니다. 베가 주변의 약한 별 배열을 지도와 맞추며 거문고자리의 작은 구역을 익히세요. 고리성운 M57로 이동할 때는 성운의 정확한 위치를 별도 선택하고 주변 별을 다시 대조합니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP91262",
+      "dso:M57"
+    ]
+  },
+  "observing": {
+    "nakedEye": "베가는 도시에서도 좋은 기준입니다. 주변 약한 배열이 얼마나 보이는지는 달빛과 조명에 따라 달라집니다.",
+    "binoculars": "10×50으로 베가 주변의 별을 늘려 확인합니다. 고리성운의 고리 모양을 쌍안경에서 기대하지 마세요.",
+    "telescope": "90mm 20~80배로 M57 같은 개별 대상을 따로 찾아봅니다. 베가 자체는 밝은 점으로 보이며 성운 검출은 별도의 과제입니다.",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Lyr; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Lyra — https://noirlab.edu/public/education/constellations/lyra/",
+    "국립민속박물관 — 칠석 — https://nfm.go.kr/kids/elecontents/view.do?topic=228",
+    "한국학중앙연구원 — 견우직녀 설화 — https://encykorea.aks.ac.kr/Article/E0002170",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — const:Lyr; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Lyr; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP91262, dso:M57; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP91262, dso:M57; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "첨부 G2의 베가=직녀성 용례와 한국의 칠석 설화를 연결합니다. 거문고자리 전체가 직녀성 한 별이거나 전통 직녀 성군 전체와 동일하다는 뜻은 아닙니다.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+      "국립민속박물관 — 칠석 — https://nfm.go.kr/kids/elecontents/view.do?topic=228",
+      "한국학중앙연구원 — 견우직녀 설화 — https://encykorea.aks.ac.kr/Article/E0002170"
+    ]
+  }
+}

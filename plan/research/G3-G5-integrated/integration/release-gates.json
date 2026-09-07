@@ -1,0 +1,42 @@
+{
+  "dataAuthoringComplete": true,
+  "releaseReady": false,
+  "blockers": [
+    {
+      "id": "published-content-index",
+      "scope": "all",
+      "reason": "T6의 정식 게시 인덱스와 로딩 결과가 미제공. 이 ZIP의 인덱스는 초안 참조용."
+    },
+    {
+      "id": "editorial-claim-signoff",
+      "scope": "per-content/per-quiz",
+      "reason": "G3의 거리·등급·분광형 등 검토 상태를 보존. T6의 표시 정책과 T7의 문항별 근거 검토 필요."
+    },
+    {
+      "id": "app-handler-integration",
+      "scope": "per-mission/per-badge",
+      "reason": "실제 find/observe/read/quiz/skill/checklist 핸들러 및 스케치·시야원·백업·스타 호핑 성공 이벤트를 테스트하지 못함."
+    },
+    {
+      "id": "orientation-alignment",
+      "scope": "alignment-skills-and-badges",
+      "reason": "G4 대상 코드가 미제공. 센서/정렬 참조 문구는 코드 통과 판정이 아님."
+    },
+    {
+      "id": "runtime-visibility",
+      "scope": "all-observing-missions",
+      "reason": "정확한 현행 천체력·좌표 epoch·보조 별 경로·실제 장애물 및 관측 가능 여부 확인 필요. 26개 근사 구간은 현장 보장이 아님."
+    },
+    {
+      "id": "skypick-full-scene",
+      "scope": "36-skypick-items",
+      "reason": "전체 밝은별 수치 목록·측광 대역 및 렌더러의 3° 판정과 달/행성 근접 검증 미완료. 기본 비활성화."
+    },
+    {
+      "id": "free-constellation-observation",
+      "scope": "3-constellation-count-badges",
+      "reason": "별자리 자유 관측을 실제 배열 식별로 판정하는 UI와 이벤트가 검증되기 전에는 배지 보류."
+    }
+  ],
+  "policy": "외부 검증으로 해소한 범위만 선택적으로 활성화. 수량 충족이나 Python 참조 시험을 실제 앱 승인으로 대체하지 않음."
+}

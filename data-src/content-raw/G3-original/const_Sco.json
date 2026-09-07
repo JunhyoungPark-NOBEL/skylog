@@ -1,0 +1,94 @@
+{
+  "id": "const:Sco",
+  "version": 1,
+  "title": {
+    "ko": "전갈자리",
+    "en": "Scorpius"
+  },
+  "oneLiner": {
+    "ko": "붉은 안타레스에서 남쪽으로 굽어 내려가는 전갈자리"
+  },
+  "summary": {
+    "ko": "전갈자리는 여름 남쪽 하늘의 안타레스와 길게 굽은 몸통으로 찾는 별자리입니다. 안타레스는 따뜻한 색으로 눈에 띄지만 머리와 꼬리의 약한 별까지 보이는지는 하늘 상태에 따라 달라집니다. 한국 중부에서는 꼬리 쪽이 낮게 지나가므로 남쪽의 건물이나 산에 가려질 수 있습니다. 별자리의 대표 좌표 하나만 높다고 전체 꼬리까지 관측 가능하다고 판정해서는 안 됩니다. 맨눈으로 큰 흐름을 익히고 쌍안경으로 부분을 보완하세요. 사진 속 은하수와 별자리 윤곽을 도시에서도 같은 대비로 보려는 기대는 낮추는 편이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Sco; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Sco",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Scorpii",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "안타레스와 굽은 몸통",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP80763, const:Lib; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "전갈",
+      "source": "NSF NOIRLab — Scorpius — https://noirlab.edu/public/education/constellations/scorpius/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "여름 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "전갈자리 그림은 한 밝은 별에서 긴 몸통으로 시선을 이끌어 줍니다. 안타레스가 전갈의 심장 쪽을 나타낸다는 설명은 그 출발점을 기억하게 합니다. 그러나 이름과 모양이 익숙하다고 실제 꼬리까지 확인한 것은 아닙니다. 한국 중부의 관측에서는 머리 쪽은 보여도 남쪽으로 낮아지는 부분이 지형에 가려질 수 있습니다. 오늘은 안타레스, 몸통, 꼬리를 별도의 단계로 나누어 체크해 보세요. 보이지 않는 구간이 있다면 지도에 남쪽 장애물의 높이도 함께 그려 봅니다. 다음 관측에서 같은 별자리를 다른 장소나 시각에 볼 때 조건의 차이를 설명할 수 있습니다. 하나의 별자리 완료 표시보다 구간별 기록이 의미 있는 이유를 보여 주는 대상입니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Scorpius — https://noirlab.edu/public/education/constellations/scorpius/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 저녁 남쪽 하늘에서 붉은 안타레스를 찾습니다. 주변의 머리 구역을 확인한 뒤 남쪽으로 내려가 휘어지는 몸통과 꼬리를 지도와 대조하세요. 낮은 꼬리는 가려질 수 있으므로 시야가 열린 방향과 각 구간의 실제 고도를 따로 확인합니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP80763",
+      "const:Lib"
+    ]
+  },
+  "observing": {
+    "nakedEye": "안타레스와 밝은 몸통부터 찾습니다. 도시나 산간에서는 꼬리가 전부 드러나지 않을 수 있습니다.",
+    "binoculars": "10×50으로 몸통과 주변 별무리를 나누어 확인합니다. 은하수의 풍부한 배경은 어두운 하늘에서 더 잘 드러납니다.",
+    "telescope": "90mm 20~80배는 별도의 개별 목표에 사용합니다. 낮은 꼬리 구역의 대기 흔들림을 배율로 해결하려 하지 마세요.",
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Sco; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Scorpius — https://noirlab.edu/public/education/constellations/scorpius/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Sco; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Sco; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP80763, const:Lib; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP80763, const:Lib; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "머리·안타레스·꼬리의 고도 조건을 각각 검사해야 합니다. 대표 좌표를 근거로 별자리 전체에 고도 25° 통과 판정을 부여하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

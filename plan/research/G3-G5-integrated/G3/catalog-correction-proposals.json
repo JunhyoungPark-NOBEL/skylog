@@ -1,0 +1,123 @@
+[
+  {
+    "id": "dso:M92",
+    "field": "dist_ly",
+    "raw": "58036",
+    "candidates": [
+      {
+        "value": "27000",
+        "source": "NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Substantial or inter-source discrepancy; requires source-catalog provenance and measurement review."
+  },
+  {
+    "id": "dso:M20",
+    "field": "mag",
+    "raw": "8.5",
+    "candidates": [
+      {
+        "value": "6.3",
+        "source": "NASA — Messier 20 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-20/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Band and aperture/object-scope not harmonized; discrepancy is not proof of a catalog error."
+  },
+  {
+    "id": "dso:M17",
+    "field": "mag",
+    "raw": "7",
+    "candidates": [
+      {
+        "value": "6.0",
+        "source": "NASA — Messier 17 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-17/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Band and aperture/object-scope not harmonized; discrepancy is not proof of a catalog error."
+  },
+  {
+    "id": "dso:M22",
+    "field": "mag",
+    "raw": "6.17",
+    "candidates": [
+      {
+        "value": "5.1",
+        "source": "NASA — Messier 22 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-22/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Band and aperture/object-scope not harmonized; discrepancy is not proof of a catalog error."
+  },
+  {
+    "id": "dso:M2",
+    "field": "dist_ly",
+    "raw": "53294",
+    "candidates": [
+      {
+        "value": "37000",
+        "source": "NASA — Messier 2 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-2/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Substantial or inter-source discrepancy; requires source-catalog provenance and measurement review."
+  },
+  {
+    "id": "dso:M10",
+    "field": "mag",
+    "raw": "4.98",
+    "candidates": [
+      {
+        "value": "6.4",
+        "source": "NASA — Messier 10 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-10/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Band and aperture/object-scope not harmonized; discrepancy is not proof of a catalog error."
+  },
+  {
+    "id": "dso:M10",
+    "field": "dist_ly",
+    "raw": "21643",
+    "candidates": [
+      {
+        "value": "15000",
+        "source": "NASA — Messier 10 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-10/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Substantial or inter-source discrepancy; requires source-catalog provenance and measurement review."
+  },
+  {
+    "id": "dso:M12",
+    "field": "mag",
+    "raw": "6.07",
+    "candidates": [
+      {
+        "value": "7.7",
+        "source": "NASA — Messier 12 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-12/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Band and aperture/object-scope not harmonized; discrepancy is not proof of a catalog error."
+  },
+  {
+    "id": "dso:NGC7009",
+    "field": "dist_ly",
+    "raw": "3764",
+    "candidates": [
+      {
+        "value": "1400",
+        "source": "NASA — Caldwell 55 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-55/"
+      },
+      {
+        "value": "5000",
+        "source": "ESO — The Strange Structures of the Saturn Nebula — https://www.eso.org/public/news/eso1731/"
+      }
+    ],
+    "action": "hold-display; no-automatic-replacement",
+    "reason": "Substantial or inter-source discrepancy; requires source-catalog provenance and measurement review."
+  }
+]

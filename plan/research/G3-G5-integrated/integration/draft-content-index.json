@@ -1,0 +1,856 @@
+{
+  "kind": "integration-draft-not-content-v1-schema",
+  "published": false,
+  "source": "G3/G3-content-cumulative-121.json",
+  "sha256": "f2af5e1e9aada31365a274f68f892f54871e15bd968b2ee01ee40af0edce5844",
+  "entries": [
+    {
+      "id": "sun",
+      "titleKo": "태양",
+      "arrayIndex": 0,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "moon",
+      "titleKo": "달",
+      "arrayIndex": 1,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "planet:mercury",
+      "titleKo": "수성",
+      "arrayIndex": 2,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "planet:venus",
+      "titleKo": "금성",
+      "arrayIndex": 3,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "planet:mars",
+      "titleKo": "화성",
+      "arrayIndex": 4,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "planet:jupiter",
+      "titleKo": "목성",
+      "arrayIndex": 5,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "planet:saturn",
+      "titleKo": "토성",
+      "arrayIndex": 6,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "planet:uranus",
+      "titleKo": "천왕성",
+      "arrayIndex": 7,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "planet:neptune",
+      "titleKo": "해왕성",
+      "arrayIndex": 8,
+      "confidence": "high",
+      "hasReviewNotes": false
+    },
+    {
+      "id": "star:HIP32349",
+      "titleKo": "시리우스",
+      "arrayIndex": 9,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP69673",
+      "titleKo": "아르크투루스",
+      "arrayIndex": 10,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP91262",
+      "titleKo": "베가",
+      "arrayIndex": 11,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP24608",
+      "titleKo": "카펠라",
+      "arrayIndex": 12,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP24436",
+      "titleKo": "리겔",
+      "arrayIndex": 13,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP27989",
+      "titleKo": "베텔게우스",
+      "arrayIndex": 14,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP97649",
+      "titleKo": "알타이르",
+      "arrayIndex": 15,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP21421",
+      "titleKo": "알데바란",
+      "arrayIndex": 16,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP80763",
+      "titleKo": "안타레스",
+      "arrayIndex": 17,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP102098",
+      "titleKo": "데네브",
+      "arrayIndex": 18,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP11767",
+      "titleKo": "폴라리스",
+      "arrayIndex": 19,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M45",
+      "titleKo": "플레이아데스성단",
+      "arrayIndex": 20,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M44",
+      "titleKo": "프레세페성단",
+      "arrayIndex": 21,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M42",
+      "titleKo": "오리온대성운",
+      "arrayIndex": 22,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M31",
+      "titleKo": "안드로메다은하",
+      "arrayIndex": 23,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M13",
+      "titleKo": "헤르쿨레스 대성단",
+      "arrayIndex": 24,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP95947",
+      "titleKo": "알비레오",
+      "arrayIndex": 25,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP65474",
+      "titleKo": "스피카",
+      "arrayIndex": 26,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP677",
+      "titleKo": "알페라츠",
+      "arrayIndex": 27,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M57",
+      "titleKo": "고리성운",
+      "arrayIndex": 28,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M27",
+      "titleKo": "아령성운",
+      "arrayIndex": 29,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M35",
+      "titleKo": "M35",
+      "arrayIndex": 30,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M37",
+      "titleKo": "M37",
+      "arrayIndex": 31,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M81",
+      "titleKo": "보데은하",
+      "arrayIndex": 32,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M82",
+      "titleKo": "시가은하",
+      "arrayIndex": 33,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M3",
+      "titleKo": "M3",
+      "arrayIndex": 34,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M5",
+      "titleKo": "M5",
+      "arrayIndex": 35,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M15",
+      "titleKo": "M15",
+      "arrayIndex": 36,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:NGC869",
+      "titleKo": "이중성단(h)",
+      "arrayIndex": 37,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:NGC884",
+      "titleKo": "이중성단(χ)",
+      "arrayIndex": 38,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M51",
+      "titleKo": "소용돌이은하",
+      "arrayIndex": 39,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP30438",
+      "titleKo": "카노푸스",
+      "arrayIndex": 40,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP37279",
+      "titleKo": "프로키온",
+      "arrayIndex": 41,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP37826",
+      "titleKo": "폴룩스",
+      "arrayIndex": 42,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP113368",
+      "titleKo": "포말하우트",
+      "arrayIndex": 43,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP49669",
+      "titleKo": "레굴루스",
+      "arrayIndex": 44,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP36850",
+      "titleKo": "카스토르",
+      "arrayIndex": 45,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP65378",
+      "titleKo": "미자르",
+      "arrayIndex": 46,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP14576",
+      "titleKo": "알골",
+      "arrayIndex": 47,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP10826",
+      "titleKo": "미라",
+      "arrayIndex": 48,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP54061",
+      "titleKo": "두베",
+      "arrayIndex": 49,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP67301",
+      "titleKo": "알카이드",
+      "arrayIndex": 50,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP26727",
+      "titleKo": "알니탁",
+      "arrayIndex": 51,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP26311",
+      "titleKo": "알닐람",
+      "arrayIndex": 52,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP25930",
+      "titleKo": "민타카",
+      "arrayIndex": 53,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP25336",
+      "titleKo": "벨라트릭스",
+      "arrayIndex": 54,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP9884",
+      "titleKo": "하말",
+      "arrayIndex": 55,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "star:HIP72607",
+      "titleKo": "코카브",
+      "arrayIndex": 56,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Ari",
+      "titleKo": "양자리",
+      "arrayIndex": 57,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Tau",
+      "titleKo": "황소자리",
+      "arrayIndex": 58,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Gem",
+      "titleKo": "쌍둥이자리",
+      "arrayIndex": 59,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Cnc",
+      "titleKo": "게자리",
+      "arrayIndex": 60,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Leo",
+      "titleKo": "사자자리",
+      "arrayIndex": 61,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Vir",
+      "titleKo": "처녀자리",
+      "arrayIndex": 62,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Lib",
+      "titleKo": "천칭자리",
+      "arrayIndex": 63,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Sco",
+      "titleKo": "전갈자리",
+      "arrayIndex": 64,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Sgr",
+      "titleKo": "궁수자리",
+      "arrayIndex": 65,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Cap",
+      "titleKo": "염소자리",
+      "arrayIndex": 66,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Aqr",
+      "titleKo": "물병자리",
+      "arrayIndex": 67,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Psc",
+      "titleKo": "물고기자리",
+      "arrayIndex": 68,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Ori",
+      "titleKo": "오리온자리",
+      "arrayIndex": 69,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:UMa",
+      "titleKo": "큰곰자리",
+      "arrayIndex": 70,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:UMi",
+      "titleKo": "작은곰자리",
+      "arrayIndex": 71,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Cas",
+      "titleKo": "카시오페이아자리",
+      "arrayIndex": 72,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Cyg",
+      "titleKo": "백조자리",
+      "arrayIndex": 73,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Lyr",
+      "titleKo": "거문고자리",
+      "arrayIndex": 74,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Aql",
+      "titleKo": "독수리자리",
+      "arrayIndex": 75,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Peg",
+      "titleKo": "페가수스자리",
+      "arrayIndex": 76,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:And",
+      "titleKo": "안드로메다자리",
+      "arrayIndex": 77,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Per",
+      "titleKo": "페르세우스자리",
+      "arrayIndex": 78,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Aur",
+      "titleKo": "마차부자리",
+      "arrayIndex": 79,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:CMa",
+      "titleKo": "큰개자리",
+      "arrayIndex": 80,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:CMi",
+      "titleKo": "작은개자리",
+      "arrayIndex": 81,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Her",
+      "titleKo": "허큘리스자리",
+      "arrayIndex": 82,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Boo",
+      "titleKo": "목동자리",
+      "arrayIndex": 83,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Dra",
+      "titleKo": "용자리",
+      "arrayIndex": 84,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Cet",
+      "titleKo": "고래자리",
+      "arrayIndex": 85,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "const:Cru",
+      "titleKo": "남십자자리",
+      "arrayIndex": 86,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M32",
+      "titleKo": "M32",
+      "arrayIndex": 87,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M110",
+      "titleKo": "M110",
+      "arrayIndex": 88,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M33",
+      "titleKo": "삼각형자리은하",
+      "arrayIndex": 89,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M43",
+      "titleKo": "드 메랑 성운",
+      "arrayIndex": 90,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M92",
+      "titleKo": "M92",
+      "arrayIndex": 91,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M101",
+      "titleKo": "바람개비은하",
+      "arrayIndex": 92,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M104",
+      "titleKo": "솜브레로은하",
+      "arrayIndex": 93,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M8",
+      "titleKo": "라군성운",
+      "arrayIndex": 94,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M20",
+      "titleKo": "삼렬성운",
+      "arrayIndex": 95,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M17",
+      "titleKo": "오메가성운",
+      "arrayIndex": 96,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M16",
+      "titleKo": "독수리성운",
+      "arrayIndex": 97,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M22",
+      "titleKo": "M22",
+      "arrayIndex": 98,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M11",
+      "titleKo": "야생오리성단",
+      "arrayIndex": 99,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M6",
+      "titleKo": "나비성단",
+      "arrayIndex": 100,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M7",
+      "titleKo": "프톨레마이오스성단",
+      "arrayIndex": 101,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M36",
+      "titleKo": "M36",
+      "arrayIndex": 102,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M38",
+      "titleKo": "M38",
+      "arrayIndex": 103,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M41",
+      "titleKo": "M41",
+      "arrayIndex": 104,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M46",
+      "titleKo": "M46",
+      "arrayIndex": 105,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M47",
+      "titleKo": "M47",
+      "arrayIndex": 106,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M67",
+      "titleKo": "M67",
+      "arrayIndex": 107,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M2",
+      "titleKo": "M2",
+      "arrayIndex": 108,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M39",
+      "titleKo": "M39",
+      "arrayIndex": 109,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M103",
+      "titleKo": "M103",
+      "arrayIndex": 110,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M4",
+      "titleKo": "M4",
+      "arrayIndex": 111,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M10",
+      "titleKo": "M10",
+      "arrayIndex": 112,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M12",
+      "titleKo": "M12",
+      "arrayIndex": 113,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M29",
+      "titleKo": "M29",
+      "arrayIndex": 114,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M34",
+      "titleKo": "M34",
+      "arrayIndex": 115,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M52",
+      "titleKo": "M52",
+      "arrayIndex": 116,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:M78",
+      "titleKo": "M78",
+      "arrayIndex": 117,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:NGC7000",
+      "titleKo": "북아메리카성운",
+      "arrayIndex": 118,
+      "confidence": "low",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:NGC457",
+      "titleKo": "ET성단",
+      "arrayIndex": 119,
+      "confidence": "medium",
+      "hasReviewNotes": true
+    },
+    {
+      "id": "dso:NGC7009",
+      "titleKo": "토성성운",
+      "arrayIndex": 120,
+      "confidence": "low",
+      "hasReviewNotes": true
+    }
+  ],
+  "note": "정식 content/v1/index.json을 만들거나 승인한 것으로 취급하지 않음. T6 실제 스키마로 생성 후 교차 검증."
+}

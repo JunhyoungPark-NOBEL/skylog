@@ -1,0 +1,93 @@
+{
+  "id": "star:HIP69673",
+  "version": 1,
+  "title": {
+    "ko": "아르크투루스",
+    "en": "Arcturus"
+  },
+  "oneLiner": {
+    "ko": "북두칠성 손잡이의 곡선을 따라 만나는 주황빛 별"
+  },
+  "summary": {
+    "ko": "아르크투루스는 목동자리의 밝은 주황빛 별입니다. 중심의 수소 연료가 줄어든 뒤 크게 부푼 적색거성 단계에 있으며, 이름과 달리 맨눈에서는 짙은 빨강보다 주황이나 황금빛으로 느껴질 수 있습니다. 북두칠성의 손잡이가 만드는 곡선을 따라가면 찾기 쉬워 봄철 길잡이로 알맞습니다. 망원경을 사용해도 원반의 표면이 커다랗게 드러나는 대상은 아닙니다. 밝기만 비교하기보다 베가 같은 흰 별과 색을 번갈아 살펴보세요. 도시에서도 보이지만 주위 가로등을 피하면 색 비교가 한결 편해집니다."
+  },
+  "facts": [
+    {
+      "label": "거리(첨부 카탈로그)",
+      "value": "36.7광년",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)"
+    },
+    {
+      "label": "겉보기등급(대역 검토 필요)",
+      "value": "-0.05등급; 첨부 mag, V 대역 미확인",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "K2IIIp",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)"
+    },
+    {
+      "label": "별자리",
+      "value": "목동자리 (Boo)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)"
+    },
+    {
+      "label": "별의 성격",
+      "value": "적색거성",
+      "source": "https://science.nasa.gov/universe/stars/types/"
+    },
+    {
+      "label": "관측 길잡이",
+      "value": "북두칠성 손잡이 곡선의 연장",
+      "source": "https://science.nasa.gov/resource/whats-up-september-2021/"
+    }
+  ],
+  "story": {
+    "ko": "현대 천문학은 적색거성을 단순히 붉은 별이라는 말보다 별의 진화 단계로 설명합니다. 별은 중심의 수소 핵융합이 이어지는 긴 시기를 지나면 내부 구조가 바뀌고 바깥층이 팽창할 수 있습니다. 표면 온도가 낮아져도 넓어진 표면 때문에 전체적으로 밝게 빛날 수 있으므로, 차가운 색과 어두운 밝기는 같은 뜻이 아닙니다. 아르크투루스는 이 차이를 맨눈 관측과 연결하기 좋은 사례입니다. 북두칠성 손잡이의 곡선을 이어 이 별을 찾은 뒤 색을 기록해 보세요. 이름을 아는 것에서 한 걸음 나아가 어떤 종류의 별인지 생각하게 됩니다. 다만 그날의 고도와 대기 상태도 색 인상에 영향을 주므로, 한 번의 느낌으로 온도를 재었다고 적지는 않는 편이 좋습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+      "NASA/JPL — What’s Up: September 2021 | https://science.nasa.gov/resource/whats-up-september-2021/"
+    ]
+  },
+  "howToFind": {
+    "ko": "한국의 봄 저녁에는 북쪽 하늘의 북두칠성을 먼저 찾습니다. 손잡이 끝까지 따라간 뒤 그 휘어진 곡선을 같은 방향으로 길게 연장하세요. 눈에 띄는 밝은 주황빛 별이 아르크투루스입니다. 주변 별이 목동자리의 길쭉한 형태와 맞는지 앱의 별자리 그림으로 확인합니다.",
+    "season": "spring",
+    "hopFrom": [
+      "const:UMa",
+      "star:HIP67301"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 밝은 주황빛 점으로 보입니다. 주변 조명의 직접적인 눈부심을 피하며 색을 관찰하세요.",
+    "binoculars": "10×50에서는 밝은 한 점과 주변 별을 봅니다. 별의 표면을 확대하는 것보다 다른 밝은 별과 색을 비교하는 데 의미가 있습니다.",
+    "telescope": "90mm, 20~80배에서도 별 자체는 점처럼 보입니다. 낮은 배율부터 색과 초점 상태를 살피고 표면 무늬는 기대하지 마세요.",
+    "difficulty": 1,
+    "bestMonths": [
+      4,
+      5,
+      6
+    ]
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)",
+    "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+    "NASA/JPL — What’s Up: September 2021 | https://science.nasa.gov/resource/whats-up-september-2021/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+    ]
+  },
+  "funFacts": [
+    "적색거성도 눈에는 주황빛이나 황금빛으로 보일 수 있습니다.",
+    "북두칠성 손잡이의 곡선을 따라가면 찾는 데 도움이 됩니다."
+  ]
+}

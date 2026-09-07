@@ -1,0 +1,112 @@
+{
+  "id": "dso:M45",
+  "version": 1,
+  "title": {
+    "ko": "플레이아데스성단",
+    "en": "Pleiades"
+  },
+  "oneLiner": {
+    "ko": "넓은 쌍안경 시야에 담아 보는 겨울의 작은 별무리"
+  },
+  "summary": {
+    "ko": "플레이아데스성단은 황소자리에서 작은 별무리로 보이는 산개성단(서로 관련된 별들이 비교적 성기게 모인 집단)입니다. 한국에서는 좀생이별이라는 이름으로도 불립니다. 맨눈으로 보이는 별의 수는 하늘 밝기와 시력에 따라 달라지므로 일정한 개수를 정답으로 삼지 않습니다. 10×50 쌍안경에서는 여러 밝은 별과 그 사이의 작은 별들이 함께 드러납니다. 사진 속 푸른 안개는 별빛을 반사하는 먼지이며, 도시에서 접안렌즈를 들여다볼 때 같은 색과 넓이로 보인다고 기대하면 안 됩니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "NASA — Messier 45: The Pleiades — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-45/"
+    },
+    {
+      "label": "별자리",
+      "value": "황소자리 (Tau)",
+      "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "1.2등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "150′ × 150′",
+      "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M45",
+      "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "443광년",
+      "source": "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "한국에는 좀생이별과 달의 상대적인 모습을 살펴 농사의 풍흉을 점치던 좀생이보기 풍속이 전해집니다. 한국민족문화대백과사전은 이를 음력 이월 초순의 세시풍속으로 소개합니다. 이것은 당시 사람들이 하늘의 변화를 생활의 시간표와 연결한 문화적 기록이지, 오늘날 검증된 수확량 예측 방법은 아닙니다. 현대 관측자는 같은 별무리를 보며 맨눈과 쌍안경이 보여 주는 별의 수를 비교할 수 있습니다. 별 사이의 푸른 먼지를 드러내는 사진과 자신의 스케치를 나란히 놓으면 관측 도구가 정보의 종류를 바꾼다는 점도 알 수 있습니다. 옛 풍속과 천문학적 설명은 한 대상을 서로 다른 질문으로 바라본다는 점에서 구별해 읽는 편이 좋습니다.",
+    "cultures": [
+      "한국",
+      "동아시아",
+      "기타"
+    ],
+    "sources": [
+      "한국민족문화대백과사전 — 좀생이보기 — https://encykorea.aks.ac.kr/Article/E0052883",
+      "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20) — https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20",
+      "NASA APOD — M45: The Pleiades Star Cluster (2016-10-19) — https://science.nasa.gov/image-article/apod-2016-october-19-m45-the-pleiades-star-cluster/"
+    ]
+  },
+  "howToFind": {
+    "ko": "늦가을부터 겨울 저녁에 오리온자리 허리띠의 세 별을 찾고 황소자리의 알데바란 쪽으로 시선을 옮기세요. 알데바란 주변의 V자 별무리를 확인한 뒤, 천구의 서북쪽으로 약 14° 떨어진 작은 별무리를 찾습니다. 한 번에 망원경을 크게 움직이기보다 맨눈으로 위치를 짚고 10×50의 넓은 시야로 주변 별 배열을 확인하세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP21421",
+      "const:Tau"
+    ]
+  },
+  "observing": {
+    "nakedEye": "밝은 별 몇 개가 밀집한 모습입니다. 도시에서도 일부 별은 보일 수 있지만 일정 개수의 확인을 성공 조건으로 삼지 마세요.",
+    "binoculars": "10×50의 넓은 시야가 성단 전체와 주변을 비교하기에 알맞습니다. 팔이나 삼각대로 흔들림을 줄이면 작은 별을 더 찾기 쉽습니다.",
+    "telescope": "90mm에서는 20배의 넓은 시야부터 시작합니다. 접안렌즈에 따라 성단 전체가 잘릴 수 있으며, 80배는 일부 별 주변을 보는 용도입니다. 반사성운 검출을 목표로 삼지 마세요.",
+    "bestMonths": [
+      11,
+      12,
+      1,
+      2
+    ],
+    "difficulty": 2
+  },
+  "funFacts": [
+    "좀생이별은 한 별이 아니라 성단을 가리키는 전통 이름입니다.",
+    "사진 속 푸른 안개와 접안렌즈로 보이는 별무리는 같은 모습이 아닙니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 45: The Pleiades — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-45/",
+    "NASA APOD — M45: The Pleiades Star Cluster (2016-10-19) — https://science.nasa.gov/image-article/apod-2016-october-19-m45-the-pleiades-star-cluster/",
+    "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20) — https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20",
+    "한국민족문화대백과사전 — 좀생이보기 — https://encykorea.aks.ac.kr/Article/E0052883",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "name": "좀생이별",
+    "asterism": "묘성(昴星) 관련 별무리",
+    "note": "한국의 좀생이보기에서 달과의 상대 모습을 살피던 별무리입니다. 이름을 알키오네 등 한 구성별의 독점 별칭으로 사용하지 않습니다. 풍흉 점치기는 문화적 풍속이며 검증된 예측법이 아닙니다.",
+    "sources": [
+      "한국민족문화대백과사전 — 좀생이보기 — https://encykorea.aks.ac.kr/Article/E0052883",
+      "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20) — https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20"
+    ]
+  }
+}

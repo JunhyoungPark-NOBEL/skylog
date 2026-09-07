@@ -1,0 +1,112 @@
+{
+  "id": "star:HIP97649",
+  "version": 1,
+  "title": {
+    "ko": "알타이르",
+    "en": "Altair",
+    "alt": [
+      "견우성"
+    ]
+  },
+  "oneLiner": {
+    "ko": "견우성으로 익숙한, 빠르게 자전하는 여름의 별"
+  },
+  "summary": {
+    "ko": "알타이르는 독수리자리의 밝은 별로, 베가와 데네브를 연결한 여름철 대삼각형의 한 꼭짓점입니다. 한국의 칠석 안내에서는 견우성으로 연결합니다. 비교적 가까운 별이며 매우 빠른 자전 때문에 적도 부분이 부푼 모양이 연구되어 왔습니다. 이 모양은 여러 망원경의 빛을 합치는 간섭 관측으로 알아낸 것으로, 작은 망원경에서 납작한 원반을 직접 볼 수는 없습니다. 입문자는 양옆의 별이 만드는 짧은 줄과 여름 대삼각형의 배치를 확인해 보세요. 도시에서는 어두운 이웃별 일부가 잘 보이지 않을 수 있습니다."
+  },
+  "facts": [
+    {
+      "label": "거리(첨부 카탈로그)",
+      "value": "16.7광년",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)"
+    },
+    {
+      "label": "겉보기등급(대역 검토 필요)",
+      "value": "0.76등급; 첨부 mag, V 대역 미확인",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "A7IV-V",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)"
+    },
+    {
+      "label": "별자리",
+      "value": "독수리자리 (Aql)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)"
+    },
+    {
+      "label": "별의 성격",
+      "value": "빠르게 자전하는 별",
+      "source": "https://chara.gsu.edu/photos-videos/image-gallery/altair"
+    },
+    {
+      "label": "관측 길잡이",
+      "value": "여름철 대삼각형의 꼭짓점",
+      "source": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4220"
+    }
+  ],
+  "story": {
+    "ko": "한국과 동아시아의 칠석 전승에서 견우는 직녀와 떨어져 지내다 오작교에서 만나는 인물입니다. 오늘의 하늘 안내는 알타이르를 견우성으로 연결하지만, 전통 천문학의 비슷한 이름을 모두 같은 별로 합치면 혼동이 생길 수 있습니다. 현대 과학이 들려주는 알타이르의 이야기는 빠른 자전입니다. 연구자들은 여러 망원경의 빛을 결합해 별의 표면을 영상화했고, 적도가 부풀고 극과 적도의 밝기가 달라지는 모습을 조사했습니다. 이는 중력과 자전이 별의 형태에 영향을 준다는 관측입니다. 작은 망원경에서는 이 구조가 보이지 않으므로 오늘 본 모습은 밝은 점이라고 기록하는 것이 맞습니다. 설화 속 인물과 연구로 얻은 별의 성질을 함께 읽되, 눈으로 확인한 범위는 분명하게 남겨 보세요.",
+    "cultures": [
+      "한국",
+      "동아시아",
+      "기타"
+    ],
+    "sources": [
+      "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+      "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "CHARA Array — Altair: gravity-darkened stellar surface | https://chara.gsu.edu/photos-videos/image-gallery/altair",
+      "Monnier 외(2007) — Imaging the Surface of Altair | https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract"
+    ]
+  },
+  "howToFind": {
+    "ko": "한국의 여름 저녁에 베가와 데네브를 먼저 찾아 큰 삼각형을 그립니다. 두 별보다 천구상 남쪽에 있는 밝은 꼭짓점이 알타이르입니다. 밝기가 더 약한 별들이 양옆에 놓여 짧은 줄처럼 보이는지 확인하고, 독수리자리 지도와 맞춥니다. 시간에 따라 기울어진 방향은 달라질 수 있습니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP91262",
+      "star:HIP102098",
+      "const:Aql"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 밝은 흰 점으로 보이며 양옆 별은 하늘 밝기에 따라 보이거나 빠질 수 있습니다.",
+    "binoculars": "10×50에서는 알타이르와 이웃별의 줄 모양을 확인하기 좋습니다. 부푼 적도나 표면의 밝기 차이는 보이지 않습니다.",
+    "telescope": "90mm, 20~80배에서도 점처럼 보입니다. 자전 때문에 납작해진 형태는 이 장비로 직접 확인하는 목표가 아닙니다.",
+    "difficulty": 1,
+    "bestMonths": [
+      7,
+      8,
+      9
+    ]
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)",
+    "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+    "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+    "CHARA Array — Altair: gravity-darkened stellar surface | https://chara.gsu.edu/photos-videos/image-gallery/altair",
+    "Monnier 외(2007) — Imaging the Surface of Altair | https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+    "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+    ]
+  },
+  "funFacts": [
+    "알타이르는 빠른 자전 때문에 적도 부분이 부풀어 있습니다.",
+    "견우성과 직녀성을 찾는 데 은하수가 맨눈으로 보여야 하는 것은 아닙니다."
+  ],
+  "koreanTradition": {
+    "name": "견우성",
+    "note": "여기서는 한국의 칠석 안내에서 알타이르에 대응시키는 이름으로 사용합니다. 전통 성군 이름 전체와 같은 식별자로 병합하지 않습니다.",
+    "sources": [
+      "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+      "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170"
+    ]
+  }
+}

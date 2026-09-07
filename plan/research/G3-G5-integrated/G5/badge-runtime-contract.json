@@ -1,0 +1,272 @@
+[
+  {
+    "badgeId": "badge-first-look",
+    "rule": {
+      "key": "firstObservation"
+    },
+    "definition": "직접 관측·대상 식별을 확인한 저장 로그 1개. 지도 선택·콘텐츠 열람·미확인 시도는 제외.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-first-sketch",
+    "rule": {
+      "key": "firstSketch"
+    },
+    "definition": "관련 천체와 연결된 내용 있는 스케치의 저장 성공. 편집기 진입이나 빈 파일 제외.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-first-hop",
+    "rule": {
+      "key": "firstStarHop"
+    },
+    "definition": "스타 호핑 경로 확인 이벤트와 목표의 실제 관측 저장이 같은 시도에 연결됨. 검색 이동만으로 수여 금지.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-two-star-check",
+    "rule": {
+      "key": "align2Success"
+    },
+    "definition": "T5 두 별 정렬이 실제 성공하고 별 식별·잔차·정렬 유효성이 검증된 이벤트. G4 코드 검토 전 활성화 보류.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증",
+      "G4/T5 정렬 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-missions-3",
+    "rule": {
+      "key": "missionsCompleted",
+      "n": 3
+    },
+    "definition": "모든 필수 단계가 실제 완료된 서로 다른 missionId 수. 재실행·중복 이벤트는 중복 집계하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-missions-6",
+    "rule": {
+      "key": "missionsCompleted",
+      "n": 6
+    },
+    "definition": "모든 필수 단계가 실제 완료된 서로 다른 missionId 수. 재실행·중복 이벤트는 중복 집계하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-missions-12",
+    "rule": {
+      "key": "missionsCompleted",
+      "n": 12
+    },
+    "definition": "모든 필수 단계가 실제 완료된 서로 다른 missionId 수. 재실행·중복 이벤트는 중복 집계하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-missions-24",
+    "rule": {
+      "key": "missionsCompleted",
+      "n": 24
+    },
+    "definition": "모든 필수 단계가 실제 완료된 서로 다른 missionId 수. 재실행·중복 이벤트는 중복 집계하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-quiz-3",
+    "rule": {
+      "key": "quizStreak",
+      "n": 3
+    },
+    "definition": "서로 다른 quizId의 최초 응답 연속 정답 수. 오답이면 끊기며 재시도 정답으로 과거 오답을 소거하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-quiz-5",
+    "rule": {
+      "key": "quizStreak",
+      "n": 5
+    },
+    "definition": "서로 다른 quizId의 최초 응답 연속 정답 수. 오답이면 끊기며 재시도 정답으로 과거 오답을 소거하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-quiz-10",
+    "rule": {
+      "key": "quizStreak",
+      "n": 10
+    },
+    "definition": "서로 다른 quizId의 최초 응답 연속 정답 수. 오답이면 끊기며 재시도 정답으로 과거 오답을 소거하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-constellations-2",
+    "rule": {
+      "key": "constellationCount",
+      "n": 2
+    },
+    "definition": "서로 다른 const: ID에 연결한 실제 별자리 주요 배열의 자유 관측 기록 수. 길잡이별 하나의 소속, 검색·지도 탭으로 대리 집계 금지.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증",
+      "별자리 자유 관측 UI와 주요 배열 판정 검증; 30개 미션의 길잡이별로 대신 채우지 않음"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-constellations-4",
+    "rule": {
+      "key": "constellationCount",
+      "n": 4
+    },
+    "definition": "서로 다른 const: ID에 연결한 실제 별자리 주요 배열의 자유 관측 기록 수. 길잡이별 하나의 소속, 검색·지도 탭으로 대리 집계 금지.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증",
+      "별자리 자유 관측 UI와 주요 배열 판정 검증; 30개 미션의 길잡이별로 대신 채우지 않음"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-constellations-6",
+    "rule": {
+      "key": "constellationCount",
+      "n": 6
+    },
+    "definition": "서로 다른 const: ID에 연결한 실제 별자리 주요 배열의 자유 관측 기록 수. 길잡이별 하나의 소속, 검색·지도 탭으로 대리 집계 금지.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증",
+      "별자리 자유 관측 UI와 주요 배열 판정 검증; 30개 미션의 길잡이별로 대신 채우지 않음"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-summer-guide",
+    "rule": {
+      "key": "seasonSignature",
+      "id": "summerTriangle"
+    },
+    "definition": "summerTriangle의 베가·알타이르·데네브 각각의 실제 관측 저장. find 세 번 또는 read로 수여하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-messier-three",
+    "rule": {
+      "key": "messierCount",
+      "n": 3
+    },
+    "definition": "실제로 식별한 서로 다른 정규 메시에 천체 ID 수. 별칭·NGC 대응·반복 로그를 중복 집계하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-messier-five",
+    "rule": {
+      "key": "messierCount",
+      "n": 5
+    },
+    "definition": "실제로 식별한 서로 다른 정규 메시에 천체 ID 수. 별칭·NGC 대응·반복 로그를 중복 집계하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  },
+  {
+    "badgeId": "badge-missions-30",
+    "rule": {
+      "key": "missionsCompleted",
+      "n": 30
+    },
+    "definition": "모든 필수 단계가 실제 완료된 서로 다른 missionId 수. 재실행·중복 이벤트는 중복 집계하지 않음.",
+    "authoringStatus": "complete",
+    "enabledByDefault": false,
+    "unlockRequirements": [
+      "T6 관련 콘텐츠 게시",
+      "T7 이벤트·중복·삭제 후 재집계 검증"
+    ],
+    "note": "배지는 제안 데이터다. 문구가 이미 달성한 사실을 증명하거나 즉시 수여를 지시하지 않음."
+  }
+]

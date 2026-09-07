@@ -1,0 +1,140 @@
+{
+  "status": "not-applied",
+  "generatedAt": "2026-09-07",
+  "items": [
+    {
+      "id": "dso:M31",
+      "field": "dist_ly",
+      "originalValue": "544",
+      "originalUnit": "light-year (attached column label)",
+      "action": "quarantine-and-review",
+      "appliedToInput": false,
+      "appliedCandidateToContent": false,
+      "reason": "첨부 544광년과 NASA 소개의 약 250만 광년이 규모부터 다릅니다.",
+      "candidates": [
+        {
+          "value": 2500000,
+          "unit": "light-year",
+          "precision": "approximate outreach value; not a new precision catalog value",
+          "source": "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+        }
+      ],
+      "releaseCondition": "T0b에서 원천 카탈로그·단위·대상 교차매칭을 확인한 뒤 승인된 값을 재출력하고 T6 재검증."
+    },
+    {
+      "id": "dso:M13",
+      "field": "dist_ly",
+      "originalValue": "40118",
+      "originalUnit": "light-year (attached column label)",
+      "action": "quarantine-and-review",
+      "appliedToInput": false,
+      "appliedCandidateToContent": false,
+      "reason": "첨부 40118광년과 NASA·ESA 소개의 약 25000광년 사이에 큰 차이가 있습니다.",
+      "candidates": [
+        {
+          "value": 25000,
+          "unit": "light-year",
+          "precision": "approximate outreach value; not a new precision catalog value",
+          "source": "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/"
+        },
+        {
+          "value": 25000,
+          "unit": "light-year",
+          "precision": "approximate outreach value; not a new precision catalog value",
+          "source": "ESA/Hubble — The crowded heart of the Hercules globular cluster — https://esahubble.org/images/potw1011a/"
+        }
+      ],
+      "releaseCondition": "T0b에서 원천 카탈로그·단위·대상 교차매칭을 확인한 뒤 승인된 값을 재출력하고 T6 재검증."
+    },
+    {
+      "id": "dso:M3",
+      "field": "dist_ly",
+      "originalValue": "133127",
+      "originalUnit": "light-year (attached column label)",
+      "action": "quarantine-and-review",
+      "appliedToInput": false,
+      "appliedCandidateToContent": false,
+      "reason": "첨부 133127광년과 NASA 소개의 약 34000광년 사이에 큰 차이가 있습니다.",
+      "candidates": [
+        {
+          "value": 34000,
+          "unit": "light-year",
+          "precision": "approximate outreach value; not a new precision catalog value",
+          "source": "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/"
+        }
+      ],
+      "releaseCondition": "T0b에서 원천 카탈로그·단위·대상 교차매칭을 확인한 뒤 승인된 값을 재출력하고 T6 재검증."
+    },
+    {
+      "id": "dso:M15",
+      "field": "dist_ly",
+      "originalValue": "62483",
+      "originalUnit": "light-year (attached column label)",
+      "action": "quarantine-and-review",
+      "appliedToInput": false,
+      "appliedCandidateToContent": false,
+      "reason": "첨부 62483광년은 NASA의 약 35000광년 및 과거 약 32600광년 소개와 크게 다릅니다. 외부 자료끼리도 차이가 있습니다.",
+      "candidates": [
+        {
+          "value": 35000,
+          "unit": "light-year",
+          "precision": "approximate outreach value; not a new precision catalog value",
+          "source": "NASA — Messier 15: Messier 15 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/"
+        },
+        {
+          "value": 32600,
+          "unit": "light-year",
+          "precision": "approximate outreach value; not a new precision catalog value",
+          "source": "NASA/ESA — Globular Cluster M15 (2002-09-17) — https://science.nasa.gov/asset/hubble/globular-cluster-m15/"
+        }
+      ],
+      "releaseCondition": "T0b에서 원천 카탈로그·단위·대상 교차매칭을 확인한 뒤 승인된 값을 재출력하고 T6 재검증."
+    },
+    {
+      "id": "dso:M51",
+      "field": "dist_ly",
+      "originalValue": "418",
+      "originalUnit": "light-year (attached column label)",
+      "action": "quarantine-and-review",
+      "appliedToInput": false,
+      "appliedCandidateToContent": false,
+      "reason": "첨부 418광년은 NASA의 약 3100만/2500만 광년 소개와 규모부터 다릅니다. 외부 자료 중 하나를 최신 정밀값으로 확정하지 않았습니다.",
+      "candidates": [
+        {
+          "value": 31000000,
+          "unit": "light-year",
+          "precision": "approximate outreach value; not a new precision catalog value",
+          "source": "NASA — Messier 51: The Whirlpool Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/"
+        },
+        {
+          "value": 25000000,
+          "unit": "light-year",
+          "precision": "approximate outreach value; not a new precision catalog value",
+          "source": "NASA Scientific Visualization Studio — A Flyby of the Whirlpool Galaxy — https://svs.gsfc.nasa.gov/31024/"
+        }
+      ],
+      "releaseCondition": "T0b에서 원천 카탈로그·단위·대상 교차매칭을 확인한 뒤 승인된 값을 재출력하고 T6 재검증."
+    },
+    {
+      "id": "dso:M42",
+      "field": "type",
+      "originalValue": "Cl+N (openCluster)",
+      "action": "review-app-category-mapping",
+      "proposedApplicationCategory": "nebula",
+      "source": "NASA — Messier 42: The Orion Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/",
+      "reason": "복합 원자료 Cl+N의 N을 버리고 openCluster 단독으로 분류하지 않도록 검토. 성운과 중심 별무리는 구분.",
+      "appliedToInput": false
+    },
+    {
+      "id": "dso:M5",
+      "field": "con",
+      "originalValue": "Se1",
+      "action": "review-IAU-key-normalization",
+      "proposedApplicationValue": "Ser",
+      "source": "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+      "reason": "표시명은 뱀자리로 명시적 대응했지만 원본 식별자는 수정하지 않음.",
+      "appliedToInput": false
+    }
+  ],
+  "scope": "선택한 20행에서 발견한 문제만 기록; 남은 전체 목록의 오류 전수 감사는 아님."
+}

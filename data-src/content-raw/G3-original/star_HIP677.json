@@ -1,0 +1,92 @@
+{
+  "id": "star:HIP677",
+  "version": 1,
+  "title": {
+    "ko": "알페라츠",
+    "en": "Alpheratz"
+  },
+  "oneLiner": {
+    "ko": "가을 대사각형과 안드로메다 별 사슬이 만나는 길잡이"
+  },
+  "summary": {
+    "ko": "알페라츠는 가을 대사각형의 한 꼭짓점을 이루면서 안드로메다자리에 속하는 밝은 별입니다. 대사각형을 이루는 나머지 세 별은 페가수스자리에 있으므로 도형 이름만으로 네 별의 소속을 같다고 판단하면 안 됩니다. 알페라츠에서 안드로메다자리의 별 사슬을 따라가면 안드로메다은하를 찾는 출발점을 만들 수 있습니다. 맨눈에서는 넓은 별 배열을 먼저 확인하고 쌍안경으로 주변을 대조하세요. 소형 망원경으로 보이는 밝은 한 점의 모습보다 다른 대상에 도달하도록 길을 이어 주는 역할이 중요한 별입니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "항성",
+      "source": "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/"
+    },
+    {
+      "label": "별자리",
+      "value": "안드로메다자리 (And)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "2.07등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 표기)",
+      "value": "B9p",
+      "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "97광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "현대 천문학에서 알페라츠는 별자리와 성군의 차이를 설명하기에 좋은 별입니다. 국제천문연맹의 별자리는 경계로 나눈 하늘의 영역이며, 대사각형 같은 성군은 눈에 띄는 별 배열을 묶어 부르는 도형입니다. 따라서 페가수스 대사각형이라는 익숙한 이름이 있어도 그 꼭짓점 하나인 알페라츠의 현대 소속은 안드로메다자리입니다. 지도에 선을 어떻게 그리느냐와 좌표가 어느 경계 안에 드느냐는 다른 질문인 셈입니다. 관측할 때는 이 별에서 사각형을 한 바퀴 확인한 다음 안드로메다 쪽의 별 사슬을 따라가 보세요. 익숙한 도형을 출발점으로 삼되 이름만으로 소속이나 물리적 관계를 추정하지 않는 습관은 더 복잡한 별지도를 읽는 데 도움이 됩니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁에 밝은 별 네 개가 만드는 큰 사각형을 찾으세요. 안드로메다자리의 별 사슬이 이어져 나가는 북동쪽 꼭짓점이 알페라츠입니다. 북동쪽은 천구 방향을 뜻하므로 휴대전화나 접안렌즈 화면의 오른쪽 위와 같다고 가정하지 마세요. 지도에서 And 소속과 사각형의 다른 꼭짓점을 함께 확인합니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Peg",
+      "const:And"
+    ]
+  },
+  "observing": {
+    "nakedEye": "하늘이 맑으면 도시에서도 대사각형의 꼭짓점으로 시도할 만합니다. 별 하나의 밝기만으로 식별하지 말고 네 별의 배열을 함께 봅니다.",
+    "binoculars": "10×50으로 주변 별을 대조하되 대사각형 전체는 한 시야에 들어오지 않습니다. 맨눈으로 넓은 도형을 확인한 뒤 사용하세요.",
+    "telescope": "90mm 20~80배에서는 밝은 점광원으로 봅니다. 이 콘텐츠의 목표는 별의 원반이나 동반성 분리가 아니라 정확한 위치 확인과 다음 목표로의 길찾기입니다.",
+    "bestMonths": [
+      9,
+      10,
+      11
+    ],
+    "difficulty": 1
+  },
+  "funFacts": [
+    "페가수스 대사각형의 네 꼭짓점이 모두 페가수스자리 소속은 아닙니다.",
+    "공식 별자리의 경계와 별을 이어 그린 도형은 서로 다른 개념입니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/",
+    "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 spect=B9p를 그대로 보존했습니다. p의 세부 원소 분포나 성분별 분류는 이 입력만으로 풀어 쓰지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+    ]
+  }
+}

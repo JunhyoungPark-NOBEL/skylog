@@ -1,0 +1,35 @@
+[
+  {
+    "tutorial": "fovSetup",
+    "missionId": "summer-vega-fov",
+    "requiredSkills": [
+      "fovSetup"
+    ],
+    "completeCriteria": "실제 기능 성공 이벤트와 관련 관측 저장 필요. 버튼 진입·지도 선택만으로 완료하지 않음."
+  },
+  {
+    "tutorial": "arMode+align1",
+    "missionId": "summer-vega-align-one",
+    "requiredSkills": [
+      "arMode",
+      "align1"
+    ],
+    "completeCriteria": "실제 기능 성공 이벤트와 관련 관측 저장 필요. 버튼 진입·지도 선택만으로 완료하지 않음."
+  },
+  {
+    "tutorial": "sketch",
+    "missionId": "any-moon-first-sketch",
+    "requiredSkills": [
+      "sketch"
+    ],
+    "completeCriteria": "실제 기능 성공 이벤트와 관련 관측 저장 필요. 버튼 진입·지도 선택만으로 완료하지 않음."
+  },
+  {
+    "tutorial": "starhop-openCluster",
+    "missionId": "winter-m45-starhop",
+    "requiredSkills": [
+      "starhop"
+    ],
+    "completeCriteria": "실제 기능 성공 이벤트와 관련 관측 저장 필요. 버튼 진입·지도 선택만으로 완료하지 않음."
+  }
+]

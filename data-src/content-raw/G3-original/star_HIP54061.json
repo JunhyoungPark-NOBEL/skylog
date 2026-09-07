@@ -1,0 +1,104 @@
+{
+  "id": "star:HIP54061",
+  "version": 1,
+  "title": {
+    "ko": "두베",
+    "en": "Dubhe"
+  },
+  "oneLiner": {
+    "ko": "북두칠성에서 북극성을 찾게 해 주는 길잡이 두베"
+  },
+  "summary": {
+    "ko": "두베는 북두칠성 국자의 바깥쪽 가장자리에 놓인 밝은 별입니다. 가까운 메라크에서 두베 쪽으로 선을 이은 뒤 더 나아가면 북극성 방향을 찾는 데 도움이 됩니다. 이 길잡이 역할과 두베 자체의 물리적 성질은 구분해야 합니다. 첨부 분광형에는 구성별을 뜻할 수 있는 표시가 있어 단일한 주계열성으로 단정하지 않았습니다. 맨눈 관측에서는 국자의 모양과 북극성 방향을 익히는 데 집중하세요. 도시에서 약한 별들이 지워져도 국자의 주요 별을 먼저 확인하면 북쪽 하늘을 읽는 출발점을 얻을 수 있습니다."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "큰곰자리 (UMa)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "122.9광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "1.81등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문·성분 해석 보류)",
+      "value": "F7V comp",
+      "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP54061",
+      "source": "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "길잡이 역할",
+      "value": "메라크와 함께 북극성 방향을 찾는 기준",
+      "source": "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/"
+    }
+  ],
+  "story": {
+    "ko": "북극성으로 가는 길은 가장 밝은 별 하나를 북쪽이라고 부르는 방식과 다릅니다. 두베는 메라크와 함께 그 방향을 가리키는 표지이며, 두베 자체가 천구의 북극에 붙어 있는 것은 아닙니다. 북두칠성의 방향이 시간에 따라 달라져도 두 별 사이의 배열을 이용해 길을 되찾을 수 있습니다. 연구 자료에서는 두베의 별 진동과 쌍성계의 성질도 다루지만, 입문 관측으로 그런 미세한 흔들림을 직접 보는 것은 아닙니다. 전통 이름과 현대 카탈로그 분류를 함께 읽을 때에도 같은 주의가 필요합니다. 이름은 문화적 자리이고 분광형은 관측과 성분 선택에 따른 표기입니다. 오늘은 국자의 바깥 변과 북극성을 한 장에 그려 보고, 화살표의 시작과 끝을 스스로 설명해 보세요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "University of California Observatories — Astronomers detect starquakes — https://www.ucolick.org/news/1999/99-07-27.html",
+      "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁 북두칠성 국자의 손잡이 반대쪽 가장자리를 찾습니다. 메라크에서 두베로 향하는 선을 그어 그 방향으로 더 이어 가며 북극성을 찾으세요. 두베를 북극성과 혼동하지 않도록 별 이름을 번갈아 확인합니다. 북두칠성이 낮은 계절에는 다른 북쪽 기준도 함께 사용하세요.",
+    "season": "spring",
+    "hopFrom": [
+      "const:UMa",
+      "star:HIP11767"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 북두칠성의 주요 밝은 별로 식별하기 좋습니다. 별 하나보다 국자의 전체 방향을 함께 확인하세요.",
+    "binoculars": "10×50으로 국자의 모서리 주변을 살펴볼 수 있습니다. 북극성까지를 한 시야에 담으려 하지 마세요.",
+    "telescope": "90mm 20~80배에서는 두베의 별빛을 관찰합니다. 별 진동이나 첨부 분광형의 성분 귀속을 눈으로 검증하는 관측은 아닙니다.",
+    "bestMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "University of California Observatories — Astronomers detect starquakes — https://www.ucolick.org/news/1999/99-07-27.html",
+    "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — star:HIP54061; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: const:UMa, star:HIP11767; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "분광형 F7V comp의 성분 귀속을 보류합니다. 외부 대학 관측소 자료는 두베의 밝은 성분을 황색 거성으로 설명하므로, 첨부 표기를 주성의 F형 주계열성으로 단정해 교육하지 않습니다. 원문 오류라고 확정하거나 자동 수정하지도 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "첨부 G2의 한국 전통 별자리 재구성에서 천추(天樞), 탐랑(貪狼)과 연결됩니다. 이 명칭이 분광형이나 모든 시대의 동일한 신앙 체계를 뜻하지는 않습니다.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  }
+}

@@ -1,0 +1,1303 @@
+[
+  {
+    "missionId": "spring-arcturus-first",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP69673"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP69673",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)",
+          "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+          "NASA/JPL — What’s Up: September 2021 | https://science.nasa.gov/resource/whats-up-september-2021/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "spring-polaris-direction",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP11767"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP11767",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)",
+          "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+          "Harvard & Smithsonian CfA — Polaris, the North Star | https://www.cfa.harvard.edu/news/polaris-north-star",
+          "NASA/ESA Hubble — Hubble Images Polaris’s Companion | https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+          "한국천문연구원 — 별자리의 종류와 유래 | https://www.kasi.re.kr/kor/publication/post/videoGallery/10440",
+          "한국천문연구원 — 북두칠성; 북극성 찾기의 약 5배 연장 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "spring-orion-color-pair",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP24436",
+      "star:HIP27989"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP24436",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)",
+          "NASA/APOD — Rigel Wide, 2023-04-07 | https://apod.nasa.gov/apod/ap230407.html",
+          "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+          "NASA/Cassini — Help from Orion | https://science.nasa.gov/resource/help-from-orion/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "star:HIP27989",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP27989)",
+          "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+          "NASA — What is Betelgeuse? Inside the Strange, Volatile Star | https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/",
+          "NASA — Hubble Finds that Betelgeuse’s Mysterious Dimming Is Due to a Traumatic Outburst | https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "spring-m44-binocular",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP37826",
+      "star:HIP49669",
+      "dso:M44",
+      "const:Cnc"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP37826",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — star:HIP37826; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Find the Twins: Gemini Constellation — https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/",
+          "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+          "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — star:HIP37826; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP36850, const:Ori; inputs/catalog-values.v1.csv"
+        ]
+      },
+      {
+        "contentId": "star:HIP49669",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "CHARA Array — Regulus — https://chara.gsu.edu/photos-videos/image-gallery/regulus",
+          "NASA — Celestial Wonders in Leo — https://science.nasa.gov/solar-system/skywatching/night-sky-network/celestial-wonders-in-leo/",
+          "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — star:HIP49669; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: const:Leo, const:Gem; inputs/catalog-values.v1.csv"
+        ]
+      },
+      {
+        "contentId": "dso:M44",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Messier 44: The Beehive Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "const:Cnc",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Cnc; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Cancer — https://noirlab.edu/public/education/constellations/cancer/",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:Cnc; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Cnc; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: const:Gem, star:HIP49669, dso:M44; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Gem, star:HIP49669, dso:M44; inputs/catalog-values.v1.csv"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "spring-polaris-center",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP11767"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP11767",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)",
+          "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+          "Harvard & Smithsonian CfA — Polaris, the North Star | https://www.cfa.harvard.edu/news/polaris-north-star",
+          "NASA/ESA Hubble — Hubble Images Polaris’s Companion | https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+          "한국천문연구원 — 별자리의 종류와 유래 | https://www.kasi.re.kr/kor/publication/post/videoGallery/10440",
+          "한국천문연구원 — 북두칠성; 북극성 찾기의 약 5배 연장 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "summer-triangle-three",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP91262",
+      "star:HIP97649",
+      "star:HIP102098"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP91262",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)",
+          "NASA — Hubble, Webb Probe Surprisingly Smooth Disk Around Vega | https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+          "한국천문연구원 — 직녀성(Vega) | https://www.kasi.re.kr/kor/publication/post/photoGallery/4351",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "star:HIP97649",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP97649)",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+          "CHARA Array — Altair: gravity-darkened stellar surface | https://chara.gsu.edu/photos-videos/image-gallery/altair",
+          "Monnier 외(2007) — Imaging the Surface of Altair | https://ui.adsabs.harvard.edu/abs/2007Sci...317..342M/abstract",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "star:HIP102098",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "NASA — Summer Triangle Corner: Deneb, 2026-08-15 | https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "Meilland 외(2010) — Resolving the dusty circumstellar environment of HD 62623; Deneb 거리 가정 비교 | https://arxiv.org/html/0912.1954v1",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "summer-antares-window",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP80763"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP80763",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)",
+          "ESO — Best Ever Image of a Star’s Surface and Atmosphere, 2017-08-23 | https://www.eso.org/public/news/eso1726/",
+          "ALMA — Supergiant Atmosphere of Antares Revealed by Radio Telescopes | https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "summer-vega-fov",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP91262"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP91262",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)",
+          "NASA — Hubble, Webb Probe Surprisingly Smooth Disk Around Vega | https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+          "한국천문연구원 — 직녀성(Vega) | https://www.kasi.re.kr/kor/publication/post/photoGallery/4351",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "summer-deneb-starfield",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP102098"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP102098",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "NASA — Summer Triangle Corner: Deneb, 2026-08-15 | https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "Meilland 외(2010) — Resolving the dusty circumstellar environment of HD 62623; Deneb 거리 가정 비교 | https://arxiv.org/html/0912.1954v1",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "summer-vega-align-one",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP91262"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP91262",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)",
+          "NASA — Hubble, Webb Probe Surprisingly Smooth Disk Around Vega | https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+          "한국천문연구원 — 직녀성(Vega) | https://www.kasi.re.kr/kor/publication/post/photoGallery/4351",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "autumn-deneb-bridge",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP102098"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP102098",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "NASA — Summer Triangle Corner: Deneb, 2026-08-15 | https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "Meilland 외(2010) — Resolving the dusty circumstellar environment of HD 62623; Deneb 거리 가정 비교 | https://arxiv.org/html/0912.1954v1",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "autumn-aldebaran-arrival",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP21421"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP21421",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP21421)",
+          "NASA — Spot the Young Stars of the Hyades and Pleiades | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+          "NASA/JPL — What’s Up: March 2022 | https://www.jpl.nasa.gov/videos/whats-up-march-2022/",
+          "NASA/APOD — Orion Spring, 2015-03-26 | https://apod.nasa.gov/apod/ap150326.html",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "autumn-double-cluster",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "dso:NGC869",
+      "dso:NGC884",
+      "const:Cas",
+      "const:Per"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "dso:NGC869",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+          "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "dso:NGC884",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — dso:NGC884; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+          "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "const:Cas",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Cas; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Cassiopeia — https://noirlab.edu/public/education/constellations/cassiopeia/",
+          "Chandra X-ray Observatory — Cassiopeia — https://chandra.harvard.edu/photo/constellations/cassiopeia.html",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:Cas; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Cas; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, const:Per, dso:NGC869; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, const:Per, dso:NGC869; inputs/catalog-values.v1.csv"
+        ]
+      },
+      {
+        "contentId": "const:Per",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Per; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+          "Chandra X-ray Observatory — Cassiopeia — https://chandra.harvard.edu/photo/constellations/cassiopeia.html",
+          "American Astronomical Society — Algol: the Star of Frequent Changes — https://aas.org/posts/news/2018/07/month-astronomical-history-0",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:Per; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Per; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: const:Cas, star:HIP14576, dso:NGC869, dso:NGC884; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Cas, star:HIP14576, dso:NGC869, dso:NGC884; inputs/catalog-values.v1.csv"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "autumn-polaris-backup",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP11767"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP11767",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)",
+          "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+          "Harvard & Smithsonian CfA — Polaris, the North Star | https://www.cfa.harvard.edu/news/polaris-north-star",
+          "NASA/ESA Hubble — Hubble Images Polaris’s Companion | https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+          "한국천문연구원 — 별자리의 종류와 유래 | https://www.kasi.re.kr/kor/publication/post/videoGallery/10440",
+          "한국천문연구원 — 북두칠성; 북극성 찾기의 약 5배 연장 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "autumn-m31-core",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP677",
+      "dso:M31",
+      "const:And"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP677",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/",
+          "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "dso:M31",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — dso:M31; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Messier 31: The Andromeda Galaxy — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/",
+          "NASA — Celebrates Edwin Hubble’s Discovery of a New Universe (2025-01-15) — https://science.nasa.gov/missions/hubble/nasa-celebrates-edwin-hubbles-discovery-of-a-new-universe/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "const:And",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:And; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Andromeda — https://noirlab.edu/public/education/constellations/andromeda/?lang=es",
+          "Chandra X-ray Observatory — Cassiopeia — https://chandra.harvard.edu/photo/constellations/cassiopeia.html",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:And; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:And; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, const:Peg, dso:M31; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, const:Peg, dso:M31; inputs/catalog-values.v1.csv"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "winter-sirius-beacon",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP32349"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP32349",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)",
+          "NASA/ESA Hubble — The Dog Star, Sirius, and its Tiny Companion | https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+          "NASA — Measuring a White Dwarf Star | https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+          "한국천문연구원 — 가장 밝은 별, 시리우스 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+          "사이언스타임즈 — 시리우스, 겨울 밤하늘과 위대한 발견 | https://www.sciencetimes.co.kr/?p=249691",
+          "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "winter-aldebaran-depth",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP21421"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP21421",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP21421)",
+          "NASA — Spot the Young Stars of the Hyades and Pleiades | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+          "NASA/JPL — What’s Up: March 2022 | https://www.jpl.nasa.gov/videos/whats-up-march-2022/",
+          "NASA/APOD — Orion Spring, 2015-03-26 | https://apod.nasa.gov/apod/ap150326.html",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "winter-m45-starhop",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP21421",
+      "dso:M45",
+      "const:Tau"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP21421",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP21421)",
+          "NASA — Spot the Young Stars of the Hyades and Pleiades | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+          "NASA/JPL — What’s Up: March 2022 | https://www.jpl.nasa.gov/videos/whats-up-march-2022/",
+          "NASA/APOD — Orion Spring, 2015-03-26 | https://apod.nasa.gov/apod/ap150326.html",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "dso:M45",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — dso:M45; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Messier 45: The Pleiades — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-45/",
+          "NASA APOD — M45: The Pleiades Star Cluster (2016-10-19) — https://science.nasa.gov/image-article/apod-2016-october-19-m45-the-pleiades-star-cluster/",
+          "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20) — https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20",
+          "한국민족문화대백과사전 — 좀생이보기 — https://encykorea.aks.ac.kr/Article/E0052883",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "const:Tau",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Tau; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Taurus — https://noirlab.edu/public/education/constellations/taurus/?nocache=true",
+          "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:Tau; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Tau; inputs/catalog-values.v1.csv의 해당 행",
+          "NASA Night Sky Network — Spot the Young Stars of the Hyades and Pleiades — https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP21421, dso:M45, const:Ori; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP21421, dso:M45, const:Ori; inputs/catalog-values.v1.csv"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "winter-rigel-scale",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP24436"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP24436",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24436)",
+          "NASA/APOD — Rigel Wide, 2023-04-07 | https://apod.nasa.gov/apod/ap230407.html",
+          "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+          "NASA/Cassini — Help from Orion | https://science.nasa.gov/resource/help-from-orion/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "winter-betelgeuse-record",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP27989"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP27989",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP27989)",
+          "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+          "NASA — What is Betelgeuse? Inside the Strange, Volatile Star | https://science.nasa.gov/universe/what-is-betelgeuse-inside-the-strange-volatile-star/",
+          "NASA — Hubble Finds that Betelgeuse’s Mysterious Dimming Is Due to a Traumatic Outburst | https://science.nasa.gov/missions/hubble/hubble-finds-that-betelgeuses-mysterious-dimming-is-due-to-a-traumatic-outburst/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "any-moon-phase",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "moon"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "moon",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=moon)",
+          "NASA — Moon Facts | https://science.nasa.gov/moon/facts/",
+          "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+          "NASA — Moon Phases | https://science.nasa.gov/moon/moon-phases/",
+          "NASA/JPL — Astrodynamic Parameters | https://ssd.jpl.nasa.gov/astro_par.html",
+          "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+          "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+          "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "any-moon-binocular",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "moon"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "moon",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=moon)",
+          "NASA — Moon Facts | https://science.nasa.gov/moon/facts/",
+          "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+          "NASA — Moon Phases | https://science.nasa.gov/moon/moon-phases/",
+          "NASA/JPL — Astrodynamic Parameters | https://ssd.jpl.nasa.gov/astro_par.html",
+          "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+          "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+          "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "any-moon-first-sketch",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "moon"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "moon",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=moon)",
+          "NASA — Moon Facts | https://science.nasa.gov/moon/facts/",
+          "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+          "NASA — Moon Phases | https://science.nasa.gov/moon/moon-phases/",
+          "NASA/JPL — Astrodynamic Parameters | https://ssd.jpl.nasa.gov/astro_par.html",
+          "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+          "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+          "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "any-jupiter-visit",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "planet:jupiter"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "planet:jupiter",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:jupiter)",
+          "NASA — Jupiter Facts | https://science.nasa.gov/jupiter/jupiter-facts/",
+          "NASA — Spot the King of Planets: Observe Jupiter | https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-king-of-planets-observe-jupiter/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "spring-spica-bridge",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP69673",
+      "star:HIP65474",
+      "const:Vir"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP69673",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)",
+          "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+          "NASA/JPL — What’s Up: September 2021 | https://science.nasa.gov/resource/whats-up-september-2021/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "star:HIP65474",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — star:HIP65474; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22) — https://www.cfa.harvard.edu/news/understanding-spica",
+          "NASA — What’s Up: September 2021 — https://science.nasa.gov/resource/whats-up-september-2021/",
+          "Stellarium — korean skyculture index.json — https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "const:Vir",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Vir; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Virgo — https://noirlab.edu/public/education/constellations/virgo/",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:Vir; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Vir; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP69673, star:HIP65474; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP69673, star:HIP65474; inputs/catalog-values.v1.csv"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "autumn-alpheratz-anchor",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP677",
+      "const:Peg",
+      "const:And"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP677",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — star:HIP677; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "IAU Office of Astronomy for Education — Andromeda Constellation Map — https://astro4edu.org/resources/diagram/6P43LB422a75/",
+          "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "const:Peg",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Peg; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Pegasus — https://noirlab.edu/public/education/constellations/pegasus/?lang=es",
+          "NSF NOIRLab — Andromeda — https://noirlab.edu/public/education/constellations/andromeda/?lang=es",
+          "Chandra X-ray Observatory — Pegasus — https://chandra.harvard.edu/photo/constellations/pegasus.html",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:Peg; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Peg; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, star:HIP102098, dso:M15; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, star:HIP102098, dso:M15; inputs/catalog-values.v1.csv"
+        ]
+      },
+      {
+        "contentId": "const:And",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:And; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Andromeda — https://noirlab.edu/public/education/constellations/andromeda/?lang=es",
+          "Chandra X-ray Observatory — Cassiopeia — https://chandra.harvard.edu/photo/constellations/cassiopeia.html",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:And; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:And; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, const:Peg, dso:M31; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP677, const:Peg, dso:M31; inputs/catalog-values.v1.csv"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "summer-m13-binocular",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP91262",
+      "star:HIP69673",
+      "const:Her",
+      "dso:M13"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP91262",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP91262)",
+          "NASA — Hubble, Webb Probe Surprisingly Smooth Disk Around Vega | https://science.nasa.gov/missions/hubble/nasas-hubble-webb-probe-surprisingly-smooth-disk-around-vega/",
+          "한국천문연구원 — 직녀성(Vega) | https://www.kasi.re.kr/kor/publication/post/photoGallery/4351",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "한국학중앙연구원 — 견우직녀 설화 | https://encykorea.aks.ac.kr/Article/E0002170",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "star:HIP69673",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)",
+          "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+          "NASA/JPL — What’s Up: September 2021 | https://science.nasa.gov/resource/whats-up-september-2021/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "const:Her",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Her; inputs/catalog-values.v1.csv의 원본 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+          "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+          "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP91262, star:HIP69673, dso:M13, dso:M92; inputs/catalog-values.v1.csv",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+          "NSF NOIRLab — hercules — https://noirlab.edu/public/education/constellations/hercules/",
+          "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+          "NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/",
+          "NSF NOIRLab — hercules — https://noirlab.edu/public/education/constellations/hercules/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+          "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: star:HIP91262, star:HIP69673, dso:M13, dso:M92",
+          "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+        ]
+      },
+      {
+        "contentId": "dso:M13",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — dso:M13; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Messier 13: The Hercules Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/",
+          "ESA/Hubble — The crowded heart of the Hercules globular cluster — https://esahubble.org/images/potw1011a/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "winter-m42-binocular",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP26311",
+      "const:Ori",
+      "dso:M42"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP26311",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+          "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+          "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+          "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+          "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP26727, star:HIP25930, const:Ori; inputs/catalog-values.v1.csv"
+        ]
+      },
+      {
+        "contentId": "const:Ori",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Ori; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Orion — https://noirlab.edu/public/education/constellations/orion/",
+          "NASA/ESA — Orion Constellation — https://science.nasa.gov/asset/hubble/orion-constellation/",
+          "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+          "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+          "첨부 catalog-values.v1.csv — const:Ori; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Ori; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP27989, star:HIP24436, star:HIP26311, dso:M42; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP27989, star:HIP24436, star:HIP26311, dso:M42; inputs/catalog-values.v1.csv"
+        ]
+      },
+      {
+        "contentId": "dso:M42",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — dso:M42; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Messier 42: The Orion Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "spring-m3-globular",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP69673",
+      "dso:M3",
+      "const:Boo"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP69673",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP69673)",
+          "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+          "NASA/JPL — What’s Up: September 2021 | https://science.nasa.gov/resource/whats-up-september-2021/",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "dso:M3",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/",
+          "NASA — M3 Globular Cluster — https://science.nasa.gov/image-detail/m3/",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "const:Boo",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Boo; inputs/catalog-values.v1.csv의 원본 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+          "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+          "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:UMa, star:HIP69673; inputs/catalog-values.v1.csv",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+          "NSF NOIRLab — bootes — https://noirlab.edu/public/education/constellations/bootes/",
+          "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+          "NSF NOIRLab — bootes — https://noirlab.edu/public/education/constellations/bootes/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+          "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: const:UMa, star:HIP69673",
+          "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  },
+  {
+    "missionId": "summer-albireo-double",
+    "activityBasis": "Task7의 단계 타입을 조합한 교육 설계 제안. 실제 앱 기능 존재는 별도 확인 필요.",
+    "contentIds": [
+      "star:HIP102098",
+      "star:HIP95947",
+      "const:Cyg"
+    ],
+    "sourceFields": [
+      {
+        "contentId": "star:HIP102098",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP102098)",
+          "한국천문연구원 — 여름철 대삼각형 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4220",
+          "NASA — Summer Triangle Corner: Deneb, 2026-08-15 | https://science.nasa.gov/solar-system/skywatching/night-sky-network/summer-triangle-corner-deneb/",
+          "NASA/APOD — Stars of a Summer Triangle, 2015-06-27 | https://apod.nasa.gov/apod/ap150627.html",
+          "Meilland 외(2010) — Resolving the dusty circumstellar environment of HD 62623; Deneb 거리 가정 비교 | https://arxiv.org/html/0912.1954v1",
+          "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+        ]
+      },
+      {
+        "contentId": "star:HIP95947",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — star:HIP95947; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NASA APOD — Beautiful Albireo AB (2022-02-24) — https://science.nasa.gov/image-article/apod-2022-february-24-beautiful-albireo-ab/",
+          "NASA Night Sky Network — Seeing Double (2024-08-01) — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+          "Jack 외 (2022) — Yet another star in the Albireo system — https://www.aanda.org/articles/aa/full_html/2022/05/aa43255-22/aa43255-22.html",
+          "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+          "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      },
+      {
+        "contentId": "const:Cyg",
+        "fields": [
+          "howToFind.ko",
+          "observing",
+          "summary.ko"
+        ],
+        "sources": [
+          "첨부 catalog-values.v1.csv — const:Cyg; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "NSF NOIRLab — Cygnus — https://noirlab.edu/public/education/constellations/cygnus/",
+          "NASA Night Sky Network — Seeing Double — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+          "첨부 catalog-values.v1.csv — const:Cyg; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Cyg; inputs/catalog-values.v1.csv의 해당 행",
+          "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP102098, star:HIP91262, star:HIP95947; inputs/catalog-values.v1.csv",
+          "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP102098, star:HIP91262, star:HIP95947; inputs/catalog-values.v1.csv"
+        ]
+      }
+    ],
+    "planningGateFile": "G5/qa/visibility-screening.json",
+    "runtimeGateFile": "G5/mission-runtime-gates.json"
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "id": "const:Her",
+  "version": 1,
+  "title": {
+    "ko": "허큘리스자리",
+    "en": "Hercules",
+    "alt": [
+      "헤르쿨레스자리"
+    ]
+  },
+  "oneLiner": {
+    "ko": "베가와 아르크투루스 사이에서 성단 탐색의 발판을 찾아요"
+  },
+  "summary": {
+    "ko": "허큘리스자리는 여름 하늘에서 베가와 아르크투루스 사이의 넓은 구역을 살펴 찾는 별자리입니다. 흔히 헤르쿨레스자리라고도 부르며, 이 팩에서는 첨부 한국어 표의 허큘리스자리를 제목으로 사용합니다. 중심의 사다리꼴 모양 배열을 확인하면 M13과 M92 같은 구상성단으로 탐색을 이어 갈 수 있습니다. 밝은 별 하나로 바로 확정하기보다 주변 별의 배치를 지도와 대조하는 편이 좋습니다. 도시에서는 사다리꼴 일부가 사라질 수 있으며, 성단 검출은 별자리 찾기와 별도로 판정해야 합니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 경계로 정한 하늘의 영역; 단일 천체가 아님",
+      "source": "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Her",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Herculis",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "대표 그림·길잡이 무늬",
+      "value": "영웅의 모습, 중심 사다리꼴 길잡이",
+      "source": "NSF NOIRLab — hercules — https://noirlab.edu/public/education/constellations/hercules/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님"
+    },
+    {
+      "label": "찾기의 기준",
+      "value": "베가 / 아르크투루스",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: star:HIP91262, star:HIP69673, dso:M13, dso:M92"
+    },
+    {
+      "label": "관측 계절 안내",
+      "value": "여름 — 편집 분류, 실시간 가시성 보장 아님",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    }
+  ],
+  "story": {
+    "ko": "이 별자리의 라틴어 이름 Hercules는 로마의 영웅 이름이며, 그리스 전승의 헤라클레스와 연결됩니다. 문화권에 따라 이름이 달라지는 것처럼 하늘 지도에 그리는 인물의 자세나 연결선도 하나로 고정된 자연물은 아닙니다. 현대 관측에서는 영웅의 전신을 억지로 상상하기보다 중심의 사다리꼴을 길잡이로 삼을 수 있습니다. 그 안팎의 별 배치를 익히면 흐린 빛덩이로 보이는 M13과 M92에 접근할 수 있지만, 이야기 속 인물과 두 성단이 물리적으로 연결된 것은 아닙니다. 관측 기록에는 인물 그림을 이해했다는 감상과 실제로 확인한 별·성단을 구분해 적어 보세요. 같은 하늘 영역에서 맨눈의 무늬 찾기와 망원경의 별무리 찾기가 서로 다른 관측이라는 점을 배울 수 있습니다.",
+    "cultures": [
+      "그리스·로마"
+    ],
+    "sources": [
+      "NSF NOIRLab — hercules — https://noirlab.edu/public/education/constellations/hercules/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+      "NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 저녁 베가와 아르크투루스를 먼저 확인합니다. 둘 사이에서 지도에 표시된 허큘리스자리의 사다리꼴 배열을 찾아 별마다 대조하세요. 배열을 확인한 뒤 M13 또는 M92를 새 목표로 선택하고 저배율로 이동합니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP91262",
+      "star:HIP69673",
+      "dso:M13",
+      "dso:M92"
+    ]
+  },
+  "observing": {
+    "nakedEye": "어두운 곳에서는 중심 배열을 따라가기 쉽지만 도시에서는 일부 별이 빠질 수 있습니다.",
+    "binoculars": "10×50으로 사다리꼴의 별과 성단 후보를 나누어 살핍니다. M13과 M92는 개별 별로 모두 분해되지 않는 작은 빛무리일 수 있습니다.",
+    "telescope": "90mm 20~80배로 M13과 M92의 중심 집중 정도를 비교하는 목표를 권합니다. 별자리 전체는 망원경 시야보다 넓습니다.",
+    "difficulty": 3,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Her; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP91262, star:HIP69673, dso:M13, dso:M92; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — hercules — https://noirlab.edu/public/education/constellations/hercules/",
+    "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+    "NASA — Messier 92 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-92/",
+    "NSF NOIRLab — hercules — https://noirlab.edu/public/education/constellations/hercules/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: star:HIP91262, star:HIP69673, dso:M13, dso:M92",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "원본 name_ko=헤르쿨레스자리를 raw-selected-values.json에 보존하고, 제목은 G2 표준 허큘리스자리로 정규화했습니다. 원본 별칭도 title.alt에 남겼습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 RA/Dec는 대표 좌표입니다. 별자리 전체의 가시성·거리·등급·각크기를 이 한 점으로 판단하거나 누락 숫자를 만들어 넣지 않았습니다."
+    ]
+  }
+}

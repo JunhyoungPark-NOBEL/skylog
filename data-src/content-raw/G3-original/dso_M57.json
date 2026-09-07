@@ -1,0 +1,99 @@
+{
+  "id": "dso:M57",
+  "version": 1,
+  "title": {
+    "ko": "고리성운",
+    "en": "Ring Nebula"
+  },
+  "oneLiner": {
+    "ko": "거문고자리의 두 별 사이에서 찾는 작은 별의 흔적"
+  },
+  "summary": {
+    "ko": "고리성운 M57은 거문고자리에 있는 행성상성운(별이 진화하며 내보낸 가스가 빛나는 영역)입니다. 행성이라는 말이 들어가지만 행성이나 행성의 고리를 뜻하지 않습니다. 하늘에서 작게 보이므로 맨눈 대상이 아니며, 쌍안경에서도 별과 구분하기가 쉽지 않습니다. 소형 망원경의 저배율로 위치를 확인한 다음 배율을 올려 작은 원반이나 고리 같은 윤곽을 살펴보세요. 도시와 대기 상태에 따라 가운데가 덜 밝은 모습이 분명하지 않을 수 있습니다. 사진의 색깔이나 희미한 중심별을 검출하는 일을 기본 목표로 요구하지 않습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "행성상성운",
+      "source": "NASA — Messier 57: The Ring Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/"
+    },
+    {
+      "label": "별자리",
+      "value": "거문고자리 (Lyr)",
+      "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "8.8등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "1.27′",
+      "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M57",
+      "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "2567광년",
+      "source": "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "고리성운이라는 이름은 작은 망원경에서 보이는 인상을 담고 있습니다. 현대 관측은 이 대상이 단순히 평평한 고리 한 장이 아니라 별이 내보낸 가스의 입체적인 구조임을 보여 줍니다. 허블은 가시광선에서, 제임스웹은 적외선에서 서로 다른 구조를 자세히 살폈습니다. 연구 영상의 색은 관측한 파장을 구분해 표현하기도 하므로 접안렌즈로 느끼는 색과 일치할 필요가 없습니다. 별이 흘려보낸 물질을 본다는 점에서 별 탄생 영역인 오리온대성운과 비교해 볼 수 있습니다. 둘 다 성운이라고 부르지만 별의 삶에서 맡는 위치가 다릅니다. 관측 기록에는 작은 원반만 구별했는지, 가운데가 어두운 인상까지 확인했는지를 나누어 적어 보세요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 57: The Ring Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/",
+      "NASA/ESA/CSA — Ring Nebula, NIRCam Image (2023-08-21) — https://science.nasa.gov/asset/webb/ring-nebula-nircam-image/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 저녁에 밝은 베가를 찾고 바로 옆 거문고자리의 작은 평행사변형을 확인하세요. 베가에서 먼 쪽 변을 이루는 베타별 셸리아크와 감마별 술라파트 사이가 목표 구역입니다. 두 별 사이를 저배율로 천천히 훑어 별처럼 날카롭지 않은 작은 얼룩을 찾은 뒤 배율을 높입니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP91262",
+      "const:Lyr"
+    ]
+  },
+  "observing": {
+    "nakedEye": "맨눈으로는 관측하지 못하는 대상으로 잡습니다. 베가와 거문고자리의 기준 별을 찾는 단계까지만 진행하세요.",
+    "binoculars": "10×50에서는 안정된 지지와 어두운 하늘에서도 식별이 어려울 수 있습니다. 고리 모양을 쌍안경의 성공 조건으로 설정하지 않습니다.",
+    "telescope": "90mm 20~40배로 위치를 잡고 60~80배에서 작은 원반과 고리 같은 윤곽을 시도합니다. 도시에선 중심의 어두운 부분이 불분명할 수 있고 중심별은 목표로 삼지 않습니다.",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "difficulty": 4
+  },
+  "funFacts": [
+    "행성상성운은 행성의 고리나 행성이 뿜은 가스가 아닙니다.",
+    "적외선 영상의 표시 색과 접안렌즈에서 느끼는 색은 다를 수 있습니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M57; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 57: The Ring Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/",
+    "NASA/ESA/CSA — Ring Nebula, NIRCam Image (2023-08-21) — https://science.nasa.gov/asset/webb/ring-nebula-nircam-image/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "거리 2567광년은 첨부 값입니다. NASA 허블 소개의 약 2000광년과 웹 소개의 약 2500광년 등 추정이 다르므로 정밀 거리 퀴즈에 쓰지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

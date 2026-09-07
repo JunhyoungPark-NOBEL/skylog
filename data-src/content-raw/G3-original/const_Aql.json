@@ -1,0 +1,108 @@
+{
+  "id": "const:Aql",
+  "version": 1,
+  "title": {
+    "ko": "독수리자리",
+    "en": "Aquila"
+  },
+  "oneLiner": {
+    "ko": "견우성 알타이르와 이웃한 두 점에서 여름 독수리를 찾으세요"
+  },
+  "summary": {
+    "ko": "독수리자리는 여름의 밝은 알타이르와 그 양옆의 약한 별들을 기준으로 찾는 별자리입니다. 베가·데네브와 이루는 여름 대삼각형에서 남쪽 꼭짓점을 먼저 정하면 구역을 좁히기 쉽습니다. 알타이르는 한국의 칠석 이야기에서 견우성으로 연결되는 용례가 있습니다. 다만 같은 견우라는 말이 쓰이는 다른 전통 성군까지 한 별로 합치지는 않아야 합니다. 도시에서는 날개 전체보다 알타이르 주변의 작은 배열부터 확인하세요. 맨눈으로 위치를 익힌 뒤 쌍안경으로 주변을 살피면 큰 그림과 개별 별의 관계를 차근차근 배울 수 있습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Aql; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Aql",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Aquilae",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "알타이르와 양옆의 별, 여름 대삼각형",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP97649, star:HIP91262, star:HIP102098; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "독수리",
+      "source": "NSF NOIRLab — Aquila — https://noirlab.edu/public/education/constellations/aquila/?lang=es"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "여름 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "알타이르를 견우성이라 부르며 직녀성 베가와 연결하는 칠석 전승은 두 밝은 별을 기억하게 해 줍니다. 한국학중앙연구원이 소개하는 설화에서 두 인물은 은하수를 사이에 두고 한 해 한 번 만납니다. 이 문화적 연결을 현재의 별 운동이나 물리적 접근으로 설명해서는 안 됩니다. 전통 천문 체계마다 같은 말이 가리키는 범위가 다를 수 있다는 점도 중요합니다. 오늘은 알타이르와 양옆의 점들을 먼저 확인하고 독수리자리 전체 영역을 지도에서 넓혀 보세요. 이어 베가 쪽을 찾아 두 별이 서로 다른 별자리에 속한다는 사실을 기록합니다. 이름이 익숙한 밝은 별에서 시작하되, 이야기에 등장하는 인물과 실제 하늘의 분류를 나누어 읽으면 전통 명칭을 검색할 때도 혼동을 줄일 수 있습니다.",
+    "cultures": [
+      "한국",
+      "동아시아"
+    ],
+    "sources": [
+      "NSF NOIRLab — Aquila — https://noirlab.edu/public/education/constellations/aquila/?lang=es",
+      "한국학중앙연구원 — 견우직녀 설화 — https://encykorea.aks.ac.kr/Article/E0002170",
+      "국립민속박물관 — 칠석 — https://nfm.go.kr/kids/elecontents/view.do?topic=228"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 저녁 베가와 데네브에서 큰 삼각형의 남쪽 꼭짓점인 알타이르를 찾습니다. 알타이르 양옆의 약한 두 점을 확인한 뒤 독수리자리의 날개와 몸통 구역으로 탐색을 넓히세요. 휴대폰을 돌려도 중앙 밝은 별과 양옆 별의 관계를 기준으로 삼습니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP97649",
+      "star:HIP91262",
+      "star:HIP102098"
+    ]
+  },
+  "observing": {
+    "nakedEye": "알타이르는 도시에서 찾기 좋은 편입니다. 양옆과 날개 쪽 약한 별은 조건에 따라 일부만 보일 수 있습니다.",
+    "binoculars": "10×50으로 중앙의 작은 배열과 주변 별을 관찰합니다. 큰 날개 전체는 여러 시야로 나눕니다.",
+    "telescope": "90mm 20~80배로 개별 별을 확인합니다. 큰 독수리 형상은 맨눈·지도에서 먼저 익히는 편이 좋습니다.",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Aql; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Aquila — https://noirlab.edu/public/education/constellations/aquila/?lang=es",
+    "한국학중앙연구원 — 견우직녀 설화 — https://encykorea.aks.ac.kr/Article/E0002170",
+    "국립민속박물관 — 칠석 — https://nfm.go.kr/kids/elecontents/view.do?topic=228",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — const:Aql; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Aql; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP97649, star:HIP91262, star:HIP102098; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP97649, star:HIP91262, star:HIP102098; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "알타이르를 견우성으로 부르는 칠석 설화 용례입니다. 다른 시대·문헌의 견우 또는 우수 성군을 이 별과 무조건 일대일 대응시키지 않습니다.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+      "국립민속박물관 — 칠석 — https://nfm.go.kr/kids/elecontents/view.do?topic=228",
+      "한국학중앙연구원 — 견우직녀 설화 — https://encykorea.aks.ac.kr/Article/E0002170"
+    ]
+  }
+}

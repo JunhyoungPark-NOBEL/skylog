@@ -1,0 +1,8 @@
+{
+  "scope": "자체 작성한 Python 참조 판정기의 합성 데이터 단위 시험. 실제 앱·센서·렌더러·전천 검증이 아님.",
+  "testsRun": 40,
+  "passed": 40,
+  "failures": [],
+  "errors": [],
+  "status": "passed"
+}

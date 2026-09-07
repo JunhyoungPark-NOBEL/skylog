@@ -1,0 +1,306 @@
+[
+  {
+    "key": "Albireo",
+    "title": "NASA APOD — Beautiful Albireo AB (2022-02-24)",
+    "url": "https://science.nasa.gov/image-article/apod-2022-february-24-beautiful-albireo-ab/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": ""
+  },
+  {
+    "key": "AlbireoResearch",
+    "title": "Jack 외 (2022) — Yet another star in the Albireo system",
+    "url": "https://www.aanda.org/articles/aa/full_html/2022/05/aa43255-22/aa43255-22.html",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인 초록 확인; 직접 열기 실패",
+    "notes": "A/B의 중력 결합을 확정하지 않는 근거로만 사용."
+  },
+  {
+    "key": "AndMap",
+    "title": "IAU Office of Astronomy for Education — Andromeda Constellation Map",
+    "url": "https://astro4edu.org/resources/diagram/6P43LB422a75/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "그림 파일은 재배포하지 않으며 텍스트 캡션의 알페라츠·대사각형 설명을 사용."
+  },
+  {
+    "key": "C14",
+    "title": "NASA — Caldwell 14: The Double Cluster",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "NGC869와 NGC884의 두 ID를 분리. 페이지 머리말의 복수 별자리 표현을 소속 코드로 사용하지 않음."
+  },
+  {
+    "key": "Const",
+    "title": "IAU — The Constellations",
+    "url": "https://iauarchive.eso.org/public/themes/constellations/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "현대 별자리 경계와 성군의 구분, Ser 표준 약어."
+  },
+  {
+    "key": "Dark",
+    "title": "NASA — How to Find Good Places to Stargaze",
+    "url": "https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "광해·어두운 관측지에 대한 원칙. 특정 장비의 검출 성능을 실측한 자료가 아님."
+  },
+  {
+    "key": "Doubles",
+    "title": "NASA Night Sky Network — Seeing Double (2024-08-01)",
+    "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": ""
+  },
+  {
+    "key": "Jom",
+    "title": "한국민족문화대백과사전 — 좀생이보기",
+    "url": "https://encykorea.aks.ac.kr/Article/E0052883",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "[출처 : 좀생이보기 - 한국민족문화대백과사전]. 풍흉 점치기는 문화적 풍속으로 서술하며 과학적 예측법으로 제시하지 않음."
+  },
+  {
+    "key": "Korean",
+    "title": "Stellarium — korean skyculture index.json",
+    "url": "https://raw.githubusercontent.com/Stellarium/stellarium/master/skycultures/korean/index.json",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "HIP 65474=좌각 및 각(角) 구성 대응은 이 공개 재구성의 범위에 한정. 구조화 데이터 전체나 도형은 복제하지 않음."
+  },
+  {
+    "key": "M13",
+    "title": "NASA — Messier 13: The Hercules Cluster",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-13/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M13ESA",
+    "title": "ESA/Hubble — The crowded heart of the Hercules globular cluster",
+    "url": "https://esahubble.org/images/potw1011a/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": ""
+  },
+  {
+    "key": "M15",
+    "title": "NASA — Messier 15: Messier 15",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-15/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M15Old",
+    "title": "NASA/ESA — Globular Cluster M15 (2002-09-17)",
+    "url": "https://science.nasa.gov/asset/hubble/globular-cluster-m15/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "32600광년이라는 과거 자료와 현재 소개의 35000광년을 구분. 하나를 최신 정밀값으로 확정하지 않음."
+  },
+  {
+    "key": "M27",
+    "title": "NASA — Messier 27: The Dumbbell Nebula",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M27Spitzer",
+    "title": "NASA/JPL-Caltech — Weighing in on the Dumbbell Nebula (2011-08-10)",
+    "url": "https://science.nasa.gov/photojournal/weighing-in-on-the-dumbbell-nebula/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "내용 본문의 M27 설명을 사용; 페이지의 Target 메타데이터에 다른 성운명이 있어 그 필드는 사용하지 않음."
+  },
+  {
+    "key": "M3",
+    "title": "NASA — Messier 3: Messier 3",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M31",
+    "title": "NASA — Messier 31: The Andromeda Galaxy",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M31History",
+    "title": "NASA — Celebrates Edwin Hubble’s Discovery of a New Universe (2025-01-15)",
+    "url": "https://science.nasa.gov/missions/hubble/nasa-celebrates-edwin-hubbles-discovery-of-a-new-universe/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "V1·세페이드·거리 측정의 역사만 사용. 본문의 다른 거리 추정은 현재 카탈로그 대체값으로 적용하지 않음."
+  },
+  {
+    "key": "M35",
+    "title": "NASA — Messier 35: Messier 35",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-35/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M37",
+    "title": "NSF NOIRLab — M37, NGC 2099",
+    "url": "https://noirlab.edu/public/images/noao-m37/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인 본문 확인; 직접 열기는 접근 확인 페이지",
+    "notes": "마차부자리 산개성단이라는 검색 본문의 확인 범위만 사용. 별 수·지름·나이 수치는 인용하지 않음."
+  },
+  {
+    "key": "M37research",
+    "title": "Werner 외 (2023) — The unusual planetary nebula nucleus in the Galactic open cluster M37",
+    "url": "https://www.aanda.org/articles/aa/full_html/2023/10/aa47217-23/aa47217-23.html",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인 초록·본문 일부 확인; 직접 열기 실패",
+    "notes": "M37의 백색왜성 및 행성상성운 연구의 존재만 사용. 자세한 수치나 본문 미열람 내용을 추정하지 않음."
+  },
+  {
+    "key": "M3History",
+    "title": "NASA — M3 Globular Cluster",
+    "url": "https://science.nasa.gov/image-detail/m3/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": ""
+  },
+  {
+    "key": "M42",
+    "title": "NASA — Messier 42: The Orion Nebula",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M44",
+    "title": "NASA — Messier 44: The Beehive Cluster",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M45",
+    "title": "NASA — Messier 45: The Pleiades",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-45/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M45Dust",
+    "title": "NASA APOD — M45: The Pleiades Star Cluster (2016-10-19)",
+    "url": "https://science.nasa.gov/image-article/apod-2016-october-19-m45-the-pleiades-star-cluster/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": ""
+  },
+  {
+    "key": "M5",
+    "title": "NASA — Messier 5: Messier 5",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-5/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M51",
+    "title": "NASA — Messier 51: The Whirlpool Galaxy",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M51Alt",
+    "title": "NASA Scientific Visualization Studio — A Flyby of the Whirlpool Galaxy",
+    "url": "https://svs.gsfc.nasa.gov/31024/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "약 2500만 광년이라는 소개값. NASA 카탈로그의 3100만 광년과 차이를 수정 제안에 명시."
+  },
+  {
+    "key": "M57",
+    "title": "NASA — Messier 57: The Ring Nebula",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M57Webb",
+    "title": "NASA/ESA/CSA — Ring Nebula, NIRCam Image (2023-08-21)",
+    "url": "https://science.nasa.gov/asset/webb/ring-nebula-nircam-image/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "적외선 영상과 육안 외형을 구분. 약 2500광년이라는 다른 자료의 추정도 남김."
+  },
+  {
+    "key": "M81",
+    "title": "NASA — Messier 81: Messier 81",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "M82",
+    "title": "NASA — Messier 82: The Cigar Galaxy",
+    "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "관측 장비의 특정 구경·배율을 보증하는 자료가 아님. 첨부 수치와 다른 값은 자동 치환하지 않음."
+  },
+  {
+    "key": "Per",
+    "title": "NSF NOIRLab — Perseus",
+    "url": "https://noirlab.edu/public/education/constellations/perseus/",
+    "accessedAt": "2026-09-07",
+    "access": "검색 색인 본문 확인; 직접 열기는 접근 확인 페이지",
+    "notes": "두 성단을 묶는 명칭과 어두운 하늘의 관측 설명만 사용."
+  },
+  {
+    "key": "PleiadesKorea",
+    "title": "대전시민천문대 — 좀생이별(플레이아데스) 산개성단 (2025-02-20)",
+    "url": "https://djstar.kr/bbs/board.php?bo_table=web_star&wr_id=20",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "좀생이별·묘성 명칭 대응에만 사용. 성운이 맨눈으로 보인다는 식으로 장비 한계를 일반화하지 않음."
+  },
+  {
+    "key": "Sky",
+    "title": "NASA — Skywatching Tips",
+    "url": "https://science.nasa.gov/skywatching/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "쌍안경의 넓은 시야·안정된 지지 등 공통 관측 원칙만 사용."
+  },
+  {
+    "key": "Spica",
+    "title": "Harvard & Smithsonian CfA — Understanding Spica (2016-04-22)",
+    "url": "https://www.cfa.harvard.edu/news/understanding-spica",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": ""
+  },
+  {
+    "key": "SpicaNASA",
+    "title": "NASA — What’s Up: September 2021",
+    "url": "https://science.nasa.gov/resource/whats-up-september-2021/",
+    "accessedAt": "2026-09-07",
+    "access": "본문 확인",
+    "notes": "스피카가 가까운 쌍성이라는 설명만 사용. 2021년 행성 위치는 현재 관측 안내에 재사용하지 않음."
+  }
+]

@@ -1,0 +1,102 @@
+{
+  "id": "star:HIP25930",
+  "version": 1,
+  "title": {
+    "ko": "민타카",
+    "en": "Mintaka"
+  },
+  "oneLiner": {
+    "ko": "허리띠 서쪽 끝에서 실제 하늘의 동서 방향을 익혀요"
+  },
+  "summary": {
+    "ko": "민타카는 오리온 허리띠 세 별 가운데 천구의 서쪽 끝에 있는 별입니다. 알닐람과 알니탁을 함께 찾으면 이름이 비슷한 세 대상을 구분할 수 있습니다. 천구의 적도에 가까운 위치라는 점도 길잡이 학습에 유용합니다. 다만 적도 근처라는 말이 관측자의 머리 위를 지나거나 지평선의 정동쪽에서 정확하게 뜬다는 보장은 아닙니다. 관측지와 시간, 실제 적위를 함께 보아야 합니다. 도시에서는 허리띠 배열부터 찾고 쌍안경으로 주변을 살펴보세요. 휴대폰을 돌릴 때 바뀌는 화면 좌우와 하늘의 동서를 구별하는 데에도 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "오리온자리 (Ori)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "692.5광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "2.25등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "O9.5II",
+      "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP25930",
+      "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "하늘 위치의 특징",
+      "value": "첨부 적위 −0.29909°로 천구 적도에 가까움",
+      "source": "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "별을 찾는 설명에서 왼쪽 별이라는 말은 편하지만, 휴대폰이나 망원경의 시야가 돌아가면 쉽게 틀립니다. 민타카를 천구의 서쪽 끝이라고 설명하는 까닭은 화면 방향과 무관한 기준을 남기기 위해서입니다. NASA의 허리띠 안내도 세 별의 동서 순서를 구별합니다. 직접 관측에서는 먼저 맨눈으로 세 점을 익히고 장비를 바꾸어 같은 순서를 되찾아 보세요. 천구 적도와 가깝다는 위치 정보는 별이 뜨고 지는 모습을 배울 때도 도움이 되지만, 실제 지평선과 완전히 일치하는 기하학적 선으로 생각해서는 안 됩니다. 한 줄의 별 이름과 방향을 정확하게 기록하는 연습은 뒤집힌 망원경 시야에서 다른 목표를 찾을 때도 이어집니다. 복잡한 대상보다 이런 쉬운 배열에서 먼저 방향 감각을 확인해 보세요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+      "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 오리온 허리띠를 찾은 뒤 세 별의 이름을 켭니다. 가운데 알닐람에서 천구의 서쪽 끝으로 이동하면 민타카입니다. 첨부 좌표의 적위는 천구 적도에 가깝지만, 북쪽·남쪽 방향 표지를 확인하며 실제 시야의 회전과 구별하세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP26311",
+      "const:Ori"
+    ]
+  },
+  "observing": {
+    "nakedEye": "밝은 허리띠 세 별 중 하나로 찾습니다. 별자리 그림을 꺼도 같은 점을 고를 수 있는지 확인하세요.",
+    "binoculars": "10×50으로 세 별 순서와 주변 무늬를 비교하기 좋습니다.",
+    "telescope": "90mm 20~80배에서 주된 별빛을 확인합니다. 다중성의 모든 구성별을 분리하거나 성운의 색을 보는 것을 요구하지 않습니다.",
+    "bestMonths": [
+      12,
+      1,
+      2
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+    "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — star:HIP25930; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP26311, const:Ori; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "첨부 G2의 삼장군·삼태성 성군 구성별 용례를 따릅니다. 다른 별 세 개를 가리키는 삼태 전통과 혼동하지 않도록 묶음의 범위를 함께 표시해야 합니다.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  }
+}

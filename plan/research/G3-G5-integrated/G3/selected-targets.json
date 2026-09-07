@@ -1,0 +1,207 @@
+[
+  {
+    "id": "const:CMa",
+    "priority": "1",
+    "reason": "시리우스"
+  },
+  {
+    "id": "const:CMi",
+    "priority": "3",
+    "reason": "프로키온"
+  },
+  {
+    "id": "const:Her",
+    "priority": "2",
+    "reason": "M13"
+  },
+  {
+    "id": "const:Boo",
+    "priority": "2",
+    "reason": "아르크투루스"
+  },
+  {
+    "id": "const:Dra",
+    "priority": "3",
+    "reason": "주극 · 용자리 유성우"
+  },
+  {
+    "id": "const:Cet",
+    "priority": "3",
+    "reason": "미라"
+  },
+  {
+    "id": "const:Cru",
+    "priority": "3",
+    "reason": "남십자 · 남반구 여행 안내용"
+  },
+  {
+    "id": "dso:M32",
+    "priority": "3",
+    "reason": "M31 동반 은하"
+  },
+  {
+    "id": "dso:M110",
+    "priority": "3",
+    "reason": "M31 동반 은하"
+  },
+  {
+    "id": "dso:M33",
+    "priority": "2",
+    "reason": "삼각형자리은하"
+  },
+  {
+    "id": "dso:M43",
+    "priority": "3",
+    "reason": "드 메랑 성운"
+  },
+  {
+    "id": "dso:M92",
+    "priority": "3",
+    "reason": "헤르쿨레스 구상성단"
+  },
+  {
+    "id": "dso:M101",
+    "priority": "3",
+    "reason": "바람개비은하 · 어두움"
+  },
+  {
+    "id": "dso:M104",
+    "priority": "2",
+    "reason": "솜브레로은하"
+  },
+  {
+    "id": "dso:M8",
+    "priority": "1",
+    "reason": "라군성운 · 여름"
+  },
+  {
+    "id": "dso:M20",
+    "priority": "2",
+    "reason": "삼렬성운"
+  },
+  {
+    "id": "dso:M17",
+    "priority": "2",
+    "reason": "오메가성운"
+  },
+  {
+    "id": "dso:M16",
+    "priority": "2",
+    "reason": "독수리성운 · 창조의 기둥"
+  },
+  {
+    "id": "dso:M22",
+    "priority": "2",
+    "reason": "궁수자리 구상성단 · 밝음"
+  },
+  {
+    "id": "dso:M11",
+    "priority": "2",
+    "reason": "야생오리성단"
+  },
+  {
+    "id": "dso:M6",
+    "priority": "2",
+    "reason": "나비성단"
+  },
+  {
+    "id": "dso:M7",
+    "priority": "2",
+    "reason": "프톨레마이오스성단"
+  },
+  {
+    "id": "dso:M36",
+    "priority": "3",
+    "reason": "마차부자리 산개성단"
+  },
+  {
+    "id": "dso:M38",
+    "priority": "3",
+    "reason": "마차부자리 산개성단"
+  },
+  {
+    "id": "dso:M41",
+    "priority": "2",
+    "reason": "큰개자리 산개성단 · 쌍안경"
+  },
+  {
+    "id": "dso:M46",
+    "priority": "3",
+    "reason": "고물자리 산개성단 · 행성상성운 포함"
+  },
+  {
+    "id": "dso:M47",
+    "priority": "3",
+    "reason": "고물자리 산개성단"
+  },
+  {
+    "id": "dso:M67",
+    "priority": "3",
+    "reason": "오래된 산개성단"
+  },
+  {
+    "id": "dso:M2",
+    "priority": "3",
+    "reason": "물병자리 구상성단"
+  },
+  {
+    "id": "dso:M39",
+    "priority": "3",
+    "reason": "백조자리 산개성단 · 쌍안경"
+  },
+  {
+    "id": "dso:M103",
+    "priority": "3",
+    "reason": "카시오페이아 산개성단"
+  },
+  {
+    "id": "dso:M4",
+    "priority": "2",
+    "reason": "안타레스 옆 구상성단"
+  },
+  {
+    "id": "dso:M10",
+    "priority": "3",
+    "reason": "뱀주인자리 구상성단"
+  },
+  {
+    "id": "dso:M12",
+    "priority": "3",
+    "reason": "뱀주인자리 구상성단"
+  },
+  {
+    "id": "dso:M29",
+    "priority": "3",
+    "reason": "백조자리 산개성단"
+  },
+  {
+    "id": "dso:M34",
+    "priority": "3",
+    "reason": "페르세우스자리 산개성단"
+  },
+  {
+    "id": "dso:M52",
+    "priority": "3",
+    "reason": "카시오페이아 산개성단"
+  },
+  {
+    "id": "dso:M78",
+    "priority": "3",
+    "reason": "오리온 반사성운"
+  },
+  {
+    "id": "dso:NGC7000",
+    "priority": "2",
+    "reason": "북아메리카성운 · 어두운 하늘"
+  },
+  {
+    "id": "dso:NGC457",
+    "priority": "1",
+    "reason": "ET성단 · 초보 인기"
+  },
+  {
+    "id": "dso:NGC7009",
+    "priority": "2",
+    "reason": "토성성운"
+  }
+]

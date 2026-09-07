@@ -1,0 +1,101 @@
+[
+  {
+    "id": "dso:NGC7009",
+    "version": 1,
+    "title": {
+      "ko": "토성성운",
+      "en": "Saturn Nebula"
+    },
+    "oneLiner": {
+      "ko": "토성처럼 보이는 이름을 가졌지만 별의 가스 껍질인 성운"
+    },
+    "summary": {
+      "ko": "NGC7009 토성성운은 물병자리의 행성상성운입니다. 행성상이라는 말과 토성이라는 별칭이 들어 있어도 태양계 행성이나 토성의 고리가 아닙니다. 별이 바깥 물질을 내보낸 뒤 뜨거운 중심별이 기체를 밝히는 대상입니다. 작은 장비에서는 별 같은 점이나 아주 작은 타원으로 보일 수 있습니다. 90mm 20~80배에서 사진의 양끝 돌출부까지 확인하는 것은 필수 목표로 두지 않습니다. 첨부 거리와 NASA·ESO의 소개값이 서로 달라 숫자를 확정하지 않고, 대상의 종류와 작은 성운광 검출을 중심으로 안내합니다."
+    },
+    "facts": [
+      {
+        "label": "종류",
+        "value": "행성상성운",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행; NASA — Caldwell 55 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-55/"
+      },
+      {
+        "label": "별자리",
+        "value": "물병자리 (Aqr)",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+      },
+      {
+        "label": "겉보기등급(첨부·대역 미확인)",
+        "value": "8등급 — V 대역 확정 전",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행"
+      },
+      {
+        "label": "각크기(첨부)",
+        "value": "0.7′ × 0.52′ — 카탈로그 범위",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행"
+      },
+      {
+        "label": "거리",
+        "value": "게시 보류 — 원본과 외부 소개값 불일치",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행; NASA — Caldwell 55 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-55/; ESO — The Strange Structures of the Saturn Nebula — https://www.eso.org/public/news/eso1731/"
+      },
+      {
+        "label": "목록 식별자",
+        "value": "NGC7009",
+        "source": "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행"
+      }
+    ],
+    "story": {
+      "ko": "토성성운의 별칭은 오래된 관측에서 떠올린 외관을 기억하게 하지만 그 물리적 정체는 토성과 다릅니다. ESO는 중심별이 내보낸 물질의 껍질과 양쪽 돌출부, 그 안의 복잡한 먼지 구조를 분광 관측으로 조사했습니다. 분광은 빛을 파장별로 나누어 물질의 성질을 살피는 방법입니다. 선명한 연구 이미지에서 보이는 고리 같은 부분을 실제 행성의 고리와 같은 것으로 해석하면 안 됩니다. 입문 관측에서는 주변 별과 비교해 대상이 작은 원반이나 타원으로 퍼져 있는지 확인해 보세요. 양끝의 가느다란 구조가 보이지 않더라도 성운을 검출했다는 기록은 따로 남길 수 있습니다. 이름이 주는 인상, 망원경에서 실제로 본 모습, 연구 장비로 밝혀진 구조를 세 층으로 나누어 읽기 좋은 대상입니다.",
+      "cultures": [
+        "기타"
+      ],
+      "sources": [
+        "NASA — Caldwell 55 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-55/",
+        "ESO — The Strange Structures of the Saturn Nebula — https://www.eso.org/public/news/eso1731/"
+      ]
+    },
+    "howToFind": {
+      "ko": "가을 물병자리의 큰 배치를 지도에서 확인합니다. NGC7009를 선택해 주변 별을 좁혀 가며 저배율로 위치를 확정합니다. 배율을 조금 높여 같은 시야의 별보다 작은 원반처럼 퍼지는지 비교하되 토성 행성을 찾는 안내와 혼동하지 않습니다.",
+      "season": "autumn",
+      "hopFrom": [
+        "const:Aqr"
+      ]
+    },
+    "observing": {
+      "nakedEye": "맨눈 관측 대상이 아닙니다.",
+      "binoculars": "10×50에서는 별 같은 점과 구별하기 어려워 성운 형태 확인을 목표로 두지 않습니다.",
+      "telescope": "90mm 20~80배에서 작은 타원 또는 원반의 검출을 시도합니다. 도시와 불안정한 대기에서는 별처럼 보일 수 있으며 양끝 돌출부를 필수 조건으로 요구하지 않습니다.",
+      "difficulty": 4,
+      "bestMonths": [
+        9,
+        10,
+        11
+      ]
+    },
+    "sources": [
+      "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행",
+      "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+      "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+      "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Aqr; inputs/catalog-values.v1.csv",
+      "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+      "NASA — Caldwell 55 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-55/",
+      "ESO — The Strange Structures of the Saturn Nebula — https://www.eso.org/public/news/eso1731/",
+      "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행; NASA — Caldwell 55 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-55/",
+      "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+      "첨부 catalog-values.v1.csv — dso:NGC7009; inputs/catalog-values.v1.csv의 원본 행; NASA — Caldwell 55 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-55/; ESO — The Strange Structures of the Saturn Nebula — https://www.eso.org/public/news/eso1731/"
+    ],
+    "meta": {
+      "generatedBy": "gpt-5-pro",
+      "generatedAt": "2026-09-07",
+      "confidence": "low",
+      "needsReview": [
+        "입력 dist_ly=3764를 원본에 보존했습니다. NASA Caldwell의 약1400광년, ESO의 약5000광년과 서로 달라 단일 거리로 정정하지 않았습니다.",
+        "입력 크기0.7x0.52는 카탈로그 외형 값입니다. 작은 장비가 양끝 돌출부까지 같은 범위로 검출한다는 뜻이 아닙니다.",
+        "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+        "입력 거리 3764광년과 외부 소개값 1400광년, 5000광년을 대조했으나 단일값을 확정하지 않았습니다. 원본은 보존하고 숫자 표시는 보류합니다.",
+        "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+        "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+      ]
+    }
+  }
+]

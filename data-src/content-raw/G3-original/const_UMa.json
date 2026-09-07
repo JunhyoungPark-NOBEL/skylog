@@ -1,0 +1,112 @@
+{
+  "id": "const:UMa",
+  "version": 1,
+  "title": {
+    "ko": "큰곰자리",
+    "en": "Ursa Major"
+  },
+  "oneLiner": {
+    "ko": "북두칠성을 출발점으로 큰곰자리의 더 넓은 영역을 익혀요"
+  },
+  "summary": {
+    "ko": "큰곰자리는 북쪽 하늘의 넓은 별자리이며, 북두칠성은 그 안에서 눈에 띄는 국자 모양 성군입니다. 둘은 자주 함께 불리지만 같은 범위를 뜻하지 않습니다. 봄 저녁에는 국자와 손잡이를 익히고 두베 쪽에서 북극성, 손잡이 쪽에서 다른 하늘로 이어 갈 수 있습니다. 북쪽 별자리라는 이유만으로 모든 부분이 한국에서 연중 항상 보인다고 생각해서는 안 됩니다. 도시에서는 주요 일곱 별 중 일부가 조명이나 지형에 가려질 수 있습니다. 국자 전체를 확인한 뒤 넓은 큰곰자리 영역과 개별 관측 대상을 따로 살펴보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:UMa; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "UMa",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Ursae Majoris",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "북두칠성, 두베, 미자르, 알카이드",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP54061, star:HIP65378, star:HIP67301; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "큰곰; 그 일부의 국자 무늬",
+      "source": "NSF NOIRLab — Ursa Major — https://noirlab.edu/public/education/constellations/ursa-major/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "봄 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "같은 별무리를 국자나 쟁기로 부르는 문화가 있는 것처럼, 하늘의 그림은 하나만 존재하지 않습니다. NASA의 성군 설명도 북두칠성을 큰곰자리 안의 익숙한 무늬로 구분합니다. 한국 전통 이름을 함께 읽으면 북두의 각 자리에 서로 다른 명칭이 붙는 체계도 만날 수 있습니다. 그러나 전통 명칭, 일곱 별 무늬, 현대의 큰곰자리 영역을 하나의 식별자로 합치면 관측 기록이 모호해집니다. 오늘은 북두칠성의 국자와 손잡이를 나누어 그린 뒤 큰곰자리 경계가 그보다 넓다는 점을 지도에서 확인해 보세요. 미자르의 쌍을 관측했다면 그것도 별도의 항목입니다. 큰 이름 아래에 작은 관측 대상들이 어떻게 들어가는지 정리하면 다음 번 길찾기도 더 정확해집니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Ursa Major — https://noirlab.edu/public/education/constellations/ursa-major/",
+      "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+      "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/",
+      "NASA — What’s Up: April 2022 — https://science.nasa.gov/resource/whats-up-april-2022/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁 북쪽 하늘에서 네 별의 국자와 세 별의 굽은 손잡이를 찾습니다. 국자 바깥쪽의 두베, 손잡이의 미자르와 끝의 알카이드를 구별하세요. 그다음 큰곰자리 영역을 켜 북두칠성보다 넓은 구역임을 확인합니다.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP54061",
+      "star:HIP65378",
+      "star:HIP67301"
+    ]
+  },
+  "observing": {
+    "nakedEye": "북두칠성 주요 별을 찾기 좋은 편입니다. 낮게 내려간 부분은 산이나 건물에 가려질 수 있습니다.",
+    "binoculars": "10×50으로 국자와 손잡이를 나누어 확인하고 미자르 옆의 알코르를 비교합니다.",
+    "telescope": "90mm 20~80배는 미자르 같은 개별 목표에 사용합니다. 큰곰자리 전체나 북두칠성 전체를 한 번에 담는 용도는 아닙니다.",
+    "bestMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:UMa; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Ursa Major — https://noirlab.edu/public/education/constellations/ursa-major/",
+    "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+    "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/",
+    "NASA — What’s Up: April 2022 — https://science.nasa.gov/resource/whats-up-april-2022/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — const:UMa; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:UMa; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP54061, star:HIP65378, star:HIP67301; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP54061, star:HIP65378, star:HIP67301; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "대전에서 북두칠성의 모든 별이 주극성인 것은 아닙니다. 알카이드 등을 포함해 별별 고도를 검사해야 합니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "북두칠성은 큰곰자리 일부의 성군입니다. 첨부 G2의 천추·개양·요광 등 구성별 명칭은 해당 체계의 범위에서만 사용하며 큰곰자리 전체의 별칭으로 확장하지 않습니다.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  },
+  "funFacts": [
+    "북두칠성은 큰곰자리 전체와 같은 범위가 아닙니다."
+  ]
+}

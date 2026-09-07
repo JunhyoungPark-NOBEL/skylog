@@ -1,0 +1,106 @@
+{
+  "id": "star:HIP26311",
+  "version": 1,
+  "title": {
+    "ko": "알닐람",
+    "en": "Alnilam"
+  },
+  "oneLiner": {
+    "ko": "오리온 허리띠 한가운데, 나란해 보이는 별들의 깊이를 생각해요"
+  },
+  "summary": {
+    "ko": "알닐람은 오리온 허리띠의 세 밝은 별 가운데 가운데 별입니다. 양옆의 알니탁과 민타카 사이에 있어 도시에서도 위치를 기억하기 쉽습니다. 세 별이 거의 같은 줄에 보인다는 사실은 지구에서 본 방향에 관한 것이며, 같은 거리에 놓였다는 뜻은 아닙니다. 첨부 분광형은 뜨거운 B형 초거성 계열의 표기입니다. 맨눈이나 입문 망원경에서는 별의 커다란 실제 표면이 아니라 점처럼 모인 빛을 봅니다. 허리띠 전체 모양을 먼저 확인하고, 물리적 크기와 화면에서의 크기를 구분하는 연습에 활용하세요."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "오리온자리 (Ori)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "1976.7광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "1.69등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "B0Ia",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP26311",
+      "source": "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "허리띠에서의 위치",
+      "value": "세 밝은 별의 가운데",
+      "source": "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/"
+    }
+  ],
+  "story": {
+    "ko": "허리띠 가운데라는 표현은 단순하고 오래 기억되지만 우주의 입체 배치를 말해 주지는 않습니다. NASA의 오리온 소개는 같은 별자리의 별들이 서로 다른 거리에 놓였음을 설명합니다. 알닐람의 첨부 거리와 다른 자료의 소개값도 그대로 같지는 않으므로, 여기서는 눈에 보이는 줄 모양을 실제로 연결된 줄로 해석하지 않는 데 집중합니다. 관측할 때 세 별을 점 세 개로 그리고 망원경의 실제 시야원을 덧그려 보세요. 한 시야에 들어오는지 여부는 각거리의 문제이며 광년 거리와는 다른 단위입니다. 이렇게 두 종류의 거리를 분리하면 멀리 있는 큰 별이 작게 보이는 이유도 자연스럽게 이해할 수 있습니다. 별자리의 쉬운 형태가 입체 우주를 생각하는 출발점이 됩니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+      "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+      "NASA — Star Types — https://science.nasa.gov/universe/stars/types/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 오리온의 허리띠 세 별을 맨눈으로 찾으세요. 알니탁과 민타카 사이의 가운데 점이 알닐람입니다. 세 별 전체를 확인한 후 가운데 별을 장비 시야 중앙에 놓고, 옆 별과 혼동하지 않았는지 다시 넓은 시야로 점검합니다.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP26727",
+      "star:HIP25930",
+      "const:Ori"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 허리띠 가운데 점으로 찾기 좋습니다. 별의 큰 물리적 크기가 맨눈 원반으로 보이지는 않습니다.",
+    "binoculars": "10×50에서는 허리띠 전체를 실제 시야각과 비교하며 관찰하기 좋습니다.",
+    "telescope": "90mm는 20배부터 중심별을 확인합니다. 배율을 올려도 별의 실제 표면이 보이는 것이 아니며 전체 허리띠가 한 시야에 남는지는 장비마다 다릅니다.",
+    "bestMonths": [
+      12,
+      1,
+      2
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA APOD — Alnitak, Alnilam, Mintaka — https://science.nasa.gov/image-article/apod-2025-november-20-alnitak-alnilam-mintaka/",
+    "NASA — Discovering the Universe Through the Constellation Orion — https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — star:HIP26311; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP26727, star:HIP25930, const:Ori; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "첨부 1976.7광년과 외부 교육 자료의 거리 소개는 동일하지 않습니다. 원목록 판본·거리 추정법 확인 전 정밀값 또는 거리 순위 퀴즈로 사용하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "첨부 G2가 다루는 삼장군·삼태성 성군의 구성별입니다. 이름은 세 별의 묶음에 대한 용례이며 알닐람 한 별과 일대일로 치환하는 고유명이 아닙니다.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  }
+}

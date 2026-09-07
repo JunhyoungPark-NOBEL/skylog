@@ -1,0 +1,1114 @@
+[
+  {
+    "id": "sun",
+    "quizIds": [
+      "q-sun-kind",
+      "q-sun-safe-choice",
+      "q-sunspot-kind",
+      "q-sun-sunglasses"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "moon",
+    "quizIds": [
+      "q-moon-kind",
+      "q-moon-light",
+      "q-moon-sequence",
+      "q-moon-terminator",
+      "q-moon-maria",
+      "q-moon-support",
+      "q-moon-shadow-not-phase",
+      "q-moon-not-star",
+      "q-moon-full-best-always"
+    ],
+    "missionIds": [
+      "any-moon-phase",
+      "any-moon-binocular",
+      "any-moon-first-sketch"
+    ],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "planet:mercury",
+    "quizIds": [
+      "q-mercury-nearest-sun",
+      "q-mercury-horizon",
+      "q-mercury-venus-temperature",
+      "q-mercury-rocky"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "planet:venus",
+    "quizIds": [
+      "q-venus-phase",
+      "q-venus-two-names",
+      "q-venus-surface",
+      "q-venus-two-objects"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "planet:mars",
+    "quizIds": [
+      "q-mars-color",
+      "q-mars-size",
+      "q-mars-retrograde",
+      "q-mars-orange"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "planet:jupiter",
+    "quizIds": [
+      "q-jupiter-kind",
+      "q-jupiter-moons",
+      "q-jupiter-always-four"
+    ],
+    "missionIds": [
+      "any-jupiter-visit"
+    ],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "planet:saturn",
+    "quizIds": [
+      "q-saturn-feature",
+      "q-saturn-ring-tilt",
+      "q-saturn-angle"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "planet:uranus",
+    "quizIds": [
+      "q-uranus-kind",
+      "q-uranus-point",
+      "q-uranus-chart"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "planet:neptune",
+    "quizIds": [
+      "q-neptune-eye",
+      "q-neptune-identify",
+      "q-neptune-easy-eye"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "high",
+    "reviewNotesInherited": [],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP32349",
+    "quizIds": [
+      "q-sirius-constellation",
+      "q-sirius-guide",
+      "q-sirius-companion",
+      "q-sirius-flicker",
+      "q-pick-sirius-name",
+      "q-pick-sirius-constellation",
+      "q-pick-sirius-remnant"
+    ],
+    "missionIds": [
+      "winter-sirius-beacon"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "분광형 A0m...은 첨부의 축약 문자열입니다. 생략 기호를 임의로 풀어 쓰지 않았습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP69673",
+    "quizIds": [
+      "q-arcturus-constellation",
+      "q-arcturus-guide",
+      "q-arcturus-temperature",
+      "q-arcturus-point",
+      "q-pick-arcturus-name",
+      "q-pick-arcturus-arc",
+      "q-pick-arcturus-giant"
+    ],
+    "missionIds": [
+      "spring-arcturus-first",
+      "spring-spica-bridge",
+      "summer-m13-binocular",
+      "spring-m3-globular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP91262",
+    "quizIds": [
+      "q-vega-constellation",
+      "q-vega-tradition",
+      "q-vega-disk",
+      "q-vega-myth-reality",
+      "q-summer-members",
+      "q-vega-tradition-separate",
+      "q-pick-vega-name",
+      "q-pick-vega-weaver",
+      "q-pick-vega-lyra"
+    ],
+    "missionIds": [
+      "summer-triangle-three",
+      "summer-vega-fov",
+      "summer-vega-align-one",
+      "summer-m13-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP24436",
+    "quizIds": [
+      "q-rigel-constellation",
+      "q-rigel-color",
+      "q-rigel-occultation",
+      "q-pick-rigel-name",
+      "q-pick-rigel-foot"
+    ],
+    "missionIds": [
+      "spring-orion-color-pair",
+      "winter-rigel-scale"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP27989",
+    "quizIds": [
+      "q-betelgeuse-constellation",
+      "q-betelgeuse-report",
+      "q-betelgeuse-dimming",
+      "q-betelgeuse-date",
+      "q-pick-betelgeuse-name",
+      "q-pick-betelgeuse-shoulder",
+      "q-pick-betelgeuse-dust"
+    ],
+    "missionIds": [
+      "spring-orion-color-pair",
+      "winter-betelgeuse-record"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "거리 498광년과 분광형 M2Ib는 첨부 값을 그대로 보존했습니다. 거리 추정과 분광 분류는 자료마다 다르므로 원출처·불확도·측정 대상을 확인해야 합니다.",
+      "0.45등급은 첨부의 대표 값이며 현재의 관측 등급이나 변광 범위를 뜻하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP97649",
+    "quizIds": [
+      "q-altair-constellation",
+      "q-altair-tradition",
+      "q-altair-shape",
+      "q-altair-method",
+      "q-altair-interferometry"
+    ],
+    "missionIds": [
+      "summer-triangle-three"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP21421",
+    "quizIds": [
+      "q-aldebaran-constellation",
+      "q-aldebaran-membership",
+      "q-aldebaran-depth",
+      "q-aldebaran-foreground"
+    ],
+    "missionIds": [
+      "autumn-aldebaran-arrival",
+      "winter-aldebaran-depth",
+      "winter-m45-starhop"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP80763",
+    "quizIds": [
+      "q-antares-constellation",
+      "q-antares-city",
+      "q-antares-atmosphere"
+    ],
+    "missionIds": [
+      "summer-antares-window"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "분광형 M1Ib + B2.5V는 첨부의 복합 문자열을 보존했습니다. 두 성분에 대한 분류와 HIP 레코드의 대응을 병합 단계에서 확인해야 합니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP102098",
+    "quizIds": [
+      "q-deneb-constellation",
+      "q-deneb-triangle",
+      "q-deneb-body",
+      "q-deneb-distance-uncertainty",
+      "q-deneb-not-single-constellation",
+      "q-pick-deneb-name",
+      "q-pick-deneb-tail",
+      "q-pick-deneb-triangle"
+    ],
+    "missionIds": [
+      "summer-triangle-three",
+      "summer-deneb-starfield",
+      "autumn-deneb-bridge",
+      "summer-albireo-double"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "거리 1411.9광년은 첨부 값을 보존한 것입니다. 문헌에 다른 거리 가정이 있으며 원출처·추정법·불확도를 확인하기 전 정밀한 확정 거리로 표시하지 마세요."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP11767",
+    "quizIds": [
+      "q-polaris-constellation",
+      "q-polaris-brightest",
+      "q-polaris-two-companions",
+      "q-polaris-in-ursa-minor",
+      "q-polaris-exact-pole",
+      "q-pick-polaris-name",
+      "q-pick-polaris-north",
+      "q-pick-polaris-role"
+    ],
+    "missionIds": [
+      "spring-polaris-direction",
+      "spring-polaris-center",
+      "autumn-polaris-backup"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "겉보기등급 1.97과 거리 432.6광년은 첨부 대표 값입니다. 변광성과 다중성계의 성분·측정 시점을 포함한 원출처를 확인해야 합니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M45",
+    "quizIds": [
+      "q-m45-kind",
+      "q-m45-wide-field",
+      "q-m45-blue-dust",
+      "q-m45-star-count",
+      "q-m45-single-star",
+      "q-m45-photo-color"
+    ],
+    "missionIds": [
+      "winter-m45-starhop"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M44",
+    "quizIds": [
+      "q-m44-kind",
+      "q-m44-route",
+      "q-m44-blended-light"
+    ],
+    "missionIds": [
+      "spring-m44-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M42",
+    "quizIds": [
+      "q-m42-birth",
+      "q-m42-sword",
+      "q-m42-eyepiece"
+    ],
+    "missionIds": [
+      "winter-m42-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 type=Cl+N (openCluster)는 성단과 성운을 함께 담은 표기입니다. 본문은 NASA의 별 탄생 성운 설명을 사용했으며 G5 분류를 openCluster 하나로 자동 결정하지 마세요.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+      "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M31",
+    "quizIds": [
+      "q-m31-kind",
+      "q-m31-start",
+      "q-m31-realistic",
+      "q-m31-history-method",
+      "q-m31-foreground-star"
+    ],
+    "missionIds": [
+      "autumn-m31-core"
+    ],
+    "contentConfidenceInherited": "low",
+    "reviewNotesInherited": [
+      "거리 수치 게시 보류: 첨부 544광년과 NASA 소개의 약 250만 광년이 규모부터 다릅니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M13",
+    "quizIds": [
+      "q-m13-kind",
+      "q-m13-keystone",
+      "q-m13-resolution",
+      "q-m13-globular"
+    ],
+    "missionIds": [
+      "summer-m13-binocular"
+    ],
+    "contentConfidenceInherited": "low",
+    "reviewNotesInherited": [
+      "거리 수치 게시 보류: 첨부 40118광년과 NASA·ESA 소개의 약 25000광년 사이에 큰 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 title의 헤르쿨레스 표기는 보존했습니다. G2 표준 별자리명 허큘리스자리와의 표시 정책을 T6에서 통일하세요.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP95947",
+    "quizIds": [
+      "q-albireo-visual",
+      "q-albireo-binding",
+      "q-albireo-bound-proof"
+    ],
+    "missionIds": [
+      "summer-albireo-double"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "분광형 K3II+...은 첨부의 축약 문자열을 보존했습니다. 생략 내용을 풀어 쓰거나 두 밝은 성분의 공통 분광형으로 사용하지 마세요.",
+      "첨부 HIP의 거리·등급이 어느 성분 또는 합성광에 대응하는지 확인해야 합니다. 넓은 A/B 쌍의 중력 결합은 확정하지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP65474",
+    "quizIds": [
+      "q-spica-membership",
+      "q-pick-spica-name",
+      "q-pick-spica-arc-continuation"
+    ],
+    "missionIds": [
+      "spring-spica-bridge"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "좌각 대응은 G2 및 Stellarium korean 공개 재구성에 한정합니다. 시대를 초월한 유일한 한국 고유명으로 일반화하거나 구조화 전통 데이터의 라이선스 검토를 생략하지 마세요.",
+      "첨부 분광형 B1V는 원문 보존값이며 분광 쌍성 전체의 성분별 분류를 뜻한다고 단정하지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP677",
+    "quizIds": [
+      "q-alpheratz-membership",
+      "q-alpheratz-all-pegasus",
+      "q-pick-alpheratz-name",
+      "q-pick-alpheratz-boundary"
+    ],
+    "missionIds": [
+      "autumn-m31-core",
+      "autumn-alpheratz-anchor"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 spect=B9p를 그대로 보존했습니다. p의 세부 원소 분포나 성분별 분류는 이 입력만으로 풀어 쓰지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M57",
+    "quizIds": [
+      "q-m57-kind",
+      "q-m57-life-stage",
+      "q-m57-planet-ring"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "거리 2567광년은 첨부 값입니다. NASA 허블 소개의 약 2000광년과 웹 소개의 약 2500광년 등 추정이 다르므로 정밀 거리 퀴즈에 쓰지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M27",
+    "quizIds": [
+      "q-m27-kind",
+      "q-m27-shape"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M35",
+    "quizIds": [
+      "q-m35-kind"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M81",
+    "quizIds": [
+      "q-m81-kind",
+      "q-m81-m82-comparison",
+      "q-m81-m82-two-objects"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+      "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M82",
+    "quizIds": [
+      "q-m82-kind"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다.",
+      "첨부 거리 칸이 비어 있어 사실 표에서도 거리 수치를 생략했습니다. 외부 소개의 대표값을 승인 없이 채우지 않았습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M3",
+    "quizIds": [
+      "q-m3-kind",
+      "q-m3-detection-measurement"
+    ],
+    "missionIds": [
+      "spring-m3-globular"
+    ],
+    "contentConfidenceInherited": "low",
+    "reviewNotesInherited": [
+      "거리 수치 게시 보류: 첨부 133127광년과 NASA 소개의 약 34000광년 사이에 큰 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:NGC869",
+    "quizIds": [
+      "q-double-cluster-meaning",
+      "q-ngc869-screen-direction"
+    ],
+    "missionIds": [
+      "autumn-double-cluster"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 거리 8274광년과 등급 3.7은 NGC869 행의 값입니다. NASA C14의 집단 소개값을 개별 성단의 검증값으로 대입하지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:NGC884",
+    "quizIds": [
+      "q-ngc884-independent"
+    ],
+    "missionIds": [
+      "autumn-double-cluster"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 거리 8203광년과 등급 3.8은 NGC884 행의 값입니다. 두 성단의 거리 차이를 원본 수치의 단순 뺄셈으로 확정하거나 정밀 비교 퀴즈에 쓰지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M51",
+    "quizIds": [
+      "q-m51-spiral-expectation"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "low",
+    "reviewNotesInherited": [
+      "거리 수치 게시 보류: 첨부 418광년은 NASA의 약 3100만/2500만 광년 소개와 규모부터 다릅니다. 외부 자료 중 하나를 최신 정밀값으로 확정하지 않았습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "M51은 문헌에서 주 은하 또는 동반 은하를 포함한 계를 가리키기도 합니다. 첨부 크기·등급의 적분 범위를 확인하고 NGC5195를 임의의 새 콘텐츠 ID로 추가하지 않습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP37279",
+    "quizIds": [
+      "q-procyon-membership",
+      "q-pick-procyon-name",
+      "q-pick-procyon-winter-triangle"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP37826",
+    "quizIds": [
+      "q-pick-pollux-name",
+      "q-pick-pollux-planet-not-companion"
+    ],
+    "missionIds": [
+      "spring-m44-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP49669",
+    "quizIds": [
+      "q-regulus-membership",
+      "q-regulus-research-image",
+      "q-pick-regulus-name",
+      "q-pick-regulus-sickle"
+    ],
+    "missionIds": [
+      "spring-m44-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP67301",
+    "quizIds": [
+      "q-pick-alkaid-handle",
+      "q-pick-alkaid-galaxy-route"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "북두칠성 전체가 대전에서 항상 지평선 위에 있다는 안내를 금지합니다. 알카이드는 첨부 적위상 북위 36.35°에서 기하학적 주극성이 아닙니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP26311",
+    "quizIds": [],
+    "missionIds": [
+      "winter-m42-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "첨부 1976.7광년과 외부 교육 자료의 거리 소개는 동일하지 않습니다. 원목록 판본·거리 추정법 확인 전 정밀값 또는 거리 순위 퀴즈로 사용하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP9884",
+    "quizIds": [
+      "q-pick-hamal-name",
+      "q-pick-hamal-short-pattern"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "star:HIP72607",
+    "quizIds": [
+      "q-pick-kochab-bowl",
+      "q-pick-kochab-not-pole"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "첨부 K4IIIvar 표기의 var를 근거로 임의의 변광 주기·진폭을 생성하지 않았습니다. 추천 월은 저녁 배치의 편집 선택이며 연중 가시성의 보장은 지형·시간별로 따로 검사합니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Tau",
+    "quizIds": [],
+    "missionIds": [
+      "winter-m45-starhop"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Cnc",
+    "quizIds": [],
+    "missionIds": [
+      "spring-m44-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "NOIRLab 검색 발췌의 신화 괴물 이름에는 오류 가능성이 있어 해당 세부 전승을 사용하지 않았습니다. M44의 관측 안내는 첨부 기존 콘텐츠와 카탈로그 소속을 함께 따릅니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Vir",
+    "quizIds": [],
+    "missionIds": [
+      "spring-spica-bridge"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Ori",
+    "quizIds": [],
+    "missionIds": [
+      "winter-m42-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:UMa",
+    "quizIds": [
+      "q-ursa-major-extent",
+      "q-ursa-major-always-up"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "대전에서 북두칠성의 모든 별이 주극성인 것은 아닙니다. 알카이드 등을 포함해 별별 고도를 검사해야 합니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Cas",
+    "quizIds": [],
+    "missionIds": [
+      "autumn-double-cluster"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "첨부 대상 목록의 가을과 G2의 북극 분류는 서로 다른 편집 관점입니다. 전체 영역이 항상 보인다는 주장으로 합치지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Cyg",
+    "quizIds": [],
+    "missionIds": [
+      "summer-albireo-double"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Peg",
+    "quizIds": [],
+    "missionIds": [
+      "autumn-alpheratz-anchor"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "큰 사각형의 알페라츠를 페가수스자리 소속으로 중복 등록하지 않습니다. 공식 소속은 And입니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:And",
+    "quizIds": [
+      "q-andromeda-scales",
+      "q-andromeda-separate-ids"
+    ],
+    "missionIds": [
+      "autumn-m31-core",
+      "autumn-alpheratz-anchor"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "기존 M31 콘텐츠의 첨부 거리 충돌 보류 상태를 승계합니다. 이 항목에서 M31의 거리 값을 새로 확정하거나 퀴즈에 사용하지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Per",
+    "quizIds": [],
+    "missionIds": [
+      "autumn-double-cluster"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "이중성단은 NGC869와 NGC884를 각각 유지합니다. 별자리 콘텐츠를 이유로 두 대상의 관측 기록을 자동 합치지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Her",
+    "quizIds": [
+      "q-hercules-story-scope"
+    ],
+    "missionIds": [
+      "summer-m13-binocular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "원본 name_ko=헤르쿨레스자리를 raw-selected-values.json에 보존하고, 제목은 G2 표준 허큘리스자리로 정규화했습니다. 원본 별칭도 title.alt에 남겼습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 RA/Dec는 대표 좌표입니다. 별자리 전체의 가시성·거리·등급·각크기를 이 한 점으로 판단하거나 누락 숫자를 만들어 넣지 않았습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "const:Boo",
+    "quizIds": [],
+    "missionIds": [
+      "spring-m3-globular"
+    ],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 RA/Dec는 대표 좌표입니다. 별자리 전체의 가시성·거리·등급·각크기를 이 한 점으로 판단하거나 누락 숫자를 만들어 넣지 않았습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M33",
+    "quizIds": [
+      "q-m33-kind",
+      "q-m33-total-light"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "원본 거리 빈칸은 유지했습니다. 사실표의 거리는 외부 소개값임을 명시했으며 최신 단일 정답으로 취급하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M101",
+    "quizIds": [
+      "q-m101-background"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "원본 거리 빈칸은 유지했습니다. 사실표의 거리는 외부 소개값임을 명시했으며 최신 단일 정답으로 취급하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M46",
+    "quizIds": [
+      "q-m46-projection",
+      "q-m46-front-nebula"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "원본 reason의 행성상성운 포함은 시선상 겹침으로 해석했습니다. NGC2438을 성단 구성원이라고 게시하지 않습니다.",
+      "NASA 페이지의 10등급 설명은 행성상성운과 관련되어 있으므로 M46 전체의 첨부 mag=6.1을 대체하는 근거로 사용하지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "참고 대조: 입력 거리 5431광년, NASA — Messier 46 소개값 약 5400광년. 본문 숫자는 입력 우선으로 보존했으며 차이의 원인을 측정법·자료 시점까지 확인한 것은 아닙니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:M78",
+    "quizIds": [
+      "q-m78-light",
+      "q-m78-m42-emission",
+      "q-m78-reflection"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "반사성운의 필터·장비 안내는 빛의 종류에 근거한 보수적 편집 제안이며 특정 필터 조합의 실측 성능은 확인하지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "원본 거리 빈칸은 유지했습니다. 사실표의 거리는 외부 소개값임을 명시했으며 최신 단일 정답으로 취급하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:NGC7000",
+    "quizIds": [
+      "q-ngc7000-starfield"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "low",
+    "reviewNotesInherited": [
+      "원본 mag와 dist_ly는 모두 빈칸으로 보존했습니다. NASA Caldwell의 1800광년과 APOD의 1500광년을 대조했으나 단일 거리로 채택하지 않았습니다.",
+      "입력 각크기 120x30은 해당 카탈로그의 크기 값이며 전체 사진 윤곽의 보편적인 경계나 눈에 보이는 범위로 간주하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:NGC457",
+    "quizIds": [
+      "q-ngc457-name",
+      "q-ngc457-open-cluster"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "medium",
+    "reviewNotesInherited": [
+      "눈처럼 보이는 밝은 별들의 물리적인 성단 구성원 여부를 일괄 확정하지 않았습니다. ET라는 별칭을 특정 제작자나 최초 명명 연도에 연결하지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  },
+  {
+    "id": "dso:NGC7009",
+    "quizIds": [
+      "q-saturn-nebula-kind",
+      "q-saturn-nebula-distance-policy"
+    ],
+    "missionIds": [],
+    "contentConfidenceInherited": "low",
+    "reviewNotesInherited": [
+      "입력 dist_ly=3764를 원본에 보존했습니다. NASA Caldwell의 약1400광년, ESO의 약5000광년과 서로 달라 단일 거리로 정정하지 않았습니다.",
+      "입력 크기0.7x0.52는 카탈로그 외형 값입니다. 작은 장비가 양끝 돌출부까지 같은 범위로 검출한다는 뜻이 아닙니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "입력 거리 3764광년과 외부 소개값 1400광년, 5000광년을 대조했으나 단일값을 확정하지 않았습니다. 원본은 보존하고 숫자 표시는 보류합니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ],
+    "G5ClaimPolicy": "문항별 evidence의 명시된 설명·종류·소속·관측 범위만 사용. 보류된 수치/분광형/물리적 결합은 정답으로 출제하지 않음.",
+    "requiredApproval": "T6 콘텐츠 게시 및 T7 문항별 주장 검토. 검토 중 수치를 숨기는 최종 표시 정책은 앱에서 적용."
+  }
+]

@@ -1,0 +1,101 @@
+{
+  "id": "star:HIP10826",
+  "version": 1,
+  "title": {
+    "ko": "미라",
+    "en": "Mira"
+  },
+  "oneLiner": {
+    "ko": "한 계절의 밝기 한 값으로 설명할 수 없는 긴 호흡의 미라"
+  },
+  "summary": {
+    "ko": "미라는 고래자리의 장주기 변광성으로, 오랜 시간에 걸쳐 밝기가 크게 달라집니다. 밝을 때는 맨눈 도전 대상이 되지만 어두울 때는 같은 위치에서 보이지 않을 수 있습니다. 첨부 목록의 6.47등급을 언제나 유지하는 별로 표시해서는 안 됩니다. 알골의 별 가림과는 다른 맥동성 변광을 이해하는 비교 대상이며, 관측 날짜를 함께 남기는 일이 중요합니다. 사진에서 소개되는 길게 뻗은 꼬리는 자외선 관측 결과로, 쌍안경이나 작은 망원경에서 기대할 모습이 아닙니다. 위치 확인과 실제 검출을 구분해 기록하세요."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "고래자리 (Cet)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "299광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "6.47등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "M5e-M9e",
+      "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP10826",
+      "source": "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "변광 성격",
+      "value": "별 자체의 맥동과 관련된 장주기 변광성",
+      "source": "NASA/ESA — Hubble Separates Stars in the Mira Binary System — https://science.nasa.gov/missions/hubble/hubble-separates-stars-in-the-mira-binary-system/"
+    }
+  ],
+  "story": {
+    "ko": "미라의 이야기는 하늘 지도가 한 장의 고정된 사진이 아니라는 데서 시작합니다. 지난번 보았던 자리에 오늘 별이 약해졌어도 지도 자체가 틀린 것은 아닐 수 있습니다. AAVSO는 미라를 대표적인 장주기 변광성으로 소개하며 여러 달에 걸친 관측이 필요함을 보여 줍니다. 자외선 관측으로 알려진 꼬리 또한 눈으로 보는 별빛과 다른 정보를 줍니다. 밝기 변화와 긴 꼬리를 한 번의 접안 관측에서 모두 확인해야 한다고 생각할 필요는 없습니다. 오늘은 위치를 재확인하고 사용한 도구, 보인 정도, 주변 비교별을 남기세요. 다음 달의 기록과 나란히 읽을 때 한밤의 인상만으로는 드러나지 않던 변화가 보입니다. 보이지 않았다는 기록도 조건이 명시되어 있으면 탐색의 일부가 됩니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "AAVSO — Featured Variables / Mira — https://www.aavso.org/featured-variables",
+      "NASA/JPL — Mira’s Tail: There All Along — https://www.jpl.nasa.gov/images/pia09961-miras-tail-there-all-along/",
+      "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+      "NASA/ESA — Hubble Separates Stars in the Mira Binary System — https://science.nasa.gov/missions/hubble/hubble-separates-stars-in-the-mira-binary-system/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 늦은 저녁 양자리의 하말과 황소자리 방향을 먼저 확인한 뒤, 그보다 남쪽인 고래자리의 미라 위치를 지도에서 찾으세요. 고래자리 전체 윤곽보다 미라 주변의 작은 별 배열을 쌍안경으로 맞추는 것이 좋습니다. 별이 약해졌을 가능성이 있으므로 밝은 점만 무작정 찾지 마세요.",
+    "season": "autumn",
+    "hopFrom": [
+      "star:HIP9884",
+      "const:Tau"
+    ]
+  },
+  "observing": {
+    "nakedEye": "밝기 상태와 하늘 조건에 따라 맨눈으로 보이거나 보이지 않습니다. 최적 관측 월이 밝기 극대 월을 뜻하지 않습니다.",
+    "binoculars": "10×50으로 위치와 주변 별을 확인합니다. 어두운 시기에는 도시에서 검출이 어려울 수 있습니다.",
+    "telescope": "90mm 20~80배는 약해진 별을 찾는 데 도움이 될 수 있지만 항상 보인다는 보장은 없습니다. 자외선 꼬리는 보이지 않습니다.",
+    "bestMonths": [
+      10,
+      11,
+      12
+    ],
+    "difficulty": 3
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "AAVSO — Featured Variables / Mira — https://www.aavso.org/featured-variables",
+    "NASA/JPL — Mira’s Tail: There All Along — https://www.jpl.nasa.gov/images/pia09961-miras-tail-there-all-along/",
+    "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — star:HIP10826; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA/ESA — Hubble Separates Stars in the Mira Binary System — https://science.nasa.gov/missions/hubble/hubble-separates-stars-in-the-mira-binary-system/",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP9884, const:Tau; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "6.47등급은 현재 밝기나 평균·최소·최대 밝기로 확정하지 않았습니다. 변광 상태에 따라 실제 난이도가 크게 달라집니다.",
+      "AAVSO 상세 페이지는 직접 열람하지 못해 색인 발췌의 장주기 성격만 사용했습니다. 극대일·정밀 주기·밝기 범위는 신규 사실값으로 만들지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

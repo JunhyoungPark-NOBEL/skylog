@@ -1,0 +1,4602 @@
+[
+  {
+    "id": "q-sirius-constellation",
+    "objectId": "star:HIP32349",
+    "type": "mc",
+    "question": {
+      "ko": "시리우스가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "목동자리"
+      },
+      {
+        "ko": "큰개자리"
+      },
+      {
+        "ko": "작은곰자리"
+      },
+      {
+        "ko": "오리온자리"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "시리우스의 별자리 코드는 CMa이며 한국어 이름은 큰개자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "CMa"
+  },
+  {
+    "id": "q-arcturus-constellation",
+    "objectId": "star:HIP69673",
+    "type": "mc",
+    "question": {
+      "ko": "아르크투루스가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "작은곰자리"
+      },
+      {
+        "ko": "황소자리"
+      },
+      {
+        "ko": "목동자리"
+      },
+      {
+        "ko": "독수리자리"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "아르크투루스의 별자리 코드는 Boo이며 한국어 이름은 목동자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Boo"
+  },
+  {
+    "id": "q-vega-constellation",
+    "objectId": "star:HIP91262",
+    "type": "mc",
+    "question": {
+      "ko": "베가가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "거문고자리"
+      },
+      {
+        "ko": "백조자리"
+      },
+      {
+        "ko": "독수리자리"
+      },
+      {
+        "ko": "전갈자리"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "베가의 별자리 코드는 Lyr이며 한국어 이름은 거문고자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-rigel-constellation",
+    "objectId": "star:HIP24436",
+    "type": "mc",
+    "question": {
+      "ko": "리겔이 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "목동자리"
+      },
+      {
+        "ko": "거문고자리"
+      },
+      {
+        "ko": "큰개자리"
+      },
+      {
+        "ko": "오리온자리"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "리겔의 별자리 코드는 Ori이며 한국어 이름은 오리온자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-betelgeuse-constellation",
+    "objectId": "star:HIP27989",
+    "type": "mc",
+    "question": {
+      "ko": "베텔게우스가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "황소자리"
+      },
+      {
+        "ko": "전갈자리"
+      },
+      {
+        "ko": "작은곰자리"
+      },
+      {
+        "ko": "오리온자리"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "베텔게우스의 별자리 코드는 Ori이며 한국어 이름은 오리온자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-altair-constellation",
+    "objectId": "star:HIP97649",
+    "type": "mc",
+    "question": {
+      "ko": "알타이르가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "독수리자리"
+      },
+      {
+        "ko": "거문고자리"
+      },
+      {
+        "ko": "목동자리"
+      },
+      {
+        "ko": "백조자리"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "알타이르의 별자리 코드는 Aql이며 한국어 이름은 독수리자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Aql"
+  },
+  {
+    "id": "q-aldebaran-constellation",
+    "objectId": "star:HIP21421",
+    "type": "mc",
+    "question": {
+      "ko": "알데바란이 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "오리온자리"
+      },
+      {
+        "ko": "큰개자리"
+      },
+      {
+        "ko": "황소자리"
+      },
+      {
+        "ko": "목동자리"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "알데바란의 별자리 코드는 Tau이며 한국어 이름은 황소자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-antares-constellation",
+    "objectId": "star:HIP80763",
+    "type": "mc",
+    "question": {
+      "ko": "안타레스가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "황소자리"
+      },
+      {
+        "ko": "독수리자리"
+      },
+      {
+        "ko": "전갈자리"
+      },
+      {
+        "ko": "백조자리"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "안타레스의 별자리 코드는 Sco이며 한국어 이름은 전갈자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Sco"
+  },
+  {
+    "id": "q-deneb-constellation",
+    "objectId": "star:HIP102098",
+    "type": "mc",
+    "question": {
+      "ko": "데네브가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "큰개자리"
+      },
+      {
+        "ko": "거문고자리"
+      },
+      {
+        "ko": "독수리자리"
+      },
+      {
+        "ko": "백조자리"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "데네브의 별자리 코드는 Cyg이며 한국어 이름은 백조자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-polaris-constellation",
+    "objectId": "star:HIP11767",
+    "type": "mc",
+    "question": {
+      "ko": "폴라리스가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "목동자리"
+      },
+      {
+        "ko": "작은곰자리"
+      },
+      {
+        "ko": "오리온자리"
+      },
+      {
+        "ko": "큰곰자리"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "폴라리스의 별자리 코드는 UMi이며 한국어 이름은 작은곰자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "UMi"
+  },
+  {
+    "id": "q-sun-kind",
+    "objectId": "sun",
+    "type": "mc",
+    "question": {
+      "ko": "태양은 어떤 종류의 천체인가요?"
+    },
+    "choices": [
+      {
+        "ko": "여러 별이 모인 은하"
+      },
+      {
+        "ko": "태양빛만 반사하는 행성"
+      },
+      {
+        "ko": "지구의 자연위성"
+      },
+      {
+        "ko": "스스로 에너지를 내는 별"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "태양은 중심의 핵융합으로 에너지를 내는 별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "천체 종류"
+    ]
+  },
+  {
+    "id": "q-moon-kind",
+    "objectId": "moon",
+    "type": "mc",
+    "question": {
+      "ko": "달은 지구와 어떤 관계인 천체인가요?"
+    },
+    "choices": [
+      {
+        "ko": "지구의 자연위성"
+      },
+      {
+        "ko": "태양과 같은 별"
+      },
+      {
+        "ko": "지구를 포함하는 은하"
+      },
+      {
+        "ko": "지구보다 안쪽 궤도의 행성"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "달은 지구 주위를 도는 자연위성입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "천체 종류"
+    ]
+  },
+  {
+    "id": "q-moon-light",
+    "objectId": "moon",
+    "type": "mc",
+    "question": {
+      "ko": "달이 밝게 보이는 빛의 주된 근원은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "달 표면의 열복사"
+      },
+      {
+        "ko": "달 내부의 방사성 붕괴에서 직접 나오는 가시광"
+      },
+      {
+        "ko": "달 중심의 수소 핵융합"
+      },
+      {
+        "ko": "달에서 반사된 태양빛"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "달은 스스로 태양처럼 빛나지 않고 태양빛을 반사합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "달"
+    ]
+  },
+  {
+    "id": "q-mercury-nearest-sun",
+    "objectId": "planet:mercury",
+    "type": "mc",
+    "question": {
+      "ko": "태양에 가장 가까운 행성은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "화성"
+      },
+      {
+        "ko": "목성"
+      },
+      {
+        "ko": "수성"
+      },
+      {
+        "ko": "금성"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "수성은 태양에 가장 가까운 궤도를 도는 행성입니다. 지구에서 가장 가까운 행성을 묻는 문제는 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "태양계"
+    ]
+  },
+  {
+    "id": "q-venus-phase",
+    "objectId": "planet:venus",
+    "type": "mc",
+    "question": {
+      "ko": "소형 망원경으로 금성을 볼 때 조건에 따라 확인할 수 있는 모습은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "토성과 같은 뚜렷한 고리"
+      },
+      {
+        "ko": "달처럼 큰 충돌구의 세부"
+      },
+      {
+        "ko": "초승달이나 반달 같은 위상"
+      },
+      {
+        "ko": "구름 아래의 산과 도로"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "금성은 지구보다 안쪽 궤도를 돌아 위상이 달라집니다. 구름 아래 지표면은 작은 망원경으로 볼 수 없습니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-mars-color",
+    "objectId": "planet:mars",
+    "type": "mc",
+    "question": {
+      "ko": "화성의 붉은빛을 설명하는 표면 물질은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "두꺼운 구름층의 붉은 물방울"
+      },
+      {
+        "ko": "산화철이 섞인 먼지"
+      },
+      {
+        "ko": "표면 전체를 덮은 액체 용암"
+      },
+      {
+        "ko": "지구의 그림자"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "화성 표면의 산화철 성분이 붉은빛과 연결됩니다. 전쟁 신의 이름은 문화적 이야기이지 색의 물리적 원인이 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "색"
+    ]
+  },
+  {
+    "id": "q-jupiter-kind",
+    "objectId": "planet:jupiter",
+    "type": "mc",
+    "question": {
+      "ko": "목성의 분류로 알맞은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "거대 가스 행성"
+      },
+      {
+        "ko": "지구의 자연위성"
+      },
+      {
+        "ko": "암석 행성"
+      },
+      {
+        "ko": "백색왜성"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "목성은 주로 수소와 헬륨으로 이루어진 거대 가스 행성입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "천체 종류"
+    ]
+  },
+  {
+    "id": "q-saturn-feature",
+    "objectId": "planet:saturn",
+    "type": "mc",
+    "question": {
+      "ko": "소형 망원경으로 토성을 확인할 때 대표적인 관측 특징은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "별처럼 자전하는 표면 흑점"
+      },
+      {
+        "ko": "행성 원반 둘레의 고리"
+      },
+      {
+        "ko": "달과 같은 울퉁불퉁한 충돌구"
+      },
+      {
+        "ko": "태양의 홍염"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "토성의 고리는 대표적인 관측 특징입니다. 고리가 보이는 기울기와 대기 상태에 따라 모습은 달라집니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-uranus-kind",
+    "objectId": "planet:uranus",
+    "type": "mc",
+    "question": {
+      "ko": "천왕성과 해왕성에 공통으로 쓰는 분류는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "갈색왜성"
+      },
+      {
+        "ko": "암석 행성"
+      },
+      {
+        "ko": "구상성단"
+      },
+      {
+        "ko": "거대 얼음 행성"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "천왕성과 해왕성은 거대 얼음 행성으로 분류합니다. 이름만으로 겉면이 단단한 얼음판이라고 생각하면 안 됩니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "천체 종류"
+    ]
+  },
+  {
+    "id": "q-neptune-eye",
+    "objectId": "planet:neptune",
+    "type": "mc",
+    "question": {
+      "ko": "해왕성 관측을 처음 시작할 때 알맞은 기대는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "도시에서 맨눈으로 큰 원반이 보인다"
+      },
+      {
+        "ko": "맨눈보다 광학 장비와 위치 확인이 필요하다"
+      },
+      {
+        "ko": "10×50으로 구름 무늬가 늘 선명하다"
+      },
+      {
+        "ko": "90mm로 탐사선 같은 표면 사진을 본다"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "해왕성은 맨눈으로 찾기 어려운 희미한 행성입니다. 작은 장비에서는 위치와 점 또는 작은 원반 확인이 현실적인 목표입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-vega-tradition",
+    "objectId": "star:HIP91262",
+    "type": "mc",
+    "question": {
+      "ko": "콘텐츠의 한국 칠석 안내에서 베가에 대응하는 이름은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "천랑성"
+      },
+      {
+        "ko": "북극성"
+      },
+      {
+        "ko": "직녀성"
+      },
+      {
+        "ko": "견우성"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "이 콘텐츠는 베가를 직녀성으로 연결합니다. 이는 칠석 전승의 대응 이름이며 별의 물리적 종류는 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "전통"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-altair-tradition",
+    "objectId": "star:HIP97649",
+    "type": "mc",
+    "question": {
+      "ko": "콘텐츠의 한국 칠석 안내에서 알타이르에 대응하는 이름은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "북극성"
+      },
+      {
+        "ko": "천랑성"
+      },
+      {
+        "ko": "견우성"
+      },
+      {
+        "ko": "직녀성"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "이 콘텐츠에서는 알타이르를 견우성으로 연결합니다. 다른 전통 성군의 비슷한 명칭까지 같은 별로 합치지는 않습니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "전통"
+    ],
+    "constellation": "Aql"
+  },
+  {
+    "id": "q-deneb-triangle",
+    "objectId": "star:HIP102098",
+    "type": "mc",
+    "question": {
+      "ko": "베가·알타이르와 함께 여름 대삼각형을 이루는 별은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "시리우스"
+      },
+      {
+        "ko": "알데바란"
+      },
+      {
+        "ko": "데네브"
+      },
+      {
+        "ko": "리겔"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "여름 대삼각형의 세 꼭짓점은 베가·알타이르·데네브입니다. 한 별자리가 아니라 여러 별자리에 걸친 길잡이 무늬입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "길잡이"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-sun-safe-choice",
+    "objectId": "sun",
+    "type": "mc",
+    "question": {
+      "ko": "태양 관측용 안전 장비가 준비되지 않았을 때 이 앱에서 할 행동은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "짙은 선글라스로 망원경을 들여다본다"
+      },
+      {
+        "ko": "직접 관측하지 않고 태양 안전 설명을 읽는다"
+      },
+      {
+        "ko": "일식 안경을 쓰고 무필터 쌍안경으로 본다"
+      },
+      {
+        "ko": "눈을 빨리 깜빡이며 무필터로 본다"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "필터 없이 절대 보지 말아야 합니다. 일식 안경은 무필터 쌍안경이나 망원경과 함께 쓰는 보호 수단이 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "안전"
+    ]
+  },
+  {
+    "id": "q-moon-sequence",
+    "objectId": "moon",
+    "type": "mc",
+    "question": {
+      "ko": "달의 주요 위상이 한 주기를 도는 순서로 알맞은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "삭 → 상현 → 보름 → 하현"
+      },
+      {
+        "ko": "상현 → 삭 → 보름 → 하현"
+      },
+      {
+        "ko": "보름 → 상현 → 삭 → 하현"
+      },
+      {
+        "ko": "삭 → 하현 → 보름 → 상현"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "주요 위상은 삭에서 상현·보름·하현을 거쳐 다시 삭으로 이어집니다. 원반의 화면 회전 방향과는 다른 개념입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "달"
+    ]
+  },
+  {
+    "id": "q-moon-terminator",
+    "objectId": "moon",
+    "type": "mc",
+    "question": {
+      "ko": "달의 크레이터와 산 그림자를 살펴보기 좋은 위치는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "밝은 면만 꽉 찬 보름의 중심만"
+      },
+      {
+        "ko": "밝은 면과 어두운 면의 경계 부근"
+      },
+      {
+        "ko": "달에서 멀리 떨어진 빈 하늘"
+      },
+      {
+        "ko": "항상 원반 중심 한 점만"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "명암 경계에서는 지형의 그림자가 길어져 형태를 구별하기 쉽습니다. 보름이 항상 지형 관측에 가장 유리한 것은 아닙니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "달"
+    ]
+  },
+  {
+    "id": "q-moon-maria",
+    "objectId": "moon",
+    "type": "mc",
+    "question": {
+      "ko": "달에서 바다라고 부르는 어두운 무늬는 주로 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "태양빛이 전혀 닿지 않는 영구 구멍"
+      },
+      {
+        "ko": "두꺼운 달 구름이 만든 그림자"
+      },
+      {
+        "ko": "용암이 굳은 평원"
+      },
+      {
+        "ko": "현재 액체 물로 가득 찬 바다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "달의 바다는 주로 오래된 용암이 굳은 어두운 평원입니다. 바다라는 이름이 실제 액체 물을 뜻하지는 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "달"
+    ]
+  },
+  {
+    "id": "q-moon-support",
+    "objectId": "moon",
+    "type": "mc",
+    "question": {
+      "ko": "10×50 쌍안경의 흔들림 때문에 달 지형을 보기 어렵다면 무엇을 먼저 바꾸나요?"
+    },
+    "choices": [
+      {
+        "ko": "팔받침이나 삼각대로 시야를 안정시킨다"
+      },
+      {
+        "ko": "보이지 않은 지형도 보였다고 기록한다"
+      },
+      {
+        "ko": "태양 가까이로 시야를 옮긴다"
+      },
+      {
+        "ko": "배율을 무조건 더 높인다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "10배 쌍안경은 지지하면 달의 큰 지형을 살피기 수월합니다. 관측 기록에는 직접 확인한 범위만 남깁니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-venus-two-names",
+    "objectId": "planet:venus",
+    "type": "mc",
+    "question": {
+      "ko": "샛별과 개밥바라기의 관계를 가장 잘 설명한 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "서로 다른 두 별이다"
+      },
+      {
+        "ko": "목성과 토성의 다른 이름이다"
+      },
+      {
+        "ko": "금성의 위성 두 개이다"
+      },
+      {
+        "ko": "보이는 때에 따라 부르는 같은 금성이다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "한국어 하늘 안내에서 새벽 금성은 샛별, 저녁 금성은 개밥바라기라고 부릅니다. 둘은 같은 행성입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "전통"
+    ]
+  },
+  {
+    "id": "q-venus-surface",
+    "objectId": "planet:venus",
+    "type": "mc",
+    "question": {
+      "ko": "90mm 망원경으로 금성의 지표면을 자세히 볼 수 없는 주된 이유는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "금성이 태양계 밖에 있기 때문이다"
+      },
+      {
+        "ko": "두꺼운 구름이 지표를 가리고 있다"
+      },
+      {
+        "ko": "금성이 빛을 전혀 반사하지 않는다"
+      },
+      {
+        "ko": "금성에는 낮이 존재하지 않는다"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "금성은 두꺼운 구름으로 덮여 있어 가시광의 작은 망원경으로 지표면을 볼 수 없습니다. 대신 위상을 관측합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-mercury-horizon",
+    "objectId": "planet:mercury",
+    "type": "mc",
+    "question": {
+      "ko": "수성을 찾을 때 계절 이름 외에 특히 확인해야 하는 조건은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "관측지의 경도를 빼고 위도만 확인하기"
+      },
+      {
+        "ko": "별자리 이름에 붙은 계절만 확인하기"
+      },
+      {
+        "ko": "달의 위상만 단독으로 확인하기"
+      },
+      {
+        "ko": "태양과의 각거리와 지평선·박명 상태"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "수성은 태양에서 크게 떨어지지 않아 낮은 하늘과 박명의 영향을 많이 받습니다. 계절이나 고정 시각만으로 관측 가능하다고 판단하지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-mars-size",
+    "objectId": "planet:mars",
+    "type": "mc",
+    "question": {
+      "ko": "화성이 망원경에서 크게 보이는 정도에 큰 영향을 주는 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "그때의 지구와 화성 사이 거리"
+      },
+      {
+        "ko": "화성의 위성 개수"
+      },
+      {
+        "ko": "화성의 자전 주기 자체"
+      },
+      {
+        "ko": "하늘 지도에 그려진 행성 아이콘 크기"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "지구와 화성의 거리가 달라지면 겉보기 원반 크기도 달라집니다. 같은 장비여도 관측 시기에 따라 성과가 다를 수 있습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-jupiter-moons",
+    "objectId": "planet:jupiter",
+    "type": "mc",
+    "question": {
+      "ko": "목성을 10×50으로 관측할 때 현실적인 목표는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "대적점의 미세 소용돌이를 촬영한다"
+      },
+      {
+        "ko": "위성의 크레이터를 하나씩 분리한다"
+      },
+      {
+        "ko": "조건이 맞을 때 가까운 밝은 위성 점들을 확인한다"
+      },
+      {
+        "ko": "위성 네 개가 항상 모두 보인다고 결론낸다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "갈릴레이 위성은 조건이 좋으면 목성 곁의 점으로 보입니다. 가림이나 겹침 때문에 네 개가 늘 따로 보이는 것은 아닙니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-saturn-ring-tilt",
+    "objectId": "planet:saturn",
+    "type": "mc",
+    "question": {
+      "ko": "토성의 고리가 유난히 가늘게 보일 때 가능한 설명은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "토성이 암석 행성으로 바뀌었다"
+      },
+      {
+        "ko": "고리 물질이 전부 하루 만에 사라졌다"
+      },
+      {
+        "ko": "고리 대신 달의 그림자를 보고 있다"
+      },
+      {
+        "ko": "지구에서 보는 고리의 기울기가 달라졌다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "토성 고리의 보이는 폭은 관측 방향의 기울기에 따라 달라집니다. 실제 모습을 시기별로 기록하는 것이 좋습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-uranus-point",
+    "objectId": "planet:uranus",
+    "type": "mc",
+    "question": {
+      "ko": "도시에서 천왕성을 10×50으로 찾을 때 중요한 일은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "표면 구름부터 구별한다"
+      },
+      {
+        "ko": "푸른색처럼 보이면 어느 점이든 천왕성으로 기록한다"
+      },
+      {
+        "ko": "겨울이면 매일 같은 자리에 있다고 가정한다"
+      },
+      {
+        "ko": "앱의 현재 위치와 주변 별 배치를 대조한다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "천왕성은 쌍안경에서 별 같은 점으로 보일 수 있어 위치 대조가 중요합니다. 행성의 위치는 날짜에 따라 달라집니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-neptune-identify",
+    "objectId": "planet:neptune",
+    "type": "mc",
+    "question": {
+      "ko": "작은 망원경에서 해왕성 후보를 찾았다면 무엇으로 확인하는 것이 좋나요?"
+    },
+    "choices": [
+      {
+        "ko": "계산된 위치와 주변 별의 배치를 함께 확인한다"
+      },
+      {
+        "ko": "파란 번짐만으로 확정한다"
+      },
+      {
+        "ko": "희미한 모든 별을 해왕성으로 간주한다"
+      },
+      {
+        "ko": "항상 가장 밝은 점을 고른다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "해왕성은 작고 희미해 작은 장비로 확인할 때 위치 정보가 중요합니다. 색 인상만으로 확정하지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-arcturus-guide",
+    "objectId": "star:HIP69673",
+    "type": "mc",
+    "question": {
+      "ko": "아르크투루스를 찾을 때 이어 볼 수 있는 길잡이는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "폴라리스에서 천정으로 가는 고정 수직선"
+      },
+      {
+        "ko": "달의 뿔 끝을 항상 잇는 선"
+      },
+      {
+        "ko": "오리온 허리띠에서 시리우스로 향하는 연장선"
+      },
+      {
+        "ko": "북두칠성 손잡이의 곡선"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "북두칠성 손잡이의 곡선을 이어 아르크투루스를 찾는 방법을 콘텐츠에서 안내합니다. 시각에 따라 화면 방향은 회전할 수 있습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "길잡이"
+    ],
+    "constellation": "Boo"
+  },
+  {
+    "id": "q-sirius-guide",
+    "objectId": "star:HIP32349",
+    "type": "mc",
+    "question": {
+      "ko": "겨울 하늘에서 시리우스를 찾을 때 먼저 확인할 무늬는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "여름 대삼각형의 가운데"
+      },
+      {
+        "ko": "북십자의 꼬리 한 점"
+      },
+      {
+        "ko": "북극성 주변의 작은 원"
+      },
+      {
+        "ko": "오리온자리의 허리띠 세 별"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "오리온 허리띠를 이어 큰개자리의 밝은 시리우스로 접근할 수 있습니다. 실제 위치는 앱의 날짜·장소와 맞춰 확인합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "길잡이"
+    ],
+    "constellation": "CMa"
+  },
+  {
+    "id": "q-rigel-color",
+    "objectId": "star:HIP24436",
+    "type": "mc",
+    "question": {
+      "ko": "오리온자리에서 리겔과 베텔게우스의 색 대비로 알맞은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "두 별은 반드시 똑같은 진홍색"
+      },
+      {
+        "ko": "리겔은 청백색, 베텔게우스는 붉거나 주황빛"
+      },
+      {
+        "ko": "리겔은 검은색, 베텔게우스는 무색"
+      },
+      {
+        "ko": "리겔은 초록색, 베텔게우스는 보라색"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "콘텐츠는 리겔을 청백색, 베텔게우스를 붉은 초거성으로 설명합니다. 실제 색 인상은 하늘 상태와 시력에도 영향을 받습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "색"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-betelgeuse-report",
+    "objectId": "star:HIP27989",
+    "type": "mc",
+    "question": {
+      "ko": "베텔게우스가 평소보다 어두워 보였다면 먼저 어떻게 기록하나요?"
+    },
+    "choices": [
+      {
+        "ko": "구름·고도·주변 조명과 비교 별을 함께 적는다"
+      },
+      {
+        "ko": "다른 날의 기록을 지운다"
+      },
+      {
+        "ko": "한 번의 인상으로 정확한 광도를 결정한다"
+      },
+      {
+        "ko": "초신성 폭발 날짜를 확정한다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "밝기 인상에는 별의 변화 외에 관측 조건도 영향을 줍니다. 한 번 어둡게 보였다는 이유로 폭발을 예고할 수 없습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-altair-shape",
+    "objectId": "star:HIP97649",
+    "type": "mc",
+    "question": {
+      "ko": "90mm, 20~80배에서 알타이르를 볼 때 기본 모습은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "자전으로 찌그러진 표면이 넓게 펼쳐진 원반"
+      },
+      {
+        "ko": "점처럼 보이는 별"
+      },
+      {
+        "ko": "꼬리가 길게 늘어진 혜성"
+      },
+      {
+        "ko": "주변에 뚜렷한 토성형 고리가 있는 행성"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "알타이르의 부푼 적도는 전문 간섭 관측으로 연구한 구조입니다. 입문용 망원경으로 그 모양을 직접 확인하는 목표는 아닙니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ],
+    "constellation": "Aql"
+  },
+  {
+    "id": "q-aldebaran-membership",
+    "objectId": "star:HIP21421",
+    "type": "mc",
+    "question": {
+      "ko": "알데바란이 히아데스와 같은 방향에 보인다는 사실에서 바로 결론낼 수 없는 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "두 대상이 하늘에서 가까운 방향에 보인다는 것"
+      },
+      {
+        "ko": "알데바란이 주변 별무리와 한 장면에 보일 수 있다는 것"
+      },
+      {
+        "ko": "알데바란이 히아데스 성단의 구성원이라는 것"
+      },
+      {
+        "ko": "알데바란의 위치를 길잡이로 삼을 수 있다는 것"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "알데바란은 히아데스보다 앞쪽에 놓인 별로 설명됩니다. 같은 방향에 보인다는 사실과 같은 집단이라는 판단은 다릅니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "공간"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-antares-city",
+    "objectId": "star:HIP80763",
+    "type": "mc",
+    "question": {
+      "ko": "대전 근교에서 안타레스 관측을 특히 방해하기 쉬운 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "여름에는 태양빛을 반사하지 않는다는 점"
+      },
+      {
+        "ko": "북쪽 지평선만 가린다는 점"
+      },
+      {
+        "ko": "안타레스가 항상 천정에 있다는 점"
+      },
+      {
+        "ko": "남쪽 산·건물과 낮은 고도의 연무"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "안타레스는 한국 중위도에서 남쪽에 낮게 뜹니다. 남쪽 시야와 그 시각의 고도를 먼저 확인해야 합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ],
+    "constellation": "Sco"
+  },
+  {
+    "id": "q-deneb-body",
+    "objectId": "star:HIP102098",
+    "type": "mc",
+    "question": {
+      "ko": "별자리 그림에서 데네브가 놓인 백조의 부위는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "한쪽 발톱"
+      },
+      {
+        "ko": "배 아래의 고리"
+      },
+      {
+        "ko": "꼬리"
+      },
+      {
+        "ko": "부리"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "콘텐츠는 데네브를 백조의 꼬리에 놓인 별로 설명합니다. 여기서 별자리 그림은 별의 실제 물리 구조가 아닙니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-polaris-brightest",
+    "objectId": "star:HIP11767",
+    "type": "mc",
+    "question": {
+      "ko": "폴라리스가 북쪽 길잡이로 유용한 주된 이유는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "지구와 정확히 같은 거리에 머무르기 때문이다"
+      },
+      {
+        "ko": "모든 별 중 가장 밝기 때문이다"
+      },
+      {
+        "ko": "천구 북극 가까이 있어 밤 동안 위치 변화가 작다"
+      },
+      {
+        "ko": "지구의 자연위성이기 때문이다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "폴라리스는 천구 북극 부근에 있어 위치 변화가 작습니다. 밤하늘에서 가장 밝은 별은 아닙니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "방향"
+    ],
+    "constellation": "UMi"
+  },
+  {
+    "id": "q-vega-disk",
+    "objectId": "star:HIP91262",
+    "type": "mc",
+    "question": {
+      "ko": "베가 주변 먼지 원반 사진을 읽은 뒤 10×50 관측에서 기대할 모습은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "원반 위에서 움직이는 밝은 행성 무리"
+      },
+      {
+        "ko": "밝은 점과 주변 별 배치"
+      },
+      {
+        "ko": "별 표면의 얼룩"
+      },
+      {
+        "ko": "사진과 같은 먼지 원반의 세부"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "베가 주변 먼지 원반은 연구 장비로 관측한 구조입니다. 10×50으로는 베가와 주변 별 배열을 봅니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-sunspot-kind",
+    "objectId": "sun",
+    "type": "mc",
+    "question": {
+      "ko": "태양 설명에서 흑점을 어둡게 보이게 하는 이유는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "표면에 뚫린 빈 구멍이기 때문이다"
+      },
+      {
+        "ko": "일시적으로 핵융합이 완전히 멈춘 구역이기 때문이다"
+      },
+      {
+        "ko": "태양 앞을 지난 행성의 그림자이기 때문이다"
+      },
+      {
+        "ko": "주변보다 온도가 낮은 영역이기 때문이다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "흑점은 주변보다 상대적으로 서늘해 어둡게 보입니다. 이 문항은 설명 읽기용이며 직접 태양 관측을 요구하지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "태양"
+    ]
+  },
+  {
+    "id": "q-mercury-venus-temperature",
+    "objectId": "planet:mercury",
+    "type": "mc",
+    "question": {
+      "ko": "태양에 더 가까운 수성보다 금성의 표면이 더 뜨거운 이유로 알맞은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "태양이 금성 쪽으로만 빛을 내기 때문이다"
+      },
+      {
+        "ko": "금성의 두꺼운 대기가 열을 가두기 때문이다"
+      },
+      {
+        "ko": "수성이 지구의 위성이기 때문이다"
+      },
+      {
+        "ko": "금성이 스스로 핵융합하기 때문이다"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "콘텐츠는 금성의 두꺼운 대기가 열을 붙잡는다고 설명합니다. 태양까지의 거리만으로 표면 온도를 정할 수 없습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "비교"
+    ]
+  },
+  {
+    "id": "q-sirius-companion",
+    "objectId": "star:HIP32349",
+    "type": "mc",
+    "question": {
+      "ko": "시리우스 B의 설명과 관측 기대를 바르게 묶은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "적색거성이며 맨눈으로 두 별이 넓게 떨어져 보인다"
+      },
+      {
+        "ko": "지구 위성이며 매일 위상이 바뀐다"
+      },
+      {
+        "ko": "가스 행성이며 10×50으로 고리가 선명하다"
+      },
+      {
+        "ko": "백색왜성이며 밝은 A 때문에 입문 장비의 쉬운 대상은 아니다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "시리우스 B는 백색왜성입니다. 주성과의 큰 밝기 차이 때문에 이 장비 범위에서는 분리를 기본 성과로 요구하지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "별의 성질"
+    ],
+    "constellation": "CMa"
+  },
+  {
+    "id": "q-arcturus-temperature",
+    "objectId": "star:HIP69673",
+    "type": "mc",
+    "question": {
+      "ko": "적색거성 아르크투루스를 통해 알 수 있는 온도와 밝기의 관계는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "붉은 별은 모두 지구에서 같은 거리에 있다"
+      },
+      {
+        "ko": "별의 색 하나로 정확한 거리를 정할 수 있다"
+      },
+      {
+        "ko": "표면이 더 서늘해도 넓은 표면 때문에 전체적으로 밝을 수 있다"
+      },
+      {
+        "ko": "서늘한 별은 반드시 맨눈으로 보이지 않는다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "별의 전체 밝기는 표면 온도뿐 아니라 크기에도 영향을 받습니다. 주황빛이라는 이유만으로 어둡거나 가까운 별이라고 단정하지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "별의 성질"
+    ],
+    "constellation": "Boo"
+  },
+  {
+    "id": "q-vega-myth-reality",
+    "objectId": "star:HIP91262",
+    "type": "mc",
+    "question": {
+      "ko": "칠석의 오작교 전승을 천문 관측과 구별한 설명은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "문화적 이야기이며 두 별이 매년 실제로 만난다는 뜻은 아니다"
+      },
+      {
+        "ko": "도시에서 은하수가 안 보이면 두 별도 사라진다는 뜻이다"
+      },
+      {
+        "ko": "직녀성이 다른 은하로 이동한다는 계산식이다"
+      },
+      {
+        "ko": "두 별이 음력 7월 7일마다 충돌한다는 관측 기록이다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "전승은 문화권의 이야기로 읽습니다. 베가와 알타이르의 실제 위치·운동은 천문학적 설명으로 따로 확인합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "전통"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-rigel-occultation",
+    "objectId": "star:HIP24436",
+    "type": "mc",
+    "question": {
+      "ko": "카시니가 토성 대기 뒤로 가려지는 리겔의 빛을 관측한 목적은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "리겔 표면의 지형을 직접 확대 촬영하기 위해"
+      },
+      {
+        "ko": "리겔이 달처럼 변하는 위상 주기를 재기 위해"
+      },
+      {
+        "ko": "지구 대기의 구름 분포를 측정하기 위해"
+      },
+      {
+        "ko": "별빛의 변화를 이용해 토성 대기 구조를 연구하기 위해"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "행성 대기를 통과하는 배경 별빛의 변화는 대기 연구에 쓰일 수 있습니다. 콘텐츠의 리겔 이야기는 이런 관측 사례입니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "관측 원리"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-betelgeuse-dimming",
+    "objectId": "star:HIP27989",
+    "type": "mc",
+    "question": {
+      "ko": "콘텐츠에서 소개한 베텔게우스의 큰 어두워짐에 대한 연구 설명은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "지구의 밤이 길어져 별이 꺼졌다는 설명"
+      },
+      {
+        "ko": "분출 물질이 식어 만든 먼지가 별빛 일부를 가렸다는 설명"
+      },
+      {
+        "ko": "별이 즉시 초신성으로 폭발했다는 확정"
+      },
+      {
+        "ko": "모든 원인이 소형 망원경으로 직접 보였다는 설명"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "콘텐츠는 허블 관측 분석에서 먼지가 빛 일부를 가렸다는 설명을 소개합니다. 이 사례만으로 미래 폭발 시점을 정할 수 없습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "과학 해석"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-altair-method",
+    "objectId": "star:HIP97649",
+    "type": "mc",
+    "question": {
+      "ko": "알타이르의 부푼 적도와 표면 밝기 차이를 연구한 관측 방법은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "90mm 망원경의 단순 초점 흐리기"
+      },
+      {
+        "ko": "맨눈에서 손가락 폭만 재기"
+      },
+      {
+        "ko": "폰 나침반의 숫자만 읽기"
+      },
+      {
+        "ko": "여러 망원경의 빛을 합치는 간섭 관측"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "콘텐츠의 알타이르 표면 연구는 여러 망원경의 빛을 결합한 관측입니다. 보통 접안 관측의 점 모양과 연구 영상을 구별해야 합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "관측 원리"
+    ],
+    "constellation": "Aql"
+  },
+  {
+    "id": "q-aldebaran-depth",
+    "objectId": "star:HIP21421",
+    "type": "mc",
+    "question": {
+      "ko": "알데바란과 히아데스 사례가 보여 주는 지도 해석의 주의점은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "색이 비슷하면 거리가 정확히 같다"
+      },
+      {
+        "ko": "한 화면에 보이면 모두 같은 성단이다"
+      },
+      {
+        "ko": "하늘의 각거리만으로 실제 공간 거리를 알 수 없다"
+      },
+      {
+        "ko": "가까워 보이는 두 점은 항상 쌍성이다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "하늘 지도는 방향을 평면에 표현하지만 천체는 서로 다른 거리에 놓입니다. 같은 방향의 무늬만으로 물리적 집단을 확정하지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "공간"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-antares-atmosphere",
+    "objectId": "star:HIP80763",
+    "type": "mc",
+    "question": {
+      "ko": "작은 망원경에서 안타레스가 번져 보일 때 알맞은 해석은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "별의 실제 지름을 번짐 크기만으로 결정한다"
+      },
+      {
+        "ko": "안타레스의 거대한 대기를 직접 분해했다고 확정한다"
+      },
+      {
+        "ko": "지구 대기와 초점 등의 영향부터 살핀다"
+      },
+      {
+        "ko": "동반성 개수를 번짐의 점 개수로 정한다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "안타레스의 표면·대기 구조 연구는 전문 관측 장비의 결과입니다. 낮게 뜬 별의 번짐을 같은 관측으로 해석하지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "과학 해석"
+    ],
+    "constellation": "Sco"
+  },
+  {
+    "id": "q-deneb-distance-uncertainty",
+    "objectId": "star:HIP102098",
+    "type": "mc",
+    "question": {
+      "ko": "자료마다 데네브의 거리가 다를 때 적절한 학습 태도는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "가장 오래된 값만 현재의 정확한 거리로 단정한다"
+      },
+      {
+        "ko": "추정법과 출처·불확도를 확인한다"
+      },
+      {
+        "ko": "베가와 같은 삼각형이므로 같은 거리로 바꾼다"
+      },
+      {
+        "ko": "소수점이 가장 긴 값을 무조건 정답으로 정한다"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "콘텐츠는 데네브 거리의 자료별 차이를 검토 사항으로 남깁니다. 불확실한 대표 값을 유일하게 정확한 거리로 외우지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "과학 해석"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-polaris-two-companions",
+    "objectId": "star:HIP11767",
+    "type": "mc",
+    "question": {
+      "ko": "폴라리스의 동반성 B와 Ab에 대한 이 장비 범위의 설명은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "멀리 떨어진 B는 시도 대상일 수 있지만 가까운 Ab는 같은 장비로 기대하지 않는다"
+      },
+      {
+        "ko": "둘은 모두 달의 다른 위상 이름이다"
+      },
+      {
+        "ko": "B와 Ab 모두 맨눈으로 쉽게 나뉜다"
+      },
+      {
+        "ko": "Ab만 10×50으로 늘 선명하고 B는 존재하지 않는다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "콘텐츠는 넓게 떨어진 B와 매우 가까운 Ab를 구별합니다. 동반성의 존재와 입문 장비에서의 분리 가능성은 같은 뜻이 아닙니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "관측"
+    ],
+    "constellation": "UMi"
+  },
+  {
+    "id": "q-mars-retrograde",
+    "objectId": "planet:mars",
+    "type": "mc",
+    "question": {
+      "ko": "화성이 배경 별에 대해 잠시 반대로 움직여 보이는 역행을 설명한 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "화성이 실제 궤도를 갑자기 거꾸로 도는 운동"
+      },
+      {
+        "ko": "지구와 화성의 공전과 시선 방향 변화로 생기는 겉보기 운동"
+      },
+      {
+        "ko": "달이 화성의 표면을 끌어당겨 미는 운동"
+      },
+      {
+        "ko": "지구가 며칠간 자전을 멈춘 결과"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "더 안쪽 궤도의 지구가 화성을 추월하면 배경 별에 대한 시선 방향이 달라집니다. 행성이 궤도에서 뒤로 달린다는 뜻은 아닙니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "운동"
+    ]
+  },
+  {
+    "id": "q-moon-shadow-not-phase",
+    "objectId": "moon",
+    "type": "mc",
+    "question": {
+      "ko": "달의 보통 위상 변화와 월식의 차이를 바르게 설명한 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "위상은 밝은 면이 보이는 비율의 변화이고 월식은 지구의 그림자와 관련된다"
+      },
+      {
+        "ko": "모든 반달은 지구의 그림자가 달 절반을 가린 월식이다"
+      },
+      {
+        "ko": "월식은 달이 태양 앞을 지나 태양을 가리는 현상이다"
+      },
+      {
+        "ko": "위상은 지구의 자전 속도가 주기적으로 달라져 생긴다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "보통 위상은 태양이 비춘 면을 보는 배치가 달라져 생깁니다. 지구의 그림자가 달을 가리는 월식과 구별합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "달"
+    ]
+  },
+  {
+    "id": "q-sun-sunglasses",
+    "objectId": "sun",
+    "type": "trueFalse",
+    "question": {
+      "ko": "보통 선글라스는 망원경으로 태양을 볼 때 전용 태양 필터를 대신할 수 있다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "선글라스는 태양 관측용 필터를 대신할 수 없습니다. 필터 없이 절대 보지 말아야 합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "안전"
+    ]
+  },
+  {
+    "id": "q-moon-not-star",
+    "objectId": "moon",
+    "type": "trueFalse",
+    "question": {
+      "ko": "달은 태양처럼 중심의 수소 핵융합으로 빛나는 별이다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "달은 지구의 자연위성이며 태양빛을 반사합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "천체 종류"
+    ]
+  },
+  {
+    "id": "q-mercury-rocky",
+    "objectId": "planet:mercury",
+    "type": "trueFalse",
+    "question": {
+      "ko": "수성은 암석 행성으로 분류된다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "수성은 태양에 가까운 암석 행성입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "천체 종류"
+    ]
+  },
+  {
+    "id": "q-venus-two-objects",
+    "objectId": "planet:venus",
+    "type": "trueFalse",
+    "question": {
+      "ko": "샛별과 개밥바라기는 서로 다른 두 천체의 이름이다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "이 콘텐츠에서는 둘 다 금성을 가리키며 보이는 때가 다릅니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "전통"
+    ]
+  },
+  {
+    "id": "q-mars-orange",
+    "objectId": "planet:mars",
+    "type": "trueFalse",
+    "question": {
+      "ko": "화성은 관측 조건이 좋을 때 맨눈에서도 붉거나 주황빛 도는 점으로 보일 수 있다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "콘텐츠는 맨눈 관측 목표를 색과 위치 확인으로 제시합니다. 표면 지형을 맨눈으로 본다는 뜻은 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "색"
+    ]
+  },
+  {
+    "id": "q-summer-members",
+    "objectId": "star:HIP91262",
+    "type": "trueFalse",
+    "question": {
+      "ko": "베가·알타이르·데네브는 여름 대삼각형의 세 별이다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "세 별은 거문고자리·독수리자리·백조자리에 각각 속합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "길잡이"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-polaris-in-ursa-minor",
+    "objectId": "star:HIP11767",
+    "type": "trueFalse",
+    "question": {
+      "ko": "폴라리스는 작은곰자리에 속한다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "첨부 카탈로그의 별자리 코드 UMi는 작은곰자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "UMi"
+  },
+  {
+    "id": "q-neptune-easy-eye",
+    "objectId": "planet:neptune",
+    "type": "trueFalse",
+    "question": {
+      "ko": "해왕성은 도시에서 맨눈으로 크게 보이는 대표 행성이다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "해왕성은 희미해 광학 장비와 위치 확인이 필요한 대상입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-moon-full-best-always",
+    "objectId": "moon",
+    "type": "trueFalse",
+    "question": {
+      "ko": "크레이터 그림자를 보기에는 보름이 언제나 가장 좋다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "명암 경계가 있는 위상에서 그림자가 지형을 드러냅니다. 보름만을 고집할 필요는 없습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "달"
+    ]
+  },
+  {
+    "id": "q-jupiter-always-four",
+    "objectId": "planet:jupiter",
+    "type": "trueFalse",
+    "question": {
+      "ko": "목성의 갈릴레이 위성 네 개는 어떤 시각에도 모두 떨어진 점으로 보인다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "가림이나 겹침 때문에 네 위성이 늘 따로 보이지는 않습니다. 실제로 본 수를 기록합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-saturn-angle",
+    "objectId": "planet:saturn",
+    "type": "trueFalse",
+    "question": {
+      "ko": "토성의 고리가 벌어져 보이는 정도는 관측 시기에 따라 달라진다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "지구에서 보는 고리의 기울기가 달라져 겉모습이 변합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-aldebaran-foreground",
+    "objectId": "star:HIP21421",
+    "type": "trueFalse",
+    "question": {
+      "ko": "알데바란은 히아데스와 같은 방향에 보이지만 성단보다 앞쪽에 놓인 별이다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "콘텐츠는 두 대상의 방향상 겹침과 실제 거리 차이를 구별합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "공간"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-sirius-flicker",
+    "objectId": "star:HIP32349",
+    "type": "trueFalse",
+    "question": {
+      "ko": "낮게 뜬 시리우스의 빠른 색 깜빡임은 별 자체의 급격한 변화로 바로 확정할 수 있다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "낮은 고도에서 대기의 영향이 크게 작용할 수 있습니다. 한 번의 깜빡임만으로 별의 변화를 확정하지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ],
+    "constellation": "CMa"
+  },
+  {
+    "id": "q-arcturus-point",
+    "objectId": "star:HIP69673",
+    "type": "trueFalse",
+    "question": {
+      "ko": "아르크투루스는 거성이지만 90mm, 20~80배에서는 별 표면이 넓게 펼쳐져 보이지 않는다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "이 장비 범위의 기본 관측은 점처럼 보이는 별의 색과 위치입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ],
+    "constellation": "Boo"
+  },
+  {
+    "id": "q-deneb-not-single-constellation",
+    "objectId": "star:HIP102098",
+    "type": "trueFalse",
+    "question": {
+      "ko": "여름 대삼각형의 세 별은 모두 백조자리 안에 있다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "데네브만 백조자리에 속하고 베가는 거문고자리, 알타이르는 독수리자리에 속합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-uranus-chart",
+    "objectId": "planet:uranus",
+    "type": "trueFalse",
+    "question": {
+      "ko": "천왕성을 찾을 때 별 같은 점의 색만보다 현재 계산 위치와 주변 별 배치가 중요하다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "작은 장비에서 별과 구별하기 어려워 위치 대조가 필요합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측"
+    ]
+  },
+  {
+    "id": "q-polaris-exact-pole",
+    "objectId": "star:HIP11767",
+    "type": "trueFalse",
+    "question": {
+      "ko": "폴라리스는 천구 북극과 정확히 같은 점이므로 시간·장소 계산 없이 정밀 정렬 기준으로 쓸 수 있다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "폴라리스는 천구 북극 가까이에 있지만 완전히 같은 점은 아닙니다. 정밀 정렬은 계산된 별 위치를 사용합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "정렬"
+    ],
+    "constellation": "UMi"
+  },
+  {
+    "id": "q-betelgeuse-date",
+    "objectId": "star:HIP27989",
+    "type": "trueFalse",
+    "question": {
+      "ko": "베텔게우스가 한 번 어두워 보이면 초신성 폭발 날짜를 정할 수 있다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "관측 조건과 별의 변화 원인을 따져야 하며 한 번의 인상으로 폭발 시점을 예고할 수 없습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "과학 해석"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-altair-interferometry",
+    "objectId": "star:HIP97649",
+    "type": "trueFalse",
+    "question": {
+      "ko": "알타이르의 표면 영상 연구와 소형 망원경에서 보는 점 모양은 서로 다른 관측 수준이다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "연구에는 여러 망원경의 빛을 결합하는 방법이 쓰였습니다. 그 구조를 입문 장비에서 직접 본 것으로 기록하지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "관측 원리"
+    ],
+    "constellation": "Aql"
+  },
+  {
+    "id": "q-vega-tradition-separate",
+    "objectId": "star:HIP91262",
+    "type": "trueFalse",
+    "question": {
+      "ko": "칠석 전승의 내용과 실제 두 별의 거리·운동은 구별해서 배워야 한다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "전승은 문화적 이야기이며 별의 실제 운동을 대체하는 설명이 아닙니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "전통"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-pick-sirius-name",
+    "objectId": "star:HIP32349",
+    "constellation": "CMa",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 시리우스를 찾아 탭하세요."
+    },
+    "answer": "star:HIP32349",
+    "explanation": {
+      "ko": "시리우스는 큰개자리의 밝은 길잡이별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-arcturus-name",
+    "objectId": "star:HIP69673",
+    "constellation": "Boo",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 아르크투루스를 찾아 탭하세요."
+    },
+    "answer": "star:HIP69673",
+    "explanation": {
+      "ko": "아르크투루스는 목동자리의 밝은 주황빛 별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-vega-name",
+    "objectId": "star:HIP91262",
+    "constellation": "Lyr",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 베가를 찾아 탭하세요."
+    },
+    "answer": "star:HIP91262",
+    "explanation": {
+      "ko": "베가는 거문고자리의 밝은 별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-rigel-name",
+    "objectId": "star:HIP24436",
+    "constellation": "Ori",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 리겔을 찾아 탭하세요."
+    },
+    "answer": "star:HIP24436",
+    "explanation": {
+      "ko": "리겔은 오리온자리의 발 쪽에 놓인 청백색 별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-betelgeuse-name",
+    "objectId": "star:HIP27989",
+    "constellation": "Ori",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 베텔게우스를 찾아 탭하세요."
+    },
+    "answer": "star:HIP27989",
+    "explanation": {
+      "ko": "베텔게우스는 오리온자리 어깨 쪽의 붉은 별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-deneb-name",
+    "objectId": "star:HIP102098",
+    "constellation": "Cyg",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 데네브를 찾아 탭하세요."
+    },
+    "answer": "star:HIP102098",
+    "explanation": {
+      "ko": "데네브는 백조자리의 꼬리에 놓인 밝은 별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-polaris-name",
+    "objectId": "star:HIP11767",
+    "constellation": "UMi",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 폴라리스를 찾아 탭하세요."
+    },
+    "answer": "star:HIP11767",
+    "explanation": {
+      "ko": "폴라리스는 현재 북극성 역할을 하는 작은곰자리의 별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-vega-weaver",
+    "objectId": "star:HIP91262",
+    "constellation": "Lyr",
+    "type": "skyPick",
+    "question": {
+      "ko": "한국 칠석 안내에서 직녀성으로 부르는 별을 하늘 화면에서 탭하세요."
+    },
+    "answer": "star:HIP91262",
+    "explanation": {
+      "ko": "이 콘텐츠에서 직녀성은 베가에 대응합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-sirius-constellation",
+    "objectId": "star:HIP32349",
+    "constellation": "CMa",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 큰개자리의 가장 밝은 길잡이별을 탭하세요."
+    },
+    "answer": "star:HIP32349",
+    "explanation": {
+      "ko": "큰개자리의 밝은 길잡이별은 시리우스입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-arcturus-arc",
+    "objectId": "star:HIP69673",
+    "constellation": "Boo",
+    "type": "skyPick",
+    "question": {
+      "ko": "북두칠성 손잡이의 곡선을 이어 도착하는 목동자리의 별을 탭하세요."
+    },
+    "answer": "star:HIP69673",
+    "explanation": {
+      "ko": "콘텐츠는 그 곡선의 길잡이별을 아르크투루스로 안내합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-vega-lyra",
+    "objectId": "star:HIP91262",
+    "constellation": "Lyr",
+    "type": "skyPick",
+    "question": {
+      "ko": "여름 대삼각형 중 거문고자리에 속한 꼭짓점을 탭하세요."
+    },
+    "answer": "star:HIP91262",
+    "explanation": {
+      "ko": "거문고자리에 속한 꼭짓점은 베가입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-rigel-foot",
+    "objectId": "star:HIP24436",
+    "constellation": "Ori",
+    "type": "skyPick",
+    "question": {
+      "ko": "오리온자리에서 붉은 어깨별과 대비되는 청백색 발 쪽 별을 탭하세요."
+    },
+    "answer": "star:HIP24436",
+    "explanation": {
+      "ko": "리겔은 청백색 발 쪽 별이고 베텔게우스는 붉은 어깨 쪽 별입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-betelgeuse-shoulder",
+    "objectId": "star:HIP27989",
+    "constellation": "Ori",
+    "type": "skyPick",
+    "question": {
+      "ko": "오리온자리에서 붉거나 주황빛을 띠는 어깨 쪽 별을 탭하세요."
+    },
+    "answer": "star:HIP27989",
+    "explanation": {
+      "ko": "오리온자리의 붉은 어깨 쪽 별은 베텔게우스입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-deneb-tail",
+    "objectId": "star:HIP102098",
+    "constellation": "Cyg",
+    "type": "skyPick",
+    "question": {
+      "ko": "백조자리의 꼬리를 표시하는 밝은 별을 탭하세요."
+    },
+    "answer": "star:HIP102098",
+    "explanation": {
+      "ko": "백조의 꼬리 쪽 별은 데네브입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-polaris-north",
+    "objectId": "star:HIP11767",
+    "constellation": "UMi",
+    "type": "skyPick",
+    "question": {
+      "ko": "작은곰자리에서 북쪽 방향의 길잡이 역할을 하는 별을 탭하세요."
+    },
+    "answer": "star:HIP11767",
+    "explanation": {
+      "ko": "폴라리스는 천구 북극 가까이에 있어 북쪽 길잡이로 쓰입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-deneb-triangle",
+    "objectId": "star:HIP102098",
+    "constellation": "Cyg",
+    "type": "skyPick",
+    "question": {
+      "ko": "여름 대삼각형 중 베가도 알타이르도 아닌 꼭짓점을 탭하세요."
+    },
+    "answer": "star:HIP102098",
+    "explanation": {
+      "ko": "남은 꼭짓점은 백조자리의 데네브입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-sirius-remnant",
+    "objectId": "star:HIP32349",
+    "constellation": "CMa",
+    "type": "skyPick",
+    "question": {
+      "ko": "백색왜성 동반성 B가 있다는 설명을 읽은 큰개자리의 밝은 주성 방향을 탭하세요."
+    },
+    "answer": "star:HIP32349",
+    "explanation": {
+      "ko": "시리우스 계의 밝은 빛점 방향을 고릅니다. 이 문항은 희미한 B 자체를 화면에서 분리해 고르는 문제가 아닙니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-arcturus-giant",
+    "objectId": "star:HIP69673",
+    "constellation": "Boo",
+    "type": "skyPick",
+    "question": {
+      "ko": "표면이 비교적 서늘해도 넓은 표면 덕분에 밝을 수 있음을 배운 목동자리 적색거성을 탭하세요."
+    },
+    "answer": "star:HIP69673",
+    "explanation": {
+      "ko": "해당 콘텐츠의 사례는 아르크투루스입니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-betelgeuse-dust",
+    "objectId": "star:HIP27989",
+    "constellation": "Ori",
+    "type": "skyPick",
+    "question": {
+      "ko": "큰 어두워짐을 먼지와 연결한 연구 사례로 소개된 오리온자리 별을 탭하세요."
+    },
+    "answer": "star:HIP27989",
+    "explanation": {
+      "ko": "콘텐츠가 소개한 별은 베텔게우스입니다. 밝기 변화만으로 폭발 시점을 예고할 수는 없습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-pick-polaris-role",
+    "objectId": "star:HIP11767",
+    "constellation": "UMi",
+    "type": "skyPick",
+    "question": {
+      "ko": "물리적 별 종류가 아니라 현재의 북쪽 길잡이 역할명으로도 불리는 작은곰자리 별을 탭하세요."
+    },
+    "answer": "star:HIP11767",
+    "explanation": {
+      "ko": "현재 북극성 역할을 하는 폴라리스입니다. 북극성이라는 말과 별의 물리적 종류는 구별합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "하늘 선택",
+      "고정별",
+      "실행 전 가시성 확인"
+    ]
+  },
+  {
+    "id": "q-m45-kind",
+    "objectId": "dso:M45",
+    "type": "mc",
+    "question": {
+      "ko": "플레이아데스 M45의 기본 종류는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "나선은하"
+      },
+      {
+        "ko": "태양계 행성"
+      },
+      {
+        "ko": "산개성단"
+      },
+      {
+        "ko": "행성상성운"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "M45는 황소자리의 산개성단입니다. 많은 별이 모인 대상이지 하나의 별이나 은하가 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-m44-kind",
+    "objectId": "dso:M44",
+    "type": "mc",
+    "question": {
+      "ko": "프레세페 M44가 맨눈에 흐린 구름처럼 보여도 실제로는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "빛나는 단일 행성"
+      },
+      {
+        "ko": "우리은하 밖 나선은하"
+      },
+      {
+        "ko": "여러 별이 모인 산개성단"
+      },
+      {
+        "ko": "물방울로 된 지구 대기 구름"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "M44의 흐릿한 빛은 여러 별빛이 합쳐진 모습입니다. 쌍안경에서는 별무리로 나뉩니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Cnc"
+  },
+  {
+    "id": "q-m13-kind",
+    "objectId": "dso:M13",
+    "type": "mc",
+    "question": {
+      "ko": "M13처럼 많은 별이 공 모양으로 조밀하게 모인 집단은 무엇이라고 하나요?"
+    },
+    "choices": [
+      {
+        "ko": "행성상성운"
+      },
+      {
+        "ko": "구상성단"
+      },
+      {
+        "ko": "반사성운"
+      },
+      {
+        "ko": "나선은하"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "M13은 구상성단입니다. 흐릿한 둥근 모습이 단일 별이나 가스 덩어리를 뜻하지는 않습니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Her"
+  },
+  {
+    "id": "q-m3-kind",
+    "objectId": "dso:M3",
+    "type": "mc",
+    "question": {
+      "ko": "봄철 아르크투루스를 기준으로 찾아가는 M3의 종류는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "태양계 행성"
+      },
+      {
+        "ko": "산개성단"
+      },
+      {
+        "ko": "구상성단"
+      },
+      {
+        "ko": "암흑성운"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "M3는 사냥개자리 방향의 구상성단입니다. 작은 장비에서는 많은 별빛이 합쳐진 얼룩으로 보입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "CVn"
+  },
+  {
+    "id": "q-m31-kind",
+    "objectId": "dso:M31",
+    "type": "mc",
+    "question": {
+      "ko": "안드로메다은하 M31은 어떤 대상인가요?"
+    },
+    "choices": [
+      {
+        "ko": "태양계의 위성"
+      },
+      {
+        "ko": "우리은하 밖의 나선은하"
+      },
+      {
+        "ko": "지구 대기의 구름"
+      },
+      {
+        "ko": "안드로메다자리를 이루는 한 별"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "M31은 별·가스·먼지를 포함한 나선은하입니다. 같은 방향의 앞쪽 별들과 동일한 물체가 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-m81-kind",
+    "objectId": "dso:M81",
+    "type": "mc",
+    "question": {
+      "ko": "보데은하 M81의 종류로 알맞은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "구상성단"
+      },
+      {
+        "ko": "나선은하"
+      },
+      {
+        "ko": "태양계 행성"
+      },
+      {
+        "ko": "행성상성운"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "G3는 M81을 큰곰자리 방향의 나선은하로 설명합니다. 작은 장비에서 나선팔을 반드시 본다는 뜻은 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "UMa"
+  },
+  {
+    "id": "q-m82-kind",
+    "objectId": "dso:M82",
+    "type": "mc",
+    "question": {
+      "ko": "시가은하 M82는 이름 속 시가처럼 타는 물체가 아니라 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "지구 대기의 불덩이"
+      },
+      {
+        "ko": "하나의 산개성단"
+      },
+      {
+        "ko": "토성의 고리 일부"
+      },
+      {
+        "ko": "별 형성이 활발한 은하"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "M82는 별 형성이 활발한 은하입니다. 시가라는 별명은 길쭉한 외형에 대한 비유입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "UMa"
+  },
+  {
+    "id": "q-m57-kind",
+    "objectId": "dso:M57",
+    "type": "mc",
+    "question": {
+      "ko": "고리성운 M57은 어떤 종류의 성운인가요?"
+    },
+    "choices": [
+      {
+        "ko": "행성상성운"
+      },
+      {
+        "ko": "태양계 행성의 고리"
+      },
+      {
+        "ko": "지구 대기의 달무리"
+      },
+      {
+        "ko": "우리은하 전체"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "M57은 별이 내보낸 가스가 빛나는 행성상성운입니다. 이름에 행성이 들어가도 행성의 고리가 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-m27-kind",
+    "objectId": "dso:M27",
+    "type": "mc",
+    "question": {
+      "ko": "아령성운 M27의 분류로 알맞은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "산개성단"
+      },
+      {
+        "ko": "구상성단"
+      },
+      {
+        "ko": "나선은하"
+      },
+      {
+        "ko": "행성상성운"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "M27은 별이 진화 과정에서 내보낸 가스가 빛나는 행성상성운입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Vul"
+  },
+  {
+    "id": "q-m78-light",
+    "objectId": "dso:M78",
+    "type": "mc",
+    "question": {
+      "ko": "M78을 설명하는 반사성운에서 빛의 주된 설명은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "지구의 도시 조명이 직접 반사된다"
+      },
+      {
+        "ko": "먼지가 모두 작은 태양처럼 핵융합한다"
+      },
+      {
+        "ko": "토성의 얼음 고리가 뭉쳐 빛난다"
+      },
+      {
+        "ko": "주변 별빛을 먼지가 산란시켜 보인다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "M78은 주변 별빛을 먼지가 산란시켜 보이는 반사성운으로 소개됩니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-m42-birth",
+    "objectId": "dso:M42",
+    "type": "mc",
+    "question": {
+      "ko": "오리온대성운 M42의 가스와 먼지 속에서는 무엇을 연구하나요?"
+    },
+    "choices": [
+      {
+        "ko": "젊은 별이 태어나는 과정"
+      },
+      {
+        "ko": "태양계 행성의 고리 충돌만"
+      },
+      {
+        "ko": "지구의 비구름 이동만"
+      },
+      {
+        "ko": "한 별자리의 모든 별이 같은 거리에 있는 현상"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "G3는 M42를 별 탄생 영역으로 설명합니다. 중심 별무리와 성운광은 구별해서 관측합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별의 탄생",
+      "성운"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-m33-kind",
+    "objectId": "dso:M33",
+    "type": "mc",
+    "question": {
+      "ko": "삼각형자리은하 M33의 종류는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "산개성단"
+      },
+      {
+        "ko": "달의 분화구"
+      },
+      {
+        "ko": "태양계 혜성"
+      },
+      {
+        "ko": "나선은하"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "M33은 국부은하군에 속한 나선은하입니다. 넓게 퍼진 빛 때문에 도시에서는 검출이 어려울 수 있습니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Tri"
+  },
+  {
+    "id": "q-m35-kind",
+    "objectId": "dso:M35",
+    "type": "mc",
+    "question": {
+      "ko": "쌍둥이자리 발 부근의 M35는 어떤 집단인가요?"
+    },
+    "choices": [
+      {
+        "ko": "행성상성운"
+      },
+      {
+        "ko": "나선은하"
+      },
+      {
+        "ko": "태양계 소행성 무리"
+      },
+      {
+        "ko": "산개성단"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "M35는 별들이 모인 산개성단입니다. 전체 별을 세는 것보다 주변보다 별이 모인 영역을 확인합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Gem"
+  },
+  {
+    "id": "q-double-cluster-meaning",
+    "objectId": "dso:NGC869",
+    "type": "mc",
+    "question": {
+      "ko": "페르세우스자리의 이중성단이라는 이름은 무엇을 묶어 부르나요?"
+    },
+    "choices": [
+      {
+        "ko": "가까이 보이는 별 두 개만"
+      },
+      {
+        "ko": "두 산개성단"
+      },
+      {
+        "ko": "한 행성과 그 위성"
+      },
+      {
+        "ko": "서로 다른 두 별자리 전체"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "이중성단은 NGC869와 NGC884라는 두 산개성단입니다. 이중성과 같은 뜻이 아닙니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Per"
+  },
+  {
+    "id": "q-saturn-nebula-kind",
+    "objectId": "dso:NGC7009",
+    "type": "mc",
+    "question": {
+      "ko": "토성성운 NGC7009와 행성 토성의 관계를 바르게 설명한 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "토성의 고리를 확대한 같은 천체다"
+      },
+      {
+        "ko": "토성의 위성이다"
+      },
+      {
+        "ko": "토성이 밤마다 내뿜는 가스다"
+      },
+      {
+        "ko": "외형 별칭이 비슷할 뿐 서로 다른 종류의 천체다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "NGC7009는 행성상성운이고 토성은 태양계 행성입니다. 별칭으로 물리적 정체를 판단하지 않습니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Aqr"
+  },
+  {
+    "id": "q-albireo-visual",
+    "objectId": "star:HIP95947",
+    "type": "mc",
+    "question": {
+      "ko": "알비레오의 입문 망원경 관측에서 살펴볼 특징은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "별 표면의 대륙"
+      },
+      {
+        "ko": "곁 행성의 고리"
+      },
+      {
+        "ko": "색이 다르게 느껴지는 두 밝은 점"
+      },
+      {
+        "ko": "은하의 나선팔"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "알비레오는 소형 망원경에서 두 성분을 구별하는 연습 대상입니다. 보이는 색 인상은 조건에 따라 달라집니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-spica-membership",
+    "objectId": "star:HIP65474",
+    "type": "mc",
+    "question": {
+      "ko": "스피카의 현대 별자리 소속은 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "처녀자리"
+      },
+      {
+        "ko": "목동자리"
+      },
+      {
+        "ko": "사자자리"
+      },
+      {
+        "ko": "작은개자리"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "스피카는 처녀자리의 밝은 길잡이별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Vir"
+  },
+  {
+    "id": "q-alpheratz-membership",
+    "objectId": "star:HIP677",
+    "type": "mc",
+    "question": {
+      "ko": "가을 대사각형의 꼭짓점 알페라츠는 현대의 어느 별자리에 속하나요?"
+    },
+    "choices": [
+      {
+        "ko": "페가수스자리"
+      },
+      {
+        "ko": "페르세우스자리"
+      },
+      {
+        "ko": "안드로메다자리"
+      },
+      {
+        "ko": "백조자리"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "알페라츠는 안드로메다자리에 속합니다. 익숙한 도형 이름과 개별 별의 소속을 구별합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-regulus-membership",
+    "objectId": "star:HIP49669",
+    "type": "mc",
+    "question": {
+      "ko": "레굴루스가 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "처녀자리"
+      },
+      {
+        "ko": "사자자리"
+      },
+      {
+        "ko": "게자리"
+      },
+      {
+        "ko": "큰곰자리"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "레굴루스는 사자자리의 낫 모양 아래쪽을 찾는 길잡이입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "Leo"
+  },
+  {
+    "id": "q-procyon-membership",
+    "objectId": "star:HIP37279",
+    "type": "mc",
+    "question": {
+      "ko": "프로키온이 속한 별자리는 어디인가요?"
+    },
+    "choices": [
+      {
+        "ko": "큰개자리"
+      },
+      {
+        "ko": "쌍둥이자리"
+      },
+      {
+        "ko": "작은개자리"
+      },
+      {
+        "ko": "작은곰자리"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "프로키온은 작은개자리의 밝은 별입니다. 큰개자리의 시리우스와 구별합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "별자리"
+    ],
+    "constellation": "CMi"
+  },
+  {
+    "id": "q-m45-wide-field",
+    "objectId": "dso:M45",
+    "type": "mc",
+    "question": {
+      "ko": "플레이아데스 전체를 비교하려면 처음에 어떤 시야가 유리한가요?"
+    },
+    "choices": [
+      {
+        "ko": "쌍안경이나 낮은 배율의 넓은 시야"
+      },
+      {
+        "ko": "무조건 가장 높은 배율"
+      },
+      {
+        "ko": "시야를 가장 좁게 자른 화면"
+      },
+      {
+        "ko": "별 하나만 가득 차는 초점 밖 영상"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "M45는 넓게 퍼진 별무리여서 넓은 시야가 전체 배열을 비교하기 좋습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "시야",
+      "장비"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-m45-blue-dust",
+    "objectId": "dso:M45",
+    "type": "mc",
+    "question": {
+      "ko": "플레이아데스 사진의 푸른 안개를 설명한 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "푸른 액체로 된 성단 바다"
+      },
+      {
+        "ko": "별빛을 반사하는 먼지"
+      },
+      {
+        "ko": "지구 대기의 낮 하늘"
+      },
+      {
+        "ko": "푸른별마다 붙은 행성의 고리"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "사진 속 푸른 안개는 별빛을 반사하는 먼지입니다. 도시 접안 시야에서 같은 색이 보인다고 기대하지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "분류"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-m44-route",
+    "objectId": "dso:M44",
+    "type": "mc",
+    "question": {
+      "ko": "프레세페를 찾기 위해 게자리 양옆에서 먼저 잡을 두 길잡이는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "베가와 데네브"
+      },
+      {
+        "ko": "폴룩스와 레굴루스"
+      },
+      {
+        "ko": "시리우스와 안타레스"
+      },
+      {
+        "ko": "폴라리스와 알페라츠"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "G3의 찾기 안내는 폴룩스와 레굴루스 사이에서 게자리 영역을 좁히도록 설명합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "스타 호핑"
+    ],
+    "constellation": "Cnc"
+  },
+  {
+    "id": "q-m13-keystone",
+    "objectId": "dso:M13",
+    "type": "mc",
+    "question": {
+      "ko": "M13으로 시야를 좁힐 때 먼저 찾는 허큘리스자리의 무늬는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "키스톤이라 부르는 찌그러진 사각형"
+      },
+      {
+        "ko": "오리온자리 허리띠"
+      },
+      {
+        "ko": "북두칠성 손잡이 끝의 두 점만"
+      },
+      {
+        "ko": "쌍둥이자리의 두 머리"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "G3는 키스톤 서쪽 변의 두 별 사이에서 M13을 찾도록 안내합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "스타 호핑"
+    ],
+    "constellation": "Her"
+  },
+  {
+    "id": "q-m31-start",
+    "objectId": "dso:M31",
+    "type": "mc",
+    "question": {
+      "ko": "가을 대사각형에서 M31로 이어가는 경로의 출발 별은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "알페라츠"
+      },
+      {
+        "ko": "리겔"
+      },
+      {
+        "ko": "레굴루스"
+      },
+      {
+        "ko": "프로키온"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "알페라츠에서 안드로메다자리의 별 사슬을 따라 M31 방향으로 이동하는 경로가 제시되어 있습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "스타 호핑"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-m31-realistic",
+    "objectId": "dso:M31",
+    "type": "mc",
+    "question": {
+      "ko": "도시에서 90mm로 M31을 처음 찾을 때 현실적인 목표는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "개별 세페이드 변광성의 분해"
+      },
+      {
+        "ko": "사진의 모든 나선팔 재현"
+      },
+      {
+        "ko": "은하 전체의 별 수 세기"
+      },
+      {
+        "ko": "밝은 중심과 길쭉한 빛의 방향 확인"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "G3는 낮은 배율에서 밝은 중심과 긴 축을 확인하도록 안내합니다. 나선팔이나 개별 별을 기본 목표로 삼지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측 한계"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-m42-sword",
+    "objectId": "dso:M42",
+    "type": "mc",
+    "question": {
+      "ko": "오리온 허리띠를 찾은 뒤 M42를 향하려면 어디를 대조하나요?"
+    },
+    "choices": [
+      {
+        "ko": "허리띠 세 별 중 가장 바깥 별 자체"
+      },
+      {
+        "ko": "허리띠 아래 천구 남쪽의 칼 부분"
+      },
+      {
+        "ko": "천구 북극 바로 옆"
+      },
+      {
+        "ko": "백조자리의 꼬리"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "M42는 오리온 칼 부분의 번져 보이는 영역에 있습니다. 허리띠 별 자체와 구별합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "스타 호핑"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-m42-eyepiece",
+    "objectId": "dso:M42",
+    "type": "mc",
+    "question": {
+      "ko": "오리온대성운의 밝은 중심을 봤지만 사진의 분홍색은 못 봤다면 어떻게 기록하나요?"
+    },
+    "choices": [
+      {
+        "ko": "사진의 색을 본 것으로 채운다"
+      },
+      {
+        "ko": "성운을 전혀 관측하지 못했다고 단정한다"
+      },
+      {
+        "ko": "직접 본 흐린 빛과 윤곽만 기록한다"
+      },
+      {
+        "ko": "사진과 다르면 반드시 다른 천체라고 판정한다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "접안 관측과 긴 노출의 연구 사진은 정보가 다릅니다. 확인한 성운광과 색 인상을 분리해서 적습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측 기록"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-ngc869-screen-direction",
+    "objectId": "dso:NGC869",
+    "type": "mc",
+    "question": {
+      "ko": "이중성단에서 NGC869를 사진의 왼쪽 성단으로만 외우면 왜 헷갈리나요?"
+    },
+    "choices": [
+      {
+        "ko": "관측할 때 두 성단이 매번 자리를 교환해서"
+      },
+      {
+        "ko": "화면과 광학상이 회전하거나 반전될 수 있어서"
+      },
+      {
+        "ko": "NGC 번호가 매일 바뀌어서"
+      },
+      {
+        "ko": "두 성단이 같은 식별자를 쓰기 때문에"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "지도의 방향과 주변 별 배열로 성단을 대조해야 합니다. 화면의 좌우만으로 식별하지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "시야",
+      "식별"
+    ],
+    "constellation": "Per"
+  },
+  {
+    "id": "q-ngc884-independent",
+    "objectId": "dso:NGC884",
+    "type": "mc",
+    "question": {
+      "ko": "이중성단을 하나의 얼룩으로만 봤을 때 두 NGC 관측을 모두 완료 처리해도 되나요?"
+    },
+    "choices": [
+      {
+        "ko": "한 얼룩이면 두 개를 자동 완료한다"
+      },
+      {
+        "ko": "한 성단에 별칭이 둘이므로 하나만 존재한다"
+      },
+      {
+        "ko": "사진에서 두 개를 읽었으면 모두 실제 관측이다"
+      },
+      {
+        "ko": "각 성단을 따로 식별한 뒤 개별 기록한다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "NGC869와 NGC884는 서로 다른 성단입니다. 두 중심을 각각 식별했는지를 기록해야 합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측 기록"
+    ],
+    "constellation": "Per"
+  },
+  {
+    "id": "q-m57-life-stage",
+    "objectId": "dso:M57",
+    "type": "mc",
+    "question": {
+      "ko": "M57과 M42를 별의 삶과 연결한 설명으로 알맞은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "M57은 별이 내보낸 물질, M42는 별 탄생 영역과 연결된다"
+      },
+      {
+        "ko": "둘 다 행성의 고리다"
+      },
+      {
+        "ko": "둘 다 태양계 위성이다"
+      },
+      {
+        "ko": "M57만 지구의 비구름이다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "G3는 M57의 진화한 별이 내보낸 가스와 M42의 별 탄생 영역을 비교합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "별의 진화"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-m27-shape",
+    "objectId": "dso:M27",
+    "type": "mc",
+    "question": {
+      "ko": "아령성운이 운동기구와 똑같이 보이지 않을 때 적절한 관측 목표는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "윤곽의 긴 축과 상대적으로 밝은 부분 기록"
+      },
+      {
+        "ko": "아령 모양이 나올 때까지 관측 기록을 만들지 않기"
+      },
+      {
+        "ko": "붉고 푸른 색을 반드시 모두 채우기"
+      },
+      {
+        "ko": "별칭을 근거로 같은 모양을 상상해 그리기"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "아령은 관측 외형의 비유입니다. 실제로 보인 윤곽과 밝기 차이를 기록하면 됩니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측 기록"
+    ],
+    "constellation": "Vul"
+  },
+  {
+    "id": "q-m51-spiral-expectation",
+    "objectId": "dso:M51",
+    "type": "mc",
+    "question": {
+      "ko": "90mm로 M51을 찾는 입문 미션의 필수 성공 조건으로 적절하지 않은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "주변 별로 위치 대조하기"
+      },
+      {
+        "ko": "실제로 검출한 중심을 기록하기"
+      },
+      {
+        "ko": "나선팔을 사진처럼 모두 분리해 보기"
+      },
+      {
+        "ko": "동반 은하를 따로 확인했는지 구별하기"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "G3는 작은 장비에서 중심과 희미한 얼룩을 우선 찾도록 안내합니다. 이름이 소용돌이라고 나선팔 검출을 의무화하지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측 한계"
+    ],
+    "constellation": "CVn"
+  },
+  {
+    "id": "q-m81-m82-comparison",
+    "objectId": "dso:M81",
+    "type": "mc",
+    "question": {
+      "ko": "M81과 M82의 보이는 모양을 비교할 때 맞추면 좋은 조건은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "같은 밤의 같은 배율과 하늘 조건"
+      },
+      {
+        "ko": "한 대상은 사진, 다른 대상은 접안상만 사용"
+      },
+      {
+        "ko": "한 대상만 초점을 일부러 흐리기"
+      },
+      {
+        "ko": "다른 날의 투명도 차이를 무조건 무시하기"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "G3는 두 대상을 같은 배율과 하늘 조건에서 비교하도록 권합니다. 연구 사진과 직접 관측은 구별합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "비교 관측"
+    ],
+    "constellation": "UMa"
+  },
+  {
+    "id": "q-m46-projection",
+    "objectId": "dso:M46",
+    "type": "mc",
+    "question": {
+      "ko": "M46 사진에 겹친 NGC2438이 성단 구성원이라고 단정하면 안 되는 이유는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "모든 성운이 지구 대기에 있기 때문에"
+      },
+      {
+        "ko": "같은 방향에 보이지만 앞쪽의 다른 천체이기 때문에"
+      },
+      {
+        "ko": "NGC 이름은 모두 별자리 이름이기 때문에"
+      },
+      {
+        "ko": "M46이 사실 태양계 행성이기 때문에"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "첨부 G3는 NGC2438을 성단 앞쪽의 별도 행성상성운으로 설명합니다. 방향상 겹침과 물리적 소속은 다릅니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "공간 관계"
+    ],
+    "constellation": "Pup"
+  },
+  {
+    "id": "q-m101-background",
+    "objectId": "dso:M101",
+    "type": "mc",
+    "question": {
+      "ko": "바람개비은하가 밝은 별 옆에 있어도 도시에서 찾기 어려운 주된 이유는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "알카이드가 은하의 빛을 물리적으로 모두 가리기 때문에"
+      },
+      {
+        "ko": "은하빛이 넓게 퍼져 밝은 배경에 묻히기 때문에"
+      },
+      {
+        "ko": "은하는 망원경을 향할 때만 빛나기 때문에"
+      },
+      {
+        "ko": "메시에 번호가 세 자리라서"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "G3는 M101의 넓게 퍼진 빛과 도시 배경의 낮은 대비를 강조합니다. 가까운 길잡이의 존재가 검출을 보장하지 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "광해",
+      "표면 밝기"
+    ],
+    "constellation": "UMa"
+  },
+  {
+    "id": "q-ngc7000-starfield",
+    "objectId": "dso:NGC7000",
+    "type": "mc",
+    "question": {
+      "ko": "데네브 주변에 별이 많이 보이면 북아메리카성운도 관측한 것으로 볼 수 있나요?"
+    },
+    "choices": [
+      {
+        "ko": "주변 별을 하나만 봐도 성운 관측이다"
+      },
+      {
+        "ko": "데네브를 탭하면 성운 관측도 자동 완료다"
+      },
+      {
+        "ko": "콘텐츠 사진을 열면 성운을 실제로 본 것이다"
+      },
+      {
+        "ko": "성운 자체의 밝기 차이를 확인했는지 따로 판단한다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "주변 별밭과 넓은 성운광의 검출은 서로 다릅니다. 밝기 차이를 확인한 범위를 기록합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측 판정"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-ngc457-name",
+    "objectId": "dso:NGC457",
+    "type": "mc",
+    "question": {
+      "ko": "ET성단이라는 이름을 관측에 적용하는 태도로 알맞은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "외형의 별명으로 이해하고 실제 별 배열을 대조한다"
+      },
+      {
+        "ko": "우주 생명체가 확인됐다는 뜻으로 외운다"
+      },
+      {
+        "ko": "한 개의 행성에 붙은 공식 생물 이름으로 본다"
+      },
+      {
+        "ko": "별칭의 그림 전체가 보여야만 별이 존재한다고 본다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "NGC457의 별칭은 별 배열에서 떠올린 모습입니다. 이름의 인상과 실제 천체의 종류를 나누어 읽습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "이름",
+      "별 배열"
+    ],
+    "constellation": "Cas"
+  },
+  {
+    "id": "q-albireo-binding",
+    "objectId": "star:HIP95947",
+    "type": "mc",
+    "question": {
+      "ko": "알비레오에서 두 점을 분리해 봤다는 사실만으로 알 수 없는 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "두 별이 중력으로 묶여 함께 도는지 여부"
+      },
+      {
+        "ko": "하늘에서 두 점으로 보였다는 것"
+      },
+      {
+        "ko": "각 점의 색 인상이 달랐는지"
+      },
+      {
+        "ko": "관측 때 쓴 배율이 무엇인지"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "시각적 이중성 확인과 물리적 결합 판정은 다릅니다. 결합 여부에는 거리와 운동 정보가 더 필요합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "이중성"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-m45-star-count",
+    "objectId": "dso:M45",
+    "type": "mc",
+    "question": {
+      "ko": "플레이아데스에서 맨눈으로 센 별 수가 친구와 다를 때 알맞은 해석은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "하늘 밝기와 시력에 따라 보이는 수가 달라질 수 있다"
+      },
+      {
+        "ko": "일곱 개가 아니면 무조건 다른 천체다"
+      },
+      {
+        "ko": "별이 관측자를 따라 사라졌다"
+      },
+      {
+        "ko": "쌍안경으로 본 수를 맨눈 수로 고치면 된다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "G3는 맨눈 별 수를 고정된 성공 기준으로 삼지 않습니다. 직접 확인한 수와 사용 장비를 기록합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "관측 기록"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-m31-history-method",
+    "objectId": "dso:M31",
+    "type": "mc",
+    "question": {
+      "ko": "안드로메다의 규모를 이해하는 데 연결된 리비트와 허블의 연구를 바르게 묶은 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "은하의 색만 눈으로 비교해 거리를 확정했다"
+      },
+      {
+        "ko": "사진 속 별 개수만으로 지구의 크기를 계산했다"
+      },
+      {
+        "ko": "행성의 위상 순서로 모든 별의 거리를 정했다"
+      },
+      {
+        "ko": "세페이드의 주기·광도 관계와 변광성 관측으로 거리를 연구했다"
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "ko": "G3의 관측사는 리비트의 관계와 허블의 세페이드 관측을 연결합니다. 이 문제는 검토 중인 M31 거리 숫자를 정답으로 요구하지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "관측사",
+      "측정 원리"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-m3-detection-measurement",
+    "objectId": "dso:M3",
+    "type": "mc",
+    "question": {
+      "ko": "M3의 전체 빛얼룩을 한 번 본 기록과 변광성 측정의 관계는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "성단을 찾으면 모든 변광 주기가 자동 측정된다"
+      },
+      {
+        "ko": "사진을 읽은 것만으로 직접 측정이 된다"
+      },
+      {
+        "ko": "성단 검출은 유효하지만 특정 별의 변광을 측정한 것은 아니다"
+      },
+      {
+        "ko": "별이 많은 성단에는 밝기 변화가 절대 없다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "성단의 존재 확인과 개별 별의 반복 측정은 서로 다른 관측 단계입니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "측정 범위"
+    ],
+    "constellation": "CVn"
+  },
+  {
+    "id": "q-m13-resolution",
+    "objectId": "dso:M13",
+    "type": "mc",
+    "question": {
+      "ko": "쌍안경에서 둥근 얼룩이 보이고 사진에서는 수많은 별이 보일 때 올바른 설명은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "쌍안경이 별을 실제 가스로 바꿨다"
+      },
+      {
+        "ko": "같은 성단의 빛이 장비의 분해 능력에 따라 다르게 표현된다"
+      },
+      {
+        "ko": "사진과 눈의 대상은 반드시 서로 다르다"
+      },
+      {
+        "ko": "구상성단에는 본래 별이 없었다"
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "ko": "M13의 많은 별빛은 작은 장비에서 합쳐져 보일 수 있습니다. 개별 별 분해와 성단 검출을 구분합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "분해 능력"
+    ],
+    "constellation": "Her"
+  },
+  {
+    "id": "q-m78-m42-emission",
+    "objectId": "dso:M78",
+    "type": "mc",
+    "question": {
+      "ko": "M78의 반사성운과 M42의 빛나는 가스를 설명한 차이는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "둘 다 같은 행성의 고리 반사만을 뜻한다"
+      },
+      {
+        "ko": "M78만 지구의 비구름이다"
+      },
+      {
+        "ko": "M78은 먼지의 별빛 산란, M42는 뜨거운 별의 에너지로 빛나는 가스를 강조한다"
+      },
+      {
+        "ko": "M42의 빛은 입문자가 휴대폰으로 비춘 빛이다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "두 콘텐츠는 성운빛을 만드는 과정을 구별해 설명합니다. 동일한 성운이라는 말이 같은 발광 원인을 보장하지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "빛의 원리"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-saturn-nebula-distance-policy",
+    "objectId": "dso:NGC7009",
+    "type": "mc",
+    "question": {
+      "ko": "토성성운 자료의 거리 값이 서로 다를 때 이 학습팩의 처리로 맞는 것은 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "가장 큰 수를 자동 정답으로 삼는다"
+      },
+      {
+        "ko": "두 값을 평균하면 오차 없이 참값이 된다"
+      },
+      {
+        "ko": "충돌을 남기고 숫자 암기 문제 대신 종류와 관측 특징을 배운다"
+      },
+      {
+        "ko": "별칭 토성만 보고 토성까지의 거리를 적용한다"
+      }
+    ],
+    "answer": 2,
+    "explanation": {
+      "ko": "G3는 거리 값의 불일치를 검토 사항으로 남겼습니다. 출처와 측정 근거가 정리되기 전에는 숫자를 확정하지 않습니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "자료 해석"
+    ],
+    "constellation": "Aqr"
+  },
+  {
+    "id": "q-ursa-major-extent",
+    "objectId": "const:UMa",
+    "type": "mc",
+    "question": {
+      "ko": "북두칠성과 큰곰자리의 범위를 데이터로 다룰 때 올바른 관계는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "북두칠성은 큰곰자리 안의 일부 눈에 띄는 무늬다"
+      },
+      {
+        "ko": "두 이름의 영역은 항상 완전히 같다"
+      },
+      {
+        "ko": "북두칠성은 큰곰자리 밖의 나선은하다"
+      },
+      {
+        "ko": "큰곰자리는 단일 별의 고유명이다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "G3는 북두칠성이라는 성군과 더 넓은 현대 별자리 영역을 구분합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "성군",
+      "별자리"
+    ],
+    "constellation": "UMa"
+  },
+  {
+    "id": "q-andromeda-scales",
+    "objectId": "const:And",
+    "type": "mc",
+    "question": {
+      "ko": "알페라츠와 별 사슬만 확인했다면 안드로메다은하 관측 완료로 옮기면 안 되는 이유는 무엇인가요?"
+    },
+    "choices": [
+      {
+        "ko": "별자리 탐색과 M31의 은하빛 검출은 서로 다른 대상·행동이기 때문에"
+      },
+      {
+        "ko": "모든 별자리가 지구 대기에 있어서"
+      },
+      {
+        "ko": "은하는 사진 속에만 존재해서"
+      },
+      {
+        "ko": "두 대상의 이름이 다른 언어라서"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "같은 안드로메다라는 이름을 쓰지만 별자리와 은하는 다른 식별자입니다. M31의 빛은 따로 확인해야 합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "대상 구별",
+      "관측 기록"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-hercules-story-scope",
+    "objectId": "const:Her",
+    "type": "mc",
+    "question": {
+      "ko": "허큘리스자리 영웅 이야기와 M13·M92의 관계를 어떻게 읽어야 하나요?"
+    },
+    "choices": [
+      {
+        "ko": "그림은 기억의 실마리이며 두 성단과 영웅의 물리적 연결을 뜻하지 않는다"
+      },
+      {
+        "ko": "영웅 그림은 우주에 실제 빛나는 선으로 존재한다"
+      },
+      {
+        "ko": "이야기를 읽으면 두 성단을 직접 관측한 것이다"
+      },
+      {
+        "ko": "로마 이름을 알면 성단의 거리가 확정된다"
+      }
+    ],
+    "answer": 0,
+    "explanation": {
+      "ko": "G3는 그리스·로마 이름과 현대의 하늘 영역, 실제 성단 검출을 구별합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "문화",
+      "물리적 해석"
+    ],
+    "constellation": "Her"
+  },
+  {
+    "id": "q-m45-single-star",
+    "objectId": "dso:M45",
+    "type": "trueFalse",
+    "question": {
+      "ko": "플레이아데스 M45는 별이 하나뿐인 단일 항성의 이름이다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "M45는 많은 별이 모인 산개성단입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-m44-blended-light",
+    "objectId": "dso:M44",
+    "type": "trueFalse",
+    "question": {
+      "ko": "프레세페가 맨눈에 흐린 구름처럼 보이는 것은 여러 별빛이 합쳐져 보이는 모습이다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "G3는 M44를 실제 가스구름이 아닌 별무리로 설명합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Cnc"
+  },
+  {
+    "id": "q-m31-foreground-star",
+    "objectId": "dso:M31",
+    "type": "trueFalse",
+    "question": {
+      "ko": "안드로메다은하 M31은 안드로메다자리를 이루는 밝은 별 하나와 같은 대상이다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "M31은 우리은하 밖 은하이며 앞쪽의 별들과 구별합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-m13-globular",
+    "objectId": "dso:M13",
+    "type": "trueFalse",
+    "question": {
+      "ko": "M13은 많은 별이 조밀하게 모인 구상성단이다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "G3의 M13 소개는 산개성단과 다른 조밀한 별 집단을 설명합니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Her"
+  },
+  {
+    "id": "q-ngc457-open-cluster",
+    "objectId": "dso:NGC457",
+    "type": "trueFalse",
+    "question": {
+      "ko": "ET성단 NGC457은 별들이 모인 산개성단이다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "ET는 외형의 별명이며 실제 종류는 산개성단입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Cas"
+  },
+  {
+    "id": "q-alpheratz-all-pegasus",
+    "objectId": "star:HIP677",
+    "type": "trueFalse",
+    "question": {
+      "ko": "페가수스 대사각형이라는 이름 때문에 알페라츠의 현대 소속도 페가수스자리이다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "알페라츠의 현대 소속은 안드로메다자리입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-m33-total-light",
+    "objectId": "dso:M33",
+    "type": "trueFalse",
+    "question": {
+      "ko": "은하의 전체 빛을 합친 등급만 알면 도시에서 얼마나 쉽게 보일지 언제나 결정할 수 있다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "M33처럼 빛이 넓게 퍼진 대상은 배경 대비와 시야도 중요합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Tri"
+  },
+  {
+    "id": "q-m46-front-nebula",
+    "objectId": "dso:M46",
+    "type": "trueFalse",
+    "question": {
+      "ko": "첨부 콘텐츠는 NGC2438을 M46 앞쪽에 겹쳐 보이는 별도 행성상성운으로 구분한다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "같은 방향에 보인다는 사실이 성단 소속을 뜻하지는 않습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Pup"
+  },
+  {
+    "id": "q-m81-m82-two-objects",
+    "objectId": "dso:M81",
+    "type": "trueFalse",
+    "question": {
+      "ko": "M81과 M82는 가까운 하늘에서 비교할 수 있는 서로 다른 은하이다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "같은 배율과 하늘 조건으로 두 은하의 외형을 비교할 수 있습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "UMa"
+  },
+  {
+    "id": "q-m45-photo-color",
+    "objectId": "dso:M45",
+    "type": "trueFalse",
+    "question": {
+      "ko": "도시의 10×50 관측에서도 플레이아데스 사진의 푸른 안개를 같은 색과 넓이로 반드시 보아야 한다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "사진의 반사성운과 눈으로 확인한 별무리는 같은 관측 정보가 아닙니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Tau"
+  },
+  {
+    "id": "q-m57-planet-ring",
+    "objectId": "dso:M57",
+    "type": "trueFalse",
+    "question": {
+      "ko": "행성상성운이라는 말은 M57이 태양계 행성의 고리임을 뜻한다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "M57은 별이 내보낸 가스가 빛나는 성운입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Lyr"
+  },
+  {
+    "id": "q-m78-reflection",
+    "objectId": "dso:M78",
+    "type": "trueFalse",
+    "question": {
+      "ko": "M78의 반사성운 설명에는 주변 별빛을 먼지가 산란시키는 과정이 포함된다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "성운빛의 원인을 종류와 함께 구별해서 읽습니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Ori"
+  },
+  {
+    "id": "q-albireo-bound-proof",
+    "objectId": "star:HIP95947",
+    "type": "trueFalse",
+    "question": {
+      "ko": "알비레오를 두 점으로 분리한 것만으로 두 성분이 중력으로 묶였음이 증명된다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "물리적인 결합을 판단하려면 거리와 운동 같은 추가 측정이 필요합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Cyg"
+  },
+  {
+    "id": "q-regulus-research-image",
+    "objectId": "star:HIP49669",
+    "type": "trueFalse",
+    "question": {
+      "ko": "레굴루스의 간섭계 연구 영상과 90mm 접안 시야의 번짐은 같은 측정 결과라고 볼 수 없다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "G3는 전문 관측에서 밝혀진 구조와 접안 기록을 분리하도록 설명합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "Leo"
+  },
+  {
+    "id": "q-ursa-major-always-up",
+    "objectId": "const:UMa",
+    "type": "trueFalse",
+    "question": {
+      "ko": "큰곰자리는 북쪽 별자리이므로 모든 부분이 한국에서 늘 지평선 위에 있다."
+    },
+    "answer": false,
+    "explanation": {
+      "ko": "G3는 계절·시각에 따라 낮게 내려가거나 일부가 가려질 수 있음을 명시합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "UMa"
+  },
+  {
+    "id": "q-andromeda-separate-ids",
+    "objectId": "const:And",
+    "type": "trueFalse",
+    "question": {
+      "ko": "안드로메다자리 탐색과 M31의 은하빛 검출은 다른 대상의 기록으로 구별해야 한다."
+    },
+    "answer": true,
+    "explanation": {
+      "ko": "이름을 공유해도 현대 별자리 영역과 은하는 같은 천체가 아닙니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "개념 구별"
+    ],
+    "constellation": "And"
+  },
+  {
+    "id": "q-pick-spica-name",
+    "objectId": "star:HIP65474",
+    "constellation": "Vir",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 스피카를 찾아 탭하세요."
+    },
+    "answer": "star:HIP65474",
+    "explanation": {
+      "ko": "스피카는 처녀자리의 봄철 길잡이별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-alpheratz-name",
+    "objectId": "star:HIP677",
+    "constellation": "And",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 알페라츠를 찾아 탭하세요."
+    },
+    "answer": "star:HIP677",
+    "explanation": {
+      "ko": "알페라츠는 안드로메다자리에 속하는 가을 대사각형의 꼭짓점입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-procyon-name",
+    "objectId": "star:HIP37279",
+    "constellation": "CMi",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 프로키온을 찾아 탭하세요."
+    },
+    "answer": "star:HIP37279",
+    "explanation": {
+      "ko": "프로키온은 작은개자리의 밝은 별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-regulus-name",
+    "objectId": "star:HIP49669",
+    "constellation": "Leo",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 레굴루스를 찾아 탭하세요."
+    },
+    "answer": "star:HIP49669",
+    "explanation": {
+      "ko": "레굴루스는 사자자리의 밝은 길잡이별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-hamal-name",
+    "objectId": "star:HIP9884",
+    "constellation": "Ari",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 하말을 찾아 탭하세요."
+    },
+    "answer": "star:HIP9884",
+    "explanation": {
+      "ko": "하말은 양자리의 밝은 길잡이별입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-pollux-name",
+    "objectId": "star:HIP37826",
+    "constellation": "Gem",
+    "type": "skyPick",
+    "question": {
+      "ko": "하늘 화면에서 폴룩스를 찾아 탭하세요."
+    },
+    "answer": "star:HIP37826",
+    "explanation": {
+      "ko": "폴룩스는 쌍둥이자리의 두 머리 중 하나입니다."
+    },
+    "difficulty": 1,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-alkaid-handle",
+    "objectId": "star:HIP67301",
+    "constellation": "UMa",
+    "type": "skyPick",
+    "question": {
+      "ko": "북두칠성의 굽은 손잡이 맨 끝에 있는 밝은 별을 탭하세요."
+    },
+    "answer": "star:HIP67301",
+    "explanation": {
+      "ko": "손잡이 끝의 별은 알카이드입니다. 미자르와 구별합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-kochab-bowl",
+    "objectId": "star:HIP72607",
+    "constellation": "UMi",
+    "type": "skyPick",
+    "question": {
+      "ko": "작은국자의 몸통 쪽 길잡이로 소개된 코카브를 탭하세요."
+    },
+    "answer": "star:HIP72607",
+    "explanation": {
+      "ko": "코카브는 작은곰자리의 별이며 폴라리스와 같은 점이 아닙니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-spica-arc-continuation",
+    "objectId": "star:HIP65474",
+    "constellation": "Vir",
+    "type": "skyPick",
+    "question": {
+      "ko": "아르크투루스를 지난 봄철 큰 곡선을 이어 도착하는 처녀자리 별을 탭하세요."
+    },
+    "answer": "star:HIP65474",
+    "explanation": {
+      "ko": "G3는 북두칠성 손잡이에서 아르크투루스를 지나 스피카로 이어지는 경로를 설명합니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-regulus-sickle",
+    "objectId": "star:HIP49669",
+    "constellation": "Leo",
+    "type": "skyPick",
+    "question": {
+      "ko": "사자자리의 낫이나 뒤집힌 물음표 무늬 아래쪽 길잡이별을 탭하세요."
+    },
+    "answer": "star:HIP49669",
+    "explanation": {
+      "ko": "그 무늬의 밝은 기준은 레굴루스입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-hamal-short-pattern",
+    "objectId": "star:HIP9884",
+    "constellation": "Ari",
+    "type": "skyPick",
+    "question": {
+      "ko": "가을에 황소자리와 물고기자리 사이 구역의 짧은 배열에서 찾는 양자리 길잡이별을 탭하세요."
+    },
+    "answer": "star:HIP9884",
+    "explanation": {
+      "ko": "하말은 양자리의 짧은 배열을 찾는 밝은 기준별입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-procyon-winter-triangle",
+    "objectId": "star:HIP37279",
+    "constellation": "CMi",
+    "type": "skyPick",
+    "question": {
+      "ko": "시리우스·베텔게우스와 겨울 대삼각형을 이루는 작은개자리 별을 탭하세요."
+    },
+    "answer": "star:HIP37279",
+    "explanation": {
+      "ko": "세 번째 꼭짓점은 프로키온입니다."
+    },
+    "difficulty": 2,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-alpheratz-boundary",
+    "objectId": "star:HIP677",
+    "constellation": "And",
+    "type": "skyPick",
+    "question": {
+      "ko": "대사각형 이름은 페가수스와 연결되지만 현대 소속은 안드로메다인 꼭짓점을 탭하세요."
+    },
+    "answer": "star:HIP677",
+    "explanation": {
+      "ko": "성군의 도형과 별자리 경계는 다른 분류이며 정답은 알페라츠입니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-pollux-planet-not-companion",
+    "objectId": "star:HIP37826",
+    "constellation": "Gem",
+    "type": "skyPick",
+    "question": {
+      "ko": "쌍둥이자리 두 머리 중 외계행성을 연구한 주황빛 거성으로 소개된 별을 탭하세요."
+    },
+    "answer": "star:HIP37826",
+    "explanation": {
+      "ko": "정답은 폴룩스입니다. 행성을 화면에서 분리해 고르는 문제는 아닙니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-alkaid-galaxy-route",
+    "objectId": "star:HIP67301",
+    "constellation": "UMa",
+    "type": "skyPick",
+    "question": {
+      "ko": "M51을 찾는 출발점이 되지만 그 별을 찾는 것만으로 은하 관측은 끝나지 않는 북두 손잡이 끝 별을 탭하세요."
+    },
+    "answer": "star:HIP67301",
+    "explanation": {
+      "ko": "알카이드를 기준으로 M51 구역을 좁힐 수 있습니다. 길잡이와 은하는 별도 대상입니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  },
+  {
+    "id": "q-pick-kochab-not-pole",
+    "objectId": "star:HIP72607",
+    "constellation": "UMi",
+    "type": "skyPick",
+    "question": {
+      "ko": "작은국자 몸통의 밝은 기준이지만 그 위치를 정북으로 읽으면 안 된다고 배운 별을 탭하세요."
+    },
+    "answer": "star:HIP72607",
+    "explanation": {
+      "ko": "코카브는 천구 북극 자체가 아닙니다. 정답 위치와 북극의 방향을 구별합니다."
+    },
+    "difficulty": 3,
+    "tags": [
+      "하늘 선택",
+      "길잡이별"
+    ]
+  }
+]

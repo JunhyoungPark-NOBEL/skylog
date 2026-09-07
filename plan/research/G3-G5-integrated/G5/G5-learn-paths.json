@@ -1,0 +1,110 @@
+[
+  {
+    "id": "naked-first-directions",
+    "title": {
+      "ko": "맨눈 1 · 이름과 방향"
+    },
+    "description": {
+      "ko": "밝은 길잡이·별자리·달을 연결해 실제 관측과 지도의 이름을 구분합니다. 목록은 강제 순서가 아닙니다. 오늘의 고도·박명·장비 조건을 통과한 미션부터 고릅니다."
+    },
+    "level": "naked",
+    "season": "any",
+    "missionIds": [
+      "spring-arcturus-first",
+      "spring-polaris-direction",
+      "winter-sirius-beacon",
+      "any-moon-phase",
+      "spring-spica-bridge"
+    ]
+  },
+  {
+    "id": "naked-season-bridges",
+    "title": {
+      "ko": "맨눈 2 · 계절의 연결"
+    },
+    "description": {
+      "ko": "밝은 길잡이·별자리·달을 연결해 실제 관측과 지도의 이름을 구분합니다. 목록은 강제 순서가 아닙니다. 오늘의 고도·박명·장비 조건을 통과한 미션부터 고릅니다."
+    },
+    "level": "naked",
+    "season": "any",
+    "missionIds": [
+      "summer-triangle-three",
+      "summer-antares-window",
+      "autumn-deneb-bridge",
+      "autumn-aldebaran-arrival",
+      "autumn-alpheratz-anchor"
+    ]
+  },
+  {
+    "id": "binocular-first-field",
+    "title": {
+      "ko": "쌍안경 1 · 시야와 안정"
+    },
+    "description": {
+      "ko": "10×50의 실제 시야를 활용해 별무리·성운과 길잡이별을 단계적으로 비교합니다. 목록은 강제 순서가 아닙니다. 오늘의 고도·박명·장비 조건을 통과한 미션부터 고릅니다."
+    },
+    "level": "binoculars",
+    "season": "any",
+    "missionIds": [
+      "summer-vega-fov",
+      "spring-m44-binocular",
+      "spring-orion-color-pair",
+      "any-moon-binocular",
+      "summer-m13-binocular"
+    ]
+  },
+  {
+    "id": "binocular-pattern-depth",
+    "title": {
+      "ko": "쌍안경 2 · 배열과 공간"
+    },
+    "description": {
+      "ko": "10×50의 실제 시야를 활용해 별무리·성운과 길잡이별을 단계적으로 비교합니다. 목록은 강제 순서가 아닙니다. 오늘의 고도·박명·장비 조건을 통과한 미션부터 고릅니다."
+    },
+    "level": "binoculars",
+    "season": "any",
+    "missionIds": [
+      "summer-deneb-starfield",
+      "autumn-double-cluster",
+      "winter-aldebaran-depth",
+      "winter-m45-starhop",
+      "winter-m42-binocular"
+    ]
+  },
+  {
+    "id": "telescope-first-record",
+    "title": {
+      "ko": "망원경 1 · 정렬과 기록"
+    },
+    "description": {
+      "ko": "90mm의 낮은 배율부터 실제 관측·정렬·기록을 연습하고 사진과 접안 시야를 구분합니다. 목록은 강제 순서가 아닙니다. 오늘의 고도·박명·장비 조건을 통과한 미션부터 고릅니다."
+    },
+    "level": "telescope",
+    "season": "any",
+    "missionIds": [
+      "summer-vega-align-one",
+      "any-moon-first-sketch",
+      "any-jupiter-visit",
+      "autumn-polaris-backup",
+      "spring-m3-globular"
+    ]
+  },
+  {
+    "id": "telescope-honest-view",
+    "title": {
+      "ko": "망원경 2 · 눈으로 본 범위"
+    },
+    "description": {
+      "ko": "90mm의 낮은 배율부터 실제 관측·정렬·기록을 연습하고 사진과 접안 시야를 구분합니다. 목록은 강제 순서가 아닙니다. 오늘의 고도·박명·장비 조건을 통과한 미션부터 고릅니다."
+    },
+    "level": "telescope",
+    "season": "any",
+    "missionIds": [
+      "spring-polaris-center",
+      "autumn-m31-core",
+      "winter-rigel-scale",
+      "winter-betelgeuse-record",
+      "summer-albireo-double"
+    ]
+  }
+]

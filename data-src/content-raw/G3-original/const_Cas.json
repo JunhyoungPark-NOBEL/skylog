@@ -1,0 +1,97 @@
+{
+  "id": "const:Cas",
+  "version": 1,
+  "title": {
+    "ko": "카시오페이아자리",
+    "en": "Cassiopeia"
+  },
+  "oneLiner": {
+    "ko": "북쪽 하늘의 W자를 발판으로 가을 별자리와 성단을 찾아요"
+  },
+  "summary": {
+    "ko": "카시오페이아자리는 북쪽 하늘에서 W나 M처럼 보이는 다섯 주요 별로 찾는 별자리입니다. 모양이 어느 쪽으로 보이는지는 시각과 화면 회전에 따라 달라지므로 글자의 위아래보다 별 사이의 관계를 익히는 것이 좋습니다. 가을 저녁의 길잡이로 쓰기 좋지만 연중 다른 시각에도 볼 수 있는 북쪽 구역입니다. 도시에서는 약한 점이 빠져 모양이 불완전할 수 있습니다. 이 별자리에서 페르세우스 쪽으로 탐색을 이어 이중성단 같은 별도 대상을 찾을 수 있습니다. W자를 확인한 일과 성단을 관측한 일은 따로 기록하세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Cas; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Cas",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Cassiopeiae",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "북극성, W자, 페르세우스 방향",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, const:Per, dso:NGC869; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "왕비; W 또는 M으로 보이는 주요 배열",
+      "source": "NSF NOIRLab — Cassiopeia — https://noirlab.edu/public/education/constellations/cassiopeia/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "가을 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "그리스 전승에서 카시오페이아는 안드로메다의 어머니이자 케페우스의 왕비로 등장합니다. 찬드라 관측소가 소개하는 이야기에서는 이 가족과 바다 괴물, 안드로메다를 구하는 페르세우스가 연결됩니다. 하늘에 이웃한 인물들을 하나의 이야기로 기억하는 방법입니다. 하지만 실제 관측에서 가족의 별들이 같은 거리에 모여 있다는 뜻은 아닙니다. 오늘은 W자의 주요 점을 확인한 뒤 지도에서 안드로메다와 페르세우스 쪽을 찾아보세요. 별자리 사이의 위치 관계를 먼저 배우고 전승의 역할은 별도 메모로 남기면 좋습니다. W자가 거꾸로 보였다고 다른 별자리가 된 것은 아닙니다. 이야기 속 왕비와 방향이 돌아가는 실제 하늘을 서로 다른 층으로 이해해 보세요.",
+    "cultures": [
+      "그리스·로마"
+    ],
+    "sources": [
+      "NSF NOIRLab — Cassiopeia — https://noirlab.edu/public/education/constellations/cassiopeia/",
+      "Chandra X-ray Observatory — Cassiopeia — https://chandra.harvard.edu/photo/constellations/cassiopeia.html"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁 북동쪽에서 북쪽 높은 하늘을 살펴 W자 또는 M자처럼 굽은 다섯 주요 점을 찾습니다. 북극성에서 지도 방향을 확인해 카시오페이아를 구별하세요. 페르세우스 쪽으로 이동할 때는 이중성단을 별도의 목표로 선택합니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "star:HIP11767",
+      "const:Per",
+      "dso:NGC869"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 주요 모양을 찾기 좋은 편입니다. 다섯 별 중 가려진 점이 있으면 위치를 따로 확인하세요.",
+    "binoculars": "10×50으로 W자 주변과 페르세우스 방향의 별무리를 나누어 살펴봅니다.",
+    "telescope": "90mm 20~80배로 별도 선택한 성단이나 별을 관측합니다. W자 전체의 방향은 맨눈과 넓은 지도에서 먼저 맞춥니다.",
+    "bestMonths": [
+      9,
+      10,
+      11
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Cas; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Cassiopeia — https://noirlab.edu/public/education/constellations/cassiopeia/",
+    "Chandra X-ray Observatory — Cassiopeia — https://chandra.harvard.edu/photo/constellations/cassiopeia.html",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Cas; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Cas; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, const:Per, dso:NGC869; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP11767, const:Per, dso:NGC869; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "첨부 대상 목록의 가을과 G2의 북극 분류는 서로 다른 편집 관점입니다. 전체 영역이 항상 보인다는 주장으로 합치지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

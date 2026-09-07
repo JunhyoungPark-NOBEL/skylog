@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G5 paths — 첨부 Task7 규약",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+      },
+      "title": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1
+          },
+          "en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "description": {
+        "type": "object",
+        "properties": {
+          "ko": {
+            "type": "string",
+            "minLength": 1
+          },
+          "en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ko"
+        ],
+        "additionalProperties": false
+      },
+      "level": {
+        "enum": [
+          "naked",
+          "binoculars",
+          "telescope"
+        ]
+      },
+      "season": {
+        "enum": [
+          "spring",
+          "summer",
+          "autumn",
+          "winter",
+          "any"
+        ]
+      },
+      "missionIds": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+        },
+        "minItems": 4,
+        "maxItems": 6,
+        "uniqueItems": true
+      }
+    },
+    "required": [
+      "id",
+      "title",
+      "description",
+      "level",
+      "missionIds"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "dso:NGC7000",
+  "version": 1,
+  "title": {
+    "ko": "북아메리카성운",
+    "en": "North America Nebula"
+  },
+  "oneLiner": {
+    "ko": "사진 속 대륙은 넓고 옅은 성운, 데네브만 보아서는 완료가 아니에요"
+  },
+  "summary": {
+    "ko": "NGC7000은 백조자리의 북아메리카성운입니다. 넓은 발광 구름의 윤곽이 대륙을 닮아 붙은 이름이지만 작은 망원경의 한 시야에서 그 전체 모습을 쉽게 보는 대상은 아닙니다. 데네브 가까이 있다는 이유로 도시에서 쉽게 찾을 수 있다고 설명하면 안 됩니다. 낮은 표면 밝기 때문에 어두운 하늘과 넓은 시야가 중요합니다. 사진에서 성운의 한 부분만 확대되어 있을 수도 있으므로 이미지 범위를 확인하세요. 주변 별밭을 본 것과 성운의 밝기 차이를 검출한 것을 서로 다른 기록으로 남기는 편이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "전리수소 영역의 발광 성운",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행; NASA — Caldwell 20 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-20/"
+    },
+    {
+      "label": "별자리",
+      "value": "백조자리 (Cyg)",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "미확인 — 첨부 빈칸, V 대역 값 미채택",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "120′ × 30′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리",
+      "value": "미확정 — 첨부 빈칸·외부 소개값 또는 대상 범위 차이",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행; NASA — Caldwell 20 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-20/; NASA APOD — The North America Nebula — https://science.nasa.gov/image-article/apod-2025-january-22-the-north-america-nebula/"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "NGC7000",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "북아메리카성운이라는 이름은 하늘의 구름을 지구의 대륙 윤곽에 비유한 것입니다. 실제 우주에 대륙 모양의 단단한 판이 있는 것은 아니며, 밝은 기체와 빛을 가리는 먼지가 함께 외관을 만듭니다. NASA의 허블 소개 사진은 이 넓은 성운 전체가 아니라 작은 부분을 자세히 보여 줍니다. 따라서 사진 한 장을 접안 시야 전체의 기준으로 삼으면 크기와 형태를 잘못 예상하기 쉽습니다. 관측자는 데네브를 출발점으로 넓은 영역의 밝기 차이를 찾고, 성운이라고 확인한 범위만 기록해 보세요. 별들이 많은 구역을 보았다는 사실과 구름 자체를 검출했다는 사실은 구분해야 합니다. 거리 소개값에도 차이가 있어 하나의 숫자를 임의로 확정하지 않았습니다. 넓고 옅은 대상은 정확한 위치뿐 아니라 시야와 배경 대비가 중요하다는 것을 배우는 도전 과제입니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Caldwell 20 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-20/",
+      "NASA APOD — The North America Nebula — https://science.nasa.gov/image-article/apod-2025-january-22-the-north-america-nebula/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 말 백조자리의 데네브를 찾습니다. 천구의 동쪽으로 약 3.2° 떨어진 NGC7000 중심 위치를 지도에서 확인하고 넓은 시야로 주변 밝기 차이를 살핍니다. 중심 좌표에 도착했다고 성운 전체를 본 것으로 처리하지 않습니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP102098",
+      "const:Cyg"
+    ]
+  },
+  "observing": {
+    "nakedEye": "매우 어두운 장소의 도전 관측과 도시 관측을 엄격히 구분합니다. 도시 맨눈 미션에는 넣지 않습니다.",
+    "binoculars": "10×50의 넓은 시야로 어두운 곳에서 대비를 살피되 성운 검출은 쉽지 않습니다. 데네브와 별밭만 보인 경우는 미검출입니다.",
+    "telescope": "90mm에서는 가능한 넓은 실제 시야가 중요합니다. 고배율로 전체 대륙 윤곽을 볼 수 있다고 기대하지 않으며 도시에서는 검출을 보장하지 않습니다.",
+    "difficulty": 5,
+    "bestMonths": [
+      7,
+      8,
+      9
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP102098, const:Cyg; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Caldwell 20 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-20/",
+    "NASA APOD — The North America Nebula — https://science.nasa.gov/image-article/apod-2025-january-22-the-north-america-nebula/",
+    "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행; NASA — Caldwell 20 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-20/",
+    "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "첨부 catalog-values.v1.csv — dso:NGC7000; inputs/catalog-values.v1.csv의 원본 행; NASA — Caldwell 20 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-20/; NASA APOD — The North America Nebula — https://science.nasa.gov/image-article/apod-2025-january-22-the-north-america-nebula/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "원본 mag와 dist_ly는 모두 빈칸으로 보존했습니다. NASA Caldwell의 1800광년과 APOD의 1500광년을 대조했으나 단일 거리로 채택하지 않았습니다.",
+      "입력 각크기 120x30은 해당 카탈로그의 크기 값이며 전체 사진 윤곽의 보편적인 경계나 눈에 보이는 범위로 간주하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

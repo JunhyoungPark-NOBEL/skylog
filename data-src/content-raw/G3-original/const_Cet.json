@@ -1,0 +1,99 @@
+{
+  "id": "const:Cet",
+  "version": 1,
+  "title": {
+    "ko": "고래자리",
+    "en": "Cetus"
+  },
+  "oneLiner": {
+    "ko": "바다 괴물의 이야기와 미라의 변화를 함께 살피는 가을 영역"
+  },
+  "summary": {
+    "ko": "고래자리는 가을 하늘에서 물고기자리와 양자리 남쪽으로 넓게 펼쳐지는 별자리입니다. 이름은 고래이지만 고대 그리스의 케토스는 바다 괴물을 가리키는 이야기와 연결됩니다. 이 영역의 미라는 밝기가 변하는 별이므로 언제나 맨눈에 보이는 기준점으로 삼으면 안 됩니다. 먼저 주변 별자리의 배치를 확인하고 지도에서 미라의 위치를 좁혀 보세요. 도시에서는 밝은 별만으로 전체 윤곽을 잇기 어려울 수 있습니다. 미라가 보이지 않은 날도 위치와 관측 조건을 함께 남기면 의미 있는 비교 기록이 됩니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 경계로 정한 하늘의 영역; 단일 천체가 아님",
+      "source": "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Cet",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Ceti",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "대표 그림·길잡이 무늬",
+      "value": "고대 그리스의 바다 괴물 케토스",
+      "source": "NSF NOIRLab — cetus — https://noirlab.edu/public/education/constellations/cetus/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님"
+    },
+    {
+      "label": "찾기의 기준",
+      "value": "양자리 / 물고기자리",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: const:Ari, const:Psc, star:HIP10826"
+    },
+    {
+      "label": "관측 계절 안내",
+      "value": "가을 — 편집 분류, 실시간 가시성 보장 아님",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    }
+  ],
+  "story": {
+    "ko": "그리스 계통 이야기의 케토스는 오늘날 동물도감에서 보는 고래와 꼭 같은 모습의 생물이 아닙니다. 하늘 지도에 남은 이름을 현대 생물 이름으로만 해석하면 전승의 바다 괴물이라는 성격을 놓치기 쉽습니다. 한편 같은 하늘 영역의 미라를 관측할 때에는 신화보다 실제 밝기 변화가 중요합니다. 지난번 보였던 자리에 별이 눈에 띄지 않아도 별자리가 잘못된 것인지, 미라가 어두워졌는지, 하늘 상태가 나빴는지를 구분해야 합니다. 먼저 변하지 않는 주변 배치를 대조한 뒤 미라의 검출 여부를 기록해 보세요. 신화 속 이름은 위치를 기억하게 하고 관측 기록은 같은 위치의 별이 달라 보이는 이유를 묻게 합니다. 이야기와 측정을 함께 사용하되 하나를 다른 하나의 증거로 삼지 않는 것이 이 별자리의 좋은 학습 목표입니다.",
+    "cultures": [
+      "그리스·로마"
+    ],
+    "sources": [
+      "NSF NOIRLab — cetus — https://noirlab.edu/public/education/constellations/cetus/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁 양자리와 물고기자리의 위치를 확인한 뒤 그 남쪽에 있는 고래자리 영역을 지도에서 찾습니다. 미라를 선택하고 주변 별을 좁혀 대조합니다. 미라가 어두운 시기에는 맨눈 검출을 출발 조건으로 요구하지 않습니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Ari",
+      "const:Psc",
+      "star:HIP10826"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 주요 윤곽이 희미할 수 있고 미라도 밝기에 따라 맨눈에 보이지 않습니다.",
+    "binoculars": "10×50으로 미라의 지도 위치와 주변 별들을 대조합니다. 특정 날짜의 밝기는 별도로 확인해야 합니다.",
+    "telescope": "90mm 20~80배로 미라 주변을 살피며 검출 여부를 기록합니다. 밝기 비교는 신뢰할 비교성 자료가 있을 때만 수행하고 첨부 대표 등급을 현재값으로 쓰지 않습니다.",
+    "difficulty": 3,
+    "bestMonths": [
+      10,
+      11,
+      12
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Cet; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Ari, const:Psc, star:HIP10826; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — cetus — https://noirlab.edu/public/education/constellations/cetus/",
+    "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+    "NSF NOIRLab — cetus — https://noirlab.edu/public/education/constellations/cetus/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: const:Ari, const:Psc, star:HIP10826",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "미라의 현재 밝기·최대광 날짜는 계산하지 않았습니다. 기존 미라 콘텐츠와 변광성 검토 상태를 그대로 참조합니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 RA/Dec는 대표 좌표입니다. 별자리 전체의 가시성·거리·등급·각크기를 이 한 점으로 판단하거나 누락 숫자를 만들어 넣지 않았습니다."
+    ]
+  }
+}

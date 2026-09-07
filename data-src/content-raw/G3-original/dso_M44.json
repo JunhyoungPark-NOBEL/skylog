@@ -1,0 +1,97 @@
+{
+  "id": "dso:M44",
+  "version": 1,
+  "title": {
+    "ko": "프레세페성단",
+    "en": "Beehive Cluster"
+  },
+  "oneLiner": {
+    "ko": "봄 하늘의 흐릿한 얼룩을 별들로 풀어 보는 성단"
+  },
+  "summary": {
+    "ko": "프레세페성단은 게자리의 산개성단으로, 벌집성단이라는 이름으로도 알려져 있습니다. 어두운 하늘에서는 맨눈에 작은 구름처럼 보이지만 쌍안경으로 보면 여러 별로 나뉩니다. 실제 가스구름이 아니라 많은 별의 빛이 합쳐져 그렇게 보이는 것입니다. 게자리에는 눈에 잘 띄는 기준 별이 적으므로 쌍둥이자리의 폴룩스와 사자자리의 레굴루스 사이에서 위치를 잡는 편이 좋습니다. 10×50은 넓게 퍼진 별무리를 한눈에 보기 좋고, 도시에서는 맨눈 검출보다 쌍안경으로 별 배열을 확인하는 일을 첫 목표로 삼을 수 있습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "NASA — Messier 44: The Beehive Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/"
+    },
+    {
+      "label": "별자리",
+      "value": "게자리 (Cnc)",
+      "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "3.1등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "108.6′",
+      "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M44",
+      "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "607광년",
+      "source": "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "근대 유럽의 관측사에서 프레세페는 흐릿한 빛이 무엇인지 묻는 좋은 사례입니다. 맨눈으로는 안개 같은 대상이었지만 갈릴레오의 망원경 관측은 그 안에 여러 별이 있음을 보여 주었습니다. 지금도 초보자가 맨눈에서 쌍안경으로 도구를 바꾸면 이 차이를 직접 비교할 수 있습니다. 허블우주망원경은 성단 전체를 한 번에 보기보다 일부 영역을 자세히 관측했으며, 그 영상에는 훨씬 뒤에 있는 은하들도 담겼습니다. 같은 화면에 나타난다고 모두 같은 성단 구성원은 아니라는 뜻입니다. 넓게 보고 별무리를 알아보는 일과 좁게 확대해 배경 천체를 구별하는 일은 서로 다른 관측 질문이며, 어느 쪽도 단순히 배율이 높다는 이유만으로 대신할 수 없습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 44: The Beehive Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁에 쌍둥이자리의 폴룩스와 사자자리의 레굴루스를 먼저 찾으세요. 두 별 사이의 게자리 영역을 맨눈으로 짚고, 쌍안경으로 작은 별들이 밀집한 구역을 천천히 훑습니다. 지도가 보여 주는 게자리의 뒤집힌 Y자 안쪽을 대조하면 성단을 일반 배경별과 구분하는 데 도움이 됩니다.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP37826",
+      "star:HIP49669",
+      "const:Cnc"
+    ]
+  },
+  "observing": {
+    "nakedEye": "달빛이 적고 어두운 곳에서는 흐릿한 얼룩으로 보입니다. 도시에서는 보이지 않아도 쌍안경 관측 실패를 뜻하지 않습니다.",
+    "binoculars": "10×50에서 넓게 퍼진 여러 별을 한 시야로 비교할 수 있습니다. 주변보다 별이 모인 영역의 경계를 대략 스케치해 보세요.",
+    "telescope": "90mm 20배와 넓은 접안 시야를 먼저 씁니다. 80배에서는 전체 모습보다 일부 별만 남기 쉬우며, 도시 광해는 희미한 구성별을 지웁니다.",
+    "bestMonths": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "difficulty": 2
+  },
+  "funFacts": [
+    "맨눈에서 구름처럼 보여도 주요 빛의 정체는 별들입니다.",
+    "성단을 찍은 고해상도 사진에는 훨씬 먼 배경 은하가 섞일 수 있습니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M44; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 44: The Beehive Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-44/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

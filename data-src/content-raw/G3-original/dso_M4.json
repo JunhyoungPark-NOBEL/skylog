@@ -1,0 +1,96 @@
+{
+  "id": "dso:M4",
+  "version": 1,
+  "title": {
+    "ko": "M4",
+    "en": "M4"
+  },
+  "oneLiner": {
+    "ko": "안타레스 바로 서쪽에서 별빛과 성단의 퍼짐을 비교해요"
+  },
+  "summary": {
+    "ko": "M4는 전갈자리의 안타레스 가까이 보이는 구상성단입니다. 밝은 기준별에서 짧게 이동해 찾을 수 있지만 한국 중부에서는 남쪽 고도가 낮아 관측 조건의 영향을 크게 받습니다. 안타레스의 점광원과 M4의 퍼진 빛을 구분하는 것이 첫 목표입니다. 쌍안경에서는 흐린 덩어리로, 90mm에서는 중심과 바깥의 거친 느낌으로 보일 수 있습니다. 도시의 낮은 남쪽에서는 별이 보이는 날에도 성단이 사라질 수 있습니다. 성단을 검출한 기록과 개별 별을 실제로 분해한 기록을 나누어 남겨 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "구상성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 4 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-4/"
+    },
+    {
+      "label": "별자리",
+      "value": "전갈자리 (Sco)",
+      "source": "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "5.4등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "28.2′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "6,530광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M4",
+      "source": "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "안타레스의 강한 빛 옆에서 M4를 찾으면 밝은 별 하나와 수많은 별이 합쳐 만든 빛이 얼마나 다르게 보이는지 비교할 수 있습니다. 연구에서는 M4 안의 백색왜성, 즉 별의 진화 뒤에 남는 뜨거운 잔해를 조사해 별 집단의 시간을 이해하기도 합니다. 하지만 소형 망원경으로 성단의 흐림을 보았다고 그 백색왜성들을 직접 식별한 것은 아닙니다. 관측자는 밝은 기준별로부터 성단까지의 짧은 경로를 확인하고 실제로 퍼진 빛이 있는지 판단하는 데 집중할 수 있습니다. 낮은 고도에서는 대기와 광해 때문에 같은 대상이 날마다 크게 다르게 보일 수 있으므로 시간과 남쪽 하늘 상태도 함께 적어 보세요. 가까운 방향에 놓인 별과 성단의 물리적인 거리가 서로 다르다는 점까지 연결하면 단순한 위치 찾기를 넘어 관측의 의미를 넓힐 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 4 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-4/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 남쪽 하늘에서 전갈자리의 안타레스를 찾습니다. 천구의 서쪽으로 약 1.3° 이동해 M4 위치를 지도와 대조합니다. 밝은 별의 번짐과 별개로 성단의 퍼진 빛이 보이는지 살펴보세요.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP80763",
+      "const:Sco"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시의 맨눈 검출 목표로 삼지 않습니다.",
+    "binoculars": "10×50으로 안타레스 옆의 흐림을 찾습니다. 밝은 별의 번짐을 성단으로 오인하지 않도록 위치를 확인합니다.",
+    "telescope": "90mm 20~80배로 둥근 빛과 일부 거친 질감을 살핍니다. 모든 별이나 연구에 쓰인 백색왜성의 분리를 목표로 하지 않습니다.",
+    "difficulty": 4,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP80763, const:Sco; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 4 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-4/",
+    "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 4 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-4/",
+    "첨부 catalog-values.v1.csv — dso:M4; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "참고 대조: 입력 거리 6530광년, NASA — Messier 4 소개값 약 5500광년. 본문 숫자는 입력 우선으로 보존했으며 차이의 원인을 측정법·자료 시점까지 확인한 것은 아닙니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

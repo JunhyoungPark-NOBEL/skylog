@@ -1,0 +1,97 @@
+{
+  "id": "dso:M27",
+  "version": 1,
+  "title": {
+    "ko": "아령성운",
+    "en": "Dumbbell Nebula"
+  },
+  "oneLiner": {
+    "ko": "여우자리에서 별의 바깥층이 남긴 넓은 빛을 찾기"
+  },
+  "summary": {
+    "ko": "아령성운 M27은 여우자리에 있는 행성상성운입니다. 별이 진화 과정에서 내보낸 가스가 빛나는 대상으로, 망원경에서는 두터운 얼룩이나 가운데가 잘록한 모양으로 묘사됩니다. 고리성운보다 넓게 퍼진 인상을 줄 수 있지만 넓은 빛은 광해와 달빛에 쉽게 묻힙니다. 어두운 관측지에서 쌍안경으로 존재를 시도할 수 있고 소형 망원경에서는 먼저 전체 윤곽을 확인하는 편이 좋습니다. 사진의 붉고 푸른 구조를 눈으로 모두 구별하려 하기보다 둥근지 길쭉한지, 어느 쪽이 더 밝은지처럼 관측 가능한 특징을 기록하세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "행성상성운",
+      "source": "NASA — Messier 27: The Dumbbell Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/"
+    },
+    {
+      "label": "별자리",
+      "value": "여우자리 (Vul)",
+      "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "7.4등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "6.7′",
+      "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M27",
+      "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "1227광년",
+      "source": "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "샤를 메시에가 아령성운을 관측해 목록에 넣었을 때 오늘날의 행성상성운이라는 물리적 설명은 아직 마련되지 않았습니다. 현대 천문학에서는 이 빛을 별이 바깥층을 내보낸 뒤 남은 진화 과정의 일부로 이해합니다. 허블의 확대 영상은 가스와 먼지의 작은 덩어리까지 보여 주며, 적외선 관측은 눈에 보이는 외형과 다른 정보를 드러냅니다. 아령이라는 별명은 물체가 운동기구처럼 생겼다는 관측상의 비유일 뿐입니다. 작은 망원경에서 그 이름과 똑같은 모양을 찾지 못해도 실패는 아닙니다. 관측 당시의 하늘 밝기와 사용 배율을 적고 빛의 긴 축이나 밝은 부분을 스케치하면, 다음 관측에서 실제 차이를 비교할 기준을 남길 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 27: The Dumbbell Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/",
+      "NASA/JPL-Caltech — Weighing in on the Dumbbell Nebula (2011-08-10) — https://science.nasa.gov/photojournal/weighing-in-on-the-dumbbell-nebula/"
+    ]
+  },
+  "howToFind": {
+    "ko": "늦여름 저녁에 알타이르와 알비레오를 찾고 그 사이에 있는 화살자리의 작은 화살 모양을 지도와 맞추세요. 화살자리 감마별에서 천구의 북쪽으로 약 3° 떨어진 여우자리 영역을 저배율로 살핍니다. 밝은 기준 별이 성운 안에 있다고 생각하지 말고 주변 별 배열과 넓은 얼룩을 함께 확인합니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP97649",
+      "star:HIP95947"
+    ]
+  },
+  "observing": {
+    "nakedEye": "맨눈 검출을 기대하지 않습니다. 여름 대삼각형과 주변의 위치를 확인하는 단계로 삼으세요.",
+    "binoculars": "10×50에서는 달빛이 적고 어두운 곳에서 작은 얼룩을 시도할 수 있습니다. 도시에서 보이지 않으면 망원경이나 더 어두운 관측지를 이용하세요.",
+    "telescope": "90mm 20~60배에서 전체 윤곽을 먼저 확인합니다. 좋은 조건에서는 가운데가 잘록한 인상을 시도할 수 있지만 선명한 사진 모양이나 색 구분을 보장하지 않습니다.",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "difficulty": 3
+  },
+  "funFacts": [
+    "별의 탄생 구름이 아니라 진화한 별이 내보낸 가스를 보고 있습니다.",
+    "아령이라는 이름은 망원경에서 본 외형을 비유한 것입니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M27; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 27: The Dumbbell Nebula — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-27/",
+    "NASA/JPL-Caltech — Weighing in on the Dumbbell Nebula (2011-08-10) — https://science.nasa.gov/photojournal/weighing-in-on-the-dumbbell-nebula/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

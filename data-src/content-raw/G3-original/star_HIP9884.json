@@ -1,0 +1,97 @@
+{
+  "id": "star:HIP9884",
+  "version": 1,
+  "title": {
+    "ko": "하말",
+    "en": "Hamal"
+  },
+  "oneLiner": {
+    "ko": "희미한 가을 별자리 양자리의 시작점을 잡는 주황빛 하말"
+  },
+  "summary": {
+    "ko": "하말은 양자리에서 가장 눈에 띄는 밝은 별이며 주황빛 거성으로 소개됩니다. 큰 동물 그림을 먼저 찾으려 하기보다 하말과 이웃한 별들의 짧은 배열을 출발점으로 삼는 편이 쉽습니다. 양자리는 황소자리와 물고기자리 사이 구역을 찾는 데 도움이 되지만, 도시에서는 약한 별들이 사라져 윤곽이 불완전할 수 있습니다. 별자리 이름의 양과 별 자체의 성질은 서로 다른 설명입니다. 하말 한 별을 찾았다고 양자리의 모든 영역을 관측한 것은 아니므로 기준별 식별과 별자리 형태 확인을 나누어 기록해 보세요."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "양자리 (Ari)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "65.8광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "2.01등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "K2III",
+      "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP9884",
+      "source": "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "별자리의 길잡이",
+      "value": "양자리에서 가장 밝게 보이는 별",
+      "source": "NSF NOIRLab — Aries — https://noirlab.edu/public/education/constellations/aries/"
+    }
+  ],
+  "story": {
+    "ko": "하말은 별 이름과 별자리 이름이 서로 다른 역할을 한다는 것을 배우기 좋은 출발점입니다. 하말은 한 대상을 가리키는 고유명이고, 양자리는 더 넓은 하늘 구역을 가리킵니다. IAU의 안내에서 Alpha Arietis처럼 쓰는 이름은 별자리에 속격 형태를 붙여 별을 구별하는 방식입니다. 관측자에게 필요한 것은 라틴어를 모두 외우는 일이 아니라 같은 별이 서로 다른 이름으로 표시될 수 있음을 아는 것입니다. 앱 검색에서 하말을 고른 뒤 주변의 양자리 선을 켜고 꺼 보세요. 별 하나의 선택과 별자리 전체의 선택이 어떻게 다른지 확인할 수 있습니다. 약한 별이 안 보이는 도시에서도 이 차이를 익히면, 사진이나 지도에 그려진 동물 윤곽을 실제 빛나는 선으로 착각하지 않게 됩니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Aries — https://noirlab.edu/public/education/constellations/aries/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+      "NASA — Star Types — https://science.nasa.gov/universe/stars/types/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁 안드로메다자리와 황소자리 사이를 지도에서 좁힌 뒤, 플레이아데스보다 천구의 서쪽 구역에 있는 양자리의 짧은 별 배열을 찾습니다. 그중 가장 눈에 띄는 점이 하말입니다. 전체 양 그림보다 하말과 이웃 별들의 방향을 먼저 맞추세요.",
+    "season": "autumn",
+    "hopFrom": [
+      "dso:M45",
+      "const:And"
+    ]
+  },
+  "observing": {
+    "nakedEye": "하말은 도시에서도 찾을 수 있는 편이지만 양자리의 약한 윤곽은 불완전할 수 있습니다.",
+    "binoculars": "10×50으로 주변의 짧은 배열을 확인합니다. 거성의 주황빛은 강한 사진 색처럼 보이지 않을 수 있습니다.",
+    "telescope": "90mm 20~80배에서 점 모양 별빛을 관찰합니다. 별자리 전체를 한 시야에 넣기보다 주변 기준을 나누어 확인하세요.",
+    "bestMonths": [
+      10,
+      11,
+      12
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Aries — https://noirlab.edu/public/education/constellations/aries/",
+    "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+    "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — star:HIP9884; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: dso:M45, const:And; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  }
+}

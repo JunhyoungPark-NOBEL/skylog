@@ -1,0 +1,99 @@
+{
+  "id": "dso:NGC869",
+  "version": 1,
+  "title": {
+    "ko": "이중성단(h)",
+    "en": "Double Cluster (h Persei)"
+  },
+  "oneLiner": {
+    "ko": "이중성단의 한쪽을 따로 알아보는 넓은 별무리"
+  },
+  "summary": {
+    "ko": "NGC869는 페르세우스자리의 이중성단을 이루는 두 산개성단 중 h 쪽입니다. 이웃 NGC884와 하늘에서 나란히 보이지만 각각 별도의 성단과 식별자를 가집니다. 어두운 곳에서는 두 성단의 빛이 맨눈에 하나의 얼룩처럼 합쳐질 수 있고, 쌍안경에서는 별이 모인 두 중심을 비교할 수 있습니다. 작은 망원경에서도 낮은 배율과 넓은 시야를 먼저 쓰는 편이 좋습니다. 앱 화면이나 접안렌즈의 좌우는 회전과 반전으로 달라질 수 있으므로 왼쪽 성단이라는 말만으로 NGC869를 식별하지 마세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/"
+    },
+    {
+      "label": "별자리",
+      "value": "페르세우스자리 (Per)",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "3.7등급",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "14.4′",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "NGC869",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "8274광년",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "이중성단이라는 이름을 처음 들으면 별 두 개가 붙어 있는 이중성과 혼동하기 쉽습니다. 여기서는 별 하나씩이 아니라 많은 별이 모인 산개성단 두 개를 뜻합니다. 넓게 본 밤하늘의 한 얼룩이 쌍안경에서는 두 중심으로, 망원경에서는 다시 여러 별로 나뉘는 경험을 할 수 있습니다. 콜드웰 목록의 C14는 이 두 성단을 함께 가리키므로 개별 NGC 번호와 목록 번호의 범위를 구별해야 합니다. 관측 기록에는 두 성단을 한 시야에 담았는지, NGC869 쪽의 별 배열을 따로 확인했는지 나누어 적어 보세요. 같은 하늘 대상을 묶어 부르는 이름과 데이터베이스의 개별 항목을 구별하면 관측 개수나 배지를 중복 계산하는 실수도 피할 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+      "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁에 카시오페이아자리의 W 모양과 페르세우스자리의 밝은 별무리를 먼저 찾으세요. 두 별자리의 밝은 별들 사이를 쌍안경으로 훑어 별이 모인 두 중심을 찾습니다. 천구상 서쪽 성단이 NGC869인지 지도와 주위 별 배열로 확인하세요. 동쪽의 NGC884와 화면 좌우가 같다고 가정하지 않습니다.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Cas",
+      "const:Per"
+    ]
+  },
+  "observing": {
+    "nakedEye": "달빛이 적은 어두운 곳에서 두 성단이 합쳐진 얼룩으로 보일 수 있습니다. 맨눈만으로 두 ID를 각각 식별했다고 처리하지 않습니다.",
+    "binoculars": "10×50에서 두 성단의 중심을 한 시야에 놓고 비교하기 좋습니다. 도시에서는 희미한 별이 줄어들지만 두 밀집 영역을 시도할 수 있습니다.",
+    "telescope": "90mm 20~40배와 넓은 접안 시야로 시작합니다. 80배에서는 한쪽 일부가 잘릴 수 있으며 주변 별 배열을 지도와 대조해 NGC869를 식별하세요.",
+    "bestMonths": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "difficulty": 2
+  },
+  "funFacts": [
+    "콜드웰 C14는 NGC869와 NGC884를 묶는 하나의 목록 항목입니다.",
+    "이중성단은 별 두 개로 이루어진 이중성과 다른 말입니다."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+    "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 거리 8274광년과 등급 3.7은 NGC869 행의 값입니다. NASA C14의 집단 소개값을 개별 성단의 검증값으로 대입하지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ]
+  }
+}

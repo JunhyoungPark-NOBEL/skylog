@@ -1,0 +1,101 @@
+{
+  "id": "star:HIP37279",
+  "version": 1,
+  "title": {
+    "ko": "프로키온",
+    "en": "Procyon"
+  },
+  "oneLiner": {
+    "ko": "겨울 대삼각형에서 가까운 별과 보이지 않는 동반별을 만나요"
+  },
+  "summary": {
+    "ko": "프로키온은 작은개자리의 밝은 별로 시리우스, 베텔게우스와 함께 겨울 대삼각형을 찾는 길잡이입니다. 맨눈에는 하나의 별로 보이지만 백색왜성인 동반별 프로키온 B가 있는 계입니다. 백색왜성은 별이 진화한 뒤 남은 작고 뜨거운 천체를 뜻합니다. 밝은 주성 옆의 동반별을 알아보는 일은 별 자체를 찾는 일보다 훨씬 어렵습니다. 입문 관측에서는 삼각형의 위치를 익히고 다른 밝은 별과 느낌을 비교하는 데 집중하세요. 작은 망원경으로 동반별이 당연히 분리될 것이라 기대하지 않는 것이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "작은개자리 (CMi)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "11.5광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "0.4등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "F5IV-V",
+      "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP37279",
+      "source": "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "별의 구성",
+      "value": "밝은 주성과 백색왜성 동반별 B를 가진 계",
+      "source": "Bond 외 — Hubble Space Telescope Astrometry of the Procyon System — https://ui.adsabs.harvard.edu/abs/2015ApJ...813..106B/abstract"
+    }
+  ],
+  "story": {
+    "ko": "프로키온을 향해 망원경을 돌려도 처음에는 맨눈으로 보던 별이 더 밝아진 점처럼 느껴질 수 있습니다. 그러나 연구자는 그 한 점의 위치가 어떻게 달라지는지를 정밀하게 측정해 동반별과의 관계를 알아냅니다. 허블우주망원경의 프로키온 계 연구도 두 별의 상대 위치와 궤도를 다루었습니다. 별의 내부 사정은 눈앞의 사진 한 장만으로 드러나지 않는다는 사례입니다. 관측 기록에서는 프로키온을 찾은 성공과 프로키온 B를 분리한 성공을 같은 체크 항목으로 합치지 마세요. 겨울 대삼각형의 세 꼭짓점을 스스로 되짚고, 낮은 고도와 높은 고도에서 별빛의 안정감이 어떻게 달라지는지 적어도 유용합니다. 쉬운 길잡이별 한 개가 정밀 천문학의 입구가 될 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA Night Sky Network — Sirius and Procyon — https://nightsky.jpl.nasa.gov/news/428/",
+      "Bond 외 — Hubble Space Telescope Astrometry of the Procyon System — https://ui.adsabs.harvard.edu/abs/2015ApJ...813..106B/abstract",
+      "NASA — Star Types — https://science.nasa.gov/universe/stars/types/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 오리온의 붉은 베텔게우스와 그 남동쪽의 시리우스를 찾으세요. 두 별의 동쪽으로 시선을 옮겨 큰 삼각형의 남은 꼭짓점을 찾으면 프로키온입니다. 작은개자리 전체 그림이 도시에서 보이지 않아도 먼저 밝은 꼭짓점을 지도와 맞출 수 있습니다.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP27989",
+      "star:HIP32349"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 밝은 점으로 찾기 좋은 편입니다. 겨울 대삼각형의 다른 두 별과 위치를 함께 확인하세요.",
+    "binoculars": "10×50으로 주변 별을 늘려 볼 수 있지만 프로키온 B의 분리는 기대하지 않습니다.",
+    "telescope": "90mm 20~80배에서 밝은 주성을 확인합니다. 동반 백색왜성의 분리를 입문 성공 조건으로 설정하지 마세요.",
+    "bestMonths": [
+      1,
+      2,
+      3
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA Night Sky Network — Sirius and Procyon — https://nightsky.jpl.nasa.gov/news/428/",
+    "Bond 외 — Hubble Space Telescope Astrometry of the Procyon System — https://ui.adsabs.harvard.edu/abs/2015ApJ...813..106B/abstract",
+    "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — star:HIP37279; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP27989, star:HIP32349; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "funFacts": [
+    "맨눈으로 하나인 별이 실제로는 쌍성계일 수 있습니다."
+  ]
+}

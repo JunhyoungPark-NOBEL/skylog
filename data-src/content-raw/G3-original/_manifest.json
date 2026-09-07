@@ -1,0 +1,1575 @@
+[
+  {
+    "id": "sun",
+    "file": "sun.json",
+    "titleKo": "태양",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 259,
+      "story": 336,
+      "howToFind": 159
+    }
+  },
+  {
+    "id": "moon",
+    "file": "moon.json",
+    "titleKo": "달",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 260,
+      "story": 340,
+      "howToFind": 150
+    }
+  },
+  {
+    "id": "planet:mercury",
+    "file": "planet_mercury.json",
+    "titleKo": "수성",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 289,
+      "story": 341,
+      "howToFind": 205
+    }
+  },
+  {
+    "id": "planet:venus",
+    "file": "planet_venus.json",
+    "titleKo": "금성",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 252,
+      "story": 377,
+      "howToFind": 189
+    }
+  },
+  {
+    "id": "planet:mars",
+    "file": "planet_mars.json",
+    "titleKo": "화성",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 258,
+      "story": 351,
+      "howToFind": 191
+    }
+  },
+  {
+    "id": "planet:jupiter",
+    "file": "planet_jupiter.json",
+    "titleKo": "목성",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 267,
+      "story": 365,
+      "howToFind": 179
+    }
+  },
+  {
+    "id": "planet:saturn",
+    "file": "planet_saturn.json",
+    "titleKo": "토성",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 262,
+      "story": 365,
+      "howToFind": 181
+    }
+  },
+  {
+    "id": "planet:uranus",
+    "file": "planet_uranus.json",
+    "titleKo": "천왕성",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 255,
+      "story": 360,
+      "howToFind": 190
+    }
+  },
+  {
+    "id": "planet:neptune",
+    "file": "planet_neptune.json",
+    "titleKo": "해왕성",
+    "confidence": "high",
+    "needsReview": 0,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 269,
+      "story": 367,
+      "howToFind": 184
+    }
+  },
+  {
+    "id": "star:HIP32349",
+    "file": "star_HIP32349.json",
+    "titleKo": "시리우스",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 283,
+      "story": 367,
+      "howToFind": 160
+    }
+  },
+  {
+    "id": "star:HIP69673",
+    "file": "star_HIP69673.json",
+    "titleKo": "아르크투루스",
+    "confidence": "medium",
+    "needsReview": 1,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 265,
+      "story": 358,
+      "howToFind": 144
+    }
+  },
+  {
+    "id": "star:HIP91262",
+    "file": "star_HIP91262.json",
+    "titleKo": "베가",
+    "confidence": "medium",
+    "needsReview": 1,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 272,
+      "story": 379,
+      "howToFind": 175
+    }
+  },
+  {
+    "id": "star:HIP24608",
+    "file": "star_HIP24608.json",
+    "titleKo": "카펠라",
+    "confidence": "low",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 284,
+      "story": 355,
+      "howToFind": 166
+    }
+  },
+  {
+    "id": "star:HIP24436",
+    "file": "star_HIP24436.json",
+    "titleKo": "리겔",
+    "confidence": "medium",
+    "needsReview": 1,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 271,
+      "story": 354,
+      "howToFind": 147
+    }
+  },
+  {
+    "id": "star:HIP27989",
+    "file": "star_HIP27989.json",
+    "titleKo": "베텔게우스",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 268,
+      "story": 367,
+      "howToFind": 144
+    }
+  },
+  {
+    "id": "star:HIP97649",
+    "file": "star_HIP97649.json",
+    "titleKo": "알타이르",
+    "confidence": "medium",
+    "needsReview": 1,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 276,
+      "story": 372,
+      "howToFind": 154
+    }
+  },
+  {
+    "id": "star:HIP21421",
+    "file": "star_HIP21421.json",
+    "titleKo": "알데바란",
+    "confidence": "medium",
+    "needsReview": 1,
+    "chars": {
+      "oneLiner": 24,
+      "summary": 273,
+      "story": 358,
+      "howToFind": 156
+    }
+  },
+  {
+    "id": "star:HIP80763",
+    "file": "star_HIP80763.json",
+    "titleKo": "안타레스",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 276,
+      "story": 347,
+      "howToFind": 153
+    }
+  },
+  {
+    "id": "star:HIP102098",
+    "file": "star_HIP102098.json",
+    "titleKo": "데네브",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 284,
+      "story": 370,
+      "howToFind": 141
+    }
+  },
+  {
+    "id": "star:HIP11767",
+    "file": "star_HIP11767.json",
+    "titleKo": "폴라리스",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 266,
+      "story": 371,
+      "howToFind": 164
+    }
+  },
+  {
+    "id": "dso:M45",
+    "file": "dso_M45.json",
+    "titleKo": "플레이아데스성단",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 263,
+      "story": 344,
+      "howToFind": 176
+    }
+  },
+  {
+    "id": "dso:M44",
+    "file": "dso_M44.json",
+    "titleKo": "프레세페성단",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 281,
+      "story": 352,
+      "howToFind": 153
+    }
+  },
+  {
+    "id": "dso:M42",
+    "file": "dso_M42.json",
+    "titleKo": "오리온대성운",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 268,
+      "story": 363,
+      "howToFind": 157
+    }
+  },
+  {
+    "id": "dso:M31",
+    "file": "dso_M31.json",
+    "titleKo": "안드로메다은하",
+    "confidence": "low",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 274,
+      "story": 361,
+      "howToFind": 166
+    }
+  },
+  {
+    "id": "dso:M13",
+    "file": "dso_M13.json",
+    "titleKo": "헤르쿨레스 대성단",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 268,
+      "story": 345,
+      "howToFind": 155
+    }
+  },
+  {
+    "id": "star:HIP95947",
+    "file": "star_HIP95947.json",
+    "titleKo": "알비레오",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 273,
+      "story": 362,
+      "howToFind": 145
+    }
+  },
+  {
+    "id": "star:HIP65474",
+    "file": "star_HIP65474.json",
+    "titleKo": "스피카",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 282,
+      "story": 357,
+      "howToFind": 149
+    }
+  },
+  {
+    "id": "star:HIP677",
+    "file": "star_HIP677.json",
+    "titleKo": "알페라츠",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 271,
+      "story": 349,
+      "howToFind": 163
+    }
+  },
+  {
+    "id": "dso:M57",
+    "file": "dso_M57.json",
+    "titleKo": "고리성운",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 285,
+      "story": 344,
+      "howToFind": 148
+    }
+  },
+  {
+    "id": "dso:M27",
+    "file": "dso_M27.json",
+    "titleKo": "아령성운",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 278,
+      "story": 344,
+      "howToFind": 159
+    }
+  },
+  {
+    "id": "dso:M35",
+    "file": "dso_M35.json",
+    "titleKo": "M35",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 279,
+      "story": 357,
+      "howToFind": 160
+    }
+  },
+  {
+    "id": "dso:M37",
+    "file": "dso_M37.json",
+    "titleKo": "M37",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 282,
+      "story": 370,
+      "howToFind": 158
+    }
+  },
+  {
+    "id": "dso:M81",
+    "file": "dso_M81.json",
+    "titleKo": "보데은하",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 273,
+      "story": 354,
+      "howToFind": 160
+    }
+  },
+  {
+    "id": "dso:M82",
+    "file": "dso_M82.json",
+    "titleKo": "시가은하",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 274,
+      "story": 362,
+      "howToFind": 160
+    }
+  },
+  {
+    "id": "dso:M3",
+    "file": "dso_M3.json",
+    "titleKo": "M3",
+    "confidence": "low",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 277,
+      "story": 370,
+      "howToFind": 164
+    }
+  },
+  {
+    "id": "dso:M5",
+    "file": "dso_M5.json",
+    "titleKo": "M5",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 270,
+      "story": 377,
+      "howToFind": 165
+    }
+  },
+  {
+    "id": "dso:M15",
+    "file": "dso_M15.json",
+    "titleKo": "M15",
+    "confidence": "low",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 272,
+      "story": 369,
+      "howToFind": 152
+    }
+  },
+  {
+    "id": "dso:NGC869",
+    "file": "dso_NGC869.json",
+    "titleKo": "이중성단(h)",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 24,
+      "summary": 270,
+      "story": 353,
+      "howToFind": 166
+    }
+  },
+  {
+    "id": "dso:NGC884",
+    "file": "dso_NGC884.json",
+    "titleKo": "이중성단(χ)",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 275,
+      "story": 360,
+      "howToFind": 164
+    }
+  },
+  {
+    "id": "dso:M51",
+    "file": "dso_M51.json",
+    "titleKo": "소용돌이은하",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 280,
+      "story": 368,
+      "howToFind": 168
+    }
+  },
+  {
+    "id": "star:HIP30438",
+    "file": "star_HIP30438.json",
+    "titleKo": "카노푸스",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 260,
+      "story": 355,
+      "howToFind": 183
+    }
+  },
+  {
+    "id": "star:HIP37279",
+    "file": "star_HIP37279.json",
+    "titleKo": "프로키온",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 270,
+      "story": 360,
+      "howToFind": 136
+    }
+  },
+  {
+    "id": "star:HIP37826",
+    "file": "star_HIP37826.json",
+    "titleKo": "폴룩스",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 276,
+      "story": 337,
+      "howToFind": 128
+    }
+  },
+  {
+    "id": "star:HIP113368",
+    "file": "star_HIP113368.json",
+    "titleKo": "포말하우트",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 36,
+      "summary": 265,
+      "story": 361,
+      "howToFind": 141
+    }
+  },
+  {
+    "id": "star:HIP49669",
+    "file": "star_HIP49669.json",
+    "titleKo": "레굴루스",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 34,
+      "summary": 266,
+      "story": 347,
+      "howToFind": 131
+    }
+  },
+  {
+    "id": "star:HIP36850",
+    "file": "star_HIP36850.json",
+    "titleKo": "카스토르",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 275,
+      "story": 344,
+      "howToFind": 146
+    }
+  },
+  {
+    "id": "star:HIP65378",
+    "file": "star_HIP65378.json",
+    "titleKo": "미자르",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 268,
+      "story": 359,
+      "howToFind": 127
+    }
+  },
+  {
+    "id": "star:HIP14576",
+    "file": "star_HIP14576.json",
+    "titleKo": "알골",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 268,
+      "story": 354,
+      "howToFind": 154
+    }
+  },
+  {
+    "id": "star:HIP10826",
+    "file": "star_HIP10826.json",
+    "titleKo": "미라",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 280,
+      "story": 372,
+      "howToFind": 152
+    }
+  },
+  {
+    "id": "star:HIP54061",
+    "file": "star_HIP54061.json",
+    "titleKo": "두베",
+    "confidence": "low",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 274,
+      "story": 362,
+      "howToFind": 148
+    }
+  },
+  {
+    "id": "star:HIP67301",
+    "file": "star_HIP67301.json",
+    "titleKo": "알카이드",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 278,
+      "story": 392,
+      "howToFind": 148
+    }
+  },
+  {
+    "id": "star:HIP26727",
+    "file": "star_HIP26727.json",
+    "titleKo": "알니탁",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 278,
+      "story": 351,
+      "howToFind": 123
+    }
+  },
+  {
+    "id": "star:HIP26311",
+    "file": "star_HIP26311.json",
+    "titleKo": "알닐람",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 34,
+      "summary": 270,
+      "story": 364,
+      "howToFind": 125
+    }
+  },
+  {
+    "id": "star:HIP25930",
+    "file": "star_HIP25930.json",
+    "titleKo": "민타카",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 284,
+      "story": 379,
+      "howToFind": 127
+    }
+  },
+  {
+    "id": "star:HIP25336",
+    "file": "star_HIP25336.json",
+    "titleKo": "벨라트릭스",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 269,
+      "story": 353,
+      "howToFind": 109
+    }
+  },
+  {
+    "id": "star:HIP9884",
+    "file": "star_HIP9884.json",
+    "titleKo": "하말",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 274,
+      "story": 378,
+      "howToFind": 133
+    }
+  },
+  {
+    "id": "star:HIP72607",
+    "file": "star_HIP72607.json",
+    "titleKo": "코카브",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 278,
+      "story": 375,
+      "howToFind": 136
+    }
+  },
+  {
+    "id": "const:Ari",
+    "file": "const_Ari.json",
+    "titleKo": "양자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 26,
+      "summary": 280,
+      "story": 363,
+      "howToFind": 135
+    }
+  },
+  {
+    "id": "const:Tau",
+    "file": "const_Tau.json",
+    "titleKo": "황소자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 273,
+      "story": 370,
+      "howToFind": 135
+    }
+  },
+  {
+    "id": "const:Gem",
+    "file": "const_Gem.json",
+    "titleKo": "쌍둥이자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 278,
+      "story": 342,
+      "howToFind": 124
+    }
+  },
+  {
+    "id": "const:Cnc",
+    "file": "const_Cnc.json",
+    "titleKo": "게자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 293,
+      "story": 383,
+      "howToFind": 118
+    }
+  },
+  {
+    "id": "const:Leo",
+    "file": "const_Leo.json",
+    "titleKo": "사자자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 31,
+      "summary": 285,
+      "story": 382,
+      "howToFind": 135
+    }
+  },
+  {
+    "id": "const:Vir",
+    "file": "const_Vir.json",
+    "titleKo": "처녀자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 280,
+      "story": 358,
+      "howToFind": 141
+    }
+  },
+  {
+    "id": "const:Lib",
+    "file": "const_Lib.json",
+    "titleKo": "천칭자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 282,
+      "story": 377,
+      "howToFind": 119
+    }
+  },
+  {
+    "id": "const:Sco",
+    "file": "const_Sco.json",
+    "titleKo": "전갈자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 283,
+      "story": 351,
+      "howToFind": 130
+    }
+  },
+  {
+    "id": "const:Sgr",
+    "file": "const_Sgr.json",
+    "titleKo": "궁수자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 292,
+      "story": 366,
+      "howToFind": 127
+    }
+  },
+  {
+    "id": "const:Cap",
+    "file": "const_Cap.json",
+    "titleKo": "염소자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 31,
+      "summary": 285,
+      "story": 378,
+      "howToFind": 118
+    }
+  },
+  {
+    "id": "const:Aqr",
+    "file": "const_Aqr.json",
+    "titleKo": "물병자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 286,
+      "story": 376,
+      "howToFind": 131
+    }
+  },
+  {
+    "id": "const:Psc",
+    "file": "const_Psc.json",
+    "titleKo": "물고기자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 31,
+      "summary": 286,
+      "story": 386,
+      "howToFind": 139
+    }
+  },
+  {
+    "id": "const:Ori",
+    "file": "const_Ori.json",
+    "titleKo": "오리온자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 278,
+      "story": 373,
+      "howToFind": 132
+    }
+  },
+  {
+    "id": "const:UMa",
+    "file": "const_UMa.json",
+    "titleKo": "큰곰자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 281,
+      "story": 358,
+      "howToFind": 115
+    }
+  },
+  {
+    "id": "const:UMi",
+    "file": "const_UMi.json",
+    "titleKo": "작은곰자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 279,
+      "story": 351,
+      "howToFind": 130
+    }
+  },
+  {
+    "id": "const:Cas",
+    "file": "const_Cas.json",
+    "titleKo": "카시오페이아자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 31,
+      "summary": 280,
+      "story": 354,
+      "howToFind": 123
+    }
+  },
+  {
+    "id": "const:Cyg",
+    "file": "const_Cyg.json",
+    "titleKo": "백조자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 24,
+      "summary": 282,
+      "story": 373,
+      "howToFind": 134
+    }
+  },
+  {
+    "id": "const:Lyr",
+    "file": "const_Lyr.json",
+    "titleKo": "거문고자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 289,
+      "story": 362,
+      "howToFind": 122
+    }
+  },
+  {
+    "id": "const:Aql",
+    "file": "const_Aql.json",
+    "titleKo": "독수리자리",
+    "confidence": "medium",
+    "needsReview": 2,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 285,
+      "story": 374,
+      "howToFind": 133
+    }
+  },
+  {
+    "id": "const:Peg",
+    "file": "const_Peg.json",
+    "titleKo": "페가수스자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 292,
+      "story": 367,
+      "howToFind": 118
+    }
+  },
+  {
+    "id": "const:And",
+    "file": "const_And.json",
+    "titleKo": "안드로메다자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 286,
+      "story": 369,
+      "howToFind": 119
+    }
+  },
+  {
+    "id": "const:Per",
+    "file": "const_Per.json",
+    "titleKo": "페르세우스자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 36,
+      "summary": 290,
+      "story": 375,
+      "howToFind": 127
+    }
+  },
+  {
+    "id": "const:Aur",
+    "file": "const_Aur.json",
+    "titleKo": "마차부자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 290,
+      "story": 365,
+      "howToFind": 122
+    }
+  },
+  {
+    "id": "const:CMa",
+    "file": "const_CMa.json",
+    "titleKo": "큰개자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 34,
+      "summary": 269,
+      "story": 374,
+      "howToFind": 130
+    }
+  },
+  {
+    "id": "const:CMi",
+    "file": "const_CMi.json",
+    "titleKo": "작은개자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 275,
+      "story": 373,
+      "howToFind": 108
+    }
+  },
+  {
+    "id": "const:Her",
+    "file": "const_Her.json",
+    "titleKo": "허큘리스자리",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 266,
+      "story": 372,
+      "howToFind": 118
+    }
+  },
+  {
+    "id": "const:Boo",
+    "file": "const_Boo.json",
+    "titleKo": "목동자리",
+    "confidence": "medium",
+    "needsReview": 3,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 265,
+      "story": 376,
+      "howToFind": 113
+    }
+  },
+  {
+    "id": "const:Dra",
+    "file": "const_Dra.json",
+    "titleKo": "용자리",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 31,
+      "summary": 261,
+      "story": 372,
+      "howToFind": 120
+    }
+  },
+  {
+    "id": "const:Cet",
+    "file": "const_Cet.json",
+    "titleKo": "고래자리",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 271,
+      "story": 393,
+      "howToFind": 120
+    }
+  },
+  {
+    "id": "const:Cru",
+    "file": "const_Cru.json",
+    "titleKo": "남십자자리",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 277,
+      "story": 380,
+      "howToFind": 120
+    }
+  },
+  {
+    "id": "dso:M32",
+    "file": "dso_M32.json",
+    "titleKo": "M32",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 278,
+      "story": 401,
+      "howToFind": 117
+    }
+  },
+  {
+    "id": "dso:M110",
+    "file": "dso_M110.json",
+    "titleKo": "M110",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 31,
+      "summary": 280,
+      "story": 403,
+      "howToFind": 98
+    }
+  },
+  {
+    "id": "dso:M33",
+    "file": "dso_M33.json",
+    "titleKo": "삼각형자리은하",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 34,
+      "summary": 275,
+      "story": 384,
+      "howToFind": 110
+    }
+  },
+  {
+    "id": "dso:M43",
+    "file": "dso_M43.json",
+    "titleKo": "드 메랑 성운",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 281,
+      "story": 394,
+      "howToFind": 105
+    }
+  },
+  {
+    "id": "dso:M92",
+    "file": "dso_M92.json",
+    "titleKo": "M92",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 271,
+      "story": 388,
+      "howToFind": 127
+    }
+  },
+  {
+    "id": "dso:M101",
+    "file": "dso_M101.json",
+    "titleKo": "바람개비은하",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 274,
+      "story": 394,
+      "howToFind": 115
+    }
+  },
+  {
+    "id": "dso:M104",
+    "file": "dso_M104.json",
+    "titleKo": "솜브레로은하",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 269,
+      "story": 393,
+      "howToFind": 120
+    }
+  },
+  {
+    "id": "dso:M8",
+    "file": "dso_M8.json",
+    "titleKo": "라군성운",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 271,
+      "story": 392,
+      "howToFind": 106
+    }
+  },
+  {
+    "id": "dso:M20",
+    "file": "dso_M20.json",
+    "titleKo": "삼렬성운",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 27,
+      "summary": 259,
+      "story": 388,
+      "howToFind": 103
+    }
+  },
+  {
+    "id": "dso:M17",
+    "file": "dso_M17.json",
+    "titleKo": "오메가성운",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 264,
+      "story": 397,
+      "howToFind": 110
+    }
+  },
+  {
+    "id": "dso:M16",
+    "file": "dso_M16.json",
+    "titleKo": "독수리성운",
+    "confidence": "low",
+    "needsReview": 6,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 282,
+      "story": 391,
+      "howToFind": 99
+    }
+  },
+  {
+    "id": "dso:M22",
+    "file": "dso_M22.json",
+    "titleKo": "M22",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 277,
+      "story": 398,
+      "howToFind": 101
+    }
+  },
+  {
+    "id": "dso:M11",
+    "file": "dso_M11.json",
+    "titleKo": "야생오리성단",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 266,
+      "story": 374,
+      "howToFind": 110
+    }
+  },
+  {
+    "id": "dso:M6",
+    "file": "dso_M6.json",
+    "titleKo": "나비성단",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 287,
+      "story": 378,
+      "howToFind": 119
+    }
+  },
+  {
+    "id": "dso:M7",
+    "file": "dso_M7.json",
+    "titleKo": "프톨레마이오스성단",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 264,
+      "story": 400,
+      "howToFind": 111
+    }
+  },
+  {
+    "id": "dso:M36",
+    "file": "dso_M36.json",
+    "titleKo": "M36",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 31,
+      "summary": 266,
+      "story": 399,
+      "howToFind": 110
+    }
+  },
+  {
+    "id": "dso:M38",
+    "file": "dso_M38.json",
+    "titleKo": "M38",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 264,
+      "story": 415,
+      "howToFind": 118
+    }
+  },
+  {
+    "id": "dso:M41",
+    "file": "dso_M41.json",
+    "titleKo": "M41",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 279,
+      "story": 393,
+      "howToFind": 110
+    }
+  },
+  {
+    "id": "dso:M46",
+    "file": "dso_M46.json",
+    "titleKo": "M46",
+    "confidence": "medium",
+    "needsReview": 7,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 276,
+      "story": 411,
+      "howToFind": 118
+    }
+  },
+  {
+    "id": "dso:M47",
+    "file": "dso_M47.json",
+    "titleKo": "M47",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 274,
+      "story": 415,
+      "howToFind": 111
+    }
+  },
+  {
+    "id": "dso:M67",
+    "file": "dso_M67.json",
+    "titleKo": "M67",
+    "confidence": "medium",
+    "needsReview": 4,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 270,
+      "story": 395,
+      "howToFind": 115
+    }
+  },
+  {
+    "id": "dso:M2",
+    "file": "dso_M2.json",
+    "titleKo": "M2",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 272,
+      "story": 392,
+      "howToFind": 118
+    }
+  },
+  {
+    "id": "dso:M39",
+    "file": "dso_M39.json",
+    "titleKo": "M39",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 275,
+      "story": 401,
+      "howToFind": 107
+    }
+  },
+  {
+    "id": "dso:M103",
+    "file": "dso_M103.json",
+    "titleKo": "M103",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 280,
+      "story": 402,
+      "howToFind": 113
+    }
+  },
+  {
+    "id": "dso:M4",
+    "file": "dso_M4.json",
+    "titleKo": "M4",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 29,
+      "summary": 266,
+      "story": 404,
+      "howToFind": 102
+    }
+  },
+  {
+    "id": "dso:M10",
+    "file": "dso_M10.json",
+    "titleKo": "M10",
+    "confidence": "low",
+    "needsReview": 6,
+    "chars": {
+      "oneLiner": 34,
+      "summary": 272,
+      "story": 384,
+      "howToFind": 124
+    }
+  },
+  {
+    "id": "dso:M12",
+    "file": "dso_M12.json",
+    "titleKo": "M12",
+    "confidence": "low",
+    "needsReview": 6,
+    "chars": {
+      "oneLiner": 31,
+      "summary": 281,
+      "story": 402,
+      "howToFind": 102
+    }
+  },
+  {
+    "id": "dso:M29",
+    "file": "dso_M29.json",
+    "titleKo": "M29",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 28,
+      "summary": 272,
+      "story": 380,
+      "howToFind": 111
+    }
+  },
+  {
+    "id": "dso:M34",
+    "file": "dso_M34.json",
+    "titleKo": "M34",
+    "confidence": "medium",
+    "needsReview": 6,
+    "chars": {
+      "oneLiner": 25,
+      "summary": 268,
+      "story": 390,
+      "howToFind": 99
+    }
+  },
+  {
+    "id": "dso:M52",
+    "file": "dso_M52.json",
+    "titleKo": "M52",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 33,
+      "summary": 266,
+      "story": 396,
+      "howToFind": 120
+    }
+  },
+  {
+    "id": "dso:M78",
+    "file": "dso_M78.json",
+    "titleKo": "M78",
+    "confidence": "medium",
+    "needsReview": 6,
+    "chars": {
+      "oneLiner": 32,
+      "summary": 278,
+      "story": 411,
+      "howToFind": 103
+    }
+  },
+  {
+    "id": "dso:NGC7000",
+    "file": "dso_NGC7000.json",
+    "titleKo": "북아메리카성운",
+    "confidence": "low",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 37,
+      "summary": 276,
+      "story": 410,
+      "howToFind": 126
+    }
+  },
+  {
+    "id": "dso:NGC457",
+    "file": "dso_NGC457.json",
+    "titleKo": "ET성단",
+    "confidence": "medium",
+    "needsReview": 5,
+    "chars": {
+      "oneLiner": 34,
+      "summary": 280,
+      "story": 427,
+      "howToFind": 108
+    }
+  },
+  {
+    "id": "dso:NGC7009",
+    "file": "dso_NGC7009.json",
+    "titleKo": "토성성운",
+    "confidence": "low",
+    "needsReview": 6,
+    "chars": {
+      "oneLiner": 30,
+      "summary": 282,
+      "story": 376,
+      "howToFind": 131
+    }
+  }
+]

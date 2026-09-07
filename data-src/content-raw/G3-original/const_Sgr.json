@@ -1,0 +1,108 @@
+{
+  "id": "const:Sgr",
+  "version": 1,
+  "title": {
+    "ko": "궁수자리",
+    "en": "Sagittarius"
+  },
+  "oneLiner": {
+    "ko": "남쪽 주전자에서 은하수 중심 방향의 하늘을 찾아요"
+  },
+  "summary": {
+    "ko": "궁수자리는 여름 남쪽 하늘의 주전자 모양 별무리로 찾기 좋은 별자리입니다. 전갈자리의 동쪽, 독수리자리보다 남쪽 구역에서 길잡이를 잡을 수 있습니다. 이 방향은 우리은하 중심을 바라보는 쪽과 연결되지만 주전자 별 자체가 은하 중심에 모여 있다는 뜻은 아닙니다. 어두운 하늘에서는 풍부한 은하수 배경을 살펴볼 수 있으나 도시에서는 별자리 일부만 드러날 수 있습니다. 한국 중부의 낮은 남쪽 하늘에서는 지형과 광해를 먼저 확인하세요. 큰 궁수 그림 전체보다 주전자 형태를 익힌 뒤 개별 성단과 성운으로 확장하는 편이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Sgr; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Sgr",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Sagittarii",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "안타레스, 알타이르, 주전자 무늬",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP80763, star:HIP97649, const:Sco; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "궁수; 찾기에는 주전자 모양 사용",
+      "source": "NSF NOIRLab — Sagittarius — https://noirlab.edu/public/education/constellations/sagittarius/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "여름 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "주전자에서 김이 나는 듯한 은하수라는 비유는 궁수자리 방향을 기억하게 해 줍니다. 한국천문연구원의 소개도 주전자 모양과 그 주변 은하수를 길잡이로 설명합니다. 그러나 보이는 밝은 띠를 중심 블랙홀의 모습이라고 부를 수는 없습니다. NASA의 은하 중심 관측은 눈에 보이는 별무리와 다른 파장, 다른 장비를 이용해 가려진 곳을 연구합니다. 오늘의 관측에서는 먼저 주전자의 뚜껑과 손잡이 같은 부분을 식별하고 은하수의 빛이 실제로 보이는지 따로 적어 보세요. 주전자 별들이 보였지만 은하수는 보이지 않았다는 기록도 정확한 결과입니다. 문화적 그림, 맨눈의 빛, 연구 영상의 대상을 구별하면 같은 방향에 겹쳐 있는 서로 다른 규모의 우주를 이해하기 쉬워집니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Sagittarius — https://noirlab.edu/public/education/constellations/sagittarius/",
+      "한국천문연구원 — 궁수자리 — https://www.kasi.re.kr/kor/publication/post/photoGallery/4269?cPage=4&clsf_cd=photo005",
+      "NASA/JPL — Telescopes Get Extraordinary View of Milky Way’s Black Hole — https://www.jpl.nasa.gov/edu/resources/teachable-moment/telescopes-get-extraordinary-view-of-milky-ways-black-hole/",
+      "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 저녁 안타레스에서 천구의 동쪽으로 이동하고 알타이르보다 남쪽인 구역을 지도와 맞추세요. 궁수자리의 주전자 모양을 먼저 찾은 뒤 주변의 은하수 방향을 확인합니다. 낮은 남쪽 부분은 별마다 고도와 지형 가림을 따로 점검합니다.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP80763",
+      "star:HIP97649",
+      "const:Sco"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 주전자 주요 별 일부를 찾는 수준일 수 있습니다. 은하수의 밝은 배경은 어두운 하늘과 낮은 달빛이 필요합니다.",
+    "binoculars": "10×50으로 주전자와 주변 별무리를 구역별로 탐색합니다. 성단이나 성운을 보았다면 별도의 대상 ID와 대조하세요.",
+    "telescope": "90mm 20~80배로 선정한 개별 대상을 관측합니다. 중심 블랙홀이나 사진 같은 은하수 전경을 직접 보는 장비가 아닙니다.",
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Sgr; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Sagittarius — https://noirlab.edu/public/education/constellations/sagittarius/",
+    "한국천문연구원 — 궁수자리 — https://www.kasi.re.kr/kor/publication/post/photoGallery/4269?cPage=4&clsf_cd=photo005",
+    "NASA/JPL — Telescopes Get Extraordinary View of Milky Way’s Black Hole — https://www.jpl.nasa.gov/edu/resources/teachable-moment/telescopes-get-extraordinary-view-of-milky-ways-black-hole/",
+    "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — const:Sgr; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Sgr; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP80763, star:HIP97649, const:Sco; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP80763, star:HIP97649, const:Sco; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "주전자와 남두육성은 별자리 전체와 범위가 다릅니다. 정확한 성군 선분 데이터는 별도의 전통 별자리 스키마에서 관리해야 합니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ]
+  },
+  "koreanTradition": {
+    "note": "한국천문연구원 자료는 궁수자리 일부의 여섯 별로 만든 국자 무늬를 남두육성이라 설명합니다. 궁수자리 전체나 북두칠성과 동일한 대상이 아니며 한 별의 고유명으로 합치지 않습니다.",
+    "sources": [
+      "한국천문연구원 — 궁수자리 — https://www.kasi.re.kr/kor/publication/post/photoGallery/4269?cPage=4&clsf_cd=photo005"
+    ]
+  }
+}

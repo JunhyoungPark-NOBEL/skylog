@@ -1,0 +1,98 @@
+{
+  "id": "const:CMa",
+  "version": 1,
+  "title": {
+    "ko": "큰개자리",
+    "en": "Canis Major"
+  },
+  "oneLiner": {
+    "ko": "시리우스에서 큰개의 윤곽과 남쪽 성단으로 이어지는 겨울 길잡이"
+  },
+  "summary": {
+    "ko": "큰개자리는 겨울 밤하늘에서 시리우스를 기준으로 찾는 별자리입니다. 오리온의 허리띠를 따라 시리우스를 확인한 뒤 그 주위와 남쪽의 별들로 탐색을 넓혀 보세요. 큰개의 그림은 별을 기억하기 위한 전통적인 표현이며, 현대 별자리는 경계로 정한 하늘 영역입니다. 같은 영역의 M41은 시리우스와 다른 관측 대상인 산개성단입니다. 도시에서는 밝은 시리우스와 약한 별무리의 보이는 정도가 크게 다를 수 있습니다. 낮은 남쪽을 가리는 건물과 가로등을 피해 큰 배치를 먼저 익히는 편이 좋습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 경계로 정한 하늘의 영역; 단일 천체가 아님",
+      "source": "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "CMa",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Canis Majoris",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "대표 그림·길잡이 무늬",
+      "value": "오리온을 따르는 큰개",
+      "source": "NSF NOIRLab — canismajor — https://noirlab.edu/public/education/constellations/canismajor/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님"
+    },
+    {
+      "label": "찾기의 기준",
+      "value": "오리온자리 / 시리우스",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: const:Ori, star:HIP32349, dso:M41"
+    },
+    {
+      "label": "관측 계절 안내",
+      "value": "겨울 — 편집 분류, 실시간 가시성 보장 아님",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    }
+  ],
+  "story": {
+    "ko": "그리스·로마 계통의 하늘 그림에서는 큰개자리와 작은개자리를 사냥꾼 오리온을 따르는 개로 나타냅니다. 이 이야기는 별들의 상대적인 위치를 기억하게 하지만, 하늘에 실제로 같은 거리에 놓인 사냥꾼과 개가 있다는 뜻은 아닙니다. 시리우스를 찾은 뒤 주변 별을 이어 볼 때에도 우리가 보고 있는 것은 지구에서 바라본 방향의 배열입니다. 별자리 그림과 천체 자체를 구분하면 같은 큰개자리 안의 M41이 왜 별도의 이름과 관측 기록을 갖는지 이해하기 쉽습니다. 오늘은 시리우스만 보았는지, 큰개의 주요 별 배열까지 확인했는지, 성단을 따로 검출했는지를 나누어 기록해 보세요. 하나의 이야기 지도를 세 가지 관측 단계로 바꾸면 익숙한 겨울 하늘에서도 다음 목표를 찾을 수 있습니다.",
+    "cultures": [
+      "그리스·로마"
+    ],
+    "sources": [
+      "NSF NOIRLab — canismajor — https://noirlab.edu/public/education/constellations/canismajor/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁 오리온의 허리띠 세 별을 찾고 그 줄을 남동쪽으로 연장해 밝은 시리우스를 확인합니다. 시리우스 남쪽으로 지도에 표시된 큰개자리 주요 별들을 대조하세요. M41은 시리우스에서 천구의 남쪽으로 약 4° 떨어진 별도 목표입니다.",
+    "season": "winter",
+    "hopFrom": [
+      "const:Ori",
+      "star:HIP32349",
+      "dso:M41"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 시리우스가 출발점이 됩니다. 남쪽의 약한 별은 건물과 광해에 가릴 수 있습니다.",
+    "binoculars": "10×50으로 시리우스 주변과 M41 구역을 따로 살핍니다. 밝은 별 하나를 성단 전체의 검출로 기록하지 않습니다.",
+    "telescope": "90mm 20~80배로는 별자리 전체가 아니라 M41 같은 개별 대상을 선택하세요. 시리우스의 동반성 분리를 이 장비 범위의 입문 목표로 약속하지 않습니다.",
+    "difficulty": 1,
+    "bestMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:CMa; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Ori, star:HIP32349, dso:M41; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — canismajor — https://noirlab.edu/public/education/constellations/canismajor/",
+    "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+    "NSF NOIRLab — canismajor — https://noirlab.edu/public/education/constellations/canismajor/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 catalog-values.v1.csv — 연계 행: const:Ori, star:HIP32349, dso:M41",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 RA/Dec는 대표 좌표입니다. 별자리 전체의 가시성·거리·등급·각크기를 이 한 점으로 판단하거나 누락 숫자를 만들어 넣지 않았습니다."
+    ]
+  }
+}

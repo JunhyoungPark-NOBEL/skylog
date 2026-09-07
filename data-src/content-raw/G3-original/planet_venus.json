@@ -1,0 +1,98 @@
+{
+  "id": "planet:venus",
+  "version": 1,
+  "title": {
+    "ko": "금성",
+    "en": "Venus",
+    "alt": [
+      "샛별",
+      "개밥바라기"
+    ]
+  },
+  "oneLiner": {
+    "ko": "밝은 빛점 속에서 달처럼 변하는 위상을 찾는 행성"
+  },
+  "summary": {
+    "ko": "금성은 지구보다 안쪽 궤도를 돌아 새벽이나 저녁 하늘에서 밝게 보이는 행성입니다. 밝기는 구름이 햇빛을 잘 반사하는 성질과 지구와의 배치에 영향을 받습니다. 맨눈으로는 빛점이지만 망원경에서는 반달이나 초승달 같은 위상을 보일 수 있습니다. 구름이 두껍게 덮여 있어 소형 망원경으로 단단한 지표면을 보지는 못합니다. 태양과 가까운 방향에 있으므로 해가 진 뒤 안전한 시간에 관측하세요. 밤새 보이는 대상은 아니며, 관측하기 좋은 달도 해마다 달라집니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "암석 행성",
+      "source": "https://science.nasa.gov/venus/venus-facts/"
+    },
+    {
+      "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+      "value": "약 0.72 AU; 지구에서의 거리가 아님",
+      "source": "https://science.nasa.gov/venus/venus-facts/"
+    },
+    {
+      "label": "공전 주기",
+      "value": "약 225일",
+      "source": "https://science.nasa.gov/venus/venus-facts/"
+    },
+    {
+      "label": "자전 주기",
+      "value": "약 243일, 대부분의 행성과 반대 방향",
+      "source": "https://science.nasa.gov/venus/venus-facts/"
+    },
+    {
+      "label": "관측 특징",
+      "value": "달과 비슷한 위상 변화",
+      "source": "https://science.nasa.gov/venus/venus-facts/"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "시기별로 변함(첨부 값: variable)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:venus)"
+    }
+  ],
+  "story": {
+    "ko": "한국에서는 새벽에 보이는 금성을 샛별, 저녁에 보이는 금성을 개밥바라기라고 부릅니다. 이름이 달라도 서로 다른 두 별이 아니라 같은 행성을 가리킵니다. 그리스·로마 문화권의 Venus는 사랑과 아름다움의 여신에서 왔지만, 실제 금성은 두꺼운 대기가 열을 가두는 뜨거운 세계입니다. 과학사에서는 갈릴레오가 망원경으로 확인한 여러 위상이 금성이 태양 주위를 돈다는 설명을 뒷받침했습니다. 오늘의 작은 망원경으로도 이 변화의 일부를 따라갈 수 있습니다. 같은 배율로 날짜를 바꾸어 그리면 밝은 면의 비율과 겉보기 크기가 함께 달라지는 것을 비교할 수 있습니다. 관측 기록에 샛별인지 저녁 금성인지도 남겨 보세요. 이름과 관측 시각, 작은 원반의 변화가 하나의 행성으로 연결됩니다.",
+    "cultures": [
+      "한국",
+      "그리스·로마",
+      "기타"
+    ],
+    "sources": [
+      "한국천문연구원 — 금성과 목성의 접근; 샛별·개밥바라기 명칭 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4300",
+      "NASA — Venus Facts | https://science.nasa.gov/venus/venus-facts/",
+      "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ]
+  },
+  "howToFind": {
+    "ko": "계절에 맞춰 별자리를 고정하지 말고 앱에서 금성이 저녁과 새벽 중 언제 보이는지 확인하세요. 저녁 관측이 가능한 때, 해가 완전히 진 뒤 서쪽 하늘의 매우 밝은 빛점을 찾습니다. 그날 금성 주변의 황도(태양이 하늘에서 지나는 길) 주변 별자리와 밝은 별의 배치를 지도와 비교하세요. 태양과 너무 가깝거나 지평선에 걸리면 관측을 건너뜁니다.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "도시에서도 밝은 빛점으로 쉽게 보일 때가 많습니다. 맨눈으로 위상이나 표면을 구별하는 것은 기본 목표가 아닙니다.",
+    "binoculars": "10×50에서는 주로 매우 밝은 점으로 보입니다. 큰 초승달 위상일 때 삼각대에 고정하면 모양이 길어 보일 수 있으나 분명한 위상을 보장하지 않습니다.",
+    "telescope": "90mm, 20~80배에서는 조건에 따라 반달 또는 초승달 모양을 구별할 수 있습니다. 구름 너머 지표면은 보이지 않으며 대기의 흔들림과 눈부심이 영향을 줍니다.",
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:venus)",
+    "NASA — Venus Facts | https://science.nasa.gov/venus/venus-facts/",
+    "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+    "한국천문연구원 — 금성과 목성의 접근; 샛별·개밥바라기 명칭 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4300",
+    "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high"
+  },
+  "funFacts": [
+    "금성은 자전 한 바퀴에 걸리는 시간이 공전 한 바퀴보다 깁니다.",
+    "위상이 가늘어질 때 겉보기 크기는 오히려 커질 수 있습니다."
+  ],
+  "koreanTradition": {
+    "name": "샛별·개밥바라기",
+    "note": "한국어 하늘 안내에서 새벽 금성은 샛별, 저녁 금성은 개밥바라기로 부릅니다. 두 이름은 서로 다른 천체가 아니라 보이는 때에 따른 같은 행성의 이름입니다.",
+    "sources": [
+      "한국천문연구원 — 금성과 목성의 접근; 샛별·개밥바라기 명칭 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4300"
+    ]
+  },
+  "safety": "금성을 찾으려고 낮에 무필터 쌍안경이나 망원경으로 태양 근처를 훑지 마세요. 입문자는 일몰 후 관측하고 새벽에는 일출 전에 종료하세요."
+}

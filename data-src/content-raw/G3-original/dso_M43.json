@@ -1,0 +1,95 @@
+{
+  "id": "dso:M43",
+  "version": 1,
+  "title": {
+    "ko": "드 메랑 성운",
+    "en": "De Mairan's Nebula"
+  },
+  "oneLiner": {
+    "ko": "오리온대성운 옆에서 먼지 띠로 나뉜 또 하나의 별 탄생 구름"
+  },
+  "summary": {
+    "ko": "M43은 오리온대성운 M42 바로 곁에 보이는 발광 성운입니다. 두 영역 사이의 어두운 먼지 때문에 별개의 작은 구름처럼 보이며, 더 큰 오리온 별 탄생 환경과 연결됩니다. 맨눈으로 M42와 분리해 확인하기는 어렵고, 망원경에서 위치를 좁힌 뒤 작은 별 주변의 흐린 빛을 살피는 편이 좋습니다. 도시에서는 M42가 분명해도 M43의 퍼짐은 약할 수 있습니다. 같은 시야의 밝은 별을 보았다는 것과 성운 자체를 검출했다는 것을 구분하세요. 사진의 붉은색과 선명한 경계는 접안 관측의 필수 조건이 아닙니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "전리수소 영역의 발광 성운",
+      "source": "첨부 catalog-values.v1.csv — dso:M43; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 43 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-43/"
+    },
+    {
+      "label": "별자리",
+      "value": "오리온자리 (Ori)",
+      "source": "첨부 catalog-values.v1.csv — dso:M43; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "9등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M43; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "20′ × 15′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M43; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(외부 소개값)",
+      "value": "약 1,600광년 — 첨부 빈칸; 해당 출처의 추정",
+      "source": "NASA — Messier 43 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-43/"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M43",
+      "source": "첨부 catalog-values.v1.csv — dso:M43; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "드 메랑의 이름으로도 알려진 M43은 하늘에서 가깝게 보이는 성운들을 어떻게 구분하는지 보여 줍니다. M42와 이어지는 거대한 별 탄생 환경 속에서도 앞쪽의 먼지 띠는 빛을 가려 서로 떨어진 구역처럼 보이게 합니다. 어두운 부분은 언제나 물질이 없는 구멍을 뜻하지 않습니다. 오히려 뒤의 빛을 차단하는 물질이 있을 수 있습니다. 이곳의 뜨거운 별은 주변 기체를 밝히고 그 모양에도 영향을 줍니다. 관측에서는 M42의 밝은 중심에서 시선을 조금 옮겨 M43의 별 주변에 퍼진 빛이 있는지 확인해 보세요. 별 자체와 성운의 검출을 따로 적으면 작은 구름을 보았는지 판단하기 쉬워집니다. 두 이름을 외우는 것에서 나아가 밝은 기체와 어두운 먼지가 한 시야에서 서로 다른 역할을 한다는 사실을 익힐 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 43 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-43/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울에 오리온의 검에서 M42를 찾습니다. 중심에서 천구의 북쪽으로 약 0.14° 떨어진 M43 위치를 지도와 대조합니다. 작은 별 주변의 흐린 빛을 확인하고 M42의 바깥빛과 구분합니다.",
+    "season": "winter",
+    "hopFrom": [
+      "dso:M42",
+      "const:Ori"
+    ]
+  },
+  "observing": {
+    "nakedEye": "M42와 독립된 구름으로 맨눈 분리하는 목표로 삼지 않습니다.",
+    "binoculars": "10×50에서는 M42 주변의 별과 빛이 섞일 수 있습니다. M43의 성운을 별도로 검출했다고 성급히 판단하지 않습니다.",
+    "telescope": "90mm 20~80배로 중심별 주변의 작은 성운광을 살핍니다. 도시에서는 흐린 퍼짐이 사라지고 별만 남을 수 있습니다.",
+    "difficulty": 4,
+    "bestMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M43; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: dso:M42, const:Ori; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NASA — Messier 43 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-43/",
+    "첨부 catalog-values.v1.csv — dso:M43; inputs/catalog-values.v1.csv의 원본 행; NASA — Messier 43 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-43/",
+    "첨부 catalog-values.v1.csv — dso:M43; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "원본 거리 빈칸은 유지했습니다. 사실표의 거리는 외부 소개값임을 명시했으며 최신 단일 정답으로 취급하지 않습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

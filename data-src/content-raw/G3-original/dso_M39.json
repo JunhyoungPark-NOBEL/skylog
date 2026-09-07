@@ -1,0 +1,96 @@
+{
+  "id": "dso:M39",
+  "version": 1,
+  "title": {
+    "ko": "M39",
+    "en": "M39"
+  },
+  "oneLiner": {
+    "ko": "데네브 북동쪽의 넓게 흩어진 별무리는 저배율로 살펴요"
+  },
+  "summary": {
+    "ko": "M39는 백조자리의 넓고 성긴 산개성단입니다. 별들이 한 작은 덩어리로만 뭉치지 않아 망원경을 확대하기 전에 넓은 배열을 확인하는 편이 좋습니다. 데네브를 출발점으로 지도에서 위치를 좁혀 가며 주변 은하수 별밭과 구분하세요. 도시에서는 밝은 점 몇 개만 남을 수 있어 성단의 외곽이 애매해질 수 있습니다. 10×50이나 90mm의 낮은 배율로 별들의 간격을 기록하고, 고배율에서 일부만 잘려 보이면 시야각을 다시 확인하세요. 눈에 보이는 별 모두가 구성원인지까지 관측만으로 확정하지 않습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행; NSF NOIRLab — M39 — https://noirlab.edu/public/images/noao-m39/"
+    },
+    {
+      "label": "별자리",
+      "value": "백조자리 (Cyg)",
+      "source": "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "4.6등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "19.5′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "977광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M39",
+      "source": "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "산개성단이라는 말을 들으면 별들이 가운데로 모인 작은 덩어리를 떠올리기 쉽습니다. NOIRLab이 소개하는 M39처럼 별들이 넓게 흩어져 보이는 성단도 있습니다. 밝은 별 몇 개가 눈에 띄는 배열에서는 오히려 주변의 일반 별밭과 경계를 구분하는 일이 관측의 핵심이 됩니다. 높은 배율로 점 하나를 크게 보는 것보다 전체 배열을 함께 보는 방법이 더 유용할 수 있습니다. 먼저 넓은 지도에서 위치를 확인하고 실제 시야에 들어오는 밝은 점들의 배치를 그려 보세요. 그다음 배율을 바꾸어 성단 전체가 얼마나 잘리는지 비교합니다. 눈으로 정한 경계는 공식적인 구성원 목록과 같지 않으므로 보이는 범위라는 말을 붙이는 편이 좋습니다. 큰 장비나 높은 배율이 언제나 더 좋은 성단 관측을 뜻하지 않는다는 점을 배울 수 있습니다.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — M39 — https://noirlab.edu/public/images/noao-m39/"
+    ]
+  },
+  "howToFind": {
+    "ko": "여름 말부터 가을 초의 백조자리에서 데네브를 찾습니다. 지도에서 데네브 북동쪽의 M39를 선택하고 중간 별들을 따라 이동합니다. 넓게 흩어진 배열을 확인한 뒤 임의의 은하수 별밭과 구분하세요.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP102098",
+      "const:Cyg"
+    ]
+  },
+  "observing": {
+    "nakedEye": "어두운 하늘의 약한 별무리 검출과 도시 관측을 구별합니다.",
+    "binoculars": "10×50으로 넓은 배열과 밝은 별 간격을 살핍니다. 손떨림을 줄이고 주변 지도와 비교하세요.",
+    "telescope": "90mm는 20배 부근의 넓은 시야부터 권합니다. 80배에서 일부만 보인다면 배율을 낮춰 전체 관계를 다시 확인합니다.",
+    "difficulty": 2,
+    "bestMonths": [
+      7,
+      8,
+      9
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: star:HIP102098, const:Cyg; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — M39 — https://noirlab.edu/public/images/noao-m39/",
+    "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행; NSF NOIRLab — M39 — https://noirlab.edu/public/images/noao-m39/",
+    "첨부 catalog-values.v1.csv — dso:M39; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ]
+  }
+}

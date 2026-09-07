@@ -1,0 +1,83 @@
+{
+  "id": "planet:mars",
+  "version": 1,
+  "title": {
+    "ko": "화성",
+    "en": "Mars"
+  },
+  "oneLiner": {
+    "ko": "붉은 빛과 계절마다 달라지는 관측 크기를 비교하는 행성"
+  },
+  "summary": {
+    "ko": "화성은 산화철(녹 성분)이 섞인 먼지 때문에 붉게 보이는 암석 행성입니다. 맨눈으로도 색을 비교할 수 있지만 망원경에서 얼마나 크게 보이는지는 지구와의 거리에 크게 좌우됩니다. 충(지구에서 태양의 반대쪽에 놓이는 때) 전후가 대체로 유리하며, 충마다 조건이 같지는 않습니다. 소형 망원경에서는 작은 주황빛 원반이 기본 모습입니다. 가까이 있을 때 대기가 안정되면 극관이나 큰 어두운 무늬를 시도할 수 있지만, 탐사선 사진 같은 지형을 기대하면 실망하기 쉽습니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "암석 행성",
+      "source": "https://science.nasa.gov/mars/facts/"
+    },
+    {
+      "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+      "value": "약 1.5 AU; 지구에서의 거리가 아님",
+      "source": "https://science.nasa.gov/mars/facts/"
+    },
+    {
+      "label": "공전 주기",
+      "value": "약 687일",
+      "source": "https://science.nasa.gov/mars/facts/"
+    },
+    {
+      "label": "붉은색의 주요 원인",
+      "value": "표면 먼지와 암석의 산화철",
+      "source": "https://science.nasa.gov/mars/facts/"
+    },
+    {
+      "label": "자연위성",
+      "value": "포보스와 데이모스",
+      "source": "https://science.nasa.gov/mars/facts/"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "시기별로 변함(첨부 값: variable)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:mars)"
+    }
+  ],
+  "story": {
+    "ko": "그리스·로마 문화권에서 화성의 영어 이름 Mars는 로마의 전쟁 신에서 왔습니다. 붉은 색을 전쟁과 연결한 것은 문화적 해석이며, 현대 과학은 그 색을 표면 물질로 설명합니다. 화성은 행성 운동을 이해하는 데도 흥미로운 대상입니다. 여러 주 동안 주변 별에 대한 위치를 표시하면 이동 방향이 잠시 뒤집히는 역행을 볼 수 있습니다. 화성이 실제 궤도에서 뒤로 달리는 것이 아니라, 더 안쪽 궤도를 도는 지구가 화성을 추월하며 시선 방향이 변하기 때문입니다. 한 번의 관측에서는 빛점이지만, 날짜가 붙은 여러 기록을 모으면 태양계의 입체적인 배치가 드러납니다. 표면 무늬가 보이지 않는 밤에도 위치를 기록할 이유가 여기에 있습니다.",
+    "cultures": [
+      "그리스·로마",
+      "기타"
+    ],
+    "sources": [
+      "NASA — Mars Facts | https://science.nasa.gov/mars/facts/",
+      "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/"
+    ]
+  },
+  "howToFind": {
+    "ko": "관측일의 앱 하늘지도에서 화성이 있는 황도(태양이 하늘에서 지나는 길) 주변 별자리를 확인합니다. 그 별자리의 밝은 별 두세 개를 먼저 맨눈으로 찾고, 지도에 표시된 붉은 빛점과 대조하세요. 붉은 별도 있으므로 색만으로 확정하지 않습니다. 같은 시각에 며칠 간격으로 주변 별과의 위치를 비교하면 도움이 됩니다. 좋은 계절은 해마다 달라집니다.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "도시에서도 관측에 유리한 시기에는 붉거나 주황빛 도는 점으로 보입니다. 밝기가 항상 목성처럼 강한 것은 아닙니다.",
+    "binoculars": "10×50으로 위치와 주변 별을 비교하기 좋습니다. 표면의 극관이나 어두운 지형을 구별하는 것은 기대하지 마세요.",
+    "telescope": "90mm, 20~80배에서는 대부분 작은 주황색 원반입니다. 충 무렵 크기가 충분하고 대기가 안정적이면 60~80배에서 극관이나 큰 명암 무늬를 시도할 수 있지만 성공을 보장하지 않습니다.",
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:mars)",
+    "NASA — Mars Facts | https://science.nasa.gov/mars/facts/",
+    "Astronomical League — Solar System Observing Program: Inner Solar System | https://www.astroleague.org/solar-system-observing-program-inner-solar-system/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high"
+  },
+  "funFacts": [
+    "역행은 지구와 화성의 상대 운동으로 생기는 겉보기 방향 변화입니다.",
+    "같은 화성이라도 지구와의 거리에 따라 망원경에서 보이는 크기가 달라집니다."
+  ]
+}

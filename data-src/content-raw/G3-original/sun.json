@@ -1,0 +1,96 @@
+{
+  "id": "sun",
+  "version": 1,
+  "title": {
+    "ko": "태양",
+    "en": "Sun"
+  },
+  "oneLiner": {
+    "ko": "안전한 태양 필터를 갖춘 뒤 만나는 가장 가까운 별"
+  },
+  "summary": {
+    "ko": "태양은 필터 없이 절대 보지 말아야 하며, 쌍안경과 망원경에는 입구에 고정하는 전용 태양 필터가 필요합니다. 태양은 중심에서 수소를 헬륨으로 바꾸는 핵융합으로 빛나는 별입니다. 안전 장비를 갖추면 광구(눈에 보이는 표면)의 흑점을 살펴볼 수 있지만, 흑점이 없는 날도 있습니다. 흑점은 구멍이 아니라 주변보다 온도가 낮아 어둡게 보이는 영역입니다. 백색광 태양 필터(가시광선을 줄이는 전용 필터)로 보는 모습과 홍염을 보여 주는 특수 태양망원경의 모습은 다릅니다."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "주계열별(중심에서 수소 핵융합을 하는 별)",
+      "source": "https://science.nasa.gov/universe/stars/types/"
+    },
+    {
+      "label": "지구에서의 평균 거리",
+      "value": "약 1 AU",
+      "source": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "label": "나이",
+      "value": "약 46억 년",
+      "source": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "label": "주요 구성",
+      "value": "수소와 헬륨",
+      "source": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "label": "에너지원",
+      "value": "중심핵의 핵융합",
+      "source": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "label": "관측하는 층",
+      "value": "백색광 관측에서는 주로 광구",
+      "source": "https://science.nasa.gov/sun/facts/"
+    }
+  ],
+  "story": {
+    "ko": "한국의 고구려 고분벽화에는 태양과 연결된 삼족오(다리가 셋인 새)가 등장합니다. 이는 태양 안에 실제 새가 산다는 천문학적 설명이 아니라, 당시 사람들이 하늘을 표현한 문화적 상징입니다. 현대 천문학은 같은 태양을 뜨거운 플라스마(전기를 띤 입자들의 기체 상태)와 자기장이 활동하는 별로 연구합니다. 안전한 장비로 여러 날의 흑점을 비교하면 위치와 모양이 달라지는 모습을 기록할 수 있습니다. 다만 하나의 점을 매일 같은 흑점이라고 판단하려면 날짜와 태양 원반의 방향도 함께 남겨야 합니다. 옛 벽화의 상징을 읽는 일과 오늘의 태양을 측정하는 일은 서로 다른 방식으로 같은 하늘을 바라보는 경험입니다.",
+    "cultures": [
+      "한국",
+      "동아시아",
+      "기타"
+    ],
+    "sources": [
+      "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+      "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2",
+      "NASA — Sun Facts | https://science.nasa.gov/sun/facts/"
+    ]
+  },
+  "howToFind": {
+    "ko": "태양은 밤하늘 별을 따라 찾는 대상이 아닙니다. 계절과 관계없이 낮에 전문 관측자의 도움으로 전용 태양 관측 장비를 준비하세요. 태양을 직접 보거나 파인더를 들여다보며 조준하지 말고, 안전한 태양용 조준 장치를 사용하세요. 준비가 안 됐다면 직접 관측 대신 앱의 태양 설명을 읽으세요.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "맨눈 직접 관측은 금지합니다. 손상 없는 전용 일식 안경이나 태양 관측용 뷰어를 올바르게 사용한 경우에만 원반을 봅니다. 보통 선글라스는 사용할 수 없습니다.",
+    "binoculars": "10×50 양쪽 대물렌즈 앞에 용도에 맞는 전용 태양 필터를 단단히 고정한 경우에만 관측합니다. 큰 흑점이 있을 때 찾을 수 있으며, 일식 안경만 쓴 채 쌍안경을 보면 안 됩니다.",
+    "telescope": "90mm 굴절망원경의 입구에 적합한 태양 필터를 고정하고 파인더도 안전 처리한 뒤 20~80배로 관측합니다. 흑점이 있으면 군집과 어두운 중심부를 살펴볼 수 있습니다. 장비 점검과 감독이 먼저입니다.",
+    "difficulty": 3
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=sun)",
+    "NASA — Sun Facts | https://science.nasa.gov/sun/facts/",
+    "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+    "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+    "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+    "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high"
+  },
+  "funFacts": [
+    "흑점은 태양 표면에 뚫린 구멍이 아니라 주변보다 서늘한 영역입니다.",
+    "태양은 고체가 아니어서 위도에 따라 자전 속도가 다릅니다."
+  ],
+  "koreanTradition": {
+    "name": "해",
+    "note": "고구려 고분벽화의 삼족오는 태양을 나타내는 문화적 상징입니다. 현대 천체의 고유명이나 실제 태양 구조와 혼동하지 않습니다.",
+    "sources": [
+      "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+      "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2"
+    ]
+  },
+  "safety": "필터 없이 절대 보지 말 것. 태양을 맨눈이나 무필터 광학 장비로 보면 심각한 눈 손상이 생길 수 있습니다. 쌍안경·망원경·카메라에는 태양을 향한 입구에 해당 장비용 전용 태양 필터를 안전하게 고정해야 합니다. 일식 안경을 쓰고 무필터 쌍안경이나 망원경을 들여다보지 마세요. 선글라스·그을린 유리·접안렌즈에 끼우는 태양 필터는 사용하지 마세요. 안전 장비가 불확실하면 관측하지 마세요."
+}
