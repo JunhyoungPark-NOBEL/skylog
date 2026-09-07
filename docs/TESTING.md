@@ -119,3 +119,6 @@ T3b e2e(`tests/e2e/tonight.spec.ts`): Open-Meteo를 `page.route`로 목(서비�
 - [ ] 지평선 위아래로 시선 이동: 반투명 지면 아래 별·별자리와 안내. 레이어에서 투시 끄기/불투명 켜기.
 - [ ] 야간 모드와 English, 휴대폰 글자 확대에서 메뉴/버튼/해설이 잘 읽히는지 확인.
 - [ ] 기존 관측 기록·사진/스케치·읽음·미션 진도가 그대로인지 확인.
+
+- 추가 접근성 보완: index.html의 user-scalable=no 제거, 읽기 화면의 브라우저 확대 허용. 하늘 캔버스의 touch-action:none은 유지한다.
+- 브라우저 배율 에뮬레이션으로 visualViewport.scale 1→1.5 확인. Headless 합성 핀치로는 배율 변화를 재현하지 못해 실제 손가락 확대는 실기기 항목으로 남긴다.
