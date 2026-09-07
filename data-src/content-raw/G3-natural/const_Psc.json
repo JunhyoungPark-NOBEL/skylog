@@ -1,0 +1,96 @@
+{
+  "id": "const:Psc",
+  "version": 2,
+  "title": {
+    "ko": "물고기자리",
+    "en": "Pisces"
+  },
+  "oneLiner": {
+    "ko": "페가수스 큰 사각형 곁에서 두 물고기를 잇는 가을의 희미한 별들을 찾아요"
+  },
+  "summary": {
+    "ko": "물고기자리는 가을 하늘에서 페가수스 큰 사각형과 양자리 사이에 자리 잡은 별자리예요. 옛 그림에서는 두 마리 물고기를 끈으로 이어 놓은 모습이지만, 실제 하늘에서는 약한 별들이 넓게 퍼져 있어서 도시에서 한 번에 알아보기는 어려워요. 포말하우트가 속한 남쪽물고기자리와는 이름만 비슷할 뿐 서로 다른 영역이에요. 큰 사각형의 위치를 먼저 확실히 잡은 다음, 주변을 구역별로 나누어 확인해 보세요. 지도에 표시된 별자리의 대표 위치는 기준점일 뿐이라서, 두 물고기의 한가운데나 소속된 별 전체의 위치를 뜻하지는 않아요. 그림을 완성하는 것보다 실제로 확인한 별의 위치를 먼저 남겨 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Psc; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Psc",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Piscium",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "페가수스 큰 사각형, 양자리 하말",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Peg, star:HIP9884; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "끈으로 연결한 두 물고기",
+      "source": "NSF NOIRLab — Pisces — https://noirlab.edu/public/education/constellations/pisces/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "가을 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "두 마리 물고기를 잇는 끈은 하늘의 별들을 기억하기 쉽게 만들어 주는 이야기 장치예요. 그리스 전승에는 위험을 피해 물고기 모습으로 변한 존재들이 끈으로 이어져 있다는 이야기가 전해지지만, 별과 별 사이에 실제로 끈이 있다는 뜻은 아니에요. 관측할 때 그 긴 선을 한꺼번에 완성하려고 하면 도시의 희미한 별들 때문에 막히기 쉬워요. 큰 사각형 근처에서 몇 개의 점을 찾고, 그다음 구간으로 옮겨 가는 식으로 작은 목표를 세워 보세요. 그날 알아본 구간만 표시해 두면 다음 관측을 이어 가기 편해요. 이름이 비슷한 남쪽물고기자리를 대신 찾은 건 아닌지도 한 번 확인해 보세요. 거대한 그림 하나를 통째로 외우기보다 이웃한 하늘 영역들의 차이를 익히는 편이 더 유용할 수 있어요. 옛이야기의 연결선과 오늘날의 별자리 경계를 함께 보되, 서로 다른 층으로 나누어 읽어 보세요.",
+    "cultures": [
+      "그리스·로마"
+    ],
+    "sources": [
+      "NSF NOIRLab — Pisces — https://noirlab.edu/public/education/constellations/pisces/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁에 페가수스 큰 사각형을 먼저 찾아요. 그 남쪽과 하늘의 동쪽 주변으로 물고기자리 영역을 지도에서 확인하고, 양자리의 하말을 또 다른 기준으로 삼아 범위를 좁혀 보세요. 약한 별들을 한 구역씩 이어 가면서, 남쪽물고기자리와 헷갈리지 않았는지도 확인해요.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Peg",
+      "star:HIP9884"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 전체 모양을 알아보기 어려워요. 어두운 하늘에서 일부 배열부터 차근차근 익히는 편이 좋아요.",
+    "binoculars": "10×50 쌍안경으로 보이는 약한 점을 늘려 갈 수 있어요. 다만 두 물고기는 넓게 떨어져 있어서 한 시야에 다 담기지 않으니 나누어 살펴보세요.",
+    "telescope": "90mm 망원경 20~40배는 개별 별을 확인하는 데 써요. 큰 형태를 찾는 일은 맨눈과 지도로 먼저 진행해 보세요.",
+    "bestMonths": [
+      10,
+      11,
+      12
+    ],
+    "difficulty": 3
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Psc; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Pisces — https://noirlab.edu/public/education/constellations/pisces/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Psc; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Psc; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: const:Peg, star:HIP9884; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Peg, star:HIP9884; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "물고기자리 Psc와 남쪽물고기자리 PsA를 구분하며 포말하우트를 소속별로 넣지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

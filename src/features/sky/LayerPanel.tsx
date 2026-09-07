@@ -89,6 +89,7 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
             />
           </div>
         )}
+        <Row id="markers" label={t('sky.layer.markers')} />
         <Row
           id="constellationLines"
           label={t('sky.layer.constellationLines')}

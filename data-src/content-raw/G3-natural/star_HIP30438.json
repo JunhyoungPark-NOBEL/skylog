@@ -1,0 +1,107 @@
+{
+  "id": "star:HIP30438",
+  "version": 2,
+  "title": {
+    "ko": "카노푸스",
+    "en": "Canopus"
+  },
+  "oneLiner": {
+    "ko": "밝은 별이지만 한국 중부에서는 지평선에 가려지기 쉬운 남쪽의 노인성"
+  },
+  "summary": {
+    "ko": "카노푸스는 용골자리의 밝은 별이에요. 동아시아에서는 노인성이라는 이름으로도 알려져 있어요. 그런데 별이 밝다는 것과 내가 있는 곳에서 잘 보인다는 것은 다른 이야기예요. 대전 부근에서는 가장 높이 떠도 남쪽 지평선 바로 위에 머물러서 산이나 건물에 쉽게 가려져요. 이렇게 낮은 높이에서는 대기의 영향까지 받아서 맨눈으로 찾기가 어려워요. 도시에서 별 보기를 시작할 때 꼭 성공해야 하는 대상으로 삼기보다는, 남쪽 하늘이 탁 트인 곳에서 위치와 지평선 조건을 확인해 보는 도전 대상으로 생각하는 편이 좋아요."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "용골자리 (Car)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "309.2광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "-0.62등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "F0Ib",
+      "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP30438",
+      "source": "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "관측지 제약",
+      "value": "북위 36.35°에서 기하학적 최고 고도 약 1.0°",
+      "source": "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함"
+    }
+  ],
+  "story": {
+    "ko": "동아시아에는 노인성이 나타나면 장수의 뜻으로 여기는 전승이 있어요. 물론 별을 봤다고 해서 실제 수명이 달라지는 건 아니에요. 좀처럼 만나기 어려운 남쪽 별을 소중히 여긴 문화의 이야기로 읽어 주세요. 한국천문연구원에는 국내에서 직접 찍은 노인성 사진들이 소개되어 있어요. 그러니 한국에서는 아예 볼 수 없는 별이라고 단정할 필요도 없어요. 별을 보는 사람에게 필요한 건 전설의 효험을 확인하는 일이 아니라, 그날 남쪽 지평선의 모습과 별의 높이를 비교해 보는 일이에요. 화면에 별이 표시되어 있어도 실제로는 산등성이 아래에 있으면 보이지 않아요. 못 본 날에도 어디에서 봤는지, 무엇이 앞을 가렸는지 남겨 두면 등급 숫자만으로는 알 수 없는 관측 조건을 배우는 기록이 돼요.",
+    "cultures": [
+      "동아시아"
+    ],
+    "sources": [
+      "한국천문연구원 — 노인성 — https://www.kasi.re.kr/kor/publication/post/photoGallery/4204",
+      "한국천문연구원 — 노인성(Canopus), 소백산천문대 촬영 — https://www.kasi.re.kr/publication/post/photoGallery/4244?cPage=39"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울밤에 먼저 시리우스를 찾고, 앱에서 그보다 훨씬 남쪽에 있는 카노푸스의 위치를 확인해 보세요. 별이 남쪽 자오선에 가까워지는 시각을 골라, 그 방향의 지평선에 실제로 무엇이 있는지 비교해 보세요. 북위 36.35°에서 계산한 최고 높이는 약 1.0°밖에 안 돼요. 높은 산이나 건물 위로 떠오를 거라고 기대하기는 어려우니, 안전하게 갈 수 있는 탁 트인 곳에서만 시도해 보세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP32349"
+    ]
+  },
+  "observing": {
+    "nakedEye": "대전에서는 고도가 아주 낮아서 밝기와 상관없이 어려운 도전이에요. 안 보인다고 해서 눈이나 휴대폰 센서 탓이라고 생각하지 않아도 돼요.",
+    "binoculars": "10×50 쌍안경은 목표 위치를 확인하는 데 도움이 되지만, 지형에 가려진 별을 보이게 해 주지는 못해요. 해가 완전히 진 밤에만 찾아보세요.",
+    "telescope": "90mm 망원경이라면 20~40배의 넓은 시야부터 써 보세요. 낮은 고도라 별이 심하게 흔들리거나 색이 번질 수 있어요. 배율을 높여도 대기나 지형의 한계는 넘을 수 없어요.",
+    "bestMonths": [
+      1,
+      2,
+      3
+    ],
+    "difficulty": 5
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "한국천문연구원 — 노인성 — https://www.kasi.re.kr/kor/publication/post/photoGallery/4204",
+    "한국천문연구원 — 노인성(Canopus), 소백산천문대 촬영 — https://www.kasi.re.kr/publication/post/photoGallery/4244?cPage=39",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — star:HIP30438; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP32349; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "한국 중부의 고도 제약 때문에 G5의 고도 25° 이상 미션 조건을 충족하지 못합니다. 위도·지형·굴절을 반영한 실제 가시성 검사가 필요합니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "koreanTradition": {
+    "note": "노인성 또는 노인(老人)이라고 불러요. 장수와 연결하는 동아시아의 전승이에요. 별을 본다고 해서 건강이 좋아지거나 수명을 알 수 있다는 뜻은 아니에요.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  },
+  "funFacts": [
+    "밝은 별도 관측하는 곳에서 낮게 뜨면 찾기 어려워요."
+  ]
+}

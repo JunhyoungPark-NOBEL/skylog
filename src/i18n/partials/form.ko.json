@@ -1,0 +1,135 @@
+{
+  "log": {
+    "form": {
+      "title": "{{name}} 기록",
+      "save": "저장",
+      "saving": "저장 중…",
+      "saved": "기록했어요",
+      "delete": "삭제",
+      "deleteConfirm": "이 기록을 지울까요?",
+      "deleteYes": "지우기",
+      "cancel": "취소",
+      "deleted": "삭제했어요",
+      "undo": "실행 취소",
+      "notFound": "이 기록은 이미 지워졌어요",
+      "outcome": "결과",
+      "seen": "봤어요",
+      "notSeen": "못 봤어요",
+      "time": "시각",
+      "timeInvalid": "시각을 골라 주세요",
+      "site": "관측지",
+      "currentSite": "현재 위치",
+      "equipment": "관측 방법",
+      "equip": {
+        "naked": "맨눈",
+        "binoculars": "쌍안경",
+        "telescope": "망원경"
+      },
+      "magnification": "배율",
+      "magnificationPlaceholder": "예: 50",
+      "rating": "평점",
+      "ratingHint": "별을 눌러 매겨요",
+      "sky": "하늘 상태",
+      "seeing": "시상",
+      "seeingHint": "1 많이 흔들림 · 5 또렷함",
+      "transparency": "투명도",
+      "transparencyHint": "1 뿌옇음 · 5 맑음",
+      "tags": "특징",
+      "tagsMore": "다른 특징 더 보기",
+      "tagsLess": "접기",
+      "auto": "자동으로 채웠어요",
+      "autoHint": "시각을 바꾸면 다시 계산해요",
+      "autoComputing": "계산 중…",
+      "autoNone": "아직 계산할 수 없어요",
+      "sketch": "스케치",
+      "sketchDraw": "스케치 그리기",
+      "sketchEdit": "다시 그리기",
+      "sketchRemove": "지우기",
+      "photos": "사진",
+      "photoCamera": "카메라",
+      "photoLibrary": "앨범",
+      "photoProcessing": "사진을 줄이는 중…",
+      "photoUnreadable": "이 사진은 아직 열 수 없어요. 다른 사진을 골라 주세요.",
+      "photoRemove": "사진 지우기",
+      "notes": "메모",
+      "notesPlaceholder": "본 느낌을 자유롭게 적어요"
+    },
+    "auto": {
+      "altAz": "고도 {{alt}}° · {{dir}}",
+      "moon": "{{phase}} · 밝은 부분 {{illum}}% · 달과 {{sep}}° 떨어짐",
+      "moonSelf": "{{phase}} · 밝은 부분 {{illum}}%",
+      "weather": "구름 {{cloud}}% · {{temp}}℃",
+      "humidity": "습도 {{h}}%",
+      "bortle": "광해 {{n}}단계"
+    },
+    "tagCategory": {
+      "color": "색",
+      "shape": "형태",
+      "resolve": "분해",
+      "double": "이중성",
+      "planet": "행성",
+      "moon": "달",
+      "difficulty": "난이도",
+      "technique": "기법"
+    },
+    "tag": {
+      "color": {
+        "red": "붉은",
+        "blue": "푸른",
+        "yellow": "노란",
+        "white": "흰"
+      },
+      "shape": {
+        "disk": "원반",
+        "oval": "타원",
+        "spiralHint": "나선팔 느낌",
+        "brightCore": "중심 밝음",
+        "fuzzyEdge": "가장자리 흐릿",
+        "elongated": "길쭉함"
+      },
+      "resolve": {
+        "stars": "별로 분해됨",
+        "fuzzy": "보풀",
+        "pointlike": "점처럼"
+      },
+      "double": {
+        "split": "분해됨",
+        "colorContrast": "색 대비"
+      },
+      "planet": {
+        "rings": "고리",
+        "bands": "줄무늬",
+        "moons1": "위성 1개",
+        "moons2": "위성 2개",
+        "moons3": "위성 3개",
+        "moons4": "위성 4개",
+        "phase": "위상"
+      },
+      "moon": {
+        "craters": "크레이터",
+        "terminator": "터미네이터",
+        "maria": "바다"
+      },
+      "difficulty": {
+        "easy": "쉬움",
+        "normal": "보통",
+        "hard": "어려움"
+      },
+      "technique": {
+        "avertedVision": "주변시",
+        "filter": "필터 사용"
+      }
+    }
+  },
+  "object": {
+    "records": {
+      "title": "내 기록",
+      "empty": "아직 기록이 없어요",
+      "add": "기록하기",
+      "notSeen": "시도했지만 못 봤어요",
+      "count": "{{n}}번",
+      "sketch": "스케치",
+      "photo": "사진"
+    }
+  }
+}

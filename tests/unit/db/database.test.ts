@@ -11,8 +11,8 @@ import {
   upsertSite,
 } from '@/db/repos/sites';
 
-describe('SkylogDB v1 스키마 (D-010)', () => {
-  it('10개 테이블이 버전 1로 생성된다', async () => {
+describe('SkylogDB 스키마 (D-010, v2는 D-023)', () => {
+  it('10개 테이블이 현재 버전으로 생성된다', async () => {
     const db = getDb();
     await db.open();
     expect(db.verno).toBe(DB_VERSION);

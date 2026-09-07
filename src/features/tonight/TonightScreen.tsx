@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { TodayCard } from '@/features/content/TodayCard';
 import { PhenomenaCard, MeteorCard } from '@/features/tonight/PhenomenaCard';
 import { HighlightsCard, PlanCard, RecommendCard } from '@/features/tonight/RecommendCards';
 import { SkyStatusCard } from '@/features/tonight/SkyStatusCard';
@@ -110,6 +111,7 @@ export function TonightScreen() {
       )}
 
       <div className="flex flex-col gap-3">
+        <TodayCard night={d.night} now={d.now} />
         {d.night ? (
           <SkyStatusCard night={d.night} now={d.now} lang={lang} clouds={clouds} />
         ) : (

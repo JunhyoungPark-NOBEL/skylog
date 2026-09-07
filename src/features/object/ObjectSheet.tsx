@@ -5,20 +5,25 @@ import { computeObjectDetails, type ObjectDetails } from '@/astro/objectDetails'
 import { displayName, loadCatalog, secondaryName, type Catalog } from '@/catalog/catalog';
 import type { ObjectId } from '@/catalog/objectId';
 import { fovForTarget, resolveTarget, type ObjectTarget } from '@/catalog/objectTarget';
-import { isBookmarked, toggleBookmark } from '@/db/repos/bookmarks';
+import { toggleBookmark } from '@/db/repos/bookmarks';
+import { listObservations } from '@/db/repos/observations';
 import { getDb } from '@/db/database';
-import type { Bortle } from '@/db/types';
+import type { Bortle, Observation } from '@/db/types';
+import { tagLabelKey } from '@/features/log/tagPresets';
 import { openObject } from '@/features/object/objectApi';
 import { flyToObject, getSkyScene } from '@/features/sky/skyApi';
 import { getObservingNight } from '@/features/tonight/useNight';
 import { useClockStore } from '@/state/clockStore';
 import { useLocationStore } from '@/state/locationStore';
+import { useLogStore } from '@/state/logStore';
+import { openObservationForm } from '@/state/logUiStore';
 import { useSelectionStore } from '@/state/selectionStore';
 import { useSettingsStore } from '@/state/settingsStore';
 import {
   formatAlt,
   formatAngularSize,
   formatAzimuth,
+  formatDateTime,
   formatDistance,
   formatDms,
   formatHms,
@@ -26,6 +31,8 @@ import {
   formatSeparation,
   formatTime,
 } from '@/ui/format';
+import { openStory } from '@/state/contentUiStore';
+import { useDragScroll } from '@/ui/useDragScroll';
 import { ScrollArea } from '@/ui/ScrollArea';
 
 const REFRESH_MS = 10_000;
@@ -141,6 +148,7 @@ const VERDICT_CLASS: Record<ObjectDetails['verdicts']['naked']['verdict'], strin
  * 하늘 뷰 위에서 반쯤 열렸을 때만 유리(glass-strong); 전체 열림·드래그 중·리스트 위에서는 불투명(glass-off).
  */
 export function ObjectSheet() {
+  const actionScroll = useDragScroll<HTMLDivElement>();
   const { t } = useTranslation();
   const route = useRoute();
   const open = useSelectionStore((s) => s.sheetOpen);
@@ -152,7 +160,10 @@ export function ObjectSheet() {
   const bortle = useBortle();
   const [cat, setCat] = useState<Catalog | null>(null);
   const [loaded, setLoaded] = useState<Loaded | null>(null);
-  const [bookmarked, setBookmarked] = useState(false);
+  // ★/☆ 상태는 항상 logStore에서(DB 변경 시 자동 갱신 — 기록 폼 저장 직후 헤더가 ★로 바뀐다)
+  const bookmarked = useLogStore((s) => (id ? s.bookmarkedSet.has(id) : false));
+  const observed = useLogStore((s) => (id ? s.observedSet.has(id) : false));
+  const attempted = useLogStore((s) => (id ? s.attemptedSet.has(id) : false));
   const [dragY, setDragY] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
@@ -197,17 +208,6 @@ export function ObjectSheet() {
       unsub();
     };
   }, [open, id, cat, site, bortle]);
-
-  useEffect(() => {
-    if (!open || !id) return;
-    let alive = true;
-    void isBookmarked(id).then((b) => {
-      if (alive) setBookmarked(b);
-    });
-    return () => {
-      alive = false;
-    };
-  }, [open, id]);
 
   if (!open || !id) return null;
   const close = () => useSelectionStore.getState().closeSheet();
@@ -296,9 +296,29 @@ export function ObjectSheet() {
       </div>
       <header className="flex shrink-0 items-start gap-2 px-4 pb-3">
         <div className="min-w-0 flex-1">
-          <h2 className="truncate text-title" data-testid="sheet-name">
-            {name}
-          </h2>
+          <div className="flex items-center gap-1.5">
+            <h2 className="min-w-0 truncate text-title" data-testid="sheet-name">
+              {name}
+            </h2>
+            {observed && (
+              <span
+                className="shrink-0 text-title text-marker"
+                title={t('object.records.title')}
+                data-testid="sheet-observed"
+              >
+                ★
+              </span>
+            )}
+            {!observed && attempted && (
+              <span
+                className="shrink-0 text-title text-muted"
+                title={t('object.records.notSeen')}
+                data-testid="sheet-attempted"
+              >
+                ★
+              </span>
+            )}
+          </div>
           <p className="truncate text-caption text-muted">
             {[secondary, t(`sky.kind.${kind}`), conName].filter(Boolean).join(' · ')}
           </p>
@@ -308,7 +328,7 @@ export function ObjectSheet() {
           aria-pressed={bookmarked}
           aria-label={t('object.action.plan')}
           onClick={() => {
-            void toggleBookmark(id).then(setBookmarked);
+            void toggleBookmark(id);
           }}
           className={`${ICON_BTN} text-title ${bookmarked ? 'text-marker' : ''}`}
           data-testid="sheet-bookmark"
@@ -337,7 +357,10 @@ export function ObjectSheet() {
         </button>
       </header>
 
-      <div className="flex shrink-0 items-center gap-2 overflow-x-auto px-4 pb-3 [scrollbar-width:none]">
+      <div
+        ref={actionScroll}
+        className="flex shrink-0 items-center gap-2 overflow-x-auto px-4 pb-3 [scrollbar-width:none]"
+      >
         <button
           type="button"
           className={PRIMARY_BTN}
@@ -372,9 +395,8 @@ export function ObjectSheet() {
         </button>
         <button
           type="button"
-          disabled
-          title={t('object.later.log')}
           className={SECONDARY_BTN}
+          onClick={() => openObservationForm({ objectId: id })}
           data-testid="sheet-log"
         >
           {t('object.action.log')}
@@ -384,13 +406,21 @@ export function ObjectSheet() {
           aria-pressed={bookmarked}
           className={SECONDARY_BTN}
           onClick={() => {
-            void toggleBookmark(id).then(setBookmarked);
+            void toggleBookmark(id);
           }}
           data-testid="sheet-plan"
         >
           {bookmarked ? t('object.action.planned') : t('object.action.plan')}
         </button>
-        <button type="button" disabled title={t('object.later.story')} className={SECONDARY_BTN}>
+        <button
+          type="button"
+          data-testid="sheet-story"
+          onClick={() => {
+            close();
+            openStory(id);
+          }}
+          className={SECONDARY_BTN}
+        >
           {t('object.action.story')}
         </button>
       </div>
@@ -539,6 +569,8 @@ export function ObjectSheet() {
               </Section>
             )}
 
+            <RecordsSection id={id} />
+
             {tg.kind === 'const' && cat && conAbbr && (
               <ConstellationExtras cat={cat} abbr={conAbbr} lang={lang} />
             )}
@@ -546,6 +578,108 @@ export function ObjectSheet() {
         )}
       </ScrollArea>
     </div>
+  );
+}
+
+/**
+ * "내 기록"(task-04 §3.2): 이 대상의 기록 목록. logStore.version이 바뀌면(저장·삭제·되살리기) 다시 읽는다.
+ * 행 탭 → 편집 폼. 비어 있으면 "기록하기", 항상 "시도했지만 못 봤어요" 보조 버튼.
+ */
+function RecordsSection({ id }: { id: ObjectId }) {
+  const { t } = useTranslation();
+  const version = useLogStore((s) => s.version);
+  const [rows, setRows] = useState<{ id: ObjectId; list: Observation[] } | null>(null);
+  useEffect(() => {
+    let alive = true;
+    void listObservations({ objectId: id }).then((list) => {
+      if (alive) setRows({ id, list });
+    });
+    return () => {
+      alive = false;
+    };
+  }, [id, version]);
+  const list = rows?.id === id ? rows.list : null;
+  const title =
+    list && list.length > 0
+      ? `${t('object.records.title')} · ${t('object.records.count', { n: list.length })}`
+      : t('object.records.title');
+  return (
+    <Section title={title}>
+      <div data-testid="sheet-records" data-count={list?.length ?? undefined}>
+        {list === null && <p className="py-1 text-body-sm text-muted">{t('common.loading')}</p>}
+        {list && list.length === 0 && (
+          <p className="py-1 text-body-sm text-muted" data-testid="sheet-records-empty">
+            {t('object.records.empty')}
+          </p>
+        )}
+        {list && list.length > 0 && (
+          <ul className="[&>li+li]:hairline-t">
+            {list.map((o) => (
+              <li key={o.id}>
+                <button
+                  type="button"
+                  onClick={() => openObservationForm({ objectId: id, observationId: o.id })}
+                  className="flex min-h-12 w-full items-center gap-2 py-1.5 text-left transition-[background-color] duration-150 ease-standard active:bg-surface-3/60"
+                  data-testid="sheet-record"
+                  data-outcome={o.outcome}
+                >
+                  <span
+                    className={`shrink-0 text-body-lg ${o.outcome === 'seen' ? 'text-marker' : 'text-muted'}`}
+                    aria-label={o.outcome === 'seen' ? t('log.form.seen') : t('log.form.notSeen')}
+                  >
+                    ★
+                  </span>
+                  <span className="shrink-0 text-body-sm font-semibold tabular-nums">
+                    {formatDateTime(new Date(o.observedAt))}
+                  </span>
+                  {o.rating !== undefined && (
+                    <span className="shrink-0 text-label text-marker" aria-label={`${o.rating}/5`}>
+                      {'★'.repeat(o.rating)}
+                    </span>
+                  )}
+                  <span className="flex min-w-0 flex-1 gap-1 overflow-hidden">
+                    {o.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="truncate rounded-pill bg-surface-3 px-2 py-0.5 text-label text-muted"
+                      >
+                        {t(tagLabelKey(tag), { defaultValue: tag })}
+                      </span>
+                    ))}
+                  </span>
+                  <span className="shrink-0 text-caption text-muted">
+                    {o.sketchBlobId && <span title={t('object.records.sketch')}>✎</span>}
+                    {o.photoBlobIds && o.photoBlobIds.length > 0 && (
+                      <span title={t('object.records.photo')}> 📷</span>
+                    )}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="mt-2 flex flex-wrap gap-2">
+          {list && list.length === 0 && (
+            <button
+              type="button"
+              className={SECONDARY_BTN}
+              onClick={() => openObservationForm({ objectId: id })}
+              data-testid="sheet-records-add"
+            >
+              {t('object.records.add')}
+            </button>
+          )}
+          <button
+            type="button"
+            className={SECONDARY_BTN}
+            onClick={() => openObservationForm({ objectId: id, outcome: 'notSeen' })}
+            data-testid="sheet-not-seen"
+          >
+            {t('object.records.notSeen')}
+          </button>
+        </div>
+      </div>
+    </Section>
   );
 }
 

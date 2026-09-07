@@ -1,0 +1,85 @@
+{
+  "id": "planet:uranus",
+  "version": 2,
+  "title": {
+    "ko": "천왕성",
+    "en": "Uranus"
+  },
+  "oneLiner": {
+    "ko": "별 지도와 비교해 찾아내는 희미한 얼음 거대행성"
+  },
+  "summary": {
+    "ko": "천왕성은 태양에서 일곱 번째 행성이에요. 해왕성과 함께 얼음 거대행성으로 분류돼요. 겉면이 얼음판이라는 뜻은 아니고, 내부 구성에서 물·암모니아·메테인 계열 물질이 중요한 역할을 한다는 뜻이에요. 자전축이 크게 기울어서 옆으로 누운 듯 도는 것도 큰 특징이에요. 도시에서는 맨눈보다 쌍안경과 별 지도로 위치를 확인하는 방법이 현실적이에요. 소형 망원경으로는 아주 작은 청록빛 원반을 시도해 볼 수 있지만, 사진처럼 선명한 색과 구름 무늬까지 기대하면 실망하기 쉬워요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "얼음 거대행성",
+      "source": "https://science.nasa.gov/uranus/facts/"
+    },
+    {
+      "label": "태양에서의 평균 거리(AU는 지구~태양 평균 거리 단위)",
+      "value": "약 19 AU; 지구에서의 거리가 아님",
+      "source": "https://science.nasa.gov/uranus/facts/"
+    },
+    {
+      "label": "공전 주기",
+      "value": "약 84년",
+      "source": "https://science.nasa.gov/uranus/facts/"
+    },
+    {
+      "label": "자전축 기울기",
+      "value": "약 97.77°(궤도면의 수직 방향 기준)",
+      "source": "https://science.nasa.gov/uranus/facts/"
+    },
+    {
+      "label": "발견",
+      "value": "1781년 윌리엄 허셜의 망원경 관측",
+      "source": "https://science.nasa.gov/uranus/facts/"
+    },
+    {
+      "label": "겉보기등급",
+      "value": "시기별로 변함(첨부 값: variable)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:uranus)"
+    }
+  ],
+  "story": {
+    "ko": "현대 천문학사에서 천왕성은 망원경이 태양계의 범위를 넓힌 사례예요. 윌리엄 허셜은 1781년 이 천체를 관측했지만, 처음부터 새 행성이라고 확신한 건 아니었어요. 별과는 다른 모습, 그리고 이후의 위치 관측이 쌓이면서 행성으로 받아들여졌어요. 그리스·로마 문화권의 하늘 신을 가리키는 Uranus라는 이름도 발견 뒤에 자리 잡은 명칭이에요. 오늘 천왕성을 직접 찾아보면 왜 그렇게 꼼꼼한 비교가 필요했는지 짐작할 수 있어요. 작은 쌍안경으로 보면 주변 별과 비슷한 점 하나일 뿐이거든요. 색 하나만 보고 결론을 내리기보다, 별 지도의 배열을 맞추고 날짜를 달리해 위치가 옮겨 갔는지 확인하는 과정이 중요해요. 발견의 놀라움은 큰 원반이 아니라, 평범해 보이는 빛점에서 차이를 알아보는 데 있어요.",
+    "cultures": [
+      "그리스·로마",
+      "기타"
+    ],
+    "sources": [
+      "NASA — Uranus Facts | https://science.nasa.gov/uranus/facts/",
+      "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/"
+    ]
+  },
+  "howToFind": {
+    "ko": "계절에 상관없이, 먼저 관측하는 날의 천왕성 위치를 확인해 보세요. 그날 천왕성이 속한 황도(태양이 하늘에서 지나는 길) 주변 별자리를 맨눈으로 찾고, 지도에서 가장 가까운 밝은 별을 기준점으로 정해요. 그다음 10×50 쌍안경 시야에 들어오는 별들의 삼각형이나 줄을 차례로 맞추며 옮겨 가요. 마지막에는 주변 별 배열과 대조하고, 날짜를 바꿔 다시 보면서 위치가 달라졌는지 확인해 보세요.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "아주 어두운 하늘에서는 맨눈으로도 가능할 수 있지만, 도시에서는 맨눈 목표로 삼지 않는 편이 좋아요. 쌍안경부터 준비해 보세요.",
+    "binoculars": "10×50 쌍안경으로 별처럼 보이는 희미한 점을 찾는 게 목표예요. 원반 모양을 알아보려 하기보다 별 지도와 정확히 대조하고, 손떨림을 줄이는 데 신경 써 보세요.",
+    "telescope": "90mm 망원경이라면 20~80배 가운데 60~80배에서, 대기가 안정된 날 아주 작은 원반 느낌을 시도해 볼 수 있어요. 청록색이 뚜렷하지 않을 수도 있고, 고리·위성·구름 무늬까지는 욕심내지 않아도 괜찮아요.",
+    "difficulty": 4
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=planet:uranus)",
+    "NASA — Uranus Facts | https://science.nasa.gov/uranus/facts/",
+    "Astronomical League — Solar System Observing Program: Outer Solar System | https://www.astroleague.org/solar-system-observing-program-outer-solar-system/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high",
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "funFacts": [
+    "천왕성의 자전축은 크게 기울어 있어서 옆으로 누워 도는 듯한 모습이에요.",
+    "얼음 거대행성이라는 분류가 단단한 얼음 표면을 뜻하는 건 아니에요."
+  ]
+}

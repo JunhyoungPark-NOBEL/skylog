@@ -1,0 +1,108 @@
+{
+  "id": "star:HIP32349",
+  "version": 2,
+  "title": {
+    "ko": "시리우스",
+    "en": "Sirius"
+  },
+  "oneLiner": {
+    "ko": "밝은 빛 속에 작은 동반성을 숨긴 겨울의 길잡이"
+  },
+  "summary": {
+    "ko": "시리우스는 큰개자리에서 빛나는 별로, 밤하늘의 별 가운데 가장 밝게 보여요. 거리가 가까운 데다 본래도 밝은 별이라 겨울 하늘에서 눈에 확 띄어요. 우리가 보는 빛은 주로 시리우스 A에서 오고, 그 곁에는 백색왜성(작게 수축한 별의 잔해)인 시리우스 B가 있어요. 다만 동반성은 밝은 주성의 빛에 묻혀 있어서 입문용 장비로는 쉽게 볼 수 있는 대상이 아니에요. 첫 관측에서는 별 하나의 밝기와, 오리온자리에서 이어지는 위치를 확인해 보세요. 지평선 가까이에서 심하게 반짝인다면, 더 높이 떠올랐을 때 다시 보며 비교하는 게 좋아요."
+  },
+  "facts": [
+    {
+      "label": "거리(첨부 카탈로그)",
+      "value": "8.6광년",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)"
+    },
+    {
+      "label": "겉보기등급(대역 검토 필요)",
+      "value": "-1.44등급; 첨부 mag, V 대역 미확인",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "A0m...",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)"
+    },
+    {
+      "label": "별자리",
+      "value": "큰개자리 (CMa)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)"
+    },
+    {
+      "label": "별의 성격",
+      "value": "밝은 주성과 백색왜성이 함께 있는 쌍성계",
+      "source": "https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/"
+    },
+    {
+      "label": "관측 길잡이",
+      "value": "겨울철 대육각형의 꼭짓점",
+      "source": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005"
+    }
+  ],
+  "story": {
+    "ko": "동아시아에서는 시리우스를 천랑성, 곧 하늘의 늑대별과 연결해 불렀어요. 서양의 Dog Star라는 표현과 나란히 놓고 보면, 같은 빛점에도 문화마다 다른 이름이 붙었다는 걸 알 수 있어요. 현대 천문학에서 시리우스의 또 다른 이야기는 희미한 동반성이에요. 밝은 A 옆에 있는 B는 백색왜성으로, 태양과 비슷한 별이 진화를 마친 뒤 남을 수 있는 작은 잔해예요. 허블 우주망원경은 밝은 주성의 방해 속에서 이 동반성의 빛을 분석하는 데 쓰였어요. 맨눈에 보이는 밝기만으로는 별의 크기나 진화 단계를 알 수 없다는 걸 보여 주는 사례예요. 접안경에서 B가 보이지 않아도 실패한 게 아니에요. 먼저 확인할 수 있는 A와 주변 별의 위치를 기록하고, 두 별의 차이는 이 이야기와 연결해서 떠올려 보세요.",
+    "cultures": [
+      "동아시아",
+      "기타"
+    ],
+    "sources": [
+      "사이언스타임즈 — 시리우스, 겨울 밤하늘과 위대한 발견 | https://www.sciencetimes.co.kr/?p=249691",
+      "NASA/ESA Hubble — The Dog Star, Sirius, and its Tiny Companion | https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+      "NASA — Measuring a White Dwarf Star | https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/"
+    ]
+  },
+  "howToFind": {
+    "ko": "한국의 겨울 저녁, 먼저 오리온자리 허리띠의 세 별을 찾아보세요. 세 별이 나란히 늘어선 방향을 하늘에서 남동쪽으로 쭉 연장하면 아주 밝은 시리우스가 있어요. 알데바란으로 이어지는 북서쪽 연장선과는 반대 방향이에요. 주변 큰개자리 별들과 대조해 확인하고, 지평선에 낮게 있을 때보다 충분히 높이 떠오른 시간을 고르는 게 좋아요.",
+    "season": "winter",
+    "hopFrom": [
+      "const:Ori",
+      "star:HIP26727"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 밝은 청백색 점으로 잘 보여요. 고도가 낮을 때 색이 흔들려 보일 수 있는데, 이건 별 자체가 빠르게 변하는 게 아니에요.",
+    "binoculars": "10×50 쌍안경으로는 밝은 점과 주변 별들이 보여요. 시리우스 B를 따로 알아보는 건 쌍안경으로는 어려우니, 기대하지 않는 게 좋아요.",
+    "telescope": "90mm 망원경이라면 20~80배에서 밝은 주성과 주변 별을 관측해 보세요. 시리우스 B를 따로 알아보는 건 밝기 차이와 대기 상태에 매우 민감해서, 기본 목표에서는 빼 두어도 괜찮아요.",
+    "difficulty": 1,
+    "bestMonths": [
+      1,
+      2,
+      3
+    ]
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP32349)",
+    "NASA/ESA Hubble — The Dog Star, Sirius, and its Tiny Companion | https://science.nasa.gov/asset/hubble/the-dog-star-sirius-and-its-tiny-companion/",
+    "NASA — Measuring a White Dwarf Star | https://science.nasa.gov/missions/hubble/measuring-a-white-dwarf-star/",
+    "한국천문연구원 — 가장 밝은 별, 시리우스 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+    "사이언스타임즈 — 시리우스, 겨울 밤하늘과 위대한 발견 | https://www.sciencetimes.co.kr/?p=249691",
+    "NASA — Discovering the Universe Through the Constellation Orion | https://science.nasa.gov/universe/stories/quick-reads/discovering-the-universe-through-the-constellation-orion/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "분광형 A0m...은 첨부의 축약 문자열입니다. 생략 기호를 임의로 풀어 쓰지 않았습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "funFacts": [
+    "밝게 보이는 시리우스 곁에는 훨씬 희미한 백색왜성이 있어요.",
+    "시리우스는 겨울철 대육각형의 꼭짓점 가운데 하나예요."
+  ],
+  "koreanTradition": {
+    "name": "천랑성",
+    "note": "동아시아에서 시리우스에 연결해 부르던 전통 이름이에요. 한국 옛 천문 기록의 별자리 구획이나 다른 이름들과 꼭 같은 대상을 가리킨다고 단정하기는 어려워요.",
+    "sources": [
+      "사이언스타임즈 — 시리우스, 겨울 밤하늘과 위대한 발견 | https://www.sciencetimes.co.kr/?p=249691"
+    ]
+  }
+}

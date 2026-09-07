@@ -1,0 +1,94 @@
+{
+  "id": "const:Cru",
+  "version": 2,
+  "title": {
+    "ko": "남십자자리",
+    "en": "Crux"
+  },
+  "oneLiner": {
+    "ko": "우리나라에서는 안 보이는, 남쪽 나라 여행에서 만나는 십자가"
+  },
+  "summary": {
+    "ko": "남십자자리는 남쪽 나라나 적도 부근 지역에서 볼 수 있는 작은 십자가 모양의 별자리예요. 우리나라 하늘에서는 지평선 위로 올라오지 않아서, 남쪽 지역으로 여행할 때를 위해 미리 익혀 두는 대상이에요. 밝은 별들의 배열은 천구 남극 방향을 가늠하는 길잡이가 되지만, 북극성처럼 십자가의 중심이 극에 놓여 있는 건 아니에요. 여행지의 위도와 날짜로 위치 설정을 바꾸고, 그곳에서 실제로 지평선 위에 뜨는지 먼저 확인해 보세요. 지도에서 본 무늬와 현장에서 직접 본 무늬도 따로 기록해 두면 좋아요. 그래서 이 별자리에는 우리나라 저녁 기준의 관측 월을 따로 두지 않았어요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 경계로 정한 하늘의 영역; 단일 천체가 아님",
+      "source": "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Cru",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Crucis",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "대표 그림·길잡이 무늬",
+      "value": "남쪽 하늘의 십자가 배열",
+      "source": "NSF NOIRLab — crux — https://noirlab.edu/public/education/constellations/crux/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님"
+    },
+    {
+      "label": "찾기의 기준",
+      "value": "남쪽 관측지·현지 시간의 가시성 확인",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님"
+    },
+    {
+      "label": "관측 계절 안내",
+      "value": "관측지별 확인 — 편집 분류, 실시간 가시성 보장 아님",
+      "source": "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    }
+  ],
+  "story": {
+    "ko": "북쪽 하늘에서는 북극성 부근이 방향을 잡는 익숙한 기준이지만, 남쪽 하늘에서는 남십자자리의 배열이 다른 방식의 길잡이가 돼요. NOIRLab은 이 십자가가 천구 남극 쪽을 대략 가리키는 역할을 한다고 소개해요. 다만 십자가 자체와 남극을 같은 점으로 생각하면 방향을 잘못 짚을 수 있어요. 여행 전에 지도를 남쪽 관측지로 바꿔서 배열과 극의 상대 위치를 익혀 두고, 실제로 볼 때는 위치 설정을 다시 확인해 보세요. 지도에서 볼 수 있다고 해서 우리나라 지평선 위에서도 볼 수 있는 건 아니에요. 이 별자리는 관측지가 바뀌면 보이는 하늘의 범위도 달라진다는 사실을 잘 보여 줘요. 여행 계획과 실제로 본 기록을 따로 두면, 아직 보지 못한 대상이 관측 기록에 슬쩍 섞여 들어가는 일도 막을 수 있어요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — crux — https://noirlab.edu/public/education/constellations/crux/",
+      "IAU Office of Astronomy for Education — Crux Constellation Map — https://astro4edu.org/resources/diagram/Hj32Ua273O7/",
+      "NSF NOIRLab — Southern Celestial Wayfinder — https://noirlab.edu/public/images/iotw2411a/",
+      "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/"
+    ]
+  },
+  "howToFind": {
+    "ko": "남쪽 나라나 적도 부근의 실제 여행지와 날짜로 위치와 시간을 설정해 보세요. 남십자자리를 검색해서 지평선 위에 있는지 확인한 다음, 밝은 십자가 배열과 주변 별을 맞춰 보면 돼요. 우리나라 하늘에서는 지평선 위로 올라오지 않으니, 여기서는 찾으려 하지 않아도 괜찮아요.",
+    "season": "any"
+  },
+  "observing": {
+    "nakedEye": "남쪽 관측지에서 지평선 위에 있는 게 확인되면 밝은 십자가 배열을 맨눈으로 살펴보세요. 우리나라에서는 볼 수 없는 대상이에요.",
+    "binoculars": "10×50 쌍안경으로 배열과 주변 별밭을 확인해 보세요. 그 전에 현장에서 실제로 보이는지부터 확인하는 게 순서예요. 장비가 있다고 안 뜨는 별자리가 보이지는 않아요.",
+    "telescope": "90mm 망원경 20~80배로는 개별 별 주변을 살펴볼 수 있지만, 전체 배열은 맨눈과 넓은 지도에서 먼저 확인하는 게 좋아요. 장소에 따라 아예 지평선 아래에 있으면 어떤 장비로도 볼 수 없어요.",
+    "difficulty": 5
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Cru; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — crux — https://noirlab.edu/public/education/constellations/crux/",
+    "IAU Office of Astronomy for Education — Crux Constellation Map — https://astro4edu.org/resources/diagram/Hj32Ua273O7/",
+    "NSF NOIRLab — Southern Celestial Wayfinder — https://noirlab.edu/public/images/iotw2411a/",
+    "IAU — The Constellations — https://iauarchive.eso.org/public/themes/constellations/",
+    "NSF NOIRLab — crux — https://noirlab.edu/public/education/constellations/crux/; 편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "남반구 여행 안내용입니다. difficulty=5는 현재 스키마의 대체값일 뿐 한국에서 어려우나 관측 가능하다는 뜻이 아닙니다. visibilityUnavailable 같은 별도 상태가 필요합니다.",
+      "첨부 대표 적위 -62°의 최고 고도는 북위36.35°에서 -8.35°입니다. 이는 대표점 계산이며 별자리 전체 경계를 전수 판정한 결과는 아닙니다.",
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 RA/Dec는 대표 좌표입니다. 별자리 전체의 가시성·거리·등급·각크기를 이 한 점으로 판단하거나 누락 숫자를 만들어 넣지 않았습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

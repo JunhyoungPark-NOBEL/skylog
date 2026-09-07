@@ -91,8 +91,10 @@ export interface RecommendInput {
   equipmentProfile?: EquipmentProfile;
   /** 시각 → 전운량 0..100 (예보 없으면 undefined) */
   cloudAt?: (t: Date) => number | undefined;
-  /** T4: 이미 관측한 대상(신선도 보너스 제외) */
+  /** T4: 이미 관측한 대상(신선도 보너스 제외, `observed` 플래그) */
   observedSet?: ReadonlySet<ObjectId>;
+  /** T4: 관측 예정(☆)으로 저장한 대상 — 가시 조건을 통과하면 계획(`plan`) 앞에 온다(`planned` 플래그) */
+  bookmarkedSet?: ReadonlySet<ObjectId>;
   events?: SpecialEvent[];
   seasonSignatures?: SeasonSignature[];
   famous?: ReadonlySet<string>;
@@ -155,12 +157,16 @@ export interface Recommendation {
   seasonId?: string;
   /** 망원경 그룹의 '도전' 꼬리(hard) */
   challenge?: boolean;
+  /** T4: 관측 예정(☆)에 있는 대상 */
+  planned: boolean;
+  /** T4: 이미 관측(★)한 대상 */
+  observed: boolean;
 }
 
 export interface RecommendResult {
   items: Recommendation[];
   groups: Record<RecGroup, Recommendation[]>;
-  /** 시간순 계획(최적 시각 기준, ≤ 12) */
+  /** 계획(≤ 12): 관측 예정(☆) 대상이 먼저(각각 최적 시각순), 그 뒤 점수 상위가 최적 시각순 */
   plan: Recommendation[];
   /** 관측지 범위 필터가 적용되었는가(카드 배지) */
   siteFiltered: boolean;
@@ -588,7 +594,9 @@ export function recommend(input: RecommendInput): RecommendResult {
       c.doubleSplit !== undefined &&
       EQUIPMENT_RANK[input.equipment] >= EQUIPMENT_RANK[c.doubleSplit];
     if (doubleOk) score += WEIGHTS.double;
-    const fresh = !!input.observedSet && !input.observedSet.has(c.id);
+    const observed = input.observedSet?.has(c.id) ?? false;
+    const planned = input.bookmarkedSet?.has(c.id) ?? false;
+    const fresh = !!input.observedSet && !observed;
     if (fresh) score += WEIGHTS.fresh;
 
     // 그룹
@@ -667,6 +675,8 @@ export function recommend(input: RecommendInput): RecommendResult {
       event,
       seasonId: sig?.id,
       challenge: eq.challenge || undefined,
+      planned,
+      observed,
     });
   }
 
@@ -699,9 +709,19 @@ export function recommend(input: RecommendInput): RecommendResult {
   groups.telescope.sort(
     (a, b) => Number(a.challenge ?? false) - Number(b.challenge ?? false) || b.score - a.score,
   );
-  const plan = items
-    .filter((it) => it.metrics.peakAt)
-    .slice(0, PLAN_MAX)
-    .sort((a, b) => a.metrics.peakAt!.getTime() - b.metrics.peakAt!.getTime());
+  const plan = buildPlan(items);
   return { items, groups, plan, siteFiltered, sampleCount: samples.length };
+}
+
+/**
+ * 계획(≤ PLAN_MAX): 관측 예정(☆) 대상을 먼저 넣고(점수순으로 고른 뒤 최적 시각순), 남은 자리는 점수 상위를 최적 시각순으로.
+ * 예정 대상도 창 안에서 보여야만(items에 있어야만) 들어간다 — 안 보이는 예정 대상은 기록 탭의 ☆ 목록이 담당한다.
+ */
+function buildPlan(items: Recommendation[]): Recommendation[] {
+  const byPeak = (a: Recommendation, b: Recommendation) =>
+    a.metrics.peakAt!.getTime() - b.metrics.peakAt!.getTime();
+  const withPeak = items.filter((it) => it.metrics.peakAt);
+  const planned = withPeak.filter((it) => it.planned).slice(0, PLAN_MAX);
+  const rest = withPeak.filter((it) => !it.planned).slice(0, PLAN_MAX - planned.length);
+  return [...planned.sort(byPeak), ...rest.sort(byPeak)];
 }

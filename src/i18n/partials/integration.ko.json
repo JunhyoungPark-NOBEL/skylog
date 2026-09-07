@@ -1,0 +1,18 @@
+{
+  "recommend": {
+    "reason": {
+      "fresh": "아직 안 본 대상"
+    },
+    "mark": {
+      "observed": "관측함",
+      "attempted": "시도했지만 아직 못 봄"
+    }
+  },
+  "search": {
+    "mark": {
+      "observed": "관측함",
+      "attempted": "시도했지만 아직 못 봄",
+      "bookmarked": "관측 예정"
+    }
+  }
+}

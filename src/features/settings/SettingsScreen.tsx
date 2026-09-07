@@ -73,7 +73,19 @@ export function SettingsScreen({ onBack }: { onBack(): void }) {
 
       <SectionTitle>{t('settings.observing')}</SectionTitle>
       <Group>
+        <Toggle
+          id="setting-post-log-quiz"
+          label={t('study.postQuizSetting')}
+          hint={t('study.postQuizHint')}
+          checked={s.postLogQuiz}
+          onChange={s.setPostLogQuiz}
+        />
         <LinkRow label={t('sites.title')} onClick={() => navigate('sites')} testId="link-sites" />
+        <LinkRow
+          label={t('settings.backup')}
+          onClick={() => navigate('backup')}
+          testId="link-backup"
+        />
       </Group>
 
       <SectionTitle>{t('settings.developer')}</SectionTitle>

@@ -1,0 +1,77 @@
+{
+  "settings": {
+    "backup": "Backup & restore"
+  },
+  "backup": {
+    "title": "Backup & restore",
+    "export": {
+      "section": "Export",
+      "desc": "Saves your log, plans, sites, equipment and settings as one file.",
+      "privacy": "The log contains your observing site coordinates (e.g. your home).",
+      "roundCoords": "Approximate coordinates (about 1 km)",
+      "roundCoordsHint": "Rounds to two decimal places. Turn it on before sharing.",
+      "includeBlobs": "Include sketches and photos",
+      "includeBlobsHint": "Turn it off for a much smaller file.",
+      "json": "Export JSON",
+      "csv": "Export CSV",
+      "csvHint": "The CSV holds observations only (for spreadsheets).",
+      "iosHint": "On iPhone the share sheet opens — choose ‘Save to Files’.",
+      "lastAt": "Last backup: {{when}}",
+      "never": "No backup yet",
+      "doneJson": "Backup file saved",
+      "doneCsv": "Saved {{n}} observations as CSV"
+    },
+    "import": {
+      "section": "Import",
+      "desc": "Pick a skylog backup (JSON) you exported earlier to restore it.",
+      "choose": "Choose file",
+      "noFile": "No file chosen yet",
+      "counts": "Log {{observations}} · plans {{bookmarks}} · sites {{sites}} · equipment {{equipment}} · sketches & photos {{blobs}}",
+      "conflicts": "{{n}} already here ({{newer}} newer in the file)",
+      "noConflicts": "Nothing overlaps",
+      "policy": "On overlap",
+      "policyNewest": "Newest wins",
+      "policyAddAll": "Add all",
+      "policyNewestHint": "For the same item, only the most recently edited copy is kept.",
+      "policyAddAllHint": "Overlapping items are added as new ones too — the same entry may appear twice.",
+      "run": "Import",
+      "done": "{{added}} added · {{replaced}} updated · {{skipped}} unchanged",
+      "failed": "Import did not finish — nothing was changed",
+      "error": {
+        "json": "Not a JSON file",
+        "app": "Not a skylog backup file",
+        "version": "Made by a newer app — please update the app",
+        "shape": "Unexpected file structure ({{detail}})",
+        "field": "Invalid value ({{detail}})"
+      }
+    },
+    "storage": {
+      "section": "Storage",
+      "usage": "Using {{used}} of {{quota}}",
+      "persist": "Persistent storage",
+      "persistHint": "Asks the browser not to evict the log when it frees up space.",
+      "persistOn": "On",
+      "persistOff": "Not yet",
+      "persistRequest": "Request",
+      "persistDenied": "The browser hasn't allowed it yet — adding to the home screen helps.",
+      "generalNote": "Clearing browser data also clears the log. Regular backups are recommended.",
+      "iosNote": "Safari may delete data after 7 days without use — adding to the home screen makes that less likely. Regular backups are recommended."
+    },
+    "danger": {
+      "section": "Danger",
+      "clearAll": "Delete all data",
+      "confirmTitle": "Really delete everything?",
+      "confirmHint": "Log, plans, sites, equipment and settings will all be deleted and cannot be recovered. Tap again within 5 seconds to delete.",
+      "confirm": "Delete",
+      "cancel": "Cancel",
+      "done": "All data deleted"
+    },
+    "banner": {
+      "title": "It's been over 30 days since your last backup",
+      "titleNever": "No backup yet",
+      "hint": "Saving the log to a file keeps it safe when you change phones.",
+      "go": "Back up",
+      "later": "Later"
+    }
+  }
+}

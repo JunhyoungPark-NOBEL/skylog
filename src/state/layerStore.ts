@@ -35,6 +35,8 @@ export interface LayerValues {
   realSky: boolean;
   /** 하늘 밝기 Bortle 1..9, 0이면 관측지 설정(없으면 7) 따름 */
   bortle: number;
+  /** 내 기록 표시: 하늘 위 ★(본 것)·회색 ★(시도)·☆(예정) 마커(T4) */
+  markers: boolean;
 }
 
 export interface LayerState extends LayerValues {
@@ -72,6 +74,7 @@ export const DEFAULT_LAYERS: LayerValues = {
   showViewInfo: true,
   realSky: false,
   bortle: 0,
+  markers: true,
 };
 
 export const LAYERS_PERSIST_NAME = 'layers';

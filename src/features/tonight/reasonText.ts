@@ -78,8 +78,10 @@ export function reasonSentence(parts: ReasonPart[], lang: Lang, t: TFunction, ma
       case 'siteClipped':
         out.push(t('recommend.reason.siteClipped'));
         break;
-      case 'verdict':
       case 'fresh':
+        out.push(t('recommend.reason.fresh'));
+        break;
+      case 'verdict':
         break;
     }
     if (out.length >= max) break;

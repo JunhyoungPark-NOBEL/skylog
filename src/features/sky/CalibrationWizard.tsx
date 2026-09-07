@@ -1,3 +1,4 @@
+import { emitSkill } from '@/learn/runtime';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { angularSeparation, altAzToScene } from '@/astro/coords';
@@ -120,6 +121,8 @@ export function CalibrationWizard({ onClose }: { onClose(): void }) {
       residualDeg: sol.residualDeg,
       siteName: useLocationStore.getState().site.name,
     });
+    if (!useSensorStore.getState().simulator)
+      void emitSkill('align1', { targetId, residualDeg: sol.residualDeg, at: Date.now() });
     setResult({ deltaAzDeg: sol.deltaAzDeg, pitchOffsetDeg: sol.pitchOffsetDeg });
     feedbackOk({ sound: useSensorStore.getState().sound });
     setStep(3);

@@ -1,0 +1,100 @@
+{
+  "id": "star:HIP24608",
+  "version": 2,
+  "title": {
+    "ko": "카펠라",
+    "en": "Capella"
+  },
+  "oneLiner": {
+    "ko": "한 점처럼 보이는 빛 속에 두 거성이 함께 있는 별"
+  },
+  "summary": {
+    "ko": "카펠라는 마차부자리의 밝은 황금빛 별로, 겨울 하늘에서 눈에 잘 띄어요. 맨눈으로는 빛점 하나로 보이지만, 그 빛의 대부분은 서로 가까이 붙어 도는 두 거성에서 나와요. 두 밝은 별은 서로의 주위를 돌고 있어요. 연구자들은 별빛의 스펙트럼(빛을 파장별로 나눈 정보)과 간섭 관측을 함께 써서 그 움직임을 알아냈어요. 90mm 망원경의 보통 배율로 이 두 별을 나누어 볼 수는 없어요. 처음에는 마차부자리의 큰 오각형에서 카펠라를 확인하고, 황소자리와 오리온자리로 이어지는 겨울 하늘의 전체 배치를 익혀 보세요."
+  },
+  "facts": [
+    {
+      "label": "거리(첨부 카탈로그)",
+      "value": "42.8광년",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)"
+    },
+    {
+      "label": "겉보기등급(대역 검토 필요)",
+      "value": "0.08등급; 첨부 mag, V 대역 미확인",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)"
+    },
+    {
+      "label": "분광형(첨부 원문·검토 보류)",
+      "value": "M1: comp",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)"
+    },
+    {
+      "label": "별자리",
+      "value": "마차부자리 (Aur)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)"
+    },
+    {
+      "label": "별의 성격",
+      "value": "두 밝은 G형 거성을 포함한 다중성계",
+      "source": "https://arxiv.org/html/1505.07461v1"
+    },
+    {
+      "label": "관측 길잡이",
+      "value": "겨울철 대육각형의 꼭짓점",
+      "source": "https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005"
+    },
+    {
+      "label": "분광형(외부 연구와 비교)",
+      "value": "밝은 두 구성원: G8 III + G0 III; 첨부 값의 자동 대체 아님",
+      "source": "https://arxiv.org/html/1505.07461v1"
+    }
+  ],
+  "story": {
+    "ko": "카펠라는 하나의 빛점이 사실은 여러 별의 빛을 합친 모습일 수 있다는 걸 잘 보여 주는 별이에요. 밝은 두 거성은 서로 아주 가까이 돌고 있어서 보통의 소형 망원경으로는 나누어 보이지 않아요. 연구자들은 분광선(빛을 파장별로 나누었을 때 나타나는 무늬)이 움직이는 모습과 간섭 관측을 함께 이용해 두 별의 운동을 알아냈어요. 더 멀리에는 어두운 적색왜성 한 쌍도 함께 묶여 있어서, 여러 층으로 이루어진 다중성계를 이루고 있어요. 이렇게 맨눈으로 센 별의 개수와 실제 구성원의 개수는 다를 수 있어요. 관측 노트에는 오늘 직접 본 건 한 점이라고 적고, 두 거성이라는 설명은 연구로 밝혀진 정보라고 구분해 보세요. 눈앞에 보이는 모습과 측정으로 알아낸 구조를 함께 이해하는 좋은 연습이 돼요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "Torres 외(2015) — Capella revisited: new binary orbit, physical properties, and evolutionary state | https://arxiv.org/html/1505.07461v1"
+    ]
+  },
+  "howToFind": {
+    "ko": "한국의 겨울 저녁에는 먼저 오리온자리와 황소자리의 알데바란을 찾아보세요. 알데바란에서 하늘의 북쪽 방향으로 시선을 크게 옮기면, 높은 하늘에 밝은 황금빛 별이 보여요. 그 주변의 큰 오각형이 마차부자리이고, 가장 밝은 꼭짓점이 카펠라예요. 실제 좌우 방향은 시각에 따라 달라지니, 지도와 별 무늬를 함께 맞춰 보세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP21421",
+      "const:Aur"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 밝은 황금빛 점으로 보여요. 가까이 붙어 있는 두 밝은 구성원은 맨눈으로는 구별할 수 없어요.",
+    "binoculars": "10×50 쌍안경으로는 카펠라 주변 별들이 어떻게 늘어서 있는지 확인해 보세요. 두 거성을 나누어 보는 건 기대하지 않는 게 좋아요.",
+    "telescope": "90mm 망원경, 20~80배에서 카펠라는 밝은 한 점으로 보여요. 가까이 붙은 밝은 쌍성을 나누어 보거나 표면을 살피는 건 이 장비로 할 수 있는 목표가 아니에요.",
+    "difficulty": 1,
+    "bestMonths": [
+      12,
+      1,
+      2
+    ]
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP24608)",
+    "Torres 외(2015) — Capella revisited: new binary orbit, physical properties, and evolutionary state | https://arxiv.org/html/1505.07461v1",
+    "한국천문연구원 — 가장 밝은 별, 시리우스 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4575?cPage=10&clsf_cd=photo005",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "첨부 spect=M1: comp는 밝은 두 구성원을 G8 III+G0 III로 분류한 연구와 맞지 않습니다. 원문은 보존하되 승인된 분광형으로 표시하지 말고 T0b 레코드의 성분·출처를 확인해야 합니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "funFacts": [
+    "카펠라의 밝은 빛에는 두 거성의 빛이 합쳐져 있어요.",
+    "눈에 보이는 한 점이 실제로는 다중성계일 수도 있어요."
+  ]
+}

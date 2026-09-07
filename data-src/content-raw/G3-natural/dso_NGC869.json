@@ -1,0 +1,101 @@
+{
+  "id": "dso:NGC869",
+  "version": 2,
+  "title": {
+    "ko": "이중성단(h)",
+    "en": "Double Cluster (h Persei)"
+  },
+  "oneLiner": {
+    "ko": "이중성단의 한쪽, h 성단을 따로 알아보는 넓은 별무리"
+  },
+  "summary": {
+    "ko": "NGC869는 페르세우스자리의 이중성단을 이루는 두 산개성단 가운데 h 쪽이에요. 이웃한 NGC884와 하늘에서 나란히 보이지만, 둘은 각각 따로 이름이 붙은 별개의 성단이에요. 어두운 곳에서는 두 성단의 빛이 맨눈에 하나의 얼룩처럼 합쳐져 보이고, 쌍안경으로는 별이 모인 두 중심을 나란히 비교할 수 있어요. 작은 망원경에서도 낮은 배율과 넓은 시야로 먼저 보는 편이 좋아요. 화면이나 접안렌즈의 좌우는 회전과 반전으로 달라질 수 있으니, '왼쪽 성단'이라는 말만 믿지 말고 주변 별의 배열로 NGC869를 확인해 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/"
+    },
+    {
+      "label": "별자리",
+      "value": "페르세우스자리 (Per)",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "3.7등급",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "14.4′",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "NGC869",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "8274광년",
+      "source": "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "이중성단이라는 이름을 처음 들으면 별 두 개가 붙어 있는 이중성과 헷갈리기 쉬워요. 하지만 여기서 말하는 건 별 하나씩이 아니라, 많은 별이 모인 산개성단 두 개예요. 밤하늘을 넓게 볼 때는 하나의 얼룩이던 것이 쌍안경에서는 두 개의 중심으로, 망원경에서는 다시 수많은 별로 나뉘어 보이는 경험을 할 수 있어요. 콜드웰 목록의 C14는 이 두 성단을 함께 가리키는 이름이라서, 개별 NGC 번호와 C14가 가리키는 범위가 다르다는 점을 알아 두면 좋아요. 관측 기록에는 두 성단을 한 시야에 담았는지, 그리고 NGC869 쪽의 별 배열을 따로 확인했는지 나누어 적어 보세요. 두 성단을 묶어 부르는 이름과 하나하나의 항목을 구별해 두면, 관측 개수나 배지를 두 번 세는 실수도 피할 수 있어요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+      "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을 저녁에 카시오페이아자리의 W 모양과 페르세우스자리의 밝은 별무리를 먼저 찾으세요. 두 별자리의 밝은 별들 사이를 쌍안경으로 천천히 훑으면 별이 모인 두 개의 중심이 나타나요. 그중 하늘에서 서쪽에 있는 성단이 NGC869예요. 별지도와 주위 별의 배열로 확인해 보세요. 동쪽의 NGC884가 화면에서도 꼭 오른쪽에 있으리라는 법은 없으니, 좌우보다는 별지도의 방향을 기준으로 삼으세요.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Cas",
+      "const:Per"
+    ]
+  },
+  "observing": {
+    "nakedEye": "달빛이 적은 어두운 곳에서는 두 성단이 합쳐진 하나의 얼룩으로 보일 수 있어요. 맨눈으로는 둘을 따로 구별하기 어려우니, 이중성단을 보았다고만 기록해 보세요.",
+    "binoculars": "10×50 쌍안경으로 두 성단의 중심을 한 시야에 놓고 비교하기 좋아요. 도시에서는 희미한 별이 줄어들지만, 별이 몰려 있는 두 영역은 찾아볼 만해요.",
+    "telescope": "90mm 망원경이라면 20~40배와 넓은 시야의 접안렌즈로 시작해 보세요. 80배에서는 한쪽 성단의 일부가 시야 밖으로 잘릴 수 있어요. 주변 별의 배열을 별지도와 맞춰 보며 NGC869를 확인하세요.",
+    "bestMonths": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "difficulty": 2
+  },
+  "funFacts": [
+    "콜드웰 목록의 C14는 NGC869와 NGC884 두 성단을 하나로 묶어 부르는 이름이에요.",
+    "이중성단은 별 두 개로 이루어진 이중성과는 전혀 다른 말이에요."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:NGC869; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Caldwell 14: The Double Cluster — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-14/",
+    "NSF NOIRLab — Perseus — https://noirlab.edu/public/education/constellations/perseus/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "첨부 거리 8274광년과 등급 3.7은 NGC869 행의 값입니다. NASA C14의 집단 소개값을 개별 성단의 검증값으로 대입하지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

@@ -3,6 +3,7 @@
  * 소프트 삭제(deletedAt)로 지워서 동기화·내보내기 규칙(§6.3)을 지킨다.
  */
 import { getDb, newId, nowIso } from '@/db/database';
+import { emitDbChange } from '@/db/events';
 import { DB_SCHEMA_VERSION, type Bookmark } from '@/db/types';
 import type { ObjectId } from '@/catalog/objectId';
 
@@ -40,6 +41,7 @@ export async function addBookmark(objectId: ObjectId, note?: string): Promise<Bo
   if (record.note === undefined) delete record.note;
   if (record.deletedAt === undefined) delete record.deletedAt;
   await db.bookmarks.put(record);
+  emitDbChange('bookmarks');
   return record;
 }
 
@@ -48,6 +50,7 @@ export async function removeBookmark(objectId: ObjectId): Promise<void> {
   if (!existing) return;
   const now = nowIso();
   await getDb().bookmarks.update(existing.id, { deletedAt: now, updatedAt: now });
+  emitDbChange('bookmarks');
 }
 
 /** 토글 후 상태(true = 북마크됨) */

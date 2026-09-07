@@ -1,0 +1,42 @@
+{
+  "stats": {
+    "title": "Stats",
+    "attempted": "{{n}} attempted",
+    "empty": "No records yet. Log your first star.",
+    "tile": {
+      "observations": "Observations",
+      "objects": "Objects",
+      "nights": "Nights",
+      "streak": "Night streak"
+    },
+    "longest": "Best {{n}}",
+    "next": "What to see next",
+    "progress": {
+      "constellations": "Constellations",
+      "messier": "Messier",
+      "caldwell": "Caldwell"
+    },
+    "ratio": "{{n}} / {{total}}",
+    "remaining": "{{n}} left · tap for details",
+    "allDone": "All seen",
+    "showMore": "Show more ({{n}})",
+    "planets": "Planets",
+    "seen": "seen",
+    "moonPhases": "Moon phases {{n}} / 8",
+    "monthly": "By month",
+    "top": "Most observed",
+    "times": "{{n}}×",
+    "range": "First {{first}} · Latest {{last}}",
+    "body": {
+      "mercury": "Mercury",
+      "venus": "Venus",
+      "mars": "Mars",
+      "jupiter": "Jupiter",
+      "saturn": "Saturn",
+      "uranus": "Uranus",
+      "neptune": "Neptune",
+      "moon": "Moon",
+      "sun": "Sun"
+    }
+  }
+}

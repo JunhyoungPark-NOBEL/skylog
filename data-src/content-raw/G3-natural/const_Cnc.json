@@ -1,0 +1,97 @@
+{
+  "id": "const:Cnc",
+  "version": 2,
+  "title": {
+    "ko": "게자리",
+    "en": "Cancer"
+  },
+  "oneLiner": {
+    "ko": "밝은 별 대신 프레세페 성단을 길잡이로 삼는 봄의 게자리"
+  },
+  "summary": {
+    "ko": "게자리는 쌍둥이자리와 사자자리 사이에 있어요. 하지만 도시에서는 커다란 게의 윤곽을 바로 알아보기 어려워요. 기준이 될 만한 밝은 별이 약한 편이라, 먼저 구역을 좁힌 뒤 프레세페 성단 M44를 찾는 방법이 잘 통해요. M44는 게자리 안에 있는 산개성단이고, 별자리 전체와는 다른 대상이에요. 어두운 곳에서는 성단의 흐릿한 기운이 느껴질 수도 있지만, 도시에서는 쌍안경으로 별들이 모여 있는 모습을 확인하는 게 현실적이에요. 별자리 그림이 낯설어도 괜찮아요. 이웃한 두 별자리에서 출발하면 돼요. 희미한 윤곽을 억지로 완성하려 하기보다, 실제로 확인한 별 무리부터 기록해 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Cnc; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Cnc",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Cancri",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "쌍둥이자리, 레굴루스, 프레세페 M44",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Gem, star:HIP49669, dso:M44; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "게",
+      "source": "NSF NOIRLab — Cancer — https://noirlab.edu/public/education/constellations/cancer/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "봄 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "게자리처럼 희미한 별이 많은 구역에서는 관측 순서를 바꿔 보는 게 도움이 돼요. 처음부터 게 한 마리를 통째로 그리려 하면 어디서 시작해야 할지 막막해요. 대신 쌍둥이자리와 사자자리 사이를 먼저 정하고 프레세페를 찾으면, 게자리의 중심 구역을 자연스럽게 익힐 수 있어요. 성단을 찾는 일과 게자리를 이루는 주요 별을 모두 확인하는 일은 서로 다른 성취예요. 신화 속 게 그림은 이름을 기억하는 도구로 남겨 두고, 실제 기록에는 성단의 별이 얼마나 낱낱이 나뉘어 보였는지 적어 보세요. 쌍안경의 넓은 시야는 희미한 점들이 모여 있는 모습을 살피기에 좋아요. 오늘 게 그림이 떠오르지 않아도 괜찮아요. 별자리 이름에 맞춰 보이는 모양을 꾸미기보다, 위치와 관측 대상을 정확히 구분해 두는 편이 다음 탐색에 훨씬 유용해요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Cancer — https://noirlab.edu/public/education/constellations/cancer/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁에 쌍둥이자리의 두 머리 별과 사자자리의 레굴루스를 먼저 찾아요. 그 사이 구역으로 시선을 옮겨서 게자리와 M44의 위치를 지도에서 좁혀 보세요. 쌍안경으로 프레세페를 확인한 뒤, 주변의 희미한 연결 별을 하나씩 더해 가면 돼요.",
+    "season": "spring",
+    "hopFrom": [
+      "const:Gem",
+      "star:HIP49669",
+      "dso:M44"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 전체 윤곽을 잇기 어려울 수 있어요. 어두운 곳에서는 M44가 흐릿한 점처럼 보이는지 따로 확인해 보세요.",
+    "binoculars": "10×50 쌍안경으로 M44의 별무리를 찾는 게 좋은 출발이에요. 주변의 희미한 별까지 포함해서 실제 시야를 천천히 지도와 비교해 보세요.",
+    "telescope": "90mm 망원경 20~40배로 성단의 일부를 볼 수 있어요. 다만 넓게 퍼진 인상은 쌍안경이 더 편할 수 있어요. 별자리 윤곽은 배율을 올리기보다 맨눈이나 쌍안경으로 살피는 게 좋아요.",
+    "bestMonths": [
+      2,
+      3,
+      4
+    ],
+    "difficulty": 3
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Cnc; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Cancer — https://noirlab.edu/public/education/constellations/cancer/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Cnc; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Cnc; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: const:Gem, star:HIP49669, dso:M44; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: const:Gem, star:HIP49669, dso:M44; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "NOIRLab 검색 발췌의 신화 괴물 이름에는 오류 가능성이 있어 해당 세부 전승을 사용하지 않았습니다. M44의 관측 안내는 첨부 기존 콘텐츠와 카탈로그 소속을 함께 따릅니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

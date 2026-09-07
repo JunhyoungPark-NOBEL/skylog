@@ -1,0 +1,109 @@
+{
+  "id": "star:HIP67301",
+  "version": 2,
+  "title": {
+    "ko": "알카이드",
+    "en": "Alkaid"
+  },
+  "oneLiner": {
+    "ko": "북두칠성 손잡이 끝에서 은하 탐색의 출발점을 잡아요"
+  },
+  "summary": {
+    "ko": "알카이드는 북두칠성의 굽은 손잡이 맨 끝에 있는 밝은 별이에요. 국자 바깥쪽 변을 따라 북극성으로 가는 길과는 달리, 손잡이 쪽 하늘을 살펴볼 때 출발점이 되어 줘요. 분광형은 뜨거운 B형 별이라서 맨눈으로는 흰빛이나 살짝 푸른 기운으로 느껴질 수 있어요. 북쪽에 있는 별이라고 해서 언제나 하늘 높이 떠 있는 건 아니에요. 한국 중부에서는 계절과 시각에 따라 지평선 가까이 내려가거나 아예 질 수도 있으니, 찾기 전에 지금 고도를 먼저 확인해 보세요. 손잡이 끝의 위치를 익혀 두면 미자르와 그 주변의 은하 구역을 구분하기가 한결 쉬워져요."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "큰곰자리 (UMa)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "103.9광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "1.85등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "B3V SB",
+      "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP67301",
+      "source": "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "하늘 무늬의 위치",
+      "value": "북두칠성 손잡이의 끝별",
+      "source": "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/; 첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "국자 손잡이의 끝을 찾는 일은 망원경으로 희미한 대상에 다가가는 준비 운동이 될 수 있어요. 소용돌이은하 M51을 찾을 때도 알카이드를 기준으로 삼으면 살펴볼 구역을 좁힐 수 있어요. 다만 밝은 별 하나를 찾았다고 해서 곧바로 은하까지 본 건 아니에요. 기준별에서 목표까지의 작은 각거리를 몇 단계로 나누어 차근차근 확인해야 해요. 한국 전통 별자리에서는 알카이드를 요광 같은 이름으로 부르기도 하지만, 오늘날의 북두칠성 손잡이라는 그림과 전통 이름의 뜻을 꼭 같은 것으로 볼 필요는 없어요. 관측할 때는 이름을 많이 외우기보다 손잡이 끝과 미자르의 위치를 헷갈리지 않게 구분하는 데 집중해 보세요. 지도에 표시된 은하 구역으로 옮겨 간 뒤에는 눈에 보이는 주변 별을 다시 한번 맞춰 보세요. 길잡이 별을 찾은 것과 희미한 대상을 실제로 본 것을 따로 떼어 생각하면, 잘 안 보였을 때 그 이유도 더 쉽게 찾을 수 있어요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+      "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/",
+      "NASA — Star Types — https://science.nasa.gov/universe/stars/types/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁 북두칠성의 국자에서 굽은 손잡이를 따라가 보세요. 미자르를 지나 맨 끝에 닿는 밝은 별이 알카이드예요. 미자르와 알카이드를 번갈아 확인한 뒤에 주변의 다른 목표로 옮겨 가면 돼요. 가을 저녁에는 북쪽 낮은 곳에 있거나 지평선 아래로 내려가 있을 수 있으니, 계절만 믿기보다 지금 하늘에서 어디쯤인지 함께 확인해 보세요.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP65378",
+      "const:UMa"
+    ]
+  },
+  "observing": {
+    "nakedEye": "북두칠성이 충분히 높이 떠 있으면 도시에서도 찾기 좋은 편이에요. 하늘 낮은 곳에 있을 때는 주변 불빛이나 건물에 가리지 않는지 함께 살펴보세요.",
+    "binoculars": "10×50 쌍안경으로 손잡이 끝과 그 주변 별들을 살펴보세요. 가까이 있는 은하가 별처럼 밝게 드러나기를 기대하면 실망하기 쉬워요.",
+    "telescope": "90mm 망원경 20~80배에서 밝은 별빛을 확인해 보세요. 배율을 올려도 별의 표면이나 내부 구조가 보이는 건 아니고, 여전히 밝은 점으로 보여요.",
+    "bestMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+    "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/",
+    "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA APOD — The Big Dipper — https://science.nasa.gov/image-article/apod-2013-april-21-the-big-dipper/; 첨부 catalog-values.v1.csv — star:HIP67301; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP65378, const:UMa; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "북두칠성 전체가 대전에서 항상 지평선 위에 있다는 안내를 금지합니다. 알카이드는 첨부 적위상 북위 36.35°에서 기하학적 주극성이 아닙니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "koreanTradition": {
+    "note": "한국 전통 별자리에서는 알카이드를 요광(搖光), 파군(破軍)과 연결해요. 이 이름은 전통 별자리 속 자리를 나타내는 것이라, 별의 현재 밝기나 물리적 성질을 설명하는 말은 아니에요.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  }
+}

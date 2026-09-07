@@ -5,7 +5,13 @@
  */
 import * as THREE from 'three';
 import { bodyKeyFromObjectId, type BodyState } from '@/astro/bodies';
-import { altAzToScene, sceneToAltAz, unitVectorToRaDec, type Vec3 } from '@/astro/coords';
+import {
+  altAzToScene,
+  raDecToUnitVector,
+  sceneToAltAz,
+  unitVectorToRaDec,
+  type Vec3,
+} from '@/astro/coords';
 import {
   applyMat3,
   constellationAt,
@@ -21,7 +27,7 @@ import {
   type Catalog,
   type Lang,
 } from '@/catalog/catalog';
-import type { ObjectId } from '@/catalog/objectId';
+import { kindOf, type ObjectId } from '@/catalog/objectId';
 import { loadStarPack, type StarPackName } from '@/catalog/starPack';
 import { starObjectId, type StarPack } from '@/catalog/starPackFormat';
 import { BodyLayer } from '@/render/BodyLayer';
@@ -37,6 +43,7 @@ import {
   starLabelMagLimit,
   type LabelItem,
 } from '@/render/Labels';
+import { MarkerLayer, type MarkerSets, type MarkerTarget } from '@/render/MarkerLayer';
 import { MilkyWayLayer } from '@/render/MilkyWayLayer';
 import { readRenderPalette, type RenderPalette } from '@/render/palette';
 import { degPerPixel } from '@/render/projection';
@@ -82,6 +89,8 @@ export class SkyScene {
   readonly scene = new THREE.Scene();
   readonly controller: CameraController;
   readonly labels: Labels;
+  /** ★/☆ 기록 마커(T4) — 라벨 컨테이너 위의 DOM 풀 */
+  readonly markers: MarkerLayer;
   readonly stars = new StarLayer();
   readonly bodies = new BodyLayer();
   readonly constellations = new ConstellationLayer();
@@ -138,6 +147,8 @@ export class SkyScene {
     };
     this.controller.attach(opts.canvas);
     this.labels = new Labels(opts.labelContainer);
+    this.markers = new MarkerLayer(opts.labelContainer);
+    this.markers.setResolver((id) => this.markerTarget(id));
     this.selectionEl = document.createElement('div');
     this.selectionEl.className = 'sky-selection-ring';
     this.selectionEl.hidden = true;
@@ -187,6 +198,8 @@ export class SkyScene {
     this.dirty = true;
     // 캐시된 데이터로 즉시 로드되면 첫 프레임 전에 ready가 될 수 있다 → 행성 배치를 먼저 보장(objectDirection이 placements를 본다)
     this.updateAstronomy(performance.now());
+    // 카탈로그 전에 받은 마커 집합을 이제 해석한다(별·DSO·별자리)
+    this.markers.rebuild();
     this.resolveReady?.();
     void this.milkyWay.load().then(() => {
       this.dirty = true;
@@ -236,6 +249,7 @@ export class SkyScene {
     this.stop();
     this.controller.detach();
     this.labels.dispose();
+    this.markers.dispose();
     this.selectionEl.remove();
     this.stars.dispose();
     this.bodies.dispose();
@@ -384,6 +398,20 @@ export class SkyScene {
     renderStats.points = info.points;
 
     this.updateLabels(view, layers, limitingMag);
+    if (layers.markers) {
+      const W = this.width;
+      const H = this.height;
+      this.markers.update({
+        proj: (dir) => this.controller.directionToPixel(dir, W, H),
+        j2000ToSceneDir: (v) => this.j2000ToSceneDir(v),
+        placements: this.bodies.placements,
+        fovDeg: view.fovDeg,
+        pixelRatio: this.pixelRatio,
+        width: W,
+        height: H,
+        ground: layers.ground,
+      });
+    } else this.markers.clear();
   }
 
   /** 레이어 설정의 한계등급에서 하늘 밝기(태양 고도)를 뺀 값 */
@@ -403,6 +431,8 @@ export class SkyScene {
           .then((pack) => {
             if (this.disposed) return;
             this.packs.set('stars-deep', pack);
+            // 깊은 팩에만 있는 별의 마커가 이제 해석될 수 있다
+            this.markers.rebuild();
             this.dirty = true;
           })
           .catch((err: unknown) => console.warn('[sky] stars-deep load failed', err))
@@ -635,6 +665,8 @@ export class SkyScene {
         candidates.push({ id: d.id, x: px.x, y: px.y, mag: Math.min(mag, 6), radiusPx: 8 });
       });
     }
+    // ★/☆ 마커(직전 프레임 위치) — 마커를 누르면 그 대상이 선택된다
+    candidates.push(...this.markers.candidates());
     return pickBest(candidates, x, y)?.id ?? null;
   }
 
@@ -653,6 +685,52 @@ export class SkyScene {
     if (!altAz) return false;
     this.controller.flyTo({ ...altAz, fovDeg });
     return true;
+  }
+
+  // ---------- 마커(T4) ----------
+
+  /** 기록 집합(본 것·시도·예정) 교체. logStore가 바뀔 때마다 SkyView가 부른다. */
+  setMarkers(sets: MarkerSets): void {
+    this.markers.setSets(sets);
+    this.dirty = true;
+  }
+
+  /**
+   * 마커 대상 해석(집합이 바뀔 때만 호출 — 프레임마다 부르지 않는다).
+   * `objectDirection`과 같은 출처를 쓰므로 마커 위치는 `project(id)`와 일치한다.
+   */
+  private markerTarget(id: ObjectId): MarkerTarget | null {
+    const bodyKey = bodyKeyFromObjectId(id);
+    if (bodyKey) return { kind: kindOf(id), bodyKey, j2000: null };
+    const cat = this.catalog;
+    if (!cat) return null;
+    const star = cat.starById.get(id);
+    if (star) {
+      const i = cat.stars.indexOf(star);
+      return { kind: 'star', bodyKey: null, j2000: vec3At(cat.starVectors, i), mag: star.mag };
+    }
+    const dso = cat.dsoById.get(id);
+    if (dso) {
+      const i = cat.dso.indexOf(dso);
+      const mag = dso.mag ?? dso.magB ?? (dso.messier !== undefined ? 8 : undefined);
+      return { kind: 'dso', bodyKey: null, j2000: vec3At(cat.dsoVectors, i), mag };
+    }
+    if (id.startsWith('const:')) {
+      const c = cat.constellations[id.slice(6)];
+      if (!c) return null;
+      return { kind: 'const', bodyKey: null, j2000: raDecToUnitVector(c.label[0], c.label[1]) };
+    }
+    // 팩에만 있는 별(선형 탐색 — 여기서만)
+    const packStar = this.objectJ2000(id);
+    if (packStar) {
+      return {
+        kind: 'star',
+        bodyKey: null,
+        j2000: raDecToUnitVector(packStar.raDeg, packStar.decDeg),
+        mag: packStar.mag,
+      };
+    }
+    return null;
   }
 
   /** 팩 전용 별(카탈로그에 이름이 없는 star:HIP…/HYG…)의 J2000 좌표·등급. 상세 시트의 폴백(T3). */
@@ -829,6 +907,10 @@ export class SkyScene {
 
     this.labels.update(items);
   }
+}
+
+function vec3At(arr: Float32Array, i: number): Vec3 {
+  return [arr[i * 3]!, arr[i * 3 + 1]!, arr[i * 3 + 2]!];
 }
 
 function conName(cat: Catalog, abbr: string, lang: Lang): string | undefined {

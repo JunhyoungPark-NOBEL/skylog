@@ -18,6 +18,7 @@ import { SkyScene, type ObjectInfo } from '@/render/SkyScene';
 import { useClockStore } from '@/state/clockStore';
 import { useLayerStore } from '@/state/layerStore';
 import { useLocationStore } from '@/state/locationStore';
+import { useLogStore, type LogState } from '@/state/logStore';
 import { useSelectionStore } from '@/state/selectionStore';
 import { useSettingsStore } from '@/state/settingsStore';
 import { useViewStore } from '@/state/viewStore';
@@ -142,6 +143,17 @@ export function SkyView() {
     const ro = new ResizeObserver(() => scene.resize());
     ro.observe(canvas);
     scene.start();
+    // ★/☆ 마커: logStore(본 것·시도·예정 집합)를 씬에 밀어 넣는다 — 마운트 시와 스토어 변경 시.
+    // 카탈로그가 늦게 오면 씬(init)이 보관한 집합을 스스로 다시 해석한다.
+    const syncMarkers = (s: LogState = useLogStore.getState()) => {
+      scene.setMarkers({
+        observed: s.observedSet,
+        attempted: s.attemptedSet,
+        bookmarked: s.bookmarkedSet,
+      });
+      scene.invalidate();
+    };
+    syncMarkers();
     void scene.init().then(() => {
       setReady(true);
       const sel = hashQuery().get('select');
@@ -162,6 +174,7 @@ export function SkyView() {
       useLayerStore.subscribe(() => scene.invalidate()),
       useLocationStore.subscribe(() => scene.invalidate()),
       useClockStore.subscribe(() => scene.invalidate()),
+      useLogStore.subscribe((s) => syncMarkers(s)),
     ];
 
     return () => {

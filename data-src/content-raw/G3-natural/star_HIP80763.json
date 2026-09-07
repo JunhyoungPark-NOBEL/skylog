@@ -1,0 +1,95 @@
+{
+  "id": "star:HIP80763",
+  "version": 2,
+  "title": {
+    "ko": "안타레스",
+    "en": "Antares"
+  },
+  "oneLiner": {
+    "ko": "남쪽 하늘 낮은 곳에서 전갈의 심장을 표시하는 붉은 별"
+  },
+  "summary": {
+    "ko": "안타레스는 전갈자리 한가운데에 놓인 밝고 붉은 초거성이에요. 태양보다 훨씬 크게 부푼 바깥층을 가지고 있지만, 표면은 비교적 서늘해서 붉은빛을 내요. 한국처럼 중위도에서는 남쪽 하늘에 낮게 뜨기 때문에 도시의 건물과 산, 지평선 근처의 연무가 관측에 큰 영향을 줘요. 먼저 별의 붉은색과 전갈자리의 굽은 별줄기를 확인해 보는 게 좋아요. 작은 망원경으로는 별의 표면이나 거대한 대기의 구조까지 직접 보이지는 않아요. 별이 충분히 높이 떠오르는 시간을 고르고, 역시 붉게 보이는 화성과 헷갈리지 않도록 주변 별의 무늬도 함께 확인해 보세요."
+  },
+  "facts": [
+    {
+      "label": "거리(첨부 카탈로그)",
+      "value": "553.8광년",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)"
+    },
+    {
+      "label": "겉보기등급(대역 검토 필요)",
+      "value": "1.06등급; 첨부 mag, V 대역 미확인",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "M1Ib + B2.5V",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)"
+    },
+    {
+      "label": "별자리",
+      "value": "전갈자리 (Sco)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)"
+    },
+    {
+      "label": "별의 성격",
+      "value": "크게 팽창한 적색초거성",
+      "source": "https://www.eso.org/public/news/eso1726/"
+    },
+    {
+      "label": "관측 길잡이",
+      "value": "전갈자리의 붉은 중심 별",
+      "source": "https://www.eso.org/public/news/eso1726/"
+    }
+  ],
+  "story": {
+    "ko": "현대 천문학에서는 안타레스의 겉으로 보이는 표면뿐 아니라, 넓게 퍼진 대기까지 서로 다른 파장의 빛으로 살펴봐요. ESO는 여러 망원경의 빛을 합치는 방법으로 별의 표면과 대기 물질이 움직이는 모습을 연구했어요. ALMA를 비롯한 전파망원경은 그 바깥 대기의 크기와 온도를 알아보는 데 쓰였고요. 눈에는 점 하나로 보이는 별이 연구 장비에서는 이렇게 복잡한 구조로 드러나는 거예요. 다만 입문용 망원경에서 별 둘레가 희미하게 번져 보이는 건 별의 대기가 아니에요. 한국에서 낮게 보이는 안타레스는 지구 대기의 영향도 많이 받거든요. 오늘은 붉은색과 주변 별 사이에서의 위치를 확인하는 데 집중하고, 전문 관측으로 알아낸 구조는 따로 알아 두는 지식으로 이어 보세요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "ESO — Best Ever Image of a Star’s Surface and Atmosphere, 2017-08-23 | https://www.eso.org/public/news/eso1726/",
+      "ALMA — Supergiant Atmosphere of Antares Revealed by Radio Telescopes | https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/"
+    ]
+  },
+  "howToFind": {
+    "ko": "한국의 여름 저녁에 남쪽 지평선이 탁 트인 곳을 골라 보세요. 하늘 지도에서 전갈자리의 길게 굽은 별줄기를 확인하고, 머리 부근에서 꼬리 쪽으로 시선을 옮겨 보세요. 몸통에서 눈에 띄게 붉은 별이 안타레스예요. 화성도 붉게 보일 수 있으니 색만 보지 말고 전갈자리 주변 별의 배열과 맞춰 보세요.",
+    "season": "summer",
+    "hopFrom": [
+      "const:Sco"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 남쪽이 트여 있고 대기가 맑으면 붉은 점으로 보여요. 고도가 낮아서 산이나 건물에 가려질 수 있어요.",
+    "binoculars": "10×50 쌍안경으로는 붉은 색과 전갈자리 주변 별들의 배치를 확인해 보세요. 고도가 낮아서 상이 흔들리거나 빛이 번질 수 있으니 참고하세요.",
+    "telescope": "90mm 망원경에 20~80배로는 붉은 주성을 살펴봐요. 바로 곁에 붙은 어두운 동반성을 갈라 보는 건 입문 단계에서는 어려운 목표이고, 전문 관측에서 얻은 표면이나 대기 영상 같은 모습은 보이지 않아요.",
+    "difficulty": 2,
+    "bestMonths": [
+      6,
+      7,
+      8
+    ]
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP80763)",
+    "ESO — Best Ever Image of a Star’s Surface and Atmosphere, 2017-08-23 | https://www.eso.org/public/news/eso1726/",
+    "ALMA — Supergiant Atmosphere of Antares Revealed by Radio Telescopes | https://www.almaobservatory.org/en/press-releases/supergiant-atmosphere-of-antares-revealed-by-radio-telescopes/",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "분광형 M1Ib + B2.5V는 첨부의 복합 문자열을 보존했습니다. 두 성분에 대한 분류와 HIP 레코드의 대응을 병합 단계에서 확인해야 합니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "funFacts": [
+    "붉게 보인다고 해서 별이 내는 빛의 양이 적다는 뜻은 아니에요.",
+    "안타레스의 대기는 어떤 파장의 빛으로 보느냐에 따라 서로 다른 부분이 드러나요."
+  ]
+}

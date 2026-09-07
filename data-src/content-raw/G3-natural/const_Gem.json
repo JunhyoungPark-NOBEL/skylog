@@ -1,0 +1,100 @@
+{
+  "id": "const:Gem",
+  "version": 2,
+  "title": {
+    "ko": "쌍둥이자리",
+    "en": "Gemini"
+  },
+  "oneLiner": {
+    "ko": "카스토르와 폴룩스의 두 머리에서 겨울 쌍둥이를 이어 보세요"
+  },
+  "summary": {
+    "ko": "쌍둥이자리는 겨울 저녁에 밝은 두 별 카스토르와 폴룩스로 찾기 좋은 별자리예요. 두 별을 머리로 삼고 몸통과 발 쪽으로 선을 이어 가는 그림이 널리 쓰여요. 다만 폴룩스와 카스토르는 별의 구성과 성질이 서로 달라요. 쌍둥이라는 이름은 물리적으로 똑같은 두 별이라는 뜻이 아니에요. 발 쪽에 있는 M35는 별자리 전체와는 별개로 따로 찾아볼 만한 산개성단이에요. 도시에서는 머리 두 별은 보여도 몸통을 잇는 약한 점들이 빠질 수 있어요. 먼저 두 머리를 구분한 다음, 쌍안경으로 몸통 구역을 나누어 하나씩 살펴보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Gem; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Gem",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Geminorum",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "카스토르, 폴룩스, 발 쪽 M35",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP36850, star:HIP37826, dso:M35; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "그리스 전승의 쌍둥이",
+      "source": "NSF NOIRLab — Gemini — https://noirlab.edu/public/education/constellations/gemini/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "겨울 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "그리스 전승에서 카스토르와 폴룩스는 늘 함께 기억되는 형제예요. 이야기 속에는 필멸의 카스토르와 불멸의 폴룩스라는 대비도 나오지만, 이건 두 별의 실제 수명을 비교한 과학적 설명은 아니에요. 하늘에서 나란히 보이는 두 머리는 그 이야기를 떠올리게 하는 표지가 돼요. 오늘 관측에서는 두 별의 색과 밝기가 어떻게 다르게 느껴지는지 비교해 보고, 어느 쪽이 북서쪽인지 확인해 보세요. 이어서 몸통을 따라 발 쪽으로 내려가면, 별자리가 머리에서 끝나지 않고 어디까지 이어지는지 익힐 수 있어요. M35를 찾아보는 건 그다음에 따로 해 볼 관측이에요. 형제의 이야기와 별의 물리적인 차이를 함께 읽되, 이야기의 성격을 실제 별의 성질로 그대로 옮기지는 않는 태도가 중요해요.",
+    "cultures": [
+      "그리스·로마"
+    ],
+    "sources": [
+      "NSF NOIRLab — Gemini — https://noirlab.edu/public/education/constellations/gemini/",
+      "NSF NOIRLab Globe at Night — Gemini — https://globeatnight.org/constellation/gemini/",
+      "NASA — Find the Twins: Gemini Constellation — https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁에 오리온자리에서 천구의 북동쪽으로 옮겨 가면 나란히 빛나는 카스토르와 폴룩스를 찾을 수 있어요. 두 머리에서 오리온자리 쪽으로 이어지는 몸통의 별들을 차례로 확인해 보세요. M35는 발 쪽 별 배열을 지도와 맞춘 다음, 별도의 목표로 삼아 찾아보세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP36850",
+      "star:HIP37826",
+      "dso:M35"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 두 머리는 찾기 좋아요. 몸통의 약한 별이 안 보이면 그림으로 채우기보다, 실제로 보인 별만 기록해 보세요.",
+    "binoculars": "10×50 쌍안경으로 몸통과 발 쪽을 나누어 훑어보세요. M35는 별자리 연결선의 일부가 아니라 실제 별무리이니, 따로 찾아서 확인해 보세요.",
+    "telescope": "90mm 망원경 20~40배에서는 M35를, 더 높은 배율에서는 카스토르의 밝은 쌍을 각각 시도해 볼 수 있어요. 별자리 전체를 한 시야에 담는 것과는 다른 관측이에요.",
+    "bestMonths": [
+      1,
+      2,
+      3
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Gem; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Gemini — https://noirlab.edu/public/education/constellations/gemini/",
+    "NSF NOIRLab Globe at Night — Gemini — https://globeatnight.org/constellation/gemini/",
+    "NASA — Find the Twins: Gemini Constellation — https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Gem; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Gem; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP36850, star:HIP37826, dso:M35; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP36850, star:HIP37826, dso:M35; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

@@ -22,6 +22,7 @@ import { openObject } from '@/features/object/objectApi';
 import { flyToObject } from '@/features/sky/skyApi';
 import { useClockStore } from '@/state/clockStore';
 import { useLocationStore } from '@/state/locationStore';
+import { markerKindOf, useLogStore, type MarkerKind } from '@/state/logStore';
 import { useSearchStore, type SearchCategory } from '@/state/searchStore';
 import { useSettingsStore } from '@/state/settingsStore';
 import { IconSearch } from '@/ui/icons';
@@ -169,10 +170,24 @@ interface RowProps {
   daytime: boolean;
   mag?: number;
   con?: string;
+  /** T4 기록 상태: 본 것(금색 ★) > 시도(회색 ★) > 예정(☆). 없으면 표시 안 함 */
+  mark?: MarkerKind | null;
   onOpen(id: ObjectId): void;
 }
 
-function ResultRow({ id, kind, cat, lang, alt, daytime, mag, con, onOpen }: RowProps) {
+/** 기록 상태 글리프 — 야간 모드에선 색 구분이 사라지므로 ★/☆ 모양 + 라벨을 함께 */
+const MARK_GLYPH: Record<MarkerKind, string> = {
+  observed: '★',
+  attempted: '★',
+  bookmarked: '☆',
+};
+const MARK_TONE: Record<MarkerKind, string> = {
+  observed: 'text-marker',
+  attempted: 'text-muted',
+  bookmarked: 'text-fg',
+};
+
+function ResultRow({ id, kind, cat, lang, alt, daytime, mag, con, mark, onOpen }: RowProps) {
   const { t } = useTranslation();
   const name = displayName(cat, id, lang);
   const secondary = secondaryName(cat, id, lang);
@@ -219,6 +234,17 @@ function ResultRow({ id, kind, cat, lang, alt, daytime, mag, con, onOpen }: RowP
             {state}
           </span>
         </span>
+        {mark && (
+          <span
+            role="img"
+            aria-label={t(`search.mark.${mark}`)}
+            className={`w-5 shrink-0 text-center text-body ${MARK_TONE[mark]}`}
+            data-testid="search-mark"
+            data-kind={mark}
+          >
+            {MARK_GLYPH[mark]}
+          </span>
+        )}
       </button>
     </li>
   );
@@ -244,6 +270,11 @@ export function SearchScreen() {
   const recent = useSearchStore((s) => s.recent);
   const visibleOnly = useSearchStore((s) => s.visibleOnly);
   const category = useSearchStore((s) => s.category);
+  // T4 기록 상태(★/☆) — 훅으로 구독해 저장·북마크 직후 행이 바로 바뀐다
+  const observedSet = useLogStore((s) => s.observedSet);
+  const attemptedSet = useLogStore((s) => s.attemptedSet);
+  const bookmarkedSet = useLogStore((s) => s.bookmarkedSet);
+  const markOf = (id: ObjectId) => markerKindOf({ observedSet, attemptedSet, bookmarkedSet }, id);
   const [cat, setCat] = useState<Catalog | null>(null);
   const [ready, setReady] = useState(isSearchIndexReady());
   const [query, setQuery] = useState('');
@@ -426,6 +457,7 @@ export function SearchScreen() {
                   daytime={daytime}
                   mag={magOf(cat, id)}
                   con={conOf(cat, id)}
+                  mark={markOf(id)}
                   onOpen={open}
                 />
               ))}
@@ -447,6 +479,7 @@ export function SearchScreen() {
                   daytime={daytime}
                   mag={magOf(cat, id)}
                   con={conOf(cat, id)}
+                  mark={markOf(id)}
                   onOpen={open}
                 />
               ))}
@@ -472,6 +505,7 @@ export function SearchScreen() {
                   daytime={daytime}
                   mag={h.mag ?? magOf(cat, h.id)}
                   con={h.con ?? conOf(cat, h.id)}
+                  mark={markOf(h.id)}
                   onOpen={open}
                 />
               ))}

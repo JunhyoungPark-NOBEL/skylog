@@ -1,0 +1,97 @@
+{
+  "id": "dso:M103",
+  "version": 2,
+  "title": {
+    "ko": "M103",
+    "en": "M103"
+  },
+  "oneLiner": {
+    "ko": "작게 보이는 별무리와 앞쪽의 밝은 별을 구분해 보는 성단"
+  },
+  "summary": {
+    "ko": "M103은 카시오페이아자리에 있는 산개성단으로, 하늘의 작은 구역에 모여 보여요. 성단 사진에서 눈에 띄는 밝은 쌍성은 사실 성단의 구성원이 아니라 더 앞쪽에 있는 별이에요. 가까이 겹쳐 보인다고 해서 모두 같은 무리인 건 아니에요. 쌍안경에서는 작은 흐림으로만 남을 수 있고, 90mm 망원경에서는 밝은 점들과 희미한 별무리를 살피는 게 현실적인 목표예요. 도시에서는 주변의 밝은 별만 남을 수 있으니, 목표 위치를 지도와 맞춰 보세요. 보인 점의 개수가 성단의 전체 별 수는 아니니, 실제로 센 만큼만 적어 두면 돼요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행; NSF NOIRLab — M103 — https://noirlab.edu/public/images/noao-m103/"
+    },
+    {
+      "label": "별자리",
+      "value": "카시오페이아자리 (Cas)",
+      "source": "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "7.4등급 — V 대역 확정 전",
+      "source": "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "각크기(첨부)",
+      "value": "4.5′ — 카탈로그 범위",
+      "source": "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "거리(첨부)",
+      "value": "8,744광년 — 원본값, 외부 검증 완료 아님",
+      "source": "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M103",
+      "source": "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행"
+    }
+  ],
+  "story": {
+    "ko": "별 사진은 하늘의 같은 방향에 놓인 것들을 한 평면에 모아서 보여 줘요. NOIRLab은 M103 사진에서 눈에 띄는 북서쪽의 밝은 쌍성이 성단의 구성원이 아니라고 설명해요. 가장 먼저 눈에 들어오는 별이 꼭 우리가 보려는 무리의 대표는 아니라는 거예요. 처음 관측할 때는 밝은 점을 찾았다는 안도감 때문에 희미한 성단까지 다 확인했다고 생각하기 쉬워요. 먼저 지도에서 성단의 위치를 좁히고, 그 주변에 별무리가 따로 모여 있는지 살펴보세요. 스케치에는 눈에 띈 별들을 그리되, 성단 소속인지 확실하지 않은 점에는 단정적인 표시를 붙이지 않는 편이 좋아요. 작게 보이는 무리도 실제로는 멀리 퍼져 있는 별들의 모임일 수 있어요. 밝기, 하늘에서의 위치, 물리적인 소속이 서로 다른 정보라는 걸 배우는 관측이에요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — M103 — https://noirlab.edu/public/images/noao-m103/"
+    ]
+  },
+  "howToFind": {
+    "ko": "가을에 카시오페이아자리의 W 모양을 찾아보세요. 지도에서 델타별 부근에 있는 M103을 고른 뒤, 주변의 밝은 별과 작은 성단 구역을 맞춰 보면 돼요. 밝은 별 하나만 확인한 상태와 성단의 별무리까지 본 상태를 구분해서 기록해 보세요.",
+    "season": "autumn",
+    "hopFrom": [
+      "const:Cas"
+    ]
+  },
+  "observing": {
+    "nakedEye": "맨눈으로 보는 대상은 아니에요. 맨눈으로는 카시오페이아자리의 W 모양을 찾아 두는 정도면 충분해요.",
+    "binoculars": "10×50 쌍안경에서는 작고 흐린 구역으로 보일 수 있어요. 밝은 주변 별과 구분해서 보는 게 필요해요.",
+    "telescope": "90mm 망원경 20~80배로 작은 별 배열과 남아 있는 흐림을 살펴보세요. 도시에서는 희미한 구성별이 사라지니, 밝은 점 몇 개가 보였다면 그만큼만 기록해 두면 돼요.",
+    "difficulty": 3,
+    "bestMonths": [
+      9,
+      10,
+      11
+    ]
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격",
+    "편집 제안 — observing-policy.md; 북위36.35°·10×50·90mm 20~80배, 실측 아님",
+    "첨부 catalog-values.v1.csv — 길잡이 연계 행: const:Cas; inputs/catalog-values.v1.csv",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/",
+    "NSF NOIRLab — M103 — https://noirlab.edu/public/images/noao-m103/",
+    "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행; NSF NOIRLab — M103 — https://noirlab.edu/public/images/noao-m103/",
+    "첨부 catalog-values.v1.csv — dso:M103; inputs/catalog-values.v1.csv의 원본 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv; 한국어명·IAU 약어·속격"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "장비별 관측 안내·추천 월·난이도는 보수적인 편집 제안입니다. 실제 기기·날씨·광해에서 관측 성공을 보장하지 않습니다.",
+      "일부 NOIRLab 자료는 직접 페이지가 접근 제한되어 공식 도메인의 검색 색인 발췌문만 확인했습니다. 지원 범위는 source-registry.json에 명시했으며 전문을 읽었다고 간주하지 않습니다.",
+      "첨부 영어 이름은 빈칸으로 보존했습니다. title.en에는 새 고유명을 만들지 않고 목록 식별자를 표시용으로 사용했습니다.",
+      "입력 mag 열의 측광 대역이 확인되지 않았습니다. V등급으로 재명명하거나 검증 전 밝기 비교 퀴즈에 사용하지 않습니다.",
+      "첨부 각크기는 해당 카탈로그의 측정/선택 범위로 보존했습니다. 사진 전체 윤곽·성단 구성원 전부·도시에서 보이는 경계와 동일하다고 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

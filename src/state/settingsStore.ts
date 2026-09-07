@@ -9,6 +9,7 @@ export interface SettingsValues {
   lang: Lang;
   keepAwake: boolean;
   debugHud: boolean;
+  postLogQuiz: boolean;
   units: 'metric';
 }
 
@@ -17,6 +18,7 @@ export interface SettingsState extends SettingsValues {
   setLang(lang: Lang): void;
   setKeepAwake(on: boolean): void;
   setDebugHud(on: boolean): void;
+  setPostLogQuiz(on: boolean): void;
 }
 
 export const DEFAULT_SETTINGS: SettingsValues = {
@@ -24,6 +26,7 @@ export const DEFAULT_SETTINGS: SettingsValues = {
   lang: 'ko',
   keepAwake: false,
   debugHud: false,
+  postLogQuiz: true,
   units: 'metric',
 };
 
@@ -41,6 +44,7 @@ export const useSettingsStore = create<SettingsState>()(
       setLang: (lang) => set({ lang }),
       setKeepAwake: (keepAwake) => set({ keepAwake }),
       setDebugHud: (debugHud) => set({ debugHud }),
+      setPostLogQuiz: (postLogQuiz) => set({ postLogQuiz }),
     }),
     {
       name: SETTINGS_PERSIST_NAME,
@@ -51,6 +55,7 @@ export const useSettingsStore = create<SettingsState>()(
         lang: s.lang,
         keepAwake: s.keepAwake,
         debugHud: s.debugHud,
+        postLogQuiz: s.postLogQuiz,
         units: s.units,
       }),
     },

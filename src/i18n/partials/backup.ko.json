@@ -1,0 +1,77 @@
+{
+  "settings": {
+    "backup": "백업·복원"
+  },
+  "backup": {
+    "title": "백업·복원",
+    "export": {
+      "section": "내보내기",
+      "desc": "기록·예정 목록·관측지·장비·설정을 파일 하나로 저장해요.",
+      "privacy": "기록에는 관측지 좌표(집 등)가 들어 있어요.",
+      "roundCoords": "좌표를 대략적으로(약 1km)",
+      "roundCoordsHint": "소수점 2자리로 반올림해요. 다른 사람과 나눌 때 켜 두세요.",
+      "includeBlobs": "스케치·사진 포함",
+      "includeBlobsHint": "끄면 파일이 훨씬 작아져요.",
+      "json": "JSON 내보내기",
+      "csv": "CSV 내보내기",
+      "csvHint": "CSV에는 관측 기록만 들어가요(엑셀용).",
+      "iosHint": "아이폰에서는 공유 시트가 열려요 — ‘파일에 저장’을 고르세요.",
+      "lastAt": "마지막 백업: {{when}}",
+      "never": "아직 백업한 적 없어요",
+      "doneJson": "백업 파일을 저장했어요",
+      "doneCsv": "기록 {{n}}건을 CSV로 저장했어요"
+    },
+    "import": {
+      "section": "가져오기",
+      "desc": "예전에 내보낸 skylog 백업(JSON)을 골라 되돌려요.",
+      "choose": "파일 선택",
+      "noFile": "아직 고른 파일이 없어요",
+      "counts": "기록 {{observations}} · 예정 {{bookmarks}} · 관측지 {{sites}} · 장비 {{equipment}} · 스케치·사진 {{blobs}}",
+      "conflicts": "이미 있는 항목 {{n}}개 (그중 파일 쪽이 더 새로운 것 {{newer}}개)",
+      "noConflicts": "겹치는 항목이 없어요",
+      "policy": "겹칠 때",
+      "policyNewest": "최신 우선",
+      "policyAddAll": "모두 추가",
+      "policyNewestHint": "같은 항목은 더 나중에 고친 쪽만 남겨요.",
+      "policyAddAllHint": "겹치는 항목도 새 항목으로 모두 추가해요. 같은 기록이 두 번 보일 수 있어요.",
+      "run": "가져오기",
+      "done": "{{added}}개 추가 · {{replaced}}개 갱신 · {{skipped}}개 그대로",
+      "failed": "가져오기를 마치지 못했어요 — 바뀐 건 없어요",
+      "error": {
+        "json": "JSON 파일이 아니에요",
+        "app": "skylog 백업 파일이 아니에요",
+        "version": "더 새로운 앱에서 만든 파일이에요 — 앱을 업데이트해 주세요",
+        "shape": "파일 구조가 달라요 ({{detail}})",
+        "field": "잘못된 값이 있어요 ({{detail}})"
+      }
+    },
+    "storage": {
+      "section": "저장 공간",
+      "usage": "사용 중 {{used}} / {{quota}}",
+      "persist": "영구 저장",
+      "persistHint": "브라우저가 공간을 정리할 때 기록을 지우지 않게 해요.",
+      "persistOn": "켜짐",
+      "persistOff": "아직",
+      "persistRequest": "요청",
+      "persistDenied": "브라우저가 아직 허용하지 않았어요 — 홈 화면에 추가하면 도움이 돼요.",
+      "generalNote": "브라우저 데이터를 지우면 기록도 같이 지워져요. 정기 백업을 권해요.",
+      "iosNote": "사파리는 7일 동안 쓰지 않으면 데이터를 지울 수 있어요 — 홈 화면에 추가하면 덜 지워져요. 정기 백업을 권해요."
+    },
+    "danger": {
+      "section": "위험",
+      "clearAll": "모든 데이터 삭제",
+      "confirmTitle": "정말 지울까요?",
+      "confirmHint": "기록·예정·관측지·장비·설정이 모두 지워지고 되돌릴 수 없어요. 5초 안에 다시 탭하면 지워요.",
+      "confirm": "지우기",
+      "cancel": "취소",
+      "done": "모든 데이터를 지웠어요"
+    },
+    "banner": {
+      "title": "백업한 지 30일이 넘었어요",
+      "titleNever": "아직 백업한 적이 없어요",
+      "hint": "기록을 파일로 저장해 두면 폰을 바꿔도 안전해요.",
+      "go": "백업하기",
+      "later": "나중에"
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { emitSkill } from '@/learn/runtime';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { sensorManager } from '@/sensors/orientation/manager';
@@ -44,6 +45,7 @@ export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
     }
     setHelp(null);
     sensorManager.start();
+    if (useSensorStore.getState().arActive && !st.simulator) void emitSkill('arMode');
     void requestWakeLock();
   };
 

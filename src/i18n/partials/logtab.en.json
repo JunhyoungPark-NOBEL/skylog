@@ -1,0 +1,115 @@
+{
+  "log": {
+    "tab": {
+      "add": "Add observation",
+      "viewLabel": "View",
+      "views": {
+        "timeline": "Timeline",
+        "calendar": "Calendar",
+        "byObject": "By object",
+        "planned": "Planned"
+      },
+      "searchPlaceholder": "Object name or tag",
+      "kindLabel": "Type",
+      "all": "All",
+      "seen": "Seen",
+      "notSeen": "Not seen",
+      "equip": {
+        "naked": "Naked eye",
+        "binoculars": "Binoculars",
+        "telescope": "Telescope"
+      },
+      "period": {
+        "7d": "7 days",
+        "30d": "30 days"
+      },
+      "clearFilter": "Clear filters",
+      "empty": {
+        "title": "Log your first observation",
+        "body": "Start with tonight's Moon or a planet. Time, place and sky conditions fill in automatically.",
+        "action": "Log now"
+      },
+      "noMatch": "No observations match yet",
+      "deleted": "Deleted",
+      "undo": "Undo",
+      "unplanned": "Removed from plan"
+    },
+    "timeline": {
+      "group": "{{night}} · {{n}}",
+      "delete": "Delete",
+      "attempted": "Not seen"
+    },
+    "calendar": {
+      "prev": "Previous month",
+      "next": "Next month",
+      "monthTotal": "{{n}} this month",
+      "dayCount": "{{n}} observations",
+      "weekdays": "S,M,T,W,T,F,S",
+      "legend": "Count",
+      "hint": "Tap a date to see that night's observations",
+      "nightEmpty": "Nothing logged that night yet"
+    },
+    "byObject": {
+      "sort": "Sort",
+      "recent": "Recent",
+      "name": "Name",
+      "count": "Count",
+      "times": "{{n}}×",
+      "last": "Last {{date}}",
+      "empty": "No objects observed yet"
+    },
+    "planned": {
+      "empty": "Nothing planned yet",
+      "emptyHint": "Tap ☆ in search or on an object to collect it here",
+      "unplan": "Remove from plan",
+      "log": "Log it",
+      "now": "Alt {{alt}} · {{az}}",
+      "best": "Best tonight {{from}}–{{to}}",
+      "bestPassed": "Tonight's best time has passed",
+      "bestNone": "Doesn't rise high tonight"
+    },
+    "detail": {
+      "title": "Observation",
+      "showInSky": "Show in sky again",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "confirmDelete": "Delete this observation? You can undo within 5 seconds.",
+      "when": "When and where",
+      "time": "Time",
+      "site": "Site",
+      "outcome": "Result",
+      "seen": "★ Seen",
+      "notSeen": "★ Tried, not seen",
+      "how": "How",
+      "equipment": "Equipment",
+      "magnification": "Magnification",
+      "rating": "Rating",
+      "seeing": "Seeing",
+      "transparency": "Transparency",
+      "outOf5": "{{n}}/5",
+      "conditions": "Sky conditions",
+      "moonIllum": "Moon lit",
+      "moonSep": "Angle from the Moon",
+      "altAz": "Alt · Az",
+      "cloud": "Cloud",
+      "temp": "Temperature",
+      "humidity": "Humidity",
+      "bortleLabel": "Light pollution",
+      "bortle": "Level {{n}}",
+      "notes": "Notes and features",
+      "images": "Sketch and photos",
+      "sketch": "Sketch",
+      "photo": "Photo",
+      "viewerHint": "Tap to enlarge"
+    },
+    "quickpick": {
+      "title": "What did you observe?",
+      "placeholder": "Saturn, Andromeda, M13…",
+      "recent": "Recently logged",
+      "planned": "Planned",
+      "famous": "Popular objects",
+      "noResults": "No results"
+    }
+  }
+}

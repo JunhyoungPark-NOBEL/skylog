@@ -1,0 +1,99 @@
+{
+  "id": "dso:M37",
+  "version": 2,
+  "title": {
+    "ko": "M37",
+    "en": "Messier 37"
+  },
+  "oneLiner": {
+    "ko": "마차부자리 별밭에서 촘촘하게 모인 빛을 비교해 보는 성단"
+  },
+  "summary": {
+    "ko": "M37은 마차부자리에 있는 산개성단이에요. 같은 영역의 M36·M38과 함께 별무리를 비교해 보기 좋은 대상이에요. 하늘에서 서로 가까이 보인다고 해서 세 성단이 하나로 묶인 건 아니에요. 쌍안경에서는 조밀한 얼룩과 몇몇 별이 섞여 보일 수 있고, 작은 망원경에서는 낮은 배율로 별들이 어떻게 퍼져 있는지 살펴볼 수 있어요. 도심에서는 희미한 별이 줄어들어 사진보다 단순하게 보여요. 그러니 별을 몇 개나 봤는지를 성공의 기준으로 삼지 않아도 괜찮아요. 별의 온도와 밝기 분포를 조사하는 연구와 접안렌즈로 직접 본 별무리의 모습은 서로 다른 수준의 정보예요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "산개성단",
+      "source": "NSF NOIRLab — M37, NGC 2099 — https://noirlab.edu/public/images/noao-m37/"
+    },
+    {
+      "label": "별자리",
+      "value": "마차부자리 (Aur)",
+      "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "5.6등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "11.4′",
+      "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M37",
+      "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리(첨부 목록 기준)",
+      "value": "4897광년",
+      "source": "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행"
+    }
+  ],
+  "story": {
+    "ko": "오늘날 M37을 연구할 때는 눈에 띄는 밝은 별들뿐 아니라, 진화를 마치고 작게 남은 별의 잔해인 백색왜성에도 주목해요. 이 성단과 관련된 행성상성운의 중심별을 분석한 연구도 발표되어 있어요. 이런 천체들은 전문 장비와 정밀한 측정으로 확인하는 대상이라, 작은 망원경으로 성단을 찾았다면 그 사실만 기록해 보세요. 한 별무리에는 눈으로 본 인상보다 훨씬 다양한 별의 진화 정보가 담겨 있어요. 처음에는 어떤 배율에서 성단의 경계와 조밀한 부분이 잘 드러나는지 비교해 보세요. 연구로 알려진 내용과 내가 실제로 본 것을 구별해 두면, 사진 속 모든 것을 봤다고 과장하지 않으면서 작은 별밭 이야기를 읽을 수 있어요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — M37, NGC 2099 — https://noirlab.edu/public/images/noao-m37/",
+      "Werner 외 (2023) — The unusual planetary nebula nucleus in the Galactic open cluster M37 — https://www.aanda.org/articles/aa/full_html/2023/10/aa47217-23/aa47217-23.html"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁에 밝은 별 카펠라가 포함된 마차부자리의 큰 오각형을 찾으세요. 오각형의 남쪽 끝 엘나트와 동쪽의 세타별을 잇는 변을 별지도에서 확인하고, 그 변의 천구상 동쪽 바깥 구역을 낮은 배율로 훑어보세요. M36·M38은 다른 위치에 있으니, 세 성단이 어떻게 놓여 있는지 별지도와 비교하면서 M37을 확인해 보세요.",
+    "season": "winter",
+    "hopFrom": [
+      "const:Aur"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 맨눈으로 보기 어려운 대상이에요. 맨눈으로는 마차부자리 오각형의 위치를 잡는 데 집중해 보세요.",
+    "binoculars": "10×50 쌍안경에서는 작고 흐릿한 별무리로 보일 수 있어요. 도시에서는 주변 별과 구분하기 어려우니, 더 어두운 곳에서 다시 비교해 보세요.",
+    "telescope": "90mm 망원경이라면 20~60배에서 별이 모인 영역과 몇몇 별을 살펴보세요. 80배로 올린다고 항상 더 많은 별이 보이는 건 아니에요. 연구에 나오는 백색왜성이나 행성상성운은 작은 망원경으로 찾는 대상이 아니니, 성단 자체에 집중하면 돼요.",
+    "bestMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "difficulty": 3
+  },
+  "funFacts": [
+    "같은 마차부자리에 있는 M36·M37·M38은 서로 다른 성단이에요."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M37; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — M37, NGC 2099 — https://noirlab.edu/public/images/noao-m37/",
+    "Werner 외 (2023) — The unusual planetary nebula nucleus in the Galactic open cluster M37 — https://www.aanda.org/articles/aa/full_html/2023/10/aa47217-23/aa47217-23.html",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "M37 전문 연구는 검색 색인에 공개된 초록·본문 일부만 확인했습니다. 백색왜성 및 행성상성운 연구의 존재만 요약했고 원문 미열람 수치는 사용하지 않았습니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

@@ -206,6 +206,60 @@ describe('추천 엔진', () => {
       .items[0]!.score;
     expect(a - b).toBe(5);
   });
+  it('T4 플래그: observed/planned는 집합에서, 집합이 없으면 둘 다 false', () => {
+    // 쌍안경: M13(구상성단)이 후보에 남는 장비
+    const r = recommend(
+      base({
+        equipment: 'binoculars',
+        observedSet: new Set(['star:HIP91262']),
+        bookmarkedSet: new Set(['dso:M13']),
+      }),
+    );
+    const vega = r.items.find((i) => i.id === 'star:HIP91262')!;
+    const m13 = r.items.find((i) => i.id === 'dso:M13')!;
+    const sat = r.items.find((i) => i.id === 'planet:saturn')!;
+    expect(vega.observed).toBe(true);
+    expect(vega.planned).toBe(false);
+    expect(vega.reasons.some((p) => p.type === 'fresh')).toBe(false);
+    expect(m13.planned).toBe(true);
+    expect(m13.observed).toBe(false);
+    expect(m13.reasons.some((p) => p.type === 'fresh')).toBe(true);
+    expect(sat.observed).toBe(false);
+    expect(sat.planned).toBe(false);
+    const none = recommend(base()).items[0]!;
+    expect(none.observed).toBe(false);
+    expect(none.planned).toBe(false);
+  });
+  it('계획: 관측 예정(☆) 후보가 앞에 오고, 나머지는 기존대로 최적 시각순', () => {
+    const r0 = recommend(base({ equipment: 'binoculars' }));
+    expect(r0.plan.length).toBeGreaterThan(2);
+    // 시간순 계획의 맨 뒤 항목을 예정에 넣으면 맨 앞으로 온다
+    const lastId = r0.plan[r0.plan.length - 1]!.id;
+    const r1 = recommend(base({ equipment: 'binoculars', bookmarkedSet: new Set([lastId]) }));
+    expect(r1.plan[0]!.id).toBe(lastId);
+    expect(r1.plan[0]!.planned).toBe(true);
+    expect(r1.plan.length).toBe(r0.plan.length);
+    const rest = r1.plan.slice(1);
+    expect(rest.every((it) => !it.planned)).toBe(true);
+    for (let i = 1; i < rest.length; i++)
+      expect(rest[i]!.metrics.peakAt!.getTime()).toBeGreaterThanOrEqual(
+        rest[i - 1]!.metrics.peakAt!.getTime(),
+      );
+    // 예정 대상이 여럿이면 그 안에서도 최적 시각순
+    const twoIds = [r0.plan[r0.plan.length - 1]!.id, r0.plan[r0.plan.length - 2]!.id];
+    const r2 = recommend(base({ equipment: 'binoculars', bookmarkedSet: new Set(twoIds) }));
+    expect(new Set(r2.plan.slice(0, 2).map((it) => it.id))).toEqual(new Set(twoIds));
+    expect(r2.plan[0]!.metrics.peakAt!.getTime()).toBeLessThanOrEqual(
+      r2.plan[1]!.metrics.peakAt!.getTime(),
+    );
+  });
+  it('계획: 예정이라도 창 안에서 안 보이면(시리우스) 들어가지 않는다', () => {
+    const r = recommend(base({ bookmarkedSet: new Set(['star:HIP32349', 'dso:M42']) }));
+    const ids = r.plan.map((it) => it.id);
+    expect(ids).not.toContain('star:HIP32349');
+    expect(ids).not.toContain('dso:M42');
+    expect(r.plan.every((it) => !it.planned)).toBe(true);
+  });
 });
 
 describe('azInRanges', () => {

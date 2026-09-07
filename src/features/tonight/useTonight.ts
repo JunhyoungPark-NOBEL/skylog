@@ -25,6 +25,7 @@ import {
 } from '@/services/weather';
 import { useClockStore } from '@/state/clockStore';
 import { useLocationStore } from '@/state/locationStore';
+import { useLogStore } from '@/state/logStore';
 import { useTonightStore, type WindowPreset } from '@/state/tonightStore';
 import { zonedDateTime } from '@/ui/format';
 
@@ -133,6 +134,10 @@ export function useTonight(): TonightData {
   const customFrom = useTonightStore((s) => s.customFromHour);
   const customTo = useTonightStore((s) => s.customToHour);
   const equipment = useTonightStore((s) => s.equipment);
+  // T4: 기록(★)·예정(☆) 집합 — logStore가 DB 변경마다 새 Set으로 바꾸고 version을 올린다
+  const observedSet = useLogStore((s) => s.observedSet);
+  const bookmarkedSet = useLogStore((s) => s.bookmarkedSet);
+  const logVersion = useLogStore((s) => s.version);
   const [now, setNow] = useState(() => useClockStore.getState().now());
   const [cat, setCat] = useState<Catalog | null>(null);
   const [showers, setShowers] = useState<MeteorShower[]>([]);
@@ -232,6 +237,7 @@ export function useTonight(): TonightData {
             site.lon,
             cat ? 1 : 0,
             phenomena.length,
+            logVersion,
           ].join('|')
         : '',
     [
@@ -245,6 +251,7 @@ export function useTonight(): TonightData {
       site.lon,
       cat,
       phenomena.length,
+      logVersion,
     ],
   );
   useEffect(() => {
@@ -265,6 +272,8 @@ export function useTonight(): TonightData {
         site: constraints,
         equipment,
         cloudAt: weather ? (t) => hourAt(weather, t)?.cloud : undefined,
+        observedSet,
+        bookmarkedSet,
         events,
         seasonSignatures: SEASON_SIGNATURES,
         famous: FAMOUS_SET,
@@ -282,6 +291,8 @@ export function useTonight(): TonightData {
     window_,
     now,
     site,
+    observedSet,
+    bookmarkedSet,
     constraints,
     equipment,
     weather,

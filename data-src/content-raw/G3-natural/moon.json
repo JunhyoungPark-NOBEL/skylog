@@ -1,0 +1,98 @@
+{
+  "id": "moon",
+  "version": 2,
+  "title": {
+    "ko": "달",
+    "en": "Moon"
+  },
+  "oneLiner": {
+    "ko": "도시에서도 지형과 위상 변화를 따라가 볼 수 있는 하늘의 이웃"
+  },
+  "summary": {
+    "ko": "달은 지구의 자연위성이에요. 스스로 빛나는 게 아니라 태양빛을 반사해서 밝게 보여요. 밝은 부분의 모양이 날마다 달라지는 위상 변화는 달이 지구 주위를 돌면서 생겨요. 맨눈으로 보이는 어두운 무늬는 주로 오래전 용암이 굳어 만들어진 평원이에요. 물은 없지만 전통적으로 바다라고 불러요. 크레이터와 산의 입체감을 보고 싶다면 보름달보다 반달 무렵이 좋아요. 밝은 부분과 어두운 부분의 경계에 긴 그림자가 생기기 때문이에요. 도시에서도 여러 밤에 걸쳐 같은 지형을 비교해 보는 것으로 관측을 시작하기 좋아요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "지구의 자연위성",
+      "source": "https://science.nasa.gov/moon/facts/"
+    },
+    {
+      "label": "지구에서의 평균 거리",
+      "value": "약 0.00257 AU(출처의 거리에서 환산)",
+      "source": "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+    },
+    {
+      "label": "위상 반복 주기",
+      "value": "약 29.5일",
+      "source": "https://science.nasa.gov/moon/moon-phases/"
+    },
+    {
+      "label": "빛의 근원",
+      "value": "반사한 태양빛",
+      "source": "https://science.nasa.gov/moon/viewing-tips/"
+    },
+    {
+      "label": "바다라 부르는 무늬",
+      "value": "주로 용암이 굳은 어두운 평원",
+      "source": "https://science.nasa.gov/moon/viewing-tips/"
+    },
+    {
+      "label": "크레이터 관측에 좋은 때",
+      "value": "보름 이외의 위상, 특히 명암 경계 부근",
+      "source": "https://science.nasa.gov/moon/viewing-tips/"
+    }
+  ],
+  "story": {
+    "ko": "한국과 동아시아에서 달을 그릴 때는 토끼와 두꺼비가 자주 등장해요. 고구려 고분벽화에도 이런 동물로 달을 표현한 그림이 남아 있어요. 달 표면에서 동물을 봤다는 기록이 아니라, 하늘에 의미를 담아 표현한 문화적 상징이에요. 오늘날의 관측에서는 같은 달무늬를 암석과 지형으로 읽어요. 맨눈으로는 매끈해 보이던 부분도 쌍안경으로 보면 충돌 흔적과 산줄기의 윤곽이 드러나요. 특히 명암 경계(낮과 밤이 나뉘는 선)가 날마다 옮겨 가면, 전날에는 잘 보이지 않던 지형에 그림자가 생겨요. 사진 한 장보다 며칠 동안 같은 곳을 비교한 기록이 지형을 이해하는 데 더 도움이 돼요. 익숙한 달에서 옛이야기를 읽어 보고, 다시 눈앞의 무늬를 직접 확인해 보세요.",
+    "cultures": [
+      "한국",
+      "동아시아",
+      "기타"
+    ],
+    "sources": [
+      "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+      "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+      "NASA — Moon Facts | https://science.nasa.gov/moon/facts/"
+    ]
+  },
+  "howToFind": {
+    "ko": "계절보다 날짜와 시각을 먼저 확인하세요. 하늘 지도에서 내가 있는 곳의 달 위치와 위상을 확인한 뒤, 실제 하늘에서 밝은 원반을 찾아보세요. 초승달은 해가 진 뒤 서쪽, 상현달은 저녁 하늘, 보름달은 해질 무렵 동쪽에서 찾는 게 기본이에요. 태양과 가까운 가느다란 달은 처음 시작할 때는 건너뛰는 게 좋아요.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "도시에서도 위상과 큰 명암 무늬를 볼 수 있어요. 처음에는 작은 크레이터를 하나씩 구별하기보다 전체 모양과 큰 무늬를 살펴보는 것을 목표로 잡아 보세요.",
+    "binoculars": "10×50 쌍안경을 팔받침이나 삼각대로 흔들리지 않게 받치면 큰 크레이터와 바다의 경계를 살펴볼 수 있어요. 명암 경계를 따라 천천히 시선을 옮겨 보세요.",
+    "telescope": "90mm 망원경으로 20~80배에서 보면 크레이터 테두리와 산의 그림자가 좋은 목표예요. 낮은 배율부터 시작하고, 대기가 흔들려 상이 일렁이면 배율을 낮추세요. 달 전체가 한 시야에 들어오는지는 어떤 접안렌즈를 쓰느냐에 따라 달라요.",
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=moon)",
+    "NASA — Moon Facts | https://science.nasa.gov/moon/facts/",
+    "NASA — Moon Viewing Tips | https://science.nasa.gov/moon/viewing-tips/",
+    "NASA — Moon Phases | https://science.nasa.gov/moon/moon-phases/",
+    "NASA/JPL — Astrodynamic Parameters | https://ssd.jpl.nasa.gov/astro_par.html",
+    "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790",
+    "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+    "NASA — Moon Facts의 약 385,000 km를 JPL의 AU 정의로 환산 | https://science.nasa.gov/moon/facts/ ; https://ssd.jpl.nasa.gov/astro_par.html"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high",
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "funFacts": [
+    "달의 바다는 물이 고인 바다가 아니라, 주로 용암이 굳어서 생긴 평원이에요.",
+    "지구에서 반사된 햇빛 덕분에 초승달의 어두운 부분이 희미하게 보이기도 해요."
+  ],
+  "koreanTradition": {
+    "note": "한국을 비롯한 동아시아에서는 오래전부터 달을 토끼와 두꺼비로 표현해 왔어요. 실제 달 표면에 동물이 있다는 뜻은 아니고, 하늘에 담긴 이야기로 이해하면 돼요.",
+    "sources": [
+      "국립민속박물관 — 토끼무늬 | https://folkency.nfm.go.kr/topic/detail/9790"
+    ]
+  },
+  "safety": "태양 가까이에 있는 가느다란 달을 찾겠다고 쌍안경이나 망원경으로 낮하늘을 훑지 마세요. 태양이 시야에 들어올 수 있어 눈에 위험해요."
+}

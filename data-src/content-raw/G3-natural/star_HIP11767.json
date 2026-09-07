@@ -1,0 +1,121 @@
+{
+  "id": "star:HIP11767",
+  "version": 2,
+  "title": {
+    "ko": "폴라리스",
+    "en": "Polaris",
+    "alt": [
+      "북극성"
+    ]
+  },
+  "oneLiner": {
+    "ko": "가장 밝아서가 아니라 북쪽 가까이에 있어서 중요한 별"
+  },
+  "summary": {
+    "ko": "폴라리스는 지금 시대의 북극성이에요. 지구 자전축이 가리키는 하늘의 북극 아주 가까이에 있죠. 밤하늘에서 가장 밝은 별은 아니지만, 밤 동안 위치가 조금밖에 안 움직여서 방향을 찾을 때 아주 유용해요. 북두칠성 국자 끝의 두 별을 이용하면 쉽게 찾아갈 수 있어요. 실제로는 밝기가 변하는 초거성과 동반성들이 함께 있는 별의 무리예요. 그러니 북극성이라는 역할과 이 별 자체의 성질은 따로 떼어 생각하면 좋아요. 폴라리스가 하늘의 북극과 완전히 같은 점에 있는 건 아니에요. 대략 북쪽을 찾을 때 쓰고, 정밀한 정렬이 필요할 때는 현재 시각과 위치로 계산한 값을 따라 주세요."
+  },
+  "facts": [
+    {
+      "label": "거리(첨부 카탈로그)",
+      "value": "432.6광년",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)"
+    },
+    {
+      "label": "겉보기등급(대역 검토 필요)",
+      "value": "1.97등급; 첨부 mag, V 대역 미확인",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "F7:Ib-IIv SB",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)"
+    },
+    {
+      "label": "별자리",
+      "value": "작은곰자리 (UMi)",
+      "source": "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)"
+    },
+    {
+      "label": "별의 성격",
+      "value": "세페이드 변광성을 포함한 다중성계",
+      "source": "https://www.cfa.harvard.edu/news/polaris-north-star"
+    },
+    {
+      "label": "관측 길잡이",
+      "value": "작은곰자리 꼬리 끝, 천구 북극 부근",
+      "source": "https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/"
+    }
+  ],
+  "story": {
+    "ko": "현대 천문학에서 '북극성'은 별의 종류가 아니라 하늘에서 맡은 역할을 부르는 이름이에요. 지구 자전축의 방향은 아주 긴 시간에 걸쳐 조금씩 바뀌기 때문에, 오늘의 폴라리스가 모든 시대의 북극성이었던 건 아니에요. 폴라리스 자체에도 따로 이야기가 있어요. 주된 별은 부풀었다 줄어들었다 하면서 밝기가 달라지는 세페이드 변광성이고, 가까이 붙은 동반성과 더 멀리 떨어진 동반성이 있어요. 넓게 떨어진 동반성 B는 작은 망원경으로도 도전해 볼 만한 대상이에요. 하지만 바로 곁에 붙은 Ab는 같은 장비로는 보이지 않아요. 오늘 북쪽을 찾았다는 관측 기록과, 이 별이 변광성이자 여러 별로 이루어진 계라는 걸 알게 됐다는 배움은 나누어 적어 보세요. 익숙한 길잡이 별에도 '위치'와 '별의 성질'이라는 서로 다른 정보가 담겨 있거든요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+      "Harvard & Smithsonian CfA — Polaris, the North Star | https://www.cfa.harvard.edu/news/polaris-north-star",
+      "NASA/ESA Hubble — Hubble Images Polaris’s Companion | https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/"
+    ]
+  },
+  "howToFind": {
+    "ko": "한국에서는 계절에 상관없이 북쪽 하늘을 살펴보면 돼요. 북두칠성 국자의 바깥쪽 끝에 있는 메라크에서 두베로 이어지는 선을 두 별 사이 간격의 약 다섯 배만큼 더 늘리면 폴라리스 근처에 닿아요. 그 별이 작은곰자리의 꼬리 끝인지 확인해 보세요. 북두칠성이 가려져 있다면 카시오페이아자리와 북쪽 하늘 지도를 함께 이용해 보세요.",
+    "season": "any",
+    "hopFrom": [
+      "const:UMa",
+      "star:HIP54061",
+      "const:Cas"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서도 북쪽 시야가 트여 있으면 찾을 수 있어요. 다만 시리우스처럼 압도적으로 밝지는 않아요. 작은곰자리의 어두운 별들은 잘 안 보일 수 있어요.",
+    "binoculars": "10×50 쌍안경으로는 폴라리스와 주변 별의 배치를 확인해 보세요. 가까운 동반성이나 미세한 밝기 변화는 쌍안경으로 바로 알아볼 수 있는 대상이 아니에요.",
+    "telescope": "90mm 망원경에 20~80배로 주성을 확인하고, 하늘 상태가 좋으면 60~80배로 넓게 떨어진 동반성 B에 도전해 볼 수 있어요. 밝은 주성의 빛 번짐이 방해가 되고, 아주 가까이 붙은 Ab는 보이지 않아요.",
+    "difficulty": 2,
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=star:HIP11767)",
+    "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/",
+    "Harvard & Smithsonian CfA — Polaris, the North Star | https://www.cfa.harvard.edu/news/polaris-north-star",
+    "NASA/ESA Hubble — Hubble Images Polaris’s Companion | https://science.nasa.gov/asset/hubble/hubble-images-polariss-companion/",
+    "한국천문연구원 — 별자리의 종류와 유래 | https://www.kasi.re.kr/kor/publication/post/videoGallery/10440",
+    "한국천문연구원 — 북두칠성; 북극성 찾기의 약 5배 연장 | https://www.kasi.re.kr/kor/publication/post/photoGallery/4555",
+    "NASA — Skywatching Tips | https://science.nasa.gov/skywatching/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag 열은 광도계 대역과 측정 시점을 밝히지 않습니다. 값을 보존했으나 V등급으로 확정하기 전에 T0b 원출처를 확인해야 합니다.",
+      "겉보기등급 1.97과 거리 432.6광년은 첨부 대표 값입니다. 변광성과 다중성계의 성분·측정 시점을 포함한 원출처를 확인해야 합니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "funFacts": [
+    "북극성은 밤하늘에서 가장 밝은 별이 아니에요.",
+    "북극성이라는 역할은 지구 자전축이 오랜 시간에 걸쳐 움직이면서 다른 별로 옮겨 가요."
+  ],
+  "koreanTradition": {
+    "name": "북극성",
+    "note": "요즘 한국어 하늘 안내에서 폴라리스를 부르는 이름이에요. 다른 시대의 북극성이나 옛 천문학의 북극 성군 전체가 모두 폴라리스 한 별을 뜻하는 건 아니에요.",
+    "sources": [
+      "한국천문연구원 — 별자리의 종류와 유래 | https://www.kasi.re.kr/kor/publication/post/videoGallery/10440",
+      "NASA — What is the North Star and How Do You Find It? | https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/"
+    ]
+  }
+}

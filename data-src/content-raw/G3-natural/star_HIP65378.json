@@ -1,0 +1,110 @@
+{
+  "id": "star:HIP65378",
+  "version": 2,
+  "title": {
+    "ko": "미자르",
+    "en": "Mizar"
+  },
+  "oneLiner": {
+    "ko": "북두칠성의 미자르에서 넓은 짝과 가까운 짝을 따로 찾아봐요"
+  },
+  "summary": {
+    "ko": "미자르는 북두칠성 손잡이가 꺾이는 자리에 있는 밝은 별이에요. 바로 옆의 알코르와 이루는 넓게 벌어진 짝은 맨눈이나 쌍안경으로 확인하는 첫걸음이고, 망원경으로는 미자르 자체 안에 숨은 더 가까운 밝은 쌍을 살펴볼 수 있어요. 이 두 가지를 같은 이중성 분리로 적어 두면 나중에 무엇을 봤는지 헷갈리기 쉬워요. 도시에서는 알코르가 희미하게 느껴질 수 있는데, 안 보였다고 해서 곧바로 시력 탓으로 돌릴 필요는 없어요. 주변 불빛과 눈부심, 별의 높이가 함께 영향을 주거든요. 넓은 짝에서 좁은 짝으로 한 단계씩 올라가며 보기 좋은 대상이에요."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "큰곰자리 (UMa)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "85.8광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "2.23등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "A2V",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP65378",
+      "source": "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "관측 단계",
+      "value": "미자르–알코르의 넓은 짝과 미자르 내부의 가까운 쌍을 구별",
+      "source": "NASA Night Sky Network — Seeing Double — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/"
+    }
+  ],
+  "story": {
+    "ko": "미자르와 알코르는 별을 둘로 나누어 본다는 말에 생각보다 여러 뜻이 담겨 있다는 걸 알려 줘요. 맨눈이나 쌍안경으로 벌어진 두 별을 확인한 다음 미자르에 망원경을 대면, 그 안에서 더 가까운 쌍을 따로 찾게 되거든요. 여기서 흔히 쓰는 같은 별이라는 표현과 실제 별의 계를 구별해 볼 필요가 있어요. 전통 이름에서는 미자르를 북두의 개양과 연결하지만, 그 이름을 옆의 알코르에까지 그대로 붙이는 건 또 다른 문제예요. 오늘 기록에는 먼저 미자르와 알코르를 구별했는지, 그다음 미자르 안의 밝은 쌍을 나누었는지 두 줄로 적어 보세요. 관측 도구가 바뀌면 목표의 범위도 달라진다는 걸 이해하면, 다중성의 구성별을 따로 표시한 이름도 훨씬 쉽게 읽을 수 있어요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — What’s Up: April 2022 — https://science.nasa.gov/resource/whats-up-april-2022/",
+      "NASA Night Sky Network — Seeing Double — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+      "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁에 북두칠성의 국자에서 손잡이를 따라가다가, 끝에 있는 알카이드 바로 안쪽으로 눈을 옮겨 보세요. 손잡이가 꺾이는 곳의 밝은 점이 미자르예요. 먼저 그 옆에 붙은 희미한 알코르를 찾고, 그다음 미자르를 망원경 시야 가운데에 두고 더 가까운 두 점을 따로 확인해 보세요.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP67301",
+      "const:UMa"
+    ]
+  },
+  "observing": {
+    "nakedEye": "미자르는 맨눈으로 쉽게 찾을 수 있어요. 옆의 알코르가 보이는지는 광해와 눈부심에 따라 달라지니, 안 보인다고 시력을 탓할 필요는 없어요.",
+    "binoculars": "10×50 쌍안경으로는 미자르와 알코르가 이루는 넓은 짝을 확인하기 좋아요. 미자르 안쪽의 가까운 쌍과는 다른 것이니 구별해서 적어 두세요.",
+    "telescope": "90mm 망원경 40~80배에서 미자르의 밝은 가까운 쌍을 둘로 나누어 보는 데 도전해 보세요. 사진이나 별지도와 망원경 시야는 상하좌우가 뒤집혀 있을 수 있으니, 방향을 맞춘 뒤 기록하면 좋아요.",
+    "bestMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — What’s Up: April 2022 — https://science.nasa.gov/resource/whats-up-april-2022/",
+    "NASA Night Sky Network — Seeing Double — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+    "NASA — What Are Asterisms? — https://science.nasa.gov/solar-system/what-are-asterisms/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름",
+    "첨부 catalog-values.v1.csv — star:HIP65378; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP67301, const:UMa; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "koreanTradition": {
+    "note": "한국 전통 별자리에서는 미자르를 개양(開陽), 무곡(武曲)이라는 이름과 연결해요. 다만 모든 시대에 똑같은 이름 체계가 쓰였다는 뜻은 아니에요. 이 이름은 미자르에 해당하는 것이라, 옆의 알코르만 따로 가리키는 별칭은 아니에요.",
+    "sources": [
+      "첨부 G2 star_names_ko.csv — inputs/star_names_ko.csv; 행별 전승의 적용 범위·원출처 제한을 따름"
+    ]
+  },
+  "funFacts": [
+    "알코르를 봤다는 기록과 미자르 안쪽의 가까운 쌍을 둘로 나누어 봤다는 기록은 서로 다른 관측이에요."
+  ]
+}

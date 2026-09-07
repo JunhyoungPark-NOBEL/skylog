@@ -1,0 +1,98 @@
+{
+  "id": "const:Leo",
+  "version": 2,
+  "title": {
+    "ko": "사자자리",
+    "en": "Leo"
+  },
+  "oneLiner": {
+    "ko": "레굴루스의 낫과 꼬리 쪽 삼각형으로 봄 사자자리를 읽어요"
+  },
+  "summary": {
+    "ko": "사자자리는 봄 저녁에 레굴루스를 아래 끝으로 삼는 낫 모양과 몸통 쪽 별 배열로 찾는 별자리예요. 낫은 뒤집힌 물음표에 자주 비유되지만, 하늘에서는 돌아간 채로 보일 수 있어요. 그래서 그림에 그려진 방향보다 별 사이의 관계를 기억해 두는 게 좋아요. 도시에서는 가장 밝은 기준점부터 확인하고, 희미한 머리 쪽 별을 하나씩 덧붙여 보세요. 큰 별자리 윤곽은 맨눈으로 살피는 편이 편하고, 쌍안경이나 망원경은 그 안의 일부 구역을 들여다보는 도구예요. 사자자리 영역 안에 여러 종류의 먼 천체가 들어 있어도, 별자리 자체는 하나의 성단이나 은하가 아니라 하늘의 한 영역이에요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Leo; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Leo",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Leonis",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "레굴루스와 낫 모양",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP49669, const:Cnc, const:Gem; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "사자",
+      "source": "NSF NOIRLab — Leo — https://noirlab.edu/public/education/constellations/leo/?nocache=true"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "봄 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "사자의 얼굴을 처음부터 완성하려 하지 말고, 낫의 손잡이 아래에 있는 레굴루스에서 시작해 보세요. NASA의 봄철 하늘 안내도 이 독특한 별 배열을 길잡이로 소개해요. 뒤집힌 물음표라는 비유는 기억에 도움이 되지만, 밤새 하늘이 돌아가는 동안 물음표의 방향까지 그대로일 필요는 없어요. 관측 기록에는 그림보다 별들의 상대 위치를 먼저 남기는 편이 좋아요. 맨눈으로 확인한 낫과 지도에만 표시된 희미한 별을 서로 다른 표시로 나눠 보세요. 나중에 쌍안경으로 점이 더 늘어났다면 그 변화를 덧붙이면 돼요. 이렇게 단계별로 완성한 나만의 지도는 한 번 본 동물 그림보다 훨씬 오래 쓸 수 있어요. 별자리를 알아보는 목표는 정해진 삽화와 똑같이 봤다고 말하는 게 아니라, 같은 하늘 구역을 다음에 다시 찾아내는 거예요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Leo — https://noirlab.edu/public/education/constellations/leo/?nocache=true",
+      "NASA — Celestial Wonders in Leo — https://science.nasa.gov/solar-system/skywatching/night-sky-network/celestial-wonders-in-leo/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁에 남동쪽에서 남쪽 하늘로 옮겨 가는 사자자리 구역을 찾아요. 레굴루스 위로 이어지는 낫을 먼저 확인한 뒤, 천구의 동쪽으로 몸통과 꼬리 쪽 배열을 이어 보세요. 쌍둥이자리나 게자리에서 건너오는 경우라면 지도에서 이웃 구역을 차례로 확인하면 돼요.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP49669",
+      "const:Cnc",
+      "const:Gem"
+    ]
+  },
+  "observing": {
+    "nakedEye": "레굴루스와 주요 윤곽은 도시에서도 도전해 볼 만해요. 머리 쪽의 희미한 점들은 주변 조명과 달빛에 따라 빠질 수 있어요.",
+    "binoculars": "10×50 쌍안경으로 낫 구역과 몸통 구역을 나누어 확인해요. 사자자리 전체가 한 시야에 다 들어오지는 않으니 구역별로 천천히 살펴보세요.",
+    "telescope": "90mm 망원경 20~80배는 개별 별이나 따로 골라 둔 심원천체를 볼 때 써요. 큰 윤곽을 알아보는 데는 낮은 배율보다도 맨눈과 넓은 지도가 더 편해요.",
+    "bestMonths": [
+      3,
+      4,
+      5
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Leo; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Leo — https://noirlab.edu/public/education/constellations/leo/?nocache=true",
+    "NASA — Celestial Wonders in Leo — https://science.nasa.gov/solar-system/skywatching/night-sky-network/celestial-wonders-in-leo/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Leo; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Leo; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP49669, const:Cnc, const:Gem; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP49669, const:Cnc, const:Gem; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

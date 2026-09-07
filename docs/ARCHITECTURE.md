@@ -172,3 +172,12 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - 구조: 떠 있는 상태 캡슐(`pt-status`로 콘텐츠 여백) + 떠 있는 pill 탭 바(`pb-tab`, 하늘 컨트롤은 `bottom-sky`) + 28px 유리 바텀 시트(하늘 위·반쯤일 때만 유리). 공용 프리미티브 `ui/Card.tsx`·`ui/Chip.tsx`·`ui/PillButton.tsx`·`ui/Toggle.tsx`·`ui/Segmented.tsx`.
 - 야간 모드는 토큰 교체만(필터 hack 금지). 의미는 색 + 글리프/문구로.
 - 세로 스크롤 영역은 `ui/ScrollArea.tsx`(D-022): 네이티브 터치 스크롤 + 마우스 드래그 스크롤(`ui/useDragScroll.ts`, 6px 임계값·축 고정·관성·드래그 직후 click 억제) + 아래쪽 페이드 오버레이(`fadeBottom`). 스크롤러에 `mask-image`를 걸지 않는다. 높이 제한 컨테이너는 훅만 붙인다. 드래그 스크롤이 닿으면 안 되는 영역은 `touch-action: none` 또는 `data-drag-scroll="off"`.
+
+## 기록·콘텐츠·학습 통합 (T4/T6/T7 일부)
+- 기록 쓰기는 db/repos/observations, 파생 상태는 logStore, UI 진입은 openObservationForm. blobs는 사진/스케치 별도 저장. DB v2는 인덱스 변경 없이 누락값만 보충(D-023). 기록 변경 이벤트가 하늘 MarkerLayer·검색·추천·통계·미션에 전파된다.
+- content/schema와 content/crossCheck를 빌드/테스트에서 공유한다. build-content → content/v1/index.json과 항목 파일. loader는 본문을 요청할 때만 읽으며 항목 version 쿼리로 캐시를 구별한다. readProgress/TodayCard는 progress 테이블을 공유한다(D-024).
+- learn/schema → build-learn → learn/v1/{paths,missions,badges,quiz,manifest}. 원본 구조 대조 후 실행 가능한 항목만 활성화한다. i18n/partials는 app/i18n에서 기본 리소스와 합친다.
+- learn/runtime의 readLearning이 관측·읽음·시작 시각·체크리스트·응답에서 미션/배지를 파생한다. 미션 키는 ID+steps 해시. learn.attempt는 불변 응답, learn.sr는 덮어쓰는 복습 일정이며 같은 트랜잭션으로 저장한다. 시작 전 관측은 사용자가 연결을 선택한 경우만 사용한다.
+- App에 ObservationFormHost/StoryHost/QuizHost/ToastHost를 하나씩 둔다. QuizHost는 관측 기록을 만들지 않는다. StoryView의 읽음도 명시적 버튼이다. 스크롤 영역은 ScrollArea, 그림 캔버스는 드래그 스크롤에서 제외한다.
+- 백업은 관측/설정/학습과 blob을 함께 포함한다. 일괄 가져오기는 하나의 트랜잭션이며 실패 시 롤백한다. JSON 참조 ID 및 중복 정책은 db/exportImport에 모은다.
+- T7 미완료: 전천 skyPick 판정/격리, T5 장비 실작업 증거, 일별 복습 누적 상한, 영구 배지 이력/연출. 장문 콘텐츠 영어 번역과 JS 코드 분할은 후속이다.

@@ -490,6 +490,34 @@ html[data-theme='night'] .sky-label-constellation {
   color: var(--muted-2);
 }
 
+/* 하늘 위 ★/☆ 기록 마커(T4, render/MarkerLayer.ts) — 픽셀 고정 14px, 대상 왼쪽 위.
+   본 것 = 금색 ★, 시도 = 회색 ★, 예정 = 흰 ☆ 윤곽. 야간 모드는 토큰 교체로 자동 적색. */
+.sky-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: var(--fg);
+  text-shadow:
+    0 0 3px var(--bg),
+    0 0 2px var(--bg);
+  pointer-events: none;
+  user-select: none;
+}
+.sky-marker-observed {
+  color: var(--marker);
+}
+.sky-marker-attempted {
+  color: var(--muted-2);
+}
+.sky-marker-bookmarked {
+  color: var(--fg);
+}
+
 /* 보정 마법사 십자(T2) */
 .calib-crosshair {
   width: 72px;

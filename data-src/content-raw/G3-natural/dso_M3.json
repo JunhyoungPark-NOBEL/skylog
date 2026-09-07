@@ -1,0 +1,99 @@
+{
+  "id": "dso:M3",
+  "version": 2,
+  "title": {
+    "ko": "M3",
+    "en": "Messier 3"
+  },
+  "oneLiner": {
+    "ko": "봄 하늘에서 중심이 밝은 둥근 빛을 비교해 보는 성단"
+  },
+  "summary": {
+    "ko": "M3는 사냥개자리 방향에 있는 구상성단이에요. 수많은 별의 빛이 한데 모여서 쌍안경에서는 둥근 얼룩으로 보이고, 망원경에서는 중심과 가장자리의 밝기 차이를 살펴볼 수 있어요. 아르크투루스를 출발점으로 위치를 잡으면, 봄철의 밝은 별에서 희미한 천체로 옮겨 가는 연습이 돼요. 연구에서는 밝기가 변하는 변광성이 중요한 역할을 하지만, 작은 장비로 성단을 찾는 일과 그 별들의 변광을 측정하는 일은 서로 달라요. 도시에서는 성단 바깥의 빛이 쉽게 사라지니, 별 하나하나를 나누어 보기보다 성단이 있다는 것과 전체 윤곽을 확인하는 걸 우선해 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "구상성단",
+      "source": "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/"
+    },
+    {
+      "label": "별자리",
+      "value": "사냥개자리 (CVn)",
+      "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "6.39등급",
+      "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "각크기(첨부 목록 기준)",
+      "value": "16.2′",
+      "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "M3",
+      "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "거리",
+      "value": "검토 보류 — 첨부 값과 외부 자료가 크게 다릅니다.",
+      "source": "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행; NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/"
+    }
+  ],
+  "story": {
+    "ko": "M3의 관측 역사는 흐릿한 천체의 정체가 어떻게 새롭게 이해되어 왔는지 보여 줘요. 메시에가 처음 기록했을 때는 별이 구별되지 않는 성운 같은 모습이었지만, 더 좋은 망원경으로는 별 하나하나를 나누어 볼 수 있었어요. 오늘날 이 성단은 시간에 따라 밝기가 달라지는 변광성이 많은 것으로도 알려져 있어요. 알맞은 종류의 변광성은 밝기 변화를 이용해 천체까지의 거리를 연구하는 데 도움을 줘요. 그렇다고 성단 전체의 빛을 한 번 봤다고 해서 변광성을 측정한 건 아니에요. 처음에는 같은 배율에서 중심과 가장자리의 인상을 기록하고, 여러 밤의 기록을 비교할 때 대기 상태와 광해의 차이도 함께 살펴보세요. 천체가 있다는 걸 확인하는 일과 물리량을 재는 일은 서로 이어져 있지만, 엄연히 다른 단계예요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/",
+      "NASA — M3 Globular Cluster — https://science.nasa.gov/image-detail/m3/"
+    ]
+  },
+  "howToFind": {
+    "ko": "봄 저녁에 북두칠성 손잡이의 곡선을 따라가면 아르크투루스가 나와요. 거기서 사냥개자리의 코르카롤리 쪽으로 이어지는 선을 별지도와 맞춰 보고, 그 중간쯤을 낮은 배율로 살펴보세요. 목표는 아르크투루스에서 천구의 북서쪽으로 약 12° 떨어진 구역이에요. 꽤 멀리 이동해야 하니 주변 별을 하나씩 맞춰 가며 범위를 좁혀 보세요.",
+    "season": "spring",
+    "hopFrom": [
+      "star:HIP69673",
+      "const:Boo"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 맨눈으로 보기 어려운 대상이에요. 맨눈으로는 아르크투루스와 찾아갈 구역의 위치를 익혀 두세요.",
+    "binoculars": "10×50 쌍안경으로는 어두운 하늘이라면 작은 얼룩으로 보일 수 있어요. 별처럼 날카로운 점과는 구분되지만, 별 하나하나로 나뉘어 보이지는 않아요.",
+    "telescope": "90mm 망원경이라면 20~80배에서 중심에 빛이 모인 모습과 바깥의 흐린 윤곽을 비교해 보세요. 별을 하나하나 분리하거나 특정 변광성을 측정하는 건 꼭 하지 않아도 괜찮아요.",
+    "bestMonths": [
+      4,
+      5,
+      6
+    ],
+    "difficulty": 3
+  },
+  "funFacts": [
+    "성단을 찾았다는 기록과 성단 속 변광성을 측정했다는 기록은 서로 달라요."
+  ],
+  "sources": [
+    "첨부 catalog-values.v1.csv — dso:M3; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Messier 3: Messier 3 — https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-3/",
+    "NASA — M3 Globular Cluster — https://science.nasa.gov/image-detail/m3/",
+    "NASA — Skywatching Tips — https://science.nasa.gov/skywatching/",
+    "NASA — How to Find Good Places to Stargaze — https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "low",
+    "needsReview": [
+      "거리 수치 게시 보류: 첨부 133127광년과 NASA 소개의 약 34000광년 사이에 큰 차이가 있습니다. 원값은 raw-selected-values.json에 보존했고 외부 후보값도 본문에 자동 대입하지 않았습니다.",
+      "첨부 mag에는 측광 대역·목록 판본이 없습니다. V등급으로 확정하지 않았으며 밝기 순서·정밀 수치 퀴즈는 T0b 검증 전 보류합니다.",
+      "관측 난이도와 10×50·90mm 20~80배 안내는 출처의 대상 특성과 광해 원칙에 근거한 보수적 편집 제안입니다. 실기기 관측·도시 검출 보장은 아닙니다.",
+      "첨부 각크기의 측정 파장·경계 기준은 미확인입니다. 사진이나 실제 접안 시야에서 같은 범위가 보인다는 뜻으로 사용하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "log": {
+    "tab": {
+      "add": "기록 추가",
+      "viewLabel": "보기",
+      "views": {
+        "timeline": "타임라인",
+        "calendar": "달력",
+        "byObject": "대상별",
+        "planned": "예정"
+      },
+      "searchPlaceholder": "대상 이름이나 태그",
+      "kindLabel": "종류",
+      "all": "전체",
+      "seen": "본 것",
+      "notSeen": "못 본 것",
+      "equip": {
+        "naked": "맨눈",
+        "binoculars": "쌍안경",
+        "telescope": "망원경"
+      },
+      "period": {
+        "7d": "7일",
+        "30d": "30일"
+      },
+      "clearFilter": "필터 지우기",
+      "empty": {
+        "title": "첫 기록을 남겨 보세요",
+        "body": "오늘 본 달이나 행성부터 가볍게 남겨요. 시각·장소·하늘 상태는 자동으로 채워져요.",
+        "action": "기록하기"
+      },
+      "noMatch": "조건에 맞는 기록이 아직 없어요",
+      "deleted": "삭제했어요",
+      "undo": "실행 취소",
+      "unplanned": "관측 예정에서 뺐어요"
+    },
+    "timeline": {
+      "group": "{{night}} · {{n}}개",
+      "delete": "삭제",
+      "attempted": "못 봄"
+    },
+    "calendar": {
+      "prev": "지난달",
+      "next": "다음달",
+      "monthTotal": "이달 {{n}}개",
+      "dayCount": "기록 {{n}}개",
+      "weekdays": "일,월,화,수,목,금,토",
+      "legend": "기록 수",
+      "hint": "날짜를 누르면 그 밤의 기록이 보여요",
+      "nightEmpty": "이 밤에는 기록이 아직 없어요"
+    },
+    "byObject": {
+      "sort": "정렬",
+      "recent": "최근순",
+      "name": "이름순",
+      "count": "횟수순",
+      "times": "{{n}}회",
+      "last": "최근 {{date}}",
+      "empty": "아직 본 대상이 없어요"
+    },
+    "planned": {
+      "empty": "아직 예정한 대상이 없어요",
+      "emptyHint": "검색이나 상세 화면에서 ☆를 누르면 여기에 모여요",
+      "unplan": "예정 해제",
+      "log": "기록하기",
+      "now": "고도 {{alt}} · {{az}}",
+      "best": "오늘 {{from}}–{{to}}가 좋아요",
+      "bestPassed": "오늘 좋은 시간은 지났어요",
+      "bestNone": "오늘 밤은 높이 뜨지 않아요"
+    },
+    "detail": {
+      "title": "기록 상세",
+      "showInSky": "하늘에서 다시 보기",
+      "edit": "편집",
+      "delete": "삭제",
+      "cancel": "취소",
+      "confirmDelete": "이 기록을 지울까요? 5초 안에 되돌릴 수 있어요.",
+      "when": "언제·어디서",
+      "time": "시각",
+      "site": "관측지",
+      "outcome": "결과",
+      "seen": "★ 봤어요",
+      "notSeen": "★ 시도했지만 못 봤어요",
+      "how": "어떻게",
+      "equipment": "장비",
+      "magnification": "배율",
+      "rating": "평점",
+      "seeing": "시상",
+      "transparency": "투명도",
+      "outOf5": "{{n}}/5",
+      "conditions": "하늘 상태",
+      "moonIllum": "달 밝은 부분",
+      "moonSep": "달과 떨어진 각도",
+      "altAz": "고도 · 방위",
+      "cloud": "구름",
+      "temp": "기온",
+      "humidity": "습도",
+      "bortleLabel": "광해",
+      "bortle": "광해 {{n}}단계",
+      "notes": "메모·특징",
+      "images": "스케치·사진",
+      "sketch": "스케치",
+      "photo": "사진",
+      "viewerHint": "누르면 크게 봐요"
+    },
+    "quickpick": {
+      "title": "어떤 대상을 기록할까요?",
+      "placeholder": "토성, 안드로메다, M13…",
+      "recent": "최근 기록한 대상",
+      "planned": "관측 예정",
+      "famous": "자주 보는 천체",
+      "noResults": "결과 없음"
+    }
+  }
+}

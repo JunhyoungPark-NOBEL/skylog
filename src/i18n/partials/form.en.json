@@ -1,0 +1,135 @@
+{
+  "log": {
+    "form": {
+      "title": "Log {{name}}",
+      "save": "Save",
+      "saving": "Saving…",
+      "saved": "Saved to your log",
+      "delete": "Delete",
+      "deleteConfirm": "Delete this entry?",
+      "deleteYes": "Delete",
+      "cancel": "Cancel",
+      "deleted": "Deleted",
+      "undo": "Undo",
+      "notFound": "This entry is already gone",
+      "outcome": "Result",
+      "seen": "Seen",
+      "notSeen": "Not seen",
+      "time": "Time",
+      "timeInvalid": "Pick a time",
+      "site": "Site",
+      "currentSite": "Current location",
+      "equipment": "Method",
+      "equip": {
+        "naked": "Naked eye",
+        "binoculars": "Binoculars",
+        "telescope": "Telescope"
+      },
+      "magnification": "Magnification",
+      "magnificationPlaceholder": "e.g. 50",
+      "rating": "Rating",
+      "ratingHint": "Tap a star",
+      "sky": "Sky",
+      "seeing": "Seeing",
+      "seeingHint": "1 very shaky · 5 steady",
+      "transparency": "Transparency",
+      "transparencyHint": "1 hazy · 5 clear",
+      "tags": "Features",
+      "tagsMore": "More features",
+      "tagsLess": "Less",
+      "auto": "Filled in automatically",
+      "autoHint": "Recalculated when you change the time",
+      "autoComputing": "Calculating…",
+      "autoNone": "Not available yet",
+      "sketch": "Sketch",
+      "sketchDraw": "Draw a sketch",
+      "sketchEdit": "Redraw",
+      "sketchRemove": "Remove",
+      "photos": "Photos",
+      "photoCamera": "Camera",
+      "photoLibrary": "Library",
+      "photoProcessing": "Shrinking photo…",
+      "photoUnreadable": "This photo can't be opened yet. Try another one.",
+      "photoRemove": "Remove photo",
+      "notes": "Notes",
+      "notesPlaceholder": "How did it look?"
+    },
+    "auto": {
+      "altAz": "Alt {{alt}}° · {{dir}}",
+      "moon": "{{phase}} · {{illum}}% lit · {{sep}}° from the Moon",
+      "moonSelf": "{{phase}} · {{illum}}% lit",
+      "weather": "Cloud {{cloud}}% · {{temp}}℃",
+      "humidity": "Humidity {{h}}%",
+      "bortle": "Light pollution level {{n}}"
+    },
+    "tagCategory": {
+      "color": "Color",
+      "shape": "Shape",
+      "resolve": "Resolution",
+      "double": "Double star",
+      "planet": "Planet",
+      "moon": "Moon",
+      "difficulty": "Difficulty",
+      "technique": "Technique"
+    },
+    "tag": {
+      "color": {
+        "red": "Reddish",
+        "blue": "Bluish",
+        "yellow": "Yellowish",
+        "white": "White"
+      },
+      "shape": {
+        "disk": "Disk",
+        "oval": "Oval",
+        "spiralHint": "Hint of spiral arms",
+        "brightCore": "Bright core",
+        "fuzzyEdge": "Fuzzy edges",
+        "elongated": "Elongated"
+      },
+      "resolve": {
+        "stars": "Resolved into stars",
+        "fuzzy": "Fuzzy patch",
+        "pointlike": "Point-like"
+      },
+      "double": {
+        "split": "Split",
+        "colorContrast": "Color contrast"
+      },
+      "planet": {
+        "rings": "Rings",
+        "bands": "Cloud bands",
+        "moons1": "1 moon",
+        "moons2": "2 moons",
+        "moons3": "3 moons",
+        "moons4": "4 moons",
+        "phase": "Phase"
+      },
+      "moon": {
+        "craters": "Craters",
+        "terminator": "Terminator",
+        "maria": "Maria"
+      },
+      "difficulty": {
+        "easy": "Easy",
+        "normal": "Medium",
+        "hard": "Hard"
+      },
+      "technique": {
+        "avertedVision": "Averted vision",
+        "filter": "Filter used"
+      }
+    }
+  },
+  "object": {
+    "records": {
+      "title": "My log",
+      "empty": "No entries yet",
+      "add": "Log it",
+      "notSeen": "Tried, but not seen",
+      "count": "{{n}}×",
+      "sketch": "Sketch",
+      "photo": "Photo"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Lang } from '@/app/i18n';
 import type { RecGroup, Recommendation, RecommendResult } from '@/astro/recommend';
@@ -7,10 +7,11 @@ import { displayName, type Catalog } from '@/catalog/catalog';
 import type { MeteorShower } from '@/catalog/meteors';
 import type { ObjectId } from '@/catalog/objectId';
 import type { SearchKind } from '@/catalog/searchIndex';
-import { bookmarkedIds, toggleBookmark } from '@/db/repos/bookmarks';
+import { toggleBookmark } from '@/db/repos/bookmarks';
 import { openObject } from '@/features/object/objectApi';
 import { reasonSentence } from '@/features/tonight/reasonText';
 import { formatDateShort, phenomenonTitle } from '@/features/tonight/phenomenaText';
+import { useLogStore } from '@/state/logStore';
 import { Card } from '@/ui/Card';
 import { Chip, ChipRow } from '@/ui/Chip';
 import { compass16, formatAlt, formatTime } from '@/ui/format';
@@ -46,6 +47,10 @@ function Row({
 }) {
   const { t } = useTranslation();
   const m = rec.metrics;
+  /* 관측 상태(T4): 본 것 = 금색 ★, 시도했지만 못 봄 = 회색 ★ — logStore가 진실(저장 직후 바로 바뀐다) */
+  const mark = useLogStore((s) =>
+    s.observedSet.has(rec.id) ? 'observed' : s.attemptedSet.has(rec.id) ? 'attempted' : null,
+  );
   return (
     <li className="flex min-h-14 items-center gap-1" data-testid="rec-item" data-object-id={rec.id}>
       <button
@@ -63,8 +68,21 @@ function Row({
           {KIND_GLYPH[rec.kind]}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block truncate text-body font-semibold" data-testid="rec-name">
-            {displayName(cat, rec.id, lang)}
+          <span className="flex items-center gap-1.5">
+            <span className="min-w-0 truncate text-body font-semibold" data-testid="rec-name">
+              {displayName(cat, rec.id, lang)}
+            </span>
+            {mark && (
+              <span
+                role="img"
+                aria-label={t(`recommend.mark.${mark}`)}
+                className={`shrink-0 text-body-sm ${mark === 'observed' ? 'text-marker' : 'text-muted'}`}
+                data-testid="rec-observed"
+                data-kind={mark}
+              >
+                ★
+              </span>
+            )}
           </span>
           <span className="block truncate text-caption text-muted" data-testid="rec-reason">
             {reasonSentence(rec.reasons, lang, t)}
@@ -174,7 +192,10 @@ export function RecommendCard({
   );
 }
 
-/** 오늘 밤 계획(시간순 ≤ 12, ☆로 Dexie bookmarks에 저장) */
+/**
+ * 오늘 밤 계획(≤ 12, ☆로 Dexie bookmarks에 저장). 예정(☆) 대상이 먼저, 그 뒤 추천 순 — 각각 최적 시각순(엔진 `plan`).
+ * ☆ 상태는 logStore(`bookmarkedSet`)가 진실 — `toggleBookmark`가 DB를 바꾸면 스토어가 스스로 갱신되고 추천도 다시 계산된다.
+ */
 export function PlanCard({
   result,
   cat,
@@ -185,26 +206,10 @@ export function PlanCard({
   lang: Lang;
 }) {
   const { t } = useTranslation();
-  const [planned, setPlanned] = useState<Set<ObjectId>>(new Set());
-  useEffect(() => {
-    let alive = true;
-    void bookmarkedIds().then((s) => {
-      if (alive) setPlanned(s);
-    });
-    return () => {
-      alive = false;
-    };
-  }, [result]);
+  const planned = useLogStore((s) => s.bookmarkedSet);
   if (!result || !cat || result.plan.length === 0) return null;
   const onPlan = (id: ObjectId) => {
-    void toggleBookmark(id).then((on) => {
-      setPlanned((prev) => {
-        const next = new Set(prev);
-        if (on) next.add(id);
-        else next.delete(id);
-        return next;
-      });
-    });
+    void toggleBookmark(id);
   };
   return (
     <Card title={t('recommend.plan')} aside={t('recommend.planHint')} testId="plan-card">

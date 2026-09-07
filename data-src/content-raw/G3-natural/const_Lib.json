@@ -1,0 +1,96 @@
+{
+  "id": "const:Lib",
+  "version": 2,
+  "title": {
+    "ko": "천칭자리",
+    "en": "Libra"
+  },
+  "oneLiner": {
+    "ko": "스피카와 안타레스 사이에서 균형 잡힌 별 배열을 찾아요"
+  },
+  "summary": {
+    "ko": "천칭자리는 처녀자리의 스피카와 전갈자리의 안타레스 사이 구역에서 찾을 수 있어요. 밝은 별 하나가 확 돋보이는 별자리에 비해 윤곽이 약해서, 도시에서는 저울 그림이 또렷하지 않을 수 있어요. 양쪽의 밝은 길잡이를 먼저 확인하고, 그 중간의 별들을 지도와 맞춰 가는 방법이 좋아요. 저울이라는 이름은 하늘을 기억하기 위한 그림일 뿐, 별들이 실제로 줄이나 막대로 이어져 있다는 뜻은 아니에요. 맨눈으로 큰 배치를 익힌 뒤 쌍안경으로 점들을 보완해 보세요. 낮은 남쪽 하늘에 있는 만큼, 시야를 가리는 장애물과 도시 불빛도 함께 살펴보는 게 중요해요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Lib; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Lib",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Librae",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "스피카와 안타레스 사이 구역",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP65474, star:HIP80763; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "저울",
+      "source": "NSF NOIRLab — Libra — https://noirlab.edu/public/education/constellations/libra/"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "여름 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "저울은 별들의 위치를 서로 비교할 때 떠올리기 좋은 그림이에요. 하지만 천칭자리의 별들이 실제로 무게를 달고 있다거나 같은 거리에 놓여 있다는 뜻은 아니에요. NOIRLab의 소개에 나오는 기본 이름과 저울 그림만 알아도 관측을 시작하기에는 충분해요. 스피카와 안타레스를 양쪽 기준으로 삼고, 그 사이에서 눈에 보이는 별의 수와 배열을 기록해 보세요. 별자리 그림의 선을 먼저 외우는 대신, 내가 찾은 점에 이름을 붙여 가는 순서로 진행하는 거예요. 도시에서 몇 점이 사라져 보였다면 그 부분은 빈칸으로 남겨 두어도 괜찮아요. 다른 날 더 어두운 하늘에서 다시 비교해 볼 수 있으니까요. 하늘의 균형 잡힌 그림보다 중요한 건, 같은 대상과 같은 구역을 반복해서 알아보는 꾸준함이에요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Libra — https://noirlab.edu/public/education/constellations/libra/"
+    ]
+  },
+  "howToFind": {
+    "ko": "늦봄에서 초여름 저녁에 스피카와 안타레스를 먼저 찾아요. 두 별 사이에서 천칭자리 영역을 지도와 맞춘 뒤, 저울 그림의 주요 점을 하나씩 확인해 보세요. 남쪽 지평선이 가려진 곳이라면 별들의 실제 고도를 먼저 확인하는 게 좋아요.",
+    "season": "summer",
+    "hopFrom": [
+      "star:HIP65474",
+      "star:HIP80763"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 주요 점 몇 개만 보일 수 있어요. 저울 전체 윤곽을 알아보는 건 스피카나 안타레스를 찾는 것보다 어려워요.",
+    "binoculars": "10×50 쌍안경으로 두 기준점 사이의 희미한 별을 구역별로 나누어 확인해요. 시야를 천천히 옮기면서 하나씩 살펴보세요.",
+    "telescope": "90mm 망원경 20~40배는 개별 별을 확인할 때 써요. 별자리 전체 그림은 확대한다고 안 보이던 연결선이 생기지는 않으니, 윤곽은 맨눈과 지도로 살펴보세요.",
+    "bestMonths": [
+      5,
+      6,
+      7
+    ],
+    "difficulty": 3
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Lib; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Libra — https://noirlab.edu/public/education/constellations/libra/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Lib; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Lib; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP65474, star:HIP80763; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP65474, star:HIP80763; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "NOIRLab 검색 발췌에 나타난 북반구 별자리라는 일반화는 사용하지 않았습니다. 별자리의 하늘 위치와 관측자의 거주 반구는 구별해야 합니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

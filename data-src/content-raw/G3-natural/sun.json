@@ -1,0 +1,98 @@
+{
+  "id": "sun",
+  "version": 2,
+  "title": {
+    "ko": "태양",
+    "en": "Sun"
+  },
+  "oneLiner": {
+    "ko": "전용 태양 필터를 제대로 갖춘 뒤에 만나는 가장 가까운 별"
+  },
+  "summary": {
+    "ko": "태양은 필터 없이는 절대 보면 안 돼요. 쌍안경이나 망원경으로 볼 때는 빛이 들어오는 앞쪽 입구에 전용 태양 필터를 단단히 고정해야 해요. 태양은 중심에서 수소를 헬륨으로 바꾸는 핵융합으로 빛나는 별이에요. 안전 장비를 갖추면 광구(눈에 보이는 표면)에 있는 흑점을 살펴볼 수 있어요. 다만 흑점이 하나도 없는 날도 있어요. 흑점은 구멍이 아니라 주변보다 온도가 낮아서 어둡게 보이는 부분이에요. 백색광 태양 필터(가시광선을 줄여 주는 전용 필터)로 보는 모습과, 홍염을 보여 주는 특수 태양망원경으로 보는 모습은 서로 달라요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "주계열별(중심에서 수소 핵융합을 하는 별)",
+      "source": "https://science.nasa.gov/universe/stars/types/"
+    },
+    {
+      "label": "지구에서의 평균 거리",
+      "value": "약 1 AU",
+      "source": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "label": "나이",
+      "value": "약 46억 년",
+      "source": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "label": "주요 구성",
+      "value": "수소와 헬륨",
+      "source": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "label": "에너지원",
+      "value": "중심핵의 핵융합",
+      "source": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "label": "관측하는 층",
+      "value": "백색광 관측에서는 주로 광구",
+      "source": "https://science.nasa.gov/sun/facts/"
+    }
+  ],
+  "story": {
+    "ko": "한국의 고구려 고분벽화에는 태양과 이어진 삼족오(다리가 셋인 새)가 나와요. 태양 안에 정말 새가 산다는 뜻이 아니라, 그 시절 사람들이 하늘을 표현한 문화적 상징이에요. 현대 천문학은 같은 태양을 뜨거운 플라스마(전기를 띤 입자들이 기체처럼 움직이는 상태)와 자기장이 활발하게 활동하는 별로 연구해요. 안전한 장비로 여러 날에 걸쳐 흑점을 비교해 보면 위치와 모양이 조금씩 달라지는 모습을 기록할 수 있어요. 다만 어제 본 점이 오늘 본 점과 같은 흑점인지 알아보려면, 날짜와 태양 원반이 놓인 방향도 함께 적어 두는 게 좋아요. 옛 벽화의 상징을 읽는 일과 오늘의 태양을 관측하고 기록하는 일은, 서로 다른 방식으로 같은 하늘을 바라보는 경험이에요.",
+    "cultures": [
+      "한국",
+      "동아시아",
+      "기타"
+    ],
+    "sources": [
+      "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+      "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2",
+      "NASA — Sun Facts | https://science.nasa.gov/sun/facts/"
+    ]
+  },
+  "howToFind": {
+    "ko": "태양은 밤하늘의 별을 따라가며 찾는 대상이 아니에요. 계절과 상관없이 낮에 볼 수 있지만, 전문 관측자의 도움을 받아 전용 태양 관측 장비를 먼저 준비하세요. 태양을 직접 쳐다보거나 파인더를 들여다보며 맞추면 안 돼요. 대신 안전한 태양용 조준 장치를 사용하세요. 아직 준비가 안 됐다면 직접 보는 대신 여기 있는 태양 이야기를 읽는 것으로 시작해도 충분해요.",
+    "season": "any",
+    "hopFrom": []
+  },
+  "observing": {
+    "nakedEye": "맨눈으로 태양을 직접 보는 건 절대 안 돼요. 흠집이나 손상이 없는 전용 일식 안경이나 태양 관측용 뷰어를 올바르게 썼을 때만 태양 원반을 볼 수 있어요. 보통 선글라스로는 절대 대신할 수 없어요.",
+    "binoculars": "10×50 쌍안경은 양쪽 대물렌즈 앞에 쌍안경용 전용 태양 필터를 단단히 고정했을 때만 써야 해요. 큰 흑점이 있는 날에는 흑점을 찾아볼 수 있어요. 일식 안경만 쓴 채로 쌍안경을 들여다보는 건 절대 안 돼요.",
+    "telescope": "90mm 굴절망원경은 앞쪽 입구에 맞는 태양 필터를 단단히 고정하고, 파인더도 막아 두는 등 안전하게 처리한 뒤 20~80배로 봐요. 흑점이 있으면 여러 개가 모인 무리와 어두운 중심부를 살펴볼 수 있어요. 무엇보다 장비 점검과 곁에서 봐 주는 사람이 먼저예요.",
+    "difficulty": 3
+  },
+  "sources": [
+    "첨부 카탈로그 — 0b9e0138-a2cc-4e58-b6ee-e2ba53d6830f.csv (id=sun)",
+    "NASA — Sun Facts | https://science.nasa.gov/sun/facts/",
+    "NASA — Star Types | https://science.nasa.gov/universe/stars/types/",
+    "NASA — Eclipse Viewing Safety | https://science.nasa.gov/eclipses/safety/",
+    "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+    "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "high",
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "funFacts": [
+    "흑점은 태양 표면에 뚫린 구멍이 아니라, 주변보다 온도가 낮아 어둡게 보이는 부분이에요.",
+    "태양은 단단한 고체가 아니라서 위도에 따라 자전하는 속도가 달라요."
+  ],
+  "koreanTradition": {
+    "name": "해",
+    "note": "고구려 고분벽화에 그려진 삼족오는 태양을 나타내는 문화적 상징이에요. 오늘날 쓰는 천체 이름이나 실제 태양의 구조와는 별개로 이해하면 돼요.",
+    "sources": [
+      "국립민속박물관 — 삼족오 | https://folkency.nfm.go.kr/topic/detail/5550",
+      "국립문화유산연구원 — 고구려 고분벽화 문양 | https://portal.nrich.go.kr/kor/designUsrList.do?menuIdx=1251&se_no=2"
+    ]
+  },
+  "safety": "필터 없이는 절대 보지 마세요. 태양을 맨눈으로 보거나 필터 없는 쌍안경·망원경으로 보면 눈이 심하게 다칠 수 있어요. 쌍안경·망원경·카메라는 태양을 향하는 앞쪽 입구에 그 장비 전용 태양 필터를 단단히 고정해야 하고, 파인더도 반드시 막아 두세요. 일식 안경을 쓴 채로 필터 없는 쌍안경이나 망원경을 들여다보는 것도 절대 안 돼요. 선글라스, 그을린 유리, 접안렌즈에 끼우는 태양 필터는 안전하지 않으니 쓰지 마세요. 안전 장비가 확실하지 않다면 그날은 보지 않는 게 맞아요."
+}

@@ -1,0 +1,33 @@
+{
+  "sketch": {
+    "title": "스케치",
+    "cancel": "취소",
+    "save": "저장",
+    "saving": "저장 중…",
+    "saveRetry": "아직 저장하지 못했어요. 다시 눌러 보세요",
+    "canvasLabel": "스케치 캔버스 — 원 안에 그려요",
+    "hint": "원 안에 손가락이나 펜으로 그려요",
+    "previousMissing": "이전 스케치를 아직 불러오지 못했어요. 새로 그려요",
+    "tools": "그리기 도구",
+    "pen": "펜 색",
+    "color": {
+      "white": "흰색 펜",
+      "gray": "회색 펜"
+    },
+    "width": {
+      "label": "굵기",
+      "thin": "얇게",
+      "medium": "보통",
+      "thick": "굵게"
+    },
+    "eraser": "지우개",
+    "undo": "실행 취소",
+    "strokes": "선 {{n}}개",
+    "clear": "전체 지우기",
+    "clearConfirm": "그린 것을 모두 지울까요?",
+    "clearYes": "지우기",
+    "clearNo": "그대로 두기",
+    "overlay": "별 배치 겹쳐 보기",
+    "overlaySoon": "곧 추가돼요"
+  }
+}

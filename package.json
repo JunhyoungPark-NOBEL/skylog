@@ -23,6 +23,8 @@
     "data:fetch": "tsx scripts/data/fetch.ts",
     "data:build": "tsx scripts/data/build.ts",
     "data:validate": "tsx scripts/data/validate.ts",
+    "data:content": "tsx scripts/data/build-content.ts",
+    "data:learn": "tsx scripts/data/build-learn.ts",
     "gen:icons": "tsx scripts/gen-icons.ts"
   },
   "dependencies": {

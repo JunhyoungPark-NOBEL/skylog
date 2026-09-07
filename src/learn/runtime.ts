@@ -1,0 +1,271 @@
+import { dataUrl } from '@/catalog/manifest';
+import { loadCatalog, type Catalog } from '@/catalog/catalog';
+import { kindOf, type ObjectId } from '@/catalog/objectId';
+import { getDb, newId, nowIso } from '@/db/database';
+import { emitDbChange } from '@/db/events';
+import { setProgress } from '@/db/repos/progress';
+import { hash32 } from '@/content/today';
+import {
+  evaluateMission,
+  badgeSatisfied,
+  type LearnSnapshot,
+  type CatalogLookups,
+  type QuizResult,
+  type SkillEvent,
+} from './engine';
+import {
+  validateLearnData,
+  type LearnData,
+  type Mission,
+  type QuizItem,
+  type Skill,
+} from './schema';
+import { initialSr, reviewSr, dueForReview, type SrState } from './sr';
+
+let packPromise: Promise<LearnData> | null = null;
+export function loadLearnData(): Promise<LearnData> {
+  packPromise ??= Promise.all(
+    ['paths', 'missions', 'badges', 'quiz'].map(async (name) => {
+      const r = await fetch(dataUrl('learn/v1/' + name + '.json'));
+      if (!r.ok) throw new Error('Learning pack unavailable');
+      const data: unknown = await r.json();
+      if (!Array.isArray(data)) throw new Error('Invalid learning pack');
+      return data;
+    }),
+  )
+    .then(([paths, missions, badges, quiz]) => {
+      const data = { paths, missions, badges, quiz } as LearnData;
+      const result = validateLearnData(data);
+      if (result.errors.length) throw new Error(result.errors.join(', '));
+      return data;
+    })
+    .catch((error: unknown) => {
+      packPromise = null;
+      throw error;
+    });
+  return packPromise;
+}
+export const missionKey = (m: Mission) => m.id + ':' + hash32(JSON.stringify(m.steps));
+export interface MissionStart {
+  at: string;
+  linkedObservationIds: string[];
+}
+export interface Attempt {
+  quizId: string;
+  version: number;
+  correct: boolean;
+  answer: number | boolean | string;
+  at: string;
+}
+const obj = (v: unknown): v is Record<string, unknown> =>
+  !!v && typeof v === 'object' && !Array.isArray(v);
+export function lookupsFor(cat: Catalog): CatalogLookups {
+  return {
+    categoryOf(id) {
+      const kind = kindOf(id);
+      if (kind === 'dso') {
+        const c = cat.dsoById.get(id)?.category;
+        return c &&
+          [
+            'openCluster',
+            'globularCluster',
+            'nebula',
+            'planetaryNebula',
+            'galaxy',
+            'doubleStar',
+          ].includes(c)
+          ? (c as ReturnType<CatalogLookups['categoryOf']>)
+          : null;
+      }
+      return kind === 'const' ? 'constellation' : kind === 'sun' ? null : kind;
+    },
+    messierOf: (id) => cat.dsoById.get(id)?.messier ?? null,
+    caldwellOf: (id) => cat.dsoById.get(id)?.caldwell ?? null,
+  };
+}
+export async function readLearning() {
+  const [data, cat, rows, observations] = await Promise.all([
+    loadLearnData(),
+    loadCatalog(),
+    getDb().progress.toArray(),
+    getDb().observations.toArray(),
+  ]);
+  const values = new Map(rows.filter((r) => !r.deletedAt).map((r) => [r.key, r.value]));
+  const readSet = new Set<ObjectId>();
+  const foundSet = new Set<ObjectId>();
+  const checked = new Set<string>();
+  const skillEvents: SkillEvent[] = [];
+  const sr = new Map<string, SrState>();
+  const quizResults = new Map<string, QuizResult>();
+  const attempts = [...values.entries()]
+    .filter(([k, v]) => k.startsWith('learn.attempt:') && obj(v))
+    .map(([, v]) => v as Attempt)
+    .sort((a, b) => a.at.localeCompare(b.at));
+  for (const a of attempts) {
+    const q = data.quiz.find((q) => q.id === a.quizId && (q.version ?? 1) === a.version);
+    if (!q || typeof a.correct !== 'boolean') continue;
+    const old = quizResults.get(a.quizId);
+    quizResults.set(a.quizId, {
+      quizId: a.quizId,
+      correct: a.correct,
+      firstAttemptCorrect: old?.firstAttemptCorrect ?? a.correct,
+      at: old?.at ?? a.at,
+      attempts: (old?.attempts ?? 0) + 1,
+      version: a.version,
+    });
+  }
+  for (const [k, v] of values) {
+    if (k.startsWith('content.read:') && obj(v)) readSet.add(k.slice(13) as ObjectId);
+    if (k.startsWith('learn.found:') && obj(v)) foundSet.add(k.slice(12) as ObjectId);
+    if (k.startsWith('learn.check:') && v === true) checked.add(k.slice(12));
+    if (k.startsWith('learn.event:') && obj(v) && typeof v.type === 'string')
+      skillEvents.push(v as unknown as SkillEvent);
+    if (k.startsWith('learn.sr:') && obj(v) && typeof v.due === 'string')
+      sr.set(k.slice(9), v as unknown as SrState);
+  }
+  const snap: LearnSnapshot = {
+    observations: observations.filter((o) => !o.deletedAt),
+    readSet,
+    foundSet,
+    checked,
+    skillEvents,
+    quizResults,
+    completedMissions: new Set(),
+    earnedBadges: new Set(),
+  };
+  const lookups = lookupsFor(cat);
+  const starts = new Map<string, MissionStart>();
+  const forMission = (m: Mission): LearnSnapshot => {
+    const key = missionKey(m);
+    const raw = values.get('learn.start:' + key);
+    const start =
+      obj(raw) && typeof raw.at === 'string' ? (raw as unknown as MissionStart) : undefined;
+    if (start) starts.set(m.id, start);
+    const validObservations = start
+      ? snap.observations.filter(
+          (o) =>
+            (o.observedAt >= start.at || start.linkedObservationIds?.includes(o.id)) &&
+            (m.level === 'naked' || o.equipment?.kind === m.level),
+        )
+      : [];
+    const missionChecked = new Set(
+      [...checked].filter((k) => k.startsWith(key + ':')).map((k) => m.id + k.slice(key.length)),
+    );
+    return { ...snap, observations: validObservations, checked: missionChecked };
+  };
+  // 선행 미션 순서에 상관없이 완료 상태를 계산하고 삭제·수정 때 다시 평가한다.
+  let statuses = data.missions.map((m) => evaluateMission(m, forMission(m), lookups));
+  for (let i = 0; i < data.missions.length; i++) {
+    const done = new Set(
+      statuses
+        .filter(
+          (s) => s.done && !s.locked && s.mission.enabled !== false && starts.has(s.mission.id),
+        )
+        .map((s) => s.mission.id),
+    );
+    if (done.size === snap.completedMissions.size) break;
+    snap.completedMissions = done;
+    statuses = data.missions.map((m) => evaluateMission(m, forMission(m), lookups));
+  }
+  const badges = data.badges.filter(
+    (b) => b.enabled !== false && badgeSatisfied(b.rule, snap, lookups),
+  );
+  snap.earnedBadges = new Set(badges.map((b) => b.id));
+  return {
+    data,
+    cat,
+    snap,
+    statuses,
+    badges,
+    starts,
+    sr,
+    due: dueForReview(sr.values(), new Date()),
+  };
+}
+export type LearningState = Awaited<ReturnType<typeof readLearning>>;
+export async function beginMission(m: Mission, linkedObservationIds: string[] = []) {
+  await setProgress('learn.start:' + missionKey(m), {
+    at: nowIso(),
+    linkedObservationIds,
+  } satisfies MissionStart);
+}
+export async function checkMission(m: Mission, step: number, item: number, value: boolean) {
+  await setProgress('learn.check:' + missionKey(m) + ':' + step + ':' + item, value);
+}
+export async function markFound(id: ObjectId) {
+  await setProgress('learn.found:' + id, { at: nowIso() });
+}
+export async function emitSkill(type: Skill, meta?: Record<string, unknown>) {
+  await setProgress('learn.event:' + newId(), { type, at: nowIso(), meta } satisfies SkillEvent);
+}
+/** 응답과 복습 일정을 한 트랜잭션에 저장한다. 저장 실패 시 점수도 진행하지 않는다. */
+export async function recordAnswer(
+  q: QuizItem,
+  answer: number | boolean | string,
+  at = new Date(),
+) {
+  if (q.enabled === false || q.type === 'skyPick') throw new Error('Question unavailable');
+  const correct = answer === q.answer;
+  const db = getDb();
+  await db.transaction('rw', db.progress, async () => {
+    const key = 'learn.sr:' + q.id;
+    const row = await db.progress.where('key').equals(key).first();
+    const previous = row && !row.deletedAt ? (row.value as SrState) : initialSr(q.id, at);
+    const base = { createdAt: at.toISOString(), updatedAt: at.toISOString(), schemaVersion: 1 };
+    await db.progress.put({
+      ...base,
+      id: newId(),
+      key: 'learn.attempt:' + newId(),
+      value: {
+        quizId: q.id,
+        version: q.version ?? 1,
+        answer,
+        correct,
+        at: at.toISOString(),
+      } satisfies Attempt,
+    });
+    await db.progress.put({
+      ...base,
+      id: row?.id ?? newId(),
+      key,
+      value: reviewSr(previous, correct, at),
+    });
+  });
+  emitDbChange('progress');
+  return correct;
+}
+/** 첫 풀이·복습을 우선하며 동일 개념·대상의 연속 출제를 피한다. */
+export function selectQuiz(
+  state: LearningState,
+  opts: { ids?: string[]; objectId?: ObjectId; review?: boolean; limit?: number } = {},
+) {
+  const byId = new Set(opts.ids);
+  const dueIds = new Set(state.due.map((q) => q.quizId));
+  let candidates = state.data.quiz.filter((q) => q.enabled !== false && q.type !== 'skyPick');
+  if (opts.ids) candidates = candidates.filter((q) => byId.has(q.id));
+  else if (opts.review) candidates = candidates.filter((q) => dueIds.has(q.id));
+  else if (opts.objectId) {
+    const con =
+      state.cat.starById.get(opts.objectId)?.con ?? state.cat.dsoById.get(opts.objectId)?.con;
+    candidates = candidates.filter(
+      (q) => q.objectId === opts.objectId || (!!con && q.constellation === con),
+    );
+  }
+  candidates.sort(
+    (a, b) =>
+      Number(state.snap.quizResults.has(a.id)) - Number(state.snap.quizResults.has(b.id)) ||
+      Number(dueIds.has(b.id)) - Number(dueIds.has(a.id)) ||
+      a.difficulty - b.difficulty ||
+      a.id.localeCompare(b.id),
+  );
+  const out: QuizItem[] = [];
+  while (candidates.length && out.length < (opts.limit ?? 5)) {
+    const last = out.at(-1);
+    const index = Math.max(
+      0,
+      candidates.findIndex((q) => q.objectId !== last?.objectId),
+    );
+    out.push(candidates.splice(index, 1)[0]!);
+  }
+  return out;
+}

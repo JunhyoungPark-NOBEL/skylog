@@ -1,0 +1,33 @@
+{
+  "sketch": {
+    "title": "Sketch",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saving": "Saving…",
+    "saveRetry": "Not saved yet. Try again",
+    "canvasLabel": "Sketch canvas — draw inside the circle",
+    "hint": "Draw inside the circle with a finger or pen",
+    "previousMissing": "Couldn't load the previous sketch yet. Starting fresh",
+    "tools": "Drawing tools",
+    "pen": "Pen color",
+    "color": {
+      "white": "White pen",
+      "gray": "Gray pen"
+    },
+    "width": {
+      "label": "Width",
+      "thin": "Thin",
+      "medium": "Medium",
+      "thick": "Thick"
+    },
+    "eraser": "Eraser",
+    "undo": "Undo",
+    "strokes": "{{n}} strokes",
+    "clear": "Clear all",
+    "clearConfirm": "Clear everything you drew?",
+    "clearYes": "Clear",
+    "clearNo": "Keep",
+    "overlay": "Overlay star positions",
+    "overlaySoon": "Coming soon"
+  }
+}

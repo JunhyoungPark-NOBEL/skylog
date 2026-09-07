@@ -1,0 +1,97 @@
+{
+  "id": "star:HIP36850",
+  "version": 2,
+  "title": {
+    "ko": "카스토르",
+    "en": "Castor"
+  },
+  "oneLiner": {
+    "ko": "맨눈엔 별 하나, 망원경에선 두 점으로 갈라지는 카스토르"
+  },
+  "summary": {
+    "ko": "카스토르는 쌍둥이자리의 두 머리 가운데 폴룩스보다 북쪽이면서 서쪽에 있는 밝은 별이에요. 맨눈으로는 점 하나로 보이지만, 사실은 여러 별이 함께 도는 다중성계예요. 작은 망원경으로 밝은 주성 쌍을 둘로 나누어 볼 수 있는데, 공기가 흔들리거나 배율이 맞지 않으면 어려워지기도 해요. 여러 별이라고 해서 여섯 개의 점이 한눈에 다 보이는 건 아니에요. 도시에서도 밝은 쌍둥이 머리를 찾는 것부터 시작할 수 있어요. 두 점으로 나누어 본 결과와 위치만 확인한 결과는 따로 적어 두면 좋아요."
+  },
+  "facts": [
+    {
+      "label": "별자리",
+      "value": "쌍둥이자리 (Gem)",
+      "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "거리(첨부 목록)",
+      "value": "50.9광년",
+      "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "겉보기등급(첨부·대역 미확인)",
+      "value": "1.58등급",
+      "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "분광형(첨부 원문)",
+      "value": "A2Vm",
+      "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "목록 식별자",
+      "value": "star:HIP36850",
+      "source": "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행"
+    },
+    {
+      "label": "별의 구성",
+      "value": "여섯 별로 이루어진 다중성계",
+      "source": "NASA — Find the Twins: Gemini Constellation — https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/"
+    }
+  ],
+  "story": {
+    "ko": "카스토르를 보고 있으면 별 하나라는 말이 무슨 뜻인지 다시 생각하게 돼요. 맨눈으로 보이는 점 하나, 작은 망원경으로 갈라지는 밝은 쌍, 정밀한 연구가 밝혀낸 여섯 별의 계는 각각 다른 수준에서 본 모습이에요. NASA의 쌍둥이자리 안내에서도 이런 겹겹의 모습을 폴룩스와 견주어 설명해요. 망원경에서 가까운 두 점이 잠깐 갈라져 보였다면, 시간을 두고 계속 안정적으로 나뉘어 보이는지 확인해 보세요. 초점을 조금씩 바꿔 보면 별이 길쭉하게 늘어난 모습과 진짜 두 점을 구분할 수 있어요. 그때 쓴 배율을 적어 두면 다음 관측과 비교하기 좋아요. 여섯 별 중 몇 개를 봤다고 서둘러 숫자를 붙이기보다, 어떤 쌍을 어떤 조건에서 나누어 봤는지 적는 편이 훨씬 정확한 관측 이야기가 돼요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NASA — Find the Twins: Gemini Constellation — https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/",
+      "NASA Night Sky Network — Seeing Double — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁에 쌍둥이자리의 폴룩스를 먼저 찾고, 그보다 북서쪽으로 약 4.5° 떨어진 카스토르를 확인해 보세요. 맨눈으로 두 머리의 위치를 확실히 잡은 다음, 망원경의 낮은 배율에서 카스토르를 시야 가운데에 두고 배율을 조금씩 올려요. 손으로 망원경을 건드리면 흔들림 때문에 점이 둘로 보일 수 있으니, 기기를 잘 고정한 뒤 살펴보세요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP37826"
+    ]
+  },
+  "observing": {
+    "nakedEye": "폴룩스와 나란히 보이는 밝은 점이에요. 카스토르 안쪽의 가까운 주성 쌍은 맨눈으로는 나누어 보이지 않아요.",
+    "binoculars": "10×50 쌍안경으로 카스토르와 폴룩스를 나란히 놓고 비교해 볼 수 있어요. 다만 카스토르 안쪽의 가까운 주성 쌍은 쌍안경으로는 나뉘어 보이지 않아요.",
+    "telescope": "90mm 망원경이라면 공기가 잔잔한 밤에 60~80배로 밝은 쌍을 둘로 나누어 보는 데 도전해 보세요. 잘 안 되더라도 그날의 시상과 초점, 배율을 적어 두면 다음에 다시 시도할 때 도움이 돼요.",
+    "bestMonths": [
+      1,
+      2,
+      3
+    ],
+    "difficulty": 2
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NASA — Find the Twins: Gemini Constellation — https://science.nasa.gov/solar-system/skywatching/night-sky-network/gemini-constellation/",
+    "NASA Night Sky Network — Seeing Double — https://science.nasa.gov/solar-system/skywatching/night-sky-network/aug2024-night-sky-notes/",
+    "첨부 좌표에서 직접 계산 — guide-checks.json; 북위 36.35°, 대기굴절·지형·세차 미포함",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — star:HIP36850; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP37826; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 mag의 측광 대역·측정 시각·목록 판본이 없습니다. V등급이나 현재 실측 밝기로 확정하지 않았으며 정밀 밝기 비교 퀴즈는 보류합니다.",
+      "첨부 거리·분광형의 원목록 판본, 오차, 다중성의 성분 귀속은 미확인입니다. 원문은 보존했으며 외부 소개값을 임의로 덮어쓰지 않았습니다.",
+      "여섯 별 계라는 설명과 90mm로 분리하는 밝은 시각쌍을 구별했습니다. 시각쌍의 실제 각거리·궤도 시점은 정밀 관측 기능 구현 전 확인해야 합니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  }
+}

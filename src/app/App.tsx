@@ -7,6 +7,7 @@ import { TabBar } from '@/app/TabBar';
 import { AboutScreen } from '@/features/settings/AboutScreen';
 import { DebugDataPage } from '@/features/debug/DebugDataPage';
 import { LearnScreen } from '@/features/learn/LearnScreen';
+import { BackupScreen } from '@/features/log/BackupScreen';
 import { LogScreen } from '@/features/log/LogScreen';
 import { SearchScreen } from '@/features/search/SearchScreen';
 import { SensorDebugScreen } from '@/features/settings/SensorDebug';
@@ -16,10 +17,16 @@ import { initLocation } from '@/sensors/locationInit';
 import { SkyView } from '@/features/sky/SkyView';
 import { TonightScreen } from '@/features/tonight/TonightScreen';
 import { ObjectSheet } from '@/features/object/ObjectSheet';
+import { ObservationFormHost } from '@/features/log/ObservationFormHost';
 import { releaseWakeLock, requestWakeLock } from '@/sensors/wakeLock';
+import { startLogSync } from '@/state/logStore';
 import { useSettingsStore } from '@/state/settingsStore';
 import { DebugHud } from '@/ui/DebugHud';
 import { ScrollArea } from '@/ui/ScrollArea';
+import { StoryHost } from '@/features/content/StoryHost';
+import { QuizHost } from '@/features/learn/QuizHost';
+import { startReadSync } from '@/content/readProgress';
+import { ToastHost } from '@/ui/Toast';
 
 /**
  * 스크롤되는 탭 화면 래퍼(D-021·D-022). 떠 있는 상태 캡슐·탭 pill 아래로 콘텐츠가 이어지도록
@@ -54,10 +61,20 @@ export function App() {
   useEffect(() => {
     void initLocation();
   }, []);
+  // 기록 파생 상태(★/☆ 집합)는 앱 전역에서 한 번만 DB를 구독한다(T4)
+  useEffect(() => startLogSync(), []);
+  useEffect(() => startReadSync(), []);
 
   if (route === 'settings') return <SettingsScreen onBack={() => navigate('sky')} />;
   if (route === 'about') return <AboutScreen onBack={() => navigate('settings')} />;
   if (route === 'sites') return <SitesScreen onBack={() => navigate('settings')} />;
+  if (route === 'backup')
+    return (
+      <>
+        <BackupScreen onBack={() => navigate('settings')} />
+        <ToastHost />
+      </>
+    );
   if (route === 'debug/data') return <DebugDataPage onBack={() => navigate('settings')} />;
   if (route === 'debug/sensors') return <SensorDebugScreen onBack={() => navigate('settings')} />;
 
@@ -90,6 +107,10 @@ export function App() {
       </main>
       <TabBar active={route} onSelect={(r) => navigate(r)} />
       <ObjectSheet />
+      <StoryHost />
+      <ObservationFormHost />
+      <QuizHost />
+      <ToastHost />
       {debugHud && <DebugHud />}
     </div>
   );

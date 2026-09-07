@@ -1,0 +1,102 @@
+{
+  "id": "const:Tau",
+  "version": 2,
+  "title": {
+    "ko": "황소자리",
+    "en": "Taurus"
+  },
+  "oneLiner": {
+    "ko": "알데바란과 두 성단을 하나씩 찾아보는 겨울의 황소자리"
+  },
+  "summary": {
+    "ko": "황소자리는 겨울 저녁에 알데바란의 따뜻한 색, V자 모양의 별무리, 그리고 플레이아데스를 길잡이로 찾을 수 있는 별자리예요. 알데바란은 히아데스 앞쪽에 겹쳐 보일 뿐, 성단의 구성원은 아니에요. 히아데스와 플레이아데스는 넓은 시야로 살피기 좋은 대상이지만, 둘은 서로 다른 성단이에요. 도시에서는 약한 별이 줄어들어 V자나 성단의 모습이 단순해 보일 수 있어요. 한 별자리 안에 모여 보인다고 해서 모든 천체가 같은 거리에 있는 건 아니에요. 맨눈으로 잡은 윤곽을 쌍안경으로 차근차근 넓혀 가 보세요."
+  },
+  "facts": [
+    {
+      "label": "종류",
+      "value": "IAU 별자리 — 하늘의 영역; 단일 별·성단이 아님",
+      "source": "첨부 catalog-values.v1.csv — const:Tau; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "IAU 약어",
+      "value": "Tau",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "라틴어 속격",
+      "value": "Tauri",
+      "source": "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv"
+    },
+    {
+      "label": "찾기의 주요 기준",
+      "value": "알데바란, 히아데스 구역, 플레이아데스",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP21421, dso:M45, const:Ori; inputs/catalog-values.v1.csv"
+    },
+    {
+      "label": "대표 그림·무늬",
+      "value": "황소",
+      "source": "NSF NOIRLab — Taurus — https://noirlab.edu/public/education/constellations/taurus/?nocache=true"
+    },
+    {
+      "label": "저녁 관측 계절",
+      "value": "겨울 — 편집 분류, 실시간 가시성 아님",
+      "source": "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님"
+    }
+  ],
+  "story": {
+    "ko": "황소자리 관측은 별 하나와 별의 무리를 번갈아 읽는 연습이에요. 먼저 알데바란을 찾은 뒤 그 주변의 V자 구역을 보고, 따로 플레이아데스의 작은 무리를 찾아보세요. 황소라는 이름 하나 아래에도 서로 다른 관측 대상이 여럿 들어 있어요. NOIRLab에서는 히아데스처럼 넓게 퍼진 성단을 쌍안경으로 살펴보는 관측을 소개하고 있어요. 배율이 높은 도구가 언제나 더 알맞은 건 아니라는 뜻이에요. 성단 이름과 별자리 이름을 따로 기록해 두면 어떤 대상을 실제로 봤는지도 분명해져요. 오늘 알데바란 하나를 확인했다면 그것만으로도 좋은 출발이에요. 다만 두 성단까지 본 기록은 아니니, 다음에는 성단을 목표로 삼아 보세요. 보이는 점을 하나씩 더해 가면서, 하늘의 커다란 영역 안에 작은 대상들이 놓여 있다는 관계를 익혀 보세요.",
+    "cultures": [
+      "기타"
+    ],
+    "sources": [
+      "NSF NOIRLab — Taurus — https://noirlab.edu/public/education/constellations/taurus/?nocache=true",
+      "NASA — Star Types — https://science.nasa.gov/universe/stars/types/"
+    ]
+  },
+  "howToFind": {
+    "ko": "겨울 저녁에 오리온자리 허리띠의 별들을 잇는 선을 천구의 북서쪽으로 쭉 늘려 보세요. 그 방향에서 알데바란을 찾을 수 있어요. 주변의 V자 구역을 확인한 뒤, 더 북서쪽에 있는 플레이아데스로 옮겨 가 보세요. 히아데스와 플레이아데스를 지도에서 각각 골라 보면 서로 다른 무리라는 걸 확인할 수 있어요.",
+    "season": "winter",
+    "hopFrom": [
+      "star:HIP21421",
+      "dso:M45",
+      "const:Ori"
+    ]
+  },
+  "observing": {
+    "nakedEye": "도시에서는 알데바란과 V자의 일부를 찾을 수 있어요. 하늘 상태가 좋으면 플레이아데스의 밝은 점들도 보여요.",
+    "binoculars": "10×50 쌍안경은 히아데스와 플레이아데스를 각각 관찰하기에 좋아요. 넓게 퍼진 무리는 쌍안경 시야에 맞춰 부분별로 나누어 살펴보세요.",
+    "telescope": "90mm 망원경 20~40배는 성단의 일부를 자세히 살피는 데 써 보세요. 넓은 시야의 느낌은 쌍안경으로 비교해 보고, 별자리 전체 모양은 맨눈으로 보는 게 좋아요.",
+    "bestMonths": [
+      12,
+      1,
+      2
+    ],
+    "difficulty": 1
+  },
+  "sources": [
+    "첨부 catalog-values.v1.csv — const:Tau; inputs/catalog-values.v1.csv의 해당 행",
+    "첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "NSF NOIRLab — Taurus — https://noirlab.edu/public/education/constellations/taurus/?nocache=true",
+    "NASA — Star Types — https://science.nasa.gov/universe/stars/types/",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님",
+    "첨부 catalog-values.v1.csv — const:Tau; inputs/catalog-values.v1.csv의 해당 행; 첨부 G2 constellations_ko.csv — inputs/constellations_ko.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — const:Tau; inputs/catalog-values.v1.csv의 해당 행",
+    "NASA Night Sky Network — Spot the Young Stars of the Hyades and Pleiades — https://science.nasa.gov/solar-system/skywatching/night-sky-network/spot-the-young-stars-of-the-hyades-and-pleiades/",
+    "첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP21421, dso:M45, const:Ori; inputs/catalog-values.v1.csv",
+    "편집 제안 — observing-policy.md; 북위 약 36°의 저녁·10×50·90mm 20~80배 기준, 실측 아님; 첨부 catalog-values.v1.csv — 연계 대상 행: star:HIP21421, dso:M45, const:Ori; inputs/catalog-values.v1.csv"
+  ],
+  "meta": {
+    "generatedBy": "gpt-5-pro",
+    "generatedAt": "2026-09-07",
+    "confidence": "medium",
+    "needsReview": [
+      "첨부 RA/Dec는 대표 좌표로만 보존했습니다. 별자리 전체의 고도·거리·각크기나 소속별 전부의 가시성을 이 한 점으로 판단하지 않습니다.",
+      "장비별 관측 안내·추천 월·난이도는 대상의 특성과 첨부 좌표에 근거한 보수적 편집 제안입니다. 도시 검출이나 실제 기기 관측 성공을 보장하지 않습니다."
+    ],
+    "reviewedBy": "claude",
+    "reviewedAt": "2026-09-07"
+  },
+  "funFacts": [
+    "플레이아데스와 히아데스는 이름만 다른 게 아니라 서로 다른 별개의 성단이에요."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "recommend": {
+    "reason": {
+      "fresh": "Not seen yet"
+    },
+    "mark": {
+      "observed": "Observed",
+      "attempted": "Tried, not seen yet"
+    }
+  },
+  "search": {
+    "mark": {
+      "observed": "Observed",
+      "attempted": "Tried, not seen yet",
+      "bookmarked": "Planned"
+    }
+  }
+}
