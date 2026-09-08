@@ -149,4 +149,5 @@ G4 요청에는 `astro/pointing.ts`, `astro/finder.ts`, `sensors/telescopeOrient
 - nativeMotion 테스트는 다른 세션/늦은 샘플 무시, 취소된 시작, 무응답 6초 제한과 리스너 정리를 확인한다. ENU·iOS 북서천정 변환 계약은 별도 수학 테스트. 이는 하드웨어 수치 검증을 대신하지 않는다.
 - `android/.../OfflineSmokeTest.java`: 네트워크를 끈 API36 에뮬레이터의 실제 앱 WebView에서 플랫폼/플러그인, 하늘, 6코스, 퀴즈, 깊은 별 팩이 열린다. 방향 센서 실측은 검사하지 않는다.
 - 상세 폰 체크리스트와 PWA→앱 JSON 이관, Play 내부 테스트, iOS TestFlight 절차는 `docs/MOBILE-RELEASE.md`.
-- 기존 하늘 e2e는 React 생성 전에 loading 개수=0을 성공으로 판정할 수 있었다. 캔버스 생성 후 loading 종료를 기다리도록 수정했다. 최종 브라우저 전체 34개 통과.
+- 기존 하늘 e2e는 React 생성 전에 loading 개수=0을 성공으로 판정할 수 있었다. 캔버스 생성 후 loading 종료를 기다리도록 수정했다. 브라우저 전체 34개 통과 후 최종 쌍안경 수정에 대해 망원경 4개를 재검증했다(새 회귀 1개 포함, 현재 총 35개). GoTo 망원경에서 쌍안경으로 전환하면 방향 안내를 계속 제공한다.
+- 최종 108e99a 모바일 run 34174587920: Android 오프라인 계측 1/1 통과, 실패/누락 0. Android lint 오류0/경고33(템플릿·아이콘·리소스 등, MOBILE-RELEASE에 기록). iOS arm64 무서명 컴파일 성공. 서명된 versionCode4 AAB의 jarsigner strict/bundletool validate 통과. 실제 폰 축·드리프트·권한·공유는 별도 수용 항목이다.

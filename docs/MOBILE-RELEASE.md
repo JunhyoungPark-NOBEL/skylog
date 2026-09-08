@@ -8,10 +8,20 @@
 - `pnpm mobile:sync`: 네이티브 전용 `base=/`로 웹을 빌드하고 Android/iOS에 복사한다. PWA는 기존 `/skylog/` 및 SW를 유지한다. 네이티브 앱은 SW를 등록하지 않으며 깊은 별·콘텐츠·학습 팩을 전부 포함한다.
 - GitHub Actions **Build mobile bundles** 수동 실행: release AAB 및 Android lint, 인터넷을 끈 Android 36 에뮬레이터 테스트, iOS arm64 무서명 빌드. CI는 서명 비밀을 다루지 않는다. `skylog-android-aab-unsigned`는 서명 전 산출물이다.
 - Play 배포 산출물은 **AAB**다. AAB는 직접 설치할 수 없으며 Play 내부 테스트에서 기기별 앱을 받는다. CI가 만드는 내부 테스트용 APK는 계측 실행용이고 사용자 배포 산출물이 아니다.
-- 서명은 Windows에서 `scripts/sign-aab.ps1 -Bundle <unsigned.aab> -Output <new-signed.aab>`로 수행한다. JDK 21+의 JAVA_HOME을 지정하거나 이번 PC의 `%LOCALAPPDATA%/skylog-tools/jdk-*`를 쓴다. 처음 한 번 업로드 키를 만들고 이후 재사용한다.
+- 서명은 Windows **PowerShell 7 이상**에서 `pwsh -File scripts/sign-aab.ps1 -Bundle <unsigned.aab> -Output <new-signed.aab>`로 수행한다. JDK 21+의 JAVA_HOME을 지정하거나 이번 PC의 `%LOCALAPPDATA%/skylog-tools/jdk-*`를 쓴다. 처음 한 번 업로드 키를 만들고 이후 재사용한다.
 - 키는 `%LOCALAPPDATA%/skylog-signing/skylog-upload.p12`, 암호는 같은 폴더의 `password.dpapi.xml`에 현재 Windows 사용자용 DPAPI로 보관한다. **저장소·공개 산출물에 키나 암호를 넣지 않는다.** 인증서 `upload-certificate.pem`은 공개용이다. 서명 스크립트는 기존 출력/불완전한 키를 덮어쓰지 않는다.
 - 키 폴더를 별도 안전한 저장소에 백업해야 한다. DPAPI 암호 파일은 다른 PC에서 직접 복호화되지 않는다. 원래 Windows 계정에서 암호를 복원해 개인 암호 관리자에 보관한 뒤 이동한다. 키·암호를 채팅/이슈에 붙여 넣지 않는다. 후속 빌드도 같은 업로드 키와 더 큰 versionCode를 사용한다.
 - iOS `skylog-ios-unsigned-build`는 컴파일 확인용 `.app`이며 iPhone에 배포할 IPA가 아니다. Apple Developer 팀, Bundle ID 등록, 배포 인증서/프로비저닝을 갖춘 Mac에서 Archive → Validate → Distribute → TestFlight가 필요하다.
+
+## 이번 전달본 검증 (2026-09-08)
+
+- 최종 전달본: `skylog-0.1.0-beta.1-build4.aab`, versionCode 4, 6,964,176 bytes. 앱 소스 커밋 `108e99ab2fce10934a38e4d131c9b7af11f6e0b5`. Downloads 폴더에 있으며 이전 build3 대신 이 파일을 사용한다.
+- SHA256: `80bc82531b4f39149b2825400e109bdec7347a99d25320c86588de05a27d7229`.
+- [모바일 CI](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34174587920): Android release/lint/오프라인 API36 계측 및 iOS Xcode26 arm64 무서명 컴파일 성공. `jarsigner -verify -strict`(자체 업로드 키 신뢰)와 `bundletool 1.18.3 validate` 성공. 앱 서명용 자체 인증서는 공인 TLS 인증서와 용도가 다르다.
+- [웹 CI/배포](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34174588139): 타입/린트/단위366/데이터 검증/빌드 통과. 브라우저 전체34 이후 최종 망원경 회귀4를 별도 통과했다(새 쌍안경 전환 사례 포함).
+- 같은 Downloads의 `skylog-release-0.1.0-beta.1-build4/`에 스토어 초안·아이콘/피처 이미지·공개 인증서·manifest·release-info.json을 둔다. **개인 키/암호는 포함하지 않는다.**
+- 빌드와 출시 준비를 완료한 상태이며 Play 등록/내부 테스트 배포, iOS 서명/TestFlight, 실기기 검증과 정식 스토어 심사는 아직 수행하지 않았다.
+- Android lint는 오류 0, 경고 33이다. Capacitor 템플릿의 리소스/manifest 순서, 아이콘·스플래시 밀도/중복/단색 아이콘, 의존성 업데이트 제안, 구형 Android 백업 설정 관련 경고다. 현재 `allowBackup=false`로 자동 백업은 끈 상태다. 경고를 숨기지 않았으며 스토어 실기기 캡처와 함께 T8에서 정리한다.
 
 ## 앱 기능과 데이터
 

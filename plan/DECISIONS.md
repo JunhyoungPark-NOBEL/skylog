@@ -235,3 +235,4 @@
 - native 상대 자세는 Android GAME_ROTATION_VECTOR / iOS xArbitraryZVertical, AR은 자북 모드. ENU 물리 quaternion을 기존 래퍼로 변환하며 +Y 경통 규약 유지. background에서 중지하고 재정렬. 권한 없음/샘플 없음은 숨기지 않고 실패 표시. 센서 실기기 정확도는 별도 검증한다.
 - backup은 OS 공유 시트에서 사용자가 목적지를 정한다. 공유용 앱 캐시는 수신자가 읽기 전에 제거하지 않는다. 네이티브와 PWA DB는 별도이므로 JSON 이관. 기록 서버/계정/광고/온라인 순위 추가 없음. 날씨 좌표 전송을 privacy/스토어 초안에 명시한다.
 - CI는 무서명 AAB·Android lint 및 오프라인 WebView 계측, iOS 무서명 컴파일을 수행한다. 업로드 키는 저장소 밖 Windows 사용자 전용 폴더, 암호는 DPAPI 파일에 보관하고 재사용한다. Store 계정/결제·정책 선언·실기기·심사 제출은 남은 사용자 작업이다. Xcode archive와 최종 스토어 실기기 캡처 전에는 출시 완료라고 보고하지 않는다.
+- versionCode 4(108e99a)의 Android/iOS CI 및 로컬 AAB 서명/구조 검증을 완료했다. Windows `Set-Acl`의 불필요한 감사 권한 요구는 `FileSystemAclExtensions.SetAccessControl`로 접근 권한만 적용해 해결했다. 원 업로드 키는 재사용하며 후속 앱 빌드에서 다시 생성하지 않는다.

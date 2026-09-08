@@ -1,3 +1,4 @@
+#requires -Version 7.0
 param(
   [Parameter(Mandatory=$true)][string]$Bundle,
   [Parameter(Mandatory=$true)][string]$Output,
@@ -10,12 +11,13 @@ if (-not $JdkPath) {
 if (-not (Test-Path -LiteralPath (Join-Path $JdkPath 'bin/keytool.exe'))) { throw 'Set JAVA_HOME to a JDK 21+ installation.' }
 $skylogSigningDir = Join-Path $env:LOCALAPPDATA 'skylog-signing'
 New-Item -ItemType Directory -Force -Path $skylogSigningDir | Out-Null
-$skylogAcl = Get-Acl -LiteralPath $skylogSigningDir
+$skylogAcl = [System.Security.AccessControl.DirectorySecurity]::new()
 $skylogAcl.SetAccessRuleProtection($true, $false)
 $skylogIdentity = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 $skylogRule = New-Object System.Security.AccessControl.FileSystemAccessRule($skylogIdentity,'FullControl','ContainerInherit,ObjectInherit','None','Allow')
 $skylogAcl.AddAccessRule($skylogRule)
-Set-Acl -LiteralPath $skylogSigningDir -AclObject $skylogAcl
+# Set-Acl이 감사 권한까지 요청하는 환경에서도 접근 권한(DACL)만 적용한다.
+[System.IO.FileSystemAclExtensions]::SetAccessControl([System.IO.DirectoryInfo]::new($skylogSigningDir), $skylogAcl)
 $skylogKey = Join-Path $skylogSigningDir 'skylog-upload.p12'
 $skylogPasswordFile = Join-Path $skylogSigningDir 'password.dpapi.xml'
 if ((Test-Path -LiteralPath $skylogKey) -ne (Test-Path -LiteralPath $skylogPasswordFile)) { throw 'Signing material is incomplete. Restore it; do not overwrite an existing upload key.' }

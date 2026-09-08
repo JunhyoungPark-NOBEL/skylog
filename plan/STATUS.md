@@ -8,14 +8,18 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 (모바일 빌드 검증 진행 중)
+## 이번 작업 완료 보고 (2026-09-08 · 방향 안내·코스·AAB 출시 준비)
 
 - 별길 진입의 센서→밝은 별 정렬→이동 CTA, 큰 좌우/위아래 화살표·각도, 시야 진입 후 자동 차트 전환 제거. 정렬 완료 버튼을 위로 이동. 화면 전환 시 본문 스크롤 초기화.
 - 배우기→코스에 M42/M31/M13/M57/M27/M11 대표 호핑 6개. 고정 이정표와 자체 차트, 실제 완료→새 관측 기록 2단계. 코스 ID가 같은 실제 이벤트만 진도 반영. 원 G3/G5 팩·DB v2 유지.
 - 사용자 수정 요청으로 Android 배포 산출물은 APK가 아닌 **AAB**. Capacitor 8.5.1/Android API36·Java21/iOS15+ 프로젝트, native base=/ 및 데이터 전체 포함, 센서·위치·화면 유지·백업 공유 브리지. 키는 로컬 외부 폴더에서 생성/재사용, CI에는 서명 자료 없음.
-- 브라우저 전체 34개 및 최종 망원경 회귀 4개(새 쌍안경 전환 사례 포함) 통과. 기존 하늘 테스트 2개의 초기 마운트 대기 경쟁 조건 수정. 단위 366개 통과. 방향·코스 스크린샷 확인. Android AAB/lint/오프라인 API36 계측과 iOS arm64 무서명 컴파일 성공(run 34173622316). 쌍안경 전환 시 이전 GoTo 가대 설정을 적용하지 않도록 수정했으며, 이 수정까지 포함한 최종 번들을 다시 빌드한다.
+- 자동 검증: typecheck/lint/build·단위 366개 통과. 브라우저 전체 34개 이후 최종 망원경 회귀 4개(새 쌍안경 전환 사례 포함) 통과, 현재 총 35개. 방향·코스/영어/야간 스크린샷 확인. 기존 하늘 테스트의 초기 마운트 대기 경쟁 조건과 쌍안경에 남는 GoTo 설정을 수정했다.
+- 최종 앱 소스 **108e99a**, Android AAB/lint/인터넷을 끈 API36 실제 WebView 계측 및 iOS arm64 무서명 컴파일 **모두 통과**: [mobile run 34174587920](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34174587920). [웹 배포 run 34174588139](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34174588139) 성공, 앱/개인정보/지원 URL HTTP 200.
+- 전달 파일: `C:\Users\JunhyoungPark\Downloads\skylog-0.1.0-beta.1-build4.aab` (6,964,176 bytes, versionCode **4**, API36/min24). 기존 RSA4096 업로드 키로 서명, jarsigner strict 및 bundletool 1.18.3 validate 통과. SHA256 `80bc82531b4f39149b2825400e109bdec7347a99d25320c86588de05a27d7229`. 스토어 문안·아이콘·한/영 피처 그래픽·공개 인증서·검증 메타데이터는 Downloads의 `skylog-release-0.1.0-beta.1-build4/`. 이전 build3 대신 **build4**를 사용한다.
 - 개인정보/지원 한·영 페이지와 스토어 문안 추가. Play/App Store 계정·등록·심사·배포는 아직 수행하지 않았다. 기존 PWA 기록은 앱에서 별도 저장되므로 JSON 가져오기 필요.
 - T5의 실제 홀더/10분 드리프트, T7/T8 잔여 및 iPhone 네이티브 센서 검증은 계속 대기. 이번 변경으로 완료 태그를 붙이지 않는다.
+- 알려진 잔여: Android lint 오류0/경고33(템플릿·아이콘/스플래시·리소스 등)은 `docs/MOBILE-RELEASE.md`에 기록하고 T8로 넘긴다. 빌드 통과를 경고/실기기 오류가 전혀 없다는 뜻으로 해석하지 않는다.
+- 결정: D-030(단계별 방향 안내·대표 호핑·실제 진도), D-031(Capacitor·AAB·외부 업로드 키). 사용자 액션: Play 내부 테스트 설치, 폰 윗변 정렬/화살표/드리프트, 코스→관측 기록, 오프라인 및 PWA JSON 이관 검증. 키 별도 백업과 Apple 서명/TestFlight는 `docs/MOBILE-RELEASE.md` 참고. 새 G3/G5 생성은 필요 없으며 G4 독립 수학 리뷰는 선택적으로 요청 가능하다.
 
 - GitHub 저장소: https://github.com/JunhyoungPark-NOBEL/skylog (public, main)
 - 배포 URL (GitHub Pages): **https://junhyoungpark-nobel.github.io/skylog/** (Actions 소스, `main` push마다 자동 배포)
