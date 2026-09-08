@@ -603,7 +603,10 @@ html.flash-warn::after {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* 마당 벡터도 야간 관측에서 붉은빛만 사용한다. */
-[data-theme='night'] .personal-art {
-  filter: url('#personal-night-red');
+/* 독립 미리보기와 장식도 자기 SVG의 필터를 참조한다. 마당 안의 장식에는 두 번 적용하지 않는다. */
+[data-theme='night'] .personal-art-tone {
+  filter: var(--personal-night-filter, none);
+}
+[data-theme='night'] .personal-art-tone .personal-art-tone {
+  filter: none;
 }

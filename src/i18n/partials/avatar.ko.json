@@ -1,0 +1,101 @@
+{
+  "avatar": {
+    "preview": "꾸미는 중인 아바타 미리보기",
+    "previewHint": "마음에 들면 적용해 주세요. 취소하거나 나가면 미리보기는 저장되지 않아요.",
+    "shuffle": "새 코디 추천",
+    "undo": "한 단계 되돌리기",
+    "categories": "꾸밀 부위",
+    "groups": { "face": "얼굴", "head": "머리", "clothes": "옷", "gear": "소품" },
+    "fields": {
+      "skin": "피부 색깔",
+      "expression": "표정",
+      "hair": "머리 모양",
+      "hairColor": "머리 색깔",
+      "hat": "모자",
+      "outfit": "옷 모양",
+      "suit": "옷 색깔",
+      "accessory": "관측 소품"
+    },
+    "options": {
+      "skin": {
+        "porcelain": "아주 밝은 톤",
+        "sand": "밝은 톤",
+        "amber": "중간 톤",
+        "cocoa": "짙은 톤",
+        "umber": "깊은 톤"
+      },
+      "expression": { "smile": "미소", "calm": "편안하게", "joy": "활짝 웃기", "wink": "윙크" },
+      "hair": {
+        "none": "머리카락 없이",
+        "short": "짧은 머리",
+        "bob": "단발",
+        "waves": "물결 머리",
+        "ponytail": "묶은 머리"
+      },
+      "hairColor": {
+        "ink": "먹빛",
+        "chestnut": "밤색",
+        "copper": "구리빛",
+        "gold": "금빛",
+        "silver": "은빛"
+      },
+      "hat": {
+        "none": "모자 없이",
+        "beanie": "포근한 비니",
+        "helmet": "우주 헬멧",
+        "bucket": "산책 모자",
+        "starcap": "별빛 모자"
+      },
+      "outfit": {
+        "classic": "관측 점퍼",
+        "hoodie": "포근한 후디",
+        "overalls": "멜빵 바지",
+        "spacesuit": "탐험 우주복"
+      },
+      "suit": {
+        "sage": "세이지",
+        "lavender": "라벤더",
+        "clay": "테라코타",
+        "navy": "밤하늘",
+        "ochre": "햇살 노랑",
+        "rose": "장밋빛"
+      },
+      "accessory": {
+        "none": "가볍게 나가기",
+        "binoculars": "작은 쌍안경",
+        "sketchbook": "관측 수첩",
+        "lantern": "별밤 등불",
+        "starwand": "별빛 지팡이"
+      }
+    },
+    "unlock": {
+      "spacesuit": "퀴즈 스테이지 5개 완료",
+      "starcap": "이야기 10편 읽기",
+      "binoculars": "첫 관측 기록",
+      "sketchbook": "첫 스케치 기록",
+      "lantern": "서로 다른 3일 관측",
+      "starwand": "서로 다른 천체 25개 관측"
+    },
+    "earned": "획득한 보상",
+    "progress": "{{n}} / {{total}}",
+    "free": "기본 꾸미기는 무료예요. 업적 보상도 결제 없이 열려요. 보상 {{n}} / {{total}}개 획득",
+    "achievements": "업적 보러 가기",
+    "looks": "내 코디 보관함 · 3칸",
+    "looksHint": "지금 미리보는 코디를 보관해 두세요. 꺼낸 코디는 적용을 눌러야 마당에 반영돼요. 기기 백업에도 함께 담겨요.",
+    "lookNumber": "코디 {{n}}",
+    "lookName": "코디 이름",
+    "saveLook": "이 코디 보관",
+    "replaceLook": "지금 코디로 교체",
+    "loadLook": "꺼내 입어보기",
+    "deleteLook": "비우기",
+    "lookSaved": "미리보던 코디를 보관했어요.",
+    "lookDeleted": "코디 보관함 한 칸을 비웠어요.",
+    "loaded": "보관한 코디를 입어봤어요. 마음에 들면 적용해 주세요.",
+    "saving": "저장 중…",
+    "apply": "이 모습 적용",
+    "cancel": "취소",
+    "saveName": "이름 저장",
+    "reloadError": "최신 꾸미기를 불러오지 못했어요. 다시 불러온 뒤 이어서 꾸며 주세요.",
+    "retry": "다시 불러오기"
+  }
+}

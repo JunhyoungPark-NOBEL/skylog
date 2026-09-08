@@ -38,6 +38,7 @@ test('앱 셸: 탭 5개 · 상태 바 · 콘솔 에러 0', async ({ page }) => {
 });
 
 test('작은 첫 화면: 시간 조절은 접히고 하늘 도구는 설정 안에서 열린다', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2026-09-08T12:00:00Z'));
   await page.setViewportSize({ width: 360, height: 780 });
   await page.goto('#/sky');
   await expect(page.getByTestId('sky-view')).toBeVisible();

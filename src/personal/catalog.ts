@@ -1,3 +1,7 @@
+import { DEFAULT_AVATAR, normalizeAvatar, type AvatarLook } from './avatar';
+
+export { SUITS, SKINS, HATS } from './avatar';
+
 /** 장식은 고정된 다섯 자리에 놓는다. 유료 재화나 무작위 보상은 없다. */
 export const DECORATIONS = [
   { id: 'flowers', badge: null },
@@ -14,41 +18,37 @@ export const DECORATIONS = [
   { id: 'crystal', badge: 'challenge-stories-read-10' },
 ] as const;
 export type DecorationId = (typeof DECORATIONS)[number]['id'];
-export const SUITS = ['sage', 'lavender', 'clay', 'navy'] as const;
-export const SKINS = ['sand', 'amber', 'cocoa'] as const;
-export const HATS = ['none', 'beanie', 'helmet'] as const;
-export interface Personal {
+export interface Personal extends AvatarLook {
   name: string;
-  suit: (typeof SUITS)[number];
-  skin: (typeof SKINS)[number];
-  hat: (typeof HATS)[number];
   slots: (DecorationId | null)[];
 }
 export const DEFAULT_PERSONAL: Personal = {
+  ...DEFAULT_AVATAR,
   name: '',
-  suit: 'sage',
-  skin: 'amber',
-  hat: 'beanie',
   slots: ['flowers', 'bench', null, 'fern', 'stones'],
 };
-const member = <T extends string>(list: readonly T[], v: unknown, fallback: T): T =>
-  typeof v === 'string' && list.includes(v as T) ? (v as T) : fallback;
-export function normalizePersonal(value: unknown, owned: ReadonlySet<string>): Personal {
+
+export function normalizePersonalName(value: unknown): string {
+  return typeof value === 'string'
+    ? [...value]
+        .filter((c) => c.charCodeAt(0) >= 32 && c !== '<' && c !== '>')
+        .join('')
+        .trim()
+        .slice(0, 24)
+    : '';
+}
+
+export function normalizePersonal(
+  value: unknown,
+  owned: ReadonlySet<string>,
+  ownedAvatar?: ReadonlySet<string>,
+): Personal {
   const v = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
   const slots = Array.isArray(v.slots) ? v.slots : DEFAULT_PERSONAL.slots;
   const ids = new Set<string>();
   return {
-    name:
-      typeof v.name === 'string'
-        ? [...v.name]
-            .filter((c) => c.charCodeAt(0) >= 32 && c !== '<' && c !== '>')
-            .join('')
-            .trim()
-            .slice(0, 24)
-        : '',
-    suit: member(SUITS, v.suit, 'sage'),
-    skin: member(SKINS, v.skin, 'amber'),
-    hat: member(HATS, v.hat, 'beanie'),
+    ...normalizeAvatar(v, ownedAvatar),
+    name: normalizePersonalName(v.name),
     slots: Array.from({ length: 5 }, (_, i) => {
       const id: unknown = slots[i];
       if (

@@ -1,0 +1,101 @@
+{
+  "avatar": {
+    "preview": "Preview of your avatar",
+    "previewHint": "Apply when you are ready. Cancelling or leaving discards this preview.",
+    "shuffle": "Suggest a look",
+    "undo": "Undo last change",
+    "categories": "Customize a part",
+    "groups": { "face": "Face", "head": "Hair", "clothes": "Clothes", "gear": "Gear" },
+    "fields": {
+      "skin": "Skin tone",
+      "expression": "Expression",
+      "hair": "Hair style",
+      "hairColor": "Hair color",
+      "hat": "Headwear",
+      "outfit": "Outfit",
+      "suit": "Clothing color",
+      "accessory": "Observing gear"
+    },
+    "options": {
+      "skin": {
+        "porcelain": "Very light",
+        "sand": "Light",
+        "amber": "Medium",
+        "cocoa": "Deep",
+        "umber": "Very deep"
+      },
+      "expression": { "smile": "Smile", "calm": "Calm", "joy": "Big smile", "wink": "Wink" },
+      "hair": {
+        "none": "No hair",
+        "short": "Short",
+        "bob": "Bob",
+        "waves": "Waves",
+        "ponytail": "Ponytail"
+      },
+      "hairColor": {
+        "ink": "Ink",
+        "chestnut": "Chestnut",
+        "copper": "Copper",
+        "gold": "Gold",
+        "silver": "Silver"
+      },
+      "hat": {
+        "none": "No hat",
+        "beanie": "Cozy beanie",
+        "helmet": "Space helmet",
+        "bucket": "Walking hat",
+        "starcap": "Starlight hat"
+      },
+      "outfit": {
+        "classic": "Observing jacket",
+        "hoodie": "Cozy hoodie",
+        "overalls": "Overalls",
+        "spacesuit": "Explorer suit"
+      },
+      "suit": {
+        "sage": "Sage",
+        "lavender": "Lavender",
+        "clay": "Terracotta",
+        "navy": "Night sky",
+        "ochre": "Sunshine",
+        "rose": "Rose"
+      },
+      "accessory": {
+        "none": "Travel light",
+        "binoculars": "Mini binoculars",
+        "sketchbook": "Field notebook",
+        "lantern": "Night lantern",
+        "starwand": "Starlight wand"
+      }
+    },
+    "unlock": {
+      "spacesuit": "Clear 5 quiz stages",
+      "starcap": "Read 10 stories",
+      "binoculars": "Log your first observation",
+      "sketchbook": "Save your first sketch",
+      "lantern": "Observe on 3 different dates",
+      "starwand": "Observe 25 different objects"
+    },
+    "earned": "Reward earned",
+    "progress": "{{n}} / {{total}}",
+    "free": "All starter choices are free. Earn rewards without paying. {{n}} / {{total}} rewards collected",
+    "achievements": "See achievements",
+    "looks": "My saved looks · 3 slots",
+    "looksHint": "Keep the look you are previewing. Loading a look only previews it until you apply it. Saved looks are included in your device backup.",
+    "lookNumber": "Look {{n}}",
+    "lookName": "Name this look",
+    "saveLook": "Save this look",
+    "replaceLook": "Replace with preview",
+    "loadLook": "Try it on",
+    "deleteLook": "Clear slot",
+    "lookSaved": "Your preview has been saved as a look.",
+    "lookDeleted": "Saved look cleared.",
+    "loaded": "Trying on your saved look. Apply it when you are ready.",
+    "saving": "Saving…",
+    "apply": "Apply this look",
+    "cancel": "Cancel",
+    "saveName": "Save name",
+    "reloadError": "Your latest customization could not be loaded. Reload it before making another change.",
+    "retry": "Reload customization"
+  }
+}

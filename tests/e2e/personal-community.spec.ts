@@ -54,8 +54,9 @@ test('무료 마당은 작은 화면과 키보드에서 꾸미고 재실행해�
     'aria-pressed',
     'true',
   );
+  await page.getByRole('button', { name: '이 모습 적용', exact: true }).click();
   await page.getByRole('textbox', { name: '마당 이름' }).fill('별이 머무는 곳');
-  await page.getByRole('heading', { name: '아바타', exact: true }).click();
+  await page.getByRole('button', { name: '이름 저장', exact: true }).click();
   await expect
     .poll(async () =>
       page.evaluate(async () => {

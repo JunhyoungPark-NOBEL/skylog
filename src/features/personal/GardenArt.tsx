@@ -1,33 +1,9 @@
 import { useId } from 'react';
 import type { DecorationId, Personal } from '@/personal/catalog';
+import { AvatarArt, PersonalArtNightFilter } from './AvatarArt';
+import { personalArtNightStyle } from './personalArtStyle';
 
-const suitColor = { sage: '#83b8a1', lavender: '#a5a1d0', clay: '#d69b82', navy: '#617b9f' };
-const skinColor = { sand: '#f3cead', amber: '#c58b5d', cocoa: '#795440' };
-export function AvatarArt({ profile }: { profile: Personal }) {
-  return (
-    <g stroke="#344448" strokeWidth="2" strokeLinejoin="round">
-      <path
-        d="M-16 3 Q-25 18 -21 36 L-12 37 L-9 18 L-8 48 L1 48 L3 27 L5 48 L15 48 L14 18 L19 35 L27 31 Q24 12 15 4Z"
-        fill={suitColor[profile.suit]}
-      />
-      <path d="M-11 48h13v5h-15zm16 0h12v5H5z" fill="#405151" />
-      <circle cy="-13" r="21" fill={skinColor[profile.skin]} />
-      <path d="M-6-11v2m13-2v2m-9 8q5 4 10-1" fill="none" strokeLinecap="round" />
-      {profile.hat === 'beanie' && (
-        <path d="M-23-19q0-25 24-24q22 1 23 24zm1 0v8h45v-8z" fill={suitColor[profile.suit]} />
-      )}
-      {profile.hat === 'helmet' && (
-        <>
-          <circle cy="-13" r="27" fill="none" stroke="#e4e6e1" strokeWidth="7" />
-          <path d="M-13-30q10-8 23 0" stroke="white" opacity=".6" />
-        </>
-      )}
-      <path d="M-4 9h11v11H-4z" fill="#e9e5cf" />
-      <path d="M1 10v8m-4-4h8" stroke="#b19b70" />
-    </g>
-  );
-}
-export function DecorationArt({ id }: { id: DecorationId }) {
+function DecorationShape({ id }: { id: DecorationId }) {
   if (id === 'flowers' || id === 'sunflowers')
     return (
       <g stroke="#5e8870" strokeWidth="3">
@@ -116,6 +92,18 @@ export function DecorationArt({ id }: { id: DecorationId }) {
     </g>
   );
 }
+
+export function DecorationArt({ id }: { id: DecorationId }) {
+  const nightId = useId() + '-decoration-night';
+  return (
+    <g className="personal-art-tone" style={personalArtNightStyle(nightId)}>
+      <defs>
+        <PersonalArtNightFilter id={nightId} />
+      </defs>
+      <DecorationShape id={id} />
+    </g>
+  );
+}
 const GARDEN_SLOTS = [
   { x: 58, y: 178 },
   { x: 122, y: 205 },
@@ -133,17 +121,17 @@ export function GardenArt({
   selectedSlot?: number;
 }) {
   const id = useId();
+  const nightId = id + '-night';
   return (
     <svg
       viewBox="0 0 400 300"
       role="img"
       aria-label={label}
-      className="w-full rounded-3xl personal-art"
+      className="w-full rounded-3xl personal-art personal-art-tone"
+      style={personalArtNightStyle(nightId)}
     >
       <defs>
-        <filter id="personal-night-red" colorInterpolationFilters="sRGB">
-          <feColorMatrix type="matrix" values=".3 .59 .11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" />
-        </filter>
+        <PersonalArtNightFilter id={nightId} />
         <linearGradient id={id + 'sky'} x2="0" y2="1">
           <stop stopColor="#172d41" />
           <stop offset="1" stopColor="#91a7a0" />

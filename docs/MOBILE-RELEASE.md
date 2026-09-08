@@ -1,8 +1,12 @@
 # Android AAB / iOS 출시 준비
 
-> **beta.7/build12 빌드·배포 완료**: 전 기능 무료 마당/계정/사진/댓글/백업 구현은 [FREE-COMMUNITY.md](FREE-COMMUNITY.md). 예전 “계정 미구현” 서술은 당시 릴리스 이력이며 지금 구현 상태가 아니다. SMTP/실제 운영자/외부 이메일 검증 후 일반 가입 개통. APK는 build9와 동일한 개인 인증서가 필요하며 이 PC에 없는 키를 재발급하지 않는다. 아래 이전 산출물은 새 build12로 대체하지 않고 보존한다.
+> 2026-09-09 최신 작업은 **0.1.0-beta.8 / build13**이다. 집의 beta.7/build12를 보존하며 아바타 꾸미기를 확장했다. 이번 작업의 검증·배포 결과는 아래에 확정한다. 이전 기록의 ‘이 PC’는 당시 집 컴퓨터를 뜻하며 현재 원래 APK 서명 PC와 다르다.
 
-2026-09-08. 최신 작업은 **0.1.0-beta.7 / build12**(iOS marketing0.1.0)이다. 앱ID io.github.junhyoungparknobel.skylog. 아래 beta.6 이하는 이전 배포 기록이다.
+## beta.8 / build13 — 아바타 꾸미기·설치 APK
+
+- 변경 범위와 폰 사용 방법: [아바타 확장](AVATAR-CUSTOMIZATION.md). 선택39개·업적 보상6·미리보기/적용/취소·코디3칸. 기존 모든 기능 무료, [별도 테마 팩 판매안](MONETIZATION-PLAN.md)은 미구현 제안이다.
+- 기존 build9 개인 테스트 키로 APK를 서명하고 동일 인증서·높은 versionCode를 확인한다. 기존 앱을 삭제하지 않고 업데이트한다. 이 PC에서 새 Play키를 만들지 않는다. 최종 파일/해시/CI 증거는 빌드 후 추가한다.
+- 공개 Supabase 설정 유지, SIGNUPS_READY/EMAIL_CODE=false. SMTP/실제 운영자/외부 이메일·실기기·정식 스토어 심사/Apple 서명/TestFlight는 별도다. iPhone은 [PWA](https://junhyoungpark-nobel.github.io/skylog/)를 이용한다. 다음 CI기본14.
 
 ## beta.7 / build12 — 무료 마당·사진·댓글·개인 백업
 
