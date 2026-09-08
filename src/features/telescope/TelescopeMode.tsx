@@ -55,6 +55,8 @@ export default function TelescopeMode() {
     p = useTelescopeStore((s) => s.profile),
     simulator = useSensorStore((s) => s.simulator);
   const sensor = useTelescopeOrientation();
+  // 쌍안경에는 이전 망원경의 가대/GoTo 설정을 적용하지 않는다.
+  const guideMount = p.mode === 'binoculars' ? 'altaz' : p.mount;
   const [targetId, setTargetId] = useState<ObjectId | null>(() => {
     const id = hashQuery().get('target');
     return id && isObjectId(id) ? id : useTelescopeStore.getState().targetId;
@@ -425,11 +427,11 @@ export default function TelescopeMode() {
                     </button>
                   ))}
                 </div>
-                {view === 'guide' && p.mount !== 'goto' && (
+                {view === 'guide' && guideMount !== 'goto' && (
                   <DirectionPanel
                     delta={delta}
                     eq={eq}
-                    mount={p.mount}
+                    mount={guideMount}
                     inside={inside}
                     status={sensor.status}
                     hasTarget={!!target}
@@ -468,7 +470,7 @@ export default function TelescopeMode() {
                 )}
                 {view !== 'hop' && (
                   <>
-                    {!(view === 'guide' && p.mount !== 'goto') && (
+                    {!(view === 'guide' && guideMount !== 'goto') && (
                       <div className="rounded-2xl border border-hairline p-4">
                         <p role="status" className="text-body-sm" data-testid="guide-status">
                           {t(usable ? 'guide.aligned' : 'guide.unaligned')}
@@ -601,7 +603,7 @@ export default function TelescopeMode() {
                         )}
                       </section>
                     )}
-                    {actualView === 'guide' && target && p.mount === 'goto' && (
+                    {actualView === 'guide' && target && guideMount === 'goto' && (
                       <section className="rounded-3xl bg-surface p-5" data-testid="pointing-guide">
                         <div>
                           <h3 className="text-title">{t('guide.goto')}</h3>
@@ -665,7 +667,7 @@ export default function TelescopeMode() {
                           date={date}
                           observer={site}
                           fovDeg={chartFov}
-                          equatorial={p.mount === 'eq'}
+                          equatorial={guideMount === 'eq'}
                           orientation={
                             actualView === 'finder'
                               ? p.finderKind === 'optical'

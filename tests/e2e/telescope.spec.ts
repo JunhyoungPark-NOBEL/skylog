@@ -52,6 +52,24 @@ async function setup(page: Page) {
   await page.goto('#/sky?t=' + T);
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
 }
+test('GoTo 망원경에서 쌍안경으로 바꾸면 센서 방향 안내를 제공한다', async ({ page }) => {
+  await setup(page);
+  await page.goto('#/equipment');
+  await page
+    .locator('select')
+    .filter({ has: page.locator('option[value="goto"]') })
+    .selectOption('goto');
+  await page
+    .locator('select')
+    .filter({ has: page.locator('option[value="binoculars"]') })
+    .selectOption('binoculars');
+  await page.getByTestId('equipment-save').click();
+  await expect(page.getByTestId('equipment-save')).toContainText('저장했어요');
+  await page.goto('#/telescope?target=dso%3AM13');
+  await page.getByTestId('guide-accept').click();
+  await expect(page.getByTestId('guide-sensor')).toBeVisible();
+  await expect(page.getByTestId('pointing-guide')).toHaveCount(0);
+});
 async function pointAt(page: Page, id: string) {
   await page.evaluate(
     async ({ id, T }) => {

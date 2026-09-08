@@ -58,4 +58,6 @@ Starpath uses manual star alignment and motion sensors. It does not automaticall
 | 지원 URL | https://junhyoungpark-nobel.github.io/skylog/support.html |
 | 콘텐츠 등급/연령 | 폭력·도박·사용자 간 채팅 없음. 천문 교육 목적. 새 Apple/Play 질문지의 최종 답변과 아동 대상 여부는 소유자가 확정 |
 
-스크린샷 후보: 하늘 지도, 간결한 오늘 밤, 기록, 퀴즈 스테이지, 별길 방향 카드, 스타호핑 코스. 실제 Play/TestFlight 빌드에서 개인정보 없이 촬영한다. 아이콘은 저장소 자체 SVG에서 생성했다. 등록용 피처 그래픽/기기별 스크린샷은 최종 실기기 촬영 후 확정한다.
+등록용 아이콘 `store-assets/play-icon-512.png`와 한·영 피처 그래픽 `feature-ko-1024x500.png` / `feature-en-1024x500.png`를 준비했다. 자체 SVG에서 생성했으며 외부 이미지를 복사하지 않았다. 재생성은 `node scripts/store-assets.mjs`. [Google의 미리보기 자산 규격](https://support.google.com/googleplay/android-developer/answer/9866151?hl=en)에 따라 피처 그래픽은 1024×500 불투명 PNG다.
+
+스크린샷 후보: 하늘 지도, 간결한 오늘 밤, 기록, 퀴즈 스테이지, 별길 방향 카드, 스타호핑 코스. 실제 Play/TestFlight 빌드에서 개인정보 없이 최종 촬영한다. 브라우저 미리보기 캡처는 `tests/e2e/__screenshots__`에 있지만 실기기 검증 증거를 대신하지 않는다.

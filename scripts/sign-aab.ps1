@@ -36,7 +36,7 @@ try {
   Copy-Item -LiteralPath $skylogInput -Destination $Output
   & (Join-Path $JdkPath 'bin/jarsigner.exe') -keystore $skylogKey -storepass:env SKYLOG_UPLOAD_PASSWORD -keypass:env SKYLOG_UPLOAD_PASSWORD -sigalg SHA256withRSA -digestalg SHA-256 $Output skylog-upload
   if ($LASTEXITCODE -ne 0) { throw 'AAB signing failed.' }
-  & (Join-Path $JdkPath 'bin/jarsigner.exe') -verify $Output
+  & (Join-Path $JdkPath 'bin/jarsigner.exe') -verify -strict -keystore $skylogKey -storepass:env SKYLOG_UPLOAD_PASSWORD $Output
   if ($LASTEXITCODE -ne 0) { throw 'AAB signature verification failed.' }
   & (Join-Path $JdkPath 'bin/keytool.exe') -exportcert -rfc -keystore $skylogKey -storepass:env SKYLOG_UPLOAD_PASSWORD -alias skylog-upload -file (Join-Path $skylogSigningDir 'upload-certificate.pem')
   if ($LASTEXITCODE -ne 0) { throw 'Certificate export failed.' }
