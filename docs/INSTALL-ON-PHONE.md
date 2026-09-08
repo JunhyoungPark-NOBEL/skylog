@@ -4,7 +4,7 @@
 
 ## 안드로이드: 직접 설치용 APK
 
-1. 전달 폴더의 `skylog-0.1.0-beta.2-build7-local-test.apk`를 휴대폰의 Download 폴더로 옮긴다. USB 파일 전송이나 본인이 사용하는 파일 전송 방법을 사용할 수 있다. PC에서는 APK를 실행하지 않는다.
+1. 휴대폰에서 [build7 APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.2-build7/skylog-0.1.0-beta.2-build7-local-test.apk)를 연다. 또는 PC 전달 폴더의 같은 파일을 USB 등으로 휴대폰 Download 폴더에 옮긴다. PC에서는 APK를 실행하지 않는다.
 2. 휴대폰의 내 파일/Files에서 APK를 열고 설치한다. 설치 출처 허용을 요청하면 이 APK를 연 앱에 대해서만 허용하고, 설치 후 다시 해제할 수 있다.
 3. 앱 목록에서 **별관찰해쌀뚜**를 연다. Android 7 이상과 최신 Android System WebView/Chrome을 권장한다. 하늘·학습 자료는 설치 파일에 들어 있다. 날씨 갱신에는 인터넷이 필요하다.
 4. 설치 후 아래 실기기 확인을 진행한다.
@@ -21,7 +21,7 @@ build7은 build5/6과 같은 개인 키를 사용하므로 기존 앱을 삭제�
 
 ## 아이폰: 지금 홈 화면에 설치
 
-APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. 아래 Safari 웹앱 또는 별도 iOS 앱을 사용한다. 공개 웹앱은 GitHub Pages 배포 완료 후 아래 방법으로 갱신한다.
+APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. 아래 Safari 웹앱 또는 별도 iOS 앱을 사용한다. 공개 웹앱의 beta.2 배포와 공개 버전 확인은 완료했다. 아래 방법으로 기존 홈 화면 웹앱을 갱신한다.
 
 1. 최신 iOS의 **Safari**에서 [별관찰 앱](https://junhyoungpark-nobel.github.io/skylog/)을 연다. 현재 UI는 iOS 16.4 이상을 권장한다.
 2. **공유 → 홈 화면에 추가**를 선택한다. ‘웹 앱으로 열기’ 항목이 보이면 켜고 **추가**한다.
@@ -34,14 +34,14 @@ Safari 웹앱과 TestFlight 네이티브 앱은 데이터 저장소가 별개다
 
 ## 아이폰: TestFlight 네이티브 앱
 
-이번 Windows PC에서 설치 가능한 IPA를 만들지는 못했다. 필요한 것은 Apple Developer 팀, 확정된 Bundle ID, App Store Connect 앱 등록, 배포 인증서/프로비저닝, Xcode 26 이상이 설치된 Mac이다.
+새 소스의 iOS arm64 무서명 컴파일은 [Mac 빌드 서버에서 통과](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34191154190)했다. iPhone에 설치할 서명 IPA는 아직 없다. 필요한 것은 Apple Developer 팀, 확정된 Bundle ID, App Store Connect 앱 등록, 배포 인증서/프로비저닝, Xcode 26 이상이 설치된 Mac이다.
 
 1. 최신 코드에서 `pnpm install --frozen-lockfile`, `pnpm mobile:sync`를 실행한다.
 2. `ios/App/App.xcodeproj`를 Xcode로 열고 **Signing & Capabilities → Team**을 설정한다. Bundle ID는 현재 `io.github.junhyoungparknobel.skylog`이며 최초 등록 전에 소유자가 확정한다.
 3. 배포 최소 iOS **16.4**, marketing **0.1.0**, 기존 업로드보다 큰 Build 번호를 확인한다.
 4. iOS 기기용 **Archive → Validate App → Distribute App → App Store Connect**로 업로드한다.
 5. App Store Connect에서 본인을 내부 테스터로 추가하고, 아이폰의 TestFlight 앱에서 초대를 받아 설치한다. 외부 테스터는 베타 심사 조건이 추가된다.
-6. 이번에 고친 센서 플러그인 등록을 반드시 새 빌드에서 확인한다. 이전 무서명 컴파일 성공은 이번 수정의 실행 검증이 아니다.
+6. 이번에 고친 센서 플러그인 등록을 반드시 실제 iPhone의 새 빌드에서 확인한다. 무서명 컴파일 성공은 실제 기기의 실행·센서 정확도 검증이 아니다.
 
 ## 먼저 해볼 실기기 확인
 
@@ -62,7 +62,7 @@ Safari 웹앱과 TestFlight 네이티브 앱은 데이터 저장소가 별개다
 | 플랫폼 | 남은 필수 작업 |
 |---|---|
 | Google Play | 기존 업로드 키 복원 또는 최초 등록용 새 키 확정, 개발자 계정/앱 ID 등록, 서명 AAB 내부 테스트 업로드, 연락처·정책·Data safety·연령 등급·실제 스크린샷, 기기 테스트·심사. 조건에 해당하는 신규 개인 계정은 12명/14일 비공개 테스트 후 프로덕션 액세스 신청 |
-| Apple | 새 iOS 수정 컴파일/실행, 개발자 팀/서명/Archive, TestFlight 설치, privacy report·정책·연락처·연령 등급·실제 스크린샷, 실기기 테스트·심사 |
+| Apple | 새 iOS 컴파일은 통과. 개발자 팀/서명/Archive, TestFlight 설치, privacy report·정책·연락처·연령 등급·실제 스크린샷, 실기기 실행·센서 테스트·심사 |
 
 날씨 기능은 관측 좌표를 Open-Meteo로 보내므로 스토어 개인정보 양식에서 외부 전송이 전혀 없다고 선언하면 안 된다. 전체 제출 초안은 [스토어 문안](STORE-LISTING.md), 상세 기술 기록은 [모바일 출시 준비](MOBILE-RELEASE.md)를 참고한다.
 

@@ -12,10 +12,13 @@
 
 - 별길은 나침반으로 바로 시작한다. 다른 별 정렬은 정밀 망원경 안내의 선택 기능이며, 상대 yaw를 실제 방위로 사용하지 않는다. 실제 별·선·은하수·목표가 안내 화면에 보인다. iOS 나침반 동기화/자북 편각/기기 +Y 규약과 자동·정밀 세션을 분리했다. 센서 중단 뒤 첫 샘플이 watchdog보다 먼저 도착해도 오래된 별 정렬을 무효화한다.
 - 공통 입체 투영으로 최대180° 반구를 원형 표시하고 핀치/원형 하늘 버튼으로 축소한다. 별 중심·별자리 선 대비와 은하수의 차분한 색·먼지 결을 개선했다. 천문 좌표·데이터 팩·DB v2는 유지한다. CPU/GPU 별 위치·선택·원 밖 차단·야간 적색 렌더를 검증한다.
-- 현재 버전 `0.1.0-beta.2`, Android build7. 기존 상세 창 전체 스와이프 개선도 포함한다. typecheck/lint/단위391/데이터 검증/PWA 빌드·브라우저43/43 통과. 최종 브라우저는 `--workers=1`: 병렬 SwiftShader 부하에 따른 시간 초과·관성 관찰 지연을 분리했다. 캡처와 검사 로그는 `artifacts/qa-build7`. APK/AAB 빌드·배포 결과는 마감 후 아래에 기록한다. 다음 CI 기본 번호8, 현재 CI는 명시적7로 실행한다.
-- GitHub 인증 연결 완료. 원격 main 시작점은 `dce4a7d`, 로컬 직전 HEAD는 `f8893df`. 사용자 요청에 따라 공개 iPhone PWA 갱신과 새 Android/iOS CI를 진행한다. 과거 build5/6의 인증 부재 기록은 현재 상태가 아니다.
+- 현재 버전 `0.1.0-beta.2`, Android build7. 기존 상세 창 전체 스와이프 개선도 포함한다. typecheck/lint/단위391/데이터 검증/PWA 빌드·브라우저43/43 통과. 최종 브라우저는 `--workers=1`: 병렬 SwiftShader 부하에 따른 시간 초과·관성 관찰 지연을 분리했다. 캡처와 검사 로그는 `artifacts/qa-build7`. 다음 CI 기본 번호8, 이번 CI는 명시적7로 실행했다.
+- GitHub 인증 연결 완료. 원격 main 시작점은 `dce4a7d`, 로컬 직전 HEAD는 `f8893df`, 새 앱 소스는 `dad1c57`로 main에 반영했다. [Pages 34191154332](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34191154332) 성공, 공개 PWA에서 beta.2·원형 하늘·SW·재실행/JS 오류0 확인. 과거 build5/6의 인증 부재 기록은 현재 상태가 아니다.
 - 유료화는 무료 기본+Pro 1회 구매와 두 사람의 무료 이용권을 제안했다. 가격/상품/결제/서버 권한은 아직 설정하지 않았으며 현재 베타와 PWA는 모두 무료다. `docs/MONETIZATION-PLAN.md`, 결정 D-034/D-035. 상업 날씨 API 조건 해결도 유료 출시 전 필요하다.
 - Play 업로드 키 복원/최종 서명, Apple 팀의 서명/TestFlight, 실제 Android/iPhone 센서·그래픽·스크롤 확인과 스토어 심사는 남는다. T5/T7/T8 전체 완료나 실기기 통과로 표시하지 않는다. 설치·업데이트·실기기 체크는 `docs/INSTALL-ON-PHONE.md`.
+- **개인 APK 완료**: `C:\Users\박준형\Downloads\skylog-release-0.1.0-beta.2-build7\skylog-0.1.0-beta.2-build7-local-test.apk`, 7,196,831 bytes, SHA256 `ff2f07b6154b85499c388c1b9a4a84076751fab32b4351a16d74dcb38bb1e143`. build6 APK와 같은 인증서를 대조했다. 기존 앱을 삭제하지 않고 업데이트한다.
+- **unsigned AAB 완료**: 같은 폴더의 `skylog-0.1.0-beta.2-build7-unsigned.aab`, 6,909,192 bytes, SHA256 `d979ba6b8b89ac5253a149e53fa6a7ec8134e0ccd1c688d2133483ebc492f7c9`. bundletool·API36/min24/version7·release/backup=false 확인, APK 서명/정렬 성공. AAB·APK·native public 160개 파일 SHA256 일치. Android release/lint 성공(오류0/경고33).
+- [APK 공개 사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.2-build7)를 만들고 실제 다운로드 파일의 크기/해시를 대조했다. 릴리스 태그는 앱 소스 `dad1c57`을 가리킨다. [모바일 CI 34191154190](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34191154190) **전체 성공**: Android release/lint·인터넷을 끈 API36 실제 WebView 계측, iOS Xcode26 arm64 무서명 컴파일. iPhone 설치용 서명 IPA는 아니다.
 
 ## 이전 작업 보고 (2026-09-08 · build6 상세 창 스와이프)
 

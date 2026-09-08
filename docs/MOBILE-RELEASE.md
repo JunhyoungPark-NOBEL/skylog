@@ -4,14 +4,16 @@
 
 ## 2026-09-08 최신 beta.2 / build7: 자동 안내·밤하늘·원형 전체 보기
 
-> **현재 상태: 소스 변경 반영, 새 배포·CI·산출물 검증 결과 기입 대기.** GitHub 인증은 완료했다. 아래 build6의 “인증 없음”은 당시 기록이며 현재 인증 상태가 아니다. 인증 완료만으로 공개 PWA나 새 iOS 빌드가 갱신되었다고 간주하지 않는다.
+> **현재 상태: beta.2 PWA 배포·개인 APK 게시·unsigned AAB 검증 완료.** 앱 소스 커밋은 `dad1c57d707e51b1159834485a44109eb36391ef`다. 아래 build6의 “인증 없음”은 당시 기록이며 현재 인증 상태가 아니다. 스토어 공개 출시는 아직 수행하지 않았다.
 
 - 별길의 기본 시작은 **자동 나침반 방향**이다. 다른 별을 먼저 맞추지 않고 센서를 켜서 대략 방향을 찾는다. 정밀 망원경 안내가 필요할 때만 “별로 더 정밀하게 맞추기 · 선택”으로 상대 센서의 별 정렬에 들어간다. 나침반을 사용할 수 없거나 방향이 준비되지 않았으면 현재 상태와 목표 주변 미리보기를 보여주며, 정밀 보정 완료처럼 표시하지 않는다.
 - 찾아가는 동안 `GuideSky`가 하늘 탭과 같은 천구 렌더러로 목표·주변 별·별자리 선을 보여준다. 유효한 방향이 있으면 **물리 폰 윗변 +Y**를 따라가고, 없으면 목표 주변을 미리 보여준다. 자동 나침반의 근사 방향과 별 보정 방향을 구분한다. 카메라 별무늬 자동 인식이나 망원경 모터 제어를 추가한 것은 아니다.
 - 별과 별자리 선의 대비를 높이고 은하수에 차분한 색과 먼지 결을 더했다. 줌아웃하면 시선 쪽 반구를 원형으로 볼 수 있다. 화면 표시는 **원형 하늘 · 180°**이며, 원 둘레 여백을 만드는 추가 축소를 실제 가시 각지름 220°로 안내하지 않는다. 뒤쪽 반구는 방향을 돌려 탐색한다.
-- iPhone용 [공개 웹앱](https://junhyoungpark-nobel.github.io/skylog/)에 build6의 상세 창 스와이프와 이번 beta.2 기능을 함께 배포할 예정이다. **새 배포 커밋·Actions 결과·공개 버전 확인: 검증 대기.** iPhone에서는 배포 완료 후 인터넷에 연결한 상태로 기존 웹앱을 다시 열고 설정의 `0.1.0-beta.2`를 확인한다. 이전 버전이면 앱을 완전히 닫았다 다시 열거나 Safari에서 새로고침한다. 업데이트를 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 먼저 삭제하지 않는다.
-- build7 전달 예정 폴더: 현재 PC Downloads의 `skylog-release-0.1.0-beta.2-build7/`. 개인 APK `skylog-0.1.0-beta.2-build7-local-test.apk`, AAB `skylog-0.1.0-beta.2-build7-unsigned.aab`. **생성 결과·바이트 수·SHA256·서명 대조·bundletool·Android lint·웹/단위/브라우저 테스트: 검증 대기.** 검증된 이전 build6의 결과를 새 파일의 결과로 재사용하지 않는다.
-- 새 [모바일 CI](https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml)의 Android release/오프라인 계측 및 iOS 무서명 컴파일 결과도 **대기**다. Play 업로드 키 복원/최종 AAB 서명, Apple 팀의 서명 Archive/TestFlight, Android·iPhone 실기기 확인과 스토어 심사는 계속 별도 단계다.
+- iPhone용 [공개 웹앱](https://junhyoungpark-nobel.github.io/skylog/)에 build6의 상세 창 스와이프와 이번 beta.2 기능을 함께 배포했다. [Pages run 34191154332](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34191154332) 성공. 공개 사이트의 버전·원형 하늘·SW·새로고침과 JS 오류0 확인(Chromium 모바일 자동 검사, 실제 iPhone은 사용자 확인 필요). iPhone에서는 인터넷에 연결한 상태로 기존 웹앱을 다시 열고 설정의 `0.1.0-beta.2`를 확인한다. 이전 버전이면 앱을 완전히 닫았다 다시 열거나 Safari에서 새로고침한다. 업데이트를 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 먼저 삭제하지 않는다.
+- build7 전달 폴더: 현재 PC Downloads의 `skylog-release-0.1.0-beta.2-build7/`. [개인 APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.2-build7/skylog-0.1.0-beta.2-build7-local-test.apk), 7,196,831 bytes, SHA256 `ff2f07b6154b85499c388c1b9a4a84076751fab32b4351a16d74dcb38bb1e143`. 공개 링크에서 다시 받은 파일도 같은 해시다. build6 APK와 같은 서명 인증서, v2/v3 서명·zipalign 통과. 기존 앱 위에 업데이트한다.
+- `skylog-0.1.0-beta.2-build7-unsigned.aab`, 6,909,192 bytes, SHA256 `d979ba6b8b89ac5253a149e53fa6a7ec8134e0ccd1c688d2133483ebc492f7c9`. bundletool·manifest/versionCode7/API36/min24/release/backup=false 확인. AAB·APK·현재 native public의 **160개 파일 SHA256 일치**, .so 없음. Play 최종 업로드 서명은 기존 키 복원 후 수행한다.
+- typecheck/ESLint/단위391/브라우저43/데이터/PWA 및 native sync 통과. 최종 브라우저는 `--workers=1`로 GPU 소프트웨어 렌더 병렬 부하와 기능 실패를 구분했다. Android release/lint 성공(오류0/경고33). 새로운 장면·야간·원형·선택·본문 스와이프·센서 모의 검증은 완료, Android/iPhone 실제 설치·센서 물리 정확도·성능은 미검증이다.
+- 새 [모바일 CI 34191154190](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34191154190) **전체 성공**: Android release/lint·인터넷을 끈 API36 실제 WebView 계측, iOS Xcode26 arm64 무서명 컴파일. Play 업로드 키 복원/최종 AAB 서명, Apple 팀의 서명 Archive/TestFlight, Android·iPhone 실기기 확인과 스토어 심사는 계속 별도 단계다.
 - 유료 출시안은 [유료화·두 사람 무료 이용 계획](MONETIZATION-PLAN.md)을 따른다. 무료 기본+Pro 1회 구매와 두 사람의 무료 이용권은 **제안/설계**이며 아직 결제·로그인·상품 등록·무료 코드 발급을 실행하지 않았다. 현재 무료·인앱 구매 없음 선언은 실제 구현과 일치한다. 유료 출시 전 Open-Meteo 상업 이용 조건도 해결해야 한다.
 
 ## 이전 build6 기록: 상세 창 스크롤 개선
