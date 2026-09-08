@@ -70,8 +70,8 @@ describe('projection', () => {
     expect(verticalFovDeg(90, 800, 400)).toBe(90); // 가로 화면: 세로가 짧은 변
     const v = verticalFovDeg(90, 400, 800); // 세로 화면: 가로 90° → 세로 ≈ 126.9°
     expect(v).toBeCloseTo(126.87, 1);
-    expect(degPerPixel(90, 400, 800)).toBeCloseTo(0.2865, 3);
-    expect(clampFov(200)).toBe(100);
+    expect(degPerPixel(90, 400, 800)).toBeCloseTo(0.2373, 3);
+    expect(clampFov(300)).toBe(220);
     expect(clampFov(1)).toBe(3);
     expect(zoomFov(90, 2)).toBe(45);
   });
@@ -122,6 +122,22 @@ describe('hit-test · 라벨 임계 · DSO 한계', () => {
       (e) => !e.hidden,
     );
     expect(visible.map((e) => e.textContent)).toEqual(['Vega', 'Deneb']);
+  });
+
+  it('Labels: 원형 경계에서 긴 이름이 반만 잘리는 대신 생략된다', () => {
+    const container = document.createElement('div');
+    const labels = new Labels(container);
+    labels.resize(400, 600);
+    labels.setClipRadius(150);
+    labels.update([
+      { key: 'a', x: 200, y: 300, text: '베가', priority: 1, kind: 'star' },
+      { key: 'b', x: 340, y: 300, text: '머리털자리', priority: 2, kind: 'constellation' },
+    ]);
+    expect(
+      [...container.querySelectorAll<HTMLElement>('.sky-label')]
+        .filter((e) => !e.hidden)
+        .map((e) => e.textContent),
+    ).toEqual(['베가']);
   });
 });
 

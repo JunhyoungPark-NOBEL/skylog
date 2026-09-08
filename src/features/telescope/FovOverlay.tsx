@@ -8,6 +8,7 @@ import { useLocationStore } from '@/state/locationStore';
 import { getSkyScene } from '@/features/sky/skyApi';
 import { eqjToAltAzSlow } from '@/astro/frames';
 import { altAzToScene, DEG, type Vec3 } from '@/astro/coords';
+import { hemisphereRadiusPx } from '@/render/projection';
 /** 원을 구면 위에 샘플링하므로 화면 중앙 밖에서도 각도 크기/원근이 맞는다. */
 export function FovOverlay() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -24,6 +25,7 @@ export function FovOverlay() {
       if (!scene) return;
       const { width: w, height: h } = canvas.getBoundingClientRect();
       if (!w || !h) return;
+      canvas.style.clipPath = `circle(${hemisphereRadiusPx(scene.controller.getView().fovDeg, w, h)}px at 50% 50%)`;
       const ratio = Math.min(2, devicePixelRatio || 1);
       if (canvas.width !== Math.round(w * ratio) || canvas.height !== Math.round(h * ratio)) {
         canvas.width = Math.round(w * ratio);

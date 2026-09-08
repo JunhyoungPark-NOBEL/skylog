@@ -36,6 +36,7 @@ import { Equipment } from './Equipment';
 import { FinderChart } from './FinderChart';
 import { StarHop } from './StarHop';
 import { DirectionPanel } from './DirectionPanel';
+import { GuideSky } from './GuideSky';
 import { guideTarget } from './skyData';
 import { closeTelescope } from './navigation';
 import { EQUIPMENT_BUTTON as BTN, EQUIPMENT_INPUT as INPUT } from './styles';
@@ -121,21 +122,26 @@ export default function TelescopeMode() {
   }, []);
   const target = cat && targetId ? guideTarget(cat, targetId, date, site) : null;
   const usable =
+    sensor.mode === 'relative' &&
+    sensor.status === 'active' &&
     alignment?.sessionId === sensor.sessionId &&
     alignment?.profileKey === profileKey(p) &&
     alignment?.provider === sensor.source
       ? alignment
       : null;
-  const pointing = sensor.q ? pointingDirection(sensor.q, usable?.model) : null;
-  const delta = usable && pointing && target ? pointingDelta(pointing, target.direction) : null;
-  const eq =
-    usable && pointing && target ? equatorialDelta(pointing, target.direction, site.lat) : null;
+  const approximate = sensor.mode === 'automatic' && sensor.headingReady;
+  const pointing =
+    sensor.q && sensor.status === 'active' && (usable || approximate)
+      ? pointingDirection(sensor.q, usable?.model)
+      : null;
+  const delta = pointing && target ? pointingDelta(pointing, target.direction) : null;
+  const eq = pointing && target ? equatorialDelta(pointing, target.direction, site.lat) : null;
   const sun = bodyState('sun', date, site);
   const unsafe =
     targetId === 'sun' ||
     sunUnsafe(sun.altDeg, sun.azDeg, [
       ...(target ? [target.direction] : []),
-      ...(usable && pointing ? [pointing] : []),
+      ...(pointing ? [pointing] : []),
     ]);
   const names = useMemo(() => {
     if (!cat) return [];
@@ -176,7 +182,7 @@ export default function TelescopeMode() {
     null;
   const capture = async () => {
     const reading = freshReading();
-    if (!cat || !reading?.q || !selected || busy) return;
+    if (!cat || !reading?.q || reading.mode !== 'relative' || !selected || busy) return;
     setBusy(true);
     setError(null);
     try {
@@ -229,14 +235,14 @@ export default function TelescopeMode() {
     !unsafe;
   const arrival = useRef(false);
   useEffect(() => {
-    if (inside && !arrival.current && !simulator)
+    if (inside && usable && !arrival.current && !simulator)
       feedbackOk({ sound: useSensorStore.getState().sound });
     arrival.current = inside;
-  }, [inside, simulator, targetId]);
+  }, [inside, usable, simulator, targetId]);
   const actualView = view;
   const chartFov = actualView === 'eyepiece' && p.mode === 'telescope' ? eyefov : finderFov;
   const chartBase =
-    (preview ? target?.direction : usable ? pointing : target?.direction) ?? altAzToScene(30, 180);
+    (preview ? target?.direction : (pointing ?? target?.direction)) ?? altAzToScene(30, 180);
   const aa = sceneToAltAz(chartBase),
     chartCenter = altAzToScene(
       Math.max(-89, Math.min(89, aa.altDeg + pan.alt)),
@@ -247,6 +253,22 @@ export default function TelescopeMode() {
     useTelescopeStore.getState().setTarget(id);
     setChoosing(false);
     setPan({ alt: 0, az: 0 });
+  };
+  const startAutomatic = () => {
+    setAlignment(null);
+    setSamples([]);
+    void startTelescopeOrientation('automatic');
+  };
+  const startAlignment = () => {
+    setView('align');
+    if (sensor.mode !== 'relative' || sensor.status !== 'active') {
+      setAlignment(null);
+      setSamples([]);
+      void startTelescopeOrientation('relative');
+    } else if (samples.length >= 2) {
+      setSamples([]);
+      setAlignId(null);
+    }
   };
   if (view === 'equipment')
     return (
@@ -288,34 +310,28 @@ export default function TelescopeMode() {
       testId="telescope-screen"
       scrollKey={view}
     >
-      <div className="mx-auto max-w-3xl space-y-4 p-4">
+      <div className="mx-auto flex max-w-3xl flex-col gap-4 p-4">
         {!accepted ? (
           <section className="rounded-3xl bg-surface p-5" data-testid="guide-intro">
-            <h2 className="text-headline">{t('guide.mountTitle')}</h2>
-            <svg viewBox="0 0 320 150" className="my-4 w-full text-accent" aria-hidden>
-              <g stroke="currentColor" fill="none" strokeWidth="3">
-                <path d="M58 116 206 30 225 64 77 148Z" />
-                <rect x="125" y="36" width="42" height="80" rx="8" transform="rotate(60 146 76)" />
-                <path d="m217 20 36-20m-7 0h7v9M173 52l30-18" />
-              </g>
-              <text x="210" y="120" fill="currentColor" fontSize="14">
-                +Y ↑
-              </text>
-            </svg>
-            <p className="leading-7 text-muted">{t('guide.mountHelp')}</p>
-            <p className="mt-3 text-body-sm leading-6 text-muted">{t('guide.sensorMethod')}</p>
+            <h2 className="text-headline">{t('guideAuto.title')}</h2>
+            <p className="mt-4 leading-7 text-muted">{t('guideAuto.intro')}</p>
+            <p className="mt-3 text-body-sm leading-6 text-muted">{t('guideAuto.estimateHelp')}</p>
             <p className="mt-3 text-body-sm leading-6 text-danger">{t('guide.safety')}</p>
             <button
               className={BTN + ' mt-5 w-full'}
               data-testid="guide-accept"
-              onClick={() => setAccepted(true)}
+              onClick={() => {
+                setAccepted(true);
+                if (view === 'align') startAlignment();
+                else if (guideMount !== 'goto' && view === 'guide') startAutomatic();
+              }}
             >
-              {t('guide.ready')}
+              {t('guideAuto.start')}
             </button>
           </section>
         ) : (
           <>
-            <details>
+            <details className="order-last">
               <summary className="min-h-11 py-2 text-body-sm text-muted">
                 {t('guideFlow.settings')}
               </summary>
@@ -428,32 +444,25 @@ export default function TelescopeMode() {
                   ))}
                 </div>
                 {view === 'guide' && guideMount !== 'goto' && (
-                  <DirectionPanel
-                    delta={delta}
-                    eq={eq}
-                    mount={guideMount}
-                    inside={inside}
-                    status={sensor.status}
-                    hasTarget={!!target}
-                    onStart={() => {
-                      setAlignment(null);
-                      setSamples([]);
-                      setView('align');
-                      void startTelescopeOrientation();
-                    }}
-                    onAlign={() => {
-                      setView('align');
-                      if (samples.length >= 2) {
-                        setSamples([]);
-                        setAlignId(null);
-                      }
-                    }}
-                    onChart={() => {
-                      setPreview(false);
-                      setPan({ alt: 0, az: 0 });
-                      setView('eyepiece');
-                    }}
-                  />
+                  <div className="relative isolate overflow-hidden rounded-3xl border border-accent/20">
+                    <GuideSky targetId={targetId} pointing={pointing} />
+                    <DirectionPanel
+                      delta={delta}
+                      eq={eq}
+                      mount={guideMount}
+                      inside={inside}
+                      status={sensor.status}
+                      hasTarget={!!target}
+                      approximate={approximate}
+                      onStart={startAutomatic}
+                      onAlign={startAlignment}
+                      onChart={() => {
+                        setPreview(false);
+                        setPan({ alt: 0, az: 0 });
+                        setView('eyepiece');
+                      }}
+                    />
+                  </div>
                 )}
                 {view === 'hop' && targetId && (
                   <StarHop
@@ -473,7 +482,13 @@ export default function TelescopeMode() {
                     {!(view === 'guide' && guideMount !== 'goto') && (
                       <div className="rounded-2xl border border-hairline p-4">
                         <p role="status" className="text-body-sm" data-testid="guide-status">
-                          {t(usable ? 'guide.aligned' : 'guide.unaligned')}
+                          {t(
+                            usable
+                              ? 'guide.aligned'
+                              : approximate
+                                ? 'guideAuto.estimate'
+                                : 'guideAuto.preview',
+                          )}
                           {usable &&
                             ` · ${t('guide.residual', { value: usable.model.residualDeg.toFixed(1) })}`}
                         </p>
@@ -491,7 +506,9 @@ export default function TelescopeMode() {
                               onClick={() => {
                                 setAlignment(null);
                                 setSamples([]);
-                                void startTelescopeOrientation();
+                                void startTelescopeOrientation(
+                                  view === 'align' ? 'relative' : 'automatic',
+                                );
                               }}
                             >
                               {t(
@@ -507,15 +524,9 @@ export default function TelescopeMode() {
                         ) : (
                           <button
                             className="min-h-11 text-body-sm text-accent"
-                            onClick={() => {
-                              setView('align');
-                              if (samples.length >= 2) {
-                                setSamples([]);
-                                setAlignId(null);
-                              }
-                            }}
+                            onClick={startAlignment}
                           >
-                            {t('guide.align')}
+                            {t('guideAuto.calibrate')}
                           </button>
                         )}
                       </div>
@@ -528,6 +539,15 @@ export default function TelescopeMode() {
                         <h2 className="text-title">
                           {t('guide.alignStep', { n: Math.min(2, samples.length + 1) })}
                         </h2>
+                        <button
+                          className="mt-2 min-h-11 w-full text-body-sm text-accent"
+                          onClick={() => {
+                            setView('guide');
+                            startAutomatic();
+                          }}
+                        >
+                          {t('guideAuto.switchAuto')}
+                        </button>
                         <p className="my-3 text-body-sm leading-6 text-muted">
                           {t('guide.alignHelp')}
                         </p>
@@ -656,7 +676,7 @@ export default function TelescopeMode() {
                               setPan({ alt: 0, az: 0 });
                             }}
                           >
-                            {t(preview || !usable ? 'guide.preview' : 'guide.live')}
+                            {t(preview || !pointing ? 'guide.preview' : 'guide.live')}
                           </button>
                         </div>
                         <FinderChart

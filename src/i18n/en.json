@@ -34,6 +34,8 @@
     "search": "Search"
   },
   "sky": {
+    "circularView": "Sky overview",
+    "circularViewHelp": "See the sky hemisphere centered on the zenith, then drag to explore.",
     "placeholder": "Sky view — rendered in Task 1",
     "layers": "Layers",
     "layer": {
@@ -516,6 +518,24 @@
     "peak": "peak {{date}}",
     "noneActive": "No meteor shower is active right now.",
     "next": "Next peak: {{name}} on {{date}} · conditions {{cond}}"
+  },
+  "guideAuto": {
+    "title": "Start without aligning a star",
+    "intro": "Sensors and the compass estimate your direction. Point the top edge of your phone toward the sky you want to explore.",
+    "start": "Find in the night sky",
+    "estimate": "Approximate compass direction",
+    "estimateHelp": "Nearby metal can affect the compass. Choose star calibration for a closer telescope alignment.",
+    "calibrate": "Refine with a star · optional",
+    "compassWaiting": "Finding your compass heading",
+    "compassHelp": "Hold your phone fairly flat and move it slowly. If no compass heading is available, use optional star calibration or the sky map.",
+    "preview": "Sky preview around the target",
+    "live": "Sky in the direction of your phone’s top edge",
+    "precise": "Star-calibrated direction",
+    "switchAuto": "Return to automatic compass guidance",
+    "skyLabel": "Night sky showing the target and surrounding stars",
+    "near": "Near the target direction",
+    "nearHelp": "Compare the star pattern with the real sky to confirm.",
+    "missingSensor": "Automatic heading is unavailable on this device. You can still explore the sky around the target."
   },
   "realSky": {
     "toggle": "Show the sky as it really looks",

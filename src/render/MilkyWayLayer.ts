@@ -20,6 +20,7 @@ export class MilkyWayLayer {
         uMap: { value: null },
         uColor: { value: new THREE.Color('#6f7fb0') },
         uAlpha: { value: 0.6 },
+        uNight: { value: 0 },
       },
       transparent: true,
       depthWrite: false,
@@ -55,10 +56,11 @@ export class MilkyWayLayer {
     (this.material.uniforms['uEqjToScene']!.value as THREE.Matrix3).fromArray(m);
   }
 
-  setStyle(color: string, alpha: number, refraction: boolean): void {
+  setStyle(color: string, alpha: number, refraction: boolean, night = false): void {
     (this.material.uniforms['uColor']!.value as THREE.Color).set(color);
     this.material.uniforms['uAlpha']!.value = alpha;
     this.material.uniforms['uRefraction']!.value = refraction ? 1 : 0;
+    this.material.uniforms['uNight']!.value = night ? 1 : 0;
   }
 
   dispose(): void {

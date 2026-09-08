@@ -47,7 +47,8 @@ import {
 import { MarkerLayer, type MarkerSets, type MarkerTarget } from '@/render/MarkerLayer';
 import { MilkyWayLayer } from '@/render/MilkyWayLayer';
 import { readRenderPalette, type RenderPalette } from '@/render/palette';
-import { degPerPixel } from '@/render/projection';
+import { degPerPixel, hemisphereRadiusPx, isInsideSkyDisk } from '@/render/projection';
+import { SkyProjection } from '@/render/SkyProjection';
 import { SkyBackground, skyBrightnessPenaltyMag } from '@/render/SkyBackground';
 import { StarLayer } from '@/render/StarLayer';
 import { renderStats } from '@/render/stats';
@@ -100,6 +101,7 @@ export class SkyScene {
   readonly milkyWay = new MilkyWayLayer();
   readonly dso = new DsoLayer();
   readonly background = new SkyBackground();
+  private readonly projection = new SkyProjection();
   catalog: Catalog | null = null;
 
   private readonly opts: SkySceneOptions;
@@ -170,6 +172,7 @@ export class SkyScene {
       this.horizon.ground,
       this.horizon.ring.object,
     );
+    this.projection.attach(this.scene);
 
     opts.canvas.addEventListener('webglcontextlost', (e) => {
       e.preventDefault();
@@ -334,6 +337,10 @@ export class SkyScene {
     const showBelow = showsBelowHorizon(layers);
     const dpp = degPerPixel(view.fovDeg, this.width, this.height);
     this.controller.applyToCamera(this.width, this.height);
+    this.projection.update(view.fovDeg, this.width, this.height, this.pixelRatio);
+    const diskRadius = hemisphereRadiusPx(view.fovDeg, this.width, this.height);
+    this.opts.labelContainer.style.clipPath = `circle(${diskRadius}px at 50% 50%)`;
+    this.labels.setClipRadius(diskRadius);
 
     // 팩 교체(deep ↔ bright)
     this.manageStarPacks(view.fovDeg);
@@ -367,13 +374,17 @@ export class SkyScene {
       p.milkyWay,
       layers.milkyWayAlpha * (1 - Math.min(1, skyBrightnessPenaltyMag(sunAlt) / 6)),
       true,
+      p.night,
     );
 
     this.constellations.setMatrix(this.matrix);
     this.constellations.lines.setFadeBelowHorizon(!showBelow);
     this.constellations.bounds.setFadeBelowHorizon(!showBelow);
     this.constellations.lines.visible = layers.constellationLines;
-    this.constellations.lines.setStyle(p.constellation, layers.constellationLinesAlpha);
+    this.constellations.lines.setStyle(
+      `#${new THREE.Color(p.constellation).lerp(new THREE.Color(p.label), 0.3).getHexString()}`,
+      Math.min(1, layers.constellationLinesAlpha * 1.65),
+    );
     this.constellations.bounds.visible = layers.constellationBounds;
     this.constellations.bounds.setStyle(p.constellationBound, layers.constellationBoundsAlpha);
 
@@ -607,13 +618,13 @@ export class SkyScene {
   // ---------- 선택 ----------
 
   pick(x: number, y: number): ObjectId | null {
+    if (!isInsideSkyDisk(x, y, this.controller.getView().fovDeg, this.width, this.height))
+      return null;
     const layers = this.opts.getLayers();
     const showBelow = showsBelowHorizon(layers);
     const cat = this.catalog;
     const candidates: Candidate[] = [];
     const view = this.controller.getView();
-    const cosFov = Math.cos(((view.fovDeg * 1.2) / 2) * (Math.PI / 180));
-    const center = altAzToScene(view.altDeg, view.azDeg);
     // 행성·달·태양
     for (const b of this.bodies.placements) {
       if ((!showBelow && b.dir[1] < 0) || b.sizePx <= 0) continue;
@@ -644,8 +655,6 @@ export class SkyScene {
           pack.positions[i * 3 + 1]!,
           pack.positions[i * 3 + 2]!,
         ];
-        const s = applyMat3(this.matrix, v);
-        if (s[0] * center[0] + s[1] * center[1] + s[2] * center[2] < cosFov) continue;
         const dir = this.j2000ToSceneDir(v);
         if (!showBelow && dir[1] < 0) continue;
         const px = this.controller.directionToPixel(dir, this.width, this.height);
@@ -782,6 +791,16 @@ export class SkyScene {
     // 방위
     for (const c of cardinalPoints(labelLang)) {
       const px = proj(c.dir);
+      if (px && view.fovDeg >= 160) {
+        // 원 둘레의 방위 글자는 안으로 들여 북/동/남/서가 잘리지 않게 한다.
+        const distance = Math.hypot(px.x - W / 2, px.y - H / 2);
+        const inset = Math.min(
+          1,
+          Math.max(0, hemisphereRadiusPx(view.fovDeg, W, H) - 18) / Math.max(1, distance),
+        );
+        px.x = W / 2 + (px.x - W / 2) * inset;
+        px.y = H / 2 + (px.y - H / 2) * inset;
+      }
       if (px)
         items.push({
           key: `card:${c.text}`,
@@ -818,8 +837,6 @@ export class SkyScene {
     // 고유명 별
     if (cat && layers.starLabels) {
       const limit = Math.min(starLabelMagLimit(view.fovDeg), limitingMag);
-      const center = altAzToScene(view.altDeg, view.azDeg);
-      const cosFov = Math.cos(((view.fovDeg * 1.3) / 2) * (Math.PI / 180));
       cat.stars.forEach((s, i) => {
         if (s.mag > limit) return;
         const named = labelLang === 'ko' ? (s.ko ?? s.traditionalKo ?? s.en) : s.en;
@@ -829,8 +846,6 @@ export class SkyScene {
           cat.starVectors[i * 3 + 1]!,
           cat.starVectors[i * 3 + 2]!,
         ];
-        const sc = applyMat3(this.matrix, v);
-        if (sc[0] * center[0] + sc[1] * center[1] + sc[2] * center[2] < cosFov) return;
         const dir = this.j2000ToSceneDir(v);
         if (!showBelow && dir[1] < 0) return;
         const px = proj(dir);

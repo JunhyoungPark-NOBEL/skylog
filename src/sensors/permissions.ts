@@ -21,13 +21,15 @@ export function needsOrientationPermission(): boolean {
 }
 
 /** 사용자 탭 핸들러 안에서 호출. 권한 API가 없으면 'granted'로 간주(이벤트가 오는지는 Provider가 판정). */
-export async function requestOrientationPermission(): Promise<OrientationPermissionState> {
+export async function requestOrientationPermission(
+  absolute = false,
+): Promise<OrientationPermissionState> {
   if (isNative()) return 'granted'; // OS 권한은 네이티브 센서 start에서 요청한다.
   if (!orientationEventsSupported()) return 'unsupported';
   const req = (DeviceOrientationEvent as DOEStatic).requestPermission;
   if (typeof req !== 'function') return 'granted';
   try {
-    const r = await req.call(DeviceOrientationEvent);
+    const r = await req.call(DeviceOrientationEvent, absolute);
     return r === 'granted' ? 'granted' : 'denied';
   } catch {
     return 'denied';

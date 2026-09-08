@@ -50,6 +50,7 @@ function BelowHorizonHint() {
 }
 
 function ViewInfo() {
+  const { t } = useTranslation();
   const alt = useViewStore((s) => s.centerAlt);
   const az = useViewStore((s) => s.centerAz);
   const fov = useViewStore((s) => s.fovDeg);
@@ -61,7 +62,7 @@ function ViewInfo() {
       }`}
       data-testid="view-info"
     >
-      {formatView(alt, az, fov)}
+      {fov >= 180 ? `${t('sky.circularView')} · 180°` : formatView(alt, az, fov)}
     </div>
   );
 }
@@ -271,6 +272,25 @@ export function SkyView() {
         ◎
       </button>
       <FovOverlay />
+      <button
+        type="button"
+        aria-label={t('sky.circularView')}
+        title={t('sky.circularViewHelp')}
+        onClick={() => {
+          sensorManager.stop();
+          const scene = sceneRef.current;
+          scene?.controller.flyTo({ altDeg: 89.9, azDeg: 0, fovDeg: 220 });
+          scene?.invalidate();
+        }}
+        data-testid="sky-overview"
+        className="absolute left-3 top-[calc(var(--status-height)+env(safe-area-inset-top)+116px)] z-10 inline-flex min-h-11 items-center gap-1.5 rounded-pill glass px-3 text-caption text-fg"
+      >
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+          <path d="M12 7v10M7 12h10" stroke="currentColor" strokeWidth="1.2" />
+        </svg>
+        {t('sky.circularView')}
+      </button>
       {simulator && arActive && <SensorSimPanel />}
       {wizardOpen && <CalibrationWizard onClose={() => setWizardOpen(false)} />}
 

@@ -50,6 +50,18 @@ async function setup(page: Page) {
     });
   });
   await page.goto('#/sky?t=' + T);
+  // 로딩 표식이 아직 마운트되기 전에도 count=0이므로 실제 하늘과 좌표 래퍼 준비를 먼저 확인한다.
+  await expect(page.getByTestId('sky-view')).toBeVisible();
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const w = window as Window & {
+          __skylogAstro?: { eqjToAltAzSlow?: unknown };
+        };
+        return typeof w.__skylogAstro?.eqjToAltAzSlow;
+      }),
+    )
+    .toBe('function');
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
 }
 test('GoTo 망원경에서 쌍안경으로 바꾸면 센서 방향 안내를 제공한다', async ({ page }) => {
@@ -136,10 +148,10 @@ test('장비 저장 → 폰 윗변 두 별 정렬 → 목표 안내·차트·스
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-equipment.png' });
   await page.goto('#/telescope?target=dso%3AM13');
   await page.getByTestId('guide-accept').click();
-  await expect(page.getByTestId('direction-panel')).toContainText('센서 켜고 별에 맞추기');
-  await expect(page.getByTestId('guide-sensor')).toBeInViewport();
+  await expect(page.getByTestId('direction-panel')).toContainText('별로 더 정밀하게 맞추기');
+  await expect(page.getByTestId('guide-sky-canvas')).toBeVisible();
   await pointAt(page, 'star:HIP97649');
-  await page.getByTestId('guide-sensor').click();
+  await page.getByTestId('direction-align').click();
   await expect(page.getByTestId('alignment-wizard')).toBeVisible();
   const options = await page
     .getByTestId('alignment-star')
@@ -218,7 +230,7 @@ test('태양 차단·센서 없는 차트·360px 영어와 야간 화면', async
   await page.mouse.move(b.x + b.width / 2 + 40, b.y + b.height / 2 + 20, { steps: 8 });
   await page.mouse.up();
   await expect(page.getByRole('button', { name: '중앙으로 돌아가기' })).toBeVisible();
-  await expect(page.getByTestId('guide-status')).toContainText('먼저');
+  await expect(page.getByTestId('guide-status')).toContainText('미리보기');
   await page.getByText('장비·사용 방법', { exact: true }).click();
   await page.getByRole('button', { name: /야간 모드/ }).click();
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-night.png' });
@@ -227,11 +239,79 @@ test('태양 차단·센서 없는 차트·360px 영어와 야간 화면', async
   await page.goto('#/settings');
   await page.getByRole('radio', { name: 'English', exact: true }).click();
   await page.goto('#/telescope?target=dso%3AM31');
-  await expect(page.getByTestId('guide-intro')).toContainText('Starpath');
+  await expect(page.getByTestId('guide-intro')).toContainText('Start without aligning a star');
   await page.getByTestId('guide-accept').click();
   await page.getByTestId('guide-view-finder').click();
   await expect(page.getByTestId('finder-chart')).toBeVisible();
   await page.getByTestId('finder-chart').scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-en.png' });
+});
+
+test('나침반으로 바로 안내하며 별 보정 없이 실제 밤하늘을 보여 준다', async ({ page }) => {
+  await setup(page);
+  await page.evaluate(() => {
+    Object.defineProperty(window, 'ondeviceorientationabsolute', {
+      value: null,
+      configurable: true,
+    });
+    type CompassWindow = Window & { __automaticPose?: { alpha: number; beta: number } };
+    const w = window as CompassWindow;
+    w.__automaticPose = { alpha: 200, beta: 40 };
+    window.setInterval(() => {
+      const pose = w.__automaticPose!;
+      window.dispatchEvent(
+        new DeviceOrientationEvent('deviceorientationabsolute', {
+          ...pose,
+          gamma: 0,
+          absolute: true,
+        }),
+      );
+    }, 35);
+  });
+  await page.goto('#/telescope?target=dso%3AM13');
+  await page.getByTestId('guide-accept').click();
+  await expect(page.getByTestId('guide-arrows')).toBeVisible();
+  await expect(page.getByTestId('direction-panel')).toContainText('나침반으로 잡은 대략 방향');
+  await expect(page.getByTestId('alignment-wizard')).toHaveCount(0);
+  await expect(page.getByTestId('guide-sky-canvas')).toBeVisible();
+  await expect.poll(() => page.getByTestId('guide-sky-labels').innerText()).not.toBe('');
+  const before = await page.getByTestId('direction-horizontal').innerText();
+  await page.evaluate(() => {
+    (window as Window & { __automaticPose?: { alpha: number; beta: number } }).__automaticPose = {
+      alpha: 240,
+      beta: 30,
+    };
+  });
+  await expect(page.getByTestId('direction-horizontal')).not.toHaveText(before);
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-automatic.png' });
+  await page.getByTestId('guide-view-finder').click();
+  await expect(page.getByTestId('guide-status')).toContainText('대략 방향');
+  await page.goto('#/backup');
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByTestId('export-json').click(),
+  ]);
+  const { readFileSync } = await import('node:fs');
+  const backup = JSON.parse(readFileSync((await download.path())!, 'utf8')) as {
+    data: { progress: { value: { type?: string } }[] };
+  };
+  expect(
+    backup.data.progress.some((row) => row.value.type === 'align1' || row.value.type === 'align2'),
+  ).toBe(false);
+});
+
+test('상대 센서만 있으면 임의 방위 화살표 대신 목표 주변 하늘을 유지한다', async ({ page }) => {
+  await setup(page);
+  await pointAt(page, 'star:HIP97649');
+  await page.goto('#/telescope?target=dso%3AM13');
+  await page.getByTestId('guide-accept').click();
+  await expect(page.getByTestId('direction-panel')).toContainText('자동 방향을 확인하고 있어요', {
+    timeout: 15000,
+  });
+  await expect(page.getByTestId('guide-sky-canvas')).toBeVisible();
+  await expect.poll(() => page.getByTestId('guide-sky-labels').innerText()).not.toBe('');
+  await expect(page.getByTestId('guide-arrows')).toHaveCount(0);
+  await expect(page.getByTestId('alignment-wizard')).toHaveCount(0);
+  await expect(page.getByTestId('direction-align')).toContainText('선택');
 });

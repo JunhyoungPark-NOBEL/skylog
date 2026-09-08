@@ -6,7 +6,15 @@
  */
 import * as THREE from 'three';
 import { altAzToScene, clamp, sceneToAltAz, wrap360, type Vec3 } from '@/astro/coords';
-import { clampFov, degPerPixel, verticalFovDeg, zoomFov } from '@/render/projection';
+import {
+  clampFov,
+  degPerPixel,
+  isInsideSkyDisk,
+  stereographicProject,
+  stereographicUnproject,
+  verticalFovDeg,
+  zoomFov,
+} from '@/render/projection';
 
 export interface ViewState {
   altDeg: number;
@@ -129,7 +137,8 @@ export class CameraController {
   applyToCamera(width: number, height: number): void {
     const cam = this.camera;
     cam.aspect = width / Math.max(1, height);
-    cam.fov = verticalFovDeg(this.view.fovDeg, width, height);
+    // 실제 투영은 CPU/셰이더 입체 투영이 담당한다. 내부 원근 행렬은 안전한90°로 고정한다.
+    cam.fov = verticalFovDeg(90, width, height);
     if (this.sensorQuat) cam.quaternion.copy(this.sensorQuat);
     else cam.quaternion.copy(altAzToQuaternion(this.view.altDeg, this.view.azDeg));
     cam.updateProjectionMatrix();
@@ -138,19 +147,15 @@ export class CameraController {
 
   /** 화면 픽셀 → 씬 방향(단위벡터). 좌상단 원점. */
   pixelToDirection(x: number, y: number, width: number, height: number): Vec3 {
-    const ndc = new THREE.Vector3((x / width) * 2 - 1, -(y / height) * 2 + 1, 0.5);
-    ndc.unproject(this.camera);
-    ndc.normalize();
-    return [ndc.x, ndc.y, ndc.z];
+    const v = new THREE.Vector3(...stereographicUnproject(x, y, this.view.fovDeg, width, height));
+    v.applyQuaternion(this.camera.quaternion);
+    return [v.x, v.y, v.z];
   }
 
   /** 씬 방향 → 화면 픽셀. 카메라 뒤면 null. */
   directionToPixel(dir: Vec3, width: number, height: number): { x: number; y: number } | null {
-    const v = new THREE.Vector3(dir[0], dir[1], dir[2]).multiplyScalar(100);
-    const inFront = v.clone().applyMatrix4(this.camera.matrixWorldInverse).z < 0;
-    if (!inFront) return null;
-    v.project(this.camera);
-    return { x: ((v.x + 1) / 2) * width, y: ((1 - v.y) / 2) * height };
+    const v = new THREE.Vector3(...dir).applyMatrix4(this.camera.matrixWorldInverse);
+    return stereographicProject([v.x, v.y, v.z], this.view.fovDeg, width, height);
   }
 
   /** 부드럽게 이동(300~600ms). 렌더 루프가 update()를 호출해야 진행된다. */
@@ -338,6 +343,7 @@ export class CameraController {
     const rect = this.element?.getBoundingClientRect();
     const x = clientX - (rect?.left ?? 0);
     const y = clientY - (rect?.top ?? 0);
+    if (!isInsideSkyDisk(x, y, this.view.fovDeg, width, height)) return;
     const dir = this.pixelToDirection(x, y, width, height);
     const { altDeg, azDeg } = sceneToAltAz(dir);
     this.flyTo({ altDeg, azDeg, fovDeg: zoomFov(this.view.fovDeg, factor) }, 350);

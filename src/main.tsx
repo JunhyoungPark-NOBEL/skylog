@@ -17,6 +17,18 @@ if (!Capacitor.isNativePlatform())
     onOfflineReady() {
       console.info('[skylog] 오프라인 사용 준비 완료');
     },
+    onRegisteredSW(_url, registration) {
+      // 홈 화면 웹앱을 오래 켜 둔 iPhone에서도 복귀 시 배포된 버전을 확인한다.
+      const checkForUpdate = () => {
+        if (document.visibilityState === 'visible' && navigator.onLine)
+          void registration?.update().catch(() => {
+            // 오프라인/일시 네트워크 실패에서는 현재 설치된 앱을 계속 쓴다.
+          });
+      };
+      document.addEventListener('visibilitychange', checkForUpdate);
+      window.addEventListener('pageshow', checkForUpdate);
+      window.addEventListener('online', checkForUpdate);
+    },
   });
 
 async function bootstrap(): Promise<void> {

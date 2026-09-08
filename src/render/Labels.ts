@@ -34,6 +34,7 @@ export class Labels {
   private readonly pool: HTMLDivElement[] = [];
   private width = 0;
   private height = 0;
+  private clipRadius = Infinity;
 
   constructor(container: HTMLElement) {
     this.container = container;
@@ -42,6 +43,10 @@ export class Labels {
   resize(width: number, height: number): void {
     this.width = width;
     this.height = height;
+  }
+
+  setClipRadius(radius: number): void {
+    this.clipRadius = radius;
   }
 
   /** 라벨 갱신. items는 화면 좌표(px). */
@@ -57,6 +62,16 @@ export class Labels {
       const dx = it.dx ?? (it.center ? -w / 2 : 7);
       const dy = it.dy ?? (it.center ? -h / 2 : -h - 3);
       const rect: Rect = { x: it.x + dx, y: it.y + dy, w, h };
+      // 원형 하늘 밖에서 이름이 반만 잘리지 않도록 가장자리 라벨을 생략한다.
+      if (
+        it.kind !== 'selection' &&
+        [rect.x, rect.x + w].some((x) =>
+          [rect.y, rect.y + h].some(
+            (y) => Math.hypot(x - this.width / 2, y - this.height / 2) > this.clipRadius,
+          ),
+        )
+      )
+        continue;
       if (it.kind !== 'selection' && placed.some((r) => overlaps(r, rect))) continue;
       placed.push(rect);
       const el = this.acquire(used++);

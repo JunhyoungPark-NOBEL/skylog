@@ -164,7 +164,7 @@ test('북쪽 하늘: 북극성 고도 ≈ 위도, 동쪽이 화면 오른쪽, �
   expect(d).toBeGreaterThan(0.2); // 반시계(수학적 양의 각) 회전
 });
 
-test('천정·조작: 드래그·휠 줌·더블탭·flyTo, FOV 3~100°, 정지 시 draw 0', async ({ page }) => {
+test('천정·조작: 드래그·휠 줌·더블탭·flyTo, FOV 3~220°, 정지 시 draw 0', async ({ page }) => {
   await openSky(page, 'alt=85&az=180&fov=90');
   await page.screenshot({ path: `${SHOTS}/sky-zenith.png` });
   const canvas = page.getByTestId('sky-canvas');
@@ -209,7 +209,7 @@ test('천정·조작: 드래그·휠 줌·더블탭·flyTo, FOV 3~100°, 정지 
         window as unknown as { __skylogScene: { controller: { getView(): { fovDeg: number } } } }
       ).__skylogScene.controller.getView().fovDeg,
   );
-  expect(wide).toBe(100);
+  expect(wide).toBe(220);
 
   // flyTo(토성) 후 중심 일치, 툴팁 표시
   await page.evaluate(() => {
@@ -299,6 +299,111 @@ test('야간 모드: 하늘 뷰 캔버스에 적색 외 색이 없다 · 레이�
   await page.locator('#layer-constellationLines').click();
   await page.getByTestId('open-settings').click();
   await page.locator('#setting-night').click();
+});
+
+test('원형 천구: 반구 경계·GPU 별 위치·선택·역투영이 가로/세로 화면에서 일치한다', async ({
+  page,
+}) => {
+  const errors = collectErrors(page);
+  await openSky(page, 'alt=40&az=180&fov=90');
+  await page.getByTestId('sky-overview').click();
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const view = (
+          window as unknown as {
+            __skylogScene: {
+              controller: { getView(): { altDeg: number; azDeg: number; fovDeg: number } };
+            };
+          }
+        ).__skylogScene.controller.getView();
+        return {
+          alt: Number(view.altDeg.toFixed(1)),
+          az: Number(view.azDeg.toFixed(1)),
+          fov: Math.round(view.fovDeg),
+        };
+      }),
+    )
+    .toEqual({ alt: 89.5, az: 0, fov: 220 });
+  await expect(page.getByTestId('view-info')).toContainText('180°');
+  for (const viewport of [
+    { width: 412, height: 915 },
+    { width: 915, height: 412 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.waitForTimeout(400);
+    const result = await page.evaluate(() => {
+      const canvas = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
+      const rect = canvas.getBoundingClientRect();
+      const scene = (
+        window as unknown as {
+          __skylogScene: {
+            project(id: string): { x: number; y: number } | null;
+            pick(x: number, y: number): string | null;
+            controller: {
+              pixelToDirection(
+                x: number,
+                y: number,
+                w: number,
+                h: number,
+              ): [number, number, number];
+              directionToPixel(
+                d: [number, number, number],
+                w: number,
+                h: number,
+              ): { x: number; y: number } | null;
+            };
+          };
+        }
+      ).__skylogScene;
+      const buffer = document.createElement('canvas');
+      buffer.width = canvas.width;
+      buffer.height = canvas.height;
+      const ctx = buffer.getContext('2d')!;
+      ctx.drawImage(canvas, 0, 0);
+      const ratio = canvas.width / rect.width;
+      const rgb = (x: number, y: number) =>
+        [...ctx.getImageData(Math.round(x * ratio), Math.round(y * ratio), 1, 1).data].slice(0, 3);
+      const radius = Math.min(rect.width, rect.height) / 2 / Math.tan((55 * Math.PI) / 180);
+      const outside = rgb(rect.width / 2 + radius + 6, rect.height / 2);
+      const inside = rgb(rect.width / 2 + radius - 6, rect.height / 2);
+      const stars = ['star:HIP91262', 'star:HIP97649', 'star:HIP102098'].map((id) => {
+        const p = scene.project(id)!;
+        let peak = 0;
+        for (let dx = -2; dx <= 2; dx++)
+          for (let dy = -2; dy <= 2; dy++) peak = Math.max(peak, ...rgb(p.x + dx, p.y + dy));
+        const restored = scene.controller.directionToPixel(
+          scene.controller.pixelToDirection(p.x, p.y, rect.width, rect.height),
+          rect.width,
+          rect.height,
+        )!;
+        return {
+          id,
+          peak,
+          picked: scene.pick(p.x, p.y),
+          roundTrip: Math.hypot(restored.x - p.x, restored.y - p.y),
+        };
+      });
+      return {
+        outside,
+        inside,
+        stars,
+        outsidePick: scene.pick(rect.width / 2 + radius + 6, rect.height / 2),
+      };
+    });
+    expect(result.outside).toEqual([0, 0, 0]);
+    expect(Math.max(...result.inside)).toBeGreaterThan(0);
+    expect(result.outsidePick).toBeNull();
+    for (const star of result.stars) {
+      expect(star.peak, star.id).toBeGreaterThan(70);
+      expect(star.picked, star.id).toBe(star.id);
+      expect(star.roundTrip).toBeLessThan(0.001);
+    }
+    await page.screenshot({
+      path: `${SHOTS}/sky-circle-${viewport.width > viewport.height ? 'landscape' : 'portrait'}.png`,
+    });
+  }
+  expect(errors).toEqual([]);
 });
 
 test('달: 위상이 날짜와 맞고 밝은 쪽이 태양 방향(05:00 KST 하현 근처, 동쪽 하늘)', async ({
