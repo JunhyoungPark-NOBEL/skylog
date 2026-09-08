@@ -1,6 +1,6 @@
 # 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.4/build9 문서 초안 · 브라우저/빌드/공개 검증 진행 중
+> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.4/build9 APK/AAB·웹 배포 검증 완료
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -8,18 +8,18 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-08 · beta.4/build9 준비 중)
+## 이번 작업 보고 (2026-09-08 · beta.4/build9 하늘·업적·센서 개선)
 
-- 소스 버전 `0.1.0-beta.4`, 이번 Android/iOS build9. **최종 소스 커밋·태그: TBD.** 전체 단위 **493개 통과** 보고를 확인했다. 최종 typecheck/lint/data/e2e·PWA·Android/iOS 빌드·공개 검증은 진행 중이며 아래 TBD를 완료 후 채운다. build8의 검증/해시를 build9 완료로 재사용하지 않는다.
+- 원격 main 최신 `9e386818adc5cf2fccc685f7aa8306e501daef37`를 fetch로 확인한 뒤 갱신했다. 앱 소스 `377a665c0118b05f91192f231caba360a26e4388`, 태그 `v0.1.0-beta.4-build9`, Android/iOS build9, 다음 CI 기본값10.
 - 새 하늘 기본값: 별자리 경계 끄기, 은하수 0.33, 지면 불투명도 1, 별 채도 1. 별 표시 1.2배와 은하수의 밝은 띠·어두운 먼지 결·색을 개선한다. 겹치는 지면 설정은 단일 슬라이더로 정리하고 기본값 복원을 추가했다. 별 좌표·실제 관측 판정은 유지한다. D-038.
 - 태양·달은 넓은 시야에서도 최소 지름 24 CSS px로 표시하며 확대/축소 후 선택 반경을 함께 갱신한다. 실제 각지름·태양 안전 차단과 화면상 표시 크기를 구분한다.
 - 시야원은 쌍안경과 망원경 두 개를 각각 켜고 끈다. 사용자가 알린 장비는 솔로몬 HQ 8×42 ED와 SV48P 102mm다. 시작 시야 7.50°와 102mm/663mm+25mm/52° 접안 조합의 약 1.96°는 사용자가 허용한 **기본 예시**이며 실제 사양을 입력해 바꾼다. 커스텀/DB 저장 장비는 유지하고 저장 ID 없는 정확한 구형 기본 프로필만 갱신한다. D-039.
 - 업적 48개를 `learn/v2` 팩으로 확장했다(기존 18개 ID/규칙 보존). 코스·미션·퀴즈는 v1 유지, 기존 학습 진도·백업과 호환한다. 단계·진행도·다음 업적 안내를 추가했으며 T7 전체 완료는 아니다. D-040.
 - 센서 이벤트 사이를 렌더 프레임에서 보간하고 React 상태 알림과 Dexie 동일 설정 반복 쓰기를 줄였다. 순수 합성 검증에서 각속도 RMS 오차는 기존의 절반 미만, 평균 추가 지연 25ms 미만, 기존 필터 포함 90° 스텝은 150ms 이내다. 실제 휴대폰 FPS 수치는 아직 측정하지 않았다. 중단/상대 yaw/수동 드래그 규칙 유지. D-041.
 - **포맷 검사 참고**: 전체 `pnpm format:check`는 Android 생성 lint HTML의 parser/생성 assets 때문에 실패했다. 변경 파일의 Prettier 검사는 통과했다. 생성 파일 검사 문제를 앱 기능 실패나 전체 검사 통과로 바꾸어 기록하지 않는다.
-- **최종 자동 검사: TBD** — typecheck/lint/data/PWA 빌드, e2e 최종 통과/전체 수와 실행 옵션, Android lint 결과, QA 폴더/화면 확인 결과를 기록한다. 단위 수는 이후 코드 변경으로 달라지면 최종 결과로 갱신한다.
-- **산출물·공개: TBD** — 예정 폴더 `Downloads/skylog-release-0.1.0-beta.4-build9/`, 개인 APK `skylog-0.1.0-beta.4-build9-local-test.apk`, unsigned AAB `skylog-0.1.0-beta.4-build9-unsigned.aab`. 크기·SHA256·APK 이전 인증서 일치·AAB 구조/내장 자료·공개 다운로드 재검, [예정 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.4-build9)의 실제 게시 여부는 모두 TBD다.
-- **CI/PWA: TBD** — Pages run URL/상태, 모바일 run URL/Android·iOS 결과, 공개 웹 beta.4·SW·재실행·JS 오류와 기존 데이터 보존을 최종 확인 후 기록한다. 지금까지 확인된 이전 공개판은 아래 beta.3/build8이다.
+- **자동 검사**: typecheck·lint·데이터 검증·PWA/native 빌드 통과. 단위 493개, 브라우저 고유 시나리오 54개 통과(workers=1). 전체 실행 후 지면·달 픽셀 측정을 보완하고 달 가림 수정 관련 검사를 재실행했다. 변경 파일 Prettier·diff 검사 통과. 전체 format:check는 기존 Android 생성 lint HTML/생성 assets 문제로 실패했으며 앱 검증과 구분한다. QA: artifacts/qa-build9. 은하수33%/최대·큰 별·달/태양·지면·장비·업적 화면 확인.
+- **산출물·공개**: `Downloads/skylog-release-0.1.0-beta.4-build9/`. [APK 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.4-build9). 개인 APK 7,213,385 bytes, SHA256 `efdfca31d55dfeb707d7d914b1a404bb14cb8d543b52f6f3549d4a4db75e761f`. unsigned AAB 6,922,904 bytes, SHA256 `80b8b0d4c8cbeede255957033b000d8fef5be0628f4d03e43277118b5367b7c5`. bundletool·API36/min24/version9·release/backup=false·APK 서명/16KB 정렬·build8 인증서 일치 확인. AAB/APK/native public 162개 SHA256 일치. Android lint 오류0/경고33.
+- **CI/PWA**: [Pages 34203144579](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144579)와 [모바일 34203144730](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144730) 전체 성공. Android API36 인터넷 차단 WebView 계측과 iOS Xcode26 arm64 무서명 컴파일 통과. 공개 웹 beta.4·새 기본값·업적48·원형 하늘·SW·재실행·JS 오류0 확인. 공개 APK를 다시 다운로드해 크기/해시 일치 확인. 실제 휴대폰 센서/FPS·iPhone 설치용 서명 IPA를 검증한 것은 아니다.
 - Play 업로드 키 복원/최종 AAB 서명, Apple 팀/서명 Archive/TestFlight, 실제 Android/iPhone 설치·센서·그래픽과 스토어 심사는 남는다. 현재 전 기능 무료, 결제/무료 이용권은 설계 단계. T5/T7/T8 전체 완료 태그 없음. 설치·실기기 확인은 `docs/INSTALL-ON-PHONE.md`, 릴리스 상세는 `docs/MOBILE-RELEASE.md`.
 
 ## 이전 작업 보고 (2026-09-08 · beta.3/build8 가독성·자동 센서)
@@ -101,7 +101,7 @@
 - **UI 규칙(D-021)**: 새 화면은 `docs/ARCHITECTURE.md` "UI 디자인 시스템 v2"와 토큰(`theme.css`)만 쓴다. 검색/오늘 밤/기록은 App의 `pt-status pb-tab` 래퍼를 쓴다. 배우기는 D-026: 자체 고정 제목·상단 4개 메뉴 + ScrollArea(pb-tab), 위치/센서 상태바는 생략한다. 카피는 D-021 용어집(해요체·평이한 용어)을 따른다.
 - **스크롤 규칙(D-022)**: 세로 스크롤 영역은 `ui/ScrollArea.tsx`(마우스 드래그 스크롤·관성·페이드 오버레이)로 만든다. 스크롤러에 `mask-image`를 걸지 않는다. 드래그 스크롤이 닿으면 안 되는 컨트롤은 `touch-action: none` 또는 `data-drag-scroll="off"`. 사용자 보고("스크롤이 뻑뻑하고 스크롤 바를 정확히 눌러야 함")에 대한 수정이며, 실기기 확인은 T3b 체크리스트의 스크롤 항목으로 받는다.
 - **주의(이 세션에서 겪은 것)**: 워크플로 에이전트가 "코드 스케치를 써 달라"는 프롬프트를 실제 경로에 파일을 만들었다가 지우는 바람에 `src/astro/phenomena.ts`가 사라진 적이 있다. 리서치용 에이전트 프롬프트에는 **"파일을 만들거나 고치지 말 것"**을 명시한다.
-- **최신 검증**: 위 beta.4/build9 보고를 따른다. 단위493개 통과, 최종 브라우저/빌드/배포 수치와 소스 SHA는 TBD다. 이전 보고의 단위/브라우저/번들 크기를 현재 결과로 인용하지 않는다. T8의 청크 분할·실기기 성능 점검은 별도 잔여다.
+- **최신 검증**: 위 beta.4/build9 보고와 앱 소스 `377a665c0118b05f91192f231caba360a26e4388`를 따른다. 단위493·브라우저54·APK/AAB·Pages·모바일 CI 통과. T8 청크 분할·실기기 센서/성능은 잔여다.
 - 데이터 원본(`data-src/raw/`)은 gitignore이며 새 환경에서 재생성할 때 원본 확보가 필요하다. 현재 실행 경로와 pnpm PATH는 위 **환경** 항목을 따른다. 과거 OneDrive PC 경로를 현재 작업 경로로 사용하지 않는다.
 - **사용자 장비**: 솔로몬 HQ 8×42 ED, SVBONY SV48P 102mm(제조사 초점거리663mm). 사용자 요청으로 쌍안경 시야7.50°·접안25mm/52°는 시작 예시이며 직접 입력하도록 한다. 마운트/실제 접안 사양은 확정하지 않았다. 관측지는 자동 GPS 또는 사용자가 고른 저장 장소·보이는 범위를 따른다.
 

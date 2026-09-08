@@ -1,15 +1,15 @@
 # 휴대폰에서 별관찰 앱 사용하기
 
-이번 준비 버전은 **0.1.0-beta.4 / build9**다. 전체 단위 **493개 통과**를 확인했으며, **최종 브라우저 검사·APK/AAB 빌드와 서명 검증·웹 배포·공개 다운로드 확인은 진행 중(TBD)**이다. 아래 상태는 릴리스 담당자가 최종 검증 후 갱신한다. 지금까지 공개 확인된 이전 버전은 [beta.3 / build8](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.3-build8)이다. Google Play/App Store 정식 출시는 아직 완료되지 않았고, 현재 체험판과 웹앱은 전 기능 무료다.
+현재 배포판은 **0.1.0-beta.4 / build9**다. APK 직접 설치와 iPhone 웹앱 업데이트를 검증했다. 현재 전 기능 무료이며 Google Play/App Store 정식 공개 출시는 아직 완료되지 않았다.
 
-| 항목              | build9 전달 경로 / 상태                                                                                                                                                                                        |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PC 전달 폴더      | 예정 `Downloads/skylog-release-0.1.0-beta.4-build9/` — 생성·내용 검증 TBD                                                                                                                                      |
-| Android 직접 설치 | [예정 build9 APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.4-build9/skylog-0.1.0-beta.4-build9-local-test.apk) — 게시·서명·이전 인증서 비교·실제 다운로드 검증 TBD |
-| Play 제출 준비    | 예정 `skylog-0.1.0-beta.4-build9-unsigned.aab` — 빌드·구조 검증 TBD, Play 업로드 키 복원/최종 서명 대기                                                                                                        |
-| iPhone 웹앱       | [별관찰 웹앱](https://junhyoungpark-nobel.github.io/skylog/) — 주소 유지, beta.4 공개 버전·갱신 확인 TBD                                                                                                       |
+| 항목           | 전달 경로 / 상태                                                                                                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Android        | [build9 APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.4-build9/skylog-0.1.0-beta.4-build9-local-test.apk) — 기존 개인 체험판 위에 업데이트 설치 |
+| iPhone         | [별관찰 웹앱](https://junhyoungpark-nobel.github.io/skylog/) — Safari에서 공유 → 홈 화면에 추가                                                                                             |
+| PC 폴더        | `Downloads/skylog-release-0.1.0-beta.4-build9/`                                                                                                                                             |
+| Play 제출 준비 | `skylog-0.1.0-beta.4-build9-unsigned.aab` 생성·구조 검증 완료, 기존 업로드 키 복원/최종 서명 대기                                                                                           |
 
-**최종 APK 크기/SHA256: TBD. 소스 커밋·브라우저 검사 수·Pages/모바일 CI 결과: TBD.** 최종 증거는 [모바일 출시 준비](MOBILE-RELEASE.md)에 함께 기록한다. 예정 링크를 다운로드 가능하다고 안내하지 않는다.
+APK **7,213,385 bytes**, SHA256 `efdfca31d55dfeb707d7d914b1a404bb14cb8d543b52f6f3549d4a4db75e761f`. 단위493·브라우저54와 공개 다운로드 검증을 통과했다. 전체 증거는 [모바일 출시 준비](MOBILE-RELEASE.md)에 기록했다. 설치 후 설정에서 버전 `0.1.0-beta.4`를 확인한다.
 
 ## beta.4에서 달라지는 사용 방법
 
@@ -24,14 +24,14 @@
 
 ## 안드로이드: 직접 설치용 APK
 
-build9의 위 표가 **게시·검증 완료**로 갱신된 뒤 다음 순서로 설치한다. 현재 문서 초안의 build9 다운로드 검증은 TBD다.
+build9 APK의 게시·다운로드·서명 검증을 완료했다. 다음 순서로 설치한다.
 
 1. 휴대폰에서 [beta.4 / build9 APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.4-build9/skylog-0.1.0-beta.4-build9-local-test.apk)를 다운로드한다. 또는 PC 전달 폴더의 같은 파일을 USB 등으로 휴대폰 Download 폴더에 옮긴다.
 2. 휴대폰의 내 파일/Files에서 APK를 열고 설치한다. 설치 출처 허용을 요청하면 이 APK를 연 앱에 대해서만 허용하고, 설치 후 다시 해제할 수 있다.
 3. 앱 목록에서 **별관찰해쌀뚜**를 연다. Android 7 이상과 최신 Android System WebView/Chrome을 권장한다. 하늘·학습 자료는 설치 파일에 들어 있고 날씨 갱신에는 인터넷이 필요하다.
 4. 설정 맨 아래에서 **0.1.0-beta.4**를 확인하고 아래 실기기 점검을 진행한다.
 
-직접 설치 체험판은 release 앱을 개인 체험용 키로 서명한 것이다. build9도 같은 키를 재사용할 계획이며 **build8과 실제 인증서 비교 결과는 TBD**다. 일치를 확인한 파일은 기존 build5~8을 삭제하지 않고 업데이트 설치한다. 최종 확인 전 서명이 같다고 단정하지 않는다.
+직접 설치 체험판은 release 앱을 개인 체험용 키로 서명한 것이다. build9는 **build8과 실제 인증서가 일치함을 확인**했다. 기존 개인 체험판을 삭제하지 않고 위에 업데이트 설치한다.
 
 다른 서명의 앱이나 나중에 Play 설치판으로 옮길 때는 기존 앱에서 JSON 백업을 내보내고 파일을 확인한다. 서명이 다르면 덮어쓰기 설치가 되지 않는다. 백업 후에만 기존 앱 삭제 → 새 앱 설치 → JSON 가져오기 → 기록 수·사진·학습 진도 대조를 진행한다. 삭제 전 원본 기록을 보관한다.
 
@@ -39,20 +39,20 @@ build9의 위 표가 **게시·검증 완료**로 갱신된 뒤 다음 순서로
 
 ## 아이폰: Safari 홈 화면 웹앱
 
-APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. **beta.4 공개 배포 확인은 TBD**이며, 공개 완료 후 설정의 버전으로 업데이트를 확인한다. 실제 iPhone의 센서·성능은 별도 점검한다.
+APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. **beta.4 공개 배포와 버전 확인을 완료**했다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
 
 1. iOS 16.4 이상의 **Safari**에서 [별관찰 앱](https://junhyoungpark-nobel.github.io/skylog/)을 연다.
 2. **공유 → 홈 화면에 추가**를 선택한다. ‘웹 앱으로 열기’ 항목이 보이면 켜고 추가한다.
 3. 홈 화면 아이콘으로 실행한다. 현재 위치 권한을 허용하면 관측지를 자동 갱신한다. **휴대폰 방향으로 보기**를 눌러 최초 동작·방향 권한을 허용한다. 위치는 관측지 설정에서 자동 사용을 끄고 수동 입력할 수도 있다.
 4. 오프라인에서 쓸 이야기·배우기·별길 화면은 온라인 상태에서 한 번씩 연다. 기본 하늘 자료는 자동 저장되고 깊은 별·이야기·학습은 사용한 자료가 저장된다. 네이티브 앱의 첫 실행부터 모든 자료 포함과는 다르다.
 
-공개 배포가 끝나면 인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.4**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
+인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.4**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
 
 Safari 웹앱과 TestFlight 네이티브 앱은 저장소가 별개다. 옮길 때는 JSON 백업·가져오기를 사용한다.
 
 ## 아이폰: TestFlight 네이티브 앱
 
-현재 iPhone 설치용 서명 IPA는 없다. 이전 build8의 iOS arm64 무서명 컴파일은 [Xcode 26 CI에서 통과](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34195530826)했고, **build9의 새 모바일 CI 결과는 TBD**다. 무서명 컴파일 성공을 iPhone 설치나 실제 센서 검증으로 표시하지 않는다.
+현재 iPhone 설치용 서명 IPA는 없다. build9의 iOS arm64 무서명 컴파일은 [Xcode 26 CI에서 통과](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144730)했다. iPhone 설치와 실제 센서 검증에는 Apple 팀 서명과 실기기가 필요하다.
 
 Apple Developer 팀, 확정 Bundle ID, App Store Connect 앱, 배포 인증서/프로비저닝과 Xcode 26 이상이 설치된 Mac이 필요하다.
 

@@ -1,10 +1,10 @@
 # Android AAB / iOS 출시 준비
 
-2026-09-08 기준. 앱 ID 기본값은 `io.github.junhyoungparknobel.skylog`, 현재 소스 준비 버전은 `0.1.0-beta.4`(iOS marketing 0.1.0), 이번 빌드 번호는 **9**다. **build9의 e2e·산출물·CI·공개 확인은 진행 중이며 최종값은 아래 TBD에 기록한다.** 이전에 공개 확인한 판은 beta.3/build8이다. 스토어 등록·최종 앱 ID·기존 업로드 키는 계정 소유자의 확인이 필요하며 Play 최종 서명과 Apple 팀/서명/TestFlight는 남는다. T5 실기기 승인과 T7/T8 전체 완료를 의미하지 않는다.
+2026-09-08 기준. 앱 ID는 `io.github.junhyoungparknobel.skylog`, 현재 배포 버전 `0.1.0-beta.4`(iOS marketing 0.1.0), 빌드 번호 **9**다. Android 개인 APK·unsigned AAB 생성, PWA 공개 배포와 모바일 CI를 검증했다. 기존 Play 업로드 키 복원/최종 서명, Apple 팀/서명/TestFlight와 실기기·심사는 남는다. T5/T7/T8 전체 완료는 아니다.
 
-## 2026-09-08 beta.4 / build9 준비: 하늘 표현·두 시야원·업적·센서 움직임
+## 2026-09-08 beta.4 / build9: 하늘 표현·두 시야원·업적·센서 움직임
 
-> **초안 상태: 전체 단위 493개 통과, 최종 e2e·빌드·공개 검증 진행 중.** 아래 TBD는 완료된 결과로 바꾼 뒤 릴리스한다. build8의 해시·서명·CI 성공을 build9 검증으로 간주하지 않는다.
+> **APK/AAB 생성·웹 배포 검증 완료.** 실제 기기 확인과 스토어 서명/출시는 별도다.
 
 - **하늘 기본값**: 별자리 경계 끄기, 은하수 밝기 33%, 지면 투명도 0%(불투명), 별 채도 100%. 별은 기존보다 1.2배 크게 표시한다. 은하수의 밝은 띠와 어두운 먼지 결·색 대비를 조정했으며 밤 테마의 적색 은하수와 D-036의 흰 별자리 선은 유지한다. 실제 천문 좌표/별 개수는 변경하지 않는다.
 - **지면·태양·달**: 겹치는 지면 토글 대신 투명도 슬라이더 하나와 하늘 기본값 복원을 제공한다. 지평선 아래 표시·선택이 같은 설정을 따른다. 태양·달은 최소 지름 24 CSS px로 알아보기 쉽게 표시하되 실제 각지름과 화면상 표시 크기를 구분한다. FOV 변경 후 선택 반경도 함께 갱신한다.
@@ -13,20 +13,23 @@
 - **움직임·저장 부하**: 센서 목표 사이를 렌더 프레임에서 최대50ms로 보간한다. 첫 입력/긴 공백/중단은 초기화하고 상대 yaw·정밀 정렬 무효화·수동 드래그·수평 유지 규칙은 유지한다. React 알림과 동일 설정의 Dexie 반복 쓰기를 줄이며 저장 순서·실패 재시도·복원은 보존한다.
 - **검증 범위**: 합성 입력에서 프레임 각속도 RMS 오차가 기존 즉시 교체의 절반 미만, 평균 추가 지연25ms 미만, 기존 필터 포함90° 스텝150ms 이내다. 이는 물리 Android/iPhone의 FPS·센서 정확도 측정 결과가 아니다. 실제 기기에서는 같은 시야/레이어로 정지→일정 회전→정지를 기록해 frame time p50/p95, 33ms 초과 비율, Long Task/IndexedDB 작업, 센서 Hz와 정착 시간을 비교한다.
 
-| build9 확인 항목 | 현재 상태 / 릴리스 후 채울 값                                                                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 소스 커밋·태그   | TBD — 최종 앱 소스 SHA와 `v0.1.0-beta.4-build9` 태그 대상 일치 확인                                                                                          |
-| 자동 검사        | 전체 단위493개 통과. 최종 typecheck/lint/data/e2e 결과·통과/전체 수·실행 옵션·QA 로그 경로는 TBD                                                             |
-| PC 전달 폴더     | 예정 `Downloads/skylog-release-0.1.0-beta.4-build9/` — 생성/내용 검증 TBD                                                                                    |
-| 개인 APK         | 예정 `skylog-0.1.0-beta.4-build9-local-test.apk` — 크기/SHA256·서명·정렬·build8 인증서 일치 TBD                                                              |
-| unsigned AAB     | 예정 `skylog-0.1.0-beta.4-build9-unsigned.aab` — 크기/SHA256·bundletool·versionCode9/API36/min24/backup=false·내장 자료 비교 TBD. Play 최종 서명은 별도 대기 |
-| 로컬 Android     | release/lint 결과·오류/경고 수·AAB/APK/native public 비교 파일 수 TBD                                                                                        |
-| 공개 APK         | [예정 build9 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.4-build9) — 게시 여부 및 실제 다운로드 크기/해시 재검 TBD        |
-| PWA 배포         | Pages run URL/상태 TBD. 공개 beta.4·SW·재실행·JS 오류·기존 자료 보존 검증 TBD                                                                                |
-| 모바일 CI        | run URL/상태 TBD. Android release/lint/API36 오프라인 WebView 계측 및 iOS Xcode26 arm64 무서명 컴파일 결과 TBD                                               |
-| 스토어·실기기    | Play 업로드 키/최종 AAB 서명·내부 테스트, Apple 팀/서명 Archive/TestFlight, Android/iPhone 실기기·심사 대기                                                  |
+| build9 확인 항목  | 결과                                                                                                                                                                                                                                     |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 앱 소스·태그      | `377a665c0118b05f91192f231caba360a26e4388` · [v0.1.0-beta.4-build9](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.4-build9)                                                                                     |
+| 자동 검사         | 단위493·브라우저54·typecheck/lint/data/PWA/native 통과                                                                                                                                                                                   |
+| 개인 APK          | [다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.4-build9/skylog-0.1.0-beta.4-build9-local-test.apk) · 7,213,385 bytes · SHA256 `efdfca31d55dfeb707d7d914b1a404bb14cb8d543b52f6f3549d4a4db75e761f` |
+| unsigned AAB      | `skylog-0.1.0-beta.4-build9-unsigned.aab` · 6,922,904 bytes · SHA256 `80b8b0d4c8cbeede255957033b000d8fef5be0628f4d03e43277118b5367b7c5`                                                                                                  |
+| 번들·서명         | bundletool/메타데이터·서명·정렬·이전build8 인증서 일치. 162개 내장파일 SHA256 일치                                                                                                                                                       |
+| 로컬 Android lint | 오류0/경고33                                                                                                                                                                                                                             |
+| PWA               | [Pages 34203144579](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144579) 성공 · 공개beta.4·SW·재실행·새 기본값·업적48·JS 오류0                                                                                        |
+| 모바일 CI         | [34203144730](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144730) 성공 · API36 오프라인WebView·iOS Xcode26 arm64 무서명                                                                                              |
+| 스토어·실기기     | Play 키/최종 서명, Apple 팀/서명/TestFlight, 실제 Android/iPhone·심사 대기                                                                                                                                                               |
 
-예정 APK 직접 주소는 `https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.4-build9/skylog-0.1.0-beta.4-build9-local-test.apk`다. 공개 전에는 다운로드 가능하다고 안내하지 않는다. [휴대폰 설치 안내](INSTALL-ON-PHONE.md)의 상태도 최종 검증과 함께 갱신한다. 현재 전 기능 무료이며 유료 상품·로그인·두 사람의 무료 이용권은 아직 구현/등록하지 않았다.
+typecheck·lint·데이터 검증·PWA/native 빌드 통과. 단위 493개, 브라우저 고유 시나리오 54개 통과(workers=1). 전체 실행 후 지면·달 픽셀 측정을 보완하고 달 가림 수정 관련 검사를 재실행했다. 변경 파일 Prettier·diff 검사 통과. 전체 format:check는 기존 Android 생성 lint HTML/생성 assets 문제로 실패했으며 앱 검증과 구분한다.
+
+[Pages 34203144579](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144579)와 [모바일 34203144730](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144730) 전체 성공. Android API36 인터넷 차단 WebView 계측과 iOS Xcode26 arm64 무서명 컴파일 통과. 공개 웹 beta.4·새 기본값·업적48·원형 하늘·SW·재실행·JS 오류0 확인. 공개 APK를 다시 다운로드해 크기/해시 일치 확인. 실제 휴대폰 센서/FPS·iPhone 설치용 서명 IPA를 검증한 것은 아니다.
+
+전달 폴더는 `Downloads/skylog-release-0.1.0-beta.4-build9/`다. [휴대폰 설치 안내](INSTALL-ON-PHONE.md)를 따른다. 현재 전 기능 무료이며 결제·계정·두 사람의 무료 이용권은 아직 구현하지 않았다.
 
 ## 이전 beta.3 / build8: 자동 위치·센서·흰 별자리·작은 반투명 UI
 
