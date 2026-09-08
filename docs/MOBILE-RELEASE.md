@@ -1,6 +1,16 @@
 # Android AAB / iOS 출시 준비
 
-2026-09-08. 최신 작업은 **0.1.0-beta.5 / build10**(iOS marketing0.1.0)이다. 앱 ID는 io.github.junhyoungparknobel.skylog이며 웹 배포·서명 AAB·Android 오프라인 계측·iOS 컴파일을 검증했다. 아래 beta.4 이하 기록은 이전 배포다.
+2026-09-08. 최신 작업은 **0.1.0-beta.6 / build11**(iOS marketing0.1.0)이다. 앱ID io.github.junhyoungparknobel.skylog. 아래 beta.5 이하는 이전 배포 기록이다.
+
+## beta.6 / build11 — 풍경 경계·APK 서명 준비 파일
+
+- 소스 c0a81425a0a629b4149c5e220655375ef2ffd7ac, 태그 [v0.1.0-beta.6-build11](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.6-build11).
+- [Pages](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34229758676) / [모바일CI](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34229758728) 성공. 단위501개/브라우저59개 전체 통과, Android API36 오프라인 계측1/1, lint오류0/경고33, iOS build11 컴파일 성공. public149개 자료의 AAB/APK/iOS 해시 일치. 공개 PWA beta.6·새 풍경·SW/오프라인·JS오류0.
+- Play용 AAB는 기존 업로드 키로 서명했다. 7,798,090bytes, SHA256 b1619084e4585485eab97aaa2d89a45cd6dd8164a488c4c84057422448075767. bundletool/릴리스매니페스트(API36/min24/version11/debug=false/backup=false) 검증.
+- **개인 업데이트 APK는 unsigned 상태**다. 이 PC에 기존 build9 개인 키가 없어 설치 가능한 같은 인증서 APK를 만들지 못했다. APK7,960,611bytes SHA2560365cb791b5b36c893eab72e65491053b68af1af4070f7a9461dbe2aabf49944.
+- 사용자용 **apk-update-kit.zip**7,503,962bytes는 APK·공개 인증서·해시·PowerShell7 스크립트를 포함한다. 원래 서명 PC에서 `pwsh -File .\sign-update-package.ps1` 실행. 키/SDK/JDK가 있어야 하며 새 키를 자동 생성하지 않는다. SHA256/동일 인증서/16KB 정렬을 확인한 뒤 출력한다. DPAPI는 원래 Windows 사용자/PC에 묶여 있어 단순 복사를 복원으로 취급하지 않는다.
+- 기대하는 개인 인증서 SHA256: 2dce38b758c9091f919465d32453b64e0835ff8b541bdeaa7c6f3231313fc110. CI가 공개 build9 APK해시/서명을 확인하고 추출했다. 키 누락·변조 입력·인증서 메타 누락 시 중단 검증. 성공한 서명 APK를 설치한 실기기 결과는 아직 없다.
+- 풍경의 실제 해상도/생성 프롬프트/픽셀 합성 검사는 [풍경 개선](LANDSCAPE-REFINEMENT.md), 후속 계획은 [꾸미기·소통](COMMUNITY-AND-CUSTOMIZATION.md). 다음 CI기본12. 계정/결제/커뮤니티는 아직 미구현, iPhone 서명 IPA/TestFlight/스토어 심사도 별도다.
 
 ## beta.5 / build10 — 오늘 밤·코스·풍경
 

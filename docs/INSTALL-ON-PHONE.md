@@ -1,13 +1,20 @@
 # 휴대폰에서 별관찰 앱 사용하기
 
-최신 **웹앱은 0.1.0-beta.5**, Play 제출용 **서명 AAB는 build10**입니다. Google Play/App Store 공개 출시는 아직 완료되지 않았습니다.
+최신 웹앱은 **0.1.0-beta.6**, Android/iOS 빌드는 **11**입니다. 스토어 공개 출시는 아직 하지 않았습니다.
 
-- [최신 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/) — Android Chrome/iPhone Safari와 홈 화면 앱에서 사용할 수 있습니다. 온라인으로 연 뒤 잠시 기다렸다 다시 실행하고 설정의 버전 beta.5를 확인합니다. 기존 앱/웹사이트 데이터를 삭제할 필요는 없습니다.
-- [서명 AAB 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.5-build10): Downloads/skylog-release-0.1.0-beta.5-build10/skylog-0.1.0-beta.5-build10.aab. 기존 Play 업로드 키로 서명·검증했습니다. Play Console 내부 테스트에 제출하는 파일이며 휴대폰에서 직접 열어 설치하는 파일은 아닙니다.
-- 이전 개인 APK는 beta.4/build9입니다. 이 PC에는 그 개인 테스트 키가 없어 다른 키로 바꾸거나 기존 APK 위에 설치할 수 있다고 안내하지 않습니다. 같은 테스트 키가 있는 PC에서 최신 소스로 APK를 만들어야 직접 업데이트할 수 있습니다. 아래 APK 절차는 이전 build9에 한합니다.
-- iOS build10 arm64 무서명 컴파일과 풍경 내장을 확인했습니다. 설치용 IPA/TestFlight는 Apple 팀 서명이 필요합니다.
+- [웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): 온라인에서 다시 열고 설정의 beta.6을 확인합니다. 새 풍경을 오프라인에서도 확인했습니다. 앱/웹사이트 데이터를 지우지 않습니다.
+- [Android 업데이트 준비 ZIP](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.6-build11/skylog-0.1.0-beta.6-build11-apk-update-kit.zip): **안의 APK는 unsigned여서 직접 설치할 수 없습니다.** 기존 개인 APK를 만들었던 PC에서 압축을 풀고 PowerShell7로 `pwsh -File .\sign-update-package.ps1` 실행. 기존 키/JDK21/Android build-tools36.0.0이 있으면 인증서 일치/정렬을 검증하고 **skylog-build11-update.apk**를 만듭니다. 그 파일을 휴대폰에서 열어 **업데이트**합니다. 기존 앱을 삭제하지 않습니다.
+- 이 PC에는 기존 build9 개인 키가 없어 설치 가능한 업데이트 APK 서명을 완료하지 못했습니다. 키가 없거나 DPAPI 해독이 안 되면 새 키로 바꾸지 말고 원래 PC/안전한 백업에서 복원합니다. 키/비밀번호를 공개 업로드하지 않습니다. APK 업데이트/기록 보존 실기기 검증은 서명 후 진행합니다.
+- [서명 AAB](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.6-build11/skylog-0.1.0-beta.6-build11.aab): Play Console 제출용, 휴대폰 직접 설치용이 아닙니다. 기존 Play 업로드 키로 서명·검증했습니다.
+- iOS build11은 무서명 컴파일/자료 내장 확인입니다. iPhone에서는 웹앱을 사용하며 설치용 IPA/TestFlight에는 Apple 팀 서명이 필요합니다.
 
-## beta.5에서 확인할 것
+## beta.6에서 확인할 것
+
+1. 잔디·꽃이 선명하고 지평선/지면·좌우 경계가 자연스러운지.
+2. 아래를 볼수록 풍경이 사라지고 별을 볼 수 있는지, 풍경 끄기도 작동하는지.
+3. 야간 모드/확대/회전이 원활한지, 기존 기록·퀴즈 진도·장비 설정이 유지되는지.
+
+## 기존 날씨·달력·코스 확인
 
 1. 오늘 밤→**날씨**: 기온/구름/비/바람, 시간별 예보, 접힌 상세 정보가 잘 보이는지 확인합니다.
 2. 천문 일정→**목록 / 달력 / 한 해**: 이번/다음 달 이름과 날짜 선택을 확인합니다. 한 해 일정을 .ics로 저장해 개인 달력에 가져올 수 있습니다. 가져온 일정은 자동 동기화되지 않습니다.
@@ -44,14 +51,14 @@ build9 APK의 게시·다운로드·서명 검증을 완료했다. 다음 순서
 
 ## 아이폰: Safari 홈 화면 웹앱
 
-APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. **beta.5 공개 배포와 버전 확인을 완료**했다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
+APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. **beta.6 공개 배포와 버전 확인을 완료**했다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
 
 1. iOS 16.4 이상의 **Safari**에서 [별관찰 앱](https://junhyoungpark-nobel.github.io/skylog/)을 연다.
 2. **공유 → 홈 화면에 추가**를 선택한다. ‘웹 앱으로 열기’ 항목이 보이면 켜고 추가한다.
 3. 홈 화면 아이콘으로 실행한다. 현재 위치 권한을 허용하면 관측지를 자동 갱신한다. **휴대폰 방향으로 보기**를 눌러 최초 동작·방향 권한을 허용한다. 위치는 관측지 설정에서 자동 사용을 끄고 수동 입력할 수도 있다.
 4. 오프라인에서 쓸 이야기·배우기·별길 화면은 온라인 상태에서 한 번씩 연다. 기본 하늘 자료는 자동 저장되고 깊은 별·이야기·학습은 사용한 자료가 저장된다. 네이티브 앱의 첫 실행부터 모든 자료 포함과는 다르다.
 
-인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.5**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
+인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.6**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
 
 Safari 웹앱과 TestFlight 네이티브 앱은 저장소가 별개다. 옮길 때는 JSON 백업·가져오기를 사용한다.
 
