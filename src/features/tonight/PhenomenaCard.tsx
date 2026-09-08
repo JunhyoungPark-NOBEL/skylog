@@ -1,126 +1,12 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Lang } from '@/app/i18n';
 import type { Phenomenon } from '@/astro/phenomena';
-import type { Catalog } from '@/catalog/catalog';
 import { isActiveOn, type MeteorShower } from '@/catalog/meteors';
-import { formatDateShort, phenomenonTitle, showerName } from '@/features/tonight/phenomenaText';
+import { formatDateShort, showerName } from '@/features/tonight/phenomenaText';
 import { Card } from '@/ui/Card';
-import { Chip, ChipRow } from '@/ui/Chip';
-import { formatTime } from '@/ui/format';
+import { Chip } from '@/ui/Chip';
 
-interface Props {
-  cat: Catalog | null;
-  lang: Lang;
-  phenomena: Phenomenon[];
-  nextMonthPhenomena: Phenomenon[];
-  ym: { year: number; month: number } | null;
-  showers: MeteorShower[];
-  now: Date;
-}
-
-/** 이달의 천문 현상(task-03 §3.8) + 유성우 */
-export function PhenomenaCard({
-  cat,
-  lang,
-  phenomena,
-  nextMonthPhenomena,
-  ym,
-  showers,
-  now,
-}: Props) {
-  const { t } = useTranslation();
-  const [which, setWhich] = useState<'this' | 'next'>('this');
-  if (!cat || !ym) return null;
-  const list = which === 'this' ? phenomena : nextMonthPhenomena;
-  const month = which === 'this' ? ym.month : ym.month === 12 ? 1 : ym.month + 1;
-  const title = (p: Phenomenon) => phenomenonTitle(p, cat, lang, t, showers);
-  return (
-    <Card title={t('phenomena.title')} testId="phenomena-card">
-      <ChipRow className="-mt-2">
-        <Chip
-          role="tab"
-          selected={which === 'this'}
-          onClick={() => setWhich('this')}
-          testId="phen-this"
-        >
-          {t('phenomena.month', { m: ym.month })}
-        </Chip>
-        <Chip
-          role="tab"
-          selected={which === 'next'}
-          onClick={() => setWhich('next')}
-          testId="phen-next"
-        >
-          {t('phenomena.month', { m: month })}
-        </Chip>
-      </ChipRow>
-      <ul className="mt-1 [&>li+li]:hairline-t" data-testid="phenomena-list">
-        {list.map((p, i) => {
-          const past = p.at.getTime() < now.getTime() - 86_400_000;
-          return (
-            <li
-              key={i}
-              className={`flex min-h-14 items-center gap-3 py-2 ${past ? 'opacity-55' : ''}`}
-              data-kind={p.kind}
-            >
-              <span className="w-14 shrink-0 text-caption text-muted tabular-nums">
-                <span className="block font-medium">{formatDateShort(p.at, lang)}</span>
-                <span className="block">{p.kind === 'meteorPeak' ? '' : formatTime(p.at)}</span>
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-body font-medium">{title(p)}</span>
-                <span className="block text-caption text-muted">{detail(p, t)}</span>
-              </span>
-              {p.visibleLocally !== undefined && (
-                <Chip tone={p.visibleLocally ? 'success' : 'muted'} selected className="shrink-0">
-                  {p.visibleLocally ? t('phenomena.visible') : t('phenomena.notVisible')}
-                </Chip>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    </Card>
-  );
-}
-
-function detail(p: Phenomenon, t: (k: string, o?: Record<string, unknown>) => string): string {
-  switch (p.kind) {
-    case 'opposition':
-      return t('phenomena.oppositionDetail', {
-        mag: p.magnitude?.toFixed(1) ?? '—',
-        au: p.distanceAu?.toFixed(2) ?? '—',
-      });
-    case 'maxElongation':
-      return p.visibleLocally === false
-        ? t('phenomena.elongationHidden')
-        : t(`phenomena.elongationDetail.${p.visibility ?? 'evening'}`);
-    case 'greatestBrilliancy':
-      return t('phenomena.brilliancyDetail', { mag: p.magnitude?.toFixed(1) ?? '—' });
-    case 'lunarEclipse':
-    case 'solarEclipse':
-      return p.altAtPeakDeg !== undefined
-        ? t('phenomena.eclipseDetail', {
-            alt: Math.round(p.altAtPeakDeg),
-            min: p.durationMin ?? '—',
-          })
-        : t('phenomena.eclipseElsewhere');
-    case 'meteorPeak':
-      return p.meteor
-        ? t('phenomena.meteorDetail', {
-            zhr: p.meteor.zhr,
-            cond: t(`phenomena.condition.${p.meteor.condition}`),
-            moon: Math.round(p.meteor.moonIllumination * 100),
-            time: formatTime(p.meteor.bestAt),
-          })
-        : '';
-    case 'perigeeFullMoon':
-      return t('phenomena.perigeeDetail');
-    default:
-      return '';
-  }
-}
+export { EventCalendar as PhenomenaCard } from './EventCalendar';
 
 /** 유성우 카드: 오늘 활동 중인 유성우 + 다음 극대 */
 export function MeteorCard({

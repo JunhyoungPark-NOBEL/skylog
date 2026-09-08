@@ -68,7 +68,14 @@ export function LearnScreen() {
         </div>
       </div>
       <ScrollArea
-        key={nav.section + (nav.pathId ?? '') + (nav.missionId ?? '') + (nav.hopCourseId ?? '')}
+        key={
+          nav.section +
+          (nav.courseTheme ?? '') +
+          (nav.courseGroup ?? '') +
+          (nav.pathId ?? '') +
+          (nav.missionId ?? '') +
+          (nav.hopCourseId ?? '')
+        }
         className="pb-tab"
         fadeBottom="20px"
         data-testid="learn-scroll"
@@ -100,6 +107,8 @@ export function LearnScreen() {
               pathId={nav.pathId}
               missionId={nav.missionId}
               hopCourseId={nav.hopCourseId}
+              theme={nav.courseTheme}
+              group={nav.courseGroup}
             />
           ) : nav.section === 'stories' ? (
             <StoriesScreen value={value} />

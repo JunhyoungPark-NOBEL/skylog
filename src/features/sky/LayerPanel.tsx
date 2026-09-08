@@ -206,6 +206,8 @@ export function LayerPanel({
           />
           <p className="text-caption text-muted">{t('sky.layer.groundTransparencyHint')}</p>
         </div>
+        <Row id="landscape" label={t('nightRefresh.landscape')} />
+        <p className="px-4 pb-2 text-caption text-muted">{t('nightRefresh.landscapeHelp')}</p>
         <Row id="atmosphere" label={t('sky.layer.atmosphere')} />
         <Row id="extinction" label={t('sky.layer.extinction')} />
         <Row id="magnifyBodies" label={t('sky.layer.magnifyBodies')} />

@@ -209,3 +209,8 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - GPS는 공식 Geolocation, 백업은 Filesystem Cache와 Share, 화면 유지와 Android 뒤로는 native bridge/App을 사용한다. 기록 DB v2는 그대로지만 PWA와 앱 사이에 저장 공간을 공유하지 않는다.
 - `HOP_COURSES`는 고정된 대표 이정표, `curatedHop`은 위치각/거리/시야 수, `hopCourseProgress`는 courseId가 있는 실제 skill event와 관측 기록으로 코스 진행을 계산한다. `openTelescope`가 course를 해시에 전달한다.
 - CI는 `mobile.yml`에서 Android AAB/lint/오프라인 계측, iOS arm64 컴파일을 검증한다. 서명 키는 로컬 저장소 밖에 둔다. 제출 절차는 `MOBILE-RELEASE.md`.
+
+
+## beta.5 오늘 밤·달력·풍경
+
+EventCalendar는 list/month/year UI를 분리하고 calendar.ts가 시간대 날짜·월 이동·날짜별 그룹·ICS 생성을 담당한다. useTonight의 분 경계/복귀 갱신과 CalendarBrowser 월 키로 현재 달을 따라간다. 코스는 theme/group 해시를 더하며 데이터 ID/진도를 바꾸지 않는다. HorizonLayer의 낮은 풍경 밴드에 공통 천구 투영을 적용하고 landscape.ts의 유효 불투명도를 지면·라벨·선택에 공유한다. 이미지·오프라인·설계 근거는 [개선 기록](TONIGHT-REFRESH.md).

@@ -1,12 +1,14 @@
 {
-  "common": { "delete": "Delete" },
+  "common": {
+    "delete": "Delete"
+  },
   "nightSimple": {
     "intro": "Start with what you can see tonight.",
     "picks": "Picks",
-    "conditions": "Conditions",
+    "conditions": "Weather",
     "events": "Events",
     "change": "Edit",
-    "conditionsHint": "Check clouds and moonlight",
+    "conditionsHint": "See tonight’s weather",
     "highlights": "More highlights",
     "plan": "Plan by time"
   },
@@ -132,7 +134,7 @@
     "startStar": "Starting star",
     "startConfirmed": "Starting star centered",
     "checked": "Confirmed",
-    "hopDistance": "{{direction}} · {{deg}}° · {{fields}} field widths",
+    "hopDistance": "Move {{deg}}° toward {{direction}}.",
     "hopConfirmed": "Next star found and checked",
     "hopFinish": "I found the target in the sky",
     "hopDone": "Route complete · achievement updated",

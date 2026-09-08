@@ -1,4 +1,53 @@
 import { test, expect } from '@playwright/test';
+test('잔디·꽃은 하늘을 가리지 않고 아래를 볼수록 지면과 함께 사라진다', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('#/sky?t=2026-09-06T12:00:00Z&alt=0&az=180&fov=90&preserve=1');
+  await expect(page.getByTestId('sky-canvas')).toBeVisible();
+  await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
+  const opacity = () =>
+    page.evaluate(() => {
+      const scene = (
+        window as unknown as {
+          __skylogScene: {
+            horizon: {
+              ground: { material: { opacity: number } };
+              meadow: { visible: boolean; material: { map: { image: { width: number } } | null } };
+            };
+          };
+        }
+      ).__skylogScene;
+      return {
+        opacity: scene.horizon.ground.material.opacity,
+        loaded: !!scene.horizon.meadow.material.map,
+        visible: scene.horizon.meadow.visible,
+      };
+    });
+  await expect.poll(async () => (await opacity()).loaded).toBe(true);
+  await expect.poll(async () => (await opacity()).visible).toBe(true);
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/sky-meadow.png' });
+  const look = async (altDeg: number) =>
+    page.evaluate((alt) => {
+      (
+        window as unknown as {
+          __skylogScene: { controller: { setView(v: { altDeg: number }): void } };
+        }
+      ).__skylogScene.controller.setView({ altDeg: alt });
+    }, altDeg);
+  await look(-14);
+  await expect.poll(async () => (await opacity()).opacity).toBeCloseTo(0.5, 2);
+  await expect(page.getByTestId('below-horizon-hint')).toBeVisible();
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/sky-meadow-fading.png' });
+  await look(-35);
+  await expect.poll(async () => (await opacity()).opacity).toBe(0);
+  await expect.poll(async () => (await opacity()).visible).toBe(false);
+  await page.getByTestId('open-layers').click();
+  await page.locator('#layer-landscape').click();
+  await page.getByTestId('close-layers').click();
+  await expect.poll(async () => (await opacity()).opacity).toBe(1);
+  await expect(page.getByTestId('below-horizon-hint')).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
 interface SkyScene {
   flyToObject(id: string, fov: number): boolean;
   project(id: string): { x: number; y: number } | null;
@@ -15,6 +64,9 @@ test('지면 투명도 하나로 기본 불투명·반투명·투명과 별 선�
   await page.goto('#/sky?t=2026-09-06T12:00:00Z&alt=0&az=90&fov=75&preserve=1');
   await expect(page.getByTestId('sky-canvas')).toBeVisible({ timeout: 30000 });
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
+  await page.getByTestId('open-layers').click();
+  await page.locator('#layer-landscape').click();
+  await page.getByTestId('close-layers').click();
   await page.evaluate(() => {
     const s = (window as unknown as { __skylogScene: SkyScene }).__skylogScene;
     s.flyToObject('star:HIP32349', 25);
@@ -78,6 +130,7 @@ test('지면 투명도 하나로 기본 불투명·반투명·투명과 별 선�
   await page.getByTestId('open-layers').click();
   await expect(page.getByTestId('layer-ground-transparency')).toHaveValue('100');
   await page.getByTestId('layer-reset').click();
+  await page.locator('#layer-landscape').click();
   await expect(page.getByTestId('layer-ground-transparency')).toHaveValue('0');
   await expect(page.locator('#layer-constellationBounds')).toHaveAttribute('aria-checked', 'false');
   await expect(page.getByTestId('layer-milkyWayAlpha')).toHaveValue('0.33');

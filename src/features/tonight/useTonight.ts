@@ -29,8 +29,9 @@ import { useLogStore } from '@/state/logStore';
 import { useTonightStore, type WindowPreset } from '@/state/tonightStore';
 import { useTelescopeStore, equipmentProfile } from '@/state/telescopeStore';
 import { zonedDateTime } from '@/ui/format';
+import { calendarDate } from './calendar';
 
-const RECOMPUTE_MS = 5 * 60_000;
+const RECOMPUTE_MS = 60_000;
 const WEATHER_REFRESH_MS = 30 * 60_000;
 
 /** 밤 안의 현지 시(0..24) → 시각. 12시 이후는 밤 시작일, 그 전은 다음 날 */
@@ -88,7 +89,7 @@ export function getMonthPhenomena(
   showers: MeteorShower[],
   tz: string,
 ): Phenomenon[] {
-  const key = `${site.lat.toFixed(2)},${site.lon.toFixed(2)}|${year}-${month}|${showers.length}`;
+  const key = `${site.lat},${site.lon},${site.elevation ?? 0}|${year}-${month}|${tz}|${showers.length}`;
   let v = phenomenaCache.get(key);
   if (!v) {
     v = monthPhenomena(site, year, month, showers, tz);
@@ -96,16 +97,6 @@ export function getMonthPhenomena(
     phenomenaCache.set(key, v);
   }
   return v;
-}
-
-function ymOf(date: Date, tz: string): { year: number; month: number } {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: tz,
-    year: 'numeric',
-    month: 'numeric',
-  }).formatToParts(date);
-  const get = (t: string) => Number(parts.find((p) => p.type === t)?.value ?? '0');
-  return { year: get('year'), month: get('month') };
 }
 
 export interface TonightData {
@@ -162,16 +153,27 @@ export function useTonight(): TonightData {
     };
   }, []);
 
-  // 시계: 5분마다 + 시간 여행 시
+  // 분 경계·앱 복귀·모든 시계 모드 변경을 반영한다. 달력은 정오 기준 관측 밤과 분리한다.
   useEffect(() => {
     const tick = () => setNow(useClockStore.getState().now());
-    const timer = window.setInterval(tick, RECOMPUTE_MS);
-    const unsub = useClockStore.subscribe(() => {
-      const c = useClockStore.getState();
-      if (c.mode === 'manual' || c.offsetMs !== 0) tick();
-    });
+    let timer: number;
+    const schedule = () => {
+      timer = window.setTimeout(
+        () => {
+          tick();
+          schedule();
+        },
+        RECOMPUTE_MS - (Date.now() % RECOMPUTE_MS),
+      );
+    };
+    schedule();
+    const unsub = useClockStore.subscribe(tick);
+    window.addEventListener('focus', tick);
+    document.addEventListener('visibilitychange', tick);
     return () => {
-      window.clearInterval(timer);
+      window.clearTimeout(timer);
+      window.removeEventListener('focus', tick);
+      document.removeEventListener('visibilitychange', tick);
       unsub();
     };
   }, []);
@@ -204,10 +206,7 @@ export function useTonight(): TonightData {
     [night, preset, now, customFrom, customTo],
   );
 
-  const ym = useMemo(
-    () => (night ? ymOf(new Date(night.start.getTime() + 12 * 3_600_000), night.tz) : null),
-    [night],
-  );
+  const ym = useMemo(() => (night ? calendarDate(now, night.tz) : null), [night, now]);
   const phenomena = useMemo(
     () => (night && ym ? getMonthPhenomena(site, ym.year, ym.month, showers, night.tz) : []),
     [night, ym, site, showers],

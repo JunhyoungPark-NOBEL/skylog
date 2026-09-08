@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { readFile } from 'node:fs/promises';
 
 /**
  * T3b e2e: 오늘 밤 탭(날씨 온라인/오프라인·추천 그룹·계획 ☆·이달의 현상·유성우) + "실제 하늘처럼" 토글.
@@ -52,11 +53,114 @@ function forecast(): unknown {
   };
 }
 
+test('월 버튼·월간/연간 달력·ICS 내보내기와 간결한 날씨', async ({ page }) => {
+  await page.route(OPEN_METEO, (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(forecast()),
+    }),
+  );
+  await openSky(page);
+  await page.getByTestId('tab-tonight').click();
+  await expect(page.getByTestId('tonight-tab-conditions')).toHaveText('날씨');
+  await page.getByTestId('tonight-tab-conditions').click();
+  await expect(page.getByTestId('sky-best-window')).toBeVisible();
+  await expect(page.getByTestId('sky-details')).not.toHaveAttribute('open');
+  await expect(page.getByTestId('weather-details')).not.toHaveAttribute('open');
+  await expect(page.getByTestId('weather-summary')).toContainText('21:00');
+  await page.screenshot({ path: `${SHOTS}/tonight-weather-simple.png` });
+  await page.getByTestId('weather-details').locator('summary').click();
+  await expect(page.getByTestId('weather-details-card').getByRole('table')).toBeVisible();
+  await page.getByTestId('tonight-tab-events').click();
+  await expect(page.getByTestId('phen-this')).toHaveText('9월');
+  await expect(page.getByTestId('phen-next')).toHaveText('10월');
+  await page.getByTestId('phen-next').click();
+  await expect(page.getByTestId('phen-next')).toHaveText('10월');
+  await expect(page.getByTestId('phenomena-list')).toContainText('토성');
+  await page.getByTestId('events-view-month').click();
+  await expect(page.getByTestId('calendar-heading')).toContainText('10월');
+  await page.getByTestId('event-day-4').click();
+  await expect(page.getByTestId('phenomena-list')).toContainText('토성');
+  await page.getByTestId('event-day-4').press('ArrowRight');
+  await expect(page.getByTestId('event-day-5')).toBeFocused();
+  await page.screenshot({ path: `${SHOTS}/tonight-calendar.png` });
+  await page.getByTestId('events-view-year').click();
+  await expect(page.getByTestId('event-year-grid').getByRole('button')).toHaveCount(12);
+  await expect(
+    page.getByText('한 해의 일정을 모았어요. 월을 누르면 자세히 볼 수 있어요.'),
+  ).toBeVisible();
+  await page.screenshot({ path: `${SHOTS}/tonight-calendar-year.png` });
+  await page.getByText('한 해 일정 달력에 저장', { exact: true }).click();
+  const downloading = page.waitForEvent('download');
+  await page.getByTestId('calendar-export').click();
+  const download = await downloading;
+  expect(download.suggestedFilename()).toBe('skylog-2026-ko.ics');
+  const ics = await readFile((await download.path())!, 'utf8');
+  expect((ics.match(/BEGIN:VEVENT/g) ?? []).length).toBeGreaterThan(40);
+  expect(ics).toContain('BEGIN:VCALENDAR');
+  await page.getByTestId('year-month-12').click();
+  await page.getByTestId('calendar-next').click();
+  await expect(page.getByTestId('calendar-heading')).toHaveText('2027년 1월');
+  await page.getByTestId('events-view-list').click();
+  await expect(page.getByTestId('phen-this')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByTestId('phenomena-list')).not.toContainText('2027');
+});
+
+test('열어 둔 천문 일정이 월말 자정을 지나면 이번 달로 자동 이동한다', async ({ page }) => {
+  await page.route(OPEN_METEO, (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(forecast()),
+    }),
+  );
+  await page.clock.install({ time: new Date('2026-09-30T14:59:30Z') });
+  await page.goto('#/tonight');
+  await page.getByTestId('tonight-tab-events').click();
+  await expect(page.getByTestId('phen-this')).toHaveText('9월');
+  await expect(page.getByTestId('phen-next')).toHaveText('10월');
+  await page.getByTestId('events-view-month').click();
+  await expect(page.getByTestId('calendar-heading')).toContainText('9월');
+  await page.clock.fastForward(61_000);
+  await expect(page.getByTestId('calendar-heading')).toHaveText('2026년 10월');
+  await page.getByTestId('events-view-list').click();
+  await expect(page.getByTestId('phen-this')).toHaveText('10월');
+  await expect(page.getByTestId('phen-next')).toHaveText('11월');
+});
+
 async function openSky(page: Page): Promise<void> {
   await page.goto(`#/sky?t=${T}&preserve=1`);
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
   await page.waitForTimeout(400);
 }
+
+test('360px 영어·큰 글자에서도 달력과 코스 테마가 화면 안에 들어간다', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 800 });
+  await page.goto('#/settings');
+  await page.getByRole('radio', { name: 'English', exact: true }).click();
+  await page.locator('#setting-night').click();
+  await page.goto(`#/sky?t=${T}&alt=0&az=180&fov=90&preserve=1`);
+  await expect(page.getByTestId('sky-loading')).toHaveCount(0);
+  await page.screenshot({ path: `${SHOTS}/sky-meadow-night-en.png` });
+  await page.getByTestId('tab-tonight').click();
+  await page.getByTestId('tonight-tab-events').click();
+  await page.getByTestId('events-view-year').click();
+  await expect(page.getByTestId('year-month-12')).toBeVisible();
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = '125%';
+  });
+  const bounds = await page
+    .getByTestId('event-year-grid')
+    .evaluate((el) => ({ width: el.clientWidth, scroll: el.scrollWidth }));
+  expect(bounds.scroll).toBeLessThanOrEqual(bounds.width + 1);
+  await page.screenshot({ path: `${SHOTS}/calendar-english-large.png` });
+  await page.goto('#/learn?section=courses');
+  await expect(page.getByTestId('course-theme-naked')).toBeVisible();
+  await expect(page.getByTestId('course-theme-binoculars')).toBeVisible();
+  await expect(page.getByTestId('course-theme-telescope')).toBeVisible();
+  await page.screenshot({ path: `${SHOTS}/course-themes-en.png` });
+});
 
 test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · 계획 ☆ · 이달의 현상(10월 토성 충) · 유성우', async ({
   page,
@@ -76,11 +180,11 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
   await page.getByTestId('tonight-tab-conditions').click();
   await expect(page.getByTestId('sky-status-card')).toBeVisible({ timeout: 15_000 });
 
-  // 날씨: 요약 한 줄(21:00~02:00 구름 10%) · 결로 경고 · 출처
+  // 날씨: 선택 시간(01:00까지) 안의 구름 적은 구간 · 결로 경고 · 출처
   const weather = page.getByTestId('weather-card');
   await expect(weather).toBeVisible({ timeout: 15_000 });
   await expect(page.getByTestId('weather-summary')).toContainText('21:00');
-  await expect(page.getByTestId('weather-summary')).toContainText('02:00');
+  await expect(page.getByTestId('weather-summary')).toContainText('01:00');
   await expect(page.getByTestId('weather-dew')).toBeVisible();
   await expect(weather).toContainText('Open-Meteo');
   await page.screenshot({ path: `${SHOTS}/tonight-conditions.png` });

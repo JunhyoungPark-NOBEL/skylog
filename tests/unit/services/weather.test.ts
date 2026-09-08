@@ -84,6 +84,14 @@ describe('Open-Meteo 파싱', () => {
 });
 
 describe('getWeather: 캐시·실패 처리', () => {
+  it('구름 적은 구간의 시작과 끝이 선택 시간 밖으로 나가지 않는다', () => {
+    const forecast = parseOpenMeteo(sample(), new Date('2026-09-07T10:00:00Z'));
+    const interval = {
+      from: new Date('2026-09-07T12:15:00Z'),
+      to: new Date('2026-09-07T16:00:00Z'),
+    };
+    expect(summarizeWeather(forecast, interval)?.clearWindow).toEqual(interval);
+  });
   it('첫 호출은 fetch, 두 번째는 캐시(1시간)', async () => {
     const fetchImpl = vi.fn(async () => new Response(JSON.stringify(sample()), { status: 200 }));
     const a = await getWeather(36.37, 127.36, {

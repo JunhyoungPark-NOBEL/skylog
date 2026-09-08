@@ -47,3 +47,8 @@
 
 - Stellarium 소스코드(GPL)·Stellarium Web Engine(AGPL)·Stellarium 별자리 선/그림 데이터: 알고리즘 참고만, 코드·데이터 복사 금지.
 - 라이선스가 불명확한 별자리 그림(art), 광해 지도 타일.
+
+
+## 장식 풍경 (2026-09-08)
+
+- public/landscapes/meadow-v1.webp: 내장 image_gen으로 이 프로젝트용 새 잔디·꽃 이미지를 생성했다. 외부 사진·Stellarium 풍경을 가져오지 않았다. 실제 지형이 아닌 장식용 가상 풍경이며 생성 PNG를 alpha 보존 WebP로 압축했다. 프롬프트·해상도·생성 방식은 [개선 기록](TONIGHT-REFRESH.md)에 남긴다.

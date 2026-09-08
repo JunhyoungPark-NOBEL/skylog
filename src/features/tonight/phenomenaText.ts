@@ -1,3 +1,4 @@
+import { formatTime } from '@/ui/format';
 /** 천문 현상 제목·날짜 포맷(카드 공용, 컴포넌트 파일과 분리해 Fast Refresh 경고를 피한다) */
 import type { Lang } from '@/app/i18n';
 import type { Phenomenon } from '@/astro/phenomena';
@@ -57,6 +58,46 @@ export function phenomenonTitle(
       return t('phenomena.greatestBrilliancy');
     case 'meteorPeak':
       return t('phenomena.meteorPeak', { name: showerName(p.meteor?.id, showers, lang) });
+    default:
+      return '';
+  }
+}
+
+export function phenomenonDetail(
+  p: Phenomenon,
+  t: (k: string, o?: Record<string, unknown>) => string,
+): string {
+  switch (p.kind) {
+    case 'opposition':
+      return t('phenomena.oppositionDetail', {
+        mag: p.magnitude?.toFixed(1) ?? '—',
+        au: p.distanceAu?.toFixed(2) ?? '—',
+      });
+    case 'maxElongation':
+      return p.visibleLocally === false
+        ? t('phenomena.elongationHidden')
+        : t(`phenomena.elongationDetail.${p.visibility ?? 'evening'}`);
+    case 'greatestBrilliancy':
+      return t('phenomena.brilliancyDetail', { mag: p.magnitude?.toFixed(1) ?? '—' });
+    case 'lunarEclipse':
+    case 'solarEclipse':
+      return p.altAtPeakDeg !== undefined
+        ? t('phenomena.eclipseDetail', {
+            alt: Math.round(p.altAtPeakDeg),
+            min: p.durationMin ?? '—',
+          })
+        : t('phenomena.eclipseElsewhere');
+    case 'meteorPeak':
+      return p.meteor
+        ? t('phenomena.meteorDetail', {
+            zhr: p.meteor.zhr,
+            cond: t(`phenomena.condition.${p.meteor.condition}`),
+            moon: Math.round(p.meteor.moonIllumination * 100),
+            time: formatTime(p.meteor.bestAt),
+          })
+        : '';
+    case 'perigeeFullMoon':
+      return t('phenomena.perigeeDetail');
     default:
       return '';
   }

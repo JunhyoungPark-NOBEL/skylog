@@ -16,6 +16,8 @@ export interface LayerValues {
   meridian: boolean;
   /** 지면 불투명도 0..1. 1일 때 지평선 아래 천체 표시·선택을 함께 막는다. */
   groundOpacity: number;
+  /** 잔디·꽃 풍경과 시선을 내릴 때 지면 자동 투명화. */
+  landscape: boolean;
   milkyWay: boolean;
   milkyWayAlpha: number;
   dso: boolean;
@@ -61,6 +63,7 @@ export const DEFAULT_LAYERS: LayerValues = {
   ecliptic: false,
   meridian: false,
   groundOpacity: 1,
+  landscape: true,
   milkyWay: true,
   milkyWayAlpha: 0.33,
   dso: true,

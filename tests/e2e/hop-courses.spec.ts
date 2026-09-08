@@ -3,6 +3,9 @@ test.use({ serviceWorkers: 'block' });
 test('대표 스타호핑 코스 → 실제 이정표 → 완료 → 기록 → 진도 복원', async ({ page }) => {
   await page.clock.setFixedTime(new Date('2026-09-06T12:00:00Z'));
   await page.goto('#/learn?section=courses');
+  await expect(page.getByTestId('course-themes').getByRole('button')).toHaveCount(3);
+  await page.getByTestId('course-theme-telescope').click();
+  await page.getByTestId('course-group-starhop').click();
   await expect(page.getByTestId('hop-courses').getByRole('button')).toHaveCount(6);
   await page.getByTestId('course-hercules-keystone').click();
   await expect(page.getByTestId('hop-course-detail')).toBeVisible();
@@ -24,6 +27,9 @@ test('대표 스타호핑 코스 → 실제 이정표 → 완료 → 기록 → 
   await page.reload();
   await expect(page.getByTestId('hop-course-progress')).toContainText('✓ 찾은 모습');
   await page.goto('#/learn?section=courses');
+  await expect(page.getByTestId('course-themes').getByRole('button')).toHaveCount(3);
+  await page.getByTestId('course-theme-telescope').click();
+  await page.getByTestId('course-group-starhop').click();
   await expect(page.getByTestId('course-hercules-keystone')).toContainText('2/2');
   await expect(page.getByTestId('course-andromeda-chain')).toContainText('0/2');
 });

@@ -26,6 +26,10 @@ export function useLearnNavigation() {
     pathId: params.get('path'),
     missionId: params.get('mission'),
     hopCourseId: params.get('hopCourse'),
+    courseTheme: ['naked', 'binoculars', 'telescope'].includes(params.get('theme') ?? '')
+      ? (params.get('theme') as 'naked' | 'binoculars' | 'telescope')
+      : null,
+    courseGroup: params.get('group') === 'starhop' ? 'starhop' : null,
     chapter: Number(params.get('chapter')) || undefined,
     track: params.get('track') === 'observing' ? 'observing' : 'sky',
   };

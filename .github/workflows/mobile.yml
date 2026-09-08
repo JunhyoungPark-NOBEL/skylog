@@ -6,7 +6,7 @@ on:
         description: '새 빌드 번호 (이전 배포보다 큰 양의 정수, 최대 2100000000)'
         required: true
         type: string
-        default: '10'
+        default: '11'
 permissions:
   contents: read
 concurrency:
@@ -59,7 +59,7 @@ jobs:
           p = pathlib.Path('android/app/build/outputs/bundle/release/app-release.aab')
           with zipfile.ZipFile(p) as z:
             names = z.namelist()
-            for f in ['index.html','data/stars-deep.v1.bin','data/manifest.v1.json']:
+            for f in ['index.html','data/stars-deep.v1.bin','data/manifest.v1.json','landscapes/meadow-v1.webp']:
               assert 'base/assets/public/'+f in names, f
             assert any('/data/learn/' in n for n in names)
             assert any('/data/content/' in n for n in names)

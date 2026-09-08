@@ -21,7 +21,10 @@ export function HopCourses({
     const progress = hopCourseProgress(course, value.snap);
     return (
       <section className="space-y-4" data-testid="hop-course-detail">
-        <button className="min-h-11 text-accent" onClick={() => navigateLearn('courses')}>
+        <button
+          className="min-h-11 text-accent"
+          onClick={() => navigateLearn('courses', { theme: 'telescope', group: 'starhop' })}
+        >
           ← {t('hopCourses.all')}
         </button>
         <p className="text-caption text-accent">{t('hopCourses.level', { n: course.level })}</p>
@@ -83,7 +86,9 @@ export function HopCourses({
           <button
             key={c.id}
             data-testid={'course-' + c.id}
-            onClick={() => navigateLearn('courses', { hopCourse: c.id })}
+            onClick={() =>
+              navigateLearn('courses', { theme: 'telescope', group: 'starhop', hopCourse: c.id })
+            }
             className="space-y-2 rounded-3xl border border-hairline bg-surface p-5 text-left"
           >
             <div className="flex justify-between text-caption text-muted">

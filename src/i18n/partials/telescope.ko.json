@@ -1,12 +1,14 @@
 {
-  "common": { "delete": "삭제" },
+  "common": {
+    "delete": "삭제"
+  },
   "nightSimple": {
     "intro": "오늘 볼 천체부터 골라 보세요.",
     "picks": "추천",
-    "conditions": "관측 조건",
+    "conditions": "날씨",
     "events": "천문 일정",
     "change": "변경",
-    "conditionsHint": "구름·달빛 확인하기",
+    "conditionsHint": "오늘 밤 날씨 보기",
     "highlights": "오늘의 볼거리 더 보기",
     "plan": "시간순 관측 계획"
   },
@@ -132,7 +134,7 @@
     "startStar": "출발 별",
     "startConfirmed": "출발 별을 시야 중앙에 놓았어요",
     "checked": "확인했어요",
-    "hopDistance": "{{direction}}쪽으로 {{deg}}° · 시야 {{fields}}개만큼",
+    "hopDistance": "{{direction}}쪽으로 {{deg}}° 이동해요.",
     "hopConfirmed": "다음 별을 찾아 확인했어요",
     "hopFinish": "목표를 실제로 찾았어요",
     "hopDone": "첫 별길을 따라왔어요 · 업적에 반영했어요",

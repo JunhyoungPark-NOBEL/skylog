@@ -118,6 +118,7 @@ test('이야기 읽음·미션 진도·퀴즈와 영어 화면', async ({ page }
   await expect(page.getByTestId('learn-screen')).toBeVisible();
   await page.screenshot({ path: 'tests/e2e/__screenshots__/learn-home.png' });
   await page.getByTestId('learn-tab-courses').click();
+  await page.getByTestId('course-theme-naked').click();
   await page.getByTestId('path-naked-first-directions').click();
   await page.getByTestId('mission-any-moon-phase').click();
   await page.getByTestId('mission-start').click();
@@ -149,6 +150,7 @@ test('이야기 첫 열람 뒤 새로고침·오프라인 재열람', async ({ p
   await page.reload();
   await expect(page.getByTestId('learn-screen')).toBeVisible();
   await page.getByTestId('learn-tab-courses').click();
+  await page.getByTestId('course-theme-naked').click();
   await page.getByTestId('path-naked-first-directions').click();
   await page.getByTestId('mission-any-moon-phase').click();
   await page.getByTestId('mission-start').click();

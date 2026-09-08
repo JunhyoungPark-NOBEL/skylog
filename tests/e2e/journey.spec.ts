@@ -74,6 +74,7 @@ test('분리된 학습 탐색·이야기 검색·뒤로 가기·좁은 화면·�
   await expect(page.getByTestId('quiz-journey')).toBeVisible();
   await expect(page.getByTestId('courses-screen')).toHaveCount(0);
   await page.getByTestId('learn-tab-courses').click();
+  await page.getByTestId('course-theme-naked').click();
   await expect(page.getByTestId('path-naked-first-directions')).toBeVisible();
   await page.getByTestId('path-naked-first-directions').click();
   await page.getByTestId('mission-any-moon-phase').click();
@@ -123,6 +124,7 @@ test('분리된 학습 탐색·이야기 검색·뒤로 가기·좁은 화면·�
   await expect(page.getByRole('heading', { name: 'Learn', exact: true })).toBeVisible();
   await page.screenshot({ path: 'tests/e2e/__screenshots__/journey-night-en.png' });
   await page.getByTestId('learn-tab-courses').click();
+  await page.getByTestId('course-theme-naked').click();
   await page.screenshot({ path: 'tests/e2e/__screenshots__/learn-courses-en.png' });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,

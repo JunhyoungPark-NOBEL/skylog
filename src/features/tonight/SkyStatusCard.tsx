@@ -58,7 +58,59 @@ const LEGEND_SWATCH = 'inline-block h-2.5 w-3.5 rounded-[3px]';
 const INNER_BLOCK = 'rounded-md bg-surface-2/70 px-3.5 py-3';
 
 /** 하늘 상태 위젯(task-03 §3.4): 어둠 단계 그라데이션 · 달 있음 구간 · 어두운 창 · 구름(있으면) · 현재 커서 */
-export function SkyStatusCard({ night, now, lang, clouds }: Props) {
+export function SkyStatusCard(props: Props) {
+  const { t } = useTranslation();
+  const { night } = props;
+  const best = [...night.darkWindows].sort(
+    (a, b) => b.to.getTime() - b.from.getTime() - (a.to.getTime() - a.from.getTime()),
+  )[0];
+  return (
+    <section
+      data-testid="sky-status-card"
+      className="overflow-hidden rounded-3xl bg-surface p-5 shadow-card"
+    >
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <h2 className="text-title">{t('nightRefresh.sky')}</h2>
+        <span className="text-caption text-muted">{night.key.slice(5).replace('-', '/')}</span>
+      </div>
+      <p className="text-caption text-muted">{t('nightRefresh.darkLabel')}</p>
+      <p className="mt-1 text-headline tabular-nums" data-testid="sky-best-window">
+        {best
+          ? `${formatTime(best.from, night.tz)} – ${formatTime(best.to, night.tz)}`
+          : t(night.darkSpan ? 'nightRefresh.noDark' : 'nightRefresh.noDarkSky')}
+      </p>
+      <p className="mt-1 text-caption text-muted">{t('nightRefresh.darkHelp')}</p>
+      <div className="my-4 grid grid-cols-2 gap-3">
+        <div className="rounded-2xl bg-surface-2 px-4 py-3">
+          <p className="text-caption text-muted">{t('tonight.sunset')}</p>
+          <p className="mt-1 text-title tabular-nums">
+            {formatTime(night.timeline.sunset, night.tz)}
+          </p>
+        </div>
+        <div className="rounded-2xl bg-surface-2 px-4 py-3">
+          <p className="text-caption text-muted">{t('nightRefresh.moonlight')}</p>
+          <p className="mt-1 text-title tabular-nums">
+            {Math.round(night.moon.illumination * 100)}%
+            <span className="ml-2 text-caption font-normal text-muted">
+              {t(`tonight.moonPhase.${night.moon.name}`)}
+            </span>
+          </p>
+        </div>
+      </div>
+      <details data-testid="sky-details">
+        <summary className="flex min-h-11 cursor-pointer items-center text-body-sm font-semibold text-accent">
+          {t('nightRefresh.skyDetails')}{' '}
+          <span className="ml-auto" aria-hidden>
+            ＋
+          </span>
+        </summary>
+        <SkyStatusDetails {...props} />
+      </details>
+    </section>
+  );
+}
+
+function SkyStatusDetails({ night, now, lang, clouds }: Props) {
   const { t } = useTranslation();
   const clipId = `sky-track-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const scale = makeScale(night);
@@ -105,7 +157,7 @@ export function SkyStatusCard({ night, now, lang, clouds }: Props) {
     <Card
       title={t('tonight.skyStatus')}
       aside={t('tonight.night', { date: dateLabel })}
-      testId="sky-status-card"
+      testId="sky-status-details"
     >
       <svg
         viewBox={`0 0 ${W} ${H}`}

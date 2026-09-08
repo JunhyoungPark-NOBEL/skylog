@@ -18,7 +18,7 @@ const HOUR_INPUT =
   'min-h-9 w-16 rounded-pill bg-surface-2 px-2 text-center text-body-sm font-medium tabular-nums outline-none transition-[background-color,box-shadow] duration-150 focus:bg-surface-3 focus-visible:shadow-[0_0_0_2px_var(--accent-glow)] [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none';
 
 /**
- * "오늘 밤" 탭: 추천 / 관측 조건 / 천문 일정으로 나누고 세부 설정은 필요할 때 펼친다(D-028).
+ * "오늘 밤" 탭: 추천 / 날씨 / 천문 일정. 요약을 먼저, 세부 설정은 필요할 때 펼친다.
  * 루트는 위·아래 여백을 두지 않는다 — App이 탭 라우트를 pt-status/pb-tab 스크롤 컨테이너로 감싼다.
  */
 export function TonightScreen() {
@@ -31,6 +31,7 @@ export function TonightScreen() {
   const customFrom = useTonightStore((s) => s.customFromHour);
   const customTo = useTonightStore((s) => s.customToHour);
   const d = useTonight();
+  const hasForecast = !!d.weather && !!d.window && hoursIn(d.weather, d.window).length > 0;
   const clouds =
     d.weather && d.night
       ? hoursIn(d.weather, {
@@ -45,9 +46,11 @@ export function TonightScreen() {
         <h1 className="text-headline">{t('tonight.title')}</h1>
         <span className="min-w-0 truncate text-caption text-muted">{d.siteName}</span>
       </div>
-      <p className="mb-4 text-body-sm text-muted">{t('nightSimple.intro')}</p>
+      {panel === 'picks' && (
+        <p className="mb-3 text-body-sm text-muted">{t('nightSimple.intro')}</p>
+      )}
       <div
-        className="mb-4 grid grid-cols-3 gap-1 rounded-2xl bg-surface-2 p-1"
+        className="mb-3 mt-2 grid grid-cols-3 gap-1 rounded-2xl bg-surface-2 p-1"
         role="tablist"
         aria-label={t('tonight.title')}
       >
@@ -92,7 +95,12 @@ export function TonightScreen() {
             onClick={() => setFilters(!filters)}
           >
             <span>
-              {t('tonight.preset.' + preset)} · {t('object.equipment.' + equipment)}
+              {t('tonight.preset.' + preset)}
+              {panel === 'picks'
+                ? ` · ${t('object.equipment.' + equipment)}`
+                : d.window
+                  ? ` · ${formatTime(d.window.from)}–${formatTime(d.window.to)}`
+                  : ''}
             </span>
             <span className="shrink-0 text-accent">
               {t('nightSimple.change')} {filters ? '−' : '+'}
@@ -146,23 +154,25 @@ export function TonightScreen() {
                   </label>
                 </div>
               )}
-              <ChipRow label={t('tonight.equipment')}>
-                {EQUIPMENT.map((e) => (
-                  <Chip
-                    key={e}
-                    role="tab"
-                    tone="success"
-                    selected={e === equipment}
-                    onClick={() => useTonightStore.getState().setEquipment(e)}
-                    testId={`equip-${e}`}
-                  >
-                    {t(`object.equipment.${e}`)}
-                  </Chip>
-                ))}
-              </ChipRow>
+              {panel === 'picks' && (
+                <ChipRow label={t('tonight.equipment')}>
+                  {EQUIPMENT.map((e) => (
+                    <Chip
+                      key={e}
+                      role="tab"
+                      tone="success"
+                      selected={e === equipment}
+                      onClick={() => useTonightStore.getState().setEquipment(e)}
+                      testId={`equip-${e}`}
+                    >
+                      {t(`object.equipment.${e}`)}
+                    </Chip>
+                  ))}
+                </ChipRow>
+              )}
             </div>
           )}
-          {d.window && (
+          {d.window && panel === 'picks' && (
             <p
               className="pt-1 pb-3 text-caption text-muted tabular-nums"
               data-testid="window-label"
@@ -184,12 +194,7 @@ export function TonightScreen() {
       >
         {panel === 'conditions' && (
           <>
-            {d.night ? (
-              <SkyStatusCard night={d.night} now={d.now} lang={lang} clouds={clouds} />
-            ) : (
-              <p className="text-body-sm text-muted">{t('common.loading')}</p>
-            )}
-            {d.night && d.weather && (
+            {d.night && d.weather && hasForecast && (
               <WeatherCard
                 night={d.night}
                 weather={d.weather}
@@ -197,6 +202,19 @@ export function TonightScreen() {
                 window={d.window}
                 lang={lang}
               />
+            )}
+            {d.night && !hasForecast && (
+              <p
+                className="rounded-2xl bg-surface px-4 py-3 text-body-sm text-muted"
+                data-testid="weather-unavailable"
+              >
+                {t('nightRefresh.unavailable')}
+              </p>
+            )}
+            {d.night ? (
+              <SkyStatusCard night={d.night} now={d.now} lang={lang} clouds={clouds} />
+            ) : (
+              <p className="text-body-sm text-muted">{t('common.loading')}</p>
             )}
           </>
         )}

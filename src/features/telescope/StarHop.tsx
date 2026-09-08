@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { starHop } from '@/astro/starHop';
 import { curatedHop } from '@/astro/curatedHop';
 import type { HopCourse } from '@/learn/hopCourses';
+import { hopFieldHint } from './hopCopy';
 import { navigateLearn } from '@/features/learn/learnNavigation';
 import { altAzToScene } from '@/astro/coords';
 import { eqjToAltAzSlow, type ObserverLike } from '@/astro/frames';
@@ -159,8 +160,10 @@ export function StarHop({
             {t('guide.hopDistance', {
               direction: compass16(s.bearingDeg, lang),
               deg: s.distanceDeg.toFixed(1),
-              fields: s.fields.toFixed(1),
             })}
+            <span className="mt-1 block text-caption text-muted" data-testid="hop-distance-hint">
+              {hopFieldHint(s.fields, lang)}
+            </span>
           </p>
           <FinderChart
             small

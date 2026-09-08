@@ -146,6 +146,31 @@ test('기본 방향 센서: 바로 연결하고 끄기 선택은 재실행에도
   await expect(page.getByTestId('ar-align')).toHaveCount(0);
   await page.getByTestId('ar-toggle').click();
   await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
+  // 화면의 꺼짐 표시와 Dexie 비동기 저장 완료는 다르다. 저장을 확인한 뒤 재실행한다.
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          new Promise<unknown>((resolve, reject) => {
+            const request = indexedDB.open('skylog');
+            request.onerror = () => reject(request.error);
+            request.onsuccess = () => {
+              const db = request.result;
+              const tx = db.transaction('settings', 'readonly');
+              const value = tx.objectStore('settings').get('sensor.autoStart');
+              tx.oncomplete = () => {
+                db.close();
+                resolve((value.result as { value?: unknown } | undefined)?.value);
+              };
+              tx.onabort = () => {
+                db.close();
+                reject(tx.error);
+              };
+            };
+          }),
+      ),
+    )
+    .toBe(false);
   await page.reload();
   await expect(page.getByTestId('sky-view')).toBeVisible();
   await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');

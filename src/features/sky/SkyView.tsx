@@ -21,6 +21,7 @@ import { TimeBar } from '@/features/sky/TimeBar';
 import { SkyScene, type ObjectInfo } from '@/render/SkyScene';
 import { useClockStore } from '@/state/clockStore';
 import { showsBelowHorizon, useLayerStore } from '@/state/layerStore';
+import { effectiveGroundOpacity } from '@/render/landscape';
 import { FovOverlay } from '@/features/telescope/FovOverlay';
 import { useLocationStore } from '@/state/locationStore';
 import { useLogStore, type LogState } from '@/state/logStore';
@@ -39,9 +40,13 @@ function formatView(alt: number, az: number, fov: number): string {
  */
 function BelowHorizonHint() {
   const { t } = useTranslation();
-  const below = useViewStore((s) => s.centerAlt < 0);
-  const show = useLayerStore(showsBelowHorizon);
-  if (!below || !show) return null;
+  const altitude = useViewStore((s) => s.centerAlt);
+  const opacity = useLayerStore((s) => s.groundOpacity);
+  const landscape = useLayerStore((s) => s.landscape);
+  const show = showsBelowHorizon({
+    groundOpacity: effectiveGroundOpacity(opacity, landscape, altitude),
+  });
+  if (altitude >= 0 || !show) return null;
   return (
     <p
       data-testid="below-horizon-hint"

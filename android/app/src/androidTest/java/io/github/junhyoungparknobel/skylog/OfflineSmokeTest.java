@@ -30,6 +30,10 @@ public class OfflineSmokeTest {
             assertEquals("\"android\"", js(app, "Capacitor.getPlatform()"));
             assertEquals("true", js(app, "Capacitor.isPluginAvailable('SkylogMotion')"));
             js(app, "location.hash='#/learn?section=courses'");
+            waitFor(app, "!!document.querySelector('[data-testid=course-theme-telescope]')");
+            js(app, "document.querySelector('[data-testid=course-theme-telescope]').click()");
+            waitFor(app, "!!document.querySelector('[data-testid=course-group-starhop]')");
+            js(app, "document.querySelector('[data-testid=course-group-starhop]').click()");
             waitFor(app, "!!document.querySelector('[data-testid=hop-courses]')");
             assertEquals("6", js(app, "document.querySelectorAll('[data-testid=hop-courses] button').length"));
             js(app, "document.querySelector('[data-testid=course-hercules-keystone]').click()");

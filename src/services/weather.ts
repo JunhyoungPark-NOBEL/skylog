@@ -231,8 +231,14 @@ export function summarizeWeather(forecast: WeatherForecast, iv: Interval): Weath
   let runStart: Date | null = null;
   const closeRun = (endAt: Date) => {
     if (!runStart) return;
-    if (!best || endAt.getTime() - runStart.getTime() > best.to.getTime() - best.from.getTime())
-      best = { from: runStart, to: endAt };
+    // 시간별 예보의 마지막 한 시간도 사용자가 고른 구간 안으로 제한한다.
+    const from = new Date(Math.max(runStart.getTime(), iv.from.getTime()));
+    const to = new Date(Math.min(endAt.getTime(), iv.to.getTime()));
+    if (
+      to > from &&
+      (!best || to.getTime() - from.getTime() > best.to.getTime() - best.from.getTime())
+    )
+      best = { from, to };
     runStart = null;
   };
   for (const h of hs) {

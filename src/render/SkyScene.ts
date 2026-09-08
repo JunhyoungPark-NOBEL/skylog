@@ -1,3 +1,4 @@
+import { effectiveGroundOpacity } from '@/render/landscape';
 import { showsBelowHorizon } from '@/state/layerStore';
 /**
  * 하늘 씬 오케스트레이터 (task-01 §3.1). 카메라는 원점, 천체는 R=100 천구 방향.
@@ -170,9 +171,14 @@ export class SkyScene {
       this.grid.meridian.object,
       this.bodies.group,
       this.horizon.ground,
+      this.horizon.meadow,
       this.horizon.ring.object,
     );
     this.projection.attach(this.scene);
+    this.horizon.blendMeadowEdge();
+    void this.horizon.loadMeadow(() => {
+      this.dirty = true;
+    });
 
     opts.canvas.addEventListener('webglcontextlost', (e) => {
       e.preventDefault();
@@ -334,7 +340,13 @@ export class SkyScene {
     const view = this.controller.getView();
     const layers = this.opts.getLayers();
     const p = this.palette;
-    const showBelow = showsBelowHorizon(layers);
+    const showBelow = showsBelowHorizon({
+      groundOpacity: effectiveGroundOpacity(
+        layers.groundOpacity,
+        layers.landscape,
+        this.controller.getView().altDeg,
+      ),
+    });
     const dpp = degPerPixel(view.fovDeg, this.width, this.height);
     this.controller.applyToCamera(this.width, this.height);
     this.projection.update(view.fovDeg, this.width, this.height, this.pixelRatio);
@@ -402,8 +414,14 @@ export class SkyScene {
     this.dso.points.visible = layers.dso;
     this.dso.setParams(view.fovDeg, dpp, this.pixelRatio, p.label, 0.85 * dayFade, true, showBelow);
 
-    this.horizon.ground.visible = layers.groundOpacity > 0;
-    this.horizon.setStyle(p.night ? '#050000' : '#0b0d12', layers.groundOpacity, p.horizon);
+    const groundOpacity = effectiveGroundOpacity(
+      layers.groundOpacity,
+      layers.landscape,
+      view.altDeg,
+    );
+    this.horizon.ground.visible = groundOpacity > 0;
+    this.horizon.setStyle(p.night ? '#050000' : '#0b0d12', groundOpacity, p.horizon);
+    this.horizon.setMeadow(layers.landscape, groundOpacity, p.night, sunAlt);
 
     this.bodies.setShowBelowHorizon(showBelow);
     this.bodies.updateViewScale(
@@ -627,7 +645,13 @@ export class SkyScene {
     if (!isInsideSkyDisk(x, y, this.controller.getView().fovDeg, this.width, this.height))
       return null;
     const layers = this.opts.getLayers();
-    const showBelow = showsBelowHorizon(layers);
+    const showBelow = showsBelowHorizon({
+      groundOpacity: effectiveGroundOpacity(
+        layers.groundOpacity,
+        layers.landscape,
+        this.controller.getView().altDeg,
+      ),
+    });
     const cat = this.catalog;
     const candidates: Candidate[] = [];
     const view = this.controller.getView();
@@ -785,7 +809,13 @@ export class SkyScene {
   // ---------- 라벨 ----------
 
   private updateLabels(view: ViewState, layers: LayerValues, limitingMag: number): void {
-    const showBelow = showsBelowHorizon(layers);
+    const showBelow = showsBelowHorizon({
+      groundOpacity: effectiveGroundOpacity(
+        layers.groundOpacity,
+        layers.landscape,
+        this.controller.getView().altDeg,
+      ),
+    });
     const cat = this.catalog;
     const lang = this.opts.getLang();
     const labelLang: Lang = layers.labelLang === 'auto' ? lang : layers.labelLang;
