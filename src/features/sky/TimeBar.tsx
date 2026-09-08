@@ -1,16 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useClockStore } from '@/state/clockStore';
+import { useSettingsStore } from '@/state/settingsStore';
 import { IconChevron } from '@/ui/icons';
-
-const fmtDateTime = new Intl.DateTimeFormat('ko-KR', {
-  month: '2-digit',
-  day: '2-digit',
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: false,
-  timeZone: 'Asia/Seoul',
-});
 
 const RATES = [-600, -60, 0, 60, 600] as const;
 
@@ -27,24 +19,49 @@ function toLocalDateInput(d: Date): string {
 
 /**
  * 시간 제어 바 (task-01 §3.7): ±12시간 슬라이더(1분), 날짜, 배속, "지금". 상태는 clockStore.
- * 접을 수 있다. 실시간이 아닐 때는 강조색. 떠 있는 유리 패널 — 위치는 SkyView의 하단 스택(bottom-sky)이 정한다.
+ * 실시간은 작은 시각 pill, 필요할 때만 상세 제어를 펼친다. 시간 이동과 지금 복귀는 접어도 표시한다.
+ * 위치는 SkyView의 하단 스택(bottom-sky)이 정한다.
  */
 export function TimeBar() {
   const { t } = useTranslation();
+  const lang = useSettingsStore((s) => s.lang);
   const mode = useClockStore((s) => s.mode);
   const rate = useClockStore((s) => s.rate);
   const offsetMs = useClockStore((s) => s.offsetMs);
   const [open, setOpen] = useState(false);
   const [label, setLabel] = useState('');
+  const [timeOnly, setTimeOnly] = useState('');
   const [slider, setSlider] = useState(0);
   const sliderPrev = useRef(0);
+  const controlsId = useId();
+  const formats = useMemo(() => {
+    const locale = lang === 'ko' ? 'ko-KR' : 'en-GB';
+    const time: Intl.DateTimeFormatOptions = {
+      hour: '2-digit',
+      minute: '2-digit',
+      hourCycle: 'h23',
+      timeZone: 'Asia/Seoul',
+    };
+    return {
+      time: new Intl.DateTimeFormat(locale, time),
+      dateTime: new Intl.DateTimeFormat(locale, { ...time, month: '2-digit', day: '2-digit' }),
+    };
+  }, [lang]);
 
   useEffect(() => {
-    const tick = () => setLabel(fmtDateTime.format(useClockStore.getState().now()));
+    const tick = () => {
+      const now = useClockStore.getState().now();
+      setLabel(formats.dateTime.format(now));
+      setTimeOnly(formats.time.format(now));
+    };
     tick();
     const id = window.setInterval(tick, 500);
-    return () => window.clearInterval(id);
-  }, []);
+    const unsubscribe = useClockStore.subscribe(() => queueMicrotask(tick));
+    return () => {
+      window.clearInterval(id);
+      unsubscribe();
+    };
+  }, [formats]);
 
   // 실시간 모드에서는 슬라이더 = 오프셋(파생값), 수동 모드에서는 마지막 슬라이더 위치
   const sliderValue = mode === 'realtime' ? Math.round(offsetMs / 60_000) : slider;
@@ -76,35 +93,47 @@ export function TimeBar() {
 
   return (
     <div
-      className={`pointer-events-auto flex flex-col rounded-2xl glass text-caption shadow-float squircle ${
-        notNow ? 'text-accent' : 'text-fg'
-      }`}
+      className={`${open ? 'glass-sm' : 'glass-hud'} pointer-events-auto flex max-w-full flex-col text-caption shadow-card ${
+        open ? 'w-full rounded-xl' : 'self-center rounded-pill'
+      } ${notNow ? 'text-accent' : 'text-fg'}`}
       data-testid="time-bar"
+      data-time-shifted={notNow ? '1' : '0'}
     >
-      <div className="flex min-h-11 items-center gap-2 pl-4 pr-1.5">
+      <div className={`flex min-h-11 items-center ${notNow ? 'gap-1 pl-3 pr-1' : 'px-3'}`}>
         <button
           type="button"
-          className="flex min-h-9 min-w-0 flex-1 items-center gap-1.5 text-left text-body-sm font-medium tabular-nums"
+          className="flex min-h-11 min-w-0 flex-1 items-center gap-2 text-left text-body-sm font-medium tabular-nums"
           onClick={() => setOpen((o) => !o)}
           data-testid="time-toggle"
           aria-expanded={open}
+          aria-controls={open ? controlsId : undefined}
+          aria-label={`${t('sky.time.controls')} · ${label}${notNow ? ` · ${t('status.manualTime')}` : ''}`}
         >
+          <span className="flex min-w-0 flex-col">
+            <span className="truncate">
+              {!open && !notNow && (
+                <span className="mr-1.5 font-normal text-fg/70">{t('sky.time.now')}</span>
+              )}
+              {open || notNow ? label : timeOnly}
+              {mode === 'manual' && rate !== 0 ? ` ×${rate}` : ''}
+            </span>
+            {notNow && (
+              <span className="text-label font-medium" data-testid="time-shift-label">
+                {t('status.manualTime')}
+              </span>
+            )}
+          </span>
           <IconChevron
-            size={16}
-            className={`shrink-0 transition-transform duration-[350ms] ease-spring-fast ${
+            size={14}
+            className={`ml-auto shrink-0 transition-transform duration-150 ease-standard ${
               open ? 'rotate-90' : '-rotate-90'
             }`}
           />
-          <span className="truncate">
-            {label}
-            {mode === 'manual' && rate !== 0 ? ` ×${rate}` : ''}
-            {notNow ? ` · ${t('status.manualTime')}` : ''}
-          </span>
         </button>
         {notNow && (
           <button
             type="button"
-            className="inline-flex min-h-9 shrink-0 items-center justify-center rounded-pill bg-accent px-3.5 text-caption font-semibold text-accent-fg transition-transform duration-150 ease-standard active:scale-[0.97]"
+            className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-pill px-3 text-caption font-semibold text-accent transition-colors duration-150 ease-standard active:bg-accent-soft"
             onClick={() => useClockStore.getState().resetToNow()}
             data-testid="time-now"
           >
@@ -113,7 +142,11 @@ export function TimeBar() {
         )}
       </div>
       {open && (
-        <div className="flex flex-col gap-3 px-4 pb-4" data-testid="time-controls">
+        <div
+          id={controlsId}
+          className="flex max-h-[45dvh] flex-col gap-2 overflow-y-auto overscroll-contain px-3 pb-3 text-fg"
+          data-testid="time-controls"
+        >
           <input
             type="range"
             min={-720}
@@ -122,40 +155,45 @@ export function TimeBar() {
             value={sliderValue}
             onChange={(e) => onSlider(Number(e.target.value))}
             aria-label={t('sky.time.slider')}
-            className="w-full"
+            className="min-h-11 w-full shrink-0"
             data-testid="time-slider"
           />
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-3">
+            <label htmlFor={`${controlsId}-date`} className="shrink-0 text-fg/70">
+              {t('sky.time.date')}
+            </label>
             <input
+              id={`${controlsId}-date`}
               type="date"
               value={toLocalDateInput(useClockStore.getState().now())}
               onChange={(e) => onDate(e.target.value)}
               aria-label={t('sky.time.date')}
-              className="min-h-9 min-w-0 rounded-pill bg-surface-2 px-3 text-body-sm text-fg tabular-nums outline-none transition-[background-color,box-shadow] duration-150 focus:bg-surface-3 focus-visible:shadow-[0_0_0_2px_var(--accent-glow)]"
+              className="min-h-11 min-w-0 flex-1 rounded-sm bg-surface-2/80 px-3 text-body-sm text-fg tabular-nums outline-none transition-[background-color,box-shadow] duration-150 focus:bg-surface-3 focus-visible:shadow-[0_0_0_2px_var(--accent-glow)]"
               data-testid="time-date"
             />
-            <div
-              className="flex flex-1 justify-end gap-1"
-              role="group"
-              aria-label={t('sky.time.rate')}
-            >
-              {RATES.map((r) => (
-                <button
-                  key={r}
-                  type="button"
-                  onClick={() => {
-                    sliderPrev.current = sliderValue;
-                    setSlider(sliderValue);
-                    useClockStore.getState().setRate(r);
-                  }}
-                  aria-pressed={mode === 'manual' && rate === r}
-                  className="inline-flex min-h-9 min-w-10 items-center justify-center rounded-pill bg-surface-2 px-2 text-caption font-medium tabular-nums transition-[background-color,color,transform] duration-150 ease-standard active:scale-95 aria-pressed:bg-accent aria-pressed:text-accent-fg"
-                  data-testid={`time-rate-${r}`}
-                >
-                  {r === 0 ? '⏸' : `${r > 0 ? '' : '−'}${Math.abs(r)}×`}
-                </button>
-              ))}
-            </div>
+          </div>
+          <div
+            className="grid shrink-0 grid-cols-5 gap-1"
+            role="group"
+            aria-label={t('sky.time.rate')}
+          >
+            {RATES.map((r) => (
+              <button
+                key={r}
+                type="button"
+                onClick={() => {
+                  sliderPrev.current = sliderValue;
+                  setSlider(sliderValue);
+                  useClockStore.getState().setRate(r);
+                }}
+                aria-pressed={mode === 'manual' && rate === r}
+                aria-label={`${t('sky.time.rate')} ${r}×`}
+                className="inline-flex min-h-11 min-w-0 items-center justify-center rounded-pill bg-surface-2/80 px-1 text-caption font-medium tabular-nums transition-colors duration-150 ease-standard active:bg-surface-3 aria-pressed:bg-accent aria-pressed:text-accent-fg"
+                data-testid={`time-rate-${r}`}
+              >
+                {r === 0 ? '⏸' : `${r > 0 ? '' : '−'}${Math.abs(r)}×`}
+              </button>
+            ))}
           </div>
         </div>
       )}

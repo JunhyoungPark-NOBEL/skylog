@@ -2,17 +2,20 @@ import { emitSkill } from '@/learn/runtime';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { sensorManager } from '@/sensors/orientation/manager';
-import { orientationEventsSupported, requestOrientationPermission } from '@/sensors/permissions';
-import { requestWakeLock } from '@/sensors/wakeLock';
+import { orientationEventsSupported } from '@/sensors/permissions';
+import {
+  disableSkyOrientation,
+  enableSkyOrientationFromGesture,
+} from '@/sensors/orientation/autoStart';
 import { useSensorStore } from '@/state/sensorStore';
 import { IconCompass } from '@/ui/icons';
 
 /**
  * AR(센서) 모드 토글 (task-02 §3.6). 권한 요청은 이 버튼의 탭 핸들러 안에서만 한다(iOS).
  * 상태 배지: 소스(절대/나침반 동기/상대/보정됨/수동), 보정 상태, 간섭 경고. 수동 일시 정지 중에는 "센서 복귀".
- * 상태 캡슐 아래 오른쪽에 떠 있는 컨트롤 클러스터(버튼 → 상태 배지 → 정렬 버튼 순).
+ * 정상 추종은 버튼 하나만 보이고, 권한·간섭·수동 일시 정지처럼 필요한 상태만 펼친다.
  */
-export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
+export function ArToggle() {
   const { t } = useTranslation();
   const arActive = useSensorStore((s) => s.arActive);
   const source = useSensorStore((s) => s.headingSource);
@@ -22,6 +25,8 @@ export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
   const permission = useSensorStore((s) => s.permission);
   const simulator = useSensorStore((s) => s.simulator);
   const provider = useSensorStore((s) => s.provider);
+  const startup = useSensorStore((s) => s.startup);
+  const autoStart = useSensorStore((s) => s.autoStart);
   const [help, setHelp] = useState<string | null>(null);
 
   const supported = simulator || orientationEventsSupported();
@@ -29,7 +34,8 @@ export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
   const toggle = async () => {
     const st = useSensorStore.getState();
     if (st.arActive) {
-      sensorManager.stop();
+      disableSkyOrientation();
+      setHelp(null);
       return;
     }
     if (!supported) {
@@ -37,19 +43,18 @@ export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
       return;
     }
     // 권한: 사용자 제스처 안에서, 불필요한 await 없이 즉시 호출
-    const perm = st.simulator ? 'granted' : await requestOrientationPermission();
-    st.patch({ permission: perm });
+    const perm = await enableSkyOrientationFromGesture();
+    if (perm === null) return;
     if (perm === 'denied') {
       setHelp(t('sensor.permission.deniedHelp'));
       return;
     }
     setHelp(null);
-    sensorManager.start();
     if (useSensorStore.getState().arActive && !st.simulator) void emitSkill('arMode');
-    void requestWakeLock();
   };
 
   const sourceText = (() => {
+    if (startup === 'starting') return t('sensorAuto.connecting');
     if (!arActive) return null;
     if (paused) return t('sensor.source.manual');
     if (calibration)
@@ -57,29 +62,63 @@ export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
         target: calibration.targetName,
         ago: agoText(calibration.at, t),
       });
-    if (source === 'absolute') return t('sensor.source.absolute');
-    if (source === 'compass-sync') return t('sensor.source.compassSync');
-    if (source === 'relative') return t('sensor.source.relative');
+    if (source === 'absolute') return anomaly ? t('sensor.source.absolute') : null;
+    if (source === 'compass-sync') return anomaly ? t('sensor.source.compassSync') : null;
+    if (source === 'relative') return t('sensorAuto.compassHelp');
     return t('sensor.source.none');
   })();
+  const needsTap =
+    !arActive && autoStart && (startup === 'permission-required' || startup === 'unavailable');
 
   return (
     <div
-      className="absolute right-3 top-[calc(var(--status-height)+env(safe-area-inset-top)+12px)] z-10 flex flex-col items-end gap-2"
+      className="absolute right-[12px] top-[calc(var(--status-height)+env(safe-area-inset-top)+12px)] z-10 flex flex-col items-end gap-[8px]"
       data-testid="ar-toggle-wrap"
     >
       <button
         type="button"
         onClick={() => void toggle()}
         aria-pressed={arActive}
-        aria-label={t('sensor.ar')}
+        aria-label={t(
+          arActive
+            ? 'sensorAuto.turnOff'
+            : needsTap
+              ? permission === 'denied' || startup === 'unavailable'
+                ? 'sensorAuto.retry'
+                : 'sensorAuto.enable'
+              : 'sensor.ar',
+        )}
         data-testid="ar-toggle"
-        className={`flex h-11 w-11 items-center justify-center rounded-pill glass text-fg transition-[transform,background-color,color] duration-150 ease-standard active:scale-95 aria-pressed:bg-accent-soft aria-pressed:text-accent ${
+        className={`flex min-h-[44px] ${arActive || needsTap ? 'max-w-[70vw] gap-[8px] px-[12px] py-[8px] text-caption font-semibold' : 'h-[44px] w-[44px]'} items-center justify-center rounded-pill glass-hud text-fg transition-[transform,background-color,color] duration-150 ease-standard active:scale-95 aria-pressed:bg-accent-soft aria-pressed:text-accent ${
           paused ? 'shadow-[inset_0_0_0_1.5px_var(--danger),var(--elev-float)]' : 'shadow-float'
         }`}
       >
         <IconCompass size={22} />
+        {arActive && <span>{t('sensorAuto.on')}</span>}
+        {needsTap && (
+          <span>
+            {t(
+              permission === 'denied' || startup === 'unavailable'
+                ? 'sensorAuto.retry'
+                : 'sensorAuto.enable',
+            )}
+          </span>
+        )}
       </button>
+      {needsTap && !help && (
+        <p
+          className="max-w-[65vw] rounded-xl glass-sm px-3 py-2 text-right text-caption leading-5 text-muted"
+          data-testid="ar-start-help"
+        >
+          {t(
+            permission === 'denied'
+              ? 'sensor.permission.deniedHelp'
+              : startup === 'unavailable'
+                ? 'sensorAuto.unavailable'
+                : 'sensorAuto.permissionHelp',
+          )}
+        </p>
+      )}
       {sourceText && (
         <div
           className="max-w-[60vw] rounded-pill glass px-3 py-1.5 text-right text-caption text-fg shadow-float"
@@ -94,7 +133,7 @@ export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
           )}
         </div>
       )}
-      {arActive && (
+      {arActive && paused && (
         <div className="flex gap-2">
           {paused && (
             <button
@@ -106,20 +145,12 @@ export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
               {t('sensor.resume')}
             </button>
           )}
-          <button
-            type="button"
-            onClick={onOpenWizard}
-            className="inline-flex min-h-9 items-center justify-center rounded-pill glass px-3.5 text-caption font-medium text-fg shadow-float transition-transform duration-150 ease-standard active:scale-95"
-            data-testid="ar-align"
-          >
-            {calibration ? t('sensor.realign') : t('sensor.align')}
-          </button>
         </div>
       )}
       {help && (
         <div
           role="alert"
-          className="max-w-[70vw] rounded-md bg-surface p-3 text-caption text-fg shadow-float squircle"
+          className="max-h-[35dvh] max-w-[70vw] overflow-y-auto overscroll-contain rounded-md bg-surface p-[12px] text-caption text-fg shadow-float squircle"
           data-testid="ar-help"
         >
           {help}
@@ -129,7 +160,7 @@ export function ArToggle({ onOpenWizard }: { onOpenWizard(): void }) {
           <button
             type="button"
             onClick={() => setHelp(null)}
-            className="mt-2 inline-flex min-h-9 items-center justify-center rounded-pill bg-surface-3 px-3.5 text-caption font-medium text-fg transition-transform duration-150 ease-standard active:scale-[0.97]"
+            className="mt-[8px] inline-flex min-h-[44px] items-center justify-center rounded-pill bg-surface-3 px-[14px] text-caption font-medium text-fg transition-transform duration-150 ease-standard active:scale-[0.97]"
           >
             {t('common.close')}
           </button>

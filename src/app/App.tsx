@@ -14,7 +14,7 @@ import { SearchScreen } from '@/features/search/SearchScreen';
 import { SensorDebugScreen } from '@/features/settings/SensorDebug';
 import { SettingsScreen } from '@/features/settings/SettingsScreen';
 import { SitesScreen } from '@/features/settings/Sites';
-import { initLocation } from '@/sensors/locationInit';
+import { mountAutoLocation } from '@/sensors/autoLocation';
 import { SkyView } from '@/features/sky/SkyView';
 import { TonightScreen } from '@/features/tonight/TonightScreen';
 import { ObjectSheet } from '@/features/object/ObjectSheet';
@@ -64,9 +64,7 @@ export function App() {
     if (keepAwake) void requestWakeLock();
     else void releaseWakeLock();
   }, [keepAwake]);
-  useEffect(() => {
-    void initLocation();
-  }, []);
+  useEffect(() => mountAutoLocation(), []);
   // 기록 파생 상태(★/☆ 집합)는 앱 전역에서 한 번만 DB를 구독한다(T4)
   useEffect(() => startLogSync(), []);
   useEffect(() => startReadSync(), []);

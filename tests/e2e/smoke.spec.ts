@@ -22,7 +22,7 @@ test('앱 셸: 탭 5개 · 상태 바 · 콘솔 에러 0', async ({ page }) => {
   await expect(page.getByRole('tab')).toHaveCount(5);
   await expect(page.getByTestId('tab-sky')).toHaveAttribute('aria-selected', 'true');
   await expect(page.getByTestId('status-site')).toContainText('대전');
-  await expect(page.getByTestId('status-time')).toHaveText(/\d{2}:\d{2}/);
+  await expect(page.getByTestId('time-toggle')).toContainText(/\d{2}:\d{2}/);
   await expect(page.locator('#splash')).toHaveCount(0);
 
   for (const tab of ['search', 'tonight', 'log', 'learn'] as const) {
@@ -35,6 +35,83 @@ test('앱 셸: 탭 5개 · 상태 바 · 콘솔 에러 0', async ({ page }) => {
   await page.waitForTimeout(500);
   await page.screenshot({ path: `${SHOTS}/shell-dark.png`, fullPage: true });
   expect(errors, errors.join('\n')).toEqual([]);
+});
+
+test('작은 첫 화면: 시간 조절은 접히고 하늘 도구는 설정 안에서 열린다', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 780 });
+  await page.goto('#/sky');
+  await expect(page.getByTestId('sky-view')).toBeVisible();
+  const time = page.getByTestId('time-bar');
+  await expect(time).toHaveAttribute('data-time-shifted', '0');
+  await expect(page.getByTestId('time-controls')).toHaveCount(0);
+  await expect(page.getByTestId('sky-overview')).toHaveCount(0);
+  await expect(page.getByTestId('sky-telescope')).toHaveCount(0);
+  await expect(page.getByTestId('real-sky-toggle')).toHaveCount(0);
+  await expect(page.getByTestId('view-info')).toHaveCount(0);
+  expect((await time.boundingBox())!.width).toBeLessThan(210);
+  expect((await page.getByTestId('tab-bar').boundingBox())!.height).toBeLessThan(65);
+  for (const tab of await page.getByRole('tab').all()) {
+    const box = (await tab.boundingBox())!;
+    expect(box.width).toBeGreaterThanOrEqual(44);
+    expect(box.height).toBeGreaterThanOrEqual(44);
+  }
+  await page.screenshot({ path: `${SHOTS}/sky-simple.png` });
+  await page.getByTestId('time-toggle').click();
+  await expect(page.getByTestId('time-controls')).toBeVisible();
+  await page.getByTestId('time-date').fill('2026-09-09');
+  await expect(time).toHaveAttribute('data-time-shifted', '1');
+  await page.getByTestId('time-toggle').click();
+  await expect(page.getByTestId('time-shift-label')).toBeVisible();
+  await page.getByTestId('time-now').click();
+  await expect(time).toHaveAttribute('data-time-shifted', '0');
+  await page.getByTestId('open-layers').click();
+  await expect(page.getByTestId('sky-telescope')).toBeVisible();
+  await page.getByTestId('sky-overview').click();
+  await expect(page.getByTestId('layer-panel')).toHaveCount(0);
+  await expect(page.getByTestId('view-info')).toContainText('180°');
+});
+
+test('큰 글자 200%: 센서 권한 안내·목표·좌표와 하단 탭이 겹치지 않는다', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 780 });
+  await page.addInitScript(() => {
+    Object.defineProperty(window.DeviceOrientationEvent, 'requestPermission', {
+      configurable: true,
+      value: async () => 'denied',
+    });
+  });
+  await page.goto('#/sky?t=2026-09-06T12:00:00Z&select=planet:saturn');
+  await expect(page.getByTestId('tooltip')).toBeVisible();
+  await page.getByTestId('tooltip-details').click();
+  await page.getByTestId('sheet-show-in-sky').click();
+  await page.getByTestId('sheet-close').click();
+  await page.getByTestId('ar-toggle').click();
+  await expect(page.getByTestId('ar-help')).toBeVisible();
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = '200%';
+  });
+  await expect
+    .poll(async () => {
+      const controls = (await page.getByTestId('ar-toggle-wrap').boundingBox())!;
+      const target = (await page.getByTestId('target-pill').boundingBox())!;
+      const view = (await page.getByTestId('view-info').boundingBox())!;
+      const time = (await page.getByTestId('time-bar').boundingBox())!;
+      return (
+        target.y >= controls.y + controls.height + 7 &&
+        view.y >= target.y + target.height + 7 &&
+        view.y + view.height < time.y
+      );
+    })
+    .toBe(true);
+  const tabs = (await page.getByTestId('tab-bar').boundingBox())!;
+  expect(tabs.height).toBe(60);
+  for (const tab of await page.getByRole('tab').all()) {
+    const box = (await tab.boundingBox())!;
+    expect(box.width).toBeGreaterThanOrEqual(44);
+    expect(box.height).toBeGreaterThanOrEqual(44);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(360);
+  await expect(page.getByTestId('tooltip')).toHaveCount(0);
+  await page.screenshot({ path: `${SHOTS}/sky-large-text.png` });
 });
 
 test('설정: 야간 모드 · 언어 전환 · 디버그 HUD가 동작하고 Dexie에 저장된다', async ({ page }) => {

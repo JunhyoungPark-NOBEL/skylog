@@ -29,9 +29,26 @@ import { Vector3 } from 'three';
 import { useLocationStore } from '@/state/locationStore';
 import { useSensorStore, type CalibrationInfo } from '@/state/sensorStore';
 import { useViewStore } from '@/state/viewStore';
+import { needsOrientationPermission } from '@/sensors/permissions';
 
 const NO_DATA_TIMEOUT_MS = 1500;
 const MANUAL_PAUSE_MS = 5000;
+
+/** GPS라는 같은 이름을 쓰더라도 좌표가 가까운 보정만 재사용한다. 기존 좌표 없는 기록은 제외한다. */
+export function calibrationMatchesSite(
+  calibration: Pick<CalibrationInfo, 'lat' | 'lon'>,
+  site: { lat: number; lon: number },
+): boolean {
+  const { lat, lon } = calibration;
+  return (
+    typeof lat === 'number' &&
+    typeof lon === 'number' &&
+    Number.isFinite(lat) &&
+    Number.isFinite(lon) &&
+    Math.abs(lat - site.lat) <= 0.01 &&
+    Math.abs(wrap180(lon - site.lon)) <= 0.01
+  );
+}
 
 export class SensorManager {
   private camera: CameraController | null = null;
@@ -47,6 +64,8 @@ export class SensorManager {
   private declination = 0;
   private declinationKey = '';
   private resumeTimer = 0;
+  private sampleWatchdog = 0;
+  private lastWallSample = 0;
 
   attachCamera(c: CameraController | null): void {
     this.camera = c;
@@ -72,22 +91,26 @@ export class SensorManager {
         provider: null,
         headingSource: 'none',
         permission: 'unsupported',
+        startup: 'unavailable',
       });
       return;
     }
-    // 저장된 보정 재사용(같은 관측지)
-    const site = useLocationStore.getState().site.name;
-    const cal =
-      st.lastCalibration && st.lastCalibration.siteName === site ? st.lastCalibration : null;
     st.patch({
       arActive: true,
-      deltaAzDeg: cal?.deltaAzDeg ?? 0,
-      pitchOffsetDeg: cal?.pitchOffsetDeg ?? 0,
-      calibration: cal,
+      startup: 'starting',
+      deltaAzDeg: 0,
+      pitchOffsetDeg: 0,
+      calibration: null,
       manualPauseUntil: 0,
       anomaly: false,
     });
     useViewStore.getState().setMode('sensor');
+    this.sampleWatchdog = window.setInterval(() => {
+      if (this.lastWallSample > 0 && Date.now() - this.lastWallSample > NO_DATA_TIMEOUT_MS) {
+        this.stop();
+        useSensorStore.getState().patch({ startup: 'unavailable' });
+      }
+    }, 500);
     this.tryNextProvider();
   }
 
@@ -96,8 +119,18 @@ export class SensorManager {
     this.provider = null;
     window.clearTimeout(this.noDataTimer);
     window.clearTimeout(this.resumeTimer);
+    window.clearInterval(this.sampleWatchdog);
+    this.lastQ = null;
+    this.lastSampleRaw = null;
+    this.lastWallSample = 0;
     this.camera?.setSensorQuaternion(null);
-    useSensorStore.getState().patch({ arActive: false, headingSource: 'none', eventHz: null });
+    useSensorStore.getState().patch({
+      arActive: false,
+      startup: 'idle',
+      headingSource: 'none',
+      eventHz: null,
+      calibration: null,
+    });
     useViewStore.getState().setMode('manual');
   }
 
@@ -109,13 +142,23 @@ export class SensorManager {
   private tryNextProvider(): void {
     const next = this.candidates.shift();
     if (!next) {
-      useSensorStore
-        .getState()
-        .patch({ arActive: false, provider: null, headingSource: 'none', permission: 'denied' });
+      this.stop();
+      useSensorStore.getState().patch({
+        arActive: false,
+        provider: null,
+        headingSource: 'none',
+        startup: needsOrientationPermission() ? 'permission-required' : 'unavailable',
+      });
       useViewStore.getState().setMode('manual');
       return;
     }
     this.provider = next;
+    this.filter = new OrientationFilter();
+    this.yawSync.reset();
+    this.lastSampleRaw = null;
+    this.lastWallSample = 0;
+    this.lastStorePatch = -Infinity;
+    useSensorStore.getState().patch({ calibration: null, deltaAzDeg: 0, pitchOffsetDeg: 0 });
     useSensorStore.getState().patch({ provider: next.name });
     let gotData = false;
     this.noDataTimer = window.setTimeout(() => {
@@ -126,9 +169,23 @@ export class SensorManager {
     }, NO_DATA_TIMEOUT_MS);
     next.start(
       (s) => {
+        if (this.provider !== next) return;
         if (!gotData) {
           gotData = true;
           window.clearTimeout(this.noDataTimer);
+          const remembered = useSensorStore.getState().lastCalibration;
+          if (
+            s.northReference !== 'relative' &&
+            remembered?.northReference === s.northReference &&
+            remembered.provider === s.provider &&
+            calibrationMatchesSite(remembered, useLocationStore.getState().site)
+          ) {
+            useSensorStore.getState().patch({
+              calibration: remembered,
+              deltaAzDeg: remembered.deltaAzDeg,
+              pitchOffsetDeg: remembered.pitchOffsetDeg,
+            });
+          }
         }
         this.onSample(s);
       },
@@ -150,6 +207,25 @@ export class SensorManager {
   }
 
   private onSample(s: OrientationSample): void {
+    const interrupted =
+      this.lastWallSample > 0 && Date.now() - this.lastWallSample > NO_DATA_TIMEOUT_MS;
+    const referenceChanged =
+      this.lastSampleRaw && this.lastSampleRaw.northReference !== s.northReference;
+    if (interrupted || referenceChanged) {
+      this.filter = new OrientationFilter();
+      this.yawSync.reset();
+      this.lastStorePatch = -Infinity;
+      if (s.northReference === 'relative' || referenceChanged)
+        useSensorStore.getState().patch({ calibration: null, deltaAzDeg: 0, pitchOffsetDeg: 0 });
+    }
+    this.lastWallSample = Date.now();
+    const current = useSensorStore.getState();
+    if (
+      current.calibration &&
+      !calibrationMatchesSite(current.calibration, useLocationStore.getState().site)
+    ) {
+      current.patch({ calibration: null, deltaAzDeg: 0, pitchOffsetDeg: 0 });
+    }
     const st = useSensorStore.getState();
     this.updateDeclination();
     this.rate.push(s.timestampMs);
@@ -158,6 +234,7 @@ export class SensorManager {
     // 1) 자북 → 진북 (절대 소스만, 한 번)
     let q = s.q;
     const magnetic = s.northReference === 'magnetic';
+    const absolute = s.northReference !== 'relative';
     if (magnetic && st.applyDeclination) q = applyYawOffset(q, this.declination);
 
     // 2) 필터 (절대 소스는 yaw 평활 강화)
@@ -168,8 +245,8 @@ export class SensorManager {
 
     // 3) 상대 소스: 나침반 동기화 (별 정렬 전까지)
     let delta = st.deltaAzDeg;
-    let source: HeadingSource = magnetic ? 'absolute' : 'relative';
-    if (!magnetic) {
+    let source: HeadingSource = absolute ? 'absolute' : 'relative';
+    if (!absolute) {
       const quasiStatic = this.filter.rateDegPerSec < 10;
       const cand = compassSyncCandidate({
         qRel: qf,
@@ -193,7 +270,11 @@ export class SensorManager {
     // 4) 오프셋 적용 → 카메라 (수동 일시 정지 중이면 카메라는 건드리지 않음)
     const qCal = applyOffset(qf, delta, st.pitchOffsetDeg);
     const paused = st.manualPauseUntil > performance.now();
-    if (!paused && this.camera) this.camera.setSensorQuaternion(qCal, st.keepLevel);
+    if (!paused && this.camera) {
+      // 나침반 동기화 전의 임의 상대 yaw로 실제 하늘 방위를 바꾸지 않는다.
+      if (source === 'relative') this.camera.setSensorQuaternion(null);
+      else this.camera.setSensorQuaternion(qCal, st.keepLevel);
+    }
 
     // 5) 상태(≤10Hz)
     const now = performance.now();
@@ -204,6 +285,7 @@ export class SensorManager {
       const right = new Vector3(1, 0, 0).applyQuaternion(qCal);
       const rollDeg = Math.atan2(-right.y, up.y) * (180 / Math.PI);
       st.patch({
+        startup: 'active',
         deltaAzDeg: delta,
         headingSource: paused ? 'manual' : source,
         compassAccuracyDeg: s.compassAccuracyDeg,
@@ -241,6 +323,14 @@ export class SensorManager {
 
   /** 별 정렬 결과 적용 */
   setCalibration(info: CalibrationInfo | null): void {
+    if (info)
+      info = {
+        ...info,
+        provider: this.lastSampleRaw?.provider,
+        northReference: this.lastSampleRaw?.northReference,
+        lat: useLocationStore.getState().site.lat,
+        lon: useLocationStore.getState().site.lon,
+      };
     const st = useSensorStore.getState();
     st.patch({
       calibration: info,

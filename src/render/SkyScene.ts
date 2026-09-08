@@ -45,7 +45,7 @@ import {
   type LabelItem,
 } from '@/render/Labels';
 import { MarkerLayer, type MarkerSets, type MarkerTarget } from '@/render/MarkerLayer';
-import { MilkyWayLayer } from '@/render/MilkyWayLayer';
+import { MilkyWayLayer, milkyWayOpacity } from '@/render/MilkyWayLayer';
 import { readRenderPalette, type RenderPalette } from '@/render/palette';
 import { degPerPixel, hemisphereRadiusPx, isInsideSkyDisk } from '@/render/projection';
 import { SkyProjection } from '@/render/SkyProjection';
@@ -369,24 +369,24 @@ export class SkyScene {
     );
 
     this.milkyWay.setMatrix(this.matrix);
-    this.milkyWay.mesh.visible = layers.milkyWay && this.milkyWay.loaded && sunAlt < -6;
-    this.milkyWay.setStyle(
-      p.milkyWay,
-      layers.milkyWayAlpha * (1 - Math.min(1, skyBrightnessPenaltyMag(sunAlt) / 6)),
-      true,
-      p.night,
-    );
+    const milkyAlpha = milkyWayOpacity(layers.milkyWayAlpha, sunAlt, layers.atmosphere);
+    this.milkyWay.mesh.visible = layers.milkyWay && this.milkyWay.loaded && milkyAlpha > 0;
+    this.milkyWay.setStyle(p.milkyWay, milkyAlpha, true, p.night);
 
     this.constellations.setMatrix(this.matrix);
     this.constellations.lines.setFadeBelowHorizon(!showBelow);
     this.constellations.bounds.setFadeBelowHorizon(!showBelow);
     this.constellations.lines.visible = layers.constellationLines;
+    // 사용자 요청: 별자리 연결선과 경계는 테마와 관계없이 흰색. 다른 야간 레이어는 적색을 유지한다.
     this.constellations.lines.setStyle(
-      `#${new THREE.Color(p.constellation).lerp(new THREE.Color(p.label), 0.3).getHexString()}`,
-      Math.min(1, layers.constellationLinesAlpha * 1.65),
+      '#ffffff',
+      1 - Math.pow(1 - layers.constellationLinesAlpha, 3),
     );
     this.constellations.bounds.visible = layers.constellationBounds;
-    this.constellations.bounds.setStyle(p.constellationBound, layers.constellationBoundsAlpha);
+    this.constellations.bounds.setStyle(
+      '#ffffff',
+      1 - Math.pow(1 - layers.constellationBoundsAlpha, 3),
+    );
 
     this.grid.setMatrix(this.matrix);
     this.grid.altAz.visible = layers.altAzGrid;

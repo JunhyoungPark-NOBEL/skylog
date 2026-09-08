@@ -18,6 +18,7 @@ export default tseslint.config(
       'coverage',
       'playwright-report',
       'test-results',
+      'artifacts/**',
       'data-src',
     ],
   },

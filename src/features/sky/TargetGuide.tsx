@@ -22,7 +22,8 @@ const REARM_DEG = 5;
 const EDGE_MARGIN = 30;
 
 /** 화살표·링 옆 각거리 라벨 — 매 틱 움직이므로 블러 없이 반투명 표면(유리 금지) */
-const HUD_LABEL = 'rounded-pill bg-surface/85 px-2 py-0.5 text-label tabular-nums';
+const HUD_LABEL =
+  'whitespace-nowrap rounded-pill bg-surface/85 px-2 py-0.5 text-label tabular-nums';
 
 interface GuideState {
   onScreen: boolean;
@@ -40,7 +41,7 @@ interface GuideState {
 /**
  * 찾아가기 오버레이(task-03 §3.3): 목표가 화면 밖이면 가장자리 화살표 + 남은 각거리, 안에 있으면 링 마커,
  * 중앙 3° 안이면 색 변화 + 피드백(한 번, 5° 밖으로 나가면 재무장). 지평선 아래면 뜨는 시각과 시간 이동 버튼.
- * 목표 pill은 상태 캡슐 아래 HUD 줄 가운데(레이어 버튼·AR 버튼 사이)에 떠 있다.
+ * 목표 pill은 AR 안내까지 포함한 HUD 줄 아래에 놓고, 실제 아래 끝을 ViewInfo와 공유한다.
  */
 export function TargetGuide() {
   const { t } = useTranslation();
@@ -48,9 +49,45 @@ export function TargetGuide() {
   const lang = useSettingsStore((s) => s.lang);
   const sound = useSensorStore((s) => s.sound);
   const containerRef = useRef<HTMLDivElement>(null);
+  const pillRef = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<GuideState | null>(null);
   const armed = useRef(true);
   const riseRef = useRef<{ id: ObjectId; at: Date | null } | null>(null);
+
+  useEffect(() => {
+    if (!targetId) return;
+    const container = containerRef.current;
+    const pill = pillRef.current;
+    const sky = container?.parentElement;
+    const controls = sky?.querySelector<HTMLElement>('[data-testid="ar-toggle-wrap"]');
+    if (!container || !pill || !sky || !controls) return;
+
+    // 권한 안내·센서 상태와 글자 확대에 따라 AR 묶음 높이가 달라진다.
+    // 렌더 틱에서 재지 않고 크기가 바뀔 때만 실제 경계를 공유한다.
+    const measure = () => {
+      const top = sky.getBoundingClientRect().top;
+      sky.style.setProperty(
+        '--sky-controls-bottom',
+        `${controls.getBoundingClientRect().bottom - top}px`,
+      );
+      sky.style.setProperty(
+        '--sky-target-bottom',
+        `${pill.getBoundingClientRect().bottom - top}px`,
+      );
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(controls);
+    observer.observe(pill);
+    observer.observe(sky);
+    window.addEventListener('resize', measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', measure);
+      sky.style.removeProperty('--sky-controls-bottom');
+      sky.style.removeProperty('--sky-target-bottom');
+    };
+  }, [targetId]);
 
   useEffect(() => {
     if (!targetId) return;
@@ -198,27 +235,32 @@ export function TargetGuide() {
         </div>
       )}
       <div
-        className="pointer-events-auto absolute left-1/2 top-[calc(var(--status-height)+env(safe-area-inset-top)+12px)] flex min-h-11 max-w-[calc(100%-8rem)] -translate-x-1/2 items-center gap-2 rounded-pill glass py-1 pl-3.5 pr-1 text-caption text-fg shadow-float"
+        ref={pillRef}
+        className="pointer-events-auto absolute left-1/2 top-[calc(var(--sky-controls-bottom)+8px)] flex min-h-[44px] max-w-[calc(100%-24px)] -translate-x-1/2 items-center gap-[8px] rounded-pill glass-hud py-[4px] pl-[12px] pr-[4px] text-[0.75rem] leading-[1rem] text-fg shadow-float"
         data-testid="target-pill"
       >
-        <span aria-hidden style={{ color }}>
+        <span aria-hidden className="shrink-0" style={{ color }}>
           ◎
         </span>
-        <span className="min-w-0 max-w-40 truncate font-semibold">{state?.name ?? targetId}</span>
-        {state && state.altDeg <= 0 && (
-          <span className="min-w-0 truncate text-fg/70" data-testid="target-below">
-            {t('target.below')}
-            {state.riseAt
-              ? ` · ${t('target.risesAt', { time: formatTime(state.riseAt) })} (${formatRelative(useClockStore.getState().now().getTime(), state.riseAt.getTime(), lang)})`
-              : state.riseAt === null
-                ? ` · ${t('target.noRise')}`
-                : ''}
+        <div className="min-w-0">
+          <span className="block truncate font-semibold" title={state?.name ?? targetId}>
+            {state?.name ?? targetId}
           </span>
-        )}
+          {state && state.altDeg <= 0 && (
+            <span className="block truncate text-fg/70" data-testid="target-below">
+              {t('target.below')}
+              {state.riseAt
+                ? ` · ${t('target.risesAt', { time: formatTime(state.riseAt) })} (${formatRelative(useClockStore.getState().now().getTime(), state.riseAt.getTime(), lang)})`
+                : state.riseAt === null
+                  ? ` · ${t('target.noRise')}`
+                  : ''}
+            </span>
+          )}
+        </div>
         {state && state.altDeg <= 0 && state.riseAt && (
           <button
             type="button"
-            className="inline-flex min-h-8 shrink-0 items-center justify-center rounded-pill bg-surface-3 px-3 text-caption font-medium text-fg transition-transform duration-150 ease-standard active:scale-95"
+            className="inline-flex min-h-[44px] max-w-[40%] shrink-0 items-center justify-center rounded-pill bg-surface-3 px-[8px] text-center font-medium text-fg transition-transform duration-150 ease-standard active:scale-95"
             onClick={() => {
               const at = state.riseAt;
               if (at) useClockStore.getState().setManual(new Date(at.getTime() + 20 * 60_000), 0);
@@ -230,7 +272,7 @@ export function TargetGuide() {
         )}
         <button
           type="button"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-pill text-fg/80 transition-colors duration-150 active:bg-surface-2"
+          className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-pill text-fg/80 transition-colors duration-150 active:bg-surface-2"
           onClick={clear}
           aria-label={t('target.clear')}
           data-testid="target-clear"

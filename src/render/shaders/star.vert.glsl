@@ -39,7 +39,8 @@ void main() {
 
   float alpha = 1.0;
   if (size < uMinSizePx) {
-    alpha = max(size / uMinSizePx, 0.0);
+    // 작은 별의 존재가 고해상도 화면에서도 남도록 감마 보정한다. 등급별 밝기 차이는 유지한다.
+    alpha = sqrt(max(size / uMinSizePx, 0.0));
     size = uMinSizePx;
   }
   size = min(size, uMaxSizePx * uPixelRatio);

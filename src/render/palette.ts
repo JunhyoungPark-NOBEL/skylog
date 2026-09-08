@@ -1,6 +1,6 @@
 import { getPalette, type Palette } from '@/app/theme';
 
-/** 렌더러가 쓰는 색(테마 토큰에서 읽음). 야간 모드면 전부 적색 계열이 된다. */
+/** 테마 팔레트. 야간은 적색이며, 사용자가 요청한 흰 별자리 선/경계는 SkyScene에서 별도로 지정한다. */
 export type RenderPalette = Palette & { night: boolean };
 
 export function readRenderPalette(): RenderPalette {

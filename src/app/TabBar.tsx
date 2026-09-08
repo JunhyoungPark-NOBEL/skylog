@@ -24,13 +24,13 @@ export function TabBar({ active, onSelect }: TabBarProps) {
   const { t } = useTranslation();
   return (
     <nav
-      aria-label="주 탭"
+      aria-label={t('tabs.navigation')}
       data-testid="tab-bar"
-      className="pointer-events-none fixed inset-x-0 bottom-[calc(var(--tab-inset)+env(safe-area-inset-bottom))] z-20 flex justify-center px-4"
+      className="pointer-events-none fixed inset-x-0 bottom-[calc(var(--tab-inset)+env(safe-area-inset-bottom))] z-20 flex justify-center px-[12px]"
     >
       <div
         role="tablist"
-        className="glass squircle pointer-events-auto isolate flex h-[var(--tab-height)] w-full max-w-md items-stretch rounded-pill p-1.5 shadow-float"
+        className={`${active === 'sky' ? 'glass-hud' : 'glass-sm'} pointer-events-auto isolate flex h-[var(--tab-height)] w-full max-w-md items-stretch rounded-pill p-[4px] shadow-card`}
       >
         {TAB_ROUTES.map((route) => {
           const Icon = ICONS[route];
@@ -41,19 +41,21 @@ export function TabBar({ active, onSelect }: TabBarProps) {
               type="button"
               role="tab"
               aria-selected={selected}
+              aria-label={t(`tabs.${route}`)}
+              title={t(`tabs.${route}`)}
               data-testid={`tab-${route}`}
               onClick={() => onSelect(route)}
-              className="group relative flex flex-1 flex-col items-center justify-center gap-0.5 rounded-pill text-label text-fg/70 transition-colors duration-150 ease-standard aria-selected:text-accent"
+              className="group relative flex min-h-[44px] min-w-0 basis-1/5 flex-col items-center justify-center rounded-pill text-[0.6875rem] leading-[1rem] text-fg/80 transition-colors duration-150 ease-standard aria-selected:font-semibold aria-selected:text-accent"
             >
-              {/* 활성 인디케이터: 항상 렌더하고 transform·opacity만 스프링으로 전환 */}
+              {/* 활성 표시를 같은 자리에 유지하고 불투명도만 짧게 전환한다. */}
               <span
                 aria-hidden="true"
-                className="absolute inset-x-2 top-1 bottom-1 -z-10 scale-75 rounded-pill bg-accent-soft opacity-0 transition-[transform,opacity] duration-[350ms] ease-spring-fast group-aria-selected:scale-100 group-aria-selected:opacity-100"
+                className="absolute inset-x-1 inset-y-0.5 -z-10 rounded-pill bg-accent-soft opacity-0 transition-opacity duration-150 ease-standard group-aria-selected:opacity-100"
               />
-              <span className="flex items-center justify-center transition-[filter] duration-150 ease-standard group-aria-selected:drop-shadow-[0_0_6px_var(--accent-glow)]">
-                <Icon size={22} />
+              <span className="flex h-[20px] shrink-0 items-center justify-center">
+                <Icon size={20} />
               </span>
-              <span>{t(`tabs.${route}`)}</span>
+              <span className="max-w-full truncate px-[2px]">{t(`tabs.${route}`)}</span>
             </button>
           );
         })}

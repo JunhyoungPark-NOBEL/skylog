@@ -44,14 +44,14 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   await expect(page.getByTestId('sim-panel')).toBeVisible();
   await expect(page.getByTestId('ar-status')).toBeVisible();
 
-  // 상대 모드(iOS형): 폰을 세워(β=90) 상단이 천정 → 나침반 동기화 불가 → "상대" 상태, 카메라는 α만 따른다(δ=0)
+  // 상대 모드(iOS형): 북 기준이 준비되지 않은 yaw는 방위로 사용하지 않고 기존 차트를 유지한다.
   await setSlider(page, 'sim-beta', 90);
   await setSlider(page, 'sim-alpha', 270); // α=270 → 동쪽
   await page.waitForTimeout(600);
   let v = await getView(page);
-  expect(Math.abs(v.azDeg - 90)).toBeLessThan(1.5);
-  expect(Math.abs(v.altDeg)).toBeLessThan(1.5);
-  await expect(page.getByTestId('ar-source')).toContainText(/상대|나침반/);
+  expect(Math.abs(v.azDeg - 180)).toBeLessThan(1.5);
+  expect(Math.abs(v.altDeg - 30)).toBeLessThan(1.5);
+  await expect(page.getByTestId('ar-source')).toContainText('평평하게');
 
   // 절대 모드(Android형): 자북 기준 α=0 → 편각(대전 −8.7°) 적용 → 방위 ≈ 351.3
   await page.getByTestId('sim-absolute').check();
@@ -67,10 +67,19 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   expect(decl!).toBeGreaterThan(-9.5);
   expect(decl!).toBeLessThan(-7.5);
   expect(Math.abs(((v.azDeg - (360 + decl!) + 540) % 360) - 180)).toBeLessThan(1.5);
-  await expect(page.getByTestId('ar-source')).toContainText(/절대/);
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          (window as unknown as { __skylogSensor: { headingSource: string } }).__skylogSensor
+            .headingSource,
+      ),
+    )
+    .toBe('absolute');
   await page.screenshot({ path: 'tests/e2e/__screenshots__/sensor-ar.png' });
 
   // 1-별 정렬: 대상(베가)을 고르고 "맞췄어요" → δ = 대상 방위 − 센서 방위 → 화면 중심이 대상과 일치
+  await page.getByTestId('open-layers').click();
   await page.getByTestId('ar-align').click();
   await expect(page.getByTestId('calib-wizard')).toBeVisible();
   const candidates = page.getByTestId('calib-candidates').locator('button');
@@ -117,6 +126,57 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   // 끄기
   await page.getByTestId('ar-toggle').click();
   await expect(page.getByTestId('sim-panel')).toHaveCount(0);
+});
+
+test('기본 방향 센서: 바로 연결하고 끄기 선택은 재실행에도 유지한다', async ({ page }) => {
+  await enableSimulator(page);
+  await page.goto('#/sky');
+  await expect(page.getByTestId('sim-panel')).toBeVisible();
+  await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'true');
+  await page.getByTestId('sim-absolute').check();
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          (window as unknown as { __skylogSensor: { headingSource: string } }).__skylogSensor
+            .headingSource,
+      ),
+    )
+    .toBe('absolute');
+  await expect(page.getByTestId('ar-align')).toHaveCount(0);
+  await page.getByTestId('ar-toggle').click();
+  await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await page.reload();
+  await expect(page.getByTestId('sky-view')).toBeVisible();
+  await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.getByTestId('sim-panel')).toHaveCount(0);
+  await page.getByTestId('ar-toggle').click();
+  await expect(page.getByTestId('sim-panel')).toBeVisible();
+  await page.getByTestId('open-layers').click();
+  await page.getByTestId('sky-overview').click();
+  await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.getByTestId('view-info')).toContainText('180°');
+  await page.getByTestId('tab-search').click();
+  await page.getByTestId('tab-sky').click();
+  await expect(page.getByTestId('sim-panel')).toBeVisible();
+});
+
+test('허용된 현재 위치는 자동 갱신하고 저장 관측지를 고르면 자동 사용을 끈다', async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(['geolocation']);
+  await context.setGeolocation({ latitude: 37.5665, longitude: 126.978, accuracy: 20 });
+  await page.goto('#/sky');
+  await expect(page.getByTestId('status-site')).toHaveText('GPS');
+  await page.goto('#/sites');
+  await expect(page.locator('#sites-auto-location')).toHaveAttribute('aria-checked', 'true');
+  await page.getByTestId('sites-list').getByRole('button', { name: /대전/ }).first().click();
+  await expect(page.getByTestId('sites-current')).toContainText('대전');
+  await expect(page.locator('#sites-auto-location')).toHaveAttribute('aria-checked', 'false');
+  await page.reload();
+  await expect(page.getByTestId('sites-current')).toContainText('대전');
+  await expect(page.locator('#sites-auto-location')).toHaveAttribute('aria-checked', 'false');
 });
 
 test('관측지: 추가(붙여넣기 파서·범위 선택기) → 선택 → 편집 → 삭제', async ({ page }) => {

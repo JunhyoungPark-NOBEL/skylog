@@ -4,18 +4,38 @@ import { ScrollArea } from '@/ui/ScrollArea';
 import { Segmented } from '@/ui/Segmented';
 import { Toggle } from '@/ui/Toggle';
 import { useTelescopeStore } from '@/state/telescopeStore';
+import { openTelescope } from '@/features/telescope/navigation';
+import { useSelectionStore } from '@/state/selectionStore';
+import { RealSkyToggle } from '@/features/sky/RealSkyToggle';
+import { useSensorStore } from '@/state/sensorStore';
 
 type AlphaKey = {
   [K in keyof LayerValues]: LayerValues[K] extends number ? K : never;
 }[keyof LayerValues];
 
-function Row({ id, label, alphaKey }: { id: BooleanLayerKey; label: string; alphaKey?: AlphaKey }) {
+function Row({
+  id,
+  label,
+  alphaKey,
+  hint,
+}: {
+  id: BooleanLayerKey;
+  label: string;
+  alphaKey?: AlphaKey;
+  hint?: string;
+}) {
   const on = useLayerStore((s) => s[id]);
   const alpha = useLayerStore((s) => (alphaKey ? s[alphaKey] : 1));
   const set = useLayerStore((s) => s.set);
   return (
     <div>
-      <Toggle id={`layer-${id}`} label={label} checked={on} onChange={(v) => set(id, v)} />
+      <Toggle
+        id={`layer-${id}`}
+        label={label}
+        hint={hint}
+        checked={on}
+        onChange={(v) => set(id, v)}
+      />
       {alphaKey && on && (
         <input
           type="range"
@@ -38,7 +58,15 @@ function Row({ id, label, alphaKey }: { id: BooleanLayerKey; label: string; alph
  * 왼쪽에서 열리는 전체 높이 불투명 사이드 패널(유리 없음) — 헤더는 떠 있는 상태 캡슐 아래(pt-status),
  * 목록 끝은 떠 있는 탭 pill 아래로 이어진다(pb-tab + 아래쪽 페이드).
  */
-export function LayerPanel({ onClose }: { onClose(): void }) {
+export function LayerPanel({
+  onClose,
+  onOverview,
+  onAlign,
+}: {
+  onClose(): void;
+  onOverview(): void;
+  onAlign(): void;
+}) {
   const { t } = useTranslation();
   const labelLang = useLayerStore((s) => s.labelLang);
   const saturation = useLayerStore((s) => s.starSaturation);
@@ -47,6 +75,8 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
   const rings = useTelescopeStore((s) => s.fovRings);
   const hopRoute = useTelescopeStore((s) => s.route);
   const set = useLayerStore((s) => s.set);
+  const arActive = useSensorStore((s) => s.arActive);
+  const calibrated = useSensorStore((s) => Boolean(s.calibration));
   return (
     <div
       className="absolute inset-y-0 left-0 z-20 flex w-[min(20rem,85vw)] flex-col overflow-hidden rounded-r-2xl bg-surface text-fg shadow-float squircle"
@@ -67,6 +97,37 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
         </button>
       </header>
       <ScrollArea className="pb-tab pt-2 text-body-sm" fadeBottom="28px" fadeColor="var(--surface)">
+        <div className="grid grid-cols-2 gap-2 px-4 pb-3">
+          <button
+            type="button"
+            className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-surface-2 px-2 text-caption text-fg"
+            onClick={onOverview}
+            data-testid="sky-overview"
+            title={t('sky.circularViewHelp')}
+          >
+            <span aria-hidden="true">⊕</span>
+            {t('sky.circularView')}
+          </button>
+          <button
+            type="button"
+            className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-surface-2 px-2 text-caption text-fg"
+            onClick={() => openTelescope(useSelectionStore.getState().selectedId ?? undefined)}
+            data-testid="sky-telescope"
+          >
+            <span aria-hidden="true">◎</span>
+            {t('guide.title')}
+          </button>
+        </div>
+        {arActive && (
+          <button
+            type="button"
+            onClick={onAlign}
+            className="mx-4 mb-3 flex min-h-11 w-[calc(100%-2rem)] items-center justify-center rounded-xl bg-surface-2 px-3 text-caption text-fg"
+            data-testid="ar-align"
+          >
+            {calibrated ? t('sensor.realign') : t('sensor.align')}
+          </button>
+        )}
         <Toggle
           id="layer-fovRings"
           label={t('guide.fovRings')}
@@ -81,13 +142,7 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
             {t('guide.clearRoute')}
           </button>
         )}
-        <Toggle
-          id="layer-realSky"
-          label={t('sky.layer.realSky')}
-          hint={t('sky.layer.realSkyHint')}
-          checked={realSky}
-          onChange={(v) => set('realSky', v)}
-        />
+        <RealSkyToggle />
         {realSky && (
           <div className="px-4 pb-3">
             <label htmlFor="layer-bortle" className="block text-caption text-muted">
@@ -124,7 +179,12 @@ export function LayerPanel({ onClose }: { onClose(): void }) {
         />
         <Row id="starLabels" label={t('sky.layer.starLabels')} />
         <Row id="dso" label={t('sky.layer.dso')} />
-        <Row id="milkyWay" label={t('sky.layer.milkyWay')} alphaKey="milkyWayAlpha" />
+        <Row
+          id="milkyWay"
+          label={t('sky.layer.milkyWay')}
+          alphaKey="milkyWayAlpha"
+          hint={t('sky.layer.milkyWayHint')}
+        />
         <Row id="altAzGrid" label={t('sky.layer.altAzGrid')} />
         <Row id="equator" label={t('sky.layer.equator')} />
         <Row id="ecliptic" label={t('sky.layer.ecliptic')} />

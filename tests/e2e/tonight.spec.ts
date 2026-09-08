@@ -197,10 +197,12 @@ test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 �
   const litBefore = before.filter((v) => v > 40).length;
   expect(litBefore).toBeGreaterThan(200);
   const toggle = page.getByTestId('real-sky-toggle');
+  await page.getByTestId('open-layers').click();
   await expect(toggle).toHaveAttribute('data-limiting-mag', '6.5');
   await toggle.click();
   await expect(toggle).toHaveAttribute('aria-checked', 'true');
   await expect(toggle).toHaveAttribute('data-limiting-mag', /4\.\d/); // Bortle 7 기본: NELM 4.6 − 달
+  await page.getByTestId('close-layers').click();
   await page.waitForTimeout(600);
   const after = await brightness();
   let gone = 0;
@@ -225,7 +227,9 @@ test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 �
   await page.getByTestId('close-layers').click();
   await page.waitForTimeout(400);
   await page.screenshot({ path: `${SHOTS}/real-sky.png` });
+  await page.getByTestId('open-layers').click();
   await toggle.click();
   await expect(toggle).toHaveAttribute('data-limiting-mag', '6.5');
+  await page.getByTestId('close-layers').click();
   expect(errors, errors.join('\n')).toEqual([]);
 });

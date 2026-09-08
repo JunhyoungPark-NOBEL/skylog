@@ -28,12 +28,13 @@ void main() {
   float b = texture2D(uMap, vec2(u, v)).r;
   if (b <= 0.0) discard;
   float clouds = cloudNoise(direction * 32.0) * 0.65 + cloudNoise(direction * 83.0) * 0.35;
-  float density = pow(b, 0.8) * mix(0.68, 1.3, clouds);
+  // 원본 밝기·색·알파를 반복 곱하면 대부분의 은하수가 검정에 묻힌다. 윤곽을 감마 보정해 한 번만 감광한다.
+  float density = sqrt(b) * mix(0.85, 1.15, clouds);
   float a = density * uAlpha * smoothstep(-6.0, -1.0, vAlt);
   // 원본 윤곽/밝기 안에만 청보라·은은한 청록과 흰 성운결을 더한다. 위치·범위는 팩을 따른다.
-  vec3 tint = mix(vec3(0.39, 0.42, 0.67), vec3(0.36, 0.62, 0.68), clouds);
-  tint = mix(tint, vec3(0.85, 0.79, 0.74), smoothstep(0.32, 0.7, b));
-  vec3 color = mix(uColor, tint, 0.6) * (0.35 + density * 0.85);
-  if (uNight > 0.5) color = uColor * (0.25 + density * 0.75);
+  vec3 tint = mix(vec3(0.60, 0.64, 0.85), vec3(0.50, 0.70, 0.86), clouds);
+  tint = mix(tint, vec3(0.96, 0.87, 0.82), smoothstep(0.32, 0.7, b));
+  vec3 color = mix(uColor, tint, 0.9);
+  if (uNight > 0.5) color = vec3(max(uColor.r, 0.58), 0.0, 0.0) * (0.7 + density * 0.3);
   gl_FragColor = vec4(color, a);
 }

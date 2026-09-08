@@ -11,10 +11,12 @@ import {
 import { ScreenFrame } from '@/features/settings/ScreenFrame';
 import { SkyRangePicker } from '@/features/settings/SkyRangePicker';
 import { formatLatLon, parseLatLon } from '@/sensors/coordsParse';
-import { requestLocation, type GeoError } from '@/sensors/geolocation';
+import { requestCurrentLocation } from '@/sensors/autoLocation';
 import { useLocationStore } from '@/state/locationStore';
 import { useSensorStore } from '@/state/sensorStore';
+import { useSettingsStore } from '@/state/settingsStore';
 import { IconChevron } from '@/ui/icons';
+import { Toggle } from '@/ui/Toggle';
 
 interface Draft {
   id?: string;
@@ -53,7 +55,7 @@ export function SitesScreen({ onBack }: { onBack(): void }) {
   const [paste, setPaste] = useState('');
   const gps = useSensorStore((s) => s.gps);
   const current = useLocationStore((s) => s.site);
-  const currentId = useLocationStore((s) => s.siteId);
+  const autoLocation = useSettingsStore((s) => s.autoLocation);
 
   const refresh = useCallback(async () => {
     await ensureDefaultSite();
@@ -63,30 +65,6 @@ export function SitesScreen({ onBack }: { onBack(): void }) {
     const id = window.setTimeout(() => void refresh(), 0);
     return () => window.clearTimeout(id);
   }, [refresh]);
-
-  const useGps = () => {
-    useSensorStore
-      .getState()
-      .patch({ gps: { status: 'requesting', accuracyM: null, error: null } });
-    requestLocation(
-      (fix, final) => {
-        useLocationStore.getState().setFromGps({
-          lat: fix.lat,
-          lon: fix.lon,
-          elevation: fix.elevation,
-          accuracyM: fix.accuracyM,
-        });
-        useSensorStore.getState().patch({
-          gps: { status: final ? 'ok' : 'requesting', accuracyM: fix.accuracyM, error: null },
-        });
-      },
-      (err: GeoError) => {
-        useSensorStore
-          .getState()
-          .patch({ gps: { status: 'error', accuracyM: null, error: t(`sensor.geo.${err.kind}`) } });
-      },
-    );
-  };
 
   const startEdit = (s?: Site) => {
     setPaste('');
@@ -140,7 +118,7 @@ export function SitesScreen({ onBack }: { onBack(): void }) {
       minAltDeg: draft.minAltDeg,
       isDefault: sites.find((s) => s.id === draft.id)?.isDefault ? true : undefined,
     });
-    if (currentId === site.id)
+    if (useLocationStore.getState().siteId === site.id)
       useLocationStore
         .getState()
         .setSite(
@@ -152,20 +130,24 @@ export function SitesScreen({ onBack }: { onBack(): void }) {
   };
 
   const select = (s: Site) => {
+    useSettingsStore.getState().setLocationSite(s.id);
     useLocationStore
       .getState()
       .setSite({ name: s.name, lat: s.lat, lon: s.lon, elevation: s.elevation ?? 0 }, s.id);
   };
 
   const makeDefault = async (s: Site) => {
-    await upsertSite({ ...s, isDefault: true });
     select(s);
+    await upsertSite({ ...s, isDefault: true });
     await refresh();
   };
 
   const remove = async (s: Site) => {
     await softDeleteSite(s.id);
-    if (currentId === s.id) useLocationStore.getState().setSite({ ...DAEJEON_PRESET }, null);
+    if (useLocationStore.getState().siteId === s.id) {
+      useSettingsStore.getState().setLocationSite(null);
+      useLocationStore.getState().setSite({ ...DAEJEON_PRESET }, null);
+    }
     await refresh();
   };
 
@@ -174,6 +156,13 @@ export function SitesScreen({ onBack }: { onBack(): void }) {
       {/* 현재 관측지 */}
       <h2 className={SECTION}>{t('sites.current')}</h2>
       <div className="mx-4 rounded-lg bg-surface px-4 py-3 squircle">
+        <Toggle
+          id="sites-auto-location"
+          label={t('sites.autoLocation')}
+          hint={t('sites.autoLocationHint')}
+          checked={autoLocation}
+          onChange={(on) => useSettingsStore.getState().setAutoLocation(on)}
+        />
         <div className="text-body font-semibold" data-testid="sites-current">
           {current.name}
         </div>
@@ -183,7 +172,7 @@ export function SitesScreen({ onBack }: { onBack(): void }) {
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <button
             type="button"
-            onClick={useGps}
+            onClick={requestCurrentLocation}
             disabled={gps.status === 'requesting'}
             className={BTN_PRIMARY}
             data-testid="sites-gps"

@@ -10,6 +10,12 @@ export interface SettingsValues {
   keepAwake: boolean;
   debugHud: boolean;
   postLogQuiz: boolean;
+  autoLocation: boolean;
+  /** 이전 버전의 명시적 기본 관측지를 처음부터 GPS로 덮어쓰지 않기 위한 선택 기록. */
+  autoLocationConfigured: boolean;
+  locationPermissionDenied: boolean;
+  /** 자동 위치를 끄고 선택한 관측지. 재실행 때도 선택을 유지한다. */
+  locationSiteId: string | null;
   units: 'metric';
 }
 
@@ -19,6 +25,9 @@ export interface SettingsState extends SettingsValues {
   setKeepAwake(on: boolean): void;
   setDebugHud(on: boolean): void;
   setPostLogQuiz(on: boolean): void;
+  setAutoLocation(on: boolean): void;
+  setLocationPermissionDenied(denied: boolean): void;
+  setLocationSite(siteId: string | null): void;
 }
 
 export const DEFAULT_SETTINGS: SettingsValues = {
@@ -27,6 +36,10 @@ export const DEFAULT_SETTINGS: SettingsValues = {
   keepAwake: false,
   debugHud: false,
   postLogQuiz: true,
+  autoLocation: true,
+  autoLocationConfigured: false,
+  locationPermissionDenied: false,
+  locationSiteId: null,
   units: 'metric',
 };
 
@@ -45,6 +58,10 @@ export const useSettingsStore = create<SettingsState>()(
       setKeepAwake: (keepAwake) => set({ keepAwake }),
       setDebugHud: (debugHud) => set({ debugHud }),
       setPostLogQuiz: (postLogQuiz) => set({ postLogQuiz }),
+      setAutoLocation: (autoLocation) => set({ autoLocation, autoLocationConfigured: true }),
+      setLocationPermissionDenied: (locationPermissionDenied) => set({ locationPermissionDenied }),
+      setLocationSite: (locationSiteId) =>
+        set({ locationSiteId, autoLocation: false, autoLocationConfigured: true }),
     }),
     {
       name: SETTINGS_PERSIST_NAME,
@@ -56,6 +73,10 @@ export const useSettingsStore = create<SettingsState>()(
         keepAwake: s.keepAwake,
         debugHud: s.debugHud,
         postLogQuiz: s.postLogQuiz,
+        autoLocation: s.autoLocation,
+        autoLocationConfigured: s.autoLocationConfigured,
+        locationPermissionDenied: s.locationPermissionDenied,
+        locationSiteId: s.locationSiteId,
         units: s.units,
       }),
     },

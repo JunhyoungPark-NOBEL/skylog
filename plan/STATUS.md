@@ -1,6 +1,6 @@
 # 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.2/build7 자동 방향·밤하늘·원형 천구·모바일 갱신
+> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.3/build8 가독성·간결한 화면·센서 자동 시작
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -8,7 +8,16 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-08 · beta.2/build7 자동 안내·원형 천구)
+## 이번 작업 보고 (2026-09-08 · beta.3/build8 가독성·자동 센서)
+
+- 원격 main 최신 bfa7109를 fetch로 확인하고 build7 위에서 갱신했다. 앱 버전 0.1.0-beta.3, Android build8, 다음 CI 기본 번호9. 천문 좌표·별 개수·데이터 팩·DB v2는 유지한다.
+- 별자리 연결선·경계를 두 테마 모두 흰색으로 고정하고 기존 투명도 설정에서도 대비를 높였다. 밝은 별 중심과 최소 표시 크기를 키웠다. 은하수 색/밀도/투명도의 중복 감쇠를 제거해 밤에 띠와 먼지 결이 보이게 했다. 실제 낮에는 대기 효과가 은하수를 가리며 하늘 설정에 설명한다. D-036은 D-034의 야간 전부 적색 원칙 중 별자리 선/경계만 수정한다.
+- 첫 하늘 화면은 작은 접힌 시간 버튼과 반투명 52px 탭을 사용한다. 원형 하늘·별길·실제 하늘·선택 정렬은 하늘 설정으로 모았다. 글자 확대 시 탭/상태 높이가 늘며 AR 안내와 목표·좌표 HUD는 실제 높이로 배치한다.
+- 방향 센서는 기본 자동 시작하며 끄기 선택을 저장한다. iPhone의 최초 동작 권한은 사용자 탭에서 요청한다. 북 기준이 없는 상대 yaw는 화면을 회전시키지 않으며 잠시 평평하게 들도록 안내한다. 고정 링크·원형 하늘에서는 센서가 차트를 덮어쓰지 않는다. 위치는 자동 사용 설정과 권한에 따라 앱 시작/복귀 시 한 번 갱신하고 저장 관측지 선택/꺼짐을 유지한다. 같은 GPS 이름이어도 먼 좌표의 예전 별 보정은 복원하지 않는다. D-037.
+- typecheck/lint/단위433/데이터 검증/PWA 빌드 통과. 브라우저48개 항목 통과: 전체47 중 픽셀 검사용 preserve 캔버스 복귀 오류를 고친 후 관련20개와 마지막 UI 변경 관련14개를 다시 통과했다. 흰 선·은하수·큰 별·360px/글자200%·자동 센서/GPS 확인. 캡처와 로그는 artifacts/qa-build8. Android APK/AAB·Pages·모바일 CI는 다음 단계에서 검증한다.
+- Play 업로드 키 복원/최종 서명, Apple 팀 서명/TestFlight, 실제 Android/iPhone의 센서·그래픽 확인과 스토어 심사는 남는다. 현재 기능은 모두 무료이며 유료 상품/서버 권한은 구현하지 않았다. T5/T7/T8 전체 완료 태그 없음.
+
+## 이전 작업 보고 (2026-09-08 · beta.2/build7 자동 안내·원형 천구)
 
 - 별길은 나침반으로 바로 시작한다. 다른 별 정렬은 정밀 망원경 안내의 선택 기능이며, 상대 yaw를 실제 방위로 사용하지 않는다. 실제 별·선·은하수·목표가 안내 화면에 보인다. iOS 나침반 동기화/자북 편각/기기 +Y 규약과 자동·정밀 세션을 분리했다. 센서 중단 뒤 첫 샘플이 watchdog보다 먼저 도착해도 오래된 별 정렬을 무효화한다.
 - 공통 입체 투영으로 최대180° 반구를 원형 표시하고 핀치/원형 하늘 버튼으로 축소한다. 별 중심·별자리 선 대비와 은하수의 차분한 색·먼지 결을 개선했다. 천문 좌표·데이터 팩·DB v2는 유지한다. CPU/GPU 별 위치·선택·원 밖 차단·야간 적색 렌더를 검증한다.
@@ -30,18 +39,7 @@
 - 원격 HEAD는 재확인한 `dce4a7d` 그대로이며 로컬 변경은 push하지 못했다. 현재 GitHub 인증이 없어 **이번 스와이프 수정은 공개 Pages에 아직 없다**. iPhone은 APK를 실행할 수 없으며 기존 Safari 홈 화면 PWA 또는 별도 서명 iOS 앱을 사용한다. 공개 웹 반영은 GitHub 인증 후 배포, TestFlight는 Apple 팀·Mac 서명/Archive가 필요하다.
 - 사용자 확인: 새 APK 업데이트 → 별/자세히 → 본문 위로 펼치기/스크롤/맨 위 아래로 접기 → 즐겨찾기 탭과 가로 행. 설치 안내 `docs/INSTALL-ON-PHONE.md`. 스토어 공개 출시·T5/T7/T8 잔여 유지, 완료 태그 없음.
 
-## 이전 작업 보고 (2026-09-08 · build5 재빌드 및 직접 설치)
-
-- 시작/종료 시 확인한 원격 main 최신은 `dce4a7dc50980bec5dc93f0af2b9003788205e63`. `108e99a` 이후 문서·서명 스크립트만 바뀌었으며 Android 앱 기능 소스는 build4와 같다. 로컬 브랜치는 `codex/android-release-20260908`.
-- 현재 폴더는 `C:\Users\박준형\Documents\ChatGPT\별관찰앱개발`. 이전 build4/업로드 키가 기록된 `C:\Users\JunhyoungPark\...`와 다른 PC/사용자다. 원 AAB/업로드 키를 찾지 못했고, 기존 키·Play 등록 여부 질문은 응답 대기다. GitHub 인증도 없어 로컬 변경을 push하거나 새 iOS CI를 실행하지 않았다.
-- **AAB 생성·구조 검증 완료, Play 업로드 서명 대기**: `C:\Users\박준형\Downloads\skylog-release-0.1.0-beta.1-build5\skylog-0.1.0-beta.1-build5-unsigned.aab`, 6,903,462 bytes. SHA256 `7f37e7bedd7be09365ecdd9a05b94694ec8ab57018211247a5a47cbdc9df2fa3`. versionCode5/API36/min24/release/non-debuggable/backup=false 확인. unsigned 파일은 Play 제출용 최종본이 아니다.
-- **직접 설치 APK 완료**: 같은 폴더 `skylog-0.1.0-beta.1-build5-local-test.apk`, 7,192,735 bytes, SHA256 `880ab41f9cc2c0ac7404fc5d5b96896b8b1c1c3a95d0054c3fb1850e95cc603e`. release 앱을 별도 RSA4096 개인 테스트 키로 서명, APK v2/v3·zipalign 통과. 키는 `%LOCALAPPDATA%/skylog-local-test-signing/`, 암호는 현재 사용자 DPAPI. 원 업로드 키는 생성/교체하지 않았다. 개인 키·암호는 전달 폴더/저장소에 없다.
-- Node24.19/pnpm12.3.4 고정 lock 설치, typecheck/lint/단위366/data/native 웹 build 통과. Android bundleRelease/assembleRelease/lintRelease 성공(오류0/경고33). 한글 경로의 AGP 검사는 명령에만 `-Pandroid.overridePathCheck=true` 적용. AAB/APK 오프라인 웹 자료 **158개 SHA256 전부 일치**, .so 없음. JDK21/SDK36/bundletool1.18.3은 `%LOCALAPPDATA%/skylog-tools`.
-- 브라우저 **35/35 통과**(`--workers=2`). 기본10 workers는 과부하로 시간 초과해 중단 후 전체 재검사했다. 하늘·별길·배우기 최신 화면 직접 확인, 결과는 `artifacts/qa-build5`. Android 연결 기기 0개로 설치/센서 실기기 검증 미완료.
-- iOS SceneDelegate의 기본 컨트롤러가 SkylogMotion 등록을 생략하던 오류 수정. Geolocation 필수 목적 설명 보완, Tailwind4 지원에 맞춰 최소 iOS16.4로 변경. **이번 Swift 컴파일/실행은 Windows에서 미검증**. 이전 CI 성공을 이번 수정의 검증으로 사용하지 않는다. 새 소스 ZIP을 Mac에서 빌드하고 Team/Bundle ID/Archive/TestFlight 필요.
-- CI는 필수 version_code를 검증해 Android/iOS에 함께 사용한다. build5 다음 기본값6, 이후 Console 최대 번호보다 크게 지정. AAB 서명은 기존 키 누락 시 자동 생성 금지, AAB/APK 검증 완료 후에만 최종 출력 생성. 결정 D-032.
-- Android는 APK를 폰에 전송해 설치. iPhone은 기존 Pages를 Safari→공유→홈 화면에 추가로 사용 가능. 웹앱의 깊은 별/이야기/학습은 온라인 선열람 후 캐시된다. `docs/INSTALL-ON-PHONE.md`에 설치·백업·TestFlight 안내.
-- **Play/App Store 공개 출시 미완료**. 키·계정·정책·연락처/실제 스크린샷·실기기·심사 필요. T5/T7/T8 잔여 유지, 완료 태그 없음. 다음 작업: 사용자 키/계정 답변→AAB 최종 서명/내부 테스트, 새 iOS 컴파일/TestFlight/실기기 검증.
+이전 build5 완료 기록은 [보관 보고](reports/2026-09-08-build5.md)를 참고한다.
 
 이전 build4 완료 기록은 [보관 보고](reports/2026-09-08-build4.md)를 참고한다.
 

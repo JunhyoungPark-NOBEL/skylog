@@ -7,6 +7,10 @@ import type { OrientationPermissionState } from '@/sensors/permissions';
 
 /** 저장되는 설정 */
 export interface SensorSettings {
+  /** 명시적으로 끄면 다음 진입에도 수동 탐색을 유지한다. */
+  autoStart: boolean;
+  /** 앱에서 마지막으로 확인한 사용자 권한 응답. OS 권한을 대신하지 않는다. */
+  orientationConsent: 'unknown' | 'granted' | 'denied';
   /** 절대 소스에 WMM 편각 적용 */
   applyDeclination: boolean;
   /** 롤 무시(수평 유지) */
@@ -28,9 +32,14 @@ export interface CalibrationInfo {
   at: number;
   residualDeg: number;
   siteName: string;
+  lat?: number;
+  lon?: number;
+  provider?: ProviderName;
+  northReference?: 'magnetic' | 'true' | 'relative';
 }
 
 export interface SensorRuntime {
+  startup: 'idle' | 'permission-required' | 'starting' | 'active' | 'unavailable';
   arActive: boolean;
   provider: ProviderName | null;
   permission: OrientationPermissionState | 'unknown';
@@ -82,6 +91,8 @@ export interface SensorState extends SensorSettings, SensorRuntime {
 }
 
 export const DEFAULT_SENSOR_SETTINGS: SensorSettings = {
+  autoStart: true,
+  orientationConsent: 'unknown',
   applyDeclination: true,
   keepLevel: false,
   compassAxis: 'top',
@@ -91,6 +102,7 @@ export const DEFAULT_SENSOR_SETTINGS: SensorSettings = {
 };
 
 const DEFAULT_RUNTIME: SensorRuntime = {
+  startup: 'idle',
   arActive: false,
   provider: null,
   permission: 'unknown',
@@ -136,6 +148,8 @@ export const useSensorStore = create<SensorState>()(
       version: 1,
       storage: createJSONStorage(() => createDexieSettingsStorage(SENSOR_PERSIST_NAME)),
       partialize: (s): SensorSettings => ({
+        autoStart: s.autoStart,
+        orientationConsent: s.orientationConsent,
         applyDeclination: s.applyDeclination,
         keepLevel: s.keepLevel,
         compassAxis: s.compassAxis,
@@ -146,3 +160,13 @@ export const useSensorStore = create<SensorState>()(
     },
   ),
 );
+
+export function waitForSensorHydration(): Promise<void> {
+  if (useSensorStore.persist.hasHydrated()) return Promise.resolve();
+  return new Promise((resolve) => {
+    const unsubscribe = useSensorStore.persist.onFinishHydration(() => {
+      unsubscribe();
+      resolve();
+    });
+  });
+}

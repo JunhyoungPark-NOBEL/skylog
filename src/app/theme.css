@@ -29,6 +29,8 @@
   --surface-glass: color-mix(in srgb, var(--surface) 72%, transparent);
   --surface-glass-strong: color-mix(in srgb, var(--surface) 86%, transparent);
   --surface-glass-fallback: color-mix(in srgb, var(--surface) 96%, transparent);
+  --surface-hud: color-mix(in srgb, var(--surface) 46%, transparent);
+  --surface-hud-fallback: color-mix(in srgb, var(--surface) 90%, transparent);
   --overlay: rgba(5, 7, 13, 0.6);
 
   --fg: #e8ecf5; /* 17:1 on bg */
@@ -75,11 +77,17 @@
   --glass-blur: 16px;
   --glass-blur-sm: 8px;
   --glass-saturate: 140%;
+  --hud-blur: 4px;
 
   /* 레이아웃 */
-  --tab-height: 64px; /* 떠 있는 pill 탭 바 */
-  --tab-inset: 12px;
-  --status-height: 44px; /* HUD 캡슐 상태 바 */
+  --tab-height: max(52px, calc(28px + 1rem)); /* 아이콘 20px + 확대되는 글줄 + 위아래 4px */
+  --tab-inset: 8px;
+  --status-capsule-height: max(44px, calc(16px + 1rem));
+  --status-height: calc(8px + var(--status-capsule-height));
+  --sky-controls-bottom: calc(
+    var(--status-height) + env(safe-area-inset-top) + 12px + max(44px, 2.75rem)
+  );
+  --sky-target-bottom: calc(var(--sky-controls-bottom) + 8px + max(52px, calc(8px + 2rem)));
   --touch-min: 44px;
   --gutter: 16px;
   --card-pad: 16px;
@@ -155,6 +163,8 @@ html[data-theme='night'] {
   --surface-glass: color-mix(in srgb, var(--surface) 85%, transparent);
   --surface-glass-strong: color-mix(in srgb, var(--surface) 92%, transparent);
   --surface-glass-fallback: color-mix(in srgb, var(--surface) 97%, transparent);
+  --surface-hud: color-mix(in srgb, var(--surface) 58%, transparent);
+  --surface-hud-fallback: color-mix(in srgb, var(--surface) 94%, transparent);
   --overlay: rgba(0, 0, 0, 0.7);
 
   --fg: #ff3b30;
@@ -201,11 +211,14 @@ html[data-theme='night'] {
 }
 /* 접근성: 투명도 축소(iOS) + 수동 스위치 */
 @media (prefers-reduced-transparency: reduce) {
-  :root {
+  :root,
+  html[data-theme='night'] {
     --surface-glass: var(--surface-glass-fallback);
     --surface-glass-strong: var(--surface-glass-fallback);
     --glass-blur: 0px;
     --glass-blur-sm: 0px;
+    --surface-hud: var(--surface-hud-fallback);
+    --hud-blur: 0px;
   }
 }
 html[data-glass='off'] {
@@ -213,6 +226,8 @@ html[data-glass='off'] {
   --surface-glass-strong: var(--surface-glass-fallback);
   --glass-blur: 0px;
   --glass-blur-sm: 0px;
+  --surface-hud: var(--surface-hud-fallback);
+  --hud-blur: 0px;
 }
 
 /* ------------------------------------------------------------------ */
@@ -342,6 +357,15 @@ html[data-glass='off'] {
     background: var(--surface-glass);
     -webkit-backdrop-filter: blur(var(--glass-blur-sm));
     backdrop-filter: blur(var(--glass-blur-sm));
+  }
+}
+/* 하늘 HUD는 낮은 불투명도와 작은 블러로 뒤의 별을 남긴다. 본문 카드에는 사용하지 않는다. */
+@utility glass-hud {
+  background: var(--surface-hud-fallback);
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    background: var(--surface-hud);
+    -webkit-backdrop-filter: blur(var(--hud-blur));
+    backdrop-filter: blur(var(--hud-blur));
   }
 }
 /* 드래그 중·전체 시트에서는 블러를 끈다(WebGL 위 프레임 보호) */

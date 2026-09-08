@@ -54,15 +54,31 @@
   </p>
   <h2>위치와 방향 센서</h2>
   <p>
-    위치는 사용자가 허용할 때 받아 하늘의 위치를 계산하고 마지막 관측지로 저장합니다. 직접 장소를
-    입력할 수도 있습니다. 방향 센서는 하늘 보기와 별길 가이드에 사용하며, 센서 원시값을 외부로
-    전송하지 않습니다. 별 정렬 정보는 기기에 저장합니다. 백그라운드 위치 추적은 하지 않습니다. 사진
-    촬영이나 선택은 관측 기록에서 사용자가 요청할 때만 실행합니다.
+    새 설치에서는 ‘현재 위치 자동 사용’이 켜져 있습니다. 기기·브라우저의 위치 권한을 허용하면 앱을
+    열거나 앱으로 돌아올 때 현재 위치를 한 번 확인해 하늘 계산에 사용합니다. 최근에 확인한 위치는
+    재사용하며, 계속 위치를 추적하거나 백그라운드에서 위치를 수집하지 않습니다. 마지막 위치의
+    위도·경도, 고도, 정확도와 확인 시각은 기기에 저장합니다. 위치 확인 자체가 이 정보를 개발자
+    서버로 보내지는 않습니다. 날씨 요청에 사용하는 좌표는 아래 외부 서비스 항목을 참고하세요.
+  </p>
+  <p>
+    관측지 화면에서 자동 사용을 끄거나 장소를 직접 입력할 수 있습니다. 저장한 관측지를 선택하면 자동
+    사용이 꺼져 그 위치를 유지합니다. 기존 버전에서 지정한 기본 관측지도 첫 업데이트 시 유지합니다.
+    권한 거부 여부와 자동 사용 설정은 기기에 저장하며, 거부한 권한을 자동으로 반복 요청하지
+    않습니다. GPS 버튼을 누르면 자동 사용을 다시 켜고 위치를 직접 요청합니다. 위치 확인에 실패하면
+    기존 좌표를 유지합니다.
+  </p>
+  <p>
+    방향 센서의 자동 사용도 기본으로 켜져 있으며, 센서를 지원하고 필요한 권한이 허용된 기기에서 하늘
+    보기와 별길 안내에 사용합니다. iPhone 등 별도 승인이 필요한 환경에서는 사용자가 버튼을 눌러
+    권한을 허용해야 합니다. 센서 자동 사용을 끌 수 있으며, 앱이 백그라운드로 가면 센서 사용을
+    중단합니다. 센서 원시값은 외부로 전송하지 않고, 권한 선택·센서 설정·별 정렬 정보는 기기에
+    저장합니다. 사진 촬영이나 선택은 관측 기록에서 사용자가 요청할 때만 실행합니다.
   </p>
   <h2>외부 서비스에 전달되는 정보</h2>
   <p>
-    날씨 정보를 불러올 때 선택한 관측지의 위도·경도와 요청에 수반되는 IP 주소 등이 Open-Meteo에
-    전달됩니다. 계정 이름, 관측 기록, 사진, 퀴즈 결과는 보내지 않습니다. 날씨 제공자의 처리 방식은
+    날씨 정보를 불러올 때 현재 관측지의 위도·경도와 요청에 수반되는 IP 주소 등이 Open-Meteo에
+    전달됩니다. 현재 위치 자동 사용이나 GPS 버튼으로 확인한 위치도 현재 관측지로 사용될 수 있습니다.
+    계정 이름, 관측 기록, 사진, 퀴즈 결과는 보내지 않습니다. 날씨 제공자의 처리 방식은
     <a href="https://open-meteo.com/en/terms">Open-Meteo의 약관과 개인정보 안내</a>를 따릅니다.
     인터넷을 끈 상태에서는 저장된 자료를 사용할 수 있고 새 날씨는 받을 수 없습니다.
   </p>
@@ -108,17 +124,35 @@
     </p>
     <h2>Location, motion and photos</h2>
     <p>
-      With permission, location is used to calculate your sky and save your last observing site. You
-      can enter a site manually. Motion sensors power sky and telescope guidance; raw readings are
-      not sent to a server. Star-alignment data stays on your device. There is no background
-      location tracking. Photos are captured or selected only when you request them for an
-      observation.
+      “Use current location automatically” is on for new installations. With device or browser
+      permission, the app requests one location fix when you open or return to it to calculate your
+      sky. Recent fixes may be reused. The app does not continuously track you or collect location
+      in the background. The last fix’s latitude, longitude, altitude, accuracy and timestamp are
+      stored on your device. Obtaining a fix does not send it to a developer server. See External
+      services below for coordinates used in weather requests.
+    </p>
+    <p>
+      You can turn automatic location off or enter a place in the observing-sites screen. Choosing a
+      saved site turns automatic location off and keeps that site selected. A custom default site
+      from an earlier version is also preserved on the first update. Automatic-location preferences
+      and permission-denial status are stored locally; denied permission is not automatically
+      requested repeatedly. The GPS button turns automatic location back on and requests a fix. If a
+      location request fails, the existing coordinates are kept.
+    </p>
+    <p>
+      Automatic motion-sensor use is also on by default. Supported devices with the required
+      permission use it for the sky view and Starpath guidance. On iPhone and other devices that
+      require a separate approval, you must tap a button to grant permission. You can turn automatic
+      sensor use off, and sensor use stops while the app is in the background. Raw sensor readings
+      are not sent externally. Permission choices, sensor settings and star-alignment data stay on
+      your device. Photos are captured or selected only when you request them for an observation.
     </p>
     <h2>External services</h2>
     <p>
-      Fetching weather sends the selected site’s latitude and longitude, together with connection
-      information such as your IP address, to Open-Meteo. It does not send observations, photos or
-      quiz results. See
+      Fetching weather sends the current observing site’s latitude and longitude, together with
+      connection information such as your IP address, to Open-Meteo. The observing site may be your
+      current location obtained automatically or with the GPS button. Weather requests do not send
+      observations, photos or quiz results. See
       <a href="https://open-meteo.com/en/terms">Open-Meteo’s terms and privacy notice</a>. Offline
       mode uses available local data and cannot fetch new weather.
     </p>

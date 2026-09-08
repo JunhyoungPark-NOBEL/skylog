@@ -4,6 +4,14 @@ import mwFrag from '@/render/shaders/milkyway.frag.glsl?raw';
 import mwVert from '@/render/shaders/milkyway.vert.glsl?raw';
 import refractionGlsl from '@/render/shaders/refraction.glsl?raw';
 
+/** 지도 모드에서는 시간과 관계없이 표시, 대기가 켜지면 박명에 따라 자연스럽게 사라진다. */
+export function milkyWayOpacity(alpha: number, sunAltDeg: number, atmosphere: boolean): number {
+  const strength = Math.max(0, Math.min(1, alpha));
+  if (!atmosphere) return strength;
+  const t = Math.max(0, Math.min(1, (sunAltDeg + 18) / 12));
+  return strength * (1 - t * t * (3 - 2 * t));
+}
+
 /** 은하수: 빌드 시 mw.json에서 만든 등적색 텍스처(public/data/milkyway.v1.png)를 J2000 구에 입힌다(D-017). */
 export class MilkyWayLayer {
   readonly mesh: THREE.Mesh;

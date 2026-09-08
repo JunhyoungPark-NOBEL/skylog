@@ -8,7 +8,8 @@
     "search": "Search",
     "tonight": "Tonight",
     "log": "Log",
-    "learn": "Learn"
+    "learn": "Learn",
+    "navigation": "Main navigation"
   },
   "status": {
     "sensorOff": "Sensors off",
@@ -37,7 +38,7 @@
     "circularView": "Sky overview",
     "circularViewHelp": "See the sky hemisphere centered on the zenith, then drag to explore.",
     "placeholder": "Sky view — rendered in Task 1",
-    "layers": "Layers",
+    "layers": "Sky options",
     "layer": {
       "constellationLines": "Constellation lines",
       "constellationBounds": "Constellation boundaries",
@@ -60,13 +61,15 @@
       "labelLangAuto": "Same as app",
       "realSky": "Real sky",
       "realSkyHint": "Fewer stars, like your light-polluted sky. Adjust sky brightness below (1 darkest – 9 inner city).",
-      "bortle": "Sky brightness"
+      "bortle": "Sky brightness",
+      "milkyWayHint": "Visible at night with atmosphere on. Turn atmosphere off to see it during daytime."
     },
     "time": {
       "now": "Now",
       "slider": "Time offset (±12 h)",
       "date": "Date",
-      "rate": "Speed"
+      "rate": "Speed",
+      "controls": "Time controls"
     },
     "kind": {
       "star": "Star",
@@ -186,7 +189,7 @@
     },
     "permission": {
       "deniedHelp": "Motion & orientation access was denied. You can keep using the app in manual mode.",
-      "deniedIosSteps": "iOS: close the Safari tab (or the home-screen app) completely, reopen it and tap this button again. If that doesn't work, clear this site's data under Settings › Safari › Advanced › Website Data and try again. (There's no separate switch in the Settings app.)"
+      "deniedIosSteps": "On iPhone, close and reopen the Safari tab or home-screen app, then reconnect. You can move the sky with your finger meanwhile."
     },
     "geo": {
       "unsupported": "This browser can't provide your location. Add an observing site manually.",
@@ -264,7 +267,9 @@
       "7": "Suburban/urban",
       "8": "City",
       "9": "Inner city"
-    }
+    },
+    "autoLocation": "Use current location automatically",
+    "autoLocationHint": "Refresh location when opening or returning to the app. Choosing a saved site turns this off."
   },
   "settings": {
     "title": "Settings",
@@ -543,5 +548,15 @@
     "hint": "Hides stars washed out by your light pollution (Bortle) and the Moon.",
     "bortle": "Sky brightness (Bortle {{n}})",
     "bortleAuto": "Use site setting"
+  },
+  "sensorAuto": {
+    "on": "Sensors on",
+    "turnOff": "Turn off orientation sensors",
+    "compassHelp": "Hold your phone flat for a moment.",
+    "enable": "Follow my phone",
+    "retry": "Reconnect orientation",
+    "connecting": "Connecting orientation sensors",
+    "permissionHelp": "Allow once to follow your phone automatically next time.",
+    "unavailable": "Sensors are unavailable. You can explore the sky by touch."
   }
 }

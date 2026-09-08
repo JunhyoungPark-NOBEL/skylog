@@ -8,7 +8,8 @@
     "search": "검색",
     "tonight": "오늘 밤",
     "log": "기록",
-    "learn": "배우기"
+    "learn": "배우기",
+    "navigation": "주 메뉴"
   },
   "status": {
     "sensorOff": "센서 꺼짐",
@@ -37,7 +38,7 @@
     "circularView": "원형 하늘",
     "circularViewHelp": "천정을 중심으로 하늘 반구를 한눈에 보고 손가락으로 탐색해요.",
     "placeholder": "하늘 뷰를 준비 중이에요",
-    "layers": "레이어",
+    "layers": "하늘 설정",
     "layer": {
       "constellationLines": "별자리 선",
       "constellationBounds": "별자리 경계",
@@ -60,13 +61,15 @@
       "labelLangAuto": "앱 설정과 같게",
       "realSky": "실제 하늘처럼",
       "realSkyHint": "광해와 달빛만큼 별이 줄어요. 아래에서 하늘 밝기(1 아주 어두움 ~ 9 도심)를 조절할 수 있어요.",
-      "bortle": "하늘 밝기"
+      "bortle": "하늘 밝기",
+      "milkyWayHint": "대기 효과가 켜져 있으면 밤에 보여요. 낮에도 보려면 대기 효과를 끄세요."
     },
     "time": {
       "now": "지금",
       "slider": "시간 이동(±12시간)",
       "date": "날짜",
-      "rate": "배속"
+      "rate": "배속",
+      "controls": "시간 조절"
     },
     "kind": {
       "star": "별",
@@ -186,7 +189,7 @@
     },
     "permission": {
       "deniedHelp": "방향 센서 권한이 거부됐어요. 수동 모드로 계속 쓸 수 있어요.",
-      "deniedIosSteps": "iOS: Safari 탭(또는 홈 화면 앱)을 완전히 닫고 다시 연 뒤 이 버튼을 다시 눌러 주세요. 그래도 안 되면 설정 › Safari › 고급 › 웹사이트 데이터에서 이 사이트의 데이터를 지우고 다시 시도해 주세요. (설정 앱에 따로 켜는 스위치는 없어요.)"
+      "deniedIosSteps": "iPhone은 Safari 탭이나 홈 화면 앱을 닫고 다시 연 뒤 재연결해 주세요. 지금은 손가락으로 하늘을 움직일 수 있어요."
     },
     "geo": {
       "unsupported": "이 브라우저에서는 위치를 쓸 수 없어요. 관측지를 직접 입력해 주세요.",
@@ -264,7 +267,9 @@
       "7": "교외·도시 경계",
       "8": "도시",
       "9": "도심"
-    }
+    },
+    "autoLocation": "현재 위치 자동 사용",
+    "autoLocationHint": "앱을 열거나 돌아올 때 위치를 확인해요. 저장한 관측지를 선택하면 꺼져요."
   },
   "settings": {
     "title": "설정",
@@ -543,5 +548,15 @@
     "hint": "내가 있는 곳의 광해와 달빛만큼 별을 줄여서 보여 줘요.",
     "bortle": "하늘 밝기(광해 {{n}}단계)",
     "bortleAuto": "관측지 설정과 같게"
+  },
+  "sensorAuto": {
+    "on": "센서 켜짐",
+    "turnOff": "방향 센서 끄기",
+    "compassHelp": "휴대폰을 잠시 평평하게 들어주세요.",
+    "enable": "휴대폰 방향으로 보기",
+    "retry": "방향 센서 다시 연결",
+    "connecting": "방향 센서를 연결하고 있어요",
+    "permissionHelp": "한 번 허용하면 다음부터 휴대폰 방향을 따라가요.",
+    "unavailable": "센서를 연결하지 못했어요. 손가락으로 하늘을 둘러볼 수 있어요."
   }
 }

@@ -6,8 +6,12 @@ import { ArToggle } from '@/features/sky/ArToggle';
 import { CalibrationWizard } from '@/features/sky/CalibrationWizard';
 import { LayerPanel } from '@/features/sky/LayerPanel';
 import { SensorSimPanel } from '@/features/sky/SensorSimPanel';
-import { RealSkyToggle } from '@/features/sky/RealSkyToggle';
+import { useRealSkySync } from '@/features/sky/useRealSkySync';
 import { sensorManager } from '@/sensors/orientation/manager';
+import {
+  mountSkyOrientation,
+  setSkyOrientationAutomaticAllowed,
+} from '@/sensors/orientation/autoStart';
 import { useSensorStore } from '@/state/sensorStore';
 import { SelectionTooltip } from '@/features/sky/SelectionTooltip';
 import { TargetGuide } from '@/features/sky/TargetGuide';
@@ -17,7 +21,6 @@ import { TimeBar } from '@/features/sky/TimeBar';
 import { SkyScene, type ObjectInfo } from '@/render/SkyScene';
 import { useClockStore } from '@/state/clockStore';
 import { showsBelowHorizon, useLayerStore } from '@/state/layerStore';
-import { openTelescope } from '@/features/telescope/navigation';
 import { FovOverlay } from '@/features/telescope/FovOverlay';
 import { useLocationStore } from '@/state/locationStore';
 import { useLogStore, type LogState } from '@/state/logStore';
@@ -55,11 +58,12 @@ function ViewInfo() {
   const az = useViewStore((s) => s.centerAz);
   const fov = useViewStore((s) => s.fovDeg);
   const hasTarget = useSelectionStore((s) => Boolean(s.targetId));
+  const selected = useSelectionStore((s) => Boolean(s.selectedId));
+  if (!selected && !hasTarget && fov < 180) return null;
   return (
     <div
-      className={`pointer-events-none absolute left-1/2 top-[calc(var(--status-height)+env(safe-area-inset-top)+18px)] z-10 flex h-8 -translate-x-1/2 items-center whitespace-nowrap rounded-pill glass-sm px-3 text-caption text-fg tabular-nums shadow-[inset_0_0_0_1px_var(--hairline)] transition-transform duration-[350ms] ease-spring-fast ${
-        hasTarget ? 'translate-y-[46px]' : ''
-      }`}
+      className="pointer-events-none absolute left-1/2 top-[calc(var(--status-height)+env(safe-area-inset-top)+18px)] z-10 flex h-7 -translate-x-1/2 items-center whitespace-nowrap rounded-pill glass-hud px-2 text-caption text-fg tabular-nums"
+      style={hasTarget ? { top: 'calc(var(--sky-target-bottom) + 8px)' } : undefined}
       data-testid="view-info"
     >
       {fov >= 180 ? `${t('sky.circularView')} · 180°` : formatView(alt, az, fov)}
@@ -90,7 +94,10 @@ export function SkyView() {
   const lang = useSettingsStore((s) => s.lang);
   const showViewInfo = useLayerStore((s) => s.showViewInfo);
   const selectedId = useSelectionStore((s) => s.selectedId);
+  const targetId = useSelectionStore((s) => s.targetId);
   const sheetOpen = useSelectionStore((s) => s.sheetOpen);
+  // 표시 옵션 패널을 닫아도 실제 하늘의 한계등급은 시간·관측지를 계속 따라간다.
+  useRealSkySync();
 
   // 씬 생성/파괴
   useEffect(() => {
@@ -135,10 +142,14 @@ export function SkyView() {
       if (useSensorStore.getState().arActive && !scene.controller.dragHandler)
         sensorManager.pauseForManual();
     };
+    const isFixedChart = () =>
+      ['alt', 'az', 'fov', 'select', 't'].some((key) => hashQuery().has(key));
+    const stopAutoOrientation = mountSkyOrientation(!isFixedChart());
 
     // 시점·시각: 해시 쿼리(#/sky?t=&alt=&az=&fov=&rate=) > viewStore. 해시가 바뀌면 다시 적용(공유 링크·테스트).
     const applyHash = () => {
       const q = hashQuery();
+      setSkyOrientationAutomaticAllowed(!isFixedChart());
       const vs = useViewStore.getState();
       const alt = Number(q.get('alt') ?? vs.centerAlt);
       const az = Number(q.get('az') ?? vs.centerAz);
@@ -200,7 +211,7 @@ export function SkyView() {
       document.removeEventListener('visibilitychange', onVis);
       for (const u of unsubs) u();
       ro.disconnect();
-      sensorManager.stop();
+      stopAutoOrientation();
       sensorManager.attachCamera(null);
       registerSkyScene(null);
       scene.dispose();
@@ -228,7 +239,10 @@ export function SkyView() {
       window.clearInterval(id);
     };
   }, [selectedId, ready, lang]);
-  const shownInfo = selectedId && !sheetOpen && info && info.id === selectedId ? info : null;
+  const shownInfo =
+    selectedId && selectedId !== targetId && !sheetOpen && info && info.id === selectedId
+      ? info
+      : null;
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-bg" data-testid="sky-view">
@@ -257,49 +271,37 @@ export function SkyView() {
         aria-expanded={layersOpen}
         onClick={() => setLayersOpen((o) => !o)}
         data-testid="open-layers"
-        className="absolute left-3 top-[calc(var(--status-height)+env(safe-area-inset-top)+12px)] z-10 flex h-11 w-11 items-center justify-center rounded-pill glass text-fg shadow-float transition-transform duration-150 ease-standard active:scale-95"
+        className="absolute left-[12px] top-[calc(var(--status-height)+env(safe-area-inset-top)+8px)] z-10 flex h-[44px] w-[44px] items-center justify-center rounded-pill glass-hud text-fg transition-transform duration-150 ease-standard active:scale-95"
       >
         <IconLayers size={20} />
       </button>
 
-      <ArToggle onOpenWizard={() => setWizardOpen(true)} />
-      <button
-        aria-label={t('guide.title')}
-        onClick={() => openTelescope(useSelectionStore.getState().selectedId ?? undefined)}
-        data-testid="sky-telescope"
-        className="absolute left-3 top-[calc(var(--status-height)+env(safe-area-inset-top)+64px)] z-10 flex h-11 w-11 items-center justify-center rounded-pill glass text-accent"
-      >
-        ◎
-      </button>
+      <ArToggle />
       <FovOverlay />
-      <button
-        type="button"
-        aria-label={t('sky.circularView')}
-        title={t('sky.circularViewHelp')}
-        onClick={() => {
-          sensorManager.stop();
-          const scene = sceneRef.current;
-          scene?.controller.flyTo({ altDeg: 89.9, azDeg: 0, fovDeg: 220 });
-          scene?.invalidate();
-        }}
-        data-testid="sky-overview"
-        className="absolute left-3 top-[calc(var(--status-height)+env(safe-area-inset-top)+116px)] z-10 inline-flex min-h-11 items-center gap-1.5 rounded-pill glass px-3 text-caption text-fg"
-      >
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M12 7v10M7 12h10" stroke="currentColor" strokeWidth="1.2" />
-        </svg>
-        {t('sky.circularView')}
-      </button>
       {simulator && arActive && <SensorSimPanel />}
       {wizardOpen && <CalibrationWizard onClose={() => setWizardOpen(false)} />}
 
-      {layersOpen && <LayerPanel onClose={() => setLayersOpen(false)} />}
+      {layersOpen && (
+        <LayerPanel
+          onClose={() => setLayersOpen(false)}
+          onAlign={() => {
+            setLayersOpen(false);
+            setWizardOpen(true);
+          }}
+          onOverview={() => {
+            setSkyOrientationAutomaticAllowed(false);
+            const scene = sceneRef.current;
+            scene?.controller.flyTo({ altDeg: 89.9, azDeg: 0, fovDeg: 220 });
+            scene?.invalidate();
+            setLayersOpen(false);
+          }}
+        />
+      )}
 
       <TargetGuide />
 
-      {/* 아래 컨트롤 스택: 탭 pill 위(bottom-sky)에 툴팁 → 실제 하늘 토글 → 시간 바 순으로 쌓인다 */}
-      {/* 시트가 열려 있으면 독을 숨긴다(유리 위 유리·불필요한 블러 방지). 훅(실제 하늘 동기화)은 계속 살아 있게 마운트는 유지 */}
+      {/* 평소에는 작은 시간 컨트롤만 보이고, 천체를 선택했을 때 정보를 더한다. */}
+      {/* 시트가 열려 있으면 독을 숨긴다(유리 위 유리·불필요한 블러 방지). */}
       <div
         className={`pointer-events-none absolute inset-x-0 bottom-sky z-10 flex justify-center px-3 ${sheetOpen ? 'invisible' : ''}`}
       >
@@ -313,9 +315,6 @@ export function SkyView() {
               onDetails={() => openObject(shownInfo.id, 'half')}
             />
           )}
-          <div className="flex justify-end">
-            <RealSkyToggle />
-          </div>
           <TimeBar />
         </div>
       </div>

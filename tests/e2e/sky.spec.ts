@@ -256,14 +256,44 @@ test('천정·조작: 드래그·휠 줌·더블탭·flyTo, FOV 3~220°, 정지 
   expect(drawsAfter.points).toBeGreaterThan(8000);
 });
 
-test('야간 모드: 하늘 뷰 캔버스에 적색 외 색이 없다 · 레이어 토글이 저장된다', async ({ page }) => {
+test('야간 모드: 별자리 선·경계는 흰색, 다른 하늘 레이어는 적색 · 레이어 토글 저장', async ({
+  page,
+}) => {
   await openSky(page, 'alt=30&az=180&fov=90');
   // 야간 모드 켜기
   await page.getByTestId('open-settings').click();
   await page.locator('#setting-night').click();
-  await page.getByTestId('back').click();
+  // 설정의 일반 하늘 복귀는 preserve 플래그가 없으므로, 픽셀 검사용 캔버스로 다시 연다.
+  await openSky(page, 'alt=30&az=180&fov=90');
+  await page.getByTestId('open-layers').click();
+  await page.locator('#layer-constellationBounds').click();
+  await page.getByTestId('close-layers').click();
   await page.waitForTimeout(600);
   await page.screenshot({ path: `${SHOTS}/sky-night.png` });
+  const whitePixels = await page.evaluate(() => {
+    const src = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
+    const c = document.createElement('canvas');
+    c.width = src.width;
+    c.height = src.height;
+    const ctx = c.getContext('2d')!;
+    ctx.drawImage(src, 0, 0);
+    const pixels = ctx.getImageData(0, 0, c.width, c.height).data;
+    let white = 0;
+    for (let i = 0; i < pixels.length; i += 4) {
+      const r = pixels[i]!,
+        g = pixels[i + 1]!,
+        b = pixels[i + 2]!;
+      if (Math.min(r, g, b) > 70 && Math.max(r, g, b) - Math.min(r, g, b) < 12) white++;
+    }
+    return white;
+  });
+  expect(whitePixels).toBeGreaterThan(200);
+  // 흰색으로 요청된 두 레이어만 끄고 나머지 팔레트의 적색 규칙을 따로 검사한다.
+  await page.getByTestId('open-layers').click();
+  await page.locator('#layer-constellationLines').click();
+  await page.locator('#layer-constellationBounds').click();
+  await page.getByTestId('close-layers').click();
+  await page.waitForTimeout(300);
   const offenders = await page.evaluate(() => {
     const src = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
     const c = document.createElement('canvas');
@@ -286,11 +316,7 @@ test('야간 모드: 하늘 뷰 캔버스에 적색 외 색이 없다 · 레이�
   expect(offenders.total).toBeGreaterThan(1000);
   expect(offenders.bad).toBe(0);
 
-  // 레이어 패널: 별자리 선 끄기 → 새로고침 후 유지
-  await page.getByTestId('open-layers').click();
-  await page.locator('#layer-constellationLines').click();
-  await page.getByTestId('close-layers').click();
-  await page.waitForTimeout(300);
+  // 꺼 둔 별자리 선은 새로고침 후에도 유지된다.
   await page.reload();
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
   await page.getByTestId('open-layers').click();
@@ -301,11 +327,88 @@ test('야간 모드: 하늘 뷰 캔버스에 적색 외 색이 없다 · 레이�
   await page.locator('#setting-night').click();
 });
 
+test('저장된 기본 밝기에서도 은하수 띠와 밝은 별의 코어가 실제 화면에서 명확하다', async ({
+  page,
+}) => {
+  const errors = collectErrors(page);
+  await openSky(page, 'alt=60&az=180&fov=90');
+  await page.getByTestId('open-layers').click();
+  await page.locator('#layer-milkyWay').click();
+  await page.getByTestId('close-layers').click();
+  await page.waitForTimeout(300);
+  await page.evaluate(() => {
+    const src = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
+    const c = document.createElement('canvas');
+    c.width = src.width;
+    c.height = src.height;
+    const ctx = c.getContext('2d')!;
+    ctx.drawImage(src, 0, 0);
+    (window as unknown as { __milkyWayOff: Uint8ClampedArray }).__milkyWayOff = ctx.getImageData(
+      0,
+      0,
+      c.width,
+      c.height,
+    ).data;
+  });
+  await page.getByTestId('open-layers').click();
+  await page.locator('#layer-milkyWay').click();
+  await expect(page.getByTestId('layer-milkyWayAlpha')).toHaveValue('0.6');
+  await page.getByTestId('close-layers').click();
+  await page.waitForTimeout(300);
+  const visibility = await page.evaluate(() => {
+    const src = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
+    const c = document.createElement('canvas');
+    c.width = src.width;
+    c.height = src.height;
+    const ctx = c.getContext('2d')!;
+    ctx.drawImage(src, 0, 0);
+    const pixels = ctx.getImageData(0, 0, c.width, c.height).data;
+    const w = window as unknown as {
+      __milkyWayOff?: Uint8ClampedArray;
+      __skylogScene: { project(id: string): { x: number; y: number } | null };
+    };
+    const off = w.__milkyWayOff!;
+    let changed = 0,
+      total = 0,
+      brightness = 0;
+    for (let i = 0; i < pixels.length; i += 4 * 7) {
+      const difference = Math.max(
+        pixels[i]! - off[i]!,
+        pixels[i + 1]! - off[i + 1]!,
+        pixels[i + 2]! - off[i + 2]!,
+      );
+      total++;
+      if (difference >= 10) {
+        changed++;
+        brightness += difference;
+      }
+    }
+    delete w.__milkyWayOff;
+    const star = w.__skylogScene.project('star:HIP91262')!;
+    const ratio = src.width / src.getBoundingClientRect().width;
+    const centerX = Math.round(star.x * ratio),
+      centerY = Math.round(star.y * ratio);
+    let core = 0;
+    for (let y = centerY - 12; y <= centerY + 12; y++)
+      for (let x = centerX - 12; x <= centerX + 12; x++) {
+        const i = (y * c.width + x) * 4;
+        if (Math.max(pixels[i]!, pixels[i + 1]!, pixels[i + 2]!) > 160) core++;
+      }
+    return { changed, total, mean: brightness / Math.max(1, changed), core, ratio };
+  });
+  expect(visibility.changed / visibility.total).toBeGreaterThan(0.06);
+  expect(visibility.mean).toBeGreaterThan(20);
+  expect(visibility.core / (visibility.ratio * visibility.ratio)).toBeGreaterThan(8);
+  await page.screenshot({ path: `${SHOTS}/sky-milkyway-clear.png` });
+  expect(errors).toEqual([]);
+});
+
 test('원형 천구: 반구 경계·GPU 별 위치·선택·역투영이 가로/세로 화면에서 일치한다', async ({
   page,
 }) => {
   const errors = collectErrors(page);
   await openSky(page, 'alt=40&az=180&fov=90');
+  await page.getByTestId('open-layers').click();
   await page.getByTestId('sky-overview').click();
   await expect
     .poll(() =>
