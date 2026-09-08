@@ -1,26 +1,34 @@
 # Android AAB / iOS 출시 준비
 
-2026-09-08 기준. 앱 ID 기본값은 `io.github.junhyoungparknobel.skylog`, 현재 소스 버전은 `0.1.0-beta.3`(iOS marketing 0.1.0), 이번 빌드 후보 번호는 **8**이다. build8 산출물·배포·최종 검증은 아래 확인 대기 상태를 따른다. 이 ID는 저장소 소유자에서 정했으며 **스토어 등록·최종 앱 ID·기존 업로드 키는 계정 소유자의 확인이 필요하다**. T5 실기기 승인과 T7/T8 전체 완료를 의미하지 않는다.
+2026-09-08 기준. 앱 ID 기본값은 `io.github.junhyoungparknobel.skylog`, 현재 소스 버전은 `0.1.0-beta.3`(iOS marketing 0.1.0), 이번 빌드 번호는 **8**이다. 개인 APK 게시·unsigned AAB 검증·PWA 배포를 완료했고 새 모바일 CI도 전체 성공했다. 이 ID는 저장소 소유자에서 정했으며 **스토어 등록·최종 앱 ID·기존 업로드 키는 계정 소유자의 확인이 필요하다**. T5 실기기 승인과 T7/T8 전체 완료를 의미하지 않는다.
 
-## 2026-09-08 최신 beta.3 / build8 후보: 자동 위치·센서·흰 별자리·작은 반투명 UI
+## 2026-09-08 최신 beta.3 / build8: 자동 위치·센서·흰 별자리·작은 반투명 UI
 
-> **현재 상태: 소스 반영 후 최종 확인 대기.** build8 APK/AAB 빌드·서명/내용 검증·다운로드 게시, beta.3 PWA 배포·공개 버전 확인, 새 Android/iOS CI와 최종 단위·브라우저 검증 수치는 아직 확정하지 않았다. 아래 build7의 성공 기록과 해시는 이전 산출물의 결과이며 build8 검증 결과가 아니다.
+> **현재 상태: build8 개인 APK 다운로드·unsigned AAB 검증·beta.3 PWA 배포 완료.** 소스 커밋 `e17373169c2475183f424be81031fb28f7fc939c`를 main에 반영했다. typecheck·lint·데이터 검증, 단위 433개와 브라우저 고유 시나리오 48개가 통과했다. 로컬 Android release/lint와 새 모바일 CI 전체가 성공했다. CI에서 Android release/lint·API36 오프라인 실제 WebView 계측과 iOS Xcode26 arm64 무서명 컴파일을 통과했다. Play 최종 업로드 서명·Apple 팀 서명/TestFlight·실기기·스토어 공개 출시는 남아 있다.
+
+브라우저 수치는 전체 47개 실행 뒤 픽셀 테스트의 화면 복귀 수정에 따른 20개 재검과 마지막 UI 변경의 14개 재검을 포함한 **고유 시나리오 48개**다. 같은 테스트를 여러 번 실행한 횟수를 더한 수치가 아니며, Android/iPhone 실기기 검증을 의미하지 않는다.
 
 - **자동 GPS**: 첫 실행과 앱 복귀 때 현재 위치를 한 번 요청한다. 자동 사용이 기본이고 최초 OS/브라우저 권한 요청이 필요할 수 있다. 권한 거부 이력을 기억해 자동 재요청을 막으며, 명시적 위치 버튼으로 재시도한다. 자동 사용을 끄거나 저장 관측지를 선택하면 그 선택을 유지하고 늦은 GPS 응답이 덮어쓰지 않게 했다. 이전에 직접 지정한 기본 관측지도 보존한다. 백그라운드 위치 추적을 추가하지 않았다.
 - **자동 방향 센서**: 하늘 화면에 들어오면 자동 연결을 시도한다. iPhone 최초 권한은 사용자가 센서 버튼을 눌러 허용하며, 승인 뒤 재진입/복귀 때 연결을 다시 확인한다. 사용자가 직접 끈 선택은 다음 실행에도 유지한다. 나침반 방향이 아직 없으면 화면을 잘못 돌리지 않고 필요한 안내를 표시한다. 공유 차트와 원형 하늘의 명시적인 수동 탐색도 유지한다.
 - **별자리·은하수**: 연결선과 경계선을 더 선명한 흰색으로 표시한다. 이 두 선은 야간 모드에서도 흰색이며 다른 야간 레이어는 적색을 유지한다. 은하수의 밝기 감쇠를 바로잡고 청보라·청록·밝은 먼지 결을 보강했다. 대기 효과가 켜지면 태양 고도에 따라 흐려지고, 끈 지도 보기에서는 낮에도 표시한다. 원형 180° 반구 보기와 선택적인 정밀 별 정렬은 유지한다.
 - **작은 반투명 UI**: 상단 중복 시각/센서 표시를 정리하고 하늘의 시간 제어를 기본 접힘 상태로 바꿨다. 시간 이동 중 표시와 지금 복귀는 접어도 남는다. 하단 5개 탭과 상태 캡슐은 작은 반투명 표면을 사용하고 글자 확대에 맞춰 높이·콘텐츠 여백을 함께 늘린다. 주요 터치 영역은 최소 44px을 유지한다. 원형 하늘·별길·실제 하늘 설정은 하늘 설정 패널로 모았다. 목표 pill은 센서 도움말의 실제 아래 끝을 따라 배치한다.
-- **설치 경로와 iPhone 갱신**: [휴대폰 설치 안내](INSTALL-ON-PHONE.md)에 전달 경로와 새 조작을 정리했다. 공개 PWA 주소는 그대로이며 beta.3 배포 확인 후 기존 Safari/홈 화면 앱을 갱신한다. 업데이트를 위해 웹사이트 데이터나 기존 앱을 먼저 삭제하지 않는다. 개인 APK는 기존 체험판과 같은 키로 업데이트하도록 준비하지만 실제 서명 일치 확인은 아직 대기다.
+- **설치 경로와 iPhone 갱신**: [휴대폰 설치 안내](INSTALL-ON-PHONE.md)에 build8 APK 직접 링크와 새 조작을 정리했다. 기존 PWA 주소에 beta.3를 배포했으므로 Safari/홈 화면 앱을 인터넷에 연결해 다시 열고 설정 버전을 확인한다. 업데이트를 위해 웹사이트 데이터나 기존 앱을 먼저 삭제하지 않는다. build8과 build7 개인 APK의 인증서를 직접 대조해 일치를 확인했으며 build5~7의 같은 개인 키를 사용한다.
 - **과금 상태**: 전 기능 무료이며 결제 기능·상품 등록·로그인·무료 이용권 발급은 아직 없다. 공개 유료 플랜과 두 사람 무료 이용 설계는 [유료화 계획](MONETIZATION-PLAN.md)에 있다. 기존 Play 업로드 키·Apple 팀·실기기·심사·상업용 날씨 이용 조건은 계속 별도 출시 항목이다.
 
-| build8 확인 항목             | 현재 기록                                                                                               |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------- |
-| 소스 커밋·최종 단위/e2e 수치 | 확인 대기 — 작업 중 수치를 최종 결과로 사용하지 않음                                                    |
-| PC 전달 폴더                 | `Downloads/skylog-release-0.1.0-beta.3-build8/` 예정 — 생성·내용 확인 대기                              |
-| 개인 APK                     | `skylog-0.1.0-beta.3-build8-local-test.apk` 예정 — 크기·SHA256·서명 일치·공개 링크 확인 대기            |
-| unsigned AAB                 | `skylog-0.1.0-beta.3-build8-unsigned.aab` 예정 — 구조/versionCode8·크기·SHA256·내장 자료 일치 확인 대기 |
-| PWA·모바일 CI                | beta.3 공개 버전/SW·Android release/오프라인 WebView·iOS 무서명 컴파일 확인 대기                        |
-| 스토어·실기기                | Play 최종 서명/내부 테스트, Apple 서명 Archive/TestFlight, Android/iPhone 실기기와 심사 대기            |
+| build8 확인 항목   | 현재 기록                                                                                                                                                                                                                                                 |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 소스 커밋·단위/e2e | `e17373169c2475183f424be81031fb28f7fc939c` main 반영, typecheck/lint/data·단위 433개·브라우저 고유 48개 통과                                                                                                                                              |
+| PC 전달 폴더       | `Downloads/skylog-release-0.1.0-beta.3-build8/` 생성 완료                                                                                                                                                                                                 |
+| 개인 APK           | [skylog-0.1.0-beta.3-build8-local-test.apk](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.3-build8/skylog-0.1.0-beta.3-build8-local-test.apk), 7,200,927 bytes, 서명·정렬·build7 인증서 일치·공개 다운로드 크기/SHA256 확인 |
+| unsigned AAB       | `skylog-0.1.0-beta.3-build8-unsigned.aab`, 6,913,704 bytes, bundletool·API36/min24/versionCode8/backup=false·내장 자료 검증 완료. Play 최종 업로드 서명 대기                                                                                              |
+| 로컬 Android       | release/lint 성공, lint 오류 0 / 경고 33. AAB·APK·native public 160개 자료의 SHA256 일치                                                                                                                                                                  |
+| PWA 배포           | [Pages 34195531010](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34195531010) 성공. 공개 beta.3·SW·작은 UI·원형 하늘·새로고침 확인, 자동 브라우저 검사 JS 오류 0                                                                            |
+| 모바일 CI          | [34195530826](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34195530826): 전체 성공 — Android release/lint·API36 오프라인 실제 WebView 계측, iOS Xcode26 arm64 무서명 컴파일 통과                                                            |
+| 스토어·실기기      | Play 최종 서명/내부 테스트, Apple 서명 Archive/TestFlight, Android/iPhone 실기기와 심사 대기                                                                                                                                                              |
+
+- APK SHA256: `8adb1e44357b3631849ce6f604e9acf7395227d39a71da8dfba5fa6089ff450f`. 공개 릴리스의 APK를 실제 다시 다운로드한 크기·해시도 일치한다.
+- unsigned AAB SHA256: `d92406690d512d9e01bc4e8c94cc1615af88cc465ec7b00f40025c4e3be88698`.
+- [build8 공개 체험 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.3-build8)는 직접 설치 APK 전달용이다. 이 게시와 무서명 iOS 컴파일을 Play/App Store 출시 또는 TestFlight 배포로 간주하지 않는다.
 
 ## 이전 beta.2 / build7 기록: 자동 안내·밤하늘·원형 전체 보기
 
