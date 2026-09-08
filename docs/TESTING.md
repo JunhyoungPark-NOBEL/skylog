@@ -142,3 +142,11 @@ T3b e2e(`tests/e2e/tonight.spec.ts`): Open-Meteo를 `page.route`로 목(서비�
 - [ ] 현재 떠 있는 M13/M31 등으로 실제 스타호핑 후 ‘찾았어요’를 눌러 업적 반영. 야간 글자·버튼·진동 확인.
 
 G4 요청에는 `astro/pointing.ts`, `astro/finder.ts`, `sensors/telescopeOrientation.ts`, `sensors/orientation/{math,filter,calibration}.ts`, `tests/unit/astro/pointing.test.ts`, `tests/unit/sensors/telescope.test.ts`를 함께 첨부한다. 기존 `plan/gpt-pro-requests.md` G4에 물리 +Y·상대 yaw/장착축 식별성·센서 재시작/드리프트 검토를 추가하면 된다. T5 완료 태그는 실기기 결과를 받은 뒤 붙인다.
+
+## 별길 안내·호핑 코스·모바일 (2026-09-08)
+
+- 자동 검증: 방향 안내 CTA가 첫 화면에 있음, 센서 시작 후 정렬 화면 자동 진입, 2별 정렬 후 좌우/상하 숫자 표시, 도착해도 자동 차트로 전환되지 않음. 대표 코스에서 출발/이정표/완료→기록 저장→새로고침 후 2/2, 다른 코스 0/2.
+- nativeMotion 테스트는 다른 세션/늦은 샘플 무시, 취소된 시작, 무응답 6초 제한과 리스너 정리를 확인한다. ENU·iOS 북서천정 변환 계약은 별도 수학 테스트. 이는 하드웨어 수치 검증을 대신하지 않는다.
+- `android/.../OfflineSmokeTest.java`: 네트워크를 끈 API36 에뮬레이터의 실제 앱 WebView에서 플랫폼/플러그인, 하늘, 6코스, 퀴즈, 깊은 별 팩이 열린다. 방향 센서 실측은 검사하지 않는다.
+- 상세 폰 체크리스트와 PWA→앱 JSON 이관, Play 내부 테스트, iOS TestFlight 절차는 `docs/MOBILE-RELEASE.md`.
+- 기존 하늘 e2e는 React 생성 전에 loading 개수=0을 성공으로 판정할 수 있었다. 캔버스 생성 후 loading 종료를 기다리도록 수정했다. 최종 브라우저 전체 34개 통과.

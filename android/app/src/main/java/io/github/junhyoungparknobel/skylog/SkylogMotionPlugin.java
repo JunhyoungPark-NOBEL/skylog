@@ -12,6 +12,7 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import java.util.Arrays;
 
 /** 상대 모드는 자력계를 쓰지 않는다. Android의 기기→ENU 회전을 그대로 전달한다. */
 @CapacitorPlugin(name = "SkylogMotion")
@@ -53,8 +54,8 @@ public class SkylogMotionPlugin extends Plugin implements SensorEventListener {
         if (!running) return;
         float[] q = new float[4];
         SensorManager.getQuaternionFromVector(q, event.values);
-        JSArray xyzw = new JSArray();
-        xyzw.put(q[1]); xyzw.put(q[2]); xyzw.put(q[3]); xyzw.put(q[0]);
+        for (float component : q) if (!Float.isFinite(component)) return;
+        JSArray xyzw = new JSArray(Arrays.asList(q[1], q[2], q[3], q[0]));
         JSObject value = new JSObject();
         value.put("quaternion", xyzw); value.put("session", session);
         value.put("northReference", relative ? "relative" : "magnetic");

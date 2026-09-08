@@ -25,8 +25,8 @@
 ## English
 
 - Name: Skylog: Explore the Night
-- Short description: Find stars, keep an observing log, and learn with quizzes and star-hopping courses.
-- App Store subtitle: Find stars. Keep your sky story.
+- Short description: Find stars, record observations, and learn with quizzes and star-hopping.
+- App Store subtitle: Find stars. Keep your story.
 
 Explore the night sky, record what you see, and learn at your own pace.
 

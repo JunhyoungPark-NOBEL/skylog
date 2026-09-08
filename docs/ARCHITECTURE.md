@@ -199,3 +199,13 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - `telescopeStore`는 장비 프로필·FOV 표시·최근 정렬 참고값만 Dexie settings에 보존한다. 활성 정렬은 현재 sensor.sessionId/provider/profileKey가 모두 같아야 한다. 재실행 시 저장값을 적용하지 않는다. 장비 CRUD는 기존 repos와 선택 필드 추가를 사용해 DB v2 및 JSON 백업을 유지한다.
 - `FovOverlay`는 sphere ring→실제 CameraController projection, `FinderChart`는 gnomonic chart→2D canvas다. `astro/finder.ts`는 상 방향·회전과 역투영을 제공한다. 차트 드래그는 미리보기 중심만 바꾸며 ScrollArea 드래그에서 제외한다. deep 팩은 chart 진입 때 지연 로드하고 9등급 한계를 표시한다.
 - `astro/starHop.ts`는 실제 FOV 기반의 제한 탐색, `StarHop.tsx`는 단계별 확인과 하늘 경로를 담당한다. actual emitSkill(align1/align2/starhop/fovSetup)만 미션·배지 증거로 쓰고 시뮬레이션 정렬/스타호핑은 제외한다. 카메라 plate solving·GoTo 모터 제어는 없다.
+
+## 모바일 앱 경로 (D-031)
+
+`pnpm mobile:sync`는 Vite native 모드(`/`)로 만든 앱과 모든 데이터 팩을 Capacitor Android/iOS 프로젝트에 복사한다. PWA는 `/skylog/` 경로와 Workbox를 유지한다. 네이티브 앱은 SW 없이 포함된 데이터로 시작한다.
+
+- `src/native/motion.ts`는 세션 토큰과 최초 샘플 시간 제한으로 네이티브 리스너를 관리한다. Android `SkylogMotionPlugin`과 iOS Core Motion 플러그인은 기기→ENU quaternion을 전달한다. 기존 `genericSensorToScene`가 AR의 화면 보정을 적용하고, 망원경은 보정 없는 물리 +Y를 쓴다.
+- `src/native/OrientationProvider.ts`는 하늘 AR의 자북 provider다. `telescopeOrientation.ts`는 상대 provider를 사용한다. `pause` 후 별길 정렬은 무효가 되고, AR은 `resume`에서 다시 시작한다.
+- GPS는 공식 Geolocation, 백업은 Filesystem Cache와 Share, 화면 유지와 Android 뒤로는 native bridge/App을 사용한다. 기록 DB v2는 그대로지만 PWA와 앱 사이에 저장 공간을 공유하지 않는다.
+- `HOP_COURSES`는 고정된 대표 이정표, `curatedHop`은 위치각/거리/시야 수, `hopCourseProgress`는 courseId가 있는 실제 skill event와 관측 기록으로 코스 진행을 계산한다. `openTelescope`가 course를 해시에 전달한다.
+- CI는 `mobile.yml`에서 Android AAB/lint/오프라인 계측, iOS arm64 컴파일을 검증한다. 서명 키는 로컬 저장소 밖에 둔다. 제출 절차는 `MOBILE-RELEASE.md`.
