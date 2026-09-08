@@ -1,0 +1,28 @@
+{
+  "guideFlow": {
+    "stepPrepare": "1 Enable sensors → 2 Align to a star → 3 Move",
+    "stepMove": "3 · Move the telescope toward the target",
+    "needTarget": "Choose a target first",
+    "needSensor": "Ready for directions?",
+    "needStar": "Now align to one bright star",
+    "sensorHelp": "Secure the phone with its top edge pointing along the tube. Enable orientation, then align to a bright star to see movement directions.",
+    "starHelp": "Center a bright star in the eyepiece and confirm. The guide will show which way to move toward your target.",
+    "start": "Enable sensors and align",
+    "alignNow": "Align to a bright star",
+    "moveSlowly": "Move slowly toward the arrow",
+    "near": "Near the target",
+    "nearHelp": "Sensors have an error margin. Check the star pattern in the finder or eyepiece for the final step.",
+    "right": "Right {{value}}°",
+    "left": "Left {{value}}°",
+    "up": "Up {{value}}°",
+    "down": "Down {{value}}°",
+    "west": "West {{value}} min",
+    "east": "East {{value}} min",
+    "openChart": "Check the field chart",
+    "alignedNext": "Aligned! You can start directions now.",
+    "secondOptional": "A second star is optional. Choose a different direction and altitude for another check.",
+    "noStars": "No suitable bright alignment stars are up. Check your site and current time, or try again after stars rise.",
+    "settings": "Equipment and instructions",
+    "resetHint": "Align again after restarting sensors or moving the phone."
+  }
+}

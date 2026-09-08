@@ -118,10 +118,11 @@ test('장비 저장 → 폰 윗변 두 별 정렬 → 목표 안내·차트·스
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-equipment.png' });
   await page.goto('#/telescope?target=dso%3AM13');
   await page.getByTestId('guide-accept').click();
-  await expect(page.getByTestId('guide-status')).toContainText('먼저');
+  await expect(page.getByTestId('direction-panel')).toContainText('센서 켜고 별에 맞추기');
+  await expect(page.getByTestId('guide-sensor')).toBeInViewport();
   await pointAt(page, 'star:HIP97649');
   await page.getByTestId('guide-sensor').click();
-  await page.getByRole('button', { name: '별에 맞추기 · 다시 정렬', exact: true }).click();
+  await expect(page.getByTestId('alignment-wizard')).toBeVisible();
   const options = await page
     .getByTestId('alignment-star')
     .locator('option')
@@ -139,7 +140,14 @@ test('장비 저장 → 폰 윗변 두 별 정렬 → 목표 안내·차트·스
   await expect(page.getByRole('button', { name: '세 번째 별로 확인하기' })).toBeVisible();
   await expect(page.getByTestId('alignment-residual')).toContainText('0.0°');
   await page.getByTestId('alignment-done').click();
+  await expect(page.getByTestId('guide-arrows')).toBeInViewport();
+  await expect(page.getByTestId('direction-horizontal')).toContainText(/왼쪽|오른쪽/);
+  await expect(page.getByTestId('direction-vertical')).toContainText(/위로|아래로/);
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-direction.png' });
   await pointAt(page, 'dso:M13');
+  await expect(page.getByTestId('direction-action')).toContainText('목표 근처');
+  await expect(page.getByTestId('guide-chart')).toHaveCount(0);
+  await page.getByRole('button', { name: '시야 차트로 확인하기' }).click();
   await expect(page.getByTestId('guide-chart')).toBeVisible();
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-aligned.png' });
   await page.getByTestId('guide-view-hop').click();
@@ -193,6 +201,7 @@ test('태양 차단·센서 없는 차트·360px 영어와 야간 화면', async
   await page.mouse.up();
   await expect(page.getByRole('button', { name: '중앙으로 돌아가기' })).toBeVisible();
   await expect(page.getByTestId('guide-status')).toContainText('먼저');
+  await page.getByText('장비·사용 방법', { exact: true }).click();
   await page.getByRole('button', { name: /야간 모드/ }).click();
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-night.png' });
   await page.setViewportSize({ width: 360, height: 800 });

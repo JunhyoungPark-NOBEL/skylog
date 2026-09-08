@@ -8,13 +8,14 @@ interface ScreenFrameProps {
   onBack(): void;
   children: ReactNode;
   testId?: string;
+  scrollKey?: string;
 }
 
 /**
  * 전체 화면 보조 화면(설정·정보·디버그)의 공통 틀: 뒤로 버튼 + 제목 + 스크롤 본문.
  * 헤더는 불투명 외곽선 대신 헤어라인(box-shadow)으로 본문과 나눈다.
  */
-export function ScreenFrame({ title, onBack, children, testId }: ScreenFrameProps) {
+export function ScreenFrame({ title, onBack, children, testId, scrollKey }: ScreenFrameProps) {
   const { t } = useTranslation();
   return (
     <div className="flex h-full flex-col bg-bg text-fg" data-testid={testId}>
@@ -30,7 +31,9 @@ export function ScreenFrame({ title, onBack, children, testId }: ScreenFrameProp
         </button>
         <h1 className="min-w-0 truncate text-title">{title}</h1>
       </header>
-      <ScrollArea className="safe-bottom pb-8">{children}</ScrollArea>
+      <ScrollArea key={scrollKey} className="safe-bottom pb-8">
+        {children}
+      </ScrollArea>
     </div>
   );
 }

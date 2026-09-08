@@ -11,14 +11,17 @@ import { useClockStore } from '@/state/clockStore';
 import { Card } from '@/ui/Card';
 import { MissionCard } from './MissionCard';
 import { navigateLearn } from './learnNavigation';
+import { HopCourses } from './HopCourses';
 export function CoursesScreen({
   value,
   pathId,
   missionId,
+  hopCourseId,
 }: {
   value: LearningState;
   pathId: string | null;
   missionId: string | null;
+  hopCourseId?: string | null;
 }) {
   const { t } = useTranslation();
   const lang = useSettingsStore((s) => s.lang);
@@ -49,7 +52,9 @@ export function CoursesScreen({
   const mission = value.statuses.find((m) => m.mission.id === missionId);
   return (
     <div className="space-y-5" data-testid="courses-screen">
-      {mission ? (
+      {hopCourseId ? (
+        <HopCourses value={value} courseId={hopCourseId} />
+      ) : mission ? (
         <MissionCard
           status={mission}
           state={value}
@@ -122,6 +127,7 @@ export function CoursesScreen({
               <p className="text-body-sm text-muted">{t('study.noMissionTonight')}</p>
             )}
           </Card>
+          <HopCourses value={value} />
           <section>
             <h2 className="mb-3 px-1 text-title">{t('study.paths')}</h2>
             <div className="grid gap-3 sm:grid-cols-2">

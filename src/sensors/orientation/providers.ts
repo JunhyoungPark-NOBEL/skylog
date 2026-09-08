@@ -5,6 +5,7 @@
  * 리스너는 AR 모드에서만 등록하고 stop()에서 해제한다(배터리).
  */
 import { wrap360 } from '@/astro/coords';
+import { NativeOrientationProvider } from '@/native/OrientationProvider';
 import {
   currentScreenAngle,
   deviceOrientationToScene,
@@ -221,6 +222,7 @@ export class SimulatorProvider implements OrientationProvider {
 /** 지원되는 Provider를 우선순위대로 (시뮬레이터 제외) */
 export function availableProviders(): OrientationProvider[] {
   const all: OrientationProvider[] = [
+    new NativeOrientationProvider(),
     new DeviceOrientationAbsoluteProvider(),
     new AbsoluteOrientationSensorProvider(),
     new DeviceOrientationProvider(),

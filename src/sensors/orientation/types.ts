@@ -22,7 +22,11 @@ export interface OrientationSample {
 }
 
 export type ProviderName =
-  'AbsoluteOrientationSensor' | 'DeviceOrientationAbsolute' | 'DeviceOrientation' | 'Simulator';
+  | 'AbsoluteOrientationSensor'
+  | 'DeviceOrientationAbsolute'
+  | 'DeviceOrientation'
+  | 'Simulator'
+  | 'NativeOrientation';
 
 export interface OrientationProvider {
   readonly name: ProviderName;

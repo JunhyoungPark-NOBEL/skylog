@@ -24,6 +24,8 @@ function collectErrors(page: Page): string[] {
 
 async function openSky(page: Page, params: string): Promise<void> {
   await page.goto(`#/sky?t=${T}&preserve=1&${params}`);
+  // React가 뜨기 전에도 로딩 표시 개수는 0이다. 먼저 실제 캔버스가 생겼는지 확인한다.
+  await expect(page.getByTestId('sky-canvas')).toBeVisible({ timeout: 30000 });
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
   // 은하수 텍스처·첫 렌더 안정화
   await page.waitForTimeout(800);

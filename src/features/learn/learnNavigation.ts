@@ -25,6 +25,7 @@ export function useLearnNavigation() {
     section,
     pathId: params.get('path'),
     missionId: params.get('mission'),
+    hopCourseId: params.get('hopCourse'),
     chapter: Number(params.get('chapter')) || undefined,
     track: params.get('track') === 'observing' ? 'observing' : 'sky',
   };

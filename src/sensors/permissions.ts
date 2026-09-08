@@ -2,6 +2,7 @@
  * 방향 센서 권한 (task-02 §3.2, G1 §A2). iOS 13+·Chrome 151+의 `DeviceOrientationEvent.requestPermission()`은
  * **사용자 제스처 안에서만** 호출한다(페이지 로드 시 자동 요청 금지). 메서드 존재로 iOS를 식별하지 않는다(기능 감지).
  */
+import { isNative } from '@/native/motion';
 export type OrientationPermissionState = 'granted' | 'denied' | 'prompt' | 'unsupported';
 
 type DOEStatic = typeof DeviceOrientationEvent & {
@@ -9,16 +10,19 @@ type DOEStatic = typeof DeviceOrientationEvent & {
 };
 
 export function orientationEventsSupported(): boolean {
+  if (isNative()) return true;
   return typeof window !== 'undefined' && 'DeviceOrientationEvent' in window;
 }
 
 export function needsOrientationPermission(): boolean {
+  if (isNative()) return false;
   if (!orientationEventsSupported()) return false;
   return typeof (DeviceOrientationEvent as DOEStatic).requestPermission === 'function';
 }
 
 /** 사용자 탭 핸들러 안에서 호출. 권한 API가 없으면 'granted'로 간주(이벤트가 오는지는 Provider가 판정). */
 export async function requestOrientationPermission(): Promise<OrientationPermissionState> {
+  if (isNative()) return 'granted'; // OS 권한은 네이티브 센서 start에서 요청한다.
   if (!orientationEventsSupported()) return 'unsupported';
   const req = (DeviceOrientationEvent as DOEStatic).requestPermission;
   if (typeof req !== 'function') return 'granted';

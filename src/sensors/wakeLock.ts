@@ -3,6 +3,8 @@
  * 탭이 백그라운드로 가면 잠금이 자동 해제되므로 visibilitychange 때 다시 요청한다.
  */
 
+import { isNative, nativeMotion } from '@/native/motion';
+let nativeActive = false;
 type WakeLockNavigator = Navigator & {
   wakeLock?: { request(type: 'screen'): Promise<WakeLockSentinel> };
 };
@@ -12,12 +14,22 @@ let wanted = false;
 let listening = false;
 
 export function isWakeLockSupported(nav: Navigator | undefined = globalThis.navigator): boolean {
+  if (isNative()) return true;
   return (
     !!nav && 'wakeLock' in nav && typeof (nav as WakeLockNavigator).wakeLock?.request === 'function'
   );
 }
 
 async function acquire(): Promise<boolean> {
+  if (isNative()) {
+    try {
+      await nativeMotion.keepAwake({ enabled: wanted });
+      nativeActive = wanted;
+      return nativeActive;
+    } catch {
+      return false;
+    }
+  }
   const nav = globalThis.navigator as WakeLockNavigator | undefined;
   if (!nav?.wakeLock) return false;
   if (globalThis.document && document.visibilityState !== 'visible') return false;
@@ -53,6 +65,10 @@ export async function requestWakeLock(): Promise<boolean> {
 
 export async function releaseWakeLock(): Promise<void> {
   wanted = false;
+  if (isNative()) {
+    await nativeMotion.keepAwake({ enabled: false }).catch(() => {});
+    nativeActive = false;
+  }
   if (globalThis.document && listening) {
     document.removeEventListener('visibilitychange', onVisibility);
     listening = false;
@@ -69,6 +85,7 @@ export async function releaseWakeLock(): Promise<void> {
 }
 
 export function isWakeLockActive(): boolean {
+  if (isNative()) return nativeActive;
   return sentinel !== null && !sentinel.released;
 }
 

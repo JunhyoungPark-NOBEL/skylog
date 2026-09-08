@@ -10,6 +10,8 @@ export default tseslint.config(
   {
     ignores: [
       'dist',
+      'android/**',
+      'ios/**',
       'dev-dist',
       'node_modules',
       'public',

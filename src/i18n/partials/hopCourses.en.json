@@ -1,0 +1,18 @@
+{
+  "hopCourses": {
+    "title": "Star-hopping field courses",
+    "intro": "Start at a familiar star and find your way to nebulae and clusters.",
+    "all": "All courses",
+    "level": "Level {{n}}",
+    "follow": "Follow the chart in the real sky",
+    "record": "Save what you saw in your observing log",
+    "start": "Start star-hopping",
+    "again": "Follow the route again",
+    "write": "Write observation",
+    "source": "Route reference",
+    "explore": "Explore course",
+    "realOnly": "Confirm each leg during a real observation to complete the first step. Then save a ‘Seen’ observation to finish the course. Practice mode does not count.",
+    "back": "Back to observing course",
+    "longStep": "Some legs exceed your current field. Move in overlapping fields using the chart. Your equipment’s field of view is never widened automatically."
+  }
+}

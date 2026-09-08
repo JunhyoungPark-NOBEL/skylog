@@ -29,8 +29,8 @@ const precacheDataPatterns = PRECACHE_DATA_FILES.filter((f) =>
   existsSync(new URL(`./public/data/${f}`, import.meta.url)),
 ).map((f) => `data/${f}`);
 
-export default defineConfig({
-  base,
+export default defineConfig(({ mode }) => ({
+  base: mode === 'native' ? '/' : base,
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),
   },
@@ -38,6 +38,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
+      disable: mode === 'native',
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg', 'icons/apple-touch-icon-180.png'],
       manifest: {
@@ -117,4 +118,4 @@ export default defineConfig({
     exclude: ['tests/e2e/**', 'node_modules/**', 'dist/**'],
     restoreMocks: true,
   },
-});
+}));

@@ -68,7 +68,7 @@ export function LearnScreen() {
         </div>
       </div>
       <ScrollArea
-        key={nav.section + (nav.pathId ?? '') + (nav.missionId ?? '')}
+        key={nav.section + (nav.pathId ?? '') + (nav.missionId ?? '') + (nav.hopCourseId ?? '')}
         className="pb-tab"
         fadeBottom="20px"
         data-testid="learn-scroll"
@@ -95,7 +95,12 @@ export function LearnScreen() {
           ) : nav.section === 'quiz' ? (
             <QuizJourney value={value} chapter={nav.chapter} track={nav.track} />
           ) : nav.section === 'courses' ? (
-            <CoursesScreen value={value} pathId={nav.pathId} missionId={nav.missionId} />
+            <CoursesScreen
+              value={value}
+              pathId={nav.pathId}
+              missionId={nav.missionId}
+              hopCourseId={nav.hopCourseId}
+            />
           ) : nav.section === 'stories' ? (
             <StoriesScreen value={value} />
           ) : (

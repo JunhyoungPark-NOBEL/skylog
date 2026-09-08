@@ -4,6 +4,8 @@
  * 주의: `coords.altitude`는 WGS84 타원체고(null 가능), `coords.heading`은 이동 방향이지 폰 방위가 아니다(G1 §A6-2).
  */
 import { getSetting, setSetting } from '@/db/repos/settings';
+import { isNative } from '@/native/motion';
+import { Geolocation } from '@capacitor/geolocation';
 
 export type GeoErrorKind = 'unsupported' | 'denied' | 'timeout' | 'unavailable';
 
@@ -46,6 +48,7 @@ function mapError(e: GeolocationPositionError): GeoError {
 }
 
 export function geolocationSupported(): boolean {
+  if (isNative()) return true;
   return typeof navigator !== 'undefined' && 'geolocation' in navigator;
 }
 
@@ -58,6 +61,42 @@ export function requestLocation(
   onError: (err: GeoError) => void,
   opts: { timeoutMs?: number; improveMs?: number; highAccuracy?: boolean } = {},
 ): () => void {
+  if (isNative()) {
+    let stopped = false;
+    void Geolocation.getCurrentPosition({
+      enableHighAccuracy: opts.highAccuracy ?? true,
+      timeout: opts.timeoutMs ?? 12000,
+      maximumAge: 60000,
+    })
+      .then((p) => {
+        if (stopped) return;
+        const fix: GeoFix = {
+          lat: p.coords.latitude,
+          lon: p.coords.longitude,
+          elevation: p.coords.altitude,
+          accuracyM: p.coords.accuracy,
+          timestamp: p.timestamp,
+        };
+        void saveLastFix(fix);
+        onFix(fix, true);
+      })
+      .catch((e: unknown) => {
+        if (stopped) return;
+        const code = typeof e === 'object' && e !== null && 'code' in e ? String(e.code) : '';
+        onError(
+          new GeoError(
+            code === 'OS-PLUG-GLOC-0003'
+              ? 'denied'
+              : code === 'OS-PLUG-GLOC-0010'
+                ? 'timeout'
+                : 'unavailable',
+          ),
+        );
+      });
+    return () => {
+      stopped = true;
+    };
+  }
   if (!geolocationSupported()) {
     onError(new GeoError('unsupported'));
     return () => {};

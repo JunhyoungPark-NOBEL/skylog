@@ -1,0 +1,7 @@
+{
+  "mobile": {
+    "privacy": "Privacy notice",
+    "support": "Help and support",
+    "localData": "Records and learning progress stay on this device. Fetching weather sends your observing coordinates to Open-Meteo. The web and native apps use separate storage; transfer records with a JSON file in Backup and restore."
+  }
+}

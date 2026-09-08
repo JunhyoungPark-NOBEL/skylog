@@ -1,3 +1,4 @@
+import { downloadBlob } from '@/native/files';
 import { emitSkill } from '@/learn/runtime';
 import { useEffect, useRef, useState, type ChangeEvent, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -31,19 +32,6 @@ import { Toggle } from '@/ui/Toggle';
 /* ------------------------------------------------------------------ 유틸 */
 
 const CONFIRM_WINDOW_MS = 5000;
-
-/** Blob → 파일 다운로드(`a[download]`). iOS 사파리는 공유 시트를 연다. */
-function downloadBlob(blob: Blob, filename: string): void {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  a.rel = 'noopener';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 10_000);
-}
 
 async function readFileText(file: File): Promise<string> {
   if (typeof file.text === 'function') return file.text();
@@ -205,7 +193,7 @@ export function BackupScreen({ onBack }: { onBack(): void }) {
     try {
       const bundle = await exportBundle({ includeBlobs, roundCoords });
       const json = bundleToJson(bundle);
-      downloadBlob(
+      await downloadBlob(
         new Blob([json], { type: 'application/json' }),
         `skylog-backup-${todayStamp()}.json`,
       );
@@ -213,6 +201,8 @@ export function BackupScreen({ onBack }: { onBack(): void }) {
       setLastAt(await getLastBackupAt());
       await emitSkill('backup', { format: 'json', stage: 'download-requested' });
       showToast(t('backup.export.doneJson'));
+    } catch {
+      showToast(t('guide.error'));
     } finally {
       setBusy(null);
     }
@@ -231,11 +221,13 @@ export function BackupScreen({ onBack }: { onBack(): void }) {
         // 카탈로그를 못 읽어도 이름 없이 내보낸다
       }
       const csv = observationsToCsv(rows, null, { lang, nameOf });
-      downloadBlob(
+      await downloadBlob(
         new Blob([csv], { type: 'text/csv;charset=utf-8' }),
         `skylog-observations-${todayStamp()}.csv`,
       );
       showToast(t('backup.export.doneCsv', { n: rows.length }));
+    } catch {
+      showToast(t('guide.error'));
     } finally {
       setBusy(null);
     }

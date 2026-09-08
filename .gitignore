@@ -25,3 +25,10 @@ Thumbs.db
 *.log
 npm-debug.log*
 pnpm-debug.log*
+
+# Native signing material and local release artifacts
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+artifacts/

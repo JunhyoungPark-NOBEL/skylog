@@ -1,0 +1,98 @@
+name: Build mobile bundles
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mobile-bundles
+  cancel-in-progress: false
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm mobile:sync
+      - run: bash gradlew :app:bundleRelease :app:lintRelease --no-daemon
+        working-directory: android
+        env:
+          SKYLOG_VERSION_CODE: ${{ github.run_number }}
+      - name: Check offline assets and bundle metadata
+        run: |
+          python3 - <<'PY'
+          import zipfile, pathlib, hashlib, json
+          p = pathlib.Path('android/app/build/outputs/bundle/release/app-release.aab')
+          with zipfile.ZipFile(p) as z:
+            names = z.namelist()
+            for f in ['index.html','data/stars-deep.v1.bin','data/manifest.v1.json']:
+              assert 'base/assets/public/'+f in names, f
+            assert any('/data/learn/' in n for n in names)
+            assert any('/data/content/' in n for n in names)
+            assert '/skylog/assets/' not in z.read('base/assets/public/index.html').decode()
+          pathlib.Path('android/app/build/outputs/bundle/release/build-info.json').write_text(json.dumps({'commit':'${{ github.sha }}','versionCode':'${{ github.run_number }}','signature':'unsigned; sign locally with the upload key','sha256':hashlib.sha256(p.read_bytes()).hexdigest()}, indent=2))
+          PY
+      - uses: actions/upload-artifact@v7
+        with:
+          name: skylog-android-aab-unsigned
+          path: android/app/build/outputs/bundle/release/
+          if-no-files-found: error
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2.38.0
+        with:
+          api-level: 36
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          script: adb shell svc wifi disable && adb shell svc data disable && cd android && bash gradlew :app:connectedDebugAndroidTest --no-daemon
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: android-lint
+          path: android/app/build/reports/
+  ios:
+    runs-on: macos-15
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Select Xcode 26
+        run: |
+          XCODE=$(find /Applications -maxdepth 1 -name 'Xcode_26*.app' | sort -V | tail -1)
+          test -n "$XCODE"
+          sudo xcode-select -s "$XCODE/Contents/Developer"
+          xcodebuild -version
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm mobile:sync
+      - name: Compile iOS without distribution credentials
+        run: |
+          set -o pipefail
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Release -destination 'generic/platform=iOS' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO build > ios-build.log 2>&1 || { tail -120 ios-build.log; exit 1; }
+          ditto -c -k --keepParent ios/DerivedData/Build/Products/Release-iphoneos/App.app ios/skylog-ios-unsigned.zip
+      - uses: actions/upload-artifact@v7
+        with:
+          name: skylog-ios-unsigned-build
+          path: ios/skylog-ios-unsigned.zip
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: ios-build-log
+          path: ios-build.log

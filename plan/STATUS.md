@@ -1,9 +1,21 @@
 ﻿# 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · T5 별길 가이드·관측 퀴즈·오늘 밤 정리
+> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · 방향 안내 개선·대표 스타호핑 코스·AAB/iOS 출시 준비
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
+
+- 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
+- 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
+
+## 이번 작업 (모바일 빌드 검증 진행 중)
+
+- 별길 진입의 센서→밝은 별 정렬→이동 CTA, 큰 좌우/위아래 화살표·각도, 시야 진입 후 자동 차트 전환 제거. 정렬 완료 버튼을 위로 이동. 화면 전환 시 본문 스크롤 초기화.
+- 배우기→코스에 M42/M31/M13/M57/M27/M11 대표 호핑 6개. 고정 이정표와 자체 차트, 실제 완료→새 관측 기록 2단계. 코스 ID가 같은 실제 이벤트만 진도 반영. 원 G3/G5 팩·DB v2 유지.
+- 사용자 수정 요청으로 Android 배포 산출물은 APK가 아닌 **AAB**. Capacitor 8.5.1/Android API36·Java21/iOS15+ 프로젝트, native base=/ 및 데이터 전체 포함, 센서·위치·화면 유지·백업 공유 브리지. 키는 로컬 외부 폴더에서 생성/재사용, CI에는 서명 자료 없음.
+- 브라우저 34개 중 32개 통과 후 기존 하늘 테스트 2개의 초기 마운트 대기 경쟁 조건 수정. 관련 7개 모두 통과. 단위 363개 통과. 방향·코스 스크린샷 확인. 다음: 모바일 CI AAB/lint/오프라인 에뮬레이터/iOS 컴파일→AAB 서명→최종 결과 기록.
+- 개인정보/지원 한·영 페이지와 스토어 문안 추가. Play/App Store 계정·등록·심사·배포는 아직 수행하지 않았다. 기존 PWA 기록은 앱에서 별도 저장되므로 JSON 가져오기 필요.
+- T5의 실제 홀더/10분 드리프트, T7/T8 잔여 및 iPhone 네이티브 센서 검증은 계속 대기. 이번 변경으로 완료 태그를 붙이지 않는다.
 
 - GitHub 저장소: https://github.com/JunhyoungPark-NOBEL/skylog (public, main)
 - 배포 URL (GitHub Pages): **https://junhyoungpark-nobel.github.io/skylog/** (Actions 소스, `main` push마다 자동 배포)

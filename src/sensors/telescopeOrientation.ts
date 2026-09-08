@@ -5,6 +5,7 @@ import { physicalQuaternion, type QTuple } from '@/astro/pointing';
 import { deviceOrientationToScene, genericSensorToScene } from './orientation/math';
 import { requestOrientationPermission } from './permissions';
 import { useSensorStore } from '@/state/sensorStore';
+import { isNative, watchNativeMotion } from '@/native/motion';
 interface Reading {
   q: QTuple | null;
   at: number;
@@ -74,7 +75,7 @@ export async function startTelescopeOrientation() {
     const s = useTelescopeOrientation.getState();
     if (s.status === 'active' && Date.now() - s.at > 1500)
       useTelescopeOrientation.setState({
-        status: 'waiting',
+        status: 'unavailable',
         q: null,
         sessionId: crypto.randomUUID(),
       });
@@ -86,6 +87,21 @@ export async function startTelescopeOrientation() {
     }, 30);
     cleanup = () => {
       clearInterval(timer);
+      clearInterval(watchdog);
+    };
+    return;
+  }
+  if (isNative()) {
+    const stop = watchNativeMotion(
+      true,
+      (r) => publish(genericSensorToScene(r.quaternion, 0, 'device'), 'Native relative'),
+      () => {
+        if (token === generation)
+          useTelescopeOrientation.setState({ status: 'unavailable', q: null });
+      },
+    );
+    cleanup = () => {
+      stop();
       clearInterval(watchdog);
     };
     return;

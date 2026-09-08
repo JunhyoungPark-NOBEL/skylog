@@ -30,10 +30,12 @@ import {
 import { requestWakeLock, releaseWakeLock } from '@/sensors/wakeLock';
 import { feedbackOk } from '@/sensors/feedback';
 import { emitSkill } from '@/learn/runtime';
+import { HOP_COURSES } from '@/learn/hopCourses';
 import { flyToObject } from '@/features/sky/skyApi';
 import { Equipment } from './Equipment';
 import { FinderChart } from './FinderChart';
 import { StarHop } from './StarHop';
+import { DirectionPanel } from './DirectionPanel';
 import { guideTarget } from './skyData';
 import { closeTelescope } from './navigation';
 import { EQUIPMENT_BUTTON as BTN, EQUIPMENT_INPUT as INPUT } from './styles';
@@ -74,7 +76,6 @@ export default function TelescopeMode() {
     [busy, setBusy] = useState(false),
     [checked, setChecked] = useState<number | null>(null);
   const [accepted, setAccepted] = useState(false),
-    [auto, setAuto] = useState(true),
     [preview, setPreview] = useState(false),
     [pan, setPan] = useState({ alt: 0, az: 0 });
   const [tick, setTick] = useState(() => Date.now());
@@ -230,13 +231,7 @@ export default function TelescopeMode() {
       feedbackOk({ sound: useSensorStore.getState().sound });
     arrival.current = inside;
   }, [inside, simulator, targetId]);
-  const actualView =
-    view === 'guide' &&
-    auto &&
-    delta &&
-    delta.separationDeg < (p.mode === 'binoculars' ? p.binocularFov : eyefov) * 0.5
-      ? 'eyepiece'
-      : view;
+  const actualView = view;
   const chartFov = actualView === 'eyepiece' && p.mode === 'telescope' ? eyefov : finderFov;
   const chartBase =
     (preview ? target?.direction : usable ? pointing : target?.direction) ?? altAzToScene(30, 180);
@@ -285,7 +280,12 @@ export default function TelescopeMode() {
       </ScreenFrame>
     );
   return (
-    <ScreenFrame title={t('guide.title')} onBack={closeTelescope} testId="telescope-screen">
+    <ScreenFrame
+      title={t('guide.title')}
+      onBack={closeTelescope}
+      testId="telescope-screen"
+      scrollKey={view}
+    >
       <div className="mx-auto max-w-3xl space-y-4 p-4">
         {!accepted ? (
           <section className="rounded-3xl bg-surface p-5" data-testid="guide-intro">
@@ -313,23 +313,29 @@ export default function TelescopeMode() {
           </section>
         ) : (
           <>
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <button
-                className="min-h-12 rounded-pill bg-surface-2 px-4 text-body-sm"
-                onClick={() => setView('equipment')}
-              >
-                {p.mode === 'telescope' ? p.name : `${p.binocularMag}×${p.binocularAperture}`} ·{' '}
-                {t('guide.edit')}
-              </button>
-              <button
-                className="min-h-12 px-3 text-accent"
-                onClick={() =>
-                  useSettingsStore.getState().setTheme(theme === 'night' ? 'dark' : 'night')
-                }
-              >
-                {t('settings.nightMode')}
-              </button>
-            </div>
+            <details>
+              <summary className="min-h-11 py-2 text-body-sm text-muted">
+                {t('guideFlow.settings')}
+              </summary>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <button
+                  className="min-h-12 rounded-pill bg-surface-2 px-4 text-body-sm"
+                  onClick={() => setView('equipment')}
+                >
+                  {p.mode === 'telescope' ? p.name : `${p.binocularMag}×${p.binocularAperture}`} ·{' '}
+                  {t('guide.edit')}
+                </button>
+                <button
+                  className="min-h-12 px-3 text-accent"
+                  onClick={() =>
+                    useSettingsStore.getState().setTheme(theme === 'night' ? 'dark' : 'night')
+                  }
+                >
+                  {t('settings.nightMode')}
+                </button>
+              </div>
+              <p className="mt-2 text-body-sm leading-6 text-muted">{t('guide.mountHelp')}</p>
+            </details>
             {loadError ? (
               <div role="alert">
                 {t('guide.loadError')}{' '}
@@ -341,11 +347,11 @@ export default function TelescopeMode() {
               <p role="status">{t('common.loading')}</p>
             ) : (
               <>
-                <section className="rounded-3xl bg-surface p-5">
+                <section className="rounded-2xl bg-surface px-4 py-3">
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <p className="text-caption text-muted">{t('guide.target')}</p>
-                      <h2 className="mt-1 text-headline">
+                      <h2 className="mt-1 text-title">
                         {targetId ? displayName(cat, targetId, lang) : t('guide.chooseTarget')}
                       </h2>
                       {target && (
@@ -419,6 +425,34 @@ export default function TelescopeMode() {
                     </button>
                   ))}
                 </div>
+                {view === 'guide' && p.mount !== 'goto' && (
+                  <DirectionPanel
+                    delta={delta}
+                    eq={eq}
+                    mount={p.mount}
+                    inside={inside}
+                    status={sensor.status}
+                    hasTarget={!!target}
+                    onStart={() => {
+                      setAlignment(null);
+                      setSamples([]);
+                      setView('align');
+                      void startTelescopeOrientation();
+                    }}
+                    onAlign={() => {
+                      setView('align');
+                      if (samples.length >= 2) {
+                        setSamples([]);
+                        setAlignId(null);
+                      }
+                    }}
+                    onChart={() => {
+                      setPreview(false);
+                      setPan({ alt: 0, az: 0 });
+                      setView('eyepiece');
+                    }}
+                  />
+                )}
                 {view === 'hop' && targetId && (
                   <StarHop
                     key={targetId + finderFov}
@@ -427,56 +461,63 @@ export default function TelescopeMode() {
                     targetId={targetId}
                     date={date}
                     observer={site}
+                    course={HOP_COURSES.find(
+                      (c) => c.id === hashQuery().get('course') && c.target === targetId,
+                    )}
                   />
                 )}
                 {view !== 'hop' && (
                   <>
-                    <div className="rounded-2xl border border-hairline p-4">
-                      <p role="status" className="text-body-sm" data-testid="guide-status">
-                        {t(usable ? 'guide.aligned' : 'guide.unaligned')}
-                        {usable &&
-                          ` · ${t('guide.residual', { value: usable.model.residualDeg.toFixed(1) })}`}
-                      </p>
-                      {usable && tick - Date.parse(usable.at) > 600000 && (
-                        <p className="mt-2 text-body-sm text-accent">{t('guide.drift')}</p>
-                      )}
-                      {simulator && (
-                        <p className="text-body-sm text-accent">{t('guide.simulation')}</p>
-                      )}
-                      {sensor.status !== 'active' ? (
-                        <>
+                    {!(view === 'guide' && p.mount !== 'goto') && (
+                      <div className="rounded-2xl border border-hairline p-4">
+                        <p role="status" className="text-body-sm" data-testid="guide-status">
+                          {t(usable ? 'guide.aligned' : 'guide.unaligned')}
+                          {usable &&
+                            ` · ${t('guide.residual', { value: usable.model.residualDeg.toFixed(1) })}`}
+                        </p>
+                        {usable && tick - Date.parse(usable.at) > 600000 && (
+                          <p className="mt-2 text-body-sm text-accent">{t('guide.drift')}</p>
+                        )}
+                        {simulator && (
+                          <p className="text-body-sm text-accent">{t('guide.simulation')}</p>
+                        )}
+                        {sensor.status !== 'active' ? (
+                          <>
+                            <button
+                              className={BTN + ' mt-3 w-full'}
+                              data-testid="guide-sensor"
+                              onClick={() => {
+                                setAlignment(null);
+                                setSamples([]);
+                                void startTelescopeOrientation();
+                              }}
+                            >
+                              {t(
+                                sensor.status === 'waiting' ? 'guide.waiting' : 'guide.startSensor',
+                              )}
+                            </button>
+                            {(sensor.status === 'unavailable' || sensor.status === 'denied') && (
+                              <p role="alert" className="mt-3 text-body-sm">
+                                {t('guide.sensorUnavailable')}
+                              </p>
+                            )}
+                          </>
+                        ) : (
                           <button
-                            className={BTN + ' mt-3 w-full'}
-                            data-testid="guide-sensor"
+                            className="min-h-11 text-body-sm text-accent"
                             onClick={() => {
-                              setAlignment(null);
-                              setSamples([]);
-                              void startTelescopeOrientation();
+                              setView('align');
+                              if (samples.length >= 2) {
+                                setSamples([]);
+                                setAlignId(null);
+                              }
                             }}
                           >
-                            {t(sensor.status === 'waiting' ? 'guide.waiting' : 'guide.startSensor')}
+                            {t('guide.align')}
                           </button>
-                          {(sensor.status === 'unavailable' || sensor.status === 'denied') && (
-                            <p role="alert" className="mt-3 text-body-sm">
-                              {t('guide.sensorUnavailable')}
-                            </p>
-                          )}
-                        </>
-                      ) : (
-                        <button
-                          className="min-h-11 text-body-sm text-accent"
-                          onClick={() => {
-                            setView('align');
-                            if (samples.length >= 2) {
-                              setSamples([]);
-                              setAlignId(null);
-                            }
-                          }}
-                        >
-                          {t('guide.align')}
-                        </button>
-                      )}
-                    </div>
+                        )}
+                      </div>
+                    )}
                     {view === 'align' && (
                       <section
                         className="rounded-3xl bg-surface p-5"
@@ -488,6 +529,26 @@ export default function TelescopeMode() {
                         <p className="my-3 text-body-sm leading-6 text-muted">
                           {t('guide.alignHelp')}
                         </p>
+                        {usable && (
+                          <div className="mb-4 rounded-2xl bg-accent-soft p-3">
+                            <p className="text-body-sm">{t('guideFlow.alignedNext')}</p>
+                            <button
+                              className={BTN + ' mt-3 w-full'}
+                              data-testid="alignment-done"
+                              onClick={() => setView('guide')}
+                            >
+                              {t('guide.finishAlignment')}
+                            </button>
+                            <p className="mt-2 text-caption text-muted">
+                              {t('guideFlow.secondOptional')}
+                            </p>
+                          </div>
+                        )}
+                        {!candidates.length && (
+                          <p role="status" className="my-3 text-body-sm">
+                            {t('guideFlow.noStars')}
+                          </p>
+                        )}
                         <select
                           aria-label={t('guide.alignmentStar')}
                           data-testid="alignment-star"
@@ -538,142 +599,43 @@ export default function TelescopeMode() {
                             {error}
                           </p>
                         )}
-                        {usable && (
-                          <button
-                            className="mt-2 min-h-14 w-full text-accent"
-                            data-testid="alignment-done"
-                            onClick={() => setView('guide')}
-                          >
-                            {t('guide.finishAlignment')}
-                          </button>
-                        )}
                       </section>
                     )}
-                    {actualView === 'guide' && target && (
+                    {actualView === 'guide' && target && p.mount === 'goto' && (
                       <section className="rounded-3xl bg-surface p-5" data-testid="pointing-guide">
-                        {p.mount === 'goto' && p.mode === 'telescope' ? (
-                          <div>
-                            <h3 className="text-title">{t('guide.goto')}</h3>
-                            <p className="mt-4 text-body leading-8 tabular-nums">
-                              JNow · RA {(target.raDeg / 15).toFixed(4)}h · Dec{' '}
-                              {target.decDeg.toFixed(3)}°
-                            </p>
-                            <button
-                              className={BTN + ' mt-4 w-full'}
-                              onClick={() => {
-                                setError(null);
-                                if (!navigator.clipboard) {
-                                  setError(t('guide.copyUnavailable'));
-                                  return;
-                                }
-                                void navigator.clipboard
-                                  .writeText(
-                                    `JNow RA ${(target.raDeg / 15).toFixed(5)}h Dec ${target.decDeg.toFixed(4)}° Alt ${target.altDeg.toFixed(2)}° Az ${target.azDeg.toFixed(2)}°`,
-                                  )
-                                  .catch(() => setError(t('guide.error')));
-                              }}
-                            >
-                              {t('guide.copyCoordinates')}
-                            </button>
-                            <button
-                              className="min-h-14 w-full text-accent"
-                              onClick={() => {
-                                setPreview(true);
-                                setView('eyepiece');
-                              }}
-                            >
-                              {t('guide.gotoArrived')}
-                            </button>
-                          </div>
-                        ) : (
-                          <>
-                            <svg
-                              viewBox="0 0 300 300"
-                              className="mx-auto w-full max-w-48 text-accent"
-                              role="img"
-                              aria-label={t('guide.bullseye')}
-                            >
-                              <g fill="none" stroke="currentColor" opacity=".5">
-                                {[20, 10, finderFov, eyefov].map((r, i) => (
-                                  <circle
-                                    key={i}
-                                    cx="150"
-                                    cy="150"
-                                    r={Math.max(2, Math.min(140, (r / 20) * 140))}
-                                  />
-                                ))}
-                                <path d="M150 0v300M0 150h300" />
-                              </g>
-                              {delta && (
-                                <circle
-                                  cx={
-                                    150 +
-                                    Math.max(-140, Math.min(140, (delta.horizontalDeg / 20) * 140))
-                                  }
-                                  cy={
-                                    150 - Math.max(-140, Math.min(140, (delta.altDeg / 20) * 140))
-                                  }
-                                  r="8"
-                                  fill="currentColor"
-                                />
-                              )}
-                            </svg>
-                            <div
-                              className="grid grid-cols-2 gap-2 text-center"
-                              data-testid="guide-arrows"
-                            >
-                              <div>
-                                <p className="text-caption text-muted">
-                                  {t(p.mount === 'eq' ? 'guide.declination' : 'guide.vertical')}
-                                </p>
-                                <p className="text-[40px] tabular-nums">
-                                  {delta
-                                    ? `${(p.mount === 'eq' ? eq!.decDeg : delta.altDeg) >= 0 ? '↑' : '↓'} ${Math.abs(p.mount === 'eq' ? eq!.decDeg : delta.altDeg).toFixed(1)}°`
-                                    : '—'}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-caption text-muted">
-                                  {t(p.mount === 'eq' ? 'guide.hourAxis' : 'guide.horizontal')}
-                                </p>
-                                <p className="text-[40px] tabular-nums">
-                                  {delta
-                                    ? delta.nearZenith
-                                      ? '—'
-                                      : p.mount === 'eq'
-                                        ? `${eq!.haDeg >= 0 ? '←' : '→'} ${(Math.abs(eq!.haDeg) * 4).toFixed(1)}m`
-                                        : `${delta.azDeg >= 0 ? '→' : '←'} ${Math.abs(delta.azDeg).toFixed(1)}°`
-                                    : '—'}
-                                </p>
-                              </div>
-                            </div>
-                            <p className="mt-3 text-center text-body-sm text-muted">
-                              {t(
-                                delta?.nearZenith
-                                  ? 'guide.zenith'
-                                  : p.mount === 'eq'
-                                    ? 'guide.eqHelp'
-                                    : 'guide.azHelp',
-                              )}
-                            </p>
-                            {delta && (
-                              <p
-                                className="mt-3 text-center text-title text-accent"
-                                data-testid="guide-separation"
-                              >
-                                {t('guide.separation', { value: delta.separationDeg.toFixed(1) })}
-                              </p>
-                            )}
-                          </>
-                        )}
-                        <label className="mt-4 flex min-h-12 items-center gap-3 text-body-sm">
-                          <input
-                            type="checkbox"
-                            checked={auto}
-                            onChange={(e) => setAuto(e.target.checked)}
-                          />
-                          {t('guide.autoView')}
-                        </label>
+                        <div>
+                          <h3 className="text-title">{t('guide.goto')}</h3>
+                          <p className="mt-4 text-body leading-8 tabular-nums">
+                            JNow · RA {(target.raDeg / 15).toFixed(4)}h · Dec{' '}
+                            {target.decDeg.toFixed(3)}°
+                          </p>
+                          <button
+                            className={BTN + ' mt-4 w-full'}
+                            onClick={() => {
+                              setError(null);
+                              if (!navigator.clipboard) {
+                                setError(t('guide.copyUnavailable'));
+                                return;
+                              }
+                              void navigator.clipboard
+                                .writeText(
+                                  `JNow RA ${(target.raDeg / 15).toFixed(5)}h Dec ${target.decDeg.toFixed(4)}° Alt ${target.altDeg.toFixed(2)}° Az ${target.azDeg.toFixed(2)}°`,
+                                )
+                                .catch(() => setError(t('guide.error')));
+                            }}
+                          >
+                            {t('guide.copyCoordinates')}
+                          </button>
+                          <button
+                            className="min-h-14 w-full text-accent"
+                            onClick={() => {
+                              setPreview(true);
+                              setView('eyepiece');
+                            }}
+                          >
+                            {t('guide.gotoArrived')}
+                          </button>
+                        </div>
                       </section>
                     )}
                     {(actualView === 'finder' || actualView === 'eyepiece') && target && (

@@ -220,3 +220,17 @@
 - 태양 고도>-6°이며 목표/정렬된 경통이 태양 15° 이내면 전면 차단. 태양은 항상 차단하며 이번 버전에는 필터 체크로 해제하는 기능을 두지 않는다. GoTo는 현재 관측자의 of-date RA/Dec 좌표 복사만 지원하며 모터 명령을 보내지 않는다.
 - 실제 align1/align2/starhop/fovSetup 이벤트로 G5 미션 30개·배지 규칙 18개를 활성화한다. 정렬/스타호핑 시뮬레이션에는 관측 업적을 주지 않는다. 사용자가 실제 도입을 확인한 때 스타호핑 업적을 기록한다.
 - 쌍안경도 동일한 윗변 기준 안내/정립 차트/시야 원을 쓴다. 사용자의 축 요구를 우선해 별도 후면 카메라 기준 손들기 모드는 새로 만들지 않는다. T5 태그는 실기기 정렬·드리프트 확인 뒤, G4 독립 수학 리뷰를 권한다.
+
+## D-030 · 2026-09-08 · 방향 안내의 단계화와 대표 스타호핑 코스
+
+- 미정렬 화면에서 숫자 대신 ‘센서 켜고 별에 맞추기’ 동작을 제공하고, 1별 완료 후 바로 이동 안내로 갈 수 있게 한다. 방향 카드에는 큰 화살표/좌우/위아래/남은 각도를 함께 표시한다. 목표에 근접해도 자동으로 차트로 바꾸지 않는다. 센서 중단은 재시작 가능한 미지원 상태와 새 세션 ID로 바꾸고 기존 정렬을 무효화한다.
+- 유명 경로 6개는 원본 G5 미션과 별도의 `hopCourses.ts`에 한·영 독자 문안으로 둔다. Skyledge 관측 설명을 참고하고 외부 차트/이미지는 복사하지 않는다. 위치는 기존 HYG/DSO 팩을 사용한다. 고정 이정표의 긴 구간은 실제 FOV 기준 시야 수로 드러내고 나눠 이동하도록 안내한다. 자동 경로의 0.8/0.5 FOV 제한과 구분한다.
+- 완료는 courseId/target/confirmed가 일치하고 simulated가 아닌 starhop 이벤트 + 그 이후 생성된 봤어요 관측 기록으로 계산한다. 다른 코스·모의 관측·삭제/못봄/이전 기록으로 완료하지 않는다. 이벤트는 기존 백업 progress에 포함돼 스키마 변경 없이 이동한다.
+
+## D-031 · 2026-09-08 · Capacitor 앱과 Play AAB 출시 준비
+
+- 사용자가 APK에서 AAB로 산출물을 변경했다. Android release AAB를 빌드하고 업로드 키로 로컬 서명한다. 기본 appId는 저장소 소유자 기반 `io.github.junhyoungparknobel.skylog`; 공식 등록 전 확인. 버전은 Android 0.1.0-beta.1 / iOS 0.1.0, versionCode는 mobile workflow run number.
+- Capacitor 최신 안정 8.5.1 및 공식 App/Geolocation/Filesystem/Share 플러그인. PWA base=/skylog/, native base=/; native SW 미사용, 모든 데이터 포함. Android API36/min24·JDK21, iOS15+/Xcode26. 패키지 버전과 환경 요구는 npm/공식 문서 확인.
+- native 상대 자세는 Android GAME_ROTATION_VECTOR / iOS xArbitraryZVertical, AR은 자북 모드. ENU 물리 quaternion을 기존 래퍼로 변환하며 +Y 경통 규약 유지. background에서 중지하고 재정렬. 권한 없음/샘플 없음은 숨기지 않고 실패 표시. 센서 실기기 정확도는 별도 검증한다.
+- backup은 OS 공유 시트에서 사용자가 목적지를 정한다. 공유용 앱 캐시는 수신자가 읽기 전에 제거하지 않는다. 네이티브와 PWA DB는 별도이므로 JSON 이관. 기록 서버/계정/광고/온라인 순위 추가 없음. 날씨 좌표 전송을 privacy/스토어 초안에 명시한다.
+- CI는 무서명 AAB·Android lint 및 오프라인 WebView 계측, iOS 무서명 컴파일을 수행한다. 업로드 키는 저장소 밖 Windows 사용자 전용 폴더, 암호는 DPAPI 파일에 보관하고 재사용한다. Store 계정/결제·정책 선언·실기기·심사 제출은 남은 사용자 작업이다. Xcode archive와 최종 스토어 실기기 캡처 전에는 출시 완료라고 보고하지 않는다.

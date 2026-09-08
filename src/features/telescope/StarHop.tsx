@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { starHop } from '@/astro/starHop';
+import { curatedHop } from '@/astro/curatedHop';
+import type { HopCourse } from '@/learn/hopCourses';
+import { navigateLearn } from '@/features/learn/learnNavigation';
 import { altAzToScene } from '@/astro/coords';
 import { eqjToAltAzSlow, type ObserverLike } from '@/astro/frames';
 import { displayName, type Catalog } from '@/catalog/catalog';
@@ -21,12 +24,14 @@ export function StarHop({
   targetId,
   date,
   observer,
+  course,
 }: {
   cat: Catalog;
   pack: StarPack;
   targetId: ObjectId;
   date: Date;
   observer: ObserverLike;
+  course?: HopCourse;
 }) {
   const { t } = useTranslation();
   const simulator = useSensorStore((s) => s.simulator);
@@ -39,15 +44,25 @@ export function StarHop({
   const stars = useMemo(() => hopStars(pack), [pack]);
   const route = useMemo(
     () =>
-      ra !== undefined && dec !== undefined
-        ? starHop(
-            { id: targetId, ra, dec },
-            stars,
-            fov,
-            p.mode === 'binoculars' ? 9 : p.finderKind === 'rdf' ? 5.5 : 7.5,
-          )
-        : null,
-    [targetId, ra, dec, stars, fov, p.mode, p.finderKind],
+      course
+        ? (() => {
+            const points = course.points.map((id) => cat.starById.get(id) ?? cat.dsoById.get(id));
+            return points.every((p) => p !== undefined)
+              ? curatedHop(
+                  points.map((p) => ({ id: p!.id, ra: p!.ra, dec: p!.dec })),
+                  fov,
+                )
+              : null;
+          })()
+        : ra !== undefined && dec !== undefined
+          ? starHop(
+              { id: targetId, ra, dec },
+              stars,
+              fov,
+              p.mode === 'binoculars' ? 9 : p.finderKind === 'rdf' ? 5.5 : 7.5,
+            )
+          : null,
+    [targetId, ra, dec, stars, fov, p.mode, p.finderKind, course, cat],
   );
   const [step, setStep] = useState(-1),
     [done, setDone] = useState(false),
@@ -77,6 +92,7 @@ export function StarHop({
           hops: route.steps.map((s) => s.to.id),
           fovDeg: fov,
           confirmed: true,
+          courseId: course?.id,
           at: date.toISOString(),
         });
       setDone(true);
@@ -88,13 +104,19 @@ export function StarHop({
   };
   return (
     <div className="space-y-4" data-testid="starhop">
-      <h2 className="text-title">{t('guide.hop')}</h2>
+      <h2 className="text-title">{course ? course.title[lang] : t('guide.hop')}</h2>
+      {course && <p className="text-body-sm leading-6 text-muted">{course.description[lang]}</p>}
       <p className="text-body-sm leading-6 text-muted">
         {t('guide.hopIntro', { fov: fov.toFixed(1) })}
       </p>
       {!visible && (
         <p role="status" className="rounded-xl bg-surface-2 p-3">
           {t('guide.hopBelow')}
+        </p>
+      )}
+      {route.steps.some((s) => s.fields > 0.8) && (
+        <p role="status" className="rounded-xl bg-surface-2 p-3 text-body-sm leading-6">
+          {t('hopCourses.longStep')}
         </p>
       )}
       <button
@@ -176,6 +198,14 @@ export function StarHop({
         </button>
       )}
       {error && <p role="alert">{t('guide.error')}</p>}
+      {course && (
+        <button
+          className="min-h-12 w-full text-accent"
+          onClick={() => navigateLearn('courses', { hopCourse: course.id })}
+        >
+          {t('hopCourses.back')}
+        </button>
+      )}
     </div>
   );
 }

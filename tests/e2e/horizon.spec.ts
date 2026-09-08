@@ -13,6 +13,7 @@ test('반투명 지면 아래 별이 보이고 선택되며, 불투명·숨김 �
     if (e.type() === 'error' && /shader|webgl/i.test(e.text())) errors.push(e.text());
   });
   await page.goto('#/sky?t=2026-09-06T12:00:00Z&alt=0&az=90&fov=75&preserve=1');
+  await expect(page.getByTestId('sky-canvas')).toBeVisible({ timeout: 30000 });
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
   await page.evaluate(() => {
     const s = (window as unknown as { __skylogScene: SkyScene }).__skylogScene;

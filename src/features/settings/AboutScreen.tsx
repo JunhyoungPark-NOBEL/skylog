@@ -14,6 +14,25 @@ export function AboutScreen({ onBack }: { onBack(): void }) {
         <p className="px-4 py-3 text-body font-semibold">{t('app.name')}</p>
         <p className="px-4 py-3 text-body-sm">{t('about.codeLicense')}</p>
         <p className="px-4 py-3 text-body-sm">{t('about.dataLicense')}</p>
+        <div className="flex flex-wrap gap-3 px-4 py-3 text-body-sm text-accent">
+          <a
+            className="min-h-11 py-2 underline"
+            href="https://junhyoungpark-nobel.github.io/skylog/privacy.html"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('mobile.privacy')}
+          </a>
+          <a
+            className="min-h-11 py-2 underline"
+            href="https://junhyoungpark-nobel.github.io/skylog/support.html"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('mobile.support')}
+          </a>
+        </div>
+        <p className="px-4 py-3 text-body-sm leading-6">{t('mobile.localData')}</p>
       </div>
 
       <h2 className="px-5 pb-2 pt-6 text-body-sm font-semibold text-muted">{t('about.sources')}</h2>
