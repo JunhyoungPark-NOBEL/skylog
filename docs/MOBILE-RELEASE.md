@@ -1,6 +1,19 @@
 # Android AAB / iOS 출시 준비
 
-2026-09-08 기준. 앱 ID는 `io.github.junhyoungparknobel.skylog`, 현재 배포 버전 `0.1.0-beta.4`(iOS marketing 0.1.0), 빌드 번호 **9**다. Android 개인 APK·unsigned AAB 생성, PWA 공개 배포와 모바일 CI를 검증했다. 기존 Play 업로드 키 복원/최종 서명, Apple 팀/서명/TestFlight와 실기기·심사는 남는다. T5/T7/T8 전체 완료는 아니다.
+2026-09-08. 최신 작업은 **0.1.0-beta.5 / build10**(iOS marketing0.1.0)이다. 앱 ID는 io.github.junhyoungparknobel.skylog이며 웹 배포·서명 AAB·Android 오프라인 계측·iOS 컴파일을 검증했다. 아래 beta.4 이하 기록은 이전 배포다.
+
+## beta.5 / build10 — 오늘 밤·코스·풍경
+
+- 소스: 15e7163f1d91683205810ec6d7072e5944498812. build9 최신 main과 첨부 APK의 해시를 대조한 뒤 작업했다.
+- [Pages CI](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34218281779), [모바일 CI](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34218281063). Pages 성공(단위501개 포함). 공개 beta.5·SW·오프라인 재실행·실제 날씨 HTTP200·JS 오류0 확인. Android release/lint/AAB와 API36 인터넷 차단 WebView 계측1/1(실패/누락0)이 성공했다. lint오류0/경고33. iOS build10 arm64 컴파일/내장 풍경 SHA256 일치.
+- 변경/생성 에셋/폰 체크리스트: [개선 기록](TONIGHT-REFRESH.md). 패키지 버전 beta.5, 이번 공유 빌드번호10, 다음 수동 CI기본11. 기기·저장소·학습 팩 버전은 보존한다.
+- 이 PC에는 기존 skylog-signing Play 업로드 키가 있다. 새 키를 생성하지 않고 AAB에 서명·jarsigner strict 검증을 마쳤다. 이 키는 개인 APK 테스트 키와 별개다. build9 개인 APK 키가 이 PC에 없어 새 테스트 키로 대체하거나 호환되지 않는 APK를 만들지 않는다.
+- AAB는 Play 내부 테스트/제출용이며 파일을 휴대폰에서 직접 열어 설치할 수 없다. 새 UI는 공개 PWA로 바로 확인할 수 있다. 기존 개인 APK 업데이트는 같은 테스트 키가 있는 PC에서 만든 설치 파일이 필요하다. Apple 서명 IPA/TestFlight·실기기와 심사는 남는다.
+
+- **서명 AAB**: Downloads/skylog-release-0.1.0-beta.5-build10/skylog-0.1.0-beta.5-build10.aab, 7,320,318 bytes, SHA256 `0ad818cd75da75f0c841f60cbefed640c333cfd3b51a1446b0f572428c66aedf`. bundletool validate·앱ID/version10·API36/min24·debug=false/backup=false 확인. 원본 public 자료149개 모두 AAB와 SHA256 일치(웹/iOS 풍경도 일치). CI unsigned SHA256은 `7ea333fa7984cad40f135603cc7d773831573f664267e006db5dca3f6a10df91`다.
+- **자동/시각 검증**: 타입/lint·데이터 검증·단위501개·브라우저58개 고유 시나리오(전체+관련 재검사). 360px/영어125% 글자·야간·풍경의 점진적 감쇠와 실제 웹을 확인했다. 결과는 artifacts/qa-build10, 실패 뒤 수정 내용은 TESTING/STATUS에 구분했다. 이전의 전체 format:check 생성파일 문제와 큰 JS 청크 경고는 그대로 별도 후속이다.
+
+- **공개 산출물**: [beta.5/build10 사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.5-build10), 태그는 앱 소스15e7163. 공개 AAB를 다시 다운로드해 크기/해시 일치를 확인했다. 로컬 안내·SHA256SUMS와 폰 확인 사항을 함께 제공한다. 스토어 제출/심사는 수행하지 않았다.
 
 ## 2026-09-08 beta.4 / build9: 하늘 표현·두 시야원·업적·센서 움직임
 

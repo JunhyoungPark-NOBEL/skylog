@@ -39,3 +39,8 @@ Use case: stylized-concept. Asset type: production transparent panorama texture 
 - [ ] 천문 일정: 이번/다음 달 이름이 다르며 월간/연간 전환·날짜 선택·ICS 가져오기가 맞는다.
 - [ ] 코스: 장비→세부 코스→미션/스타호핑, 새로고침·뒤로가기, 기존 진도가 유지된다.
 - [ ] 하늘: 지평선 위 잔디/꽃은 낮게 보이고, 아래를 향하면 부드럽게 사라진다. 야간 적색·가로 화면·원형 하늘·오프라인에서도 확인한다.
+
+## 최종 검증·산출물
+
+- 소스15e7163 / 태그v0.1.0-beta.5-build10, 단위501개, 브라우저58개 고유 시나리오(전체+관련 재검사), 타입/lint/data·PWA/native 성공. 공개 웹 beta.5·날씨HTTP200·SW/오프라인·JS 오류0 확인.
+- Android API36 오프라인 WebView1/1·lint오류0/경고33, iOS arm64 무서명 컴파일/build10·풍경내장 확인. 기존 Play 업로드 키로 서명 AAB를 검증했고 공개 다운로드 SHA256도 일치한다. [릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.5-build10). 스토어 제출·실제 폰 센서/그래픽·iPhone 서명IPA는 남는다.
