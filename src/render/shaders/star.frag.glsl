@@ -23,8 +23,8 @@ void main() {
   float intensity = clamp(core + glow, 0.0, 1.0);
 
   vec3 color = skylogSaturate(vColorBv, uSaturation);
-  // 중심은 흰빛에 가깝게, 주변에 본래 색을 남겨 밝은 별의 윤곽을 또렷하게 한다.
-  color = mix(color, vec3(1.0), (1.0 - smoothstep(0.0, 0.55, r)) * 0.5);
+  // 밝은 중심에도 B−V 색을 남긴다. 최대 채도에서 청백색·주황색 별이 흰 점으로 같아지지 않는다.
+  color = mix(color, vec3(1.0), (1.0 - smoothstep(0.0, 0.55, r)) * 0.22);
   if (uNight > 0.5) {
     float lum = dot(color, vec3(0.299, 0.587, 0.114));
     color = uNightColor * lum;

@@ -3,6 +3,7 @@ varying float vVisibility;
 uniform float uNight;
 uniform vec3 uNightColor;
 uniform float uPixelRatio;
+uniform float uSunDiscFraction;
 varying vec3 vColor;
 varying float vKind;
 varying float vRingTilt;
@@ -23,8 +24,8 @@ void main() {
     a = max(disc, ring * 0.85);
   } else if (vKind > 0.5) {
     // 태양: 원반 + 넓은 글로우
-    float disc = 1.0 - smoothstep(0.35 - edge, 0.35 + edge, r);
-    float glow = exp(-r * r * 2.5) * 0.7;
+    float disc = 1.0 - smoothstep(uSunDiscFraction - edge, uSunDiscFraction + edge, r);
+    float glow = exp(-r * r * 2.5) * 0.7 * (1.0 - smoothstep(0.8, 1.0, r));
     a = clamp(disc + glow, 0.0, 1.0);
   } else {
     float disc = 1.0 - smoothstep(0.55 - edge, 0.55 + edge, r);

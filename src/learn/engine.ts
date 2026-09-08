@@ -3,8 +3,10 @@
  * 미션 단계 완료·미션 완료·새 배지·"지금 할 수 있는 미션"을 계산하는 순수 함수들. DB 접근 없음.
  */
 import { moonPhaseName, type MoonPhaseName } from '../astro/bodies';
+import { nightKey } from '../astro/time';
 import { kindOf, PLANET_KEYS, type ObjectId } from '../catalog/objectId';
 import type { Observation } from '../db/types';
+import { HOP_COURSES, hopCourseProgress } from './hopCourses';
 import type {
   Badge,
   BadgeRule,
@@ -45,6 +47,13 @@ export interface LearnSnapshot {
   checked: ReadonlySet<string>;
   completedMissions: ReadonlySet<string>;
   earnedBadges: ReadonlySet<string>;
+  /** 유효한 문항 버전·전체 응답으로 다시 채점한 서로 다른 단계. */
+  clearedStages?: ReadonlySet<string>;
+  perfectStages?: ReadonlySet<string>;
+  /** 실제 게시된 이야기의 읽음 기록, 살아 있는 첨부파일 ID만 포함한다. */
+  readStories?: ReadonlySet<ObjectId>;
+  sketchIds?: ReadonlySet<string>;
+  photoIds?: ReadonlySet<string>;
 }
 
 export interface CatalogLookups {
@@ -206,50 +215,136 @@ export function longestQuizStreak(results: Iterable<QuizResult>): number {
   return best;
 }
 
-export function badgeSatisfied(
+export interface BadgeProgress {
+  n: number;
+  total: number;
+  done: boolean;
+}
+
+/** 같은 천체는 한 번만 센다. 관측 밤은 저장 시각이 아닌 관측 시각의 KST 정오→정오다. */
+export function badgeProgress(
   rule: BadgeRule,
   snap: LearnSnapshot,
   lookups: CatalogLookups,
-): boolean {
-  const seen = snap.observations.filter((o) => o.outcome === 'seen');
+): BadgeProgress {
+  const seen = snap.observations.filter((o) => !o.deletedAt && o.outcome === 'seen');
   const seenIds = new Set(seen.map((o) => o.objectId));
   const distinct = (f: (id: ObjectId) => boolean) => [...seenIds].filter(f).length;
+  const result = (n: number, total = 'n' in rule ? rule.n : 1): BadgeProgress => ({
+    n: Math.min(n, total),
+    total,
+    done: n >= total,
+  });
+  const distinctWith = (f: (o: Observation) => boolean) =>
+    new Set(seen.filter(f).map((o) => o.objectId)).size;
   switch (rule.key) {
     case 'firstObservation':
-      return seen.length > 0;
+      return result(Number(seen.length > 0));
     case 'firstSketch':
-      return (
-        seen.some((o) => !!o.sketchBlobId) || snap.skillEvents.some((e) => e.type === 'sketch')
+      return result(
+        Number(
+          seen.some((o) => !!o.sketchBlobId) || snap.skillEvents.some((e) => e.type === 'sketch'),
+        ),
       );
     case 'firstStarHop':
-      return snap.skillEvents.some((e) => e.type === 'starhop');
+      return result(Number(snap.skillEvents.some((e) => e.type === 'starhop')));
     case 'align2Success':
-      return snap.skillEvents.some((e) => e.type === 'align2');
+      return result(Number(snap.skillEvents.some((e) => e.type === 'align2')));
     case 'messierCount':
-      return distinct((id) => lookups.messierOf(id) !== null) >= rule.n;
+      return result(new Set([...seenIds].map(lookups.messierOf).filter((n) => n !== null)).size);
     case 'constellationCount':
-      return distinct((id) => kindOf(id) === 'const') >= rule.n;
+      return result(distinct((id) => kindOf(id) === 'const'));
     case 'caldwellCount':
-      return distinct((id) => lookups.caldwellOf(id) !== null) >= rule.n;
+      return result(new Set([...seenIds].map(lookups.caldwellOf).filter((n) => n !== null)).size);
     case 'planetsAll':
-      return PLANET_KEYS.every((k) => seenIds.has(`planet:${k}`));
+      return result(
+        PLANET_KEYS.filter((k) => seenIds.has(`planet:${k}`)).length,
+        PLANET_KEYS.length,
+      );
     case 'moonPhasesAll': {
       const phases = new Set(
         seen
           .filter((o) => o.objectId === 'moon' && o.conditions?.moonPhaseDeg !== undefined)
           .map((o) => moonPhaseName(o.conditions!.moonPhaseDeg!)),
       );
-      return MOON_PHASES.every((p) => phases.has(p));
+      return result(MOON_PHASES.filter((p) => phases.has(p)).length, MOON_PHASES.length);
     }
     case 'streakNights':
-      return longestNightStreak(seen.map((o) => o.nightKey)) >= rule.n;
+      return result(longestNightStreak(seen.map((o) => o.nightKey)));
     case 'seasonSignature':
-      return SEASON_SIGNATURE_MEMBERS[rule.id].every((id) => seenIds.has(id));
+      return result(
+        SEASON_SIGNATURE_MEMBERS[rule.id].filter((id) => seenIds.has(id)).length,
+        SEASON_SIGNATURE_MEMBERS[rule.id].length,
+      );
     case 'missionsCompleted':
-      return snap.completedMissions.size >= rule.n;
+      return result(snap.completedMissions.size);
     case 'quizStreak':
-      return longestQuizStreak(snap.quizResults.values()) >= rule.n;
+      return result(longestQuizStreak(snap.quizResults.values()));
+    case 'observedObjects':
+      return result(seenIds.size);
+    case 'observationNights':
+      return result(
+        new Set(
+          seen.flatMap((o) => {
+            const at = new Date(o.observedAt);
+            return Number.isFinite(at.getTime()) ? [nightKey(at)] : [];
+          }),
+        ).size,
+      );
+    case 'detailedObjects':
+      return result(distinctWith((o) => [...o.notes.replace(/\s/g, '')].length >= 20));
+    case 'sketchedObjects':
+      return result(distinctWith((o) => !!o.sketchBlobId && !!snap.sketchIds?.has(o.sketchBlobId)));
+    case 'photographedObjects':
+      return result(distinctWith((o) => !!o.photoBlobIds?.some((id) => snap.photoIds?.has(id))));
+    case 'quizMastered':
+      return result(
+        new Set([...snap.quizResults.values()].filter((q) => q.correct).map((q) => q.quizId)).size,
+      );
+    case 'stagesCleared':
+      return result(snap.clearedStages?.size ?? 0);
+    case 'stagesPerfect':
+      return result(snap.perfectStages?.size ?? 0);
+    case 'storiesRead':
+      return result(snap.readStories?.size ?? 0);
+    case 'hopCoursesCompleted':
+      return result(
+        HOP_COURSES.filter((course) => hopCourseProgress(course, snap).recorded).length,
+      );
   }
+}
+
+export function badgeSatisfied(
+  rule: BadgeRule,
+  snap: LearnSnapshot,
+  lookups: CatalogLookups,
+): boolean {
+  return badgeProgress(rule, snap, lookups).done;
+}
+
+/** 여러 단계의 같은 조건은 한 번만 집계한다(특히 관측 밤의 시간대 계산). */
+export function badgeProgresses(
+  badges: readonly Badge[],
+  snap: LearnSnapshot,
+  lookups: CatalogLookups,
+): Map<string, BadgeProgress> {
+  const counts = new Map<string, BadgeProgress>();
+  return new Map(
+    badges.map((b) => {
+      const key = b.rule.key + ('id' in b.rule ? ':' + b.rule.id : '');
+      let raw = counts.get(key);
+      if (!raw) {
+        raw = badgeProgress(
+          'n' in b.rule ? { ...b.rule, n: Number.MAX_SAFE_INTEGER } : b.rule,
+          snap,
+          lookups,
+        );
+        counts.set(key, raw);
+      }
+      const total = 'n' in b.rule ? b.rule.n : raw.total;
+      return [b.id, { n: Math.min(raw.n, total), total, done: raw.n >= total }];
+    }),
+  );
 }
 
 /** 아직 얻지 않았고 조건을 만족하는 배지(활성만) */

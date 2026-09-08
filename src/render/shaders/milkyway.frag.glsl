@@ -28,13 +28,18 @@ void main() {
   float b = texture2D(uMap, vec2(u, v)).r;
   if (b <= 0.0) discard;
   float clouds = cloudNoise(direction * 32.0) * 0.65 + cloudNoise(direction * 83.0) * 0.35;
-  // 원본 밝기·색·알파를 반복 곱하면 대부분의 은하수가 검정에 묻힌다. 윤곽을 감마 보정해 한 번만 감광한다.
-  float density = sqrt(b) * mix(0.85, 1.15, clouds);
+  // 낮은 원본 밝기를 sqrt로 키우면 넓은 면이 흰 안개가 된다. 바깥 윤곽은 약하게 남기고
+  // 밝은 원본 능선에 광량을 집중한다. 데이터의 범위·좌표와 단계별 밝기 순서는 유지한다.
+  float ridge = sqrt(smoothstep(0.28, 0.58, b));
+  float envelope = b * b * 0.12 + ridge * 0.85;
+  // 같은 두 노이즈 샘플로 밝은 결 사이 먼지 틈을 만든다. 강도를 높여도 대비는 그대로다.
+  float dust = mix(0.22, 1.0, smoothstep(0.36, 0.60, clouds));
+  float density = min(envelope * dust, 0.92);
   float a = density * uAlpha * smoothstep(-6.0, -1.0, vAlt);
-  // 원본 윤곽/밝기 안에만 청보라·은은한 청록과 흰 성운결을 더한다. 위치·범위는 팩을 따른다.
-  vec3 tint = mix(vec3(0.60, 0.64, 0.85), vec3(0.50, 0.70, 0.86), clouds);
-  tint = mix(tint, vec3(0.96, 0.87, 0.82), smoothstep(0.32, 0.7, b));
-  vec3 color = mix(uColor, tint, 0.9);
-  if (uNight > 0.5) color = vec3(max(uColor.r, 0.58), 0.0, 0.0) * (0.7 + density * 0.3);
+  // 차가운 외곽과 따뜻한 중심 능선을 구분한다. 흰색을 섞지 않아100%에서도 색이 남는다.
+  vec3 tint = mix(vec3(0.24, 0.29, 0.53), vec3(0.26, 0.46, 0.64), clouds);
+  tint = mix(tint, vec3(0.72, 0.53, 0.40), ridge * 0.70);
+  vec3 color = mix(uColor, tint, 0.92);
+  if (uNight > 0.5) color = vec3(max(uColor.r, 0.58), 0.0, 0.0);
   gl_FragColor = vec4(color, a);
 }

@@ -27,7 +27,7 @@ export class MilkyWayLayer {
         uRefraction: { value: 1 },
         uMap: { value: null },
         uColor: { value: new THREE.Color('#6f7fb0') },
-        uAlpha: { value: 0.6 },
+        uAlpha: { value: 1 / 3 },
         uNight: { value: 0 },
       },
       transparent: true,

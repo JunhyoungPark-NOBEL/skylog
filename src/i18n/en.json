@@ -62,7 +62,10 @@
       "realSky": "Real sky",
       "realSkyHint": "Fewer stars, like your light-polluted sky. Adjust sky brightness below (1 darkest – 9 inner city).",
       "bortle": "Sky brightness",
-      "milkyWayHint": "Visible at night with atmosphere on. Turn atmosphere off to see it during daytime."
+      "milkyWayHint": "Visible at night with atmosphere on. Turn atmosphere off to see it during daytime.",
+      "groundTransparency": "Ground transparency",
+      "groundTransparencyHint": "0% is opaque; 100% reveals the sky below the horizon.",
+      "reset": "Reset sky to defaults"
     },
     "time": {
       "now": "Now",
@@ -360,8 +363,8 @@
     "copied": "Copied",
     "equipment": {
       "naked": "Naked eye",
-      "binoculars": "10×50 binoculars",
-      "telescope": "90 mm telescope"
+      "binoculars": "Binoculars",
+      "telescope": "Telescope"
     },
     "verdict": {
       "easy": "Easy",
@@ -558,5 +561,26 @@
     "connecting": "Connecting orientation sensors",
     "permissionHelp": "Allow once to follow your phone automatically next time.",
     "unavailable": "Sensors are unavailable. You can explore the sky by touch."
+  },
+  "guide": {
+    "fovBinoculars": "{{magnification}}×{{aperture}} binoculars",
+    "fovTelescope": "{{aperture}}mm telescope",
+    "fovRingHint": "{{fov}}° · {{equipment}}",
+    "fovEyepiece": "{{focalLength}}mm eyepiece",
+    "fovSettings": "Edit equipment",
+    "fovFromSettings": "Based on current equipment settings; telescope field of view changes with the eyepiece.",
+    "fovExample": "Starter example",
+    "fovExampleHelp": "These are starter fields of view. Enter your equipment specifications to match your view."
+  },
+  "journey": {
+    "badgeTier": {
+      "all": "All",
+      "starter": "First steps",
+      "explorer": "Explorer",
+      "master": "Long-term"
+    },
+    "badgeProgress": "{{n}} / {{total}} completed",
+    "nextBadges": "Your next challenges",
+    "badgeEvidence": "Calculated from your saved observations and learning. Repeated objects, nights and stages count once."
   }
 }

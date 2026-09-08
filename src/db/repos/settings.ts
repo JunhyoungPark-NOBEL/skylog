@@ -28,32 +28,51 @@ interface PersistedEnvelope {
 export function createDexieSettingsStorage(namespace = 'settings'): StateStorage {
   const prefix = `${namespace}.`;
   const versionKey = `${prefix}__version`;
+  let lastWritten: string | undefined;
+  let pending: Promise<unknown> = Promise.resolve();
+  // 센서의 런타임 상태가 바뀌어도 partialize된 설정은 대부분 같다.
+  // 성공한 저장만 기억하고, 읽기/삭제까지 순서대로 처리해 복원과 재시도를 보존한다.
+  function enqueue<T>(operation: () => Promise<T>): Promise<T> {
+    const result = pending.then(operation);
+    pending = result.catch(() => undefined);
+    return result;
+  }
   return {
-    async getItem(_name) {
-      const rows = await getDb().settings.where('key').startsWith(prefix).toArray();
-      if (rows.length === 0) return null;
-      const state: Record<string, unknown> = {};
-      let version = 0;
-      for (const row of rows) {
-        if (row.key === versionKey) version = typeof row.value === 'number' ? row.value : 0;
-        else state[row.key.slice(prefix.length)] = row.value;
-      }
-      const envelope: PersistedEnvelope = { state, version };
-      return JSON.stringify(envelope);
-    },
-    async setItem(_name, value) {
-      const envelope = JSON.parse(value) as PersistedEnvelope;
-      const updatedAt = nowIso();
-      const db = getDb();
-      await db.transaction('rw', db.settings, async () => {
-        for (const [k, v] of Object.entries(envelope.state)) {
-          await db.settings.put({ key: `${prefix}${k}`, value: v, updatedAt });
+    getItem(_name) {
+      return enqueue(async () => {
+        lastWritten = undefined;
+        const rows = await getDb().settings.where('key').startsWith(prefix).toArray();
+        if (rows.length === 0) return null;
+        const state: Record<string, unknown> = {};
+        let version = 0;
+        for (const row of rows) {
+          if (row.key === versionKey) version = typeof row.value === 'number' ? row.value : 0;
+          else state[row.key.slice(prefix.length)] = row.value;
         }
-        await db.settings.put({ key: versionKey, value: envelope.version ?? 0, updatedAt });
+        const envelope: PersistedEnvelope = { state, version };
+        return JSON.stringify(envelope);
       });
     },
-    async removeItem(_name) {
-      await getDb().settings.where('key').startsWith(prefix).delete();
+    setItem(_name, value) {
+      return enqueue(async () => {
+        if (value === lastWritten) return;
+        const envelope = JSON.parse(value) as PersistedEnvelope;
+        const updatedAt = nowIso();
+        const db = getDb();
+        await db.transaction('rw', db.settings, async () => {
+          for (const [k, v] of Object.entries(envelope.state)) {
+            await db.settings.put({ key: `${prefix}${k}`, value: v, updatedAt });
+          }
+          await db.settings.put({ key: versionKey, value: envelope.version ?? 0, updatedAt });
+        });
+        lastWritten = value;
+      });
+    },
+    removeItem(_name) {
+      return enqueue(async () => {
+        lastWritten = undefined;
+        await getDb().settings.where('key').startsWith(prefix).delete();
+      });
     },
   };
 }

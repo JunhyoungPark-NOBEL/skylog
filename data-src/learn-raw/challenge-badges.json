@@ -1,0 +1,512 @@
+[
+  {
+    "id": "challenge-observed-objects-10",
+    "title": {
+      "ko": "열 개의 첫 발견",
+      "en": "Ten discoveries"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 10개를 직접 보고 관측 기록을 남겨요.",
+      "en": "Record 10 different objects or constellations as seen."
+    },
+    "icon": "🔭",
+    "rule": {
+      "key": "observedObjects",
+      "n": 10
+    },
+    "tier": "starter"
+  },
+  {
+    "id": "challenge-observed-objects-25",
+    "title": {
+      "ko": "스물다섯 빛의 도감",
+      "en": "An atlas of 25 lights"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 25개를 직접 보고 기록해요. 같은 대상은 한 번만 세요.",
+      "en": "Record 25 different objects or constellations as seen. Repeats count once."
+    },
+    "icon": "🔭",
+    "rule": {
+      "key": "observedObjects",
+      "n": 25
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-observed-objects-50",
+    "title": {
+      "ko": "오십 개의 하늘 조각",
+      "en": "Fifty pieces of sky"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 50개를 직접 보고 기록해요.",
+      "en": "Record 50 different objects or constellations as seen."
+    },
+    "icon": "🔭",
+    "rule": {
+      "key": "observedObjects",
+      "n": 50
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-observed-objects-100",
+    "title": {
+      "ko": "백 가지 빛의 수집가",
+      "en": "A hundred lights"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 100개를 직접 보고 나만의 하늘 도감을 채워요.",
+      "en": "Build your sky atlas by recording 100 different objects or constellations as seen."
+    },
+    "icon": "🌌",
+    "rule": {
+      "key": "observedObjects",
+      "n": 100
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-messier-count-10",
+    "title": {
+      "ko": "메시에 열 번째 발걸음",
+      "en": "Ten Messier discoveries"
+    },
+    "description": {
+      "ko": "서로 다른 메시에 번호 10개를 직접 보고 기록해요. 같은 번호는 한 번만 세요.",
+      "en": "Record 10 different Messier numbers as seen. Each number counts once."
+    },
+    "icon": "🌀",
+    "rule": {
+      "key": "messierCount",
+      "n": 10
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-messier-count-25",
+    "title": {
+      "ko": "메시에 스물다섯 장",
+      "en": "Twenty-five Messier pages"
+    },
+    "description": {
+      "ko": "서로 다른 메시에 번호 25개를 직접 보고 기록해요. 같은 번호는 한 번만 세요.",
+      "en": "Record 25 different Messier numbers as seen. Each number counts once."
+    },
+    "icon": "🌀",
+    "rule": {
+      "key": "messierCount",
+      "n": 25
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-messier-count-50",
+    "title": {
+      "ko": "메시에 절반의 여정",
+      "en": "Fifty Messier discoveries"
+    },
+    "description": {
+      "ko": "서로 다른 메시에 번호 50개를 직접 보고 기록해요. 같은 번호는 한 번만 세요.",
+      "en": "Record 50 different Messier numbers as seen. Each number counts once."
+    },
+    "icon": "🌀",
+    "rule": {
+      "key": "messierCount",
+      "n": 50
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-messier-count-110",
+    "title": {
+      "ko": "메시에 전 목록",
+      "en": "The complete Messier list"
+    },
+    "description": {
+      "ko": "서로 다른 메시에 번호 110개를 직접 보고 기록해요. 같은 번호는 한 번만 세요.",
+      "en": "Record 110 different Messier numbers as seen. Each number counts once."
+    },
+    "icon": "🌀",
+    "rule": {
+      "key": "messierCount",
+      "n": 110
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-constellation-count-12",
+    "title": {
+      "ko": "열두 별자리 길잡이",
+      "en": "Twelve constellation guides"
+    },
+    "description": {
+      "ko": "서로 다른 별자리 12개의 배열을 확인하고 별자리 자체에 관측 기록을 남겨요. 안에 있는 별의 기록은 대신 세지 않아요.",
+      "en": "Record 12 different constellations as seen. Logging an individual star does not count as observing its constellation."
+    },
+    "icon": "✨",
+    "rule": {
+      "key": "constellationCount",
+      "n": 12
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-constellation-count-24",
+    "title": {
+      "ko": "스물네 별자리 지도",
+      "en": "An atlas of 24 constellations"
+    },
+    "description": {
+      "ko": "서로 다른 별자리 24개의 배열을 확인하고 별자리 자체에 관측 기록을 남겨요. 안에 있는 별의 기록은 대신 세지 않아요.",
+      "en": "Record 24 different constellations as seen. Logging an individual star does not count as observing its constellation."
+    },
+    "icon": "✨",
+    "rule": {
+      "key": "constellationCount",
+      "n": 24
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-caldwell-count-5",
+    "title": {
+      "ko": "콜드웰 첫 다섯",
+      "en": "Your first five Caldwells"
+    },
+    "description": {
+      "ko": "서로 다른 콜드웰 번호 5개를 직접 보고 기록해요. 같은 번호는 한 번만 세요.",
+      "en": "Record 5 different Caldwell numbers as seen. Each number counts once."
+    },
+    "icon": "🔬",
+    "rule": {
+      "key": "caldwellCount",
+      "n": 5
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-caldwell-count-15",
+    "title": {
+      "ko": "콜드웰 열다섯 탐험",
+      "en": "Fifteen Caldwell discoveries"
+    },
+    "description": {
+      "ko": "서로 다른 콜드웰 번호 15개를 직접 보고 기록해요. 같은 번호는 한 번만 세요.",
+      "en": "Record 15 different Caldwell numbers as seen. Each number counts once."
+    },
+    "icon": "🔬",
+    "rule": {
+      "key": "caldwellCount",
+      "n": 15
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-observation-nights-3",
+    "title": {
+      "ko": "다시 만난 세 밤",
+      "en": "Three observing nights"
+    },
+    "description": {
+      "ko": "서로 다른 관측 밤 3번에 직접 본 기록을 남겨요. 연속일 필요는 없어요. 관측 시각을 기준으로 한국 시간 정오부터 다음 정오까지를 한 밤으로 세요.",
+      "en": "Log an object as seen on 3 different observing nights. They need not be consecutive. A night runs from noon to the next noon in Korea time, using the observation time."
+    },
+    "icon": "🌙",
+    "rule": {
+      "key": "observationNights",
+      "n": 3
+    },
+    "tier": "starter"
+  },
+  {
+    "id": "challenge-observation-nights-10",
+    "title": {
+      "ko": "열 밤의 관측 일기",
+      "en": "Ten nights under the sky"
+    },
+    "description": {
+      "ko": "서로 다른 관측 밤 10번에 직접 본 기록을 남겨요. 연속일 필요는 없어요. 관측 시각을 기준으로 한국 시간 정오부터 다음 정오까지를 한 밤으로 세요.",
+      "en": "Log an object as seen on 10 different observing nights. They need not be consecutive. A night runs from noon to the next noon in Korea time, using the observation time."
+    },
+    "icon": "🌙",
+    "rule": {
+      "key": "observationNights",
+      "n": 10
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-observation-nights-30",
+    "title": {
+      "ko": "서른 밤의 관측자",
+      "en": "Thirty observing nights"
+    },
+    "description": {
+      "ko": "서로 다른 관측 밤 30번에 직접 본 기록을 남겨요. 연속일 필요는 없어요. 관측 시각을 기준으로 한국 시간 정오부터 다음 정오까지를 한 밤으로 세요.",
+      "en": "Log an object as seen on 30 different observing nights. They need not be consecutive. A night runs from noon to the next noon in Korea time, using the observation time."
+    },
+    "icon": "🌙",
+    "rule": {
+      "key": "observationNights",
+      "n": 30
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-detailed-objects-5",
+    "title": {
+      "ko": "다섯 번의 자세한 시선",
+      "en": "Five detailed observations"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 5개를 직접 본 기록에 공백을 뺀 20글자 이상의 관측 메모를 남겨요.",
+      "en": "For 5 different objects or constellations recorded as seen, add a note of at least 20 characters excluding whitespace."
+    },
+    "icon": "📓",
+    "rule": {
+      "key": "detailedObjects",
+      "n": 5
+    },
+    "tier": "starter"
+  },
+  {
+    "id": "challenge-detailed-objects-20",
+    "title": {
+      "ko": "스무 장의 관측 노트",
+      "en": "Twenty observing notes"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 20개를 직접 본 기록에 공백을 뺀 20글자 이상의 관측 메모를 남겨요.",
+      "en": "For 20 different objects or constellations recorded as seen, add a note of at least 20 characters excluding whitespace."
+    },
+    "icon": "📓",
+    "rule": {
+      "key": "detailedObjects",
+      "n": 20
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-sketched-objects-3",
+    "title": {
+      "ko": "세 장의 하늘 스케치",
+      "en": "Three sky sketches"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 3개의 직접 본 기록에 스케치를 저장해요. 실제 스케치 파일이 남아 있어야 해요.",
+      "en": "Save a sketch with a seen record for 3 different objects or constellations. The sketch file must still be available."
+    },
+    "icon": "✏️",
+    "rule": {
+      "key": "sketchedObjects",
+      "n": 3
+    },
+    "tier": "starter"
+  },
+  {
+    "id": "challenge-sketched-objects-10",
+    "title": {
+      "ko": "열 장의 스케치 도감",
+      "en": "An atlas of ten sketches"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 10개의 직접 본 기록에 스케치를 저장해요. 실제 스케치 파일이 남아 있어야 해요.",
+      "en": "Save a sketch with a seen record for 10 different objects or constellations. The sketch file must still be available."
+    },
+    "icon": "✏️",
+    "rule": {
+      "key": "sketchedObjects",
+      "n": 10
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-photographed-objects-3",
+    "title": {
+      "ko": "사진으로 남긴 세 빛",
+      "en": "Three lights in photos"
+    },
+    "description": {
+      "ko": "서로 다른 천체·별자리 3개의 직접 본 기록에 사진을 첨부해요. 실제 사진 파일이 남아 있어야 해요.",
+      "en": "Attach a photo to seen records for 3 different objects or constellations. The photo files must still be available."
+    },
+    "icon": "📷",
+    "rule": {
+      "key": "photographedObjects",
+      "n": 3
+    },
+    "tier": "starter"
+  },
+  {
+    "id": "challenge-quiz-mastered-25",
+    "title": {
+      "ko": "스물다섯 개념 연결",
+      "en": "Twenty-five concepts connected"
+    },
+    "description": {
+      "ko": "서로 다른 활성 퀴즈 25개의 최근 답을 맞혀요. 같은 문제를 반복해도 한 번만 세고, 다시 틀린 문제는 복습해요.",
+      "en": "Have a correct latest answer to 25 different active questions. Repeats count once; a later wrong answer needs another review."
+    },
+    "icon": "💡",
+    "rule": {
+      "key": "quizMastered",
+      "n": 25
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-quiz-mastered-100",
+    "title": {
+      "ko": "백 문항의 이해",
+      "en": "A hundred answers understood"
+    },
+    "description": {
+      "ko": "서로 다른 활성 퀴즈 100개의 최근 답을 맞혀요. 같은 문제를 반복해도 한 번만 세고, 다시 틀린 문제는 복습해요.",
+      "en": "Have a correct latest answer to 100 different active questions. Repeats count once; a later wrong answer needs another review."
+    },
+    "icon": "💡",
+    "rule": {
+      "key": "quizMastered",
+      "n": 100
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-stages-cleared-5",
+    "title": {
+      "ko": "다섯 단계의 성장",
+      "en": "Five stages forward"
+    },
+    "description": {
+      "ko": "서로 다른 퀴즈 단계 5개를 정답률 80% 이상으로 통과해요. 각 단계의 최고 결과를 한 번만 세요.",
+      "en": "Clear 5 different quiz stages with at least 80% correct. Only the best result for each stage counts."
+    },
+    "icon": "🏅",
+    "rule": {
+      "key": "stagesCleared",
+      "n": 5
+    },
+    "tier": "starter"
+  },
+  {
+    "id": "challenge-stages-cleared-20",
+    "title": {
+      "ko": "스무 단계의 탐구",
+      "en": "Twenty stages of discovery"
+    },
+    "description": {
+      "ko": "서로 다른 퀴즈 단계 20개를 정답률 80% 이상으로 통과해요. 각 단계의 최고 결과를 한 번만 세요.",
+      "en": "Clear 20 different quiz stages with at least 80% correct. Only the best result for each stage counts."
+    },
+    "icon": "🏅",
+    "rule": {
+      "key": "stagesCleared",
+      "n": 20
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-stages-cleared-40",
+    "title": {
+      "ko": "두 퀴즈 여정 완주",
+      "en": "Both quiz journeys complete"
+    },
+    "description": {
+      "ko": "서로 다른 퀴즈 단계 40개를 정답률 80% 이상으로 통과해요. 각 단계의 최고 결과를 한 번만 세요.",
+      "en": "Clear 40 different quiz stages with at least 80% correct. Only the best result for each stage counts."
+    },
+    "icon": "🏅",
+    "rule": {
+      "key": "stagesCleared",
+      "n": 40
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-stages-perfect-5",
+    "title": {
+      "ko": "다섯 번의 완벽한 이해",
+      "en": "Five perfect stages"
+    },
+    "description": {
+      "ko": "서로 다른 퀴즈 단계 5개에서 모든 문제를 맞혀 별 셋을 모아요. 같은 단계의 재도전은 중복으로 세지 않아요.",
+      "en": "Earn three stars with all answers correct in 5 different quiz stages. Replaying a stage does not add another."
+    },
+    "icon": "⭐",
+    "rule": {
+      "key": "stagesPerfect",
+      "n": 5
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-stories-read-10",
+    "title": {
+      "ko": "열 편의 하늘 이야기",
+      "en": "Ten sky stories"
+    },
+    "description": {
+      "ko": "서로 다른 게시된 이야기 10편을 읽고 읽음으로 표시해요. 같은 이야기는 한 번만 세요.",
+      "en": "Read and mark 10 different published stories as read. Each story counts once."
+    },
+    "icon": "📚",
+    "rule": {
+      "key": "storiesRead",
+      "n": 10
+    },
+    "tier": "starter"
+  },
+  {
+    "id": "challenge-stories-read-50",
+    "title": {
+      "ko": "오십 편의 우주 서재",
+      "en": "A library of fifty sky stories"
+    },
+    "description": {
+      "ko": "서로 다른 게시된 이야기 50편을 읽고 읽음으로 표시해요. 같은 이야기는 한 번만 세요.",
+      "en": "Read and mark 50 different published stories as read. Each story counts once."
+    },
+    "icon": "📚",
+    "rule": {
+      "key": "storiesRead",
+      "n": 50
+    },
+    "tier": "master"
+  },
+  {
+    "id": "challenge-hop-courses-completed-3",
+    "title": {
+      "ko": "세 갈래 별길 탐험",
+      "en": "Three star-hopping routes"
+    },
+    "description": {
+      "ko": "서로 다른 대표 스타호핑 코스 3개를 실제 안내에서 완료하고 이후 목표의 직접 본 관측 기록을 저장해요. 연습·중복 코스는 세지 않아요.",
+      "en": "Complete 3 different featured star-hopping routes in live guidance, then save a seen observation of each target. Practice and repeated routes do not count."
+    },
+    "icon": "👣",
+    "rule": {
+      "key": "hopCoursesCompleted",
+      "n": 3
+    },
+    "tier": "explorer"
+  },
+  {
+    "id": "challenge-hop-courses-completed-6",
+    "title": {
+      "ko": "여섯 별길 완주",
+      "en": "All six star-hopping routes"
+    },
+    "description": {
+      "ko": "서로 다른 대표 스타호핑 코스 6개를 실제 안내에서 완료하고 이후 목표의 직접 본 관측 기록을 저장해요. 연습·중복 코스는 세지 않아요.",
+      "en": "Complete 6 different featured star-hopping routes in live guidance, then save a seen observation of each target. Practice and repeated routes do not count."
+    },
+    "icon": "👣",
+    "rule": {
+      "key": "hopCoursesCompleted",
+      "n": 6
+    },
+    "tier": "master"
+  }
+]

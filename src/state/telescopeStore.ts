@@ -32,12 +32,15 @@ export interface GuideProfile {
   binocularMag: number;
   binocularAperture: number;
   binocularFov: number;
+  /** 시작용 시야각·접안 조합인지 표시한다. 기존 사용자가 저장한 값은 예시로 바꾸지 않는다. */
+  binocularFovExample?: boolean;
+  telescopeFovExample?: boolean;
   mode: 'telescope' | 'binoculars';
   telescopeId?: string;
   eyepieceId?: string;
   binocularsId?: string;
 }
-export const DEFAULT_GUIDE_PROFILE: GuideProfile = {
+const LEGACY_GUIDE_PROFILE: GuideProfile = {
   name: 'SVBONY SV48P',
   apertureMm: 90,
   focalLengthMm: 500,
@@ -55,6 +58,31 @@ export const DEFAULT_GUIDE_PROFILE: GuideProfile = {
   binocularFov: 6.5,
   mode: 'telescope',
 };
+export const DEFAULT_GUIDE_PROFILE: GuideProfile = {
+  ...LEGACY_GUIDE_PROFILE,
+  name: 'SVBONY SV48P 102mm',
+  apertureMm: 102,
+  focalLengthMm: 663,
+  binocularMag: 8,
+  binocularAperture: 42,
+  binocularFov: 7.5,
+  binocularFovExample: true,
+  telescopeFovExample: true,
+};
+
+/** 저장 ID나 수정된 사양이 있는 장비는 보존하고, 손대지 않은 이전 시작 예시만 갱신한다. */
+export function migrateDefaultGuideProfile(profile: GuideProfile): GuideProfile {
+  if (
+    profile.telescopeId ||
+    profile.eyepieceId ||
+    profile.binocularsId ||
+    Object.entries(LEGACY_GUIDE_PROFILE).some(
+      ([key, value]) => profile[key as keyof GuideProfile] !== value,
+    )
+  )
+    return profile;
+  return { ...profile, ...DEFAULT_GUIDE_PROFILE };
+}
 export interface SavedAlignment {
   model: PointingAlignment;
   samples: AlignmentSample[];
@@ -66,11 +94,14 @@ export interface SavedAlignment {
 interface TelescopeState {
   profile: GuideProfile;
   fovRings: boolean;
+  fovBinoculars: boolean;
+  fovTelescope: boolean;
   targetId: ObjectId | null;
   route: HopRoute | null;
   savedAlignment: SavedAlignment | null;
   setProfile(profile: GuideProfile): void;
   setRings(on: boolean): void;
+  setFovRing(kind: 'binoculars' | 'telescope', on: boolean): void;
   setTarget(id: ObjectId): void;
   setRoute(route: HopRoute | null): void;
   saveAlignment(value: SavedAlignment | null): void;
@@ -91,21 +122,35 @@ export const useTelescopeStore = create<TelescopeState>()(
     (set) => ({
       profile: DEFAULT_GUIDE_PROFILE,
       fovRings: false,
+      fovBinoculars: true,
+      fovTelescope: true,
       targetId: null,
       route: null,
       savedAlignment: null,
       setProfile: (profile) => set({ profile }),
       setRings: (fovRings) => set({ fovRings }),
+      setFovRing: (kind, on) =>
+        set(kind === 'binoculars' ? { fovBinoculars: on } : { fovTelescope: on }),
       setTarget: (targetId) => set({ targetId }),
       setRoute: (route) => set({ route }),
       saveAlignment: (savedAlignment) => set({ savedAlignment }),
     }),
     {
       name: 'telescope',
+      version: 1,
       storage: createJSONStorage(() => createDexieSettingsStorage('telescope')),
+      migrate: (persisted) => {
+        const previous = persisted as Partial<TelescopeState>;
+        return {
+          ...previous,
+          profile: migrateDefaultGuideProfile(previous.profile ?? DEFAULT_GUIDE_PROFILE),
+        };
+      },
       partialize: (s) => ({
         profile: s.profile,
         fovRings: s.fovRings,
+        fovBinoculars: s.fovBinoculars,
+        fovTelescope: s.fovTelescope,
         savedAlignment: s.savedAlignment,
       }),
     },

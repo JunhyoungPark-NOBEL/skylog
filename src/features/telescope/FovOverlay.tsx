@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Vector3 } from 'three';
 import { useTelescopeStore } from '@/state/telescopeStore';
 import { useSensorStore } from '@/state/sensorStore';
@@ -9,8 +10,10 @@ import { getSkyScene } from '@/features/sky/skyApi';
 import { eqjToAltAzSlow } from '@/astro/frames';
 import { altAzToScene, DEG, type Vec3 } from '@/astro/coords';
 import { hemisphereRadiusPx } from '@/render/projection';
+import { equipmentFovRings, telescopeRingName } from '@/astro/fovRings';
 /** 원을 구면 위에 샘플링하므로 화면 중앙 밖에서도 각도 크기/원근이 맞는다. */
 export function FovOverlay() {
+  const { t } = useTranslation();
   const ref = useRef<HTMLCanvasElement>(null);
   const enabled = useTelescopeStore((s) => s.fovRings),
     route = useTelescopeStore((s) => s.route);
@@ -52,13 +55,23 @@ export function FovOverlay() {
         if (r.lengthSq() < 1e-8) r.set(1, 0, 0);
         r.normalize();
         const u = new Vector3().crossVectors(r, c).normalize();
-        const rings = [
-          [p.binocularFov, `${p.binocularMag}×${p.binocularAperture}`],
-          [p.finderFov, '◇'],
-          [p.afovDeg / (p.focalLengthMm / p.eyepieceMm), `${p.eyepieceMm}mm`],
-        ] as const;
-        rings.forEach(([fov, label], i) => {
-          ctx.setLineDash(i === 0 ? [6, 5] : i === 1 ? [2, 3] : []);
+        const state = useTelescopeStore.getState();
+        const rings = equipmentFovRings(p).filter(
+          ({ kind, fovDeg }) =>
+            (kind === 'binoculars' ? state.fovBinoculars : state.fovTelescope) &&
+            Number.isFinite(fovDeg) &&
+            fovDeg > 0 &&
+            fovDeg < 180,
+        );
+        rings.forEach(({ kind, fovDeg: fov, example }) => {
+          const binoculars = kind === 'binoculars';
+          const label = binoculars
+            ? t('guide.fovBinoculars', {
+                magnification: p.binocularMag,
+                aperture: p.binocularAperture,
+              })
+            : telescopeRingName(p);
+          ctx.setLineDash(binoculars ? [6, 5] : []);
           ctx.beginPath();
           let active = false;
           for (let j = 0; j <= 120; j++) {
@@ -79,8 +92,22 @@ export function FovOverlay() {
               ctx.moveTo(pos.x, pos.y);
               active = true;
             }
-            if (j === 30 && pos.x >= 0 && pos.x < w && pos.y >= 0 && pos.y < h)
-              ctx.fillText(`${label} ${fov.toFixed(1)}°`, pos.x + 5, pos.y - 5);
+            if (
+              j === (binoculars ? 30 : 90) &&
+              pos.x >= 0 &&
+              pos.x < w &&
+              pos.y >= 0 &&
+              pos.y < h
+            ) {
+              const text = `${label} ${fov.toFixed(2)}°${example ? ` · ${t('guide.fovExample')}` : ''}`;
+              const labelWidth = ctx.measureText(text).width;
+              ctx.fillText(
+                text,
+                Math.max(8, Math.min(w - labelWidth - 8, pos.x - labelWidth / 2)),
+                pos.y + (binoculars ? -5 : 17),
+                w - 16,
+              );
+            }
           }
           ctx.stroke();
         });
@@ -112,7 +139,7 @@ export function FovOverlay() {
     draw();
     const timer = window.setInterval(draw, 66);
     return () => clearInterval(timer);
-  }, [enabled, route]);
+  }, [enabled, route, t]);
   return (
     <canvas
       ref={ref}

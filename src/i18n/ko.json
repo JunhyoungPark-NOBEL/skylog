@@ -62,7 +62,10 @@
       "realSky": "실제 하늘처럼",
       "realSkyHint": "광해와 달빛만큼 별이 줄어요. 아래에서 하늘 밝기(1 아주 어두움 ~ 9 도심)를 조절할 수 있어요.",
       "bortle": "하늘 밝기",
-      "milkyWayHint": "대기 효과가 켜져 있으면 밤에 보여요. 낮에도 보려면 대기 효과를 끄세요."
+      "milkyWayHint": "대기 효과가 켜져 있으면 밤에 보여요. 낮에도 보려면 대기 효과를 끄세요.",
+      "groundTransparency": "지면 투명도",
+      "groundTransparencyHint": "0%는 불투명, 100%는 지면 없이 아래 하늘까지 보여요.",
+      "reset": "하늘 기본값으로 되돌리기"
     },
     "time": {
       "now": "지금",
@@ -360,8 +363,8 @@
     "copied": "복사됨",
     "equipment": {
       "naked": "맨눈",
-      "binoculars": "쌍안경 10×50",
-      "telescope": "망원경 90mm"
+      "binoculars": "쌍안경",
+      "telescope": "망원경"
     },
     "verdict": {
       "easy": "잘 보임",
@@ -558,5 +561,26 @@
     "connecting": "방향 센서를 연결하고 있어요",
     "permissionHelp": "한 번 허용하면 다음부터 휴대폰 방향을 따라가요.",
     "unavailable": "센서를 연결하지 못했어요. 손가락으로 하늘을 둘러볼 수 있어요."
+  },
+  "guide": {
+    "fovBinoculars": "쌍안경 {{magnification}}×{{aperture}}",
+    "fovTelescope": "{{aperture}}mm 망원경",
+    "fovRingHint": "{{fov}}° · {{equipment}}",
+    "fovEyepiece": "{{focalLength}}mm 접안렌즈",
+    "fovSettings": "장비 사양 수정",
+    "fovFromSettings": "현재 장비 설정 기준이며 망원경 시야각은 접안렌즈에 따라 달라집니다.",
+    "fovExample": "기본 예시",
+    "fovExampleHelp": "시야각은 시작용 예시입니다. 실제 장비 사양을 입력해 맞춰주세요."
+  },
+  "journey": {
+    "badgeTier": {
+      "all": "전체",
+      "starter": "첫 도전",
+      "explorer": "탐험",
+      "master": "장기 도전"
+    },
+    "badgeProgress": "{{n}} / {{total}} 달성",
+    "nextBadges": "다음에 도전할 업적",
+    "badgeEvidence": "기존 기록과 학습 진도로 자동 계산해요. 같은 천체·밤·단계는 중복으로 세지 않아요."
   }
 }

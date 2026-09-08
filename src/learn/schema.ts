@@ -1,5 +1,5 @@
 /**
- * 학습 데이터 스키마 (task-07 §3.1, D-025). G5 산출물 → `public/data/learn/v1/{paths,missions,badges,quiz}.json`.
+ * 학습 데이터 스키마 (task-07 §3.1). 코스·미션·퀴즈와 기존 배지는 learn/v1, 확장 업적은 learn/v2.
  * 빌드 스크립트(`scripts/data/build-learn.ts`)와 앱이 같은 검증을 쓴다. 외부 스키마 라이브러리 없음.
  * 상대 경로 import: tsx 스크립트가 이 파일을 그대로 가져온다.
  */
@@ -88,7 +88,17 @@ export type BadgeRule =
       id: 'summerTriangle' | 'winterDiamond' | 'springTriangle' | 'autumnSquare';
     }
   | { key: 'missionsCompleted'; n: number }
-  | { key: 'quizStreak'; n: number };
+  | { key: 'quizStreak'; n: number }
+  | { key: 'observedObjects'; n: number }
+  | { key: 'observationNights'; n: number }
+  | { key: 'detailedObjects'; n: number }
+  | { key: 'sketchedObjects'; n: number }
+  | { key: 'photographedObjects'; n: number }
+  | { key: 'quizMastered'; n: number }
+  | { key: 'stagesCleared'; n: number }
+  | { key: 'stagesPerfect'; n: number }
+  | { key: 'storiesRead'; n: number }
+  | { key: 'hopCoursesCompleted'; n: number };
 
 export const BADGE_KEYS: readonly BadgeRule['key'][] = [
   'firstObservation',
@@ -104,14 +114,28 @@ export const BADGE_KEYS: readonly BadgeRule['key'][] = [
   'seasonSignature',
   'missionsCompleted',
   'quizStreak',
+  'observedObjects',
+  'observationNights',
+  'detailedObjects',
+  'sketchedObjects',
+  'photographedObjects',
+  'quizMastered',
+  'stagesCleared',
+  'stagesPerfect',
+  'storiesRead',
+  'hopCoursesCompleted',
 ];
 
+export const BADGE_TIERS = ['starter', 'explorer', 'master'] as const;
+export type BadgeTier = (typeof BADGE_TIERS)[number];
 export interface Badge {
   id: string;
   title: Text;
   description: Text;
   icon: string;
   rule: BadgeRule;
+  /** v2 업적 팩의 도전 단계. v1의 ID·규칙은 그대로 유지한다. */
+  tier?: BadgeTier;
   enabled?: boolean;
   disabledReason?: string;
 }
@@ -257,13 +281,33 @@ export function validateLearnData(
       }
     hapsyo(`mission ${m.id} description`, m.description);
   }
+  const seenBadge = new Set<string>();
   for (const b of d.badges) {
     if (!isStr(b.id)) errors.push('badge id 누락');
+    if (seenBadge.has(b.id)) errors.push(`badge 중복 id ${b.id}`);
+    seenBadge.add(b.id);
     if (!isText(b.title) || !isText(b.description)) errors.push(`badge ${b.id}: title/description`);
     if (!isStr(b.icon)) errors.push(`badge ${b.id}: icon`);
     if (!b.rule || !BADGE_KEYS.includes(b.rule.key)) errors.push(`badge ${b.id}: rule.key`);
-    else if ('n' in b.rule && !(typeof b.rule.n === 'number' && b.rule.n > 0))
+    else if (
+      ![
+        'firstObservation',
+        'firstSketch',
+        'firstStarHop',
+        'align2Success',
+        'planetsAll',
+        'moonPhasesAll',
+        'seasonSignature',
+      ].includes(b.rule.key) &&
+      (!('n' in b.rule) || !(Number.isSafeInteger(b.rule.n) && b.rule.n > 0))
+    )
       errors.push(`badge ${b.id}: rule.n`);
+    if (
+      b.rule?.key === 'seasonSignature' &&
+      !['summerTriangle', 'winterDiamond', 'springTriangle', 'autumnSquare'].includes(b.rule.id)
+    )
+      errors.push(`badge ${b.id}: rule.id`);
+    if (b.tier !== undefined && !BADGE_TIERS.includes(b.tier)) errors.push(`badge ${b.id}: tier`);
     hapsyo(`badge ${b.id} description`, b.description);
   }
   const seenQuiz = new Set<string>();

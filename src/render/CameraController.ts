@@ -2,9 +2,10 @@
  * alt/az 기반 카메라 컨트롤러 (task-01 §3.5). OrbitControls를 쓰지 않는다(천구 안쪽에서 보는 모델).
  * - 상태: centerAlt, centerAz, fovDeg(짧은 변 기준). 외부 진실 원천은 viewStore이지만 루프 안에서는 ref로 다룬다.
  * - 드래그(마우스/터치) alt/az 이동, 핀치/휠 FOV, 더블탭 확대, 짧은 관성, flyTo 애니메이션.
- * - T2 훅: setOrientationQuaternion(q) — 센서가 매 프레임 넣어 주면 센서 모드.
+ * - T2 훅: setOrientationQuaternion(q) — 센서 목표를 받고 렌더 프레임에서 자세를 보간한다.
  */
 import * as THREE from 'three';
+import { RenderPose } from '@/sensors/orientation/renderPose';
 import { altAzToScene, clamp, sceneToAltAz, wrap360, type Vec3 } from '@/astro/coords';
 import {
   clampFov,
@@ -102,23 +103,55 @@ export class CameraController {
   }
 
   private sensorQuat: THREE.Quaternion | null = null;
+  private sensorKeepLevel = false;
+  private readonly sensorPose = new RenderPose();
+  private lastSensorNotifyMs = -Infinity;
 
   /**
    * 센서 자세를 카메라에 적용. keepLevel=false면 롤(기기 기울기)도 그대로 화면에 반영(실제 AR처럼),
    * true면 alt/az만 쓰고 수평을 유지한다. null이면 센서 모드 해제(드래그가 다시 카메라를 움직인다).
    */
-  setSensorQuaternion(q: THREE.Quaternion | null, keepLevel = false): void {
+  setSensorQuaternion(
+    q: THREE.Quaternion | null,
+    keepLevel = false,
+    nowMs = performance.now(),
+  ): void {
     if (!q) {
+      const wasActive = this.sensorPose.active;
+      this.sensorPose.reset();
       this.sensorQuat = null;
+      this.lastSensorNotifyMs = -Infinity;
+      if (wasActive) this.opts.onChange(this.getView());
       return;
     }
-    const { altDeg, azDeg } = quaternionToAltAz(q);
     this.fly = null;
     this.velocity = { alt: 0, az: 0 };
-    this.sensorQuat = keepLevel ? null : q.clone();
+    this.sensorKeepLevel = keepLevel;
+    const target = keepLevel
+      ? (() => {
+          const { altDeg, azDeg } = quaternionToAltAz(q);
+          return altAzToQuaternion(altDeg, azDeg);
+        })()
+      : q;
+    if (this.sensorPose.push(target, nowMs)) this.applySensorPose(nowMs, true);
+  }
+
+  private applySensorPose(nowMs: number, immediate = false): boolean {
+    const q = this.sensorPose.sample(nowMs);
+    if (!q) return false;
+    const { altDeg, azDeg } = quaternionToAltAz(q);
+    const rendered = this.sensorKeepLevel ? altAzToQuaternion(altDeg, azDeg) : q;
+    if (!immediate && this.sensorQuat && 1 - Math.abs(rendered.dot(this.sensorQuat)) < 1e-12)
+      return false;
+    (this.sensorQuat ??= new THREE.Quaternion()).copy(rendered);
     this.view.altDeg = clamp(altDeg, -ALT_LIMIT_DEG, ALT_LIMIT_DEG);
     this.view.azDeg = wrap360(azDeg);
-    this.opts.onChange(this.getView());
+    // 카메라/히트 테스트는 매 프레임 최신값을 쓰고 React 상태 알림은 최대 10Hz + 마지막 도착이다.
+    if (immediate || nowMs - this.lastSensorNotifyMs >= 100 || !this.sensorPose.isMoving(nowMs)) {
+      this.lastSensorNotifyMs = nowMs;
+      this.opts.onChange(this.getView());
+    }
+    return true;
   }
 
   get hasSensorQuaternion(): boolean {
@@ -174,11 +207,16 @@ export class CameraController {
   }
 
   isAnimating(): boolean {
-    return this.fly !== null || Math.hypot(this.velocity.alt, this.velocity.az) > 0.02;
+    return (
+      this.sensorPose.isMoving(performance.now()) ||
+      this.fly !== null ||
+      Math.hypot(this.velocity.alt, this.velocity.az) > 0.02
+    );
   }
 
   /** 애니메이션·관성 진행. 변경이 있으면 true. */
   update(nowMs: number, dtMs: number): boolean {
+    if (this.sensorPose.active) return this.applySensorPose(nowMs);
     if (this.fly) {
       const f = this.fly;
       const t = clamp((nowMs - f.start) / f.duration, 0, 1);
@@ -283,7 +321,7 @@ export class CameraController {
         p.y = e.clientY;
         return;
       }
-      if (this.sensorQuat) this.sensorQuat = null; // 수동 드래그가 시작되면 센서 자세 해제
+      if (this.sensorPose.active) this.setSensorQuaternion(null); // 수동 드래그는 보간 목표까지 해제
       this.view.altDeg = clamp(this.view.altDeg + dAlt, -ALT_LIMIT_DEG, ALT_LIMIT_DEG);
       this.view.azDeg = wrap360(this.view.azDeg + dAz);
       const now = performance.now();

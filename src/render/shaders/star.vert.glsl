@@ -10,9 +10,9 @@ uniform float uLimitingMag;   // 이보다 어두운 별은 페이드
 uniform float uShowBelowHorizon;
 uniform float uExtinction;    // 0/1
 uniform float uRefraction;    // 0/1
-uniform float uMinSizePx;     // 서브픽셀 별의 최소 크기(보통 1)
-uniform float uMaxSizePx;     // 상한(보통 14)
-uniform float uSizeScale;     // s0 (mag 0 기준 픽셀 크기, 보통 3)
+uniform float uMinSizePx;     // 서브픽셀 별의 최소 크기(기기 픽셀)
+uniform float uMaxSizePx;     // 상한(CSS 픽셀)
+uniform float uSizeScale;     // s0 (mag 0 기준 CSS 픽셀 크기)
 
 varying vec3 vColorBv;
 varying float vAlpha;

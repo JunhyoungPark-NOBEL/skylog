@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { telescopes, eyepieces, binoculars } from '@/db/repos/equipment';
 import { defaultImageOrientation } from '@/astro/finder';
 import { eyepieceView, usefulMagnificationRange, fovFromFieldWidth } from '@/astro/optics';
+import { equipmentFovRings, telescopeRingName } from '@/astro/fovRings';
 import { telescopeLimitMag } from '@/astro/visibility';
 import { emitSkill } from '@/learn/runtime';
 import { ScreenFrame } from '@/features/settings/ScreenFrame';
@@ -13,6 +14,7 @@ import { EQUIPMENT_BUTTON, EQUIPMENT_INPUT } from './styles';
 // 제조사 모델 외에는 광학 조합의 예시이며 실제 제품을 보유한다고 가정하지 않는다.
 const PRESETS = [
   ['SVBONY SV48P', 90, 500, 'refractor'],
+  ['SVBONY SV48P 102mm', 102, 663, 'refractor'],
   ['70 / 700', 70, 700, 'refractor'],
   ['80 / 600 ED', 80, 600, 'refractor'],
   ['130 / 650', 130, 650, 'reflector'],
@@ -36,7 +38,14 @@ export function Equipment({ onBack }: { onBack(): void }) {
       .catch(() => setError(true));
   }, []);
   const patch = (value: Partial<GuideProfile>) => {
-    setP((s) => ({ ...s, ...value }));
+    setP((s) => ({
+      ...s,
+      ...value,
+      ...(value.eyepieceMm !== undefined || value.afovDeg !== undefined
+        ? { telescopeFovExample: false }
+        : {}),
+      ...(value.binocularFov !== undefined ? { binocularFovExample: false } : {}),
+    }));
     setSaved(false);
   };
   const number = (key: keyof GuideProfile, min: number, max: number) => (
@@ -408,6 +417,28 @@ export function Equipment({ onBack }: { onBack(): void }) {
           data-testid="equipment-calculation"
         >
           <h2 className="text-title">{t('guide.calculation')}</h2>
+          <div className="mt-3 space-y-2 text-body-sm" data-testid="equipment-fov-rings">
+            {equipmentFovRings(p).map(({ kind, fovDeg, example }) => (
+              <p key={kind} className="flex items-baseline justify-between gap-3">
+                <span>
+                  {kind === 'binoculars'
+                    ? t('guide.fovBinoculars', {
+                        magnification: p.binocularMag,
+                        aperture: p.binocularAperture,
+                      })
+                    : telescopeRingName(p)}
+                  {example && (
+                    <span className="block text-caption text-muted">{t('guide.fovExample')}</span>
+                  )}
+                </span>
+                <span className="font-semibold tabular-nums">{fovDeg.toFixed(2)}°</span>
+              </p>
+            ))}
+          </div>
+          {(p.binocularFovExample || p.telescopeFovExample) && (
+            <p className="mt-2 text-caption leading-5 text-muted">{t('guide.fovExampleHelp')}</p>
+          )}
+          <p className="mt-2 text-caption leading-5 text-muted">{t('guide.fovFromSettings')}</p>
           <p className="my-3 text-headline">
             {(p.mode === 'telescope' ? optics.magnification : p.binocularMag).toFixed(0)}× ·{' '}
             {(p.mode === 'telescope' ? optics.trueFovDeg : p.binocularFov).toFixed(2)}°

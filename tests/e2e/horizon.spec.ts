@@ -6,7 +6,7 @@ interface SkyScene {
   pick(x: number, y: number): string | null;
   controller: { isAnimating(): boolean };
 }
-test('반투명 지면 아래 별이 보이고 선택되며, 불투명·숨김 모드에서는 가려진다', async ({ page }) => {
+test('지면 투명도 하나로 기본 불투명·반투명·투명과 별 선택이 함께 바뀐다', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (e) => {
@@ -19,7 +19,7 @@ test('반투명 지면 아래 별이 보이고 선택되며, 불투명·숨김 �
     const s = (window as unknown as { __skylogScene: SkyScene }).__skylogScene;
     s.flyToObject('star:HIP32349', 25);
   });
-  await expect(page.getByTestId('below-horizon-hint')).toBeVisible();
+  await expect(page.getByTestId('below-horizon-hint')).toHaveCount(0);
   await expect
     .poll(() =>
       page.evaluate(() => {
@@ -55,23 +55,34 @@ test('반투명 지면 아래 별이 보이고 선택되며, 불투명·숨김 �
     });
   const before = await sample();
   expect(before.alt).toBeLessThan(-10);
-  expect(before.picked).toBe('star:HIP32349');
-  expect(before.spread).toBeGreaterThan(40);
+  expect(before.picked).toBeNull();
+  expect(before.spread).toBeLessThan(5);
+  await page.getByTestId('open-layers').click();
+  await expect(page.locator('#layer-ground')).toHaveCount(0);
+  await expect(page.locator('#layer-groundOpaque')).toHaveCount(0);
+  await expect(page.locator('#layer-showBelowHorizon')).toHaveCount(0);
+  await expect(page.getByTestId('layer-ground-transparency')).toHaveValue('0');
+  await page.getByTestId('layer-ground-transparency').fill('50');
+  await page.getByTestId('close-layers').click();
+  await expect(page.getByTestId('below-horizon-hint')).toBeVisible();
+  await expect.poll(async () => (await sample()).picked).toBe('star:HIP32349');
+  expect((await sample()).spread).toBeGreaterThan(40);
   await page.screenshot({ path: 'tests/e2e/__screenshots__/sky-below-translucent.png' });
   await page.getByTestId('open-layers').click();
-  await page.locator('#layer-groundOpaque').click();
+  await page.getByTestId('layer-ground-transparency').fill('100');
   await page.getByTestId('close-layers').click();
-  await expect(page.getByTestId('below-horizon-hint')).toHaveCount(0);
-  await expect.poll(async () => (await sample()).spread).toBeLessThan(5);
-  expect((await sample()).picked).toBeNull();
-  await page.getByTestId('open-layers').click();
-  await page.locator('#layer-groundOpaque').click();
-  await page.locator('#layer-showBelowHorizon').click();
-  await page.getByTestId('close-layers').click();
-  await expect.poll(async () => (await sample()).picked).toBeNull();
+  await expect.poll(async () => (await sample()).picked).toBe('star:HIP32349');
   await page.reload();
+  await expect(page.getByTestId('sky-canvas')).toBeVisible();
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
   await page.getByTestId('open-layers').click();
-  await expect(page.locator('#layer-showBelowHorizon')).toHaveAttribute('aria-checked', 'false');
+  await expect(page.getByTestId('layer-ground-transparency')).toHaveValue('100');
+  await page.getByTestId('layer-reset').click();
+  await expect(page.getByTestId('layer-ground-transparency')).toHaveValue('0');
+  await expect(page.locator('#layer-constellationBounds')).toHaveAttribute('aria-checked', 'false');
+  await expect(page.getByTestId('layer-milkyWayAlpha')).toHaveValue('0.33');
+  await expect(page.locator('#layer-saturation')).toHaveValue('1');
+  await page.getByTestId('close-layers').click();
+  await expect(page.getByTestId('below-horizon-hint')).toHaveCount(0);
   expect(errors).toEqual([]);
 });

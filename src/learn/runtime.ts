@@ -5,9 +5,10 @@ import { getDb, newId, nowIso } from '@/db/database';
 import { emitDbChange } from '@/db/events';
 import { setProgress } from '@/db/repos/progress';
 import { hash32 } from '@/content/today';
+import { loadContentIndex } from '@/content/loader';
 import {
   evaluateMission,
-  badgeSatisfied,
+  badgeProgresses,
   type LearnSnapshot,
   type CatalogLookups,
   type QuizResult,
@@ -37,7 +38,17 @@ let packPromise: Promise<LearnData> | null = null;
 export function loadLearnData(): Promise<LearnData> {
   packPromise ??= Promise.all(
     ['paths', 'missions', 'badges', 'quiz'].map(async (name) => {
-      const r = await fetch(dataUrl('learn/v1/' + name + '.json'));
+      // 새 규칙은 v2 별도 URL: 오래 열린 v1 앱이 모르는 규칙을 받지 않는다.
+      // 기존 PWA를 오프라인에서 갱신한 경우에는 캐시된 18개 업적으로 학습을 계속한다.
+      const r =
+        name === 'badges'
+          ? await fetch(dataUrl('learn/v2/badges.json'))
+              .then((r) => {
+                if (!r.ok) throw new Error('Badge pack unavailable');
+                return r;
+              })
+              .catch(() => fetch(dataUrl('learn/v1/badges.json')))
+          : await fetch(dataUrl('learn/v1/' + name + '.json'));
       if (!r.ok) throw new Error('Learning pack unavailable');
       const data: unknown = await r.json();
       if (!Array.isArray(data)) throw new Error('Invalid learning pack');
@@ -95,11 +106,12 @@ export function lookupsFor(cat: Catalog): CatalogLookups {
   };
 }
 export async function readLearning() {
-  const [data, cat, rows, observations] = await Promise.all([
+  const [data, cat, rows, observations, contentIndex] = await Promise.all([
     loadLearnData(),
     loadCatalog(),
     getDb().progress.toArray(),
     getDb().observations.toArray(),
+    loadContentIndex(),
   ]);
   const values = new Map(rows.filter((r) => !r.deletedAt).map((r) => [r.key, r.value]));
   const readSet = new Set<ObjectId>();
@@ -108,9 +120,22 @@ export async function readLearning() {
   const skillEvents: SkillEvent[] = [];
   const sr = new Map<string, SrState>();
   const quizResults = new Map<string, QuizResult>();
+  const questions = new Map(data.quiz.filter((q) => q.enabled !== false).map((q) => [q.id, q]));
   const attempts = [...values.entries()]
     .filter(([k, v]) => k.startsWith('learn.attempt:') && obj(v))
-    .map(([, v]) => v as Attempt)
+    .flatMap(([, v]) => {
+      const a = v as Partial<Attempt>;
+      const q = typeof a.quizId === 'string' ? questions.get(a.quizId) : undefined;
+      if (
+        !q ||
+        a.version !== (q.version ?? 1) ||
+        !validAnswer(q, a.answer) ||
+        typeof a.at !== 'string' ||
+        !Number.isFinite(Date.parse(a.at))
+      )
+        return [];
+      return [{ ...a, correct: a.answer === q.answer } as Attempt];
+    })
     .sort((a, b) => a.at.localeCompare(b.at));
   for (const a of attempts) {
     const q = data.quiz.find((q) => q.id === a.quizId && (q.version ?? 1) === a.version);
@@ -134,8 +159,28 @@ export async function readLearning() {
     if (k.startsWith('learn.sr:') && obj(v) && typeof v.due === 'string')
       sr.set(k.slice(9), v as unknown as SrState);
   }
+  const journey = stageProgress(
+    data.quiz,
+    [...values.entries()]
+      .filter(([k]) => k.startsWith('learn.stage:'))
+      .flatMap(([, v]) => {
+        const run = parseStageRun(v);
+        return run ? [run] : [];
+      }),
+  );
+  const liveObservations = observations.filter((o) => !o.deletedAt);
+  const attachmentIds = [
+    ...new Set(
+      liveObservations.flatMap((o) => [
+        ...(o.sketchBlobId ? [o.sketchBlobId] : []),
+        ...(o.photoBlobIds ?? []),
+      ]),
+    ),
+  ];
+  const attachments = await getDb().blobs.bulkGet(attachmentIds);
+  const liveAttachments = attachments.filter((b) => b && !b.deletedAt && b.size > 0);
   const snap: LearnSnapshot = {
-    observations: observations.filter((o) => !o.deletedAt),
+    observations: liveObservations,
     readSet,
     foundSet,
     checked,
@@ -143,6 +188,17 @@ export async function readLearning() {
     quizResults,
     completedMissions: new Set(),
     earnedBadges: new Set(),
+    clearedStages: new Set(
+      journey.filter((p) => p.unlocked && p.result?.cleared).map((p) => p.stage.id),
+    ),
+    perfectStages: new Set(
+      journey.filter((p) => p.unlocked && p.result?.stars === 3).map((p) => p.stage.id),
+    ),
+    readStories: new Set(
+      (contentIndex?.entries ?? []).filter((e) => readSet.has(e.id)).map((e) => e.id),
+    ),
+    sketchIds: new Set(liveAttachments.filter((b) => b?.kind === 'sketch').map((b) => b!.id)),
+    photoIds: new Set(liveAttachments.filter((b) => b?.kind === 'photo').map((b) => b!.id)),
   };
   const lookups = lookupsFor(cat);
   const starts = new Map<string, MissionStart>();
@@ -178,9 +234,8 @@ export async function readLearning() {
     snap.completedMissions = done;
     statuses = data.missions.map((m) => evaluateMission(m, forMission(m), lookups));
   }
-  const badges = data.badges.filter(
-    (b) => b.enabled !== false && badgeSatisfied(b.rule, snap, lookups),
-  );
+  const progressByBadge = badgeProgresses(data.badges, snap, lookups);
+  const badges = data.badges.filter((b) => b.enabled !== false && progressByBadge.get(b.id)?.done);
   snap.earnedBadges = new Set(badges.map((b) => b.id));
   return {
     data,
@@ -188,17 +243,10 @@ export async function readLearning() {
     snap,
     statuses,
     badges,
+    badgeProgress: progressByBadge,
     starts,
     sr,
-    journey: stageProgress(
-      data.quiz,
-      [...values.entries()]
-        .filter(([k]) => k.startsWith('learn.stage:'))
-        .flatMap(([, v]) => {
-          const run = parseStageRun(v);
-          return run ? [run] : [];
-        }),
-    ),
+    journey,
     due: dueForReview(sr.values(), new Date()),
   };
 }

@@ -1,6 +1,6 @@
 # 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.3/build8 가독성·간결한 화면·센서 자동 시작
+> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.4/build9 문서 초안 · 브라우저/빌드/공개 검증 진행 중
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -8,7 +8,21 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-08 · beta.3/build8 가독성·자동 센서)
+## 이번 작업 보고 (2026-09-08 · beta.4/build9 준비 중)
+
+- 소스 버전 `0.1.0-beta.4`, 이번 Android/iOS build9. **최종 소스 커밋·태그: TBD.** 전체 단위 **493개 통과** 보고를 확인했다. 최종 typecheck/lint/data/e2e·PWA·Android/iOS 빌드·공개 검증은 진행 중이며 아래 TBD를 완료 후 채운다. build8의 검증/해시를 build9 완료로 재사용하지 않는다.
+- 새 하늘 기본값: 별자리 경계 끄기, 은하수 0.33, 지면 불투명도 1, 별 채도 1. 별 표시 1.2배와 은하수의 밝은 띠·어두운 먼지 결·색을 개선한다. 겹치는 지면 설정은 단일 슬라이더로 정리하고 기본값 복원을 추가했다. 별 좌표·실제 관측 판정은 유지한다. D-038.
+- 태양·달은 넓은 시야에서도 최소 지름 24 CSS px로 표시하며 확대/축소 후 선택 반경을 함께 갱신한다. 실제 각지름·태양 안전 차단과 화면상 표시 크기를 구분한다.
+- 시야원은 쌍안경과 망원경 두 개를 각각 켜고 끈다. 사용자가 알린 장비는 솔로몬 HQ 8×42 ED와 SV48P 102mm다. 시작 시야 7.50°와 102mm/663mm+25mm/52° 접안 조합의 약 1.96°는 사용자가 허용한 **기본 예시**이며 실제 사양을 입력해 바꾼다. 커스텀/DB 저장 장비는 유지하고 저장 ID 없는 정확한 구형 기본 프로필만 갱신한다. D-039.
+- 업적 48개를 `learn/v2` 팩으로 확장했다(기존 18개 ID/규칙 보존). 코스·미션·퀴즈는 v1 유지, 기존 학습 진도·백업과 호환한다. 단계·진행도·다음 업적 안내를 추가했으며 T7 전체 완료는 아니다. D-040.
+- 센서 이벤트 사이를 렌더 프레임에서 보간하고 React 상태 알림과 Dexie 동일 설정 반복 쓰기를 줄였다. 순수 합성 검증에서 각속도 RMS 오차는 기존의 절반 미만, 평균 추가 지연 25ms 미만, 기존 필터 포함 90° 스텝은 150ms 이내다. 실제 휴대폰 FPS 수치는 아직 측정하지 않았다. 중단/상대 yaw/수동 드래그 규칙 유지. D-041.
+- **포맷 검사 참고**: 전체 `pnpm format:check`는 Android 생성 lint HTML의 parser/생성 assets 때문에 실패했다. 변경 파일의 Prettier 검사는 통과했다. 생성 파일 검사 문제를 앱 기능 실패나 전체 검사 통과로 바꾸어 기록하지 않는다.
+- **최종 자동 검사: TBD** — typecheck/lint/data/PWA 빌드, e2e 최종 통과/전체 수와 실행 옵션, Android lint 결과, QA 폴더/화면 확인 결과를 기록한다. 단위 수는 이후 코드 변경으로 달라지면 최종 결과로 갱신한다.
+- **산출물·공개: TBD** — 예정 폴더 `Downloads/skylog-release-0.1.0-beta.4-build9/`, 개인 APK `skylog-0.1.0-beta.4-build9-local-test.apk`, unsigned AAB `skylog-0.1.0-beta.4-build9-unsigned.aab`. 크기·SHA256·APK 이전 인증서 일치·AAB 구조/내장 자료·공개 다운로드 재검, [예정 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.4-build9)의 실제 게시 여부는 모두 TBD다.
+- **CI/PWA: TBD** — Pages run URL/상태, 모바일 run URL/Android·iOS 결과, 공개 웹 beta.4·SW·재실행·JS 오류와 기존 데이터 보존을 최종 확인 후 기록한다. 지금까지 확인된 이전 공개판은 아래 beta.3/build8이다.
+- Play 업로드 키 복원/최종 AAB 서명, Apple 팀/서명 Archive/TestFlight, 실제 Android/iPhone 설치·센서·그래픽과 스토어 심사는 남는다. 현재 전 기능 무료, 결제/무료 이용권은 설계 단계. T5/T7/T8 전체 완료 태그 없음. 설치·실기기 확인은 `docs/INSTALL-ON-PHONE.md`, 릴리스 상세는 `docs/MOBILE-RELEASE.md`.
+
+## 이전 작업 보고 (2026-09-08 · beta.3/build8 가독성·자동 센서)
 
 - 원격 main 최신 bfa7109를 fetch로 확인하고 build7 위에서 갱신했다. 앱 버전 0.1.0-beta.3, Android build8, 다음 CI 기본 번호9. 천문 좌표·별 개수·데이터 팩·DB v2는 유지한다.
 - 별자리 연결선·경계를 두 테마 모두 흰색으로 고정하고 기존 투명도 설정에서도 대비를 높였다. 밝은 별 중심과 최소 표시 크기를 키웠다. 은하수 색/밀도/투명도의 중복 감쇠를 제거해 밤에 띠와 먼지 결이 보이게 했다. 실제 낮에는 대기 효과가 은하수를 가리며 하늘 설정에 설명한다. D-036은 D-034의 야간 전부 적색 원칙 중 별자리 선/경계만 수정한다.
@@ -33,15 +47,7 @@
 - **unsigned AAB 완료**: 같은 폴더의 `skylog-0.1.0-beta.2-build7-unsigned.aab`, 6,909,192 bytes, SHA256 `d979ba6b8b89ac5253a149e53fa6a7ec8134e0ccd1c688d2133483ebc492f7c9`. bundletool·API36/min24/version7·release/backup=false 확인, APK 서명/정렬 성공. AAB·APK·native public 160개 파일 SHA256 일치. Android release/lint 성공(오류0/경고33).
 - [APK 공개 사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.2-build7)를 만들고 실제 다운로드 파일의 크기/해시를 대조했다. 릴리스 태그는 앱 소스 `dad1c57`을 가리킨다. [모바일 CI 34191154190](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34191154190) **전체 성공**: Android release/lint·인터넷을 끈 API36 실제 WebView 계측, iOS Xcode26 arm64 무서명 컴파일. iPhone 설치용 서명 IPA는 아니다.
 
-## 이전 작업 보고 (2026-09-08 · build6 상세 창 스와이프)
-
-- 사용자 요청: iPhone의 APK 실행 가능 여부 설명, 별 → 자세히 화면에서 작은 손잡이 대신 본문 어디서든 위아래로 쓸어 조작. `useSheetGesture`로 본문·제목·버튼 행을 연결했다. 반쯤 열린 창 위로 펼치기 → 전체에서 내용 스크롤 → 맨 위에서 새 아래 동작으로 접기/닫기. 드래그 중 높이도 손가락을 따라간다.
-- 버튼의 짧은 탭·키보드·가로 행을 유지하고, 드래그 뒤 합성 클릭과 취소/두 손가락 추가에 의한 의도치 않은 단계 변경을 막았다. 마우스 첫 이동이 창 밖으로 나가는 경우와 본문 관성 중 제목을 잡을 때도 처리한다. 결정 D-033, 좌표계·센서·DB·데이터 팩 변경 없음.
-- **새 개인 APK**: `C:\Users\박준형\Downloads\skylog-release-0.1.0-beta.1-build6\skylog-0.1.0-beta.1-build6-local-test.apk`, 7,192,735 bytes, SHA256 `f132c61c72cf9f21d4123e46fbc70472c173ab20629307ca2f7700660ba6e3a8`. versionCode6, build5와 동일한 테스트 인증서를 두 APK에서 직접 대조했다. 기존 build5를 삭제하지 않고 업데이트 설치한다.
-- **새 unsigned AAB**: 같은 폴더의 `skylog-0.1.0-beta.1-build6-unsigned.aab`, 6,904,666 bytes, SHA256 `64d972cd49848f26e01edfa066d9b366f03f99b9917224cae146e7ff3f96d05d`. Play 업로드 키 복원/최종 서명은 계속 대기다. CI 다음 기본 번호7.
-- 검증: typecheck/lint/단위366/브라우저 **40/40**/data/native sync 통과. 새 터치·마우스·버튼·취소·관성 회귀 포함. Android release AAB/APK/lint 성공(오류0/경고33), APK 서명/정렬·bundletool 성공. AAB·APK·현재 native public **160개 파일(빈 파일2개 포함)의 SHA256 전부 일치**. 상세 화면 캡처 확인, `artifacts/qa-build6`에 로그/화면 보관. 실제 Android 설치·iPhone Safari/Core Motion 실행은 미검증.
-- 원격 HEAD는 재확인한 `dce4a7d` 그대로이며 로컬 변경은 push하지 못했다. 현재 GitHub 인증이 없어 **이번 스와이프 수정은 공개 Pages에 아직 없다**. iPhone은 APK를 실행할 수 없으며 기존 Safari 홈 화면 PWA 또는 별도 서명 iOS 앱을 사용한다. 공개 웹 반영은 GitHub 인증 후 배포, TestFlight는 Apple 팀·Mac 서명/Archive가 필요하다.
-- 사용자 확인: 새 APK 업데이트 → 별/자세히 → 본문 위로 펼치기/스크롤/맨 위 아래로 접기 → 즐겨찾기 탭과 가로 행. 설치 안내 `docs/INSTALL-ON-PHONE.md`. 스토어 공개 출시·T5/T7/T8 잔여 유지, 완료 태그 없음.
+이전 build6 상세 창 스와이프 기록은 [보관 보고](reports/2026-09-08-build6.md)를 참고한다.
 
 이전 build5 완료 기록은 [보관 보고](reports/2026-09-08-build5.md)를 참고한다.
 
@@ -65,7 +71,7 @@
 | T4 관측 기록·북마크·통계 | ✅ 구현 완료 | 2026-09-07 | task-4-done | 자동 검증 통과, 새 실기기 체크리스트 전달 |
 | T5 망원경/쌍안경 가이드 | 🟡 구현·자동 검증 완료, 실기기 대기 | | | 별길 가이드(+Y 상대 센서), 장비/FOV/정렬/차트/스타호핑/업적. D-029. 실기기 반영 후 태그 |
 | T6 콘텐츠 팩(AI 요약 스토리) | ✅ 구현 완료 | 2026-09-07 | task-6-done | 121개 게시, needsReview 112개 유지 |
-| T7 학습 시스템 | 🟡 진행 중 | | | 하늘28+관측12스테이지. 6코스·미션30/30·배지 규칙18/18·퀴즈204/240 활성. skyPick36·하루 복습 상한·배지 이력 후속 |
+| T7 학습 시스템 | 🟡 진행 중 | | | 하늘28+관측12스테이지. 6코스·미션30/30·배지48(기존18+확장30)·퀴즈204/240 활성. skyPick36·하루 복습 상한·배지 이력 후속 |
 | T8 마감·품질·릴리스 | ⬜ 대기 | | | |
 
 ## GPT Pro 요청 현황 (`gpt-pro-requests.md`)
@@ -81,10 +87,10 @@
 ## 다음 세션이 알아야 할 것
 
 - **학습 탐색/스테이지(D-026)**: features/learn의 LearnScreen → QuizJourney/CoursesScreen/StoriesScreen/AchievementsScreen. 해시 section/path/mission/chapter로 복원하며 하단 탭 복귀 시 마지막 배우기 경로 유지. stageCatalog는 144문항을 중복 없이 고정한 28단계, 정답률 80% 해제·60/80/100% 별, 개인 합계는 단계별 최고점만. stage/question 버전을 함께 검증하며 마지막 응답과 완료 기록은 원자 저장. 기존 미션/응답/복습/관측 유지, 새 도장은 새 여정을 완주해야 획득한다. 리더보드는 아직 로컬 점수 기반만 준비됨.
-- **지평선(D-027)**: showBelowHorizon 기본 true, 지면 opacity 0.28. groundOpaque가 켜져 있으면 투시를 막는다. stars/lines/DSO/bodies/labels/markers/picking이 같은 설정을 따르며 실제 가시성·추천·미션 고도 판정은 바꾸지 않는다.
+- **하늘 설정(D-038)**: `groundOpacity` 기본1, 단일 슬라이더와 기본값 복원. 불투명도1이면 지평선 아래 표시·선택을 함께 막고1 미만이면 함께 허용한다. layers persist v2로 이전 옵션을 이관한다. 기본 경계 false·은하수0.33·별 채도1, 저장된 커스텀 설정은 보존한다. 실제 관측 가능 판정은 그대로다.
 
-- **다음 작업**: T5 실기기 정렬/드리프트 결과와 G4 반영 → T7 잔여(skyPick 36, 하루 복습 누적 상한·배지 이력/연출) → T8. G3/G5 추가 생성은 불필요. 사용자 장비를 미리 확정하지 않았으며 설정의 예시 수치는 실제 장비로 바꿀 수 있다.
-- **학습/콘텐츠**: 한국어 재서술본은 data-src/*-raw/*-natural, 게시본은 public/data/{content,learn}/v1. `pnpm data:content` 다음 `pnpm data:learn`; CI는 이야기121/G5원본180+추가60 참조와 근거를 검증한다. 새 관측12단계는 별도 observingStages.json이며 기존 stageCatalog 28단계를 변경하지 않는다. 수치 검토112·G2 이름42는 docs/CONTENT-REVIEW.md. 새60문항은 전부 영어 제공, 기존 장문 전체 번역은 후속이다.
+- **다음 작업**: T5 실기기 정렬/드리프트 결과와 G4 반영 → T7 잔여(skyPick 36, 하루 복습 누적 상한·배지 이력/연출) → T8. G3/G5 추가 생성은 불필요. 사용자는 솔로몬 HQ 8×42 ED와 SV48P 102mm를 사용한다. FOV/접안 사양은 시작 예시로 두고 직접 입력하도록 요청했다. 7.50°·25mm/52°를 실제 장비 사양으로 단정하지 않는다(D-039).
+- **학습/콘텐츠**: 한국어 재서술본은 data-src/*-raw/*-natural, 게시본은 public/data/{content,learn}/v1이며 확장 업적48개는 public/data/learn/v2다. 기존18개 ID/규칙과 코스·퀴즈 v1을 보존한다(D-040). `pnpm data:content` 다음 `pnpm data:learn`; CI는 이야기121/G5원본180+추가60 참조와 근거를 검증한다. 새 관측12단계는 별도 observingStages.json이며 기존 stageCatalog 28단계를 변경하지 않는다. 수치 검토112·G2 이름42는 docs/CONTENT-REVIEW.md. 새60문항은 전부 영어 제공, 기존 장문 전체 번역은 후속이다.
 - **환경**: 이 실행은 Codex 데스크톱 로컬. Node 24.19.0·portable pnpm 12.3.4(`%LOCALAPPDATA%/skylog-tools/pnpm-12.3.4/package`를 PATH 앞에 둠), Git Credential Manager JunhyoungPark-NOBEL 인증 완료(gh CLI 없음). 새 PC Chromium 1243은 설치 완료. 이번 실행은 파일/네트워크 접근 가능(이전 세션의 읽기 전용 제한은 현재 해당 없음).
 
 - **T2 실기기 통과**(2026-09-07, 사용자 보고 "문제 없이 잘 돼"). 덤프·기기 정보는 받지 못했으므로 D-018의 기본값(compassAxis='top', iOS 편각 적용, 필터 상수)을 그대로 둔다. 문제가 보고되면 센서 디버그 "덤프 복사" 텍스트로 원인을 특정한 뒤 테스트 벡터부터 고친다.
@@ -95,9 +101,9 @@
 - **UI 규칙(D-021)**: 새 화면은 `docs/ARCHITECTURE.md` "UI 디자인 시스템 v2"와 토큰(`theme.css`)만 쓴다. 검색/오늘 밤/기록은 App의 `pt-status pb-tab` 래퍼를 쓴다. 배우기는 D-026: 자체 고정 제목·상단 4개 메뉴 + ScrollArea(pb-tab), 위치/센서 상태바는 생략한다. 카피는 D-021 용어집(해요체·평이한 용어)을 따른다.
 - **스크롤 규칙(D-022)**: 세로 스크롤 영역은 `ui/ScrollArea.tsx`(마우스 드래그 스크롤·관성·페이드 오버레이)로 만든다. 스크롤러에 `mask-image`를 걸지 않는다. 드래그 스크롤이 닿으면 안 되는 컨트롤은 `touch-action: none` 또는 `data-drag-scroll="off"`. 사용자 보고("스크롤이 뻑뻑하고 스크롤 바를 정확히 눌러야 함")에 대한 수정이며, 실기기 확인은 T3b 체크리스트의 스크롤 항목으로 받는다.
 - **주의(이 세션에서 겪은 것)**: 워크플로 에이전트가 "코드 스케치를 써 달라"는 프롬프트를 실제 경로에 파일을 만들었다가 지우는 바람에 `src/astro/phenomena.ts`가 사라진 적이 있다. 리서치용 에이전트 프롬프트에는 **"파일을 만들거나 고치지 말 것"**을 명시한다.
-- 최신 검증: Vitest 356/356, Playwright 전체 33/33, typecheck/lint/build/data:validate 통과. 마무리 문구·UI 축소 후 관련 7/7 재검증. 장비/가이드 화면은 지연 로드, 초기 JS gzip 433.3KiB — T8에서 기존 대형 청크 분할.
-- 데이터 원본(`data-src/raw/`)은 gitignore. 새 PC에서는 OneDrive 동기화로 `node_modules`·`data-src/raw`까지 같이 왔다(이 세션은 연구실 데스크톱에서 그대로 이어서 진행). 명령은 PowerShell + PATH 접두(`C:\Program Files\nodejs;C:\Program Files\GitHub CLI;%APPDATA%\npm`).
-- 사용자 장비: 쌍안경 보유(모델 미확인), SVBONY SV48P(90mm f/5.5, FL 500mm) 구매 검토 중, 마운트 미정. 별길 장비 설정에서 직접 입력/선택한다. 기본 관측지 대전(KAIST); 관측지 화면의 실제 장소·보이는 범위를 추천에 사용한다.
+- **최신 검증**: 위 beta.4/build9 보고를 따른다. 단위493개 통과, 최종 브라우저/빌드/배포 수치와 소스 SHA는 TBD다. 이전 보고의 단위/브라우저/번들 크기를 현재 결과로 인용하지 않는다. T8의 청크 분할·실기기 성능 점검은 별도 잔여다.
+- 데이터 원본(`data-src/raw/`)은 gitignore이며 새 환경에서 재생성할 때 원본 확보가 필요하다. 현재 실행 경로와 pnpm PATH는 위 **환경** 항목을 따른다. 과거 OneDrive PC 경로를 현재 작업 경로로 사용하지 않는다.
+- **사용자 장비**: 솔로몬 HQ 8×42 ED, SVBONY SV48P 102mm(제조사 초점거리663mm). 사용자 요청으로 쌍안경 시야7.50°·접안25mm/52°는 시작 예시이며 직접 입력하도록 한다. 마운트/실제 접안 사양은 확정하지 않았다. 관측지는 자동 GPS 또는 사용자가 고른 저장 장소·보이는 범위를 따른다.
 
 이전 T3b/T4/T5/T6·학습 UX 보고는 [기능 개발 보관 기록](reports/2026-09-08-pre-mobile-history.md)을 참고한다.
 
@@ -113,3 +119,5 @@
 - D-027(2026-09-07): 기본 반투명 지면·지평선 아래 천체 표시, 관측 판정 분리.
 - D-028(2026-09-08): 독립 관측 퀴즈 코스와 오늘 밤 정보 분리.
 - D-029(2026-09-08): 별길 가이드의 물리 윗변·상대 센서·정렬/장비/시야·실제 업적 이벤트.
+
+- D-038~D-041(2026-09-08): 하늘 기본값·단일 지면/천체 표시, 두 장비 시야 예시, 업적 v2/기존 진도 호환, 센서 프레임 보간·Dexie 중복 쓰기 제거.

@@ -327,9 +327,7 @@ test('야간 모드: 별자리 선·경계는 흰색, 다른 하늘 레이어는
   await page.locator('#setting-night').click();
 });
 
-test('저장된 기본 밝기에서도 은하수 띠와 밝은 별의 코어가 실제 화면에서 명확하다', async ({
-  page,
-}) => {
+test('은하수 기본 33%와 최대 강도에서 능선·색 대비가 남고 별 코어는 선명하다', async ({ page }) => {
   const errors = collectErrors(page);
   await openSky(page, 'alt=60&az=180&fov=90');
   await page.getByTestId('open-layers').click();
@@ -352,7 +350,7 @@ test('저장된 기본 밝기에서도 은하수 띠와 밝은 별의 코어가 
   });
   await page.getByTestId('open-layers').click();
   await page.locator('#layer-milkyWay').click();
-  await expect(page.getByTestId('layer-milkyWayAlpha')).toHaveValue('0.6');
+  await expect(page.getByTestId('layer-milkyWayAlpha')).toHaveValue('0.33');
   await page.getByTestId('close-layers').click();
   await page.waitForTimeout(300);
   const visibility = await page.evaluate(() => {
@@ -378,12 +376,11 @@ test('저장된 기본 밝기에서도 은하수 띠와 밝은 별의 코어가 
         pixels[i + 2]! - off[i + 2]!,
       );
       total++;
-      if (difference >= 10) {
+      if (difference >= 4) {
         changed++;
         brightness += difference;
       }
     }
-    delete w.__milkyWayOff;
     const star = w.__skylogScene.project('star:HIP91262')!;
     const ratio = src.width / src.getBoundingClientRect().width;
     const centerX = Math.round(star.x * ratio),
@@ -396,10 +393,55 @@ test('저장된 기본 밝기에서도 은하수 띠와 밝은 별의 코어가 
       }
     return { changed, total, mean: brightness / Math.max(1, changed), core, ratio };
   });
-  expect(visibility.changed / visibility.total).toBeGreaterThan(0.06);
-  expect(visibility.mean).toBeGreaterThan(20);
-  expect(visibility.core / (visibility.ratio * visibility.ratio)).toBeGreaterThan(8);
   await page.screenshot({ path: `${SHOTS}/sky-milkyway-clear.png` });
+  await page.getByTestId('open-layers').click();
+  await page.getByTestId('layer-milkyWayAlpha').fill('1');
+  await page.getByTestId('close-layers').click();
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: `${SHOTS}/sky-milkyway-max.png` });
+  const maximum = await page.evaluate(() => {
+    const src = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
+    const c = document.createElement('canvas');
+    c.width = src.width;
+    c.height = src.height;
+    const ctx = c.getContext('2d')!;
+    ctx.drawImage(src, 0, 0);
+    const pixels = ctx.getImageData(0, 0, c.width, c.height).data;
+    const w = window as unknown as { __milkyWayOff?: Uint8ClampedArray };
+    const off = w.__milkyWayOff!;
+    const brightness: number[] = [];
+    let color = 0,
+      saturated = 0;
+    for (let i = 0; i < pixels.length; i += 4 * 7) {
+      const rgb = [
+        pixels[i]! - off[i]!,
+        pixels[i + 1]! - off[i + 1]!,
+        pixels[i + 2]! - off[i + 2]!,
+      ];
+      const peak = Math.max(...rgb);
+      if (peak < 4) continue;
+      brightness.push(peak);
+      color += (peak - Math.min(...rgb)) / peak;
+      if (peak > 240) saturated++;
+    }
+    brightness.sort((a, b) => a - b);
+    delete w.__milkyWayOff;
+    return {
+      count: brightness.length,
+      p20: brightness[Math.floor(brightness.length * 0.2)]!,
+      p90: brightness[Math.floor(brightness.length * 0.9)]!,
+      chroma: color / brightness.length,
+      saturated,
+    };
+  });
+  console.info('Milky Way visibility', JSON.stringify({ default: visibility, maximum }));
+  // 낮은 기본 강도에서도 띠가 구분되며 최대 강도는 밝은 능선/어두운 먼지와 색을 보존한다.
+  expect(visibility.changed / visibility.total).toBeGreaterThan(0.005);
+  expect(visibility.mean).toBeGreaterThan(4);
+  expect(visibility.core / (visibility.ratio * visibility.ratio)).toBeGreaterThan(11);
+  expect(maximum.p90).toBeGreaterThan(maximum.p20 * 2);
+  expect(maximum.chroma).toBeGreaterThan(0.15);
+  expect(maximum.saturated / maximum.count).toBeLessThan(0.001);
   expect(errors).toEqual([]);
 });
 

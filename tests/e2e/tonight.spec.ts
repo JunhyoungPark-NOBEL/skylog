@@ -173,27 +173,61 @@ test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 �
   const errors = collectErrors(page);
   await openSky(page);
   await page.waitForTimeout(600);
-  // 캔버스 밝기 배열(픽셀 합). 같은 시점에서 켜기 전/후를 비교해 "사라진 별 픽셀" 비율을 본다(은하수·배경은 그대로).
-  const brightness = () =>
-    page.evaluate(() => {
+  // 별 재질을 숨긴 배경을 한 번 측정한다. 지면 등 밝은 고정 픽셀은 별 감소 비율에서 제외한다.
+  const brightness = (hideStars = false) =>
+    page.evaluate(async (hideStars) => {
+      const scene = (
+        window as unknown as {
+          __skylogScene: {
+            invalidate(): void;
+            renderer: { info: { render: { frame: number } } };
+            stars: { points: { material: { visible: boolean } } };
+          };
+        }
+      ).__skylogScene;
       const c = document.querySelector('[data-testid="sky-canvas"]') as HTMLCanvasElement;
       const gl = c.getContext('webgl2') ?? c.getContext('webgl');
-      if (!gl) return [] as number[];
-      const w = gl.drawingBufferWidth;
-      const h = gl.drawingBufferHeight;
-      const buf = new Uint8Array(w * h * 4);
-      gl.readPixels(0, 0, w, h, gl.RGBA, gl.UNSIGNED_BYTE, buf);
-      const out: number[] = [];
-      for (let i = 0; i < buf.length; i += 4) out.push(buf[i]! + buf[i + 1]! + buf[i + 2]!);
-      return out;
-    });
+      if (!gl) throw new Error('별 픽셀 검증에 필요한 WebGL 컨텍스트가 없습니다.');
+      const render = async () => {
+        const previous = scene.renderer.info.render.frame;
+        scene.invalidate();
+        await new Promise<void>((resolve) => {
+          const check = () =>
+            scene.renderer.info.render.frame > previous ? resolve() : requestAnimationFrame(check);
+          requestAnimationFrame(check);
+        });
+      };
+      const material = scene.stars.points.material;
+      const wasVisible = material.visible;
+      try {
+        if (hideStars) material.visible = false;
+        await render();
+        const w = gl.drawingBufferWidth;
+        const h = gl.drawingBufferHeight;
+        const buf = new Uint8Array(w * h * 4);
+        gl.readPixels(0, 0, w, h, gl.RGBA, gl.UNSIGNED_BYTE, buf);
+        const out: number[] = [];
+        for (let i = 0; i < buf.length; i += 4) out.push(buf[i]! + buf[i + 1]! + buf[i + 2]!);
+        return out;
+      } finally {
+        if (hideStars) {
+          material.visible = wasVisible;
+          await render();
+        }
+      }
+    }, hideStars);
   // 은하수 텍스처·별자리 선은 한계등급과 무관하므로 끄고 별만 비교한다
   await page.getByTestId('open-layers').click();
   await page.locator('#layer-milkyWay').click();
   await page.locator('#layer-constellationLines').click();
   await page.getByTestId('close-layers').click();
   await page.waitForTimeout(500);
-  const before = await brightness();
+  const background = await brightness(true);
+  const withoutBackground = (pixels: number[]) => {
+    expect(pixels).toHaveLength(background.length);
+    return pixels.map((value, i) => Math.max(0, value - background[i]!));
+  };
+  const before = withoutBackground(await brightness());
   const litBefore = before.filter((v) => v > 40).length;
   expect(litBefore).toBeGreaterThan(200);
   const toggle = page.getByTestId('real-sky-toggle');
@@ -204,7 +238,7 @@ test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 �
   await expect(toggle).toHaveAttribute('data-limiting-mag', /4\.\d/); // Bortle 7 기본: NELM 4.6 − 달
   await page.getByTestId('close-layers').click();
   await page.waitForTimeout(600);
-  const after = await brightness();
+  const after = withoutBackground(await brightness());
   let gone = 0;
   for (let i = 0; i < before.length; i++) if (before[i]! > 40 && after[i]! < 20) gone++;
   const litAfter = after.filter((v) => v > 40).length;

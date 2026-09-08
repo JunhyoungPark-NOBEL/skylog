@@ -14,10 +14,8 @@ export interface LayerValues {
   equator: boolean;
   ecliptic: boolean;
   meridian: boolean;
-  ground: boolean;
-  groundOpaque: boolean;
-  /** 학습용 투시: 지평선 아래 천체도 표시(실제 관측 가능 판정에는 영향 없음) */
-  showBelowHorizon: boolean;
+  /** 지면 불투명도 0..1. 1일 때 지평선 아래 천체 표시·선택을 함께 막는다. */
+  groundOpacity: number;
   milkyWay: boolean;
   milkyWayAlpha: number;
   dso: boolean;
@@ -44,6 +42,7 @@ export interface LayerValues {
 export interface LayerState extends LayerValues {
   set<K extends keyof LayerValues>(key: K, value: LayerValues[K]): void;
   toggle(key: BooleanLayerKey): void;
+  reset(): void;
 }
 
 export type BooleanLayerKey = {
@@ -61,17 +60,15 @@ export const DEFAULT_LAYERS: LayerValues = {
   equator: false,
   ecliptic: false,
   meridian: false,
-  ground: true,
-  groundOpaque: false,
-  showBelowHorizon: true,
+  groundOpacity: 1,
   milkyWay: true,
-  milkyWayAlpha: 0.6,
+  milkyWayAlpha: 0.33,
   dso: true,
   starLabels: true,
   labelLang: 'auto',
   atmosphere: true,
   extinction: true,
-  starSaturation: 0.8,
+  starSaturation: 1,
   magnifyBodies: false,
   limitingMag: 6.5,
   showViewInfo: true,
@@ -82,19 +79,44 @@ export const DEFAULT_LAYERS: LayerValues = {
 
 export const LAYERS_PERSIST_NAME = 'layers';
 
+/** v1의 겹치는 지면 옵션을 한 값으로 옮기며 이전 기본 밝기만 새 기본값으로 갱신한다. */
+export function restoredLayers(value: unknown, version: number): LayerValues {
+  const raw = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
+  const next = { ...DEFAULT_LAYERS };
+  for (const key of Object.keys(DEFAULT_LAYERS) as (keyof LayerValues)[]) {
+    const saved = raw[key];
+    if (typeof saved !== typeof DEFAULT_LAYERS[key]) continue;
+    if (typeof saved === 'number' && !Number.isFinite(saved)) continue;
+    (next as unknown as Record<string, unknown>)[key] = saved;
+  }
+  next.groundOpacity = Math.max(0, Math.min(1, next.groundOpacity));
+  if (version < 2) {
+    // 과거 기본 반투명 지면은 새 기본 불투명 지면으로, 명시적인 지면 숨김은 투명으로 옮긴다.
+    if (typeof raw['groundOpacity'] !== 'number')
+      next.groundOpacity = raw['ground'] === false && raw['showBelowHorizon'] !== false ? 0 : 1;
+    if (raw['milkyWayAlpha'] === 0.6) next.milkyWayAlpha = DEFAULT_LAYERS.milkyWayAlpha;
+    if (raw['starSaturation'] === 0.8) next.starSaturation = DEFAULT_LAYERS.starSaturation;
+  }
+  return next;
+}
+
 export const useLayerStore = create<LayerState>()(
   persist(
     (set, get) => ({
       ...DEFAULT_LAYERS,
       set: (key, value) => set({ [key]: value } as Partial<LayerValues>),
       toggle: (key) => set({ [key]: !get()[key] } as Partial<LayerValues>),
+      reset: () => set({ ...DEFAULT_LAYERS }),
     }),
     {
       name: LAYERS_PERSIST_NAME,
-      version: 1,
+      version: 2,
+      migrate: (state, version) => restoredLayers(state, version),
+      // Dexie의 이전 키 행이 남아 있어도 폐기한 옵션이 상태/다시 저장할 값에 들어오지 않는다.
+      merge: (persisted, current) => ({ ...current, ...restoredLayers(persisted, 2) }),
       storage: createJSONStorage(() => createDexieSettingsStorage(LAYERS_PERSIST_NAME)),
       partialize: (s): LayerValues => {
-        const { set: _set, toggle: _toggle, ...values } = s;
+        const { set: _set, toggle: _toggle, reset: _reset, ...values } = s;
         return values;
       },
     },
@@ -111,9 +133,7 @@ export function waitForLayerHydration(): Promise<void> {
   });
 }
 
-/** 불투명 지면은 투시보다 우선한다. 저장된 사용자 설정은 그대로 유지한다. */
-export function showsBelowHorizon(
-  layers: Pick<LayerValues, 'ground' | 'groundOpaque' | 'showBelowHorizon'>,
-): boolean {
-  return layers.showBelowHorizon && !(layers.ground && layers.groundOpaque);
+/** 지면의 표시와 별·라벨·선택이 같은 불투명도 설정을 따른다. */
+export function showsBelowHorizon(layers: Pick<LayerValues, 'groundOpacity'>): boolean {
+  return layers.groundOpacity < 1;
 }

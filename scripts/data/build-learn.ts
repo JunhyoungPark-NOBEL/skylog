@@ -5,8 +5,9 @@
  * 1) 원본(G5-original)과 구조 대조: 산문 외 필드(id·level·season·steps의 type/objectId/quizIds/answer·rule…)가
  *    바이트 단위로 같아야 한다. 다르면 실패.
  * 2) `validateLearnData`(스키마·참조 무결성·카탈로그 id·게시된 콘텐츠 id).
- * 3) 실행 정책(D-025·D-029): skyPick 36문항은 전천 검증 전 비활성. T5 실제 이벤트 연결 후 미션 30/배지 18 활성.
- *    G5 구조 대조 뒤 별도 observing-quiz.json(한·영 60문항)을 병합한다. 문항 version=1.
+ * 3) 실행 정책: skyPick 36문항은 전천 검증 전 비활성. 미션 30/기존 배지 18개 유지.
+ *    G5 구조 대조 뒤 observing-quiz.json(한·영 60문항), challenge-badges.json(신규 30개)을 병합한다.
+ *    확장 업적은 learn/v2로 게시해 v1 앱의 규칙 호환을 보존한다. 문항 version=1.
  * 4) 리뷰 로그: data-src/learn-raw/review-log.md
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -14,6 +15,7 @@ import path from 'node:path';
 import {
   validateLearnData,
   type Badge,
+  type BadgeTier,
   type LearnData,
   type LearningPath,
   type Mission,
@@ -26,6 +28,7 @@ const useOriginal = process.argv.includes('--original');
 const IN = path.join(LEARN_RAW, useOriginal ? 'G5-original' : 'G5-natural');
 const ORIG = path.join(LEARN_RAW, 'G5-original');
 const LEARN_OUT = path.join(OUT_DIR, 'learn', 'v1');
+const BADGES_OUT = path.join(OUT_DIR, 'learn', 'v2');
 const REVIEW_LOG = path.join(LEARN_RAW, 'review-log.md');
 
 /** 앱에 이미 있는 기능(스킬). 없는 것은 미션 비활성. */
@@ -150,7 +153,22 @@ function main(): void {
     }
     return { ...m, enabled: true };
   });
-  const badges = data.badges.map((b) => ({ ...b, enabled: true }));
+  const legacyBadges = data.badges.map((b) => ({ ...b, enabled: true }));
+  const legacyTier = (b: Badge): BadgeTier => {
+    if (b.rule.key === 'missionsCompleted')
+      return b.rule.n >= 24 ? 'master' : b.rule.n >= 6 ? 'explorer' : 'starter';
+    if (b.rule.key === 'quizStreak')
+      return b.rule.n >= 10 ? 'master' : b.rule.n >= 5 ? 'explorer' : 'starter';
+    if ('n' in b.rule && b.rule.n >= 5) return 'explorer';
+    return 'starter';
+  };
+  const challenges = readJson<Badge[]>(path.join(LEARN_RAW, 'challenge-badges.json'));
+  const badges = [
+    ...legacyBadges.map((b) => ({ ...b, tier: legacyTier(b) })),
+    ...challenges.map((b) => ({ ...b, enabled: true })),
+  ];
+  if (challenges.some((b) => !b.title.en || !b.description.en || !b.tier))
+    fail('새 도전 업적에는 한영 제목/설명과 단계가 필요합니다.');
   const quiz = data.quiz.map((q) =>
     q.type === 'skyPick'
       ? { ...q, version: 1, enabled: false, disabledReason: SKYPICK_REASON }
@@ -176,7 +194,22 @@ function main(): void {
     writeFileSync(path.join(LEARN_OUT, name), JSON.stringify(v) + '\n');
   write('paths.json', final.paths);
   write('missions.json', final.missions);
-  write('badges.json', final.badges);
+  // v1의 기존 18개는 그대로 보존한다. 확장 규칙은 새 앱의 v2 URL에서만 제공한다.
+  write('badges.json', legacyBadges);
+  mkdirSync(BADGES_OUT, { recursive: true });
+  writeFileSync(path.join(BADGES_OUT, 'badges.json'), JSON.stringify(final.badges) + '\n');
+  writeFileSync(
+    path.join(BADGES_OUT, 'manifest.json'),
+    JSON.stringify({
+      schema: 'skylog-badges',
+      version: 2,
+      generatedAt: new Date().toISOString(),
+      count: final.badges.length,
+      legacyCount: legacyBadges.length,
+      companionLearnVersion: 1,
+      disabled: final.badges.filter((b) => b.enabled === false).map((b) => b.id),
+    }) + '\n',
+  );
   write('quiz.json', final.quiz);
   const skyPick = final.quiz.filter((q) => q.type === 'skyPick').length;
   write('manifest.json', {
@@ -186,7 +219,7 @@ function main(): void {
     counts: {
       paths: final.paths.length,
       missions: final.missions.length,
-      badges: final.badges.length,
+      badges: legacyBadges.length,
       quiz: final.quiz.length,
       skyPick,
     },
@@ -198,10 +231,10 @@ function main(): void {
   });
   writeFileSync(
     REVIEW_LOG,
-    `# 학습 팩 빌드 리뷰 로그\n\n입력: ${IN} + observing-quiz.json(독자 작성 60문항, docs/OBSERVING-CONTENT.md)\n생성: ${new Date().toISOString()} · 경로 ${final.paths.length} · 미션 ${final.missions.length} · 배지 ${final.badges.length} · 문항 ${final.quiz.length}(하늘 선택 ${skyPick}, 비활성)\n\n${lines.join('\n')}\n`,
+    `# 학습 팩 빌드 리뷰 로그\n\n입력: ${IN} + observing-quiz.json + challenge-badges.json\n생성: ${new Date().toISOString()} · 경로 ${final.paths.length} · 미션 ${final.missions.length} · v2 배지 ${final.badges.length}(v1 ${legacyBadges.length}개 보존) · 문항 ${final.quiz.length}(하늘 선택 ${skyPick}, 비활성)\n\n${lines.join('\n')}\n`,
   );
   log(
-    `learn/v1: 경로 ${final.paths.length} · 미션 ${final.missions.length}(비활성 ${final.missions.filter((m) => !m.enabled).length}) · 배지 ${final.badges.length} · 문항 ${final.quiz.length} · 경고 ${warnings.length} → ${REVIEW_LOG}`,
+    `learn/v1 + badges/v2: 경로 ${final.paths.length} · 미션 ${final.missions.length}(비활성 ${final.missions.filter((m) => !m.enabled).length}) · 활성 배지 ${final.badges.length} · 문항 ${final.quiz.length} · 경고 ${warnings.length} → ${REVIEW_LOG}`,
   );
 }
 

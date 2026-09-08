@@ -402,10 +402,16 @@ export class SkyScene {
     this.dso.points.visible = layers.dso;
     this.dso.setParams(view.fovDeg, dpp, this.pixelRatio, p.label, 0.85 * dayFade, true, showBelow);
 
-    this.horizon.ground.visible = layers.ground;
-    this.horizon.setStyle(p.night ? '#050000' : '#0b0d12', layers.groundOpaque, p.horizon);
+    this.horizon.ground.visible = layers.groundOpacity > 0;
+    this.horizon.setStyle(p.night ? '#050000' : '#0b0d12', layers.groundOpacity, p.horizon);
 
     this.bodies.setShowBelowHorizon(showBelow);
+    this.bodies.updateViewScale(
+      dpp,
+      this.pixelRatio,
+      layers.magnifyBodies,
+      altAzToScene(view.altDeg, view.azDeg),
+    );
     this.bodies.setStyle(p.night, p.star, p.moon, this.pixelRatio);
 
     this.renderer.render(this.scene, this.controller.camera);
@@ -636,7 +642,7 @@ export class SkyScene {
         x: px.x,
         y: px.y,
         mag: Math.min(b.state.magnitude, -1),
-        radiusPx: b.sizePx / 2,
+        radiusPx: b.sizePx / (2 * this.pixelRatio),
       });
     }
     // 별 팩

@@ -3,6 +3,7 @@ import { bodyState, type BodyKey, type BodyState } from '@/astro/bodies';
 import { altAzToScene, type Vec3 } from '@/astro/coords';
 import type { ObserverLike } from '@/astro/frames';
 import type { DateLike } from '@/astro/time';
+import { BODY_DISTANCE, luminaryDiscSize, SUN_DISC_FRACTION } from '@/render/bodySize';
 import bodyFrag from '@/render/shaders/body.frag.glsl?raw';
 import bodyVert from '@/render/shaders/body.vert.glsl?raw';
 
@@ -35,7 +36,7 @@ export interface BodyPlacement {
   state: BodyState;
   /** 씬 방향(굴절 포함 겉보기) */
   dir: Vec3;
-  /** 화면 크기(px) — 라벨·hit-test용 */
+  /** 기기 픽셀 지름 — 달은 구 본체, 태양·행성은 글로우를 포함한 스프라이트. 라벨·hit-test 공용. */
   sizePx: number;
 }
 
@@ -52,7 +53,8 @@ export class BodyLayer {
   private readonly geometry: THREE.BufferGeometry;
   private readonly moonMaterial: THREE.MeshLambertMaterial;
   placements: BodyPlacement[] = [];
-  private magnify = 1;
+  private limitingMag = 99;
+  private viewDirection: Vec3 | null = null;
 
   constructor() {
     this.geometry = new THREE.BufferGeometry();
@@ -70,6 +72,7 @@ export class BodyLayer {
         uNight: { value: 0 },
         uNightColor: { value: new THREE.Color('#ff3b30') },
         uPixelRatio: { value: 1 },
+        uSunDiscFraction: { value: SUN_DISC_FRACTION },
       },
       transparent: true,
       depthWrite: false,
@@ -80,7 +83,12 @@ export class BodyLayer {
     this.points.renderOrder = 35;
     this.group.add(this.points);
 
-    this.moonMaterial = new THREE.MeshLambertMaterial({ color: new THREE.Color('#d8d8d8') });
+    this.moonMaterial = new THREE.MeshLambertMaterial({
+      color: new THREE.Color('#d8d8d8'),
+      // 별·선과 같은 렌더 큐에서 순서36으로 그린다. 색은 완전 불투명해 뒤의 별을 가린다.
+      transparent: true,
+      opacity: 1,
+    });
     this.moon = new THREE.Mesh(new THREE.SphereGeometry(1, 48, 24), this.moonMaterial);
     this.moon.renderOrder = 36;
     this.moon.frustumCulled = false;
@@ -103,9 +111,8 @@ export class BodyLayer {
     /** 하늘 밝기를 반영한 한계등급 — 이보다 어두운 행성은 낮에 숨긴다 */
     limitingMag = 99,
   ): void {
-    this.magnify = magnify ? 3 : 1;
+    this.limitingMag = limitingMag;
     const pos = this.geometry.getAttribute('position') as THREE.BufferAttribute;
-    const size = this.geometry.getAttribute('aSizePx') as THREE.BufferAttribute;
     const color = this.geometry.getAttribute('aColor') as THREE.BufferAttribute;
     const kind = this.geometry.getAttribute('aKind') as THREE.BufferAttribute;
     const tilt = this.geometry.getAttribute('aRingTilt') as THREE.BufferAttribute;
@@ -116,43 +123,76 @@ export class BodyLayer {
     BODY_KEYS.forEach((key, i) => {
       const s = bodyState(key, date, observer);
       const dir = altAzToScene(s.altDeg, s.azDeg);
-      const angDeg = (s.angularDiameterArcsec / 3600) * this.magnify;
-      const angPx = angDeg / Math.max(degPerPixel, 1e-6);
-      // 등급 기반 크기(별과 같은 규칙, 상한 18px) + 최소 크기 보장(행성은 항상 찾기 쉽게)
-      const magSize = Math.min(18, 4.5 * Math.pow(10, -0.2 * s.magnitude));
-      let sizePx: number;
-      if (key === 'moon')
-        sizePx = 0; // 달은 구 메시
-      else if (key === 'sun')
-        sizePx = Math.max(22, angPx * 2.2) * pixelRatio; // 원반 + 글로우
-      else sizePx = Math.max(7, magSize, angPx) * pixelRatio;
-      // 낮에는 한계등급보다 어두운 행성을 숨긴다(태양·달은 항상)
-      if (key !== 'sun' && key !== 'moon' && s.magnitude > limitingMag) sizePx = 0;
-      sizePx = Math.min(sizePx, 400 * pixelRatio);
-
       pos.setXYZ(i, dir[0], dir[1], dir[2]);
-      size.setX(i, sizePx);
       c.set(BODY_COLOR[key]);
       color.setXYZ(i, c.r, c.g, c.b);
       kind.setX(i, key === 'sun' ? 1 : key === 'saturn' ? 2 : 0);
       tilt.setX(i, key === 'saturn' ? Math.abs(s.ringTiltDeg ?? 15) : 0);
-      placements.push({ key, state: s, dir, sizePx: key === 'moon' ? angPx * pixelRatio : sizePx });
+      placements.push({ key, state: s, dir, sizePx: 0 });
       if (key === 'sun') sunDir = dir;
 
       if (key === 'moon') {
-        const radius = 98 * Math.tan((angDeg / 2) * (Math.PI / 180));
-        this.moon.position.set(dir[0] * 98, dir[1] * 98, dir[2] * 98);
-        this.moon.scale.setScalar(Math.max(radius, 0.05));
+        this.moon.position.set(
+          dir[0] * BODY_DISTANCE,
+          dir[1] * BODY_DISTANCE,
+          dir[2] * BODY_DISTANCE,
+        );
         this.moon.visible = s.altDeg > -3;
       }
     });
     pos.needsUpdate = true;
-    size.needsUpdate = true;
     color.needsUpdate = true;
     kind.needsUpdate = true;
     tilt.needsUpdate = true;
     this.sunLight.position.set(sunDir[0] * 1000, sunDir[1] * 1000, sunDir[2] * 1000);
     this.placements = placements;
+    this.updateViewScale(degPerPixel, pixelRatio, magnify);
+  }
+
+  /** 줌·회전·화면 크기·확대 옵션 변경은 천문 계산 없이 캐시된 천체의 크기만 갱신한다. */
+  updateViewScale(
+    degreesPerPixel: number,
+    pixelRatio: number,
+    magnify: boolean,
+    viewDirection?: Vec3,
+  ): void {
+    if (viewDirection) this.viewDirection = viewDirection;
+    const size = this.geometry.getAttribute('aSizePx') as THREE.BufferAttribute;
+    this.placements.forEach((placement, i) => {
+      const { key, state, dir } = placement;
+      if (key === 'moon' || key === 'sun') {
+        const facing = this.viewDirection
+          ? dir[0] * this.viewDirection[0] +
+            dir[1] * this.viewDirection[1] +
+            dir[2] * this.viewDirection[2]
+          : 1;
+        const disc = luminaryDiscSize(
+          state.angularDiameterArcsec,
+          degreesPerPixel,
+          magnify,
+          facing,
+        );
+        if (key === 'moon') {
+          this.moon.scale.setScalar(disc.meshRadius);
+          placement.sizePx = disc.diameterCss * pixelRatio;
+          size.setX(i, 0); // 달은 위상 조명을 받는 구 메시만 그린다.
+        } else {
+          placement.sizePx = (disc.diameterCss / SUN_DISC_FRACTION) * pixelRatio;
+          size.setX(i, placement.sizePx);
+        }
+      } else {
+        const angularPx =
+          ((state.angularDiameterArcsec / 3600) * (magnify ? 3 : 1)) /
+          Math.max(degreesPerPixel, 1e-6);
+        const magSize = Math.min(18, 4.5 * Math.pow(10, -0.2 * state.magnitude));
+        placement.sizePx =
+          state.magnitude > this.limitingMag
+            ? 0
+            : Math.min(400, Math.max(7, magSize, angularPx)) * pixelRatio;
+        size.setX(i, placement.sizePx);
+      }
+    });
+    size.needsUpdate = true;
   }
 
   get sunPlacement(): BodyPlacement | undefined {

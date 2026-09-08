@@ -8,6 +8,7 @@ import { openTelescope } from '@/features/telescope/navigation';
 import { useSelectionStore } from '@/state/selectionStore';
 import { RealSkyToggle } from '@/features/sky/RealSkyToggle';
 import { useSensorStore } from '@/state/sensorStore';
+import { FovRingOptions } from '@/features/telescope/FovRingOptions';
 
 type AlphaKey = {
   [K in keyof LayerValues]: LayerValues[K] extends number ? K : never;
@@ -41,7 +42,7 @@ function Row({
           type="range"
           min={0}
           max={1}
-          step={0.05}
+          step={0.01}
           value={alpha}
           onChange={(e) => set(alphaKey, Number(e.target.value))}
           aria-label={`${label} opacity`}
@@ -72,7 +73,7 @@ export function LayerPanel({
   const saturation = useLayerStore((s) => s.starSaturation);
   const realSky = useLayerStore((s) => s.realSky);
   const bortle = useLayerStore((s) => s.bortle);
-  const rings = useTelescopeStore((s) => s.fovRings);
+  const groundOpacity = useLayerStore((s) => s.groundOpacity);
   const hopRoute = useTelescopeStore((s) => s.route);
   const set = useLayerStore((s) => s.set);
   const arActive = useSensorStore((s) => s.arActive);
@@ -128,12 +129,7 @@ export function LayerPanel({
             {calibrated ? t('sensor.realign') : t('sensor.align')}
           </button>
         )}
-        <Toggle
-          id="layer-fovRings"
-          label={t('guide.fovRings')}
-          checked={rings}
-          onChange={(on) => useTelescopeStore.getState().setRings(on)}
-        />
+        <FovRingOptions />
         {hopRoute && (
           <button
             className="min-h-12 px-4 text-accent"
@@ -189,9 +185,27 @@ export function LayerPanel({
         <Row id="equator" label={t('sky.layer.equator')} />
         <Row id="ecliptic" label={t('sky.layer.ecliptic')} />
         <Row id="meridian" label={t('sky.layer.meridian')} />
-        <Row id="ground" label={t('sky.layer.ground')} />
-        <Row id="showBelowHorizon" label={t('sky.layer.showBelowHorizon')} />
-        <Row id="groundOpaque" label={t('sky.layer.groundOpaque')} />
+        <div className="px-4 py-3">
+          <label
+            htmlFor="layer-ground-transparency"
+            className="flex justify-between gap-2 text-body"
+          >
+            <span>{t('sky.layer.groundTransparency')}</span>
+            <span className="tabular-nums">{Math.round((1 - groundOpacity) * 100)}%</span>
+          </label>
+          <input
+            id="layer-ground-transparency"
+            data-testid="layer-ground-transparency"
+            type="range"
+            min={0}
+            max={100}
+            step={5}
+            value={Math.round((1 - groundOpacity) * 100)}
+            onChange={(e) => set('groundOpacity', 1 - Number(e.target.value) / 100)}
+            className="min-h-11 w-full"
+          />
+          <p className="text-caption text-muted">{t('sky.layer.groundTransparencyHint')}</p>
+        </div>
         <Row id="atmosphere" label={t('sky.layer.atmosphere')} />
         <Row id="extinction" label={t('sky.layer.extinction')} />
         <Row id="magnifyBodies" label={t('sky.layer.magnifyBodies')} />
@@ -221,6 +235,14 @@ export function LayerPanel({
           ]}
           onChange={(v) => set('labelLang', v)}
         />
+        <button
+          type="button"
+          data-testid="layer-reset"
+          className="mx-4 mt-3 mb-4 flex min-h-11 w-[calc(100%-2rem)] items-center justify-center rounded-xl bg-surface-2 px-3 text-caption text-fg"
+          onClick={() => useLayerStore.getState().reset()}
+        >
+          {t('sky.layer.reset')}
+        </button>
       </ScrollArea>
     </div>
   );

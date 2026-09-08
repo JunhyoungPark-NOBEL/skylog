@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 const T = '2026-09-06T12:00:00Z';
 test.use({ serviceWorkers: 'block' });
-test('실제 시야 6.5° 원은 10° 화면의 투영 크기 ±2%이며 끄면 사라진다', async ({ page }) => {
+test('기본 쌍안경 시야 7.5° 원은 10° 화면의 투영 크기 ±2%이며 끄면 사라진다', async ({ page }) => {
   await page.goto('#/sky?t=' + T + '&alt=35&az=180&fov=10');
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
   await page.getByTestId('open-layers').click();
@@ -25,7 +25,7 @@ test('실제 시야 6.5° 원은 10° 화면의 투영 크기 ±2%이며 끄면 
             }
           }
         const expected =
-          (Math.min(c.width, c.height) * Math.tan((3.25 * Math.PI) / 180)) /
+          (Math.min(c.width, c.height) * Math.tan((3.75 * Math.PI) / 180)) /
           Math.tan((5 * Math.PI) / 180);
         return Math.abs((right - left + 1) / expected - 1);
       }),
@@ -314,4 +314,110 @@ test('상대 센서만 있으면 임의 방위 화살표 대신 목표 주변 �
   await expect(page.getByTestId('guide-arrows')).toHaveCount(0);
   await expect(page.getByTestId('alignment-wizard')).toHaveCount(0);
   await expect(page.getByTestId('direction-align')).toContainText('선택');
+});
+
+/** 저장 값만 읽지 않고 실제 시야원 캔버스 가운데에 그려진 지름을 확인한다. */
+async function fovDiameterError(page: Page, fovDeg: number): Promise<number> {
+  return page.getByTestId('fov-overlay').evaluate((el, fov) => {
+    const c = el as HTMLCanvasElement;
+    if (!c.width || !c.height) return Number.MAX_SAFE_INTEGER;
+    const pixels = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
+    let left = c.width,
+      right = -1;
+    for (let y = Math.floor(c.height / 2) - 12; y <= Math.floor(c.height / 2) + 12; y++)
+      for (let x = 0; x < c.width; x++)
+        if (pixels[(y * c.width + x) * 4 + 3]! > 30) {
+          left = Math.min(left, x);
+          right = Math.max(right, x);
+        }
+    const actual = right < left ? 0 : right - left + 1;
+    const expected =
+      (Math.min(c.width, c.height) * Math.tan((fov * Math.PI) / 360)) /
+      Math.tan((5 * Math.PI) / 180);
+    return Math.abs(actual - expected);
+  }, fovDeg);
+}
+
+test('두 장비 시야원을 개별로 켜고 끄며 전체 끄기와 새로고침에도 선택을 유지한다', async ({
+  page,
+}) => {
+  await setup(page);
+  await page.goto('#/sky?t=' + T + '&alt=35&az=180&fov=10');
+  await page.getByTestId('open-layers').click();
+  await page.locator('#layer-fovRings').click();
+  const bino = page.locator('#fov-ring-binoculars');
+  const scope = page.locator('#fov-ring-telescope');
+  await expect(bino).toHaveAttribute('aria-checked', 'true');
+  await expect(scope).toHaveAttribute('aria-checked', 'true');
+  await expect(bino.locator('..')).toContainText('쌍안경 8×42');
+  await expect(bino.locator('..')).toContainText('7.50°');
+  await expect(scope.locator('..')).toContainText('SVBONY SV48P 102mm');
+  await expect(scope.locator('..')).toContainText('1.96°');
+  await expect(page.getByTestId('fov-ring-choices').getByText(/기본 예시/)).toHaveCount(2);
+  await expect.poll(() => fovDiameterError(page, 7.5)).toBeLessThan(6);
+
+  await bino.click();
+  await expect.poll(() => fovDiameterError(page, (52 * 25) / 663)).toBeLessThan(6);
+  await page.locator('#layer-fovRings').click();
+  await expect(page.getByTestId('fov-overlay')).toBeHidden();
+  await page.locator('#layer-fovRings').click();
+  await expect(bino).toHaveAttribute('aria-checked', 'false');
+  await expect(scope).toHaveAttribute('aria-checked', 'true');
+  await scope.click();
+  await expect.poll(() => fovDiameterError(page, 0)).toBe(0);
+  await bino.click();
+  await expect.poll(() => fovDiameterError(page, 7.5)).toBeLessThan(6);
+  await page.getByTestId('close-layers').click();
+  await page.reload();
+  await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
+  await page.getByTestId('open-layers').click();
+  await expect(bino).toHaveAttribute('aria-checked', 'true');
+  await expect(scope).toHaveAttribute('aria-checked', 'false');
+  await expect.poll(() => fovDiameterError(page, 7.5)).toBeLessThan(6);
+});
+
+test('기본 장비 예시를 편집·저장하면 표시와 실제 두 시야원 크기가 갱신된다', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await setup(page);
+  await page.goto('#/equipment');
+  for (const [field, value] of [
+    ['apertureMm', '102'],
+    ['focalLengthMm', '663'],
+    ['eyepieceMm', '25'],
+    ['afovDeg', '52'],
+    ['binocularMag', '8'],
+    ['binocularAperture', '42'],
+    ['binocularFov', '7.5'],
+  ])
+    await expect(page.getByTestId('equipment-' + field)).toHaveValue(value!);
+  const calculated = page.getByTestId('equipment-fov-rings');
+  await expect(calculated).toContainText('7.50°');
+  await expect(calculated).toContainText('1.96°');
+  await expect(calculated.getByText('기본 예시', { exact: true })).toHaveCount(2);
+
+  await page.getByTestId('equipment-focalLengthMm').fill('800');
+  await page.getByTestId('equipment-eyepieceMm').fill('10');
+  await page.getByTestId('equipment-afovDeg').fill('68');
+  await page.getByTestId('equipment-binocularFov').fill('6');
+  await expect(calculated).toContainText('0.85°');
+  await expect(calculated).toContainText('6.00°');
+  await expect(calculated.getByText('기본 예시', { exact: true })).toHaveCount(0);
+  await page.getByTestId('equipment-save').click();
+  await expect(page.getByTestId('equipment-save')).toContainText('저장했어요');
+  await page.reload();
+  await expect(page.getByTestId('equipment-eyepieceMm')).toHaveValue('10');
+  await expect(page.getByTestId('equipment-binocularFov')).toHaveValue('6');
+  await expect(calculated.getByText('기본 예시', { exact: true })).toHaveCount(0);
+  await page.goto('#/sky?t=' + T + '&alt=35&az=180&fov=10');
+  await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
+  await page.getByTestId('open-layers').click();
+  const choices = page.getByTestId('fov-ring-choices');
+  await expect(choices).toContainText('6.00°');
+  await expect(choices).toContainText('0.85°');
+  await expect(choices.getByText(/기본 예시/)).toHaveCount(0);
+  await expect.poll(() => fovDiameterError(page, 6)).toBeLessThan(6);
+  await page.locator('#fov-ring-binoculars').click();
+  await expect.poll(() => fovDiameterError(page, 0.85)).toBeLessThan(6);
+  expect(errors).toEqual([]);
 });

@@ -22,7 +22,7 @@ export function useLearning() {
     };
     void refresh();
     const stop = onDbChange((t) => {
-      if (['progress', 'observations', 'equipment', 'all'].includes(t)) void refresh();
+      if (['progress', 'observations', 'blobs', 'equipment', 'all'].includes(t)) void refresh();
     });
     return () => {
       alive = false;
