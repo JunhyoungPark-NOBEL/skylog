@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { openTelescope } from '@/features/telescope/navigation';
 import { useTelescopeStore, equipmentProfile } from '@/state/telescopeStore';
@@ -36,9 +36,9 @@ import {
 import { openStory } from '@/state/contentUiStore';
 import { useDragScroll } from '@/ui/useDragScroll';
 import { ScrollArea } from '@/ui/ScrollArea';
+import { useSheetGesture } from '@/ui/useSheetGesture';
 
 const REFRESH_MS = 10_000;
-const SWIPE_PX = 70;
 
 /* 디자인 브리프(D-021) 레시피 — 프리미티브 컴포넌트 대신 클래스 문자열로 인라인 */
 const ICON_BTN =
@@ -145,7 +145,7 @@ const VERDICT_CLASS: Record<ObjectDetails['verdicts']['naked']['verdict'], strin
 };
 
 /**
- * 천체 상세 바텀 시트(task-03 §3.2). 반쯤/전체 2단계, 핸들 스와이프로 단계 전환·닫기.
+ * 천체 상세 바텀 시트(task-03 §3.2). 본문·헤더 어디서든 쓸어 단계 전환·닫기.
  * 값은 10초마다 다시 계산(순수 함수 `computeObjectDetails`).
  * 하늘 뷰 위에서 반쯤 열렸을 때만 유리(glass-strong); 전체 열림·드래그 중·리스트 위에서는 불투명(glass-off).
  */
@@ -167,9 +167,9 @@ export function ObjectSheet() {
   const bookmarked = useLogStore((s) => (id ? s.bookmarkedSet.has(id) : false));
   const observed = useLogStore((s) => (id ? s.observedSet.has(id) : false));
   const attempted = useLogStore((s) => (id ? s.attemptedSet.has(id) : false));
-  const [dragY, setDragY] = useState(0);
-  const [dragging, setDragging] = useState(false);
-  const dragStart = useRef<number | null>(null);
+  const setStage = useSelectionStore((s) => s.setSheetStage);
+  const close = useSelectionStore((s) => s.closeSheet);
+  const { ref: gestureRef, offset: dragY, dragging } = useSheetGesture(stage, setStage, close);
 
   useEffect(() => {
     if (!open) return;
@@ -219,31 +219,9 @@ export function ObjectSheet() {
   }, [open, id, cat, site, bortle, profile]);
 
   if (!open || !id) return null;
-  const close = () => useSelectionStore.getState().closeSheet();
   const shown = loaded && loaded.target.id === id ? loaded : null;
   const name = cat ? displayName(cat, id, lang) : id;
   const secondary = cat ? secondaryName(cat, id, lang) : undefined;
-
-  const onPointerDown = (e: ReactPointerEvent) => {
-    dragStart.current = e.clientY;
-    setDragging(true);
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-  };
-  const onPointerMove = (e: ReactPointerEvent) => {
-    if (dragStart.current === null) return;
-    setDragY(e.clientY - dragStart.current);
-  };
-  const onPointerUp = () => {
-    const dy = dragY;
-    dragStart.current = null;
-    setDragging(false);
-    setDragY(0);
-    if (dy > SWIPE_PX) {
-      if (stage === 'full') useSelectionStore.getState().setSheetStage('half');
-      else close();
-    } else if (dy < -SWIPE_PX && stage === 'half')
-      useSelectionStore.getState().setSheetStage('full');
-  };
 
   const d = shown?.details;
   const tg = shown?.target;
@@ -275,16 +253,23 @@ export function ObjectSheet() {
   const motionClass = dragging
     ? 'transition-none'
     : 'transition-[height,transform] duration-[450ms] ease-spring';
+  const fullHeight = 'calc(100% - var(--status-height) - env(safe-area-inset-top) - 8px)';
+  const height =
+    stage === 'full'
+      ? dragY > 0
+        ? `max(46%, calc(${fullHeight} - ${dragY}px))`
+        : fullHeight
+      : dragY < 0
+        ? `min(${fullHeight}, calc(46% + ${-dragY}px))`
+        : '46%';
 
   return (
     <div
+      ref={gestureRef}
       className={`fixed inset-x-0 bottom-0 z-30 isolate flex flex-col overflow-hidden rounded-t-2xl text-fg shadow-sheet squircle ${surfaceClass} ${motionClass}`}
       style={{
-        height:
-          stage === 'full'
-            ? 'calc(100% - var(--status-height) - env(safe-area-inset-top) - 8px)'
-            : '46%',
-        transform: dragY ? `translateY(${Math.max(0, dragY)}px)` : undefined,
+        height,
+        transform: stage === 'half' && dragY > 0 ? `translateY(${dragY}px)` : undefined,
       }}
       role="dialog"
       aria-label={name}
@@ -294,12 +279,9 @@ export function ObjectSheet() {
       data-dragging={dragging ? '1' : undefined}
     >
       <div
-        className="flex shrink-0 cursor-grab touch-none flex-col items-center pt-2.5 pb-2"
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
+        className="flex shrink-0 cursor-grab flex-col items-center pt-2.5 pb-2"
         data-testid="sheet-handle"
+        data-sheet-handle=""
       >
         <div className="h-[5px] w-9 rounded-pill bg-fg/25" />
       </div>
@@ -436,6 +418,7 @@ export function ObjectSheet() {
       <ScrollArea
         className="px-4 pb-[calc(env(safe-area-inset-bottom)+24px)]"
         data-testid="sheet-body"
+        data-sheet-body=""
       >
         {!d && <p className="py-3 text-body-sm text-muted">{t('common.loading')}</p>}
         {d && tg && (

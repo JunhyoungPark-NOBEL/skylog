@@ -24,6 +24,13 @@ const CLICK_SUPPRESS_MS = 150; // 브라우저는 pointerup 직후 같은 태스
 
 type Axis = 'x' | 'y';
 
+const inertiaStops = new WeakMap<HTMLElement, () => void>();
+
+/** 같은 본문을 움직이는 시트 제스처가 시작되면 기존 마우스 관성을 멈춘다. */
+export function stopDragScrollInertia(container: HTMLElement) {
+  inertiaStops.get(container)?.();
+}
+
 interface Sample {
   t: number;
   pos: number;
@@ -66,7 +73,8 @@ function horizontalScroller(el: Element, container: HTMLElement): HTMLElement | 
   while (node && node !== container) {
     if (node instanceof HTMLElement) {
       const ox = getComputedStyle(node).overflowX;
-      if ((ox === 'auto' || ox === 'scroll') && node.scrollWidth > node.clientWidth + 1) return node;
+      if ((ox === 'auto' || ox === 'scroll') && node.scrollWidth > node.clientWidth + 1)
+        return node;
     }
     node = node.parentElement;
   }
@@ -91,6 +99,7 @@ export function attachDragScroll(container: HTMLElement): () => void {
     if (raf) cancelAnimationFrame(raf);
     raf = 0;
   };
+  inertiaStops.set(container, stopInertia);
 
   const get = () => (axis === 'x' ? scroller.scrollLeft : scroller.scrollTop);
   const set = (v: number) => {
@@ -159,7 +168,8 @@ export function attachDragScroll(container: HTMLElement): () => void {
     if (!axis) {
       if (Math.hypot(dx, dy) < DRAG_THRESHOLD_PX) return;
       const wantX = Math.abs(dx) > Math.abs(dy);
-      const hx = wantX && e.target instanceof Element ? horizontalScroller(e.target, container) : null;
+      const hx =
+        wantX && e.target instanceof Element ? horizontalScroller(e.target, container) : null;
       if (hx) {
         axis = 'x';
         scroller = hx;
@@ -230,6 +240,7 @@ export function attachDragScroll(container: HTMLElement): () => void {
   container.addEventListener('wheel', onWheel, { passive: true });
   return () => {
     stopInertia();
+    inertiaStops.delete(container);
     reset();
     container.removeEventListener('pointerdown', onPointerDown);
     container.removeEventListener('pointermove', onPointerMove);

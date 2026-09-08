@@ -1,6 +1,6 @@
 ﻿# 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · build5 AAB/개인 APK·iOS 시작 오류 수정
+> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · build6 상세 창 전체 스와이프·APK/AAB 재빌드
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -8,7 +8,17 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-08 · build5 재빌드 및 직접 설치)
+## 이번 작업 보고 (2026-09-08 · build6 상세 창 스와이프)
+
+- 사용자 요청: iPhone의 APK 실행 가능 여부 설명, 별 → 자세히 화면에서 작은 손잡이 대신 본문 어디서든 위아래로 쓸어 조작. `useSheetGesture`로 본문·제목·버튼 행을 연결했다. 반쯤 열린 창 위로 펼치기 → 전체에서 내용 스크롤 → 맨 위에서 새 아래 동작으로 접기/닫기. 드래그 중 높이도 손가락을 따라간다.
+- 버튼의 짧은 탭·키보드·가로 행을 유지하고, 드래그 뒤 합성 클릭과 취소/두 손가락 추가에 의한 의도치 않은 단계 변경을 막았다. 마우스 첫 이동이 창 밖으로 나가는 경우와 본문 관성 중 제목을 잡을 때도 처리한다. 결정 D-033, 좌표계·센서·DB·데이터 팩 변경 없음.
+- **새 개인 APK**: `C:\Users\박준형\Downloads\skylog-release-0.1.0-beta.1-build6\skylog-0.1.0-beta.1-build6-local-test.apk`, 7,192,735 bytes, SHA256 `f132c61c72cf9f21d4123e46fbc70472c173ab20629307ca2f7700660ba6e3a8`. versionCode6, build5와 동일한 테스트 인증서를 두 APK에서 직접 대조했다. 기존 build5를 삭제하지 않고 업데이트 설치한다.
+- **새 unsigned AAB**: 같은 폴더의 `skylog-0.1.0-beta.1-build6-unsigned.aab`, 6,904,666 bytes, SHA256 `64d972cd49848f26e01edfa066d9b366f03f99b9917224cae146e7ff3f96d05d`. Play 업로드 키 복원/최종 서명은 계속 대기다. CI 다음 기본 번호7.
+- 검증: typecheck/lint/단위366/브라우저 **40/40**/data/native sync 통과. 새 터치·마우스·버튼·취소·관성 회귀 포함. Android release AAB/APK/lint 성공(오류0/경고33), APK 서명/정렬·bundletool 성공. AAB·APK·현재 native public **160개 파일(빈 파일2개 포함)의 SHA256 전부 일치**. 상세 화면 캡처 확인, `artifacts/qa-build6`에 로그/화면 보관. 실제 Android 설치·iPhone Safari/Core Motion 실행은 미검증.
+- 원격 HEAD는 재확인한 `dce4a7d` 그대로이며 로컬 변경은 push하지 못했다. 현재 GitHub 인증이 없어 **이번 스와이프 수정은 공개 Pages에 아직 없다**. iPhone은 APK를 실행할 수 없으며 기존 Safari 홈 화면 PWA 또는 별도 서명 iOS 앱을 사용한다. 공개 웹 반영은 GitHub 인증 후 배포, TestFlight는 Apple 팀·Mac 서명/Archive가 필요하다.
+- 사용자 확인: 새 APK 업데이트 → 별/자세히 → 본문 위로 펼치기/스크롤/맨 위 아래로 접기 → 즐겨찾기 탭과 가로 행. 설치 안내 `docs/INSTALL-ON-PHONE.md`. 스토어 공개 출시·T5/T7/T8 잔여 유지, 완료 태그 없음.
+
+## 이전 작업 보고 (2026-09-08 · build5 재빌드 및 직접 설치)
 
 - 시작/종료 시 확인한 원격 main 최신은 `dce4a7dc50980bec5dc93f0af2b9003788205e63`. `108e99a` 이후 문서·서명 스크립트만 바뀌었으며 Android 앱 기능 소스는 build4와 같다. 로컬 브랜치는 `codex/android-release-20260908`.
 - 현재 폴더는 `C:\Users\박준형\Documents\ChatGPT\별관찰앱개발`. 이전 build4/업로드 키가 기록된 `C:\Users\JunhyoungPark\...`와 다른 PC/사용자다. 원 AAB/업로드 키를 찾지 못했고, 기존 키·Play 등록 여부 질문은 응답 대기다. GitHub 인증도 없어 로컬 변경을 push하거나 새 iOS CI를 실행하지 않았다.

@@ -2,7 +2,15 @@
 
 2026-09-08 기준. 앱 ID 기본값은 `io.github.junhyoungparknobel.skylog`, 버전은 `0.1.0-beta.1`(iOS marketing 0.1.0). 이 ID는 저장소 소유자에서 정했으며 아직 스토어에 등록되지 않았다. **첫 등록 전** 개발자 계정 소유자와 최종 앱 ID를 확인한다. T5 실기기 승인과 T7/T8 전체 완료를 의미하지 않는다.
 
-## 2026-09-08 후속 점검
+## 2026-09-08 최신 build6: 상세 창 스크롤 개선
+
+- 별 → 자세히에서 본문·제목·버튼 행을 위아래로 쓸어 창을 펼치거나 내용을 스크롤한다. 내용 맨 위에서 새 아래 동작으로 접기/닫기, 버튼 탭·가로 행·취소/두 손가락 동작을 구분한다. D-033.
+- 전달 폴더: 현재 PC Downloads의 `skylog-release-0.1.0-beta.1-build6/`. 개인 APK `skylog-0.1.0-beta.1-build6-local-test.apk`, 7,192,735 bytes, SHA256 `f132c61c72cf9f21d4123e46fbc70472c173ab20629307ca2f7700660ba6e3a8`. build5와 동일한 인증서를 두 APK에서 검증했고 versionCode6으로 올렸다. 기존 build5를 삭제하지 않고 업데이트한다.
+- AAB `skylog-0.1.0-beta.1-build6-unsigned.aab`, 6,904,666 bytes, SHA256 `64d972cd49848f26e01edfa066d9b366f03f99b9917224cae146e7ff3f96d05d`. 빌드·구조 검증 완료, 기존 업로드 키 복원과 최종 서명은 대기다. 다음 CI 기본 version_code는7.
+- typecheck/lint/단위366/브라우저40/data/native sync 통과. Android bundleRelease/assembleRelease/lintRelease 성공(오류0/경고33). APK 서명·정렬 및 bundletool 통과, AAB/APK/현재 native public의 160개 파일(빈 파일2개 포함) SHA256 일치. 실제 기기 설치·iPhone 실행은 미검증.
+- 원격 HEAD `dce4a7d`를 다시 확인했다. **GitHub 인증이 없어 새 코드의 공개 웹 배포는 미완료**이며 iPhone PWA에는 아직 이번 제스처 수정이 없다. Apple 팀/Mac의 iOS 빌드·서명·TestFlight 및 Play/App Store 공개 출시는 계속 남는다.
+
+## 이전 build5 후속 점검
 
 - 원격 main 최신 `dce4a7d`는 `108e99a` 이후 서명 스크립트·문서 변경만 포함한다. Android 앱 기능 소스는 build4와 동일하다.
 - build4 원본/키는 이전 PC `C:\Users\JunhyoungPark\...`의 기록이다. 현재 PC `C:\Users\박준형\...`에는 해당 AAB와 업로드 키가 없다. 이전 빌드의 서명 완료를 이번 PC의 서명 완료로 간주하지 않는다.
