@@ -1,6 +1,6 @@
 {
   "name": "skylog",
-  "version": "0.1.0-beta.6",
+  "version": "0.1.0-beta.7",
   "private": true,
   "description": "별관찰해쌀뚜 — 별·달·행성 관측용 개인 PWA",
   "type": "module",
@@ -27,7 +27,8 @@
     "data:learn": "tsx scripts/data/build-learn.ts",
     "gen:icons": "tsx scripts/gen-icons.ts",
     "build:native": "tsc -b && vite build --mode native",
-    "mobile:sync": "pnpm build:native && cap sync"
+    "mobile:sync": "pnpm build:native && cap sync",
+    "test:community-db": "node tests/backend/community.test.mjs"
   },
   "dependencies": {
     "@capacitor/android": "8.5.1",
@@ -37,6 +38,7 @@
     "@capacitor/geolocation": "8.2.2",
     "@capacitor/ios": "8.5.1",
     "@capacitor/share": "8.0.1",
+    "@supabase/supabase-js": "2.116.0",
     "astronomy-engine": "^2.1.19",
     "dexie": "^4.4.5",
     "i18next": "^26.4.2",
@@ -50,6 +52,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "8.5.1",
+    "@electric-sql/pglite": "0.5.8",
     "@eslint/js": "^10.0.0",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.3.3",

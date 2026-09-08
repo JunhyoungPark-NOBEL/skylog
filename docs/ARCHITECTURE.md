@@ -218,3 +218,7 @@ EventCalendar는 list/month/year UI를 분리하고 calendar.ts가 시간대 날
 ## beta.6 풍경 합성
 
 HorizonLayer의 지면 한 표면에서 meadow-v2 색을 혼합한 뒤 사용자/시선 alpha를 한 번 적용한다. 별도 meadowMesh는 제거했다. SkyProjection.attach 뒤에 groundMaterial.onBeforeCompile을 연결해 천구 투영을 보존한다. 동일 프레임의 유효 지면 불투명도/라벨/선택 정책은 유지한다. 상세는 LANDSCAPE-REFINEMENT.md. 향후 꾸미기/사진 서버는 COMMUNITY-AND-CUSTOMIZATION.md의 제안이며 현재 스키마를 바꾸지 않았다.
+
+## 무료 꾸미기·커뮤니티(T9)
+
+개인 꾸미기: src/personal의 정규화/보상과 features/personal의 독립 화면. 기존 progress 고유 키를 이용하며 DB/팩 버전은 유지한다. 온라인: src/community의 분리된 Supabase 클라이언트, features/community의 목록/상세/계정/운영 화면. 서버 마이그레이션과 Edge 함수는 supabase/. 전체 흐름·권한·실제 연결/개통 상태는 [FREE-COMMUNITY.md](FREE-COMMUNITY.md).

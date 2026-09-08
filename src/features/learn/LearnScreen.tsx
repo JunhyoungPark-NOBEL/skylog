@@ -19,15 +19,38 @@ export function LearnScreen() {
           <h1 className="text-headline">{t('journey.title')}</h1>
           <p className="mt-1 text-body-sm text-muted">{t('journey.intro')}</p>
         </div>
-        <button
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface-2"
-          aria-label={t('settings.title')}
-          onClick={() => {
-            window.location.hash = '#/settings?from=learn';
-          }}
-        >
-          <IconSettings />
-        </button>
+        <div className="flex shrink-0 gap-2">
+          <button
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-accent-soft text-accent"
+            aria-label={t('personal.title')}
+            onClick={() => {
+              window.location.hash = '#/profile';
+            }}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              aria-hidden
+            >
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 22v-3a8 8 0 0 1 16 0v3" />
+              <path d="M7 8h10" />
+            </svg>
+          </button>
+          <button
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface-2"
+            aria-label={t('settings.title')}
+            onClick={() => {
+              window.location.hash = '#/settings?from=learn';
+            }}
+          >
+            <IconSettings />
+          </button>
+        </div>
       </header>
       <div className="mx-auto w-full max-w-3xl shrink-0 px-4 pb-3">
         <div

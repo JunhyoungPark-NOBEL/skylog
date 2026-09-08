@@ -1,6 +1,6 @@
 # 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.6/build11 웹·모바일 검증/배포 완료 · 개인 APK 동일 서명 대기
+> 마지막 갱신: 2026-09-08 · Codex 로컬 · beta.7 무료 꾸미기/커뮤니티 구현·서버 검증 완료, 메일 개통 및 배포 검사 중
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -8,7 +8,16 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-08 · beta.6/build11 풍경·후속 서비스)
+## 이번 작업 보고 (2026-09-08 · beta.7/build12 무료 마당·사진·댓글)
+
+- **범위**: main8dcb55f의 최신 beta.6에서 시작. 전 기능 무료 요청을 D-048로 확정하고 T9 정식 태스크를 작성했다. 기존 관측/배우기/날씨/센서/스크롤을 유지한다.
+- **구현**: 무료 장식12종(기본4+업적8), 다섯 자리 마당·아바타·오프라인 보존. 사진 목록/상세·공유/수정/나만 보기, 검토 대기 댓글·축하 반응, 신고·차단·이의 신청·운영자 조치/감사 이력. 선택형 개인 클라우드 백업/복원·온라인 계정 삭제. 화면은 독립 경로로 분리하고 한영 제공.
+- **서버**: 사용자가 Supabase 가입·비밀번호 설정. 무료 skylog 조직/서울 프로젝트 ijxuwtbcwifttiuwvqrh 생성, RLS·private 저장소·Edge 함수 실제 배포. 일반 가입 메일·운영자 앱 계정 지정은 대기. 기본 SMTP는 운영자 주소만 허용하고 템플릿 변경400을 반환하므로 유료 업그레이드를 자동 진행하지 않았다. 사이트 URL/PKCE 메일 링크는 연결했고 OTP 템플릿은 준비했다.
+- **검증**: 단위504개, 타입/lint, PostgreSQL 권한27개, 실제 Supabase22개 통과. 기존59개 통과, 신규3개 최종 재실행 통과(영어 선택자 역할을 radio로 수정). 영어125%/야간 픽셀/360px 화면 확인. 임시 서버 테스트 계정/사진은 모두 정리했다. 모바일 실기기/외부 이메일은 미확인.
+- **결정/후속**: D-048 무료 범위, D-049 로컬 꾸미기/영구 보상, D-050 Supabase 검토와 개인정보, D-051 수동 백업/메일 개통. docs/FREE-COMMUNITY.md에 설치·운영·화면 참고·제약. T9는 외부 메일/운영자/실기기 확인 전 진행 중으로 둔다. 추가 GPT Pro 작업은 없다.
+- **배포**: 웹/모바일 빌드와 산출물 최종 확인 중. 기존 APK 개인 테스트 키는 이 PC에 없으며 새 키로 대체하지 않는다.
+
+## 이전 작업 보고 (2026-09-08 · beta.6/build11 풍경·후속 서비스)
 
 - **범위/기준**: 깨끗한 main25df2c7에서 시작, 앱 소스 c0a81425a0a629b4149c5e220655375ef2ffd7ac. beta.5의 날씨/달력/코스/자연어와 기존 센서/관측/학습/스크롤 기능 유지.
 - **구현**: 새1774×887 식물 텍스처(WebP805,980bytes), 지면 단일 합성·상하/반복 경계 혼합·필터링. 아래 시선 자동 투명화와 야간 적색 유지. 실제4K 결과는 아니며 질감에 사용하는 픽셀 비중/화면상 샘플 밀도를 높였다.
@@ -32,20 +41,6 @@
 - **수용 기준**: 요청6항목(최신 기준/날씨 요약/달력/코스/자연어/풍경) 자동·화면 확인6/6, 실제 휴대폰 확인 대기. 결정·근거·생성 프롬프트·실기기 체크리스트는 `docs/TONIGHT-REFRESH.md`.
 - **사용자 액션/남은 범위**: 휴대폰에서 날씨/달력/코스 진도/잔디 투명화를 확인한다. ICS는 가져오기 시점의 일정이며 자동 동기화되지 않는다. 서명된 iPhone IPA·Play 내부 테스트/스토어 심사·실기기 성능은 별도다. 추가 GPT Pro 요청은 없고 T5/T7/T8 완료 태그는 만들지 않는다.
 
-## 이전 작업 보고 (2026-09-08 · beta.4/build9 하늘·업적·센서 개선)
-
-- 원격 main 최신 `9e386818adc5cf2fccc685f7aa8306e501daef37`를 fetch로 확인한 뒤 갱신했다. 앱 소스 `377a665c0118b05f91192f231caba360a26e4388`, 태그 `v0.1.0-beta.4-build9`, Android/iOS build9, 다음 CI 기본값10.
-- 새 하늘 기본값: 별자리 경계 끄기, 은하수 0.33, 지면 불투명도 1, 별 채도 1. 별 표시 1.2배와 은하수의 밝은 띠·어두운 먼지 결·색을 개선한다. 겹치는 지면 설정은 단일 슬라이더로 정리하고 기본값 복원을 추가했다. 별 좌표·실제 관측 판정은 유지한다. D-038.
-- 태양·달은 넓은 시야에서도 최소 지름 24 CSS px로 표시하며 확대/축소 후 선택 반경을 함께 갱신한다. 실제 각지름·태양 안전 차단과 화면상 표시 크기를 구분한다.
-- 시야원은 쌍안경과 망원경 두 개를 각각 켜고 끈다. 사용자가 알린 장비는 솔로몬 HQ 8×42 ED와 SV48P 102mm다. 시작 시야 7.50°와 102mm/663mm+25mm/52° 접안 조합의 약 1.96°는 사용자가 허용한 **기본 예시**이며 실제 사양을 입력해 바꾼다. 커스텀/DB 저장 장비는 유지하고 저장 ID 없는 정확한 구형 기본 프로필만 갱신한다. D-039.
-- 업적 48개를 `learn/v2` 팩으로 확장했다(기존 18개 ID/규칙 보존). 코스·미션·퀴즈는 v1 유지, 기존 학습 진도·백업과 호환한다. 단계·진행도·다음 업적 안내를 추가했으며 T7 전체 완료는 아니다. D-040.
-- 센서 이벤트 사이를 렌더 프레임에서 보간하고 React 상태 알림과 Dexie 동일 설정 반복 쓰기를 줄였다. 순수 합성 검증에서 각속도 RMS 오차는 기존의 절반 미만, 평균 추가 지연 25ms 미만, 기존 필터 포함 90° 스텝은 150ms 이내다. 실제 휴대폰 FPS 수치는 아직 측정하지 않았다. 중단/상대 yaw/수동 드래그 규칙 유지. D-041.
-- **포맷 검사 참고**: 전체 `pnpm format:check`는 Android 생성 lint HTML의 parser/생성 assets 때문에 실패했다. 변경 파일의 Prettier 검사는 통과했다. 생성 파일 검사 문제를 앱 기능 실패나 전체 검사 통과로 바꾸어 기록하지 않는다.
-- **자동 검사**: typecheck·lint·데이터 검증·PWA/native 빌드 통과. 단위 493개, 브라우저 고유 시나리오 54개 통과(workers=1). 전체 실행 후 지면·달 픽셀 측정을 보완하고 달 가림 수정 관련 검사를 재실행했다. 변경 파일 Prettier·diff 검사 통과. 전체 format:check는 기존 Android 생성 lint HTML/생성 assets 문제로 실패했으며 앱 검증과 구분한다. QA: artifacts/qa-build9. 은하수33%/최대·큰 별·달/태양·지면·장비·업적 화면 확인.
-- **산출물·공개**: `Downloads/skylog-release-0.1.0-beta.4-build9/`. [APK 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.4-build9). 개인 APK 7,213,385 bytes, SHA256 `efdfca31d55dfeb707d7d914b1a404bb14cb8d543b52f6f3549d4a4db75e761f`. unsigned AAB 6,922,904 bytes, SHA256 `80b8b0d4c8cbeede255957033b000d8fef5be0628f4d03e43277118b5367b7c5`. bundletool·API36/min24/version9·release/backup=false·APK 서명/16KB 정렬·build8 인증서 일치 확인. AAB/APK/native public 162개 SHA256 일치. Android lint 오류0/경고33.
-- **CI/PWA**: [Pages 34203144579](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144579)와 [모바일 34203144730](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144730) 전체 성공. Android API36 인터넷 차단 WebView 계측과 iOS Xcode26 arm64 무서명 컴파일 통과. 공개 웹 beta.4·새 기본값·업적48·원형 하늘·SW·재실행·JS 오류0 확인. 공개 APK를 다시 다운로드해 크기/해시 일치 확인. 실제 휴대폰 센서/FPS·iPhone 설치용 서명 IPA를 검증한 것은 아니다.
-- Play 업로드 키 복원/최종 AAB 서명, Apple 팀/서명 Archive/TestFlight, 실제 Android/iPhone 설치·센서·그래픽과 스토어 심사는 남는다. 현재 전 기능 무료, 결제/무료 이용권은 설계 단계. T5/T7/T8 전체 완료 태그 없음. 설치·실기기 확인은 `docs/INSTALL-ON-PHONE.md`, 릴리스 상세는 `docs/MOBILE-RELEASE.md`.
-
 ## 태스크 현황
 
 | 태스크 | 상태 | 완료일 | 태그 | 비고 |
@@ -61,6 +56,7 @@
 | T6 콘텐츠 팩(AI 요약 스토리) | ✅ 구현 완료 | 2026-09-07 | task-6-done | 121개 게시, needsReview 112개 유지 |
 | T7 학습 시스템 | 🟡 진행 중 | | | 하늘28+관측12스테이지. 6코스·미션30/30·배지48(기존18+확장30)·퀴즈204/240 활성. skyPick36·하루 복습 상한·배지 이력 후속 |
 | T8 마감·품질·릴리스 | ⬜ 대기 | | | |
+| T9 무료 마당·커뮤니티 | 🟡 구현·서버 검증, 개통 준비 | 2026-09-08 | | SMTP·운영자 앱 계정·실기기 대기. docs/FREE-COMMUNITY.md |
 
 ## GPT Pro 요청 현황 (`gpt-pro-requests.md`)
 
@@ -74,6 +70,8 @@
 
 ## 다음 세션이 알아야 할 것
 
+- **우선 사항**: 현재 모든 기능은 무료(D-048), 이전 가격/Pro 제안은 적용하지 않는다. 서버/코드는 실제 구현됨. Supabase 프로젝트 ijxuwtbcwifttiuwvqrh/서울, CLI 인증 완료. 일반 가입용 SMTP와 운영자 실제 앱 계정 지정이 남았다. 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. GitHub 변수는 공개 URL/키만 포함. 백업은 수동 스냅샷으로 자동 동기화가 아니다. 자세한 절차는 docs/FREE-COMMUNITY.md.
+
 - 최신 풍경/서비스 설계는 D-045~047과 docs/LANDSCAPE-REFINEMENT.md, COMMUNITY-AND-CUSTOMIZATION.md. 핵심 무료·꾸미기 우선 제안이 D-035의 이전 Pro 범위를 대체한다. 개인 APK 서명 키는 Play 업로드 키와 다르며 자동 새 키 생성 금지.
 
 - **학습 탐색/스테이지(D-026)**: features/learn의 LearnScreen → QuizJourney/CoursesScreen/StoriesScreen/AchievementsScreen. 해시 section/path/mission/chapter로 복원하며 하단 탭 복귀 시 마지막 배우기 경로 유지. stageCatalog는 144문항을 중복 없이 고정한 28단계, 정답률 80% 해제·60/80/100% 별, 개인 합계는 단계별 최고점만. stage/question 버전을 함께 검증하며 마지막 응답과 완료 기록은 원자 저장. 기존 미션/응답/복습/관측 유지, 새 도장은 새 여정을 완주해야 획득한다. 리더보드는 아직 로컬 점수 기반만 준비됨.
@@ -81,7 +79,7 @@
 
 - **다음 작업**: T5 실기기 정렬/드리프트 결과와 G4 반영 → T7 잔여(skyPick 36, 하루 복습 누적 상한·배지 이력/연출) → T8. G3/G5 추가 생성은 불필요. 사용자는 솔로몬 HQ 8×42 ED와 SV48P 102mm를 사용한다. FOV/접안 사양은 시작 예시로 두고 직접 입력하도록 요청했다. 7.50°·25mm/52°를 실제 장비 사양으로 단정하지 않는다(D-039).
 - **학습/콘텐츠**: 한국어 재서술본은 data-src/*-raw/*-natural, 게시본은 public/data/{content,learn}/v1이며 확장 업적48개는 public/data/learn/v2다. 기존18개 ID/규칙과 코스·퀴즈 v1을 보존한다(D-040). `pnpm data:content` 다음 `pnpm data:learn`; CI는 이야기121/G5원본180+추가60 참조와 근거를 검증한다. 새 관측12단계는 별도 observingStages.json이며 기존 stageCatalog 28단계를 변경하지 않는다. 수치 검토112·G2 이름42는 docs/CONTENT-REVIEW.md. 새60문항은 전부 영어 제공, 기존 장문 전체 번역은 후속이다.
-- **환경**: 이 실행은 Codex 데스크톱 로컬. Node 24.19.0·portable pnpm 12.3.4(`%LOCALAPPDATA%/skylog-tools/pnpm-12.3.4/package`를 PATH 앞에 둠), Git Credential Manager JunhyoungPark-NOBEL 인증 완료(gh CLI 없음). 새 PC Chromium 1243은 설치 완료. 이번 실행은 파일/네트워크 접근 가능(이전 세션의 읽기 전용 제한은 현재 해당 없음).
+- **환경**: 이 실행은 Codex 데스크톱 로컬. Node 24.19.0·portable pnpm 12.3.4(`%LOCALAPPDATA%/skylog-tools/pnpm-12.3.4/package`를 PATH 앞에 둠), Git Credential Manager JunhyoungPark-NOBEL 인증 완료(현재 gh CLI 로그인 확인됨). 새 PC Chromium 1243은 설치 완료. 이번 실행은 파일/네트워크 접근 가능(이전 세션의 읽기 전용 제한은 현재 해당 없음).
 
 - **T2 실기기 통과**(2026-09-07, 사용자 보고 "문제 없이 잘 돼"). 덤프·기기 정보는 받지 못했으므로 D-018의 기본값(compassAxis='top', iOS 편각 적용, 필터 상수)을 그대로 둔다. 문제가 보고되면 센서 디버그 "덤프 복사" 텍스트로 원인을 특정한 뒤 테스트 벡터부터 고친다.
 - 센서 관련 진입점: `sensors/orientation/manager.ts`(`sensorManager` 싱글턴: start/stop/nudge/setCalibration/currentAltAz), `state/sensorStore.ts`, `features/sky/ArToggle.tsx`·`CalibrationWizard.tsx`, 시뮬레이터 `features/sky/SensorSimPanel.tsx`(설정 → 개발자 → 센서 디버그에서 켬). 테스트 훅 `window.__skylogSensor`(스토어 상태).

@@ -34,10 +34,15 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm lint
       - run: pnpm test
+      - run: node tests/backend/community.test.mjs
       - run: pnpm build
         env:
           # 저장소 이름이 바뀌어도 base가 따라가게 한다 (vite.config.ts VITE_BASE).
           VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_COMMUNITY_EMAIL_CODE: ${{ vars.VITE_COMMUNITY_EMAIL_CODE }}
+          VITE_COMMUNITY_SIGNUPS_READY: ${{ vars.VITE_COMMUNITY_SIGNUPS_READY }}
 
       - uses: actions/upload-pages-artifact@v5
         with:

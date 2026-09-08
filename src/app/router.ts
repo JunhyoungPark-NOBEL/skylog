@@ -16,6 +16,10 @@ export type Route =
   | 'backup'
   | 'equipment'
   | 'telescope'
+  | 'profile'
+  | 'community'
+  | 'account'
+  | 'moderation'
   | 'debug/data'
   | 'debug/sensors';
 
@@ -27,6 +31,10 @@ const ALL_ROUTES: readonly Route[] = [
   'backup',
   'equipment',
   'telescope',
+  'profile',
+  'community',
+  'account',
+  'moderation',
   'debug/data',
   'debug/sensors',
 ];

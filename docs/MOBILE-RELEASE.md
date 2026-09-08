@@ -1,5 +1,7 @@
 # Android AAB / iOS 출시 준비
 
+> **beta.7/build12 준비**: 전 기능 무료 마당/계정/사진/댓글/백업 구현은 [FREE-COMMUNITY.md](FREE-COMMUNITY.md). 예전 “계정 미구현” 서술은 당시 릴리스 이력이며 지금 구현 상태가 아니다. SMTP/실제 운영자/외부 이메일 검증 후 일반 가입 개통. APK는 build9와 동일한 개인 인증서가 필요하며 이 PC에 없는 키를 재발급하지 않는다. 아래 이전 산출물은 새 build12로 대체하지 않고 보존한다.
+
 2026-09-08. 최신 작업은 **0.1.0-beta.6 / build11**(iOS marketing0.1.0)이다. 앱ID io.github.junhyoungparknobel.skylog. 아래 beta.5 이하는 이전 배포 기록이다.
 
 ## beta.6 / build11 — 풍경 경계·APK 서명 준비 파일

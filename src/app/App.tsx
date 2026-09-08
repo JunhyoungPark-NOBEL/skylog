@@ -29,6 +29,10 @@ import { QuizHost } from '@/features/learn/QuizHost';
 import { startReadSync } from '@/content/readProgress';
 import { ToastHost } from '@/ui/Toast';
 const TelescopeMode = lazy(() => import('@/features/telescope/TelescopeMode'));
+const ProfileScreen = lazy(() => import('@/features/personal/ProfileScreen'));
+const CommunityScreen = lazy(() => import('@/features/community/CommunityScreen'));
+const AccountScreen = lazy(() => import('@/features/community/AccountScreen'));
+const ModerationScreen = lazy(() => import('@/features/community/ModerationScreen'));
 const Equipment = lazy(() =>
   import('@/features/telescope/Equipment').then((m) => ({ default: m.Equipment })),
 );
@@ -68,6 +72,23 @@ export function App() {
   // 기록 파생 상태(★/☆ 집합)는 앱 전역에서 한 번만 DB를 구독한다(T4)
   useEffect(() => startLogSync(), []);
   useEffect(() => startReadSync(), []);
+
+  if (['profile', 'community', 'account', 'moderation'].includes(route))
+    return (
+      <Suspense
+        fallback={
+          <div role="status" className="p-6">
+            …
+          </div>
+        }
+      >
+        {route === 'profile' && <ProfileScreen />}
+        {route === 'community' && <CommunityScreen />}
+        {route === 'account' && <AccountScreen />}
+        {route === 'moderation' && <ModerationScreen />}
+        <ToastHost />
+      </Suspense>
+    );
 
   if (route === 'settings')
     return (

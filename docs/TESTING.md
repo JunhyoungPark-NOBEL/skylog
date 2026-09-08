@@ -172,3 +172,9 @@ G4 요청에는 `astro/pointing.ts`, `astro/finder.ts`, `sensors/telescopeOrient
 ## beta.6 풍경 회귀
 
 단위501개/브라우저59개 전체 통과. horizon.spec.ts는 실제 GPU 픽셀에서 50% alpha가 (full+clear)/2와 평균오차2미만인지 확인하고 야간 green/blue≤1을 검사한다. 기기별 해상도/줌·지평선 경계·아래 시선 fade·발열은 휴대폰에서 확인한다. 스크린샷 sky-meadow[-day/-night/-fading].png.
+
+## T9 무료 마당·커뮤니티
+
+`pnpm test:community-db`는 PGlite 실제 PostgreSQL에서 RLS/RPC/운영 역할/차단/비공개/업로드 한도를 검증한다. `tests/backend/live-community.mjs`는 명시적 SKYLOG_LIVE_TEST=yes와 CLI 인증으로 임시 계정만 생성해 실제 서버의 JPEG EXIF 제거·공개·검토·백업·삭제를 검사하고 finally에서 정리한다. 키와 토큰을 출력하지 않는다. `personal-community.spec.ts`는360px·영어125%·야간 적색·키보드 배치·재실행 보존·목록/상세를 검증한다. 테스트 그림은 네트워크 목이며 공개 갤러리에 올리지 않는다.
+
+실기기: 배우기→내 마당에서 장식/아바타를 바꾸고 재실행; 설정 언어 전환/야간/스크롤; 천체 상세→사진; 메일 개통 후 두 계정 공유/검토/차단과 다른 기기 백업 복원. 기존 관측·코스 진도가 보존되는지 확인한다.

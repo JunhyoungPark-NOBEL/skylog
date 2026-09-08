@@ -32,6 +32,8 @@ if (!Capacitor.isNativePlatform())
   });
 
 async function bootstrap(): Promise<void> {
+  const authCode = new URL(window.location.href).searchParams.get('code');
+  if (authCode) await import('@/community/callback').then((m) => m.finishCommunityLogin(authCode));
   // 설정(Dexie settings 테이블)이 복원되기 전에는 스플래시를 유지한다 (D-010).
   await waitForSettingsHydration();
   const { theme, lang } = useSettingsStore.getState();

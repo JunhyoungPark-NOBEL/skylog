@@ -602,3 +602,8 @@ html.flash-warn::after {
 .safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+/* 마당 벡터도 야간 관측에서 붉은빛만 사용한다. */
+[data-theme='night'] .personal-art {
+  filter: url('#personal-night-red');
+}

@@ -420,6 +420,16 @@ export function ObjectSheet() {
         data-testid="sheet-body"
         data-sheet-body=""
       >
+        <button
+          className="my-3 flex min-h-12 w-full items-center justify-between rounded-xl bg-surface-2 px-4 text-body-sm"
+          onClick={() => {
+            close();
+            window.location.hash = '#/community?object=' + encodeURIComponent(id);
+          }}
+        >
+          <span>{t('social.title')}</span>
+          <span aria-hidden>↗</span>
+        </button>
         {!d && <p className="py-3 text-body-sm text-muted">{t('common.loading')}</p>}
         {d && tg && (
           <>

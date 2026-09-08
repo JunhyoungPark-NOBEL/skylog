@@ -46,6 +46,11 @@ export function SettingsScreen({ onBack }: { onBack(): void }) {
 
   return (
     <ScreenFrame title={t('settings.title')} onBack={onBack} testId="settings-screen">
+      <SectionTitle>{t('personal.title')}</SectionTitle>
+      <Group>
+        <LinkRow label={t('personal.title')} onClick={() => navigate('profile')} />
+        <LinkRow label={t('social.account')} onClick={() => navigate('account')} />
+      </Group>
       <SectionTitle>{t('settings.display')}</SectionTitle>
       <Group>
         <Toggle

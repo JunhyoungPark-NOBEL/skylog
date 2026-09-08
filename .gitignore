@@ -32,3 +32,5 @@ pnpm-debug.log*
 *.p12
 *.mobileprovision
 artifacts/
+supabase/.temp/
+supabase/.branches/
