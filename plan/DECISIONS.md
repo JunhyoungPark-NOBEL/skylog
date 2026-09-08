@@ -236,3 +236,11 @@
 - backup은 OS 공유 시트에서 사용자가 목적지를 정한다. 공유용 앱 캐시는 수신자가 읽기 전에 제거하지 않는다. 네이티브와 PWA DB는 별도이므로 JSON 이관. 기록 서버/계정/광고/온라인 순위 추가 없음. 날씨 좌표 전송을 privacy/스토어 초안에 명시한다.
 - CI는 무서명 AAB·Android lint 및 오프라인 WebView 계측, iOS 무서명 컴파일을 수행한다. 업로드 키는 저장소 밖 Windows 사용자 전용 폴더, 암호는 DPAPI 파일에 보관하고 재사용한다. Store 계정/결제·정책 선언·실기기·심사 제출은 남은 사용자 작업이다. Xcode archive와 최종 스토어 실기기 캡처 전에는 출시 완료라고 보고하지 않는다.
 - versionCode 4(108e99a)의 Android/iOS CI 및 로컬 AAB 서명/구조 검증을 완료했다. Windows `Set-Acl`의 불필요한 감사 권한 요구는 `FileSystemAclExtensions.SetAccessControl`로 접근 권한만 적용해 해결했다. 원 업로드 키는 재사용하며 후속 앱 빌드에서 다시 생성하지 않는다.
+
+## D-032 · 2026-09-08 · 최신 AAB 재빌드·개인 APK·iPhone 설치 준비
+
+- 사용자 직접 설치 요청에 따라 Play AAB와 함께 release APK를 제공한다. 원 업로드 키 복원/Play 등록 여부 응답 전 새 업로드 키로 교체하지 않는다. 개인 APK는 별도 `skylog-local-test-signing` 키로 서명하며, Play 서명이 다르면 JSON 백업→기존 앱 삭제→새 앱 설치→복원을 안내한다.
+- `sign-aab.ps1`은 키 누락 시 중단하고 명시적인 `-CreateNewKey`에서만 최초 키를 만든다. AAB/APK는 임시 파일 서명·검증 후 최종 이름으로 옮긴다. 비밀은 저장소 밖 사용자 전용 ACL/DPAPI 보관.
+- local versionCode5와 다음 CI run_number5의 충돌을 피하기 위해 CI 필수 `version_code` 입력(default6)을 검증해 Android/iOS/metadata에 함께 사용한다. 이후 Console 최대 번호보다 크게 지정한다.
+- iOS 실제 root를 `SkylogViewController`로 통일해 센서 등록을 실행한다. Geolocation 필수 목적 설명을 보완하되 실제 위치 요청은 whenInUse 유지. Tailwind4/Safari 지원 하한에 맞춰 앱 최소 iOS16.4. Mac의 새 컴파일/실행과 iPhone 센서 QA는 남는다.
+- iPhone 즉시 체험은 기존 HTTPS PWA 홈 화면 설치. 네이티브 TestFlight와 저장소·오프라인 포함 조건이 달라 구분한다. 웹 기능 변경은 없으며, 현재 GitHub 인증이 없어 로컬 수정은 원격에 미반영이다.

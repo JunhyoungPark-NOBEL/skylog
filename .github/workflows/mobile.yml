@@ -1,15 +1,42 @@
 name: Build mobile bundles
 on:
   workflow_dispatch:
+    inputs:
+      version_code:
+        description: '새 빌드 번호 (이전 배포보다 큰 양의 정수, 최대 2100000000)'
+        required: true
+        type: string
+        default: '6'
 permissions:
   contents: read
 concurrency:
   group: mobile-bundles
   cancel-in-progress: false
 jobs:
+  validate-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version_code: ${{ steps.version.outputs.version_code }}
+    steps:
+      - name: Validate the shared mobile build number
+        id: version
+        env:
+          INPUT_VERSION_CODE: ${{ inputs.version_code }}
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, re
+          value = os.environ['INPUT_VERSION_CODE']
+          if not re.fullmatch(r'[1-9][0-9]{0,9}', value) or int(value) > 2100000000:
+            raise SystemExit('version_code must be an integer from 1 to 2100000000 without leading zeros')
+          with pathlib.Path(os.environ['GITHUB_OUTPUT']).open('a') as output:
+            output.write(f'version_code={value}\n')
+          PY
   android:
+    needs: validate-version
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      SKYLOG_VERSION_CODE: ${{ needs.validate-version.outputs.version_code }}
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -25,12 +52,10 @@ jobs:
       - run: pnpm mobile:sync
       - run: bash gradlew :app:bundleRelease :app:lintRelease --no-daemon
         working-directory: android
-        env:
-          SKYLOG_VERSION_CODE: ${{ github.run_number }}
       - name: Check offline assets and bundle metadata
         run: |
           python3 - <<'PY'
-          import zipfile, pathlib, hashlib, json
+          import zipfile, pathlib, hashlib, json, os
           p = pathlib.Path('android/app/build/outputs/bundle/release/app-release.aab')
           with zipfile.ZipFile(p) as z:
             names = z.namelist()
@@ -39,7 +64,7 @@ jobs:
             assert any('/data/learn/' in n for n in names)
             assert any('/data/content/' in n for n in names)
             assert '/skylog/assets/' not in z.read('base/assets/public/index.html').decode()
-          pathlib.Path('android/app/build/outputs/bundle/release/build-info.json').write_text(json.dumps({'commit':'${{ github.sha }}','versionCode':'${{ github.run_number }}','signature':'unsigned; sign locally with the upload key','sha256':hashlib.sha256(p.read_bytes()).hexdigest()}, indent=2))
+          pathlib.Path('android/app/build/outputs/bundle/release/build-info.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'versionCode':os.environ['SKYLOG_VERSION_CODE'],'signature':'unsigned; sign locally with the upload key','sha256':hashlib.sha256(p.read_bytes()).hexdigest()}, indent=2))
           PY
       - uses: actions/upload-artifact@v7
         with:
@@ -64,8 +89,11 @@ jobs:
           name: android-lint
           path: android/app/build/reports/
   ios:
+    needs: validate-version
     runs-on: macos-15
     timeout-minutes: 35
+    env:
+      SKYLOG_VERSION_CODE: ${{ needs.validate-version.outputs.version_code }}
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -84,7 +112,7 @@ jobs:
       - name: Compile iOS without distribution credentials
         run: |
           set -o pipefail
-          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Release -destination 'generic/platform=iOS' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO build > ios-build.log 2>&1 || { tail -120 ios-build.log; exit 1; }
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Release -destination 'generic/platform=iOS' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO CURRENT_PROJECT_VERSION="$SKYLOG_VERSION_CODE" build > ios-build.log 2>&1 || { tail -120 ios-build.log; exit 1; }
           ditto -c -k --keepParent ios/DerivedData/Build/Products/Release-iphoneos/App.app ios/skylog-ios-unsigned.zip
       - uses: actions/upload-artifact@v7
         with:

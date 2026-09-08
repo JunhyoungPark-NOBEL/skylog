@@ -1,6 +1,6 @@
 ﻿# 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · 방향 안내 개선·대표 스타호핑 코스·AAB/iOS 출시 준비
+> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · build5 AAB/개인 APK·iOS 시작 오류 수정
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -8,7 +8,20 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 완료 보고 (2026-09-08 · 방향 안내·코스·AAB 출시 준비)
+## 이번 작업 보고 (2026-09-08 · build5 재빌드 및 직접 설치)
+
+- 시작/종료 시 확인한 원격 main 최신은 `dce4a7dc50980bec5dc93f0af2b9003788205e63`. `108e99a` 이후 문서·서명 스크립트만 바뀌었으며 Android 앱 기능 소스는 build4와 같다. 로컬 브랜치는 `codex/android-release-20260908`.
+- 현재 폴더는 `C:\Users\박준형\Documents\ChatGPT\별관찰앱개발`. 이전 build4/업로드 키가 기록된 `C:\Users\JunhyoungPark\...`와 다른 PC/사용자다. 원 AAB/업로드 키를 찾지 못했고, 기존 키·Play 등록 여부 질문은 응답 대기다. GitHub 인증도 없어 로컬 변경을 push하거나 새 iOS CI를 실행하지 않았다.
+- **AAB 생성·구조 검증 완료, Play 업로드 서명 대기**: `C:\Users\박준형\Downloads\skylog-release-0.1.0-beta.1-build5\skylog-0.1.0-beta.1-build5-unsigned.aab`, 6,903,462 bytes. SHA256 `7f37e7bedd7be09365ecdd9a05b94694ec8ab57018211247a5a47cbdc9df2fa3`. versionCode5/API36/min24/release/non-debuggable/backup=false 확인. unsigned 파일은 Play 제출용 최종본이 아니다.
+- **직접 설치 APK 완료**: 같은 폴더 `skylog-0.1.0-beta.1-build5-local-test.apk`, 7,192,735 bytes, SHA256 `880ab41f9cc2c0ac7404fc5d5b96896b8b1c1c3a95d0054c3fb1850e95cc603e`. release 앱을 별도 RSA4096 개인 테스트 키로 서명, APK v2/v3·zipalign 통과. 키는 `%LOCALAPPDATA%/skylog-local-test-signing/`, 암호는 현재 사용자 DPAPI. 원 업로드 키는 생성/교체하지 않았다. 개인 키·암호는 전달 폴더/저장소에 없다.
+- Node24.19/pnpm12.3.4 고정 lock 설치, typecheck/lint/단위366/data/native 웹 build 통과. Android bundleRelease/assembleRelease/lintRelease 성공(오류0/경고33). 한글 경로의 AGP 검사는 명령에만 `-Pandroid.overridePathCheck=true` 적용. AAB/APK 오프라인 웹 자료 **158개 SHA256 전부 일치**, .so 없음. JDK21/SDK36/bundletool1.18.3은 `%LOCALAPPDATA%/skylog-tools`.
+- 브라우저 **35/35 통과**(`--workers=2`). 기본10 workers는 과부하로 시간 초과해 중단 후 전체 재검사했다. 하늘·별길·배우기 최신 화면 직접 확인, 결과는 `artifacts/qa-build5`. Android 연결 기기 0개로 설치/센서 실기기 검증 미완료.
+- iOS SceneDelegate의 기본 컨트롤러가 SkylogMotion 등록을 생략하던 오류 수정. Geolocation 필수 목적 설명 보완, Tailwind4 지원에 맞춰 최소 iOS16.4로 변경. **이번 Swift 컴파일/실행은 Windows에서 미검증**. 이전 CI 성공을 이번 수정의 검증으로 사용하지 않는다. 새 소스 ZIP을 Mac에서 빌드하고 Team/Bundle ID/Archive/TestFlight 필요.
+- CI는 필수 version_code를 검증해 Android/iOS에 함께 사용한다. build5 다음 기본값6, 이후 Console 최대 번호보다 크게 지정. AAB 서명은 기존 키 누락 시 자동 생성 금지, AAB/APK 검증 완료 후에만 최종 출력 생성. 결정 D-032.
+- Android는 APK를 폰에 전송해 설치. iPhone은 기존 Pages를 Safari→공유→홈 화면에 추가로 사용 가능. 웹앱의 깊은 별/이야기/학습은 온라인 선열람 후 캐시된다. `docs/INSTALL-ON-PHONE.md`에 설치·백업·TestFlight 안내.
+- **Play/App Store 공개 출시 미완료**. 키·계정·정책·연락처/실제 스크린샷·실기기·심사 필요. T5/T7/T8 잔여 유지, 완료 태그 없음. 다음 작업: 사용자 키/계정 답변→AAB 최종 서명/내부 테스트, 새 iOS 컴파일/TestFlight/실기기 검증.
+
+## 이전 작업 완료 보고 (2026-09-08 · 방향 안내·코스·AAB 출시 준비)
 
 - 별길 진입의 센서→밝은 별 정렬→이동 CTA, 큰 좌우/위아래 화살표·각도, 시야 진입 후 자동 차트 전환 제거. 정렬 완료 버튼을 위로 이동. 화면 전환 시 본문 스크롤 초기화.
 - 배우기→코스에 M42/M31/M13/M57/M27/M11 대표 호핑 6개. 고정 이정표와 자체 차트, 실제 완료→새 관측 기록 2단계. 코스 ID가 같은 실제 이벤트만 진도 반영. 원 G3/G5 팩·DB v2 유지.

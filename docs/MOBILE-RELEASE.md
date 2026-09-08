@@ -2,18 +2,29 @@
 
 2026-09-08 기준. 앱 ID 기본값은 `io.github.junhyoungparknobel.skylog`, 버전은 `0.1.0-beta.1`(iOS marketing 0.1.0). 이 ID는 저장소 소유자에서 정했으며 아직 스토어에 등록되지 않았다. **첫 등록 전** 개발자 계정 소유자와 최종 앱 ID를 확인한다. T5 실기기 승인과 T7/T8 전체 완료를 의미하지 않는다.
 
+## 2026-09-08 후속 점검
+
+- 원격 main 최신 `dce4a7d`는 `108e99a` 이후 서명 스크립트·문서 변경만 포함한다. Android 앱 기능 소스는 build4와 동일하다.
+- build4 원본/키는 이전 PC `C:\Users\JunhyoungPark\...`의 기록이다. 현재 PC `C:\Users\박준형\...`에는 해당 AAB와 업로드 키가 없다. 이전 빌드의 서명 완료를 이번 PC의 서명 완료로 간주하지 않는다.
+- iOS SceneDelegate가 기본 컨트롤러를 생성하여 자체 센서 등록을 생략하던 문제를 수정했다. 위치 플러그인 필수 목적 문자열을 보완하고, Tailwind 4의 Safari 지원 범위에 맞춰 앱 최소 iOS를 16.4로 올렸다. **이번 Swift 변경은 Windows에서 컴파일/실행하지 못했으며 새 Mac CI·실기기 검증이 필요하다.**
+- CI는 이제 필수 `version_code` 입력을 검증해 Android/iOS에 함께 적용한다. local build5 다음 기본값은 6이다. 이후에는 Console에 사용한 최대 번호보다 크게 입력한다. workflow 실행 횟수와 빌드 번호는 독립적이다.
+- 직접 설치 방법과 스토어 전환 시 백업은 [휴대폰 설치 안내](INSTALL-ON-PHONE.md)를 따른다. 개인 체험용 APK 서명 키는 Play 업로드 키와 별도다.
+- 새 전달 폴더는 현재 PC Downloads의 `skylog-release-0.1.0-beta.1-build5/`. `skylog-0.1.0-beta.1-build5-local-test.apk`는 개인 체험 서명 완료(7,192,735 bytes, SHA256 `880ab41f9cc2c0ac7404fc5d5b96896b8b1c1c3a95d0054c3fb1850e95cc603e`). `skylog-0.1.0-beta.1-build5-unsigned.aab`는 빌드·구조 검증 완료이나 **업로드 서명 대기**(6,903,462 bytes, SHA256 `7f37e7bedd7be09365ecdd9a05b94694ec8ab57018211247a5a47cbdc9df2fa3`). versionCode5/API36/min24, APK v2/v3·zipalign·bundletool 통과, AAB/APK 자료158개 해시 일치. 개인 키/암호는 전달물에 없다.
+- 이번 typecheck/ESLint/단위366/브라우저35/data/build 통과, Android lint 오류0/경고33. Android 실제 설치/센서 및 새 iOS 실행은 미완료. 계정 등록·정책·실기기·스토어 심사와 AAB 서명은 별도 단계다.
+
 ## 빌드·산출물
 
-- Node 22 이상, pnpm은 packageManager 지정 버전. Capacitor 8.5.1, Android compile/target SDK 36, min SDK 24, Java 21. iOS 15 이상, Xcode 26 이상.
+- Node 22.12 이상, pnpm은 packageManager 지정 12.3.4. Capacitor 8.5.1, Android compile/target SDK 36, min SDK 24, Java 21. iOS 16.4 이상, Xcode 26 이상.
 - `pnpm mobile:sync`: 네이티브 전용 `base=/`로 웹을 빌드하고 Android/iOS에 복사한다. PWA는 기존 `/skylog/` 및 SW를 유지한다. 네이티브 앱은 SW를 등록하지 않으며 깊은 별·콘텐츠·학습 팩을 전부 포함한다.
 - GitHub Actions **Build mobile bundles** 수동 실행: release AAB 및 Android lint, 인터넷을 끈 Android 36 에뮬레이터 테스트, iOS arm64 무서명 빌드. CI는 서명 비밀을 다루지 않는다. `skylog-android-aab-unsigned`는 서명 전 산출물이다.
 - Play 배포 산출물은 **AAB**다. AAB는 직접 설치할 수 없으며 Play 내부 테스트에서 기기별 앱을 받는다. CI가 만드는 내부 테스트용 APK는 계측 실행용이고 사용자 배포 산출물이 아니다.
-- 서명은 Windows **PowerShell 7 이상**에서 `pwsh -File scripts/sign-aab.ps1 -Bundle <unsigned.aab> -Output <new-signed.aab>`로 수행한다. JDK 21+의 JAVA_HOME을 지정하거나 이번 PC의 `%LOCALAPPDATA%/skylog-tools/jdk-*`를 쓴다. 처음 한 번 업로드 키를 만들고 이후 재사용한다.
+- 서명은 Windows **PowerShell 7 이상**에서 `pwsh -File scripts/sign-aab.ps1 -Bundle <unsigned.aab> -Output <new-signed.aab>`로 수행한다. JDK 21+의 JAVA_HOME을 지정하거나 이번 PC의 `%LOCALAPPDATA%/skylog-tools/jdk-*`를 쓴다. 기존 키가 없으면 중단한다. 최초 등록임을 확인했거나 업로드 키 교체 절차를 승인받은 경우에만 `-CreateNewKey`로 생성한다. 이후에는 항상 같은 키를 재사용한다.
+- 직접 설치용 release APK는 `:app:assembleRelease` 후 `scripts/sign-apk.ps1 -Apk <unsigned.apk> -Output <signed.apk>`로 정렬·서명·검증한다. 기존 업로드 키를 복원하기 전 개인 체험용으로는 `scripts/sign-test-apk.ps1`을 쓰며 키는 `%LOCALAPPDATA%/skylog-local-test-signing/`에 따로 둔다.
 - 키는 `%LOCALAPPDATA%/skylog-signing/skylog-upload.p12`, 암호는 같은 폴더의 `password.dpapi.xml`에 현재 Windows 사용자용 DPAPI로 보관한다. **저장소·공개 산출물에 키나 암호를 넣지 않는다.** 인증서 `upload-certificate.pem`은 공개용이다. 서명 스크립트는 기존 출력/불완전한 키를 덮어쓰지 않는다.
 - 키 폴더를 별도 안전한 저장소에 백업해야 한다. DPAPI 암호 파일은 다른 PC에서 직접 복호화되지 않는다. 원래 Windows 계정에서 암호를 복원해 개인 암호 관리자에 보관한 뒤 이동한다. 키·암호를 채팅/이슈에 붙여 넣지 않는다. 후속 빌드도 같은 업로드 키와 더 큰 versionCode를 사용한다.
 - iOS `skylog-ios-unsigned-build`는 컴파일 확인용 `.app`이며 iPhone에 배포할 IPA가 아니다. Apple Developer 팀, Bundle ID 등록, 배포 인증서/프로비저닝을 갖춘 Mac에서 Archive → Validate → Distribute → TestFlight가 필요하다.
 
-## 이번 전달본 검증 (2026-09-08)
+## 이전 build4 전달 기록 (2026-09-08 · 다른 PC)
 
 - 최종 전달본: `skylog-0.1.0-beta.1-build4.aab`, versionCode 4, 6,964,176 bytes. 앱 소스 커밋 `108e99ab2fce10934a38e4d131c9b7af11f6e0b5`. Downloads 폴더에 있으며 이전 build3 대신 이 파일을 사용한다.
 - SHA256: `80bc82531b4f39149b2825400e109bdec7347a99d25320c86588de05a27d7229`.

@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
 <key>NSLocationWhenInUseUsageDescription</key><string>관측 위치에서 보이는 별과 행성을 계산해요. Location is used to calculate your local sky.</string>
+<!-- Geolocation의 iOS 의존성이 요구하는 설명이다. 앱은 사용 중 위치만 요청한다. -->
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key><string>관측 위치에서 보이는 별과 행성을 계산해요. Location is used to calculate your local sky.</string>
 <key>NSMotionUsageDescription</key><string>하늘 보기와 별길 가이드에서 휴대폰 방향을 확인해요. Motion is used for sky and telescope guidance.</string>
 <key>NSCameraUsageDescription</key><string>관측 기록에 사진을 첨부해요. Take a photo for your observing log.</string>
 <key>NSPhotoLibraryUsageDescription</key><string>직접 고른 사진을 관측 기록에 첨부해요. Attach a selected photo to your observing log.</string>

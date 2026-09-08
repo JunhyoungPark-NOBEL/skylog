@@ -1,5 +1,14 @@
 # TESTING
 
+## build5 재검증 (2026-09-08)
+
+- typecheck/ESLint/단위366/data 검증/웹·native build 통과. pnpm12.3.4와 frozen lock 사용.
+- Playwright 기본10 workers 실행은 여러 WebGL 브라우저와 최초 Gradle 준비가 겹쳐 시간 초과. 중단 후 `pnpm exec playwright test --workers=2`로 전체 **35/35 통과**. 새 하늘·별길 방향·배우기 화면 직접 확인, `artifacts/qa-build5`에 보관.
+- Windows 한글 경로의 AGP 사전 검사로 첫 build 실패, 명령에 `-Pandroid.overridePathCheck=true`를 적용해 :app:bundleRelease/:app:assembleRelease/:app:lintRelease 성공. SDK36/min24/versionCode5, Android lint 오류0/경고33.
+- 개인 체험 release APK의 RSA4096 v2/v3 서명·zipalign 통과. unsigned AAB의 bundletool1.18.3 validate/manifest 검사, AAB/APK 내 웹 자료158개 SHA256 동일 확인. 네이티브 SW 없음, .so 없음. 검증 로그/해시는 Downloads의 `skylog-release-0.1.0-beta.1-build5`.
+- **미검증**: Android 실기기 설치/센서, 새 iOS Swift 컴파일·실행, 스토어 업로드/심사. 기존 iOS CI 성공은 이번 SceneDelegate/Info.plist/최소OS 수정에 대한 검증이 아니다. 원 업로드 키가 없어 AAB 최종 서명은 대기다.
+- CI version_code의 YAML·입력 정상3/비정상13 및 공통 전달 검사, PowerShell 서명 스크립트 AST 파싱·기존 키 누락 보호 확인. 상세 사용자 체크리스트는 [휴대폰 설치 안내](INSTALL-ON-PHONE.md).
+
 ## 자동 테스트
 
 | 명령             | 내용                                                                                                                                                                                                                                               |
