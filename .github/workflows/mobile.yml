@@ -60,7 +60,8 @@ jobs:
       - name: Check offline assets and bundle metadata
         run: |
           python3 - <<'PY'
-          import zipfile, pathlib, hashlib, json, os
+          import zipfile, pathlib, hashlib, json, os, subprocess
+          version = json.loads(pathlib.Path('package.json').read_text())['version']
           p = pathlib.Path('android/app/build/outputs/bundle/release/app-release.aab')
           with zipfile.ZipFile(p) as z:
             names = z.namelist()
@@ -71,6 +72,10 @@ jobs:
             assert '/skylog/assets/' not in z.read('base/assets/public/index.html').decode()
           pathlib.Path('android/app/build/outputs/bundle/release/build-info.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'versionCode':os.environ['SKYLOG_VERSION_CODE'],'signature':'unsigned; sign locally with the upload key','sha256':hashlib.sha256(p.read_bytes()).hexdigest()}, indent=2))
           apk = pathlib.Path('android/app/build/outputs/apk/release/app-release-unsigned.apk')
+          aapt = pathlib.Path(os.environ['ANDROID_HOME']) / 'build-tools/36.0.0/aapt2'
+          badging = subprocess.check_output([str(aapt), 'dump', 'badging', str(apk)], text=True)
+          assert f"versionName='{version}'" in badging, 'APK version name differs from package.json'
+          assert f"versionCode='{os.environ['SKYLOG_VERSION_CODE']}'" in badging, 'APK build number differs'
           with zipfile.ZipFile(p) as bundle, zipfile.ZipFile(apk) as install:
             for name in bundle.namelist():
               if name.startswith('base/assets/public/') and not name.endswith('/'):
