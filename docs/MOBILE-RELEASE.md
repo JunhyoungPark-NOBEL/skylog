@@ -1,8 +1,17 @@
 # Android AAB / iOS 출시 준비
 
-> **beta.7/build12 준비**: 전 기능 무료 마당/계정/사진/댓글/백업 구현은 [FREE-COMMUNITY.md](FREE-COMMUNITY.md). 예전 “계정 미구현” 서술은 당시 릴리스 이력이며 지금 구현 상태가 아니다. SMTP/실제 운영자/외부 이메일 검증 후 일반 가입 개통. APK는 build9와 동일한 개인 인증서가 필요하며 이 PC에 없는 키를 재발급하지 않는다. 아래 이전 산출물은 새 build12로 대체하지 않고 보존한다.
+> **beta.7/build12 빌드·배포 완료**: 전 기능 무료 마당/계정/사진/댓글/백업 구현은 [FREE-COMMUNITY.md](FREE-COMMUNITY.md). 예전 “계정 미구현” 서술은 당시 릴리스 이력이며 지금 구현 상태가 아니다. SMTP/실제 운영자/외부 이메일 검증 후 일반 가입 개통. APK는 build9와 동일한 개인 인증서가 필요하며 이 PC에 없는 키를 재발급하지 않는다. 아래 이전 산출물은 새 build12로 대체하지 않고 보존한다.
 
-2026-09-08. 최신 작업은 **0.1.0-beta.6 / build11**(iOS marketing0.1.0)이다. 앱ID io.github.junhyoungparknobel.skylog. 아래 beta.5 이하는 이전 배포 기록이다.
+2026-09-08. 최신 작업은 **0.1.0-beta.7 / build12**(iOS marketing0.1.0)이다. 앱ID io.github.junhyoungparknobel.skylog. 아래 beta.6 이하는 이전 배포 기록이다.
+
+## beta.7 / build12 — 무료 마당·사진·댓글·개인 백업
+
+- 소스 ba29935d741167236dba7d48192beb83708790bb, [v0.1.0-beta.7-build12](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.7-build12). [Pages](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34239766171)·[모바일 CI](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34239765822) 전체 성공. 다음 CI기본13.
+- 단위504개·브라우저62개 고유 시나리오(기존59+신규3 재실행)·PostgreSQL 권한27개·실제 Supabase22개 통과. 공개 beta.7·실제 갤러리·SW·오프라인 마당/아바타·JS오류0. Android API36 인터넷 차단 계측1/1(실패/누락0), lint오류0/경고33. iOS Xcode26 arm64 무서명 컴파일/build12 확인.
+- Play 업로드 키 서명 AAB7,882,043bytes, SHA256 `208b8f3db4e0b80bdf33af8f97ab6b9e6fbd40d7b8868f165cd10ebfb2585b5c`. jarsigner strict·bundletool validate·version12/min24/target36·debug=false/backup=false 확인. AAB/APK 웹 에셋 전체 일치, public150개 자료는 AAB/APK/iOS 모두 원본과 SHA256 일치.
+- **업데이트 APK는 아직 서명 전**이다. unsigned APK8,042,881bytes, SHA256 `c62a4d61638b5ec42077bc2f5275b2329ae662e1c30d169fdd5fb3aa947cf175`. 원래 build9 개인 키가 이 PC에 없어 다른 키를 사용하지 않았다. 설치된 앱을 삭제하지 말고 같은 키가 있는 원래 PC에서 서명한다.
+- `skylog-0.1.0-beta.7-build12-apk-update-kit.zip`7,591,135bytes, SHA256 `a311de87cf651a9d813b4eab25fab183dd521edcda15d26175ce6fa13e9546cf`. unsigned APK·공개 인증서·소스/해시·README·PowerShell7 서명 도구를 포함한다. 개인 키는 없다. 원래 서명 PC/JDK21/Android SDK36에서 `pwsh -File .\sign-update-package.ps1` 실행 후 설치 가능한 `skylog-build12-update.apk`가 만들어진다. ZIP 자체는 설치할 수 없다.
+- 전달 폴더 `Downloads/skylog-release-0.1.0-beta.7-build12/`와 공개 릴리스에 AAB·서명 준비 ZIP·verification.json·SHA256SUMS.txt를 둔다. 실제 이메일 개통·운영자 지정·실기기 사진/백업·Play 심사·Apple 서명/TestFlight는 완료로 표시하지 않는다.
 
 ## beta.6 / build11 — 풍경 경계·APK 서명 준비 파일
 

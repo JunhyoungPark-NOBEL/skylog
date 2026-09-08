@@ -175,6 +175,8 @@ G4 요청에는 `astro/pointing.ts`, `astro/finder.ts`, `sensors/telescopeOrient
 
 ## T9 무료 마당·커뮤니티
 
+beta.7/build12 최종 결과: 단위504개, 타입/lint, PostgreSQL27개, 실제 Supabase22개와1600px 사진 재검사 통과. 브라우저 기존59개 통과, 신규3개는 영어 라디오 선택자 수정 후 전체 재실행 통과. 공개 Pages의 실제 갤러리 연결·SW·오프라인 마당/아바타·JS오류0. Android API36 오프라인 계측1/1(실패/누락0), lint오류0/경고33, iOS build12 무서명 컴파일 통과. public150개 파일의 AAB/APK/iOS 원본 해시를 대조했다. 이는 실기기 센서/메일 수신 검사를 대신하지 않는다.
+
 `pnpm test:community-db`는 PGlite 실제 PostgreSQL에서 RLS/RPC/운영 역할/차단/비공개/업로드 한도를 검증한다. `tests/backend/live-community.mjs`는 명시적 SKYLOG_LIVE_TEST=yes와 CLI 인증으로 임시 계정만 생성해 실제 서버의 JPEG EXIF 제거·공개·검토·백업·삭제를 검사하고 finally에서 정리한다. 키와 토큰을 출력하지 않는다. `personal-community.spec.ts`는360px·영어125%·야간 적색·키보드 배치·재실행 보존·목록/상세를 검증한다. 테스트 그림은 네트워크 목이며 공개 갤러리에 올리지 않는다.
 
 실기기: 배우기→내 마당에서 장식/아바타를 바꾸고 재실행; 설정 언어 전환/야간/스크롤; 천체 상세→사진; 메일 개통 후 두 계정 공유/검토/차단과 다른 기기 백업 복원. 기존 관측·코스 진도가 보존되는지 확인한다.

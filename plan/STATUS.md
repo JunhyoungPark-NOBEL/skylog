@@ -1,10 +1,12 @@
 # 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · Codex 로컬 · beta.7 무료 꾸미기/커뮤니티 구현·서버 검증 완료, 메일 개통 및 배포 검사 중
+> 마지막 갱신: 2026-09-08 · Codex 로컬 · beta.7/build12 웹·Android·iOS 검증/배포 완료, 일반 가입 메일·운영자·실기기 대기
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
+- 앱: https://junhyoungpark-nobel.github.io/skylog/ · 내 마당: https://junhyoungpark-nobel.github.io/skylog/#/profile
+- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.7-build12
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
@@ -15,7 +17,9 @@
 - **서버**: 사용자가 Supabase 가입·비밀번호 설정. 무료 skylog 조직/서울 프로젝트 ijxuwtbcwifttiuwvqrh 생성, RLS·private 저장소·Edge 함수 실제 배포. 일반 가입 메일·운영자 앱 계정 지정은 대기. 기본 SMTP는 운영자 주소만 허용하고 템플릿 변경400을 반환하므로 유료 업그레이드를 자동 진행하지 않았다. 사이트 URL/PKCE 메일 링크는 연결했고 OTP 템플릿은 준비했다.
 - **검증**: 단위504개, 타입/lint, PostgreSQL 권한27개, 실제 Supabase22개 통과. 기존59개 통과, 신규3개 최종 재실행 통과(영어 선택자 역할을 radio로 수정). 영어125%/야간 픽셀/360px 화면 확인. 임시 서버 테스트 계정/사진은 모두 정리했다. 모바일 실기기/외부 이메일은 미확인.
 - **결정/후속**: D-048 무료 범위, D-049 로컬 꾸미기/영구 보상, D-050 Supabase 검토와 개인정보, D-051 수동 백업/메일 개통. docs/FREE-COMMUNITY.md에 설치·운영·화면 참고·제약. T9는 외부 메일/운영자/실기기 확인 전 진행 중으로 둔다. 추가 GPT Pro 작업은 없다.
-- **배포**: 웹/모바일 빌드와 산출물 최종 확인 중. 기존 APK 개인 테스트 키는 이 PC에 없으며 새 키로 대체하지 않는다.
+- **배포**: 앱 소스 ba29935d741167236dba7d48192beb83708790bb, [Pages34239766171](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34239766171)·[모바일34239765822](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34239765822) 전체 성공. 공개 beta.7·실제 갤러리·SW·오프라인 마당/아바타·JS오류0 확인. Android API36 오프라인 계측1/1(실패/누락0), lint오류0/경고33. iOS build12 arm64 무서명 컴파일 성공. AAB/APK의 웹 에셋 전체 일치, public150개는 AAB/APK/iOS 모두 원본 SHA256 일치.
+- **산출물**: [v0.1.0-beta.7-build12](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.7-build12), Downloads/skylog-release-0.1.0-beta.7-build12/. 기존 Play키 서명 AAB7,882,043bytes, SHA256208b8f3db4e0b80bdf33af8f97ab6b9e6fbd40d7b8868f165cd10ebfb2585b5c. jarsigner strict·bundletool validate·version12/min24/target36·debug=false/backup=false 통과. APK 서명 준비 ZIP7,591,135bytes, SHA256a311de87cf651a9d813b4eab25fab183dd521edcda15d26175ce6fa13e9546cf. **설치 가능한 업데이트 APK는 기존 개인 키가 없어 미서명**이며 원래 서명 PC에서 완성한다. 다른 키로 대체하지 않는다. 다음 CI기본13.
+- **수용/사용자 액션**: T9 인수 기준 자동 확인6/7, 일반 가입·실계정 운영 개통1항목 대기. 폰에서 마당/아바타 재실행 보존, 기존 관측·코스 진도, 한영·야간·스크롤을 확인한다. SMTP 연결 후 외부 메일/운영자/두 계정 공유와 다른 기기 백업을 확인한다. AAB는 Play용이며 ZIP은 직접 설치 파일이 아니다. 새 GPT Pro 요청 없음.
 
 ## 이전 작업 보고 (2026-09-08 · beta.6/build11 풍경·후속 서비스)
 
@@ -72,7 +76,7 @@
 
 - **우선 사항**: 현재 모든 기능은 무료(D-048), 이전 가격/Pro 제안은 적용하지 않는다. 서버/코드는 실제 구현됨. Supabase 프로젝트 ijxuwtbcwifttiuwvqrh/서울, CLI 인증 완료. 일반 가입용 SMTP와 운영자 실제 앱 계정 지정이 남았다. 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. GitHub 변수는 공개 URL/키만 포함. 백업은 수동 스냅샷으로 자동 동기화가 아니다. 자세한 절차는 docs/FREE-COMMUNITY.md.
 
-- 최신 풍경/서비스 설계는 D-045~047과 docs/LANDSCAPE-REFINEMENT.md, COMMUNITY-AND-CUSTOMIZATION.md. 핵심 무료·꾸미기 우선 제안이 D-035의 이전 Pro 범위를 대체한다. 개인 APK 서명 키는 Play 업로드 키와 다르며 자동 새 키 생성 금지.
+- 최신 풍경은 D-045와 docs/LANDSCAPE-REFINEMENT.md, 실제 무료 서비스는 D-048~051과 docs/FREE-COMMUNITY.md. COMMUNITY-AND-CUSTOMIZATION.md의 가격 후보는 이전 설계 이력이다. 개인 APK 서명 키는 Play 업로드 키와 다르며 자동 새 키 생성 금지.
 
 - **학습 탐색/스테이지(D-026)**: features/learn의 LearnScreen → QuizJourney/CoursesScreen/StoriesScreen/AchievementsScreen. 해시 section/path/mission/chapter로 복원하며 하단 탭 복귀 시 마지막 배우기 경로 유지. stageCatalog는 144문항을 중복 없이 고정한 28단계, 정답률 80% 해제·60/80/100% 별, 개인 합계는 단계별 최고점만. stage/question 버전을 함께 검증하며 마지막 응답과 완료 기록은 원자 저장. 기존 미션/응답/복습/관측 유지, 새 도장은 새 여정을 완주해야 획득한다. 리더보드는 아직 로컬 점수 기반만 준비됨.
 - **하늘 설정(D-038)**: `groundOpacity` 기본1, 단일 슬라이더와 기본값 복원. 불투명도1이면 지평선 아래 표시·선택을 함께 막고1 미만이면 함께 허용한다. layers persist v2로 이전 옵션을 이관한다. 기본 경계 false·은하수0.33·별 채도1, 저장된 커스텀 설정은 보존한다. 실제 관측 가능 판정은 그대로다.

@@ -38,11 +38,13 @@
 5. 일반 외부 이메일로 로그인, 사진 등록→검토→공개→차단→삭제, 다른 기기의 개인 백업 복원을 확인한다.
 6. 메일 템플릿 적용·외부 발송을 확인한 뒤 GitHub 변수 `VITE_COMMUNITY_EMAIL_CODE=true`, `VITE_COMMUNITY_SIGNUPS_READY=true`로 웹/모바일을 다시 빌드한다. false 기본값은 운영자 시험 안내를 표시한다.
 
-배포 대상은 `supabase/migrations/` 순서와 `supabase/functions/community/`다. 초기 마이그레이션은 CLI Management API로 실제 적용했으며, 운영 중에는 같은 파일을 재실행하지 않는다. 관리형 배포에 옮길 때 기존 적용 이력을 먼저 등록한다. 로컬 검사는 `pnpm test:community-db`. 실제 서버 검사는 `SKYLOG_LIVE_TEST=yes`를 명시하고 `node tests/backend/live-community.mjs`로 실행한다. 이 명령은 CLI 인증을 사용하고 전용 임시 계정만 생성·정리한다. 개인 키는 출력하지 않는다.
+배포 대상은 `supabase/migrations/` 순서와 `supabase/functions/community/`다. 초기 마이그레이션은 CLI Management API로 실제 적용했고 `202609080001`~`202609080005`의 적용 이력도 등록했다. `migration list`에서 로컬/원격 다섯 항목이 일치한다. 운영 중에는 같은 파일을 재실행하지 않는다. 로컬 검사는 `pnpm test:community-db`. 실제 서버 검사는 `SKYLOG_LIVE_TEST=yes`를 명시하고 `node tests/backend/live-community.mjs`로 실행한다. 이 명령은 CLI 인증을 사용하고 전용 임시 계정만 생성·정리한다. 개인 키는 출력하지 않는다.
 
 ## 검증과 남은 범위
 
-기존501개에 꾸미기3개를 추가한 단위504개, 타입/lint 검사, 실제 PostgreSQL 권한27개, 실제 Supabase22개 검사를 통과했다. 360px/영어125%/야간 적색·키보드 배치·새로고침 보존·목록과 상세 분리를 Playwright로 검사한다. 화면에 보이는 달 예시는 테스트가 주입한 그림이며 공개 서버 콘텐츠가 아니다.
+기존501개에 꾸미기3개를 추가한 단위504개, 타입/lint 검사, 실제 PostgreSQL 권한27개, 실제 Supabase22개 검사를 통과했다. 실제 서버에서1600×900 사진도 같은22개 검사를 통과했다. 기존 브라우저59개와 신규3개를 확인했고, 신규 검사의 영어 선택자 역할을 radio로 수정한 뒤 신규3개 전체를 재실행했다. 360px/영어125%/야간 적색·키보드 배치·새로고침 보존·목록과 상세 분리를 확인했다. 화면에 보이는 달 예시는 테스트가 주입한 그림이며 공개 서버 콘텐츠가 아니다.
+
+[beta.7/build12](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.7-build12)를 배포했다. 공개 웹에서 실제 갤러리 연결·운영자 시험 안내·오프라인 마당·JS오류0을 확인했다. Android API36 오프라인 계측1/1, lint오류0/경고33, iOS build12 무서명 컴파일을 통과했다. T9 인수 기준은 자동 확인6/7이며 일반 가입/실계정 운영 개통1항목과 실기기 확인이 남아 있다.
 
 일반 이메일 발송, 운영자 실제 계정 지정, 실기기 사용, 스토어 개인정보 수집 신고·UGC 운영 준비가 남았다. 자동 동기화/공개 리더보드/DM/사진 원본 공유/하늘 위 장식 오버레이는 이번 버전에 없다. 앱 계정 삭제와 로컬 기록 삭제는 별개다. APK는 설치된 앱과 같은 개인 테스트 인증서가 필요하므로 이 PC에 없는 키를 새로 만들어 대체하지 않는다.
 
