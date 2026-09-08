@@ -6,7 +6,7 @@ on:
         description: '새 빌드 번호 (이전 배포보다 큰 양의 정수, 최대 2100000000)'
         required: true
         type: string
-        default: '11'
+        default: '12'
 permissions:
   contents: read
 concurrency:
@@ -50,7 +50,7 @@ jobs:
           java-version: '21'
       - run: pnpm install --frozen-lockfile
       - run: pnpm mobile:sync
-      - run: bash gradlew :app:bundleRelease :app:lintRelease --no-daemon
+      - run: bash gradlew :app:bundleRelease :app:assembleRelease :app:lintRelease --no-daemon
         working-directory: android
       - name: Check offline assets and bundle metadata
         run: |
@@ -59,13 +59,29 @@ jobs:
           p = pathlib.Path('android/app/build/outputs/bundle/release/app-release.aab')
           with zipfile.ZipFile(p) as z:
             names = z.namelist()
-            for f in ['index.html','data/stars-deep.v1.bin','data/manifest.v1.json','landscapes/meadow-v1.webp']:
+            for f in ['index.html','data/stars-deep.v1.bin','data/manifest.v1.json','landscapes/meadow-v2.webp']:
               assert 'base/assets/public/'+f in names, f
             assert any('/data/learn/' in n for n in names)
             assert any('/data/content/' in n for n in names)
             assert '/skylog/assets/' not in z.read('base/assets/public/index.html').decode()
           pathlib.Path('android/app/build/outputs/bundle/release/build-info.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'versionCode':os.environ['SKYLOG_VERSION_CODE'],'signature':'unsigned; sign locally with the upload key','sha256':hashlib.sha256(p.read_bytes()).hexdigest()}, indent=2))
+          apk = pathlib.Path('android/app/build/outputs/apk/release/app-release-unsigned.apk')
+          with zipfile.ZipFile(p) as bundle, zipfile.ZipFile(apk) as install:
+            for name in bundle.namelist():
+              if name.startswith('base/assets/public/') and not name.endswith('/'):
+                assert bundle.read(name) == install.read(name.removeprefix('base/')), name
+          apk.with_name('build-info.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'versionCode':os.environ['SKYLOG_VERSION_CODE'],'signature':'unsigned; an update needs the SAME certificate as the installed APK','sha256':hashlib.sha256(apk.read_bytes()).hexdigest()}, indent=2))
           PY
+      - name: Read the public certificate of the previous personal-test APK
+        run: |
+          curl --fail --location --retry 2 --max-time 120 -o /tmp/skylog-build9.apk https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.4-build9/skylog-0.1.0-beta.4-build9-local-test.apk
+          echo 'efdfca31d55dfeb707d7d914b1a404bb14cb8d543b52f6f3549d4a4db75e761f  /tmp/skylog-build9.apk' | sha256sum -c -
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --print-certs /tmp/skylog-build9.apk > android/app/build/outputs/apk/release/build9-certificate.txt
+      - uses: actions/upload-artifact@v7
+        with:
+          name: skylog-android-apk-unsigned
+          path: android/app/build/outputs/apk/release/
+          if-no-files-found: error
       - uses: actions/upload-artifact@v7
         with:
           name: skylog-android-aab-unsigned

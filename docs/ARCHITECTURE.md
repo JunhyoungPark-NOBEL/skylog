@@ -214,3 +214,7 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 ## beta.5 오늘 밤·달력·풍경
 
 EventCalendar는 list/month/year UI를 분리하고 calendar.ts가 시간대 날짜·월 이동·날짜별 그룹·ICS 생성을 담당한다. useTonight의 분 경계/복귀 갱신과 CalendarBrowser 월 키로 현재 달을 따라간다. 코스는 theme/group 해시를 더하며 데이터 ID/진도를 바꾸지 않는다. HorizonLayer의 낮은 풍경 밴드에 공통 천구 투영을 적용하고 landscape.ts의 유효 불투명도를 지면·라벨·선택에 공유한다. 이미지·오프라인·설계 근거는 [개선 기록](TONIGHT-REFRESH.md).
+
+## beta.6 풍경 합성
+
+HorizonLayer의 지면 한 표면에서 meadow-v2 색을 혼합한 뒤 사용자/시선 alpha를 한 번 적용한다. 별도 meadowMesh는 제거했다. SkyProjection.attach 뒤에 groundMaterial.onBeforeCompile을 연결해 천구 투영을 보존한다. 동일 프레임의 유효 지면 불투명도/라벨/선택 정책은 유지한다. 상세는 LANDSCAPE-REFINEMENT.md. 향후 꾸미기/사진 서버는 COMMUNITY-AND-CUSTOMIZATION.md의 제안이며 현재 스키마를 바꾸지 않았다.

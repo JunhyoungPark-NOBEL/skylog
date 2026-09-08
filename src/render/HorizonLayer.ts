@@ -16,13 +16,19 @@ export class HorizonLayer {
     fadeBelowHorizon: false,
   });
   private readonly groundMaterial: THREE.MeshBasicMaterial;
-  readonly meadow: THREE.Mesh;
-  private readonly meadowMaterial: THREE.MeshBasicMaterial;
+  private readonly meadowUniforms = {
+    uMeadowEnabled: { value: 0 },
+    uMeadowTint: { value: new THREE.Color() },
+  };
   private disposed = false;
+
+  get meadowVisible(): boolean {
+    return this.meadowUniforms.uMeadowEnabled.value > 0 && this.groundMaterial.opacity > 0.001;
+  }
 
   constructor() {
     // 아래 반구: thetaStart π/2 (적도) 부터 π (남극) 까지
-    const geom = new THREE.SphereGeometry(95, 64, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
+    const geom = new THREE.SphereGeometry(95, 192, 48, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
     this.groundMaterial = new THREE.MeshBasicMaterial({
       color: new THREE.Color('#0b0d12'),
       side: THREE.BackSide,
@@ -34,30 +40,6 @@ export class HorizonLayer {
     this.ground = new THREE.Mesh(geom, this.groundMaterial);
     this.ground.renderOrder = 40;
     this.ground.frustumCulled = false;
-
-    this.meadowMaterial = new THREE.MeshBasicMaterial({
-      side: THREE.BackSide,
-      transparent: true,
-      depthWrite: false,
-      depthTest: false,
-      alphaTest: 0.01,
-    });
-    // 텍스처의 투명 상단까지 포함한다. 꽃과 풀 끝은 지평선 약 0~3° 안쪽이다.
-    this.meadow = new THREE.Mesh(
-      new THREE.SphereGeometry(
-        94,
-        192,
-        20,
-        0,
-        Math.PI * 2,
-        (72 * Math.PI) / 180,
-        (28 * Math.PI) / 180,
-      ),
-      this.meadowMaterial,
-    );
-    this.meadow.renderOrder = 40.5;
-    this.meadow.frustumCulled = false;
-    this.meadow.visible = false;
 
     const polys: Vec3[][] = [circlePoints([0, 1, 0], 1, 0)];
     for (let az = 0; az < 360; az += 10) {
@@ -73,47 +55,60 @@ export class HorizonLayer {
     this.ring.setStyle(ringColor, 0.8);
   }
 
-  async loadMeadow(invalidate: () => void): Promise<void> {
+  async loadMeadow(invalidate: () => void, maxAnisotropy = 1): Promise<void> {
     try {
       const texture = await new THREE.TextureLoader().loadAsync(
-        `${import.meta.env.BASE_URL}landscapes/meadow-v1.webp`,
+        `${import.meta.env.BASE_URL}landscapes/meadow-v2.webp`,
       );
       if (this.disposed) {
         texture.dispose();
         return;
       }
       texture.colorSpace = THREE.SRGBColorSpace;
-      texture.wrapS = THREE.RepeatWrapping;
-      texture.repeat.x = 3;
-      this.meadowMaterial.map = texture;
-      this.meadowMaterial.needsUpdate = true;
+      texture.anisotropy = Math.max(1, Math.min(8, maxAnisotropy));
+      texture.minFilter = THREE.LinearMipmapLinearFilter;
+      texture.magFilter = THREE.LinearFilter;
+      this.groundMaterial.map = texture;
+      this.groundMaterial.needsUpdate = true;
       invalidate();
     } catch {
       /* 풍경을 읽지 못해도 기존 지면·하늘은 계속 표시한다. */
     }
   }
-  /** 공통 천구 투영 셰이더를 유지하면서 풍경 아래쪽을 지면 색으로 잇는다. */
+  /** 풍경과 지면을 한 번만 합성한다. 별도 반투명 레이어가 겹쳐 짙어지는 현상을 막는다. */
   blendMeadowEdge(): void {
-    const project = this.meadowMaterial.onBeforeCompile.bind(this.meadowMaterial);
-    this.meadowMaterial.onBeforeCompile = (shader, renderer) => {
+    const project = this.groundMaterial.onBeforeCompile.bind(this.groundMaterial);
+    this.groundMaterial.onBeforeCompile = (shader, renderer) => {
       project(shader, renderer);
+      Object.assign(shader.uniforms, this.meadowUniforms);
+      shader.fragmentShader = `uniform float uMeadowEnabled;\nuniform vec3 uMeadowTint;\n${shader.fragmentShader}`;
       shader.fragmentShader = shader.fragmentShader.replace(
         '#include <map_fragment>',
-        `#include <map_fragment>
+        `
         #ifdef USE_MAP
-        diffuseColor.a *= smoothstep(0.0, 0.24, vMapUv.y);
+        // 아래 반구 UV: 지평선 y=1, 천저 y=0. 하늘 위에는 장식을 그리지 않는다.
+        float belowDeg = (1.0 - vMapUv.y) * 90.0;
+        float meadowBlend = smoothstep(0.0, 2.5, belowDeg)
+          * (1.0 - smoothstep(14.0, 32.0, belowDeg)) * uMeadowEnabled;
+        // 반복 가장자리 10%를 겹쳐, 원본이 완전한 타일이 아니어도 이음매를 숨긴다.
+        float mx = fract(vMapUv.x * 6.0) * 0.9;
+        float my = clamp(1.0 - belowDeg / 32.0, 0.0, 1.0);
+        vec3 meadowA = texture2D(map, vec2(mx, my)).rgb;
+        vec3 meadowB = texture2D(map, vec2(mx + 0.9, my)).rgb;
+        vec3 meadowColor = mix(meadowA, meadowB, 1.0 - smoothstep(0.0, 0.1, mx));
+        diffuseColor.rgb = mix(diffuseColor.rgb, meadowColor * uMeadowTint, meadowBlend);
+        diffuseColor.a *= mix(1.0, smoothstep(0.0, 0.8, belowDeg), uMeadowEnabled);
         #endif
       `,
       );
     };
-    this.meadowMaterial.customProgramCacheKey = () => 'skylog-stereographic-meadow-fade-v1';
+    this.groundMaterial.customProgramCacheKey = () => 'skylog-stereographic-meadow-blend-v2';
   }
-  setMeadow(enabled: boolean, opacity: number, night: boolean, sunAltitude: number): void {
-    this.meadow.visible = enabled && !!this.meadowMaterial.map && opacity > 0.001;
-    this.meadowMaterial.opacity = opacity;
+  setMeadow(enabled: boolean, night: boolean, sunAltitude: number): void {
+    this.meadowUniforms.uMeadowEnabled.value = enabled && !!this.groundMaterial.map ? 1 : 0;
     // 적색 테마를 유지하고, 낮/밤에 맞춰 장식의 밝기만 조절한다.
     const brightness = Math.max(0.3, Math.min(0.8, 0.3 + (sunAltitude + 18) / 48));
-    this.meadowMaterial.color.setRGB(
+    this.meadowUniforms.uMeadowTint.value.setRGB(
       night ? 0.55 : brightness,
       night ? 0 : brightness,
       night ? 0 : brightness,
@@ -122,9 +117,7 @@ export class HorizonLayer {
 
   dispose(): void {
     this.disposed = true;
-    this.meadow.geometry.dispose();
-    this.meadowMaterial.map?.dispose();
-    this.meadowMaterial.dispose();
+    this.groundMaterial.map?.dispose();
     this.ground.geometry.dispose();
     this.groundMaterial.dispose();
     this.ring.dispose();

@@ -51,4 +51,6 @@
 
 ## 장식 풍경 (2026-09-08)
 
+- 현재 사용: public/landscapes/meadow-v2.webp. 내장 image_gen 새 생성, 실제1774×887, WebP805,980bytes. 별도 사진/코드/경쟁사 풍경 미사용. 투명 sky cutout 대신 식물로 가득한 RGB 표면을 지면 셰이더에서 혼합한다. [실제 프롬프트·제약·검증](LANDSCAPE-REFINEMENT.md). 아래 v1은 Git 이력의 이전 자료다.
+
 - public/landscapes/meadow-v1.webp: 내장 image_gen으로 이 프로젝트용 새 잔디·꽃 이미지를 생성했다. 외부 사진·Stellarium 풍경을 가져오지 않았다. 실제 지형이 아닌 장식용 가상 풍경이며 생성 PNG를 alpha 보존 WebP로 압축했다. 프롬프트·해상도·생성 방식은 [개선 기록](TONIGHT-REFRESH.md)에 남긴다.

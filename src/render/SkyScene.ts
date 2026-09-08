@@ -171,14 +171,13 @@ export class SkyScene {
       this.grid.meridian.object,
       this.bodies.group,
       this.horizon.ground,
-      this.horizon.meadow,
       this.horizon.ring.object,
     );
     this.projection.attach(this.scene);
     this.horizon.blendMeadowEdge();
     void this.horizon.loadMeadow(() => {
       this.dirty = true;
-    });
+    }, this.renderer.capabilities.getMaxAnisotropy());
 
     opts.canvas.addEventListener('webglcontextlost', (e) => {
       e.preventDefault();
@@ -421,7 +420,7 @@ export class SkyScene {
     );
     this.horizon.ground.visible = groundOpacity > 0;
     this.horizon.setStyle(p.night ? '#050000' : '#0b0d12', groundOpacity, p.horizon);
-    this.horizon.setMeadow(layers.landscape, groundOpacity, p.night, sunAlt);
+    this.horizon.setMeadow(layers.landscape, p.night, sunAlt);
 
     this.bodies.setShowBelowHorizon(showBelow);
     this.bodies.updateViewScale(

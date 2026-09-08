@@ -1,6 +1,6 @@
 {
   "name": "skylog",
-  "version": "0.1.0-beta.5",
+  "version": "0.1.0-beta.6",
   "private": true,
   "description": "별관찰해쌀뚜 — 별·달·행성 관측용 개인 PWA",
   "type": "module",

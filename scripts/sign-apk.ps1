@@ -6,7 +6,8 @@ param(
   [string]$JdkPath = $env:JAVA_HOME,
   [string]$Keystore = (Join-Path $env:LOCALAPPDATA 'skylog-signing/skylog-upload.p12'),
   [string]$PasswordFile = (Join-Path $env:LOCALAPPDATA 'skylog-signing/password.dpapi.xml'),
-  [string]$KeyAlias = 'skylog-upload'
+  [string]$KeyAlias = 'skylog-upload',
+  [ValidatePattern('^[a-fA-F0-9]{64}$')][string]$ExpectedCertificateSha256
 )
 $ErrorActionPreference = 'Stop'
 if (-not $SdkPath) { $SdkPath = Join-Path $env:LOCALAPPDATA 'skylog-tools/android-sdk' }
@@ -39,8 +40,15 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'APK alignment failed.' }
   & $skylogSigner sign --ks $skylogKey --ks-key-alias $KeyAlias --ks-pass env:SKYLOG_UPLOAD_PASSWORD --key-pass env:SKYLOG_UPLOAD_PASSWORD --v4-signing-enabled false $skylogTemp
   if ($LASTEXITCODE -ne 0) { throw 'APK signing failed.' }
-  & $skylogSigner verify --verbose --print-certs $skylogTemp
+  $skylogVerification = & $skylogSigner verify --verbose --print-certs $skylogTemp
   if ($LASTEXITCODE -ne 0) { throw 'APK signature verification failed.' }
+  $skylogVerification | Write-Output
+  if ($ExpectedCertificateSha256) {
+    $skylogCertMatch = [regex]::Match(($skylogVerification -join "`n"), 'Signer #1 certificate SHA-256 digest: ([a-fA-F0-9]{64})')
+    if (-not $skylogCertMatch.Success -or $skylogCertMatch.Groups[1].Value -ne $ExpectedCertificateSha256) {
+      throw 'Certificate mismatch: this key cannot update the existing APK. No installable output was published.'
+    }
+  }
   & $skylogAlign -c -P 16 4 $skylogTemp
   if ($LASTEXITCODE -ne 0) { throw 'Signed APK alignment verification failed.' }
   Move-Item -LiteralPath $skylogTemp -Destination $skylogOutput

@@ -1,6 +1,6 @@
 # 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.5/build10 오늘 밤·달력·코스·풍경 배포 검증 완료
+> 마지막 갱신: 2026-09-08 · 갱신자: Codex 로컬 · beta.6/build11 풍경 개선·후속 서비스 설계 · 로컬 검증 완료, 배포/서명 진행
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -8,7 +8,17 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-08 · beta.5/build10 오늘 밤·코스·풍경)
+## 이번 작업 보고 (2026-09-08 · beta.6/build11 풍경·후속 서비스)
+
+- **범위/기준**: 깨끗한 main 25df2c7에서 시작. 최근 beta.5의 날씨/달력/코스/자연어와 기존 센서/관측/학습/스크롤 기능 유지.
+- **구현**: 새1774×887 식물 텍스처(WebP805,980bytes), 지면과 단일 합성·상하/반복 경계 혼합·필터링. 아래 시선 자동 투명화와 야간 적색 유지. 실제4K 결과는 아니며 질감에 사용하는 픽셀 비중/화면상 샘플 밀도를 높였다.
+- **검증**: 타입/lint·단위501개·브라우저59개 전체 통과. 실제 WebGL 50% 혼합/야간 적색·기본/아래 시선·낮/밤 캡처 확인. native CI·공개 PWA·모바일 아티팩트 확인은 진행 중.
+- **후속 설계**: 마당/아바타 업적 보상→천체별 사진→댓글/운영→선택형 유료화. 현재 관측·학습 무료, 추가 외형 팩1회 구매, 원본 저장/동기화 구독은 구현 이후 추천. 실제 꾸미기/계정/결제/댓글 서버는 미구현. docs/COMMUNITY-AND-CUSTOMIZATION.md·MONETIZATION-PLAN.md와 공식 조사 기록 참고.
+- **산출물/결정**: D-045 풍경 단일 합성, D-046 무료 핵심과 후속 서비스, D-047 업데이트 APK 서명 보존. 앱 beta.6/build11, 다음 CI기본12. commit/push/배포 결과는 아래 후속 검증 후 기록한다.
+- **APK**: CI에 release unsigned APK 추가. 이 PC에 build9 개인 테스트 키가 없어 기존 키 위치/기존 PC 사용 가능 여부를 질문한 상태다. 설치 가능한 동일 서명 APK는 아직 만들지 않았다. 키가 없으면 원래 PC에서 서명할 수 있는 해시/인증서 검증 패키지를 제공하며, 다른 키의 APK를 업데이트 파일이라고 안내하지 않는다.
+- **실기기/사용자 액션**: 기본 풍경 질감/좌우 이음·아래 시선 fade·야간/줌 성능 확인. 기존 앱을 삭제하지 않는다. 새 GPT Pro 요청은 없다. T5/T7/T8 전체 완료 태그 없음.
+
+## 이전 작업 보고 (2026-09-08 · beta.5/build10 오늘 밤·코스·풍경)
 
 - **최신 기준**: 작업 전 깨끗한 main을 원격 `74b764f`까지 fast-forward했다. 첨부 build9 ZIP은 단일 APK이며 공개 build9와 SHA256이 일치한다. build9의 자동 센서·원형 하늘·태양/달 크기·업적48·장비/진도 기능을 보존했다.
 - **구현 요약**: ‘날씨’ 탭에 기온/구름/비/바람·시간별 예보를 먼저 표시하고, 밤하늘과 상세는 요약/펼치기로 정리했다. 9월/10월 버튼 오류와 선택 구간보다 길게 보이던 맑은 시간의 끝을 수정했다. 목록 기본 + 월간/연간 달력, 월말 자동 전환, 연간 ICS 내보내기를 추가했다. 코스는 맨눈/쌍안경/망원경→세부 코스이며 망원경 안에 스타호핑 입문6개를 둔다. ‘시야0.2개’는 ‘보이는 원 너비의 약20%’로 풀었다.
@@ -33,32 +43,6 @@
 - **산출물·공개**: `Downloads/skylog-release-0.1.0-beta.4-build9/`. [APK 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.4-build9). 개인 APK 7,213,385 bytes, SHA256 `efdfca31d55dfeb707d7d914b1a404bb14cb8d543b52f6f3549d4a4db75e761f`. unsigned AAB 6,922,904 bytes, SHA256 `80b8b0d4c8cbeede255957033b000d8fef5be0628f4d03e43277118b5367b7c5`. bundletool·API36/min24/version9·release/backup=false·APK 서명/16KB 정렬·build8 인증서 일치 확인. AAB/APK/native public 162개 SHA256 일치. Android lint 오류0/경고33.
 - **CI/PWA**: [Pages 34203144579](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144579)와 [모바일 34203144730](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34203144730) 전체 성공. Android API36 인터넷 차단 WebView 계측과 iOS Xcode26 arm64 무서명 컴파일 통과. 공개 웹 beta.4·새 기본값·업적48·원형 하늘·SW·재실행·JS 오류0 확인. 공개 APK를 다시 다운로드해 크기/해시 일치 확인. 실제 휴대폰 센서/FPS·iPhone 설치용 서명 IPA를 검증한 것은 아니다.
 - Play 업로드 키 복원/최종 AAB 서명, Apple 팀/서명 Archive/TestFlight, 실제 Android/iPhone 설치·센서·그래픽과 스토어 심사는 남는다. 현재 전 기능 무료, 결제/무료 이용권은 설계 단계. T5/T7/T8 전체 완료 태그 없음. 설치·실기기 확인은 `docs/INSTALL-ON-PHONE.md`, 릴리스 상세는 `docs/MOBILE-RELEASE.md`.
-
-## 이전 작업 보고 (2026-09-08 · beta.3/build8 가독성·자동 센서)
-
-- 원격 main 최신 bfa7109를 fetch로 확인하고 build7 위에서 갱신했다. 앱 버전 0.1.0-beta.3, Android build8, 다음 CI 기본 번호9. 천문 좌표·별 개수·데이터 팩·DB v2는 유지한다.
-- 별자리 연결선·경계를 두 테마 모두 흰색으로 고정하고 기존 투명도 설정에서도 대비를 높였다. 밝은 별 중심과 최소 표시 크기를 키웠다. 은하수 색/밀도/투명도의 중복 감쇠를 제거해 밤에 띠와 먼지 결이 보이게 했다. 실제 낮에는 대기 효과가 은하수를 가리며 하늘 설정에 설명한다. D-036은 D-034의 야간 전부 적색 원칙 중 별자리 선/경계만 수정한다.
-- 첫 하늘 화면은 작은 접힌 시간 버튼과 반투명 52px 탭을 사용한다. 원형 하늘·별길·실제 하늘·선택 정렬은 하늘 설정으로 모았다. 글자 확대 시 탭/상태 높이가 늘며 AR 안내와 목표·좌표 HUD는 실제 높이로 배치한다.
-- 방향 센서는 기본 자동 시작하며 끄기 선택을 저장한다. iPhone의 최초 동작 권한은 사용자 탭에서 요청한다. 북 기준이 없는 상대 yaw는 화면을 회전시키지 않으며 잠시 평평하게 들도록 안내한다. 고정 링크·원형 하늘에서는 센서가 차트를 덮어쓰지 않는다. 위치는 자동 사용 설정과 권한에 따라 앱 시작/복귀 시 한 번 갱신하고 저장 관측지 선택/꺼짐을 유지한다. 같은 GPS 이름이어도 먼 좌표의 예전 별 보정은 복원하지 않는다. D-037.
-- typecheck/lint/단위433/데이터 검증/PWA 빌드 통과. 브라우저48개 항목 통과: 전체47 중 픽셀 검사용 preserve 캔버스 복귀 오류를 고친 후 관련20개와 마지막 UI 변경 관련14개를 다시 통과했다. 흰 선·은하수·큰 별·360px/글자200%·자동 센서/GPS 확인. 캡처와 로그는 artifacts/qa-build8. 같은 목표의 중복 정보 카드를 숨기고 센서 거부 안내를 줄여 큰 글자에서도 목표 HUD가 화면 안에 보인다.
-- 앱 소스 `e17373169c2475183f424be81031fb28f7fc939c`를 main에 반영했다. [Pages 34195531010](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34195531010) 성공. 공개 웹 beta.3·작은 기본 UI·원형 하늘·SW·재실행/JS 오류0 확인. [APK 사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.3-build8)의 태그는 같은 앱 소스이며 실제 공개 APK를 다시 내려받아 해시를 대조했다.
-- **개인 APK 완료**: `Downloads/skylog-release-0.1.0-beta.3-build8/skylog-0.1.0-beta.3-build8-local-test.apk`, 7,200,927 bytes, SHA256 `8adb1e44357b3631849ce6f604e9acf7395227d39a71da8dfba5fa6089ff450f`. build7 APK와 실제 인증서 대조 통과. 기존 개인 체험판을 삭제하지 않고 업데이트한다.
-- **unsigned AAB 완료**: 같은 폴더 `skylog-0.1.0-beta.3-build8-unsigned.aab`, 6,913,704 bytes, SHA256 `d92406690d512d9e01bc4e8c94cc1615af88cc465ec7b00f40025c4e3be88698`. bundletool·API36/min24/version8·release/backup=false 확인, APK 서명/정렬 성공. AAB·APK·native public 160개 파일 SHA256 일치. 로컬 Android release/lint 성공(오류0/경고33).
-- [모바일 CI 34195530826](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34195530826) **전체 성공**: Android release/lint·인터넷을 끈 API36 실제 WebView 계측, iOS Xcode26 arm64 무서명 컴파일. iPhone 설치용 서명 IPA는 아니다.
-- Play 업로드 키 복원/최종 서명, Apple 팀 서명/TestFlight, 실제 Android/iPhone의 센서·그래픽 확인과 스토어 심사는 남는다. 현재 기능은 모두 무료이며 유료 상품/서버 권한은 구현하지 않았다. T5/T7/T8 전체 완료 태그 없음.
-
-이전 build7 보고는 [보관 보고](reports/2026-09-08-build7.md)를 참고한다.
-
-이전 build6 상세 창 스와이프 기록은 [보관 보고](reports/2026-09-08-build6.md)를 참고한다.
-
-이전 build5 완료 기록은 [보관 보고](reports/2026-09-08-build5.md)를 참고한다.
-
-이전 build4 완료 기록은 [보관 보고](reports/2026-09-08-build4.md)를 참고한다.
-
-- GitHub 저장소: https://github.com/JunhyoungPark-NOBEL/skylog (public, main)
-- 배포 URL (GitHub Pages): **https://junhyoungpark-nobel.github.io/skylog/** (Actions 소스, `main` push마다 자동 배포)
-- Actions: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/deploy.yml
-- 개발 환경 경로: **A(Claude Code 로컬) 확정** — D-007. 로컬 폴더 `C:\Users\JunhyoungPark\OneDrive\Desktop\별관찰해쌀뚜`(OneDrive로 두 PC에 동기화됨; 두 PC 모두 Node 24·pnpm 12·gh 로그인·Playwright 준비).
 
 ## 태스크 현황
 
@@ -87,6 +71,8 @@
 | G5 퀴즈·미션 콘텐츠 생성 | T7 전 | ✅ 앱 반영. G5 180문항 중 skyPick36만 잠금. 2026-09-08 T5 연결로 미션30·배지18 활성, 독자 작성 한·영 관측60문항 추가로 총240/활성204. 별자리 배지는 실제 별자리 관측 기록만 인정 | `plan/research/G3-G5-integrated/G5/`(정본 유지), 추가 `data-src/learn-raw/observing-quiz.json`. 옛 준비팩은 참고용 |
 
 ## 다음 세션이 알아야 할 것
+
+- 최신 풍경/서비스 설계는 D-045~047과 docs/LANDSCAPE-REFINEMENT.md, COMMUNITY-AND-CUSTOMIZATION.md. 핵심 무료·꾸미기 우선 제안이 D-035의 이전 Pro 범위를 대체한다. 개인 APK 서명 키는 Play 업로드 키와 다르며 자동 새 키 생성 금지.
 
 - **학습 탐색/스테이지(D-026)**: features/learn의 LearnScreen → QuizJourney/CoursesScreen/StoriesScreen/AchievementsScreen. 해시 section/path/mission/chapter로 복원하며 하단 탭 복귀 시 마지막 배우기 경로 유지. stageCatalog는 144문항을 중복 없이 고정한 28단계, 정답률 80% 해제·60/80/100% 별, 개인 합계는 단계별 최고점만. stage/question 버전을 함께 검증하며 마지막 응답과 완료 기록은 원자 저장. 기존 미션/응답/복습/관측 유지, 새 도장은 새 여정을 완주해야 획득한다. 리더보드는 아직 로컬 점수 기반만 준비됨.
 - **하늘 설정(D-038)**: `groundOpacity` 기본1, 단일 슬라이더와 기본값 복원. 불투명도1이면 지평선 아래 표시·선택을 함께 막고1 미만이면 함께 허용한다. layers persist v2로 이전 옵션을 이관한다. 기본 경계 false·은하수0.33·별 채도1, 저장된 커스텀 설정은 보존한다. 실제 관측 가능 판정은 그대로다.
