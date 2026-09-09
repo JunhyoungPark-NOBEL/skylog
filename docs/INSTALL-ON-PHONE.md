@@ -1,6 +1,6 @@
 # 휴대폰에서 별관찰 앱 사용하기
 
-이번 버전은 **0.1.0-beta.9 / build14**입니다. 천체 사진과 댓글을 보완했고, 기존 마당·잔디밭·아바타/코디·관측/학습 기능을 포함합니다. 스토어 정식 공개 출시는 아직 하지 않았습니다. 공개 배포 최종 결과는 [모바일 출시 준비](MOBILE-RELEASE.md)에 기록합니다.
+이번 버전은 **0.1.0-beta.9 / build14**입니다. 천체 사진과 댓글을 보완했고, 기존 마당·잔디밭·아바타/코디·관측/학습 기능을 포함합니다. 스토어 정식 공개 출시는 아직 하지 않았습니다. 서명 APK와 웹앱을 공개했고 다운로드/버전을 확인했습니다. [검증 결과](MOBILE-RELEASE.md).
 
 - [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.9-build14/skylog-0.1.0-beta.9-build14-local-test.apk): 기존 개인 APK 위에 설치하는 서명된 업데이트입니다. build13과 동일한 인증서를 검증했습니다. JSON 백업을 보관한 뒤 앱을 삭제하지 않고 업데이트합니다.
 - [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari에서 열고 공유 → 홈 화면에 추가. 기존 홈 화면 앱도 계속 사용합니다. 앱/사이트 데이터를 지우지 말고 설정의 beta.9을 확인합니다.
@@ -46,6 +46,8 @@ build14은 기존 build9 개인 APK와 같은 인증서로 서명했습니다. �
 이번 로컬 AAB는 무서명입니다. 집 PC의 기존 Play 업로드 키로 서명하기 전 Play에 제출하지 않습니다. AAB는 휴대폰에서 직접 여는 설치 파일이 아닙니다.
 
 ## 아이폰: Safari 홈 화면 웹앱
+
+사진·출처·야간·작은 화면은 WebKit 자동 검사에서 확인했습니다. Windows WebKit 오프라인 시험은 내부 오류가 나서 실제 iPhone의 비행기모드 재실행은 아직 확인하지 못했습니다. 먼저 온라인에서 앱을 충분히 연 뒤 비행기모드에서 홈 화면 앱을 다시 열어 사진/기존 기록을 확인해 주세요. Chromium의 오프라인 사진 재실행과 Android 내장 자료 검사는 통과했습니다.
 
 APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. beta.9 공개 배포 검증은 MOBILE-RELEASE.md의 최신 보고를 따른다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
 

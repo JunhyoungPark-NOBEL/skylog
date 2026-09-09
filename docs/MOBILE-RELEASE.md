@@ -1,14 +1,19 @@
 # Android AAB / iOS 출시 준비
 
-> **최신 작업: beta.9/build14 천체 사진·댓글 보완.** 기본 검증/배포 결과는 아래에 기록한다. 현재 PC는 기존 개인 APK 키가 있는 원래 서명 PC이며 Play 업로드키는 집 PC에 있다.
+> **최신 작업: beta.9/build14 천체 사진·댓글 보완.** 검증/서명 APK·웹 배포를 완료했으며 iPhone 실기기 오프라인 확인과 정식 스토어 절차는 남아 있다. 현재 PC는 기존 개인 APK 키가 있는 원래 서명 PC이며 Play 업로드키는 집 PC에 있다.
 
 ## beta.9 / build14 — 천체 사진·댓글 보완
 
 - 사진20개·검색/선택/자세히·야간/오프라인과 개별 권리 기록은 [사진 출처](OBJECT-PHOTOS.md), 댓글 변경/서버 개통 경계는 [댓글 검토](COMMENTS-REVIEW.md)에 있다.
 - [향후 학습 이용권 계획](MONETIZATION-PLAN.md): 난이도2·3과 망원경 코스의 미래 판매안. 현재 기능은 계속 무료이며 결제·가격·권한을 등록하지 않았다.
 - **로컬 최종 검증**: 타입/lint·데이터·전체 단위541개와 이후 추가 API6개(총547개 고유 검사), PostgreSQL/RLS46개, Chromium75개 전체 통과. 사진 야간 픽셀 검사에서 둥근 모서리 밖 부모 표면을 제외했고 원래 색 토글이 기존 전역 이미지 필터에 걸리는 문제를 수정한 최종 소스를 검사했다. Android release/lint오류0·경고32, AAB/APK/native215개 에셋과 public191개 자료·사진40개/manifest 해시 일치. iOS 로컬 public과 실제 CI .app는 별도 검증한다.
-- **로컬 산출물**: Downloads/skylog-release-0.1.0-beta.9-build14/. APK9,446,602bytes·SHA256 `a903017f9d6153f5245493b580561abcb487220b5b54e2c5ff9742663e5eb111`, beta.9/build14·min24/target36·release flags·16KB 정렬·기존 build13 인증서 일치. AAB9,129,298bytes·SHA256 `cc3d95769f1d2efd8e7b1130060ba7761f81494b57e1aa890abdee2ad61bcae5`는 무서명이며 집 PC의 기존 Play 업로드키로 서명해야 한다. 공개 배포/모바일 CI 검증은 이어서 기록한다.
-- 공개 배포/모바일 CI 검증은 이어서 기록한다. 일반 가입·SMTP·실제 운영자·Play 업로드 서명·Apple 서명/TestFlight·실기기·스토어 심사는 별도다. 다음 CI기본15.
+- **로컬 산출물**: Downloads/skylog-release-0.1.0-beta.9-build14/. APK9,446,602bytes·SHA256 `a903017f9d6153f5245493b580561abcb487220b5b54e2c5ff9742663e5eb111`, beta.9/build14·min24/target36·release flags·16KB 정렬·기존 build13 인증서 일치. AAB9,129,298bytes·SHA256 `cc3d95769f1d2efd8e7b1130060ba7761f81494b57e1aa890abdee2ad61bcae5`는 무서명이며 집 PC의 기존 Play 업로드키로 서명해야 한다. 공개 배포/모바일 CI 검증을 완료했다.
+- 공개 배포/모바일 CI 검증을 완료했다. 일반 가입·SMTP·실제 운영자·Play 업로드 서명·Apple 서명/TestFlight·실기기·스토어 심사는 별도다. 다음 CI기본15.
+
+- **최종 배포**: 소스 `9f0047d084048d8f5831467771cead6835563a69`, [Pages34303341473](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34303341473)·[모바일34303357539](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34303357539) 전체 성공. 최종 Pages 단위547/547개·73/73파일 통과를 실제 작업 로그에서 확인했다. 공개 [beta.9/build14 APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.9-build14/skylog-0.1.0-beta.9-build14-local-test.apk)를 재다운로드해9,446,602bytes·SHA256 `a903017f9d6153f5245493b580561abcb487220b5b54e2c5ff9742663e5eb111` 일치를 확인했다. 웹 beta.9·사진40파일 공개 SHA·정보 화면20개 전체 크레딧/활성 링크·토성 상세·오프라인 재실행과 미방문 M42 사진·JS예외0 확인.
+- **모바일 증거**: Android API36/x86_64에서 Wi-Fi/data 끄기 명령 후 debug WebView 계측1개·실패0/오류0/누락0, 12.792초. JUnit XML·HTML·소스 @Test 수를 대조했다. CI lint오류0/경고32. iOS Xcode26.3·iphoneos26.2·build14·arm64·최소16.4 무서명 컴파일과 plist/실행파일 검사. CI .app의 public191개와 사진40개/manifest도 소스와 SHA256 일치한다.
+- **WebKit/실기기 경계**: Windows WebKit26.6/iPhone13 에뮬레이션에서 온라인·전체 출처·야간 픽셀·명시 원색·360px 영어125%·사진 캐시7단계 통과. 이후 오프라인 reload와 새 문서 열기는 브라우저 내부 오류로 실패했고 마지막 요약단계는 미실행이다. 캐시의 index/사진200과 온라인 복구·JS예외0을 확인해 도구 제어 제한 가능성으로 추정하지만 실제 iPhone 오프라인 성공으로 표시하지 않는다. [Playwright 서비스 워커 지원](https://playwright.dev/docs/service-workers)과 [브라우저 범위](https://playwright.dev/docs/browsers) 참조. 실제 iPhone의 비행기모드 홈 화면 재실행·사진/기존 기록·센서는 사용자 확인이 필요하다. APK 실폰 설치도 미확인이다.
+- **출시 경계**: 개인 APK와 웹 배포/사진 권리 기록/댓글 회귀/미래 유료화 계획은 완료했다. Play용 AAB는 현재PC에 없는 기존 업로드키로 서명해야 하며 Apple 팀 서명/TestFlight·스토어 심사·일반 가입 SMTP/운영자 개통·실제 유료 상품/두 사람 무료 권한 발급은 대기다. 이번 버전은 계속 무료이며 실서비스에 테스트 댓글을 전송하지 않았다.
 
 ## beta.8 / build13 — 아바타 꾸미기·설치 APK
 
