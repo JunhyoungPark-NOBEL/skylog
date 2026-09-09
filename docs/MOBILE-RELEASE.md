@@ -1,12 +1,18 @@
 # Android AAB / iOS 출시 준비
 
-> 2026-09-09 최신 작업은 **0.1.0-beta.8 / build13**이다. 집의 beta.7/build12를 보존하며 아바타 꾸미기를 확장했다. 이번 작업의 검증·배포 결과는 아래에 확정한다. 이전 기록의 ‘이 PC’는 당시 집 컴퓨터를 뜻하며 현재 원래 APK 서명 PC와 다르다.
+> 2026-09-09 최신 작업은 **0.1.0-beta.8 / build13**이다. 집의 beta.7/build12를 보존하며 아바타 꾸미기를 확장했다. 이번 작업의 검증·배포를 완료했다. 이전 기록의 ‘이 PC’는 당시 집 컴퓨터를 뜻하며 현재 원래 APK 서명 PC와 다르다.
 
 ## beta.8 / build13 — 아바타 꾸미기·설치 APK
 
 - 변경 범위와 폰 사용 방법: [아바타 확장](AVATAR-CUSTOMIZATION.md). 선택39개·업적 보상6·미리보기/적용/취소·코디3칸. 기존 모든 기능 무료, [별도 테마 팩 판매안](MONETIZATION-PLAN.md)은 미구현 제안이다.
-- 기존 build9 개인 테스트 키로 APK를 서명하고 동일 인증서·높은 versionCode를 확인한다. 기존 앱을 삭제하지 않고 업데이트한다. 이 PC에서 새 Play키를 만들지 않는다. 최종 파일/해시/CI 증거는 빌드 후 추가한다.
+- 기존 build9 개인 테스트 키로 APK를 서명하고 동일 인증서·높은 versionCode를 확인한다. 기존 앱을 삭제하지 않고 업데이트한다. 이 PC에서 새 Play키를 만들지 않는다. 최종 파일/해시/CI 증거는 아래에 있다.
 - 공개 Supabase 설정 유지, SIGNUPS_READY/EMAIL_CODE=false. SMTP/실제 운영자/외부 이메일·실기기·정식 스토어 심사/Apple 서명/TestFlight는 별도다. iPhone은 [PWA](https://junhyoungpark-nobel.github.io/skylog/)를 이용한다. 다음 CI기본14.
+
+- **최종 배포/수용**: 소스 `d478b9b9027f58e45c4e03e597f44b422460bcb2`, [Pages34292913299](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34292913299)·[모바일34292913317](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34292913317) 전체 성공. 로컬 타입/lint/데이터·단위528개, 브라우저66개 고유 시나리오와 공개 WebKit26.6/iPhone13 에뮬레이션8개 통과. 공개 beta.8·SW·오프라인 아바타/코디 재실행·JS오류0. 기능/자동검증/서명·배포/유료화 제안4항목 완료, 실제 폰 확인은 대기다. WebKit은 실제 iPhone 검증이 아니다.
+- **산출물**: [v0.1.0-beta.8-build13](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.8-build13), Downloads/skylog-release-0.1.0-beta.8-build13/. APK8,115,552bytes·SHA256 `76974a1533c5019143b17036b30d60f8fb6d80d5db3a1aa951340163ea108980`. 공개 APK 재다운로드 일치. 기존 build9 인증서·version13/beta.8·min24/target36·release flags·16KB 정렬 검증. AAB/APK/native174개 에셋 일치, public150개는 Android/iOS 원본 해시 일치. 로컬 Android lint오류0/경고32.
+- **서명/경계**: 로컬 AAB7,826,967bytes·SHA256 `07b972f25453ac7d7c60944fd47fc89b9d18412cc469d1fd8481808f295d06fe`는 무서명이다. 이 PC에 Play 업로드키/암호가 없어 새로 만들지 않았다. 집의 기존 업로드키로 서명해야 제출할 수 있다. Android 구 버전명이 남은 첫 산출물은 검증기가 차단해 별도 rejected-metadata 폴더에 보관하고 배포하지 않았다. Gradle이 package.json 버전을 읽고 CI가 일치를 검사하도록 수정한 뒤 새 APK/AAB를 검증했다. 이전 모바일 CI3622c24는 중단하고 최종 d478b9b만 릴리스했다.
+
+- **플랫폼 증거**: 최종 Android API36/x86_64 에뮬레이터에서 Wi-Fi/data 끄기 명령 후 debug WebView 계측1개 통과(실패0·누락0, 11.892초). CI lint오류0/경고32. iOS Xcode26.3/iPhoneOS26.2에서 build13·arm64·최소16.4·무서명 컴파일 및 plist 확인. CI iOS .app의 public150개도 최종 소스와 SHA256이 모두 일치한다. 서명 APK 실폰 설치·센서 정확도나 실제 iPhone 시험을 뜻하지 않는다.
 
 ## beta.7 / build12 — 무료 마당·사진·댓글·개인 백업
 

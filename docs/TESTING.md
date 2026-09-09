@@ -1,5 +1,15 @@
 # TESTING
 
+## beta.8/build13 검증 (2026-09-09)
+
+- 기준 main f5cf178 타입·단위504개 후 시작, 최종 소스 d478b9b9027f58e45c4e03e597f44b422460bcb2. 전체 단위528개/69파일, 타입/lint·data:validate·변경 파일 Prettier·diff 검사 통과. 기존 전체 format:check의 생성 파일 포함 문제와 큰 JS 청크 경고는 별도 후속이다.
+- 전체 Playwright66개 중64통과/2실패: 새 잠금 설명의 중첩 텍스트 선택자를 접근 가능한 설명 검사로 바꾸고, 실제 날짜가9월9일이면 오프셋이0이 되는 기존 스모크 시계를9월8일로 고정했다. 관련13개, 최종 저장 실패 보완 후 관련7개 통과. 고유66개 모두 최신 결과 통과이며 임의 재시도/대기 시간을 늘리지 않았다.
+- 새 모델/store15개와 React 저장 경계9개를 추가했다. 구형36조합·정규화/소유권·영구/중복 보상·원자 동시 저장·백업 보존, 최신 읽기 지연·실패·오래된 응답 성공/실패와 재편집 차단을 검사한다.
+- 공개 Chromium에서 beta.8·SW·오프라인 재실행·코디 적용/보관, WebKit26.6/iPhone13 에뮬레이션8개에서 저장·재실행·125%·야간 픽셀·SVG ID를 확인했다. 페이지/콘솔 오류0. 실제 폰·센서 성능 검사와 구분한다.
+- 최초 Android 산출물의 beta.7 버전명을 패키지 검증이 거부했다. Gradle package.json 참조와 CI 메타 검사를 추가한 후 최종 beta.8/version13 AAB/APK를 다시 만들었다. 최종 키·서명·16KB 정렬·174에셋/공개 다운로드 해시 검증 통과. Play 업로드 키 없는 이 PC의 AAB는 무서명이다.
+- [Pages](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34292913299)·[Android/iOS](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34292913317) 최종 성공. 개별 계측/플랫폼 로그는 artifacts/qa-build13/mobile-evidence.json과 함께 보존한다. 실제 폰·스토어/Apple서명·SMTP/운영자 개통은 별도다.
+
+
 ## build5 재검증 (2026-09-08)
 
 - typecheck/ESLint/단위366/data 검증/웹·native build 통과. pnpm12.3.4와 frozen lock 사용.
