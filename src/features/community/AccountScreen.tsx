@@ -10,8 +10,6 @@ import {
   communityError,
   edgeAction,
   useCommunityUser,
-  emailCodeEnabled,
-  signupsReady,
 } from '@/community/client';
 import {
   exportBundle,
@@ -22,6 +20,8 @@ import {
 } from '@/db/exportImport';
 import type { ExportBundle } from '@/db/types';
 import type { CloudBackup, CommunityMember } from '@/community/types';
+import { EmailLogin } from './EmailLogin';
+import { clearLoginCallback, useLoginCallback } from '@/community/callback';
 
 export default function AccountScreen() {
   const auth = useCommunityUser();
@@ -29,9 +29,7 @@ export default function AccountScreen() {
 }
 function AccountContent({ user, ready }: ReturnType<typeof useCommunityUser>) {
   const { t, i18n } = useTranslation();
-  const [email, setEmail] = useState('');
-  const [code, setCode] = useState('');
-  const [sent, setSent] = useState(false);
+  const callback = useLoginCallback();
   const [name, setName] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [joined, setJoined] = useState(false);
@@ -41,9 +39,7 @@ function AccountContent({ user, ready }: ReturnType<typeof useCommunityUser>) {
   const [audit, setAudit] = useState<
     { id: number; action: string; reason: string; created_at: string }[]
   >([]);
-  const [error, setError] = useState(() =>
-    window.location.hash.includes('auth_error=1') ? 'social.loginLinkError' : '',
-  );
+  const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const [tick, setTick] = useState(0);
@@ -126,93 +122,22 @@ function AccountContent({ user, ready }: ReturnType<typeof useCommunityUser>) {
         )}
         {!communityConfigured ? (
           <p>{t('social.comingBody')}</p>
+        ) : !ready && callback.busy ? (
+          <EmailLogin />
         ) : !ready ? (
           <p role="status">{t('common.loading')}</p>
         ) : !user ? (
-          <>
-            <div>
-              <h2 className="text-headline">{t('social.signIn')}</h2>
-              <p className="mt-2 text-body-sm text-muted">{t('social.loginHint')}</p>
-              {!signupsReady && (
-                <p className="mt-3 rounded-xl bg-surface p-3 text-body-sm text-muted">
-                  {t('social.pilot')}
-                </p>
-              )}
-            </div>
-            <form
-              className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                void run(
-                  async () => {
-                    const c = communityClient();
-                    const result =
-                      sent && emailCodeEnabled
-                        ? await c.auth.verifyOtp({ email, token: code, type: 'email' })
-                        : await c.auth.signInWithOtp({ email });
-                    if (result.error) throw result.error;
-                    setSent(true);
-                  },
-                  sent && emailCodeEnabled
-                    ? 'social.done'
-                    : emailCodeEnabled
-                      ? 'social.codeSent'
-                      : 'social.linkSent',
-                );
-              }}
-            >
-              <label className="block text-body-sm">
-                {t('social.email')}
-                <input
-                  autoComplete="email"
-                  type="email"
-                  required
-                  value={email}
-                  disabled={sent}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="mt-2 min-h-12 w-full rounded-xl bg-surface px-4"
-                />
-              </label>
-              {sent && emailCodeEnabled && (
-                <label className="block text-body-sm">
-                  {t('social.code')}
-                  <input
-                    autoComplete="one-time-code"
-                    inputMode="numeric"
-                    pattern="[0-9]{6,10}"
-                    maxLength={10}
-                    required
-                    value={code}
-                    onChange={(e) => setCode(e.target.value)}
-                    className="mt-2 min-h-12 w-full rounded-xl bg-surface px-4"
-                  />
-                </label>
-              )}
-              <PillButton
-                type="submit"
-                disabled={busy || (sent && !emailCodeEnabled)}
-                variant="primary"
-              >
-                {t(
-                  emailCodeEnabled
-                    ? sent
-                      ? 'social.verify'
-                      : 'social.sendCode'
-                    : 'social.sendLink',
-                )}
-              </PillButton>
-              {sent && (
-                <PillButton
-                  onClick={() => {
-                    setSent(false);
-                    setCode('');
-                  }}
-                >
-                  {t('social.changeEmail')}
-                </PillButton>
-              )}
-            </form>
-          </>
+          <EmailLogin />
+        ) : callback.busy || callback.error || callback.recoveryUrl ? (
+          <div className="space-y-4" data-testid="signed-in-login-callback">
+            <p className="break-words rounded-xl bg-surface p-4 text-body-sm">
+              {t('auth.currentAccount', { email: user.email })}
+            </p>
+            <EmailLogin callbackOnly />
+            <PillButton disabled={callback.busy} onClick={clearLoginCallback}>
+              {t('auth.keepCurrentAccount')}
+            </PillButton>
+          </div>
         ) : (
           <>
             <p className="break-words text-body-sm text-muted">{user.email}</p>

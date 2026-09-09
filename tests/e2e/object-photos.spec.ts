@@ -15,7 +15,7 @@ async function loaded(page: Page, testId: string) {
     .toBeGreaterThan(0);
 }
 
-test('천체 탭·자세히·검색에서 사진과 전체 출처를 표시하고 오프라인 재실행에서도 유지한다', async ({
+test('천체 탭·검색은 사진만 간결하게 표시하고 자세히에서 출처를 보며 오프라인에서도 유지한다', async ({
   page,
   context,
 }) => {
@@ -23,15 +23,19 @@ test('천체 탭·자세히·검색에서 사진과 전체 출처를 표시하�
   page.on('pageerror', (error) => errors.push(error.message));
   await openSaturn(page);
   await loaded(page, 'object-photo-thumb');
-  await expect(page.getByTestId('tooltip').getByTestId('photo-credit')).toContainText('NASA');
-  await expect(
-    page.getByTestId('tooltip').getByRole('link', { name: 'CC BY 4.0' }),
-  ).toHaveAttribute('href', /creativecommons.org\/licenses\/by\/4.0/);
+  await expect(page.getByTestId('tooltip').getByTestId('photo-credit')).toHaveCount(0);
+  await expect(page.getByTestId('tooltip').getByRole('link')).toHaveCount(0);
   await page.screenshot({ path: 'artifacts/screenshots/photo-tooltip-saturn.png' });
   await page.getByTestId('tooltip-details').click();
   await page.getByTestId('sheet-stage').click();
   await loaded(page, 'object-photo-hero');
   await expect(page.getByTestId('object-photo-card')).toContainText('현재 모습이나 맨눈');
+  await expect(page.getByTestId('object-photo-card').getByTestId('photo-credit')).toContainText(
+    'NASA',
+  );
+  await expect(
+    page.getByTestId('object-photo-card').getByRole('link', { name: '원문', exact: true }),
+  ).toHaveAttribute('href', /^https:\/\//);
   await page.screenshot({ path: 'artifacts/screenshots/photo-sheet-saturn.png' });
   await page.getByTestId('sheet-close').click();
   await page.getByTestId('tab-search').click();
@@ -39,6 +43,7 @@ test('천체 탭·자세히·검색에서 사진과 전체 출처를 표시하�
   const result = page.getByTestId('search-result').first();
   await expect(result).toHaveAttribute('data-object-id', 'dso:M31');
   await expect(result.getByTestId('object-photo-thumb')).toBeVisible();
+  await expect(page.getByTestId('search-screen').getByTestId('photo-credit')).toHaveCount(0);
   await page.screenshot({ path: 'artifacts/screenshots/photo-search-m31.png' });
   await page.evaluate(async () => {
     await navigator.serviceWorker.ready;
@@ -51,19 +56,20 @@ test('천체 탭·자세히·검색에서 사진과 전체 출처를 표시하�
   });
   await context.setOffline(true);
   await page.reload();
-  await page.getByTestId('search-input').fill('M31');
+  // 확대된 목록의 미방문 천체도 초기 캐시에 포함돼야 한다.
+  await page.getByTestId('search-input').fill('M110');
   await expect(page.getByTestId('search-result').first()).toHaveAttribute(
     'data-object-id',
-    'dso:M31',
+    'dso:M110',
   );
   await page.getByTestId('search-result').first().click();
   await page.getByTestId('sheet-stage').click();
   await loaded(page, 'object-photo-hero');
-  await expect(page.getByTestId('object-photo-hero')).toHaveAttribute('data-object-id', 'dso:M31');
+  await expect(page.getByTestId('object-photo-hero')).toHaveAttribute('data-object-id', 'dso:M110');
   await expect(
-    page.getByTestId('object-photo-card').getByRole('link', { name: 'CC BY 4.0' }),
+    page.getByTestId('object-photo-card').getByRole('link', { name: '원문', exact: true }),
   ).toBeVisible();
-  await page.screenshot({ path: 'artifacts/screenshots/photo-m31-offline.png' });
+  await page.screenshot({ path: 'artifacts/screenshots/photo-m110-offline.png' });
   expect(errors).toEqual([]);
 });
 

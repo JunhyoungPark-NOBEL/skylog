@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<key>CFBundleURLTypes</key>
+<array><dict><key>CFBundleURLSchemes</key><array><string>io.github.junhyoungparknobel.skylog</string></array></dict></array>
 <key>NSLocationWhenInUseUsageDescription</key><string>관측 위치에서 보이는 별과 행성을 계산해요. Location is used to calculate your local sky.</string>
 <!-- Geolocation의 iOS 의존성이 요구하는 설명이다. 앱은 사용 중 위치만 요청한다. -->
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key><string>관측 위치에서 보이는 별과 행성을 계산해요. Location is used to calculate your local sky.</string>

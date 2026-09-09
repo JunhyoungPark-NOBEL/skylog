@@ -2,6 +2,7 @@
   "objectPhoto": {
     "credit": "Image:",
     "source": "Source",
+    "rights": "Usage policy",
     "adaptation": "Resized to WebP · red tint with night protection",
     "reference": "Reference observation image. It differs from the current view and from the brightness, colour and size seen with your eyes or an eyepiece.",
     "unavailable": "The image could not load. Object information is still available.",
@@ -11,7 +12,9 @@
     "original": "Show original colours",
     "protect": "Restore night protection",
     "sources": "Object image credits and licences",
-    "licenseNote": "Each object image is licensed under CC BY 4.0. Original credits and links are retained, with adaptations listed below.",
+    "licenseNote": "Sources, usage terms and adaptations are listed for each image below. You can also find them in the object's details.",
+    "publicDomain": "Public domain",
+    "nasaJplUse": "NASA/JPL usage terms",
     "band": {
       "visible": "Visible-light observation",
       "infrared": "Infrared observation",

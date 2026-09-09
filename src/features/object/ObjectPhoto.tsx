@@ -4,7 +4,7 @@ import { getObjectPhoto, type ObjectPhoto } from '@/catalog/objectPhotos';
 import type { ObjectId } from '@/catalog/objectId';
 import { useSettingsStore } from '@/state/settingsStore';
 
-/** 사진마다 원문 크레딧과 활성 링크를 바로 옆에 유지한다. */
+/** 자세히·앱 정보에서 사진의 원문 크레딧과 활성 링크를 제공한다. */
 export function PhotoCredit({ photo, className = '' }: { photo: ObjectPhoto; className?: string }) {
   const { t } = useTranslation();
   return (
@@ -44,7 +44,11 @@ export function PhotoCredit({ photo, className = '' }: { photo: ObjectPhoto; cla
         rel="noreferrer"
         className="underline underline-offset-2"
       >
-        {photo.license}
+        {photo.license === 'Public domain'
+          ? t('objectPhoto.publicDomain')
+          : photo.license === 'NASA/JPL image use'
+            ? t('objectPhoto.nasaJplUse')
+            : photo.license}
       </a>
       <span className="block">{t('objectPhoto.adaptation')}</span>
     </p>
@@ -164,6 +168,19 @@ function PhotoCard({ photo }: { photo: ObjectPhoto }) {
           </div>
         )}
         <PhotoCredit photo={photo} className="mt-2" />
+        {photo.rightsEvidence && (
+          <p className="mt-1 text-caption leading-relaxed text-muted">
+            {photo.rightsEvidence[lang]}{' '}
+            <a
+              href={photo.rightsURL}
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-2"
+            >
+              {t('objectPhoto.rights')}
+            </a>
+          </p>
+        )}
         <p className="mt-1 text-caption leading-relaxed text-muted">{photo.modifications[lang]}</p>
       </figcaption>
     </figure>

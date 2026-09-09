@@ -3,10 +3,23 @@ import { useEffect, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 
 const url = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+export const communityUrl = url;
 const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string | undefined;
 export const communityConfigured = !!url && !!key;
 export const emailCodeEnabled = import.meta.env.VITE_COMMUNITY_EMAIL_CODE === 'true';
 export const signupsReady = import.meta.env.VITE_COMMUNITY_SIGNUPS_READY === 'true';
+/** 붙여넣은 메일 링크를 기존 로그인 상태에 영향을 주지 않고 먼저 검증한다. */
+export function emailVerificationClient(): SupabaseClient {
+  if (!url || !key) throw new Error('NOT_CONNECTED');
+  return createClient(url, key, {
+    auth: {
+      storageKey: `skylog.community.verify-${crypto.randomUUID()}`,
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+    },
+  });
+}
 let client: SupabaseClient | null = null;
 export function communityClient(): SupabaseClient {
   if (!url || !key) throw new Error('NOT_CONNECTED');

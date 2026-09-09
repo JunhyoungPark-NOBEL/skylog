@@ -51,6 +51,19 @@ export function AboutScreen({ onBack }: { onBack(): void }) {
                 {photo.title[lang]} · {photo.objectId}
               </h3>
               <PhotoCredit photo={photo} className="mt-1" />
+              {photo.rightsEvidence && (
+                <p className="mt-1 text-caption leading-relaxed text-muted">
+                  {photo.rightsEvidence[lang]}{' '}
+                  <a
+                    href={photo.rightsURL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline underline-offset-2"
+                  >
+                    {t('objectPhoto.rights')}
+                  </a>
+                </p>
+              )}
               <p className="mt-1 text-caption leading-relaxed text-muted">
                 {photo.modifications[lang]}
               </p>

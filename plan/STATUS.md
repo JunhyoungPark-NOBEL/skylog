@@ -1,6 +1,6 @@
 # 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-09 · Codex 원래 APK 서명 PC · beta.9/build14 사진·댓글·서명 APK·웹 배포 완료, 실기기/스토어/가입 개통 대기
+> 마지막 갱신: 2026-09-09 · beta.10/build15 사진 확대·로그인 복구 검증 진행 중 (최근 공개 버전은 아래 build14)
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -10,7 +10,16 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-09 · beta.9/build14 천체 사진·댓글 보완)
+## 이번 작업 보고 (2026-09-09 · beta.10/build15 사진 확대·로그인 복구)
+
+- **기준**: 원격을 fetch해 origin/main 및 로컬이 `d283e333f0c632d2ecf68d82c13e79f5835751c6`임을 확인했다. `codex/photos-login-20260909`에서 install·타입·단위547개 기준 검사를 통과한 뒤 작업했다.
+- **화면**: 선택 카드와 검색 결과의 전체 사진 출처를 제거하고 사진 미리보기와 천체 정보를 간결하게 표시한다. 전체 크레딧·출처·이용 조건·변환 고지는 자세히의 큰 사진 아래 및 앱 정보에서 확인한다.
+- **사진**: IPAC 2MASS의 명시적 퍼블릭 도메인 갤러리로 메시에 전체 및 NGC/IC 사진을 확장하고, 이용 조건을 확인한 실제 태양계·유명 천체 사진을 준비한다. 기존 ESA/Hubble·ESO의 숨김 금지 조건을 무시하지 않고 자료를 교체한다. 최종 개수·용량은 변환·검사 완료 후 기록한다. [권리 조사](research/2026-09-09-photo-expansion-rights.md), `docs/OBJECT-PHOTOS.md`.
+- **로그인**: 요청 앱과 메일 브라우저 사이의 PKCE 저장소 차이, 종료/실행 중 앱 복귀, 실패·재전송·이메일 변경을 보완한다. 원본 메일 링크는 격리된 SDK에서 검증하고 요청 이메일과 일치한 경우에만 세션을 반영한다. `docs/AUTH-LOGIN.md`.
+- **서버 사실**: 사용자가 Supabase 관리 화면에 로그인한 뒤 기본 메일·편집 제한·Site URL·Redirect 목록을 직접 확인했다. 공개 Auth 설정200·email만 활성·이메일 자동 확인 꺼짐. 기존 네이티브 앱의 정확한 복귀 URI 한 개를 Redirect URLs에 등록하고 저장된 목록에서 확인했다. Site URL·SMTP·인증 확인/RLS는 보존했으며 이메일 발송/운영자 권한 변경은 없다. EMAIL_CODE/SIGNUPS_READY는 false를 유지한다.
+- **검증/배포**: 통합 검사·APK/PWA·AAB 패키지 확인은 진행 중이며 아래 이전 버전 수치와 구분한다. 실제 휴대폰의 메일 앱 왕복과 iPhone 오프라인은 사용자 확인 대상이다. 다음 CI 기본 빌드 번호16.
+
+## 이전 작업 보고 (2026-09-09 · beta.9/build14 천체 사진·댓글 보완)
 
 - **최신 기준**: origin/main `9d39492a06a3d8e79ee96fe45853315ce228e052`를 fetch 후 `codex/object-photos-comments-20260909`에서 작업했다. 기준 타입·단위528개 통과. 집의 마당·잔디밭과 build13 아바타·기존 관측/장비/학습/센서를 유지한다.
 - **천체 사진**: 실제 관측 사진20개를 선택 카드·검색 미리보기·자세히 화면에 넣었다. ESA/Hubble·ESO 개별 CC BY 4.0 출처/전체 크레딧·활성 링크/확인일/가공·파장·촬영 범위를 기록했다. WebP40개 총1,295,446bytes. 크롭 없이 축소하며 XMP에도 출처를 포함한다. 사진/manifest는 PWA 프리캐시와 APK/iOS에 포함하고 야간 적색·명시 원래 색 보기·오류 대체를 제공한다. docs/OBJECT-PHOTOS.md.
@@ -42,17 +51,6 @@
 
 - **플랫폼 증거**: 최종 Android API36/x86_64 에뮬레이터에서 Wi-Fi/data 끄기 명령 후 debug WebView 계측1개 통과(실패0·누락0, 11.892초). CI lint오류0/경고32. iOS Xcode26.3/iPhoneOS26.2에서 build13·arm64·최소16.4·무서명 컴파일 및 plist 확인. CI iOS .app의 public150개도 최종 소스와 SHA256이 모두 일치한다. 서명 APK 실폰 설치·센서 정확도나 실제 iPhone 시험을 뜻하지 않는다.
 
-## 이전 작업 보고 (2026-09-08 · beta.7/build12 무료 마당·사진·댓글)
-
-- **범위**: main8dcb55f의 최신 beta.6에서 시작. 전 기능 무료 요청을 D-048로 확정하고 T9 정식 태스크를 작성했다. 기존 관측/배우기/날씨/센서/스크롤을 유지한다.
-- **구현**: 무료 장식12종(기본4+업적8), 다섯 자리 마당·아바타·오프라인 보존. 사진 목록/상세·공유/수정/나만 보기, 검토 대기 댓글·축하 반응, 신고·차단·이의 신청·운영자 조치/감사 이력. 선택형 개인 클라우드 백업/복원·온라인 계정 삭제. 화면은 독립 경로로 분리하고 한영 제공.
-- **서버**: 사용자가 Supabase 가입·비밀번호 설정. 무료 skylog 조직/서울 프로젝트 ijxuwtbcwifttiuwvqrh 생성, RLS·private 저장소·Edge 함수 실제 배포. 일반 가입 메일·운영자 앱 계정 지정은 대기. 기본 SMTP는 운영자 주소만 허용하고 템플릿 변경400을 반환하므로 유료 업그레이드를 자동 진행하지 않았다. 사이트 URL/PKCE 메일 링크는 연결했고 OTP 템플릿은 준비했다.
-- **검증**: 단위504개, 타입/lint, PostgreSQL 권한27개, 실제 Supabase22개 통과. 기존59개 통과, 신규3개 최종 재실행 통과(영어 선택자 역할을 radio로 수정). 영어125%/야간 픽셀/360px 화면 확인. 임시 서버 테스트 계정/사진은 모두 정리했다. 모바일 실기기/외부 이메일은 미확인.
-- **결정/후속**: D-048 무료 범위, D-049 로컬 꾸미기/영구 보상, D-050 Supabase 검토와 개인정보, D-051 수동 백업/메일 개통. docs/FREE-COMMUNITY.md에 설치·운영·화면 참고·제약. T9는 외부 메일/운영자/실기기 확인 전 진행 중으로 둔다. 추가 GPT Pro 작업은 없다.
-- **배포**: 앱 소스 ba29935d741167236dba7d48192beb83708790bb, [Pages34239766171](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34239766171)·[모바일34239765822](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34239765822) 전체 성공. 공개 beta.7·실제 갤러리·SW·오프라인 마당/아바타·JS오류0 확인. Android API36 오프라인 계측1/1(실패/누락0), lint오류0/경고33. iOS build12 arm64 무서명 컴파일 성공. AAB/APK의 웹 에셋 전체 일치, public150개는 AAB/APK/iOS 모두 원본 SHA256 일치.
-- **산출물**: [v0.1.0-beta.7-build12](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.7-build12), Downloads/skylog-release-0.1.0-beta.7-build12/. 기존 Play키 서명 AAB7,882,043bytes, SHA256208b8f3db4e0b80bdf33af8f97ab6b9e6fbd40d7b8868f165cd10ebfb2585b5c. jarsigner strict·bundletool validate·version12/min24/target36·debug=false/backup=false 통과. APK 서명 준비 ZIP7,591,135bytes, SHA256a311de87cf651a9d813b4eab25fab183dd521edcda15d26175ce6fa13e9546cf. **설치 가능한 업데이트 APK는 기존 개인 키가 없어 미서명**이며 원래 서명 PC에서 완성한다. 다른 키로 대체하지 않는다. 다음 CI기본13.
-- **수용/사용자 액션**: T9 인수 기준 자동 확인6/7, 일반 가입·실계정 운영 개통1항목 대기. 폰에서 마당/아바타 재실행 보존, 기존 관측·코스 진도, 한영·야간·스크롤을 확인한다. SMTP 연결 후 외부 메일/운영자/두 계정 공유와 다른 기기 백업을 확인한다. AAB는 Play용이며 ZIP은 직접 설치 파일이 아니다. 새 GPT Pro 요청 없음.
-
 ## 태스크 현황
 
 | 태스크 | 상태 | 완료일 | 태그 | 비고 |
@@ -81,6 +79,8 @@
 | G5 퀴즈·미션 콘텐츠 생성 | T7 전 | ✅ 앱 반영. G5 180문항 중 skyPick36만 잠금. 2026-09-08 T5 연결로 미션30·배지18 활성, 독자 작성 한·영 관측60문항 추가로 총240/활성204. 별자리 배지는 실제 별자리 관측 기록만 인정 | `plan/research/G3-G5-integrated/G5/`(정본 유지), 추가 `data-src/learn-raw/observing-quiz.json`. 옛 준비팩은 참고용 |
 
 ## 다음 세션이 알아야 할 것
+
+- **현재 작업**: beta.10/build15 사진 확대·로그인 복구는 맨 위 보고를 따른다. build12 상세 보고는 `plan/reports/2026-09-09-beta7-build12.md`에 보관했다.
 
 - **우선 사항**: 현재 모든 기능과 이번 아바타 확장은 무료(D-048/D-052). 최신 유료화 계획은 D-054와 MONETIZATION-PLAN의 향후 난이도2·3/망원경 코스이며 현재 잠금·결제는 미구현이다. D-053 외형 팩/가격은 이전 제안이다. 서버/코드는 실제 구현됨. Supabase 프로젝트 ijxuwtbcwifttiuwvqrh/서울, CLI 인증 완료. 일반 가입용 SMTP와 운영자 실제 앱 계정 지정이 남았다. 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. GitHub 변수는 공개 URL/키만 포함. 백업은 수동 스냅샷으로 자동 동기화가 아니다. 자세한 절차는 docs/FREE-COMMUNITY.md.
 

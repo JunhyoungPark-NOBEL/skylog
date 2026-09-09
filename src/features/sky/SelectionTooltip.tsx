@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { ObjectInfo } from '@/render/SkyScene';
 import { getObjectPhoto } from '@/catalog/objectPhotos';
-import { PhotoCredit, PhotoThumbnail } from '@/features/object/ObjectPhoto';
+import { PhotoThumbnail } from '@/features/object/ObjectPhoto';
 
 /**
  * 선택 툴팁 (task-01 §3.8): 이름·종류·등급·alt/az·별자리. "자세히" → 상세 시트(T3).
@@ -64,7 +64,6 @@ export function SelectionTooltip({
           ✕
         </button>
       </div>
-      {photo && <PhotoCredit photo={photo} className="mt-2" />}
       <div className="mt-3 flex gap-2">
         <button
           type="button"
