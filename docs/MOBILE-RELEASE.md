@@ -1,6 +1,15 @@
 # Android AAB / iOS 출시 준비
 
-> 최신: **beta.10/build15 사진 확대·로그인 복구의 APK와 웹 배포 검증 완료.** 실제 휴대폰 확인과 정식 스토어 절차는 아래 남은 항목을 따른다.
+> 최신: **beta.11/build16 오늘 밤 추천 사진 수정과 APK·웹 배포 검증 완료.**
+
+## beta.11 / build16 — 오늘 밤 추천 사진 표시
+
+- **수정**: 공용 추천 행에서 검색과 같은 사진 카탈로그와 썸네일을 사용한다. 오늘 밤의 추천 6개 그룹·관측 계획·오늘의 볼거리에 함께 적용한다. 사진이 없거나 읽기에 실패하면 종류 기호를 표시하며 관측 상태와 계획 저장의 별 버튼은 유지한다. 전체 출처는 상세 화면과 앱 정보에 둔다. 기존 사진164개/328파일과 manifest version2는 변경하지 않았다(D-059).
+- **검증**: 타입·lint·포맷·단위580개, 기존 오늘 밤/사진 Chromium 시나리오9개 통과. Chromium과 Windows WebKit에서 세 카드·토성/M31/M39 사진·상세 출처·360px 영어125% 야간·계획 토글·이미지 실패 대체를 확인했고 JS예외0이었다. 초기 병렬 단위 실행의 사진 해시 검사1개가 5초 제한에 걸려 작업자4개로 전체580개를 다시 실행해 통과했다. 제품 검사 조건을 완화하지 않았다.
+- **배포**: 소스 `e672ca13e98da1eab747f5c7a2762afe6625d919`, [Pages 34332721309](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34332721309) 성공. [웹앱](https://junhyoungpark-nobel.github.io/skylog/)에서 beta.11·추천/계획/볼거리·M31/M39·상세 출처·야간/작은 화면·계획 저장·JS예외0을 다시 확인했다. [새 APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.11-build16/skylog-0.1.0-beta.11-build16-local-test.apk) 재다운로드 해시도 일치한다.
+- **APK/AAB**: Android release/lint 성공(오류0·경고32), build16/beta.11/min24/target36·서명·16KB 정렬·build15 인증서 일치. public479개 및 사진328개가 APK/AAB/로컬 Android/iOS 자료와 일치한다. APK 20,090,813bytes·SHA256 `052a849b085e3ccf6bf5785e4f015ae3af2bbba54c8fa043c5e56d77b99a8610`; 무서명 AAB 19,382,456bytes·SHA256 `5d97e6bac6aed6c15fcfc2919f9abaa21ee9818a5ea4af16228c5a4363ecb28f`. Downloads/skylog-release-0.1.0-beta.11-build16/ · [릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.11-build16). 다음 수동 CI 기본17.
+- **범위**: 이번 UI 수정은 로컬 Android 빌드와 iOS 자료 동기화까지 검증했다. 새 iOS CI 컴파일·네이티브 계측은 실행하지 않았으며 이전 build15의 결과와 구분한다. 실제 폰 설치·센서·메일 왕복·iPhone 오프라인, 기존 Play 업로드 키 서명·Apple 서명/TestFlight·일반 회원 SMTP 및 스토어 심사는 남아 있다. 현재 전 기능 무료.
+- **폰 확인**: 기존 앱 삭제 없이 APK 업데이트 후 beta.11 확인 → 오늘 밤 추천(토성·M31 등)·관측 계획·오늘의 볼거리 사진 확인 → 사진 탭으로 상세 출처/스크롤 확인 → 기존 기록과 계획 저장·야간 확인. iPhone은 기존 홈 화면 웹앱을 다시 연다.
 
 ## beta.10 / build15 — 사진 164개·간결한 미리보기·로그인 복구
 
