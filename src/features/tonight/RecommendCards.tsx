@@ -6,9 +6,11 @@ import type { Phenomenon } from '@/astro/phenomena';
 import { displayName, type Catalog } from '@/catalog/catalog';
 import type { MeteorShower } from '@/catalog/meteors';
 import type { ObjectId } from '@/catalog/objectId';
+import { getObjectPhoto } from '@/catalog/objectPhotos';
 import type { SearchKind } from '@/catalog/searchIndex';
 import { toggleBookmark } from '@/db/repos/bookmarks';
 import { openObject } from '@/features/object/objectApi';
+import { PhotoThumbnail } from '@/features/object/ObjectPhoto';
 import { reasonSentence } from '@/features/tonight/reasonText';
 import { formatDateShort, phenomenonTitle } from '@/features/tonight/phenomenaText';
 import { useLogStore } from '@/state/logStore';
@@ -47,6 +49,17 @@ function Row({
 }) {
   const { t } = useTranslation();
   const m = rec.metrics;
+  const photo = getObjectPhoto(rec.id);
+  const icon = (
+    <span
+      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-pill bg-surface-3 text-body ${
+        rec.kind === 'planet' ? 'text-planet' : 'text-fg'
+      }`}
+      aria-hidden
+    >
+      {KIND_GLYPH[rec.kind]}
+    </span>
+  );
   /* 관측 상태(T4): 본 것 = 금색 ★, 시도했지만 못 봄 = 회색 ★ — logStore가 진실(저장 직후 바로 바뀐다) */
   const mark = useLogStore((s) =>
     s.observedSet.has(rec.id) ? 'observed' : s.attemptedSet.has(rec.id) ? 'attempted' : null,
@@ -59,14 +72,7 @@ function Row({
         className="-mx-2 flex min-h-14 min-w-0 flex-1 items-center gap-3 rounded-md px-2 py-2 text-left transition-colors duration-150 active:bg-surface-2"
         data-testid="rec-open"
       >
-        <span
-          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-pill bg-surface-3 text-body ${
-            rec.kind === 'planet' ? 'text-planet' : 'text-fg'
-          }`}
-          aria-hidden
-        >
-          {KIND_GLYPH[rec.kind]}
-        </span>
+        {photo ? <PhotoThumbnail photo={photo} fallback={icon} /> : icon}
         <span className="min-w-0 flex-1">
           <span className="flex items-center gap-1.5">
             <span className="min-w-0 truncate text-body font-semibold" data-testid="rec-name">
