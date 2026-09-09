@@ -1,21 +1,21 @@
 # 휴대폰에서 별관찰 앱 사용하기
 
-이번 버전은 **0.1.0-beta.9 / build14**입니다. 천체 사진과 댓글을 보완했고, 기존 마당·잔디밭·아바타/코디·관측/학습 기능을 포함합니다. 스토어 정식 공개 출시는 아직 하지 않았습니다. 서명 APK와 웹앱을 공개했고 다운로드/버전을 확인했습니다. [검증 결과](MOBILE-RELEASE.md).
+최신 버전은 **0.1.0-beta.10 / build15**입니다. 사진을 164개 천체로 늘리고, 작은 카드의 출처를 자세히로 옮겼으며 이메일 로그인 복귀를 보완했습니다. 기존 마당·아바타·관측 기록·학습 진도를 포함하는 무료 업데이트입니다.
 
-- [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.9-build14/skylog-0.1.0-beta.9-build14-local-test.apk): 기존 개인 APK 위에 설치하는 서명된 업데이트입니다. build13과 동일한 인증서를 검증했습니다. JSON 백업을 보관한 뒤 앱을 삭제하지 않고 업데이트합니다.
-- [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari에서 열고 공유 → 홈 화면에 추가. 기존 홈 화면 앱도 계속 사용합니다. 앱/사이트 데이터를 지우지 말고 설정의 beta.9을 확인합니다.
-- APK 9,446,602bytes, SHA256 `a903017f9d6153f5245493b580561abcb487220b5b54e2c5ff9742663e5eb111`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.9-build14)에서 받습니다.
+- [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.10-build15/skylog-0.1.0-beta.10-build15-local-test.apk): 기존 build14와 같은 인증서로 서명했습니다. JSON 백업을 보관하고 기존 앱을 삭제하지 않은 채 업데이트합니다.
+- [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari에서 열고 공유 → 홈 화면에 추가. 기존 홈 화면 앱도 다시 열어 설정의 **beta.10**을 확인합니다. 앱/사이트 데이터를 지우지 않습니다.
+- APK 20,090,813bytes · SHA256 `77921231e0e2f24d140a1715bb2f991d94b54317c43f944cdce0bbb991ca5fa0`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.10-build15) · [전체 검증 결과](MOBILE-RELEASE.md).
 
-## 이번 사진·댓글에서 확인할 것
+## 사진 사용과 로그인
 
-1. 토성·M31·M42를 검색합니다. 사진이 있는 결과는 미리보기를 표시하고, 누르면 자세히 화면에서 큰 사진과 전체 출처를 볼 수 있습니다. 하늘에서 천체를 눌러도 미리보기가 나옵니다.
-2. 사진은 대표 관측 자료이며 맨눈/접안 시야나 현재 실시간 모습과 다릅니다. 합성 파장·일부 확대는 설명에 표시합니다. 사진이 없는 천체에 임의 사진을 대신 표시하지 않습니다.
-3. 야간 모드에서는 사진을 적색으로 보여 줍니다. 자세히 화면의 ‘원래 색으로 보기’를 누르면 밝은 원색 사진을 볼 수 있고, 다시 야간 보호로 돌아갈 수 있습니다.
-4. 사진/크레딧/본문을 아무 곳에서 위아래로 움직여 읽습니다. APK에는 사진이 포함됩니다. PWA는 온라인에서 서비스 워커의 초기 저장이 끝난 뒤 오프라인 재실행을 확인합니다.
-5. 댓글 입력·검토·페이지 오류는 수정했습니다. **일반 가입용 메일과 운영자 개통은 대기**입니다. 개통 후 승인된 계정으로 대기 댓글·승인 후 새로고침·삭제/신고/차단을 확인합니다.
-6. 기존 기록·장비·퀴즈 진도·마당/코디·잔디·센서가 유지되는지 확인합니다.
+1. 토성·M31·M42·M110을 검색합니다. 검색 결과와 하늘에서 누른 천체에는 미리보기가 나오고, **자세히**에서 큰 사진·관측 설명·전체 출처를 확인합니다.
+2. 사진은 실제 과거 관측 자료입니다. 적외선·자외선·색 합성이나 촬영 범위를 설명하며 맨눈/접안 시야·현재 실시간 모습과 구분합니다. 야간에는 적색 보호를 적용하고 자세히의 **원래 색으로 보기**로 바꿀 수 있습니다.
+3. Android APK에서 계정 → 이메일 입력 → 메일 받기 → 메일의 로그인 링크를 누릅니다. 새 링크는 설치한 앱으로 돌아가 확인합니다. 이전 링크가 웹에서 열리면 **설치한 앱에서 계속**을 누릅니다.
+4. iPhone 홈 화면 앱에서 요청한 링크가 Safari에서 열린 경우 **복구 링크 복사**를 누릅니다. 원래 홈 화면 앱의 **로그인이 안 되나요? → 로그인 링크 붙여넣기 → 이 앱에서 로그인 확인**으로 마칩니다. 같은 Safari에서 요청하고 확인하면 바로 로그인합니다.
+5. 링크가 만료됐으면 원래 앱에서 **메일 다시 받기**로 새 링크를 받습니다. 현재 기본 메일 서비스는 운영자 테스트용이며 일반 회원 발송과 숫자 인증번호 메일은 별도 SMTP 준비가 필요합니다. [자세한 안내](AUTH-LOGIN.md).
+6. APK는 사진을 내장합니다. PWA는 온라인 초기 저장이 끝난 뒤 오프라인 재실행을 확인합니다. 실제 폰에서 기존 기록·장비·퀴즈·아바타가 보존되는지와 메일 앱 왕복을 확인해 주세요.
 
-현재 모든 기능은 무료입니다. 향후 난이도2·3 퀴즈와 망원경 학습 코스를 유료 이용권으로 제공하는 [계획](MONETIZATION-PLAN.md)을 반영했으며 이번 버전에는 잠금·결제를 넣지 않았습니다. [사진 권리·출처](OBJECT-PHOTOS.md), [댓글 검토](COMMENTS-REVIEW.md), [아바타 사용 방법](AVATAR-CUSTOMIZATION.md).
+현재 모든 기능은 무료입니다. 난이도2·3 퀴즈와 망원경 코스의 향후 유료 이용권은 [계획](MONETIZATION-PLAN.md)이며 이번 버전에는 결제를 넣지 않았습니다. [사진 권리](OBJECT-PHOTOS.md) · [댓글 검토](COMMENTS-REVIEW.md).
 
 ## 기존 날씨·달력·코스 확인
 
@@ -37,45 +37,47 @@
 
 자동 위치·센서 권한, 작은 반투명 시간 바/탭, 원형 하늘과 상세 창 전체 스와이프는 이전 버전처럼 사용할 수 있다. 은하수는 실제 낮/박명에 대기 효과로 흐려지고, 지도로 보고 싶으면 하늘 설정에서 대기 효과를 끈다.
 
-## 안드로이드 build14 설치
+## 안드로이드 build15 설치
 
-APK를 휴대폰 Download 폴더에 내려받고 내 파일/Files에서 엽니다. 설치 출처 허용을 요청하면 다운로드에 사용한 브라우저 또는 파일 앱에 허용한 뒤 **업데이트**를 누릅니다. 설치 후 출처 허용을 다시 끌 수 있습니다. 앱 목록에서 별관찰해쌀뚜를 열고 설정의 **0.1.0-beta.9**을 확인합니다. Android 7 이상이 필요하고 하늘·학습 자료는 APK에 포함됩니다. 날씨와 온라인 서비스 갱신에는 인터넷이 필요합니다.
+APK를 휴대폰 Download 폴더에 내려받고 내 파일/Files에서 엽니다. 설치 출처 허용을 요청하면 다운로드에 사용한 브라우저 또는 파일 앱에 허용한 뒤 **업데이트**를 누릅니다. 설치 후 출처 허용을 다시 끌 수 있습니다. 앱 목록에서 별관찰해쌀뚜를 열고 설정의 **0.1.0-beta.10**을 확인합니다. Android 7 이상이 필요하고 하늘·학습 자료는 APK에 포함됩니다. 날씨와 온라인 서비스 갱신에는 인터넷이 필요합니다.
 
-build14은 기존 build9 개인 APK와 같은 인증서로 서명했습니다. 다른 서명이나 향후 Play 설치판으로 옮길 때는 덮어쓰기 설치가 되지 않을 수 있으므로 먼저 JSON 백업을 내보내 파일을 확인하고, 새 앱에서 기록·사진·학습 진도를 가져옵니다. 현재 업데이트 때문에 기존 앱을 삭제하지 않습니다.
+build15은 기존 build9 개인 APK와 같은 인증서로 서명했습니다. 다른 서명이나 향후 Play 설치판으로 옮길 때는 덮어쓰기 설치가 되지 않을 수 있으므로 먼저 JSON 백업을 내보내 파일을 확인하고, 새 앱에서 기록·사진·학습 진도를 가져옵니다. 현재 업데이트 때문에 기존 앱을 삭제하지 않습니다.
 
 이번 로컬 AAB는 무서명입니다. 집 PC의 기존 Play 업로드 키로 서명하기 전 Play에 제출하지 않습니다. AAB는 휴대폰에서 직접 여는 설치 파일이 아닙니다.
 
 ## 아이폰: Safari 홈 화면 웹앱
 
-사진·출처·야간·작은 화면은 WebKit 자동 검사에서 확인했습니다. Windows WebKit 오프라인 시험은 내부 오류가 나서 실제 iPhone의 비행기모드 재실행은 아직 확인하지 못했습니다. 먼저 온라인에서 앱을 충분히 연 뒤 비행기모드에서 홈 화면 앱을 다시 열어 사진/기존 기록을 확인해 주세요. Chromium의 오프라인 사진 재실행과 Android 내장 자료 검사는 통과했습니다.
+사진·출처·야간·작은 화면·로그인 복구는 Windows WebKit 자동 검사에서 확인했습니다. 이전 Windows WebKit 오프라인 제어의 내부 오류 때문에 이번에는 온라인 캐시까지만 검증했으며 실제 iPhone의 비행기모드 재실행은 아직 확인하지 못했습니다. 먼저 온라인에서 앱을 충분히 연 뒤 비행기모드에서 홈 화면 앱을 다시 열어 사진/기존 기록을 확인해 주세요. Chromium의 오프라인 사진 재실행과 Android 내장 자료 검사는 통과했습니다.
 
-APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. beta.9 공개 배포 검증은 MOBILE-RELEASE.md의 최신 보고를 따른다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
+APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. beta.10 공개 배포 검증은 MOBILE-RELEASE.md의 최신 보고를 따른다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
 
 1. iOS 16.4 이상의 **Safari**에서 [별관찰 앱](https://junhyoungpark-nobel.github.io/skylog/)을 연다.
 2. **공유 → 홈 화면에 추가**를 선택한다. ‘웹 앱으로 열기’ 항목이 보이면 켜고 추가한다.
 3. 홈 화면 아이콘으로 실행한다. 현재 위치 권한을 허용하면 관측지를 자동 갱신한다. **휴대폰 방향으로 보기**를 눌러 최초 동작·방향 권한을 허용한다. 위치는 관측지 설정에서 자동 사용을 끄고 수동 입력할 수도 있다.
 4. 오프라인에서 쓸 이야기·배우기·별길 화면은 온라인 상태에서 한 번씩 연다. 기본 하늘 자료는 자동 저장되고 깊은 별·이야기·학습은 사용한 자료가 저장된다. 네이티브 앱의 첫 실행부터 모든 자료 포함과는 다르다.
 
-인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.9**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
+인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.10**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
 
 Safari 웹앱과 TestFlight 네이티브 앱은 저장소가 별개다. 옮길 때는 JSON 백업·가져오기를 사용한다.
 
 ## 아이폰: TestFlight 네이티브 앱
 
-현재 iPhone 설치용 서명 IPA는 없다. build14 iOS 무서명 컴파일 검증은 MOBILE-RELEASE.md의 최신 보고를 따른다. iPhone 설치와 실제 센서 검증에는 Apple 팀 서명과 실기기가 필요하다.
+현재 iPhone 설치용 서명 IPA는 없다. build15 iOS 무서명 컴파일 검증은 MOBILE-RELEASE.md의 최신 보고를 따른다. iPhone 설치와 실제 센서 검증에는 Apple 팀 서명과 실기기가 필요하다.
 
 Apple Developer 팀, 확정 Bundle ID, App Store Connect 앱, 배포 인증서/프로비저닝과 Xcode 26 이상이 설치된 Mac이 필요하다.
 
 1. 최신 코드에서 `pnpm install --frozen-lockfile`, `pnpm mobile:sync`를 실행한다.
 2. `ios/App/App.xcodeproj`를 Xcode로 열고 **Signing & Capabilities → Team**을 설정한다. 현재 Bundle ID는 `io.github.junhyoungparknobel.skylog`이며 최초 등록 전에 소유자가 확정한다.
-3. 최소 iOS **16.4**, marketing **0.1.0**, 이번 Build **14**를 확인한다. App Store Connect에 이미 사용한 번호가 있으면 그보다 커야 한다.
+3. 최소 iOS **16.4**, marketing **0.1.0**, 이번 Build **15**를 확인한다. App Store Connect에 이미 사용한 번호가 있으면 그보다 커야 한다.
 4. 기기용 **Archive → Validate App → Distribute App → App Store Connect**로 업로드한다.
 5. App Store Connect에서 테스터를 추가하고 iPhone의 TestFlight 초대로 설치한다. 외부 테스터는 베타 심사 조건이 추가된다.
 6. 실제 iPhone에서 센서 축·권한·부드러움·오프라인·사진·백업을 확인한다.
 
 ## 먼저 해볼 실기기 확인
 
-- [ ] Android build14 APK 또는 홈 화면 PWA의 설정 버전 **0.1.0-beta.9** 확인.
+- [ ] Android build15 APK 또는 홈 화면 PWA의 설정 버전 **0.1.0-beta.10** 확인.
+- [ ] 새 로그인 메일을 받아 Android 앱 복귀와 iPhone 홈 화면 앱의 로그인 또는 링크 복구 확인. 만료된 예전 메일 대신 업데이트한 앱에서 새로 요청.
+- [ ] 토성·M31·M42·M110 사진이 검색/선택에 표시되고 전체 출처는 자세히에서 보이는지 확인. 야간 모드와 원래 색 보기 전환 확인.
 - [ ] 기존 기록·사진·학습 진도·커스텀 장비 보존. JSON 내보내기/가져오기 후 수량과 내용을 대조.
 - [ ] 하늘 설정 기본값 복원 → 경계 끄기·은하수33%·지면 투명도0%·별 채도100% 확인. 지면 투명도를 높이면 지평선 아래 표시·선택이 함께 허용되는지 확인.
 - [ ] 쌍안경·망원경 두 시야원만 표시되고 각각 끄기/켜기가 되는지 확인. 예시 표시와 장비명·각도를 읽고 사양 수정/저장 후 원의 크기가 바뀌는지 확인.
@@ -97,6 +99,6 @@ Apple Developer 팀, 확정 Bundle ID, App Store Connect 앱, 배포 인증서/�
 | Google Play | 기존 업로드 키 복원/최종 AAB 서명, 개발자 계정·앱 ID 등록, 내부 테스트, 정책·Data safety·등급·연락처·실제 스크린샷, 기기 테스트·심사. 해당 신규 개인 계정의 12명/14일 비공개 테스트와 프로덕션 액세스 신청 |
 | Apple       | 개발자 팀·배포 서명·Archive/TestFlight, privacy report·정책·연락처·등급·실제 스크린샷, 실기기 실행·센서 테스트·심사                                                                                        |
 
-날씨 기능은 관측 좌표를 Open-Meteo로 보내므로 개인정보 양식에서 외부 전송이 전혀 없다고 선언하지 않는다. [스토어 문안](STORE-LISTING.md), [모바일 출시 준비](MOBILE-RELEASE.md)를 참고한다. 유료 배포와 본인·여자친구 무료 이용은 [유료화 계획](MONETIZATION-PLAN.md)에 정리했으며 결제·계정·무료 이용권은 아직 구현/발급하지 않았다.
+날씨 기능은 관측 좌표를 Open-Meteo로 보내므로 개인정보 양식에서 외부 전송이 전혀 없다고 선언하지 않는다. [스토어 문안](STORE-LISTING.md), [모바일 출시 준비](MOBILE-RELEASE.md)를 참고한다. 유료 배포와 본인·여자친구 무료 이용은 [유료화 계획](MONETIZATION-PLAN.md)에 정리했으며 결제·유료 상품 권한·두 사람 무료 권한은 아직 구현/발급하지 않았다.
 
 공식 근거: [Google target API](https://developer.android.com/google/play/requirements/target-sdk), [개인 계정 테스트](https://support.google.com/googleplay/android-developer/answer/14151465), [Android 서명](https://developer.android.com/studio/publish/app-signing), [Apple SDK 요건](https://developer.apple.com/news/upcoming-requirements/), [TestFlight](https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/), [iPhone 홈 화면 웹앱](https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios), [Tailwind 지원 범위](https://tailwindcss.com/docs/compatibility).

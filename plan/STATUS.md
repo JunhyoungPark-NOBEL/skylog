@@ -1,23 +1,24 @@
 # 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-09 · beta.10/build15 사진 확대·로그인 복구 검증 진행 중 (최근 공개 버전은 아래 build14)
+> 마지막 갱신: 2026-09-09 · beta.10/build15 APK·웹앱·모바일 CI 검증 완료, 실폰·스토어 절차 대기
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
 - 앱: https://junhyoungpark-nobel.github.io/skylog/ · 내 마당: https://junhyoungpark-nobel.github.io/skylog/#/profile
-- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.9-build14
+- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.10-build15
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
 ## 이번 작업 보고 (2026-09-09 · beta.10/build15 사진 확대·로그인 복구)
 
-- **기준**: 원격을 fetch해 origin/main 및 로컬이 `d283e333f0c632d2ecf68d82c13e79f5835751c6`임을 확인했다. `codex/photos-login-20260909`에서 install·타입·단위547개 기준 검사를 통과한 뒤 작업했다.
-- **화면**: 선택 카드와 검색 결과의 전체 사진 출처를 제거하고 사진 미리보기와 천체 정보를 간결하게 표시한다. 전체 크레딧·출처·이용 조건·변환 고지는 자세히의 큰 사진 아래 및 앱 정보에서 확인한다.
-- **사진**: IPAC 2MASS의 명시적 퍼블릭 도메인 갤러리로 메시에 전체 및 NGC/IC 사진을 확장하고, 이용 조건을 확인한 실제 태양계·유명 천체 사진을 준비한다. 기존 ESA/Hubble·ESO의 숨김 금지 조건을 무시하지 않고 자료를 교체한다. 최종 개수·용량은 변환·검사 완료 후 기록한다. [권리 조사](research/2026-09-09-photo-expansion-rights.md), `docs/OBJECT-PHOTOS.md`.
-- **로그인**: 요청 앱과 메일 브라우저 사이의 PKCE 저장소 차이, 종료/실행 중 앱 복귀, 실패·재전송·이메일 변경을 보완한다. 원본 메일 링크는 격리된 SDK에서 검증하고 요청 이메일과 일치한 경우에만 세션을 반영한다. `docs/AUTH-LOGIN.md`.
-- **서버 사실**: 사용자가 Supabase 관리 화면에 로그인한 뒤 기본 메일·편집 제한·Site URL·Redirect 목록을 직접 확인했다. 공개 Auth 설정200·email만 활성·이메일 자동 확인 꺼짐. 기존 네이티브 앱의 정확한 복귀 URI 한 개를 Redirect URLs에 등록하고 저장된 목록에서 확인했다. Site URL·SMTP·인증 확인/RLS는 보존했으며 이메일 발송/운영자 권한 변경은 없다. EMAIL_CODE/SIGNUPS_READY는 false를 유지한다.
-- **검증/배포**: 통합 검사·APK/PWA·AAB 패키지 확인은 진행 중이며 아래 이전 버전 수치와 구분한다. 실제 휴대폰의 메일 앱 왕복과 iPhone 오프라인은 사용자 확인 대상이다. 다음 CI 기본 빌드 번호16.
+- **구현**: 사진을 20개에서 164개 천체로 확대했다. 메시에110개 전체·추가 DSO43개·태양/달/행성9개·시리우스/베텔게우스2개를 포함한다. 선택/검색은 간결한 미리보기, 자세히와 앱 정보는 전체 출처·개별 이용 조건을 표시한다. 관측 필드 전체를 보존하는 편집 프레임/관측 패널 추출 좌표와 원본 해시를 메타데이터·XMP에 기록한다. 사진 328파일, 11,787,848bytes. [사진 기록](../docs/OBJECT-PHOTOS.md).
+- **로그인**: 네이티브에서 보낸 메일은 정확히 등록한 앱 URI로 복귀한다. 웹/iPhone PWA의 별도 브라우저 복구, 요청 단계 보존·재전송·만료 안내, 격리된 원본 링크 확인을 지원한다. 서버의 Site URL·이메일 확인·RLS는 유지했고 앱 복귀 URI1개만 추가했다. 기본 SMTP이므로 숫자 인증번호 양식과 일반 가입 개통은 대기다. [로그인 기록](../docs/AUTH-LOGIN.md).
+- **자동 검사**: typecheck/lint/data·단위580개·PostgreSQL/RLS46개·Chromium83개 통과. Windows WebKit의 iPhone 화면·야간 픽셀·사진 캐시·모킹 로그인 14단계 통과. 실제 메일 발송이나 물리 휴대폰 시험과 구분한다.
+- **네이티브**: Android release/lint, API36에서 Wi-Fi/data 끄기 명령 뒤 WebView 계측2개(기존 내장 학습·cold/warm 로그인 복귀) 통과. iOS Xcode26 arm64 무서명 빌드와 내장 public/사진 전체 해시 대조 통과. APK 서명·16KB 정렬·앱ID·version15/min24/target36·release flags·기존 build14 인증서 일치를 검증했다. 로컬 public 479개가 APK/AAB/Android/iOS에 일치한다.
+- **공개 배포**: 소스 `62df2eab0f5da518e445ca9a7d642afdfc6c595a` · [Pages 34320972447](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34320972447) · [모바일 34320977187](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34320977187) 성공. [APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.10-build15/skylog-0.1.0-beta.10-build15-local-test.apk)와 [웹앱](https://junhyoungpark-nobel.github.io/skylog/)을 공개하고 APK 재다운로드·사진 328파일 공개 해시·beta.10·전체 출처·Chromium의 미방문 M110 오프라인 재실행·JS예외0을 확인했다.
+- **파일**: APK 20,090,813bytes, SHA256 `77921231e0e2f24d140a1715bb2f991d94b54317c43f944cdce0bbb991ca5fa0`. 무서명 AAB 19,382,425bytes, SHA256 `c72d866fb47662420235ace8b7200f9b91de70103966100a27bf665b5e5485c1`. 폴더: Downloads/skylog-release-0.1.0-beta.10-build15/. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.10-build15). 다음 수동 CI기본16.
+- **남은 경계**: Play용 AAB의 집 PC 기존 업로드 키 서명, Apple 팀 서명/TestFlight, 실제 폰의 메일 앱 왕복·iPhone 오프라인·센서, 일반 가입용 SMTP/운영자 개통 및 정식 스토어 심사는 남아 있다. Windows WebKit은 온라인 캐시까지 확인했으며 실제 iPhone 오프라인 성공으로 표시하지 않는다. 현재 전 기능 무료, 향후 난이도2·3 퀴즈/망원경 코스의 유료 상품·두 사람 무료 권한은 별도 계획이다.
 
 ## 이전 작업 보고 (2026-09-09 · beta.9/build14 천체 사진·댓글 보완)
 
@@ -80,9 +81,9 @@
 
 ## 다음 세션이 알아야 할 것
 
-- **현재 작업**: beta.10/build15 사진 확대·로그인 복구는 맨 위 보고를 따른다. build12 상세 보고는 `plan/reports/2026-09-09-beta7-build12.md`에 보관했다.
+- **현재 작업**: beta.10/build15 APK·PWA·모바일 CI 검증 완료. 앱 소스 62df2eab0f5da518e445ca9a7d642afdfc6c595a와 맨 위 보고를 따른다. build12 상세 보고는 `plan/reports/2026-09-09-beta7-build12.md`에 보관했다.
 
-- **우선 사항**: 현재 모든 기능과 이번 아바타 확장은 무료(D-048/D-052). 최신 유료화 계획은 D-054와 MONETIZATION-PLAN의 향후 난이도2·3/망원경 코스이며 현재 잠금·결제는 미구현이다. D-053 외형 팩/가격은 이전 제안이다. 서버/코드는 실제 구현됨. Supabase 프로젝트 ijxuwtbcwifttiuwvqrh/서울, CLI 인증 완료. 일반 가입용 SMTP와 운영자 실제 앱 계정 지정이 남았다. 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. GitHub 변수는 공개 URL/키만 포함. 백업은 수동 스냅샷으로 자동 동기화가 아니다. 자세한 절차는 docs/FREE-COMMUNITY.md.
+- **우선 사항**: 현재 모든 기능과 이번 아바타 확장은 무료(D-048/D-052). 최신 유료화 계획은 D-054와 MONETIZATION-PLAN의 향후 난이도2·3/망원경 코스이며 현재 잠금·결제는 미구현이다. D-053 외형 팩/가격은 이전 제안이다. 서버/코드는 실제 구현됨. Supabase 프로젝트 ijxuwtbcwifttiuwvqrh/서울. 현재 PC의 대시보드 로그인과 정확한 앱 복귀 주소 저장을 확인했다. CLI 인증은 현재 PC에서 확인되지 않았으므로 대시보드 인증과 구분한다. 일반 가입용 SMTP와 운영자 실제 앱 계정 지정이 남았다. 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. GitHub 변수는 공개 URL/키만 포함. 백업은 수동 스냅샷으로 자동 동기화가 아니다. 자세한 절차는 docs/FREE-COMMUNITY.md.
 
 - 최신 풍경은 D-045와 docs/LANDSCAPE-REFINEMENT.md, 실제 무료 서비스는 D-048~051과 docs/FREE-COMMUNITY.md. COMMUNITY-AND-CUSTOMIZATION.md의 가격 후보는 이전 설계 이력이다. 개인 APK 서명 키는 Play 업로드 키와 다르며 자동 새 키 생성 금지.
 
@@ -101,7 +102,7 @@
 - **UI 규칙(D-021)**: 새 화면은 `docs/ARCHITECTURE.md` "UI 디자인 시스템 v2"와 토큰(`theme.css`)만 쓴다. 검색/오늘 밤/기록은 App의 `pt-status pb-tab` 래퍼를 쓴다. 배우기는 D-026: 자체 고정 제목·상단 4개 메뉴 + ScrollArea(pb-tab), 위치/센서 상태바는 생략한다. 카피는 D-021 용어집(해요체·평이한 용어)을 따른다.
 - **스크롤 규칙(D-022)**: 세로 스크롤 영역은 `ui/ScrollArea.tsx`(마우스 드래그 스크롤·관성·페이드 오버레이)로 만든다. 스크롤러에 `mask-image`를 걸지 않는다. 드래그 스크롤이 닿으면 안 되는 컨트롤은 `touch-action: none` 또는 `data-drag-scroll="off"`. 사용자 보고("스크롤이 뻑뻑하고 스크롤 바를 정확히 눌러야 함")에 대한 수정이며, 실기기 확인은 T3b 체크리스트의 스크롤 항목으로 받는다.
 - **주의(이 세션에서 겪은 것)**: 워크플로 에이전트가 "코드 스케치를 써 달라"는 프롬프트를 실제 경로에 파일을 만들었다가 지우는 바람에 `src/astro/phenomena.ts`가 사라진 적이 있다. 리서치용 에이전트 프롬프트에는 **"파일을 만들거나 고치지 말 것"**을 명시한다.
-- **최신 검증**: 문서 맨 위 beta.9/build14 보고를 따른다. 이전 build9 수치는 당시 검증 이력이다. T8 청크 분할·실기기 센서/성능은 잔여다.
+- **최신 검증**: 문서 맨 위 beta.10/build15 보고를 따른다. 이전 build9 수치는 당시 검증 이력이다. T8 청크 분할·실기기 센서/성능은 잔여다.
 - 데이터 원본(`data-src/raw/`)은 gitignore이며 새 환경에서 재생성할 때 원본 확보가 필요하다. 현재 실행 경로와 pnpm PATH는 위 **환경** 항목을 따른다. 과거 OneDrive PC 경로를 현재 작업 경로로 사용하지 않는다.
 - **사용자 장비**: 솔로몬 HQ 8×42 ED, SVBONY SV48P 102mm(제조사 초점거리663mm). 사용자 요청으로 쌍안경 시야7.50°·접안25mm/52°는 시작 예시이며 직접 입력하도록 한다. 마운트/실제 접안 사양은 확정하지 않았다. 관측지는 자동 GPS 또는 사용자가 고른 저장 장소·보이는 범위를 따른다.
 

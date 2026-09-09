@@ -1,6 +1,16 @@
 # Android AAB / iOS 출시 준비
 
-> **최신 작업: beta.9/build14 천체 사진·댓글 보완.** 검증/서명 APK·웹 배포를 완료했으며 iPhone 실기기 오프라인 확인과 정식 스토어 절차는 남아 있다. 현재 PC는 기존 개인 APK 키가 있는 원래 서명 PC이며 Play 업로드키는 집 PC에 있다.
+> 최신: **beta.10/build15 사진 확대·로그인 복구의 APK와 웹 배포 검증 완료.** 실제 휴대폰 확인과 정식 스토어 절차는 아래 남은 항목을 따른다.
+
+## beta.10 / build15 — 사진 164개·간결한 미리보기·로그인 복구
+
+- **구현**: 사진을 20개에서 164개 천체로 확대했다. 메시에110개 전체·추가 DSO43개·태양/달/행성9개·시리우스/베텔게우스2개를 포함한다. 선택/검색은 간결한 미리보기, 자세히와 앱 정보는 전체 출처·개별 이용 조건을 표시한다. 관측 필드 전체를 보존하는 편집 프레임/관측 패널 추출 좌표와 원본 해시를 메타데이터·XMP에 기록한다. 사진 328파일, 11,787,848bytes. [사진 기록](OBJECT-PHOTOS.md).
+- **로그인**: 네이티브에서 보낸 메일은 정확히 등록한 앱 URI로 복귀한다. 웹/iPhone PWA의 별도 브라우저 복구, 요청 단계 보존·재전송·만료 안내, 격리된 원본 링크 확인을 지원한다. 서버의 Site URL·이메일 확인·RLS는 유지했고 앱 복귀 URI1개만 추가했다. 기본 SMTP이므로 숫자 인증번호 양식과 일반 가입 개통은 대기다. [로그인 기록](AUTH-LOGIN.md).
+- **자동 검사**: typecheck/lint/data·단위580개·PostgreSQL/RLS46개·Chromium83개 통과. Windows WebKit의 iPhone 화면·야간 픽셀·사진 캐시·모킹 로그인 14단계 통과. 실제 메일 발송이나 물리 휴대폰 시험과 구분한다.
+- **네이티브**: Android release/lint, API36에서 Wi-Fi/data 끄기 명령 뒤 WebView 계측2개(기존 내장 학습·cold/warm 로그인 복귀) 통과. iOS Xcode26 arm64 무서명 빌드와 내장 public/사진 전체 해시 대조 통과. APK 서명·16KB 정렬·앱ID·version15/min24/target36·release flags·기존 build14 인증서 일치를 검증했다. 로컬 public 479개가 APK/AAB/Android/iOS에 일치한다.
+- **공개 배포**: 소스 `62df2eab0f5da518e445ca9a7d642afdfc6c595a` · [Pages 34320972447](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34320972447) · [모바일 34320977187](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34320977187) 성공. [APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.10-build15/skylog-0.1.0-beta.10-build15-local-test.apk)와 [웹앱](https://junhyoungpark-nobel.github.io/skylog/)을 공개하고 APK 재다운로드·사진 328파일 공개 해시·beta.10·전체 출처·Chromium의 미방문 M110 오프라인 재실행·JS예외0을 확인했다.
+- **파일**: APK 20,090,813bytes, SHA256 `77921231e0e2f24d140a1715bb2f991d94b54317c43f944cdce0bbb991ca5fa0`. 무서명 AAB 19,382,425bytes, SHA256 `c72d866fb47662420235ace8b7200f9b91de70103966100a27bf665b5e5485c1`. 폴더: Downloads/skylog-release-0.1.0-beta.10-build15/. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.10-build15). 다음 수동 CI기본16.
+- **남은 경계**: Play용 AAB의 집 PC 기존 업로드 키 서명, Apple 팀 서명/TestFlight, 실제 폰의 메일 앱 왕복·iPhone 오프라인·센서, 일반 가입용 SMTP/운영자 개통 및 정식 스토어 심사는 남아 있다. Windows WebKit은 온라인 캐시까지 확인했으며 실제 iPhone 오프라인 성공으로 표시하지 않는다. 현재 전 기능 무료, 향후 난이도2·3 퀴즈/망원경 코스의 유료 상품·두 사람 무료 권한은 별도 계획이다.
 
 ## beta.9 / build14 — 천체 사진·댓글 보완
 
