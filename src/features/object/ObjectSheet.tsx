@@ -37,6 +37,7 @@ import { openStory } from '@/state/contentUiStore';
 import { useDragScroll } from '@/ui/useDragScroll';
 import { ScrollArea } from '@/ui/ScrollArea';
 import { useSheetGesture } from '@/ui/useSheetGesture';
+import { ObjectPhotoCard } from './ObjectPhoto';
 
 const REFRESH_MS = 10_000;
 
@@ -420,6 +421,7 @@ export function ObjectSheet() {
         data-testid="sheet-body"
         data-sheet-body=""
       >
+        <ObjectPhotoCard id={id} />
         <button
           className="my-3 flex min-h-12 w-full items-center justify-between rounded-xl bg-surface-2 px-4 text-body-sm"
           onClick={() => {

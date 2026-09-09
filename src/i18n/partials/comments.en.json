@@ -1,0 +1,7 @@
+{
+  "social": {
+    "refreshComments": "Refresh comments",
+    "commentsLoadError": "Comments could not be loaded. Please refresh.",
+    "olderComments": "Load older comments"
+  }
+}

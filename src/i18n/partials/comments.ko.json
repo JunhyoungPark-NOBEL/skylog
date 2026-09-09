@@ -1,0 +1,7 @@
+{
+  "social": {
+    "refreshComments": "댓글 새로고침",
+    "commentsLoadError": "댓글을 불러오지 못했어요. 새로고침해 주세요.",
+    "olderComments": "이전 댓글 더 보기"
+  }
+}

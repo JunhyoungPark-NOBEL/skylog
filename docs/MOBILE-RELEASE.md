@@ -1,6 +1,14 @@
 # Android AAB / iOS 출시 준비
 
-> 2026-09-09 최신 작업은 **0.1.0-beta.8 / build13**이다. 집의 beta.7/build12를 보존하며 아바타 꾸미기를 확장했다. 이번 작업의 검증·배포를 완료했다. 이전 기록의 ‘이 PC’는 당시 집 컴퓨터를 뜻하며 현재 원래 APK 서명 PC와 다르다.
+> **최신 작업: beta.9/build14 천체 사진·댓글 보완.** 기본 검증/배포 결과는 아래에 기록한다. 현재 PC는 기존 개인 APK 키가 있는 원래 서명 PC이며 Play 업로드키는 집 PC에 있다.
+
+## beta.9 / build14 — 천체 사진·댓글 보완
+
+- 사진20개·검색/선택/자세히·야간/오프라인과 개별 권리 기록은 [사진 출처](OBJECT-PHOTOS.md), 댓글 변경/서버 개통 경계는 [댓글 검토](COMMENTS-REVIEW.md)에 있다.
+- [향후 학습 이용권 계획](MONETIZATION-PLAN.md): 난이도2·3과 망원경 코스의 미래 판매안. 현재 기능은 계속 무료이며 결제·가격·권한을 등록하지 않았다.
+- **로컬 최종 검증**: 타입/lint·데이터·전체 단위541개와 이후 추가 API6개(총547개 고유 검사), PostgreSQL/RLS46개, Chromium75개 전체 통과. 사진 야간 픽셀 검사에서 둥근 모서리 밖 부모 표면을 제외했고 원래 색 토글이 기존 전역 이미지 필터에 걸리는 문제를 수정한 최종 소스를 검사했다. Android release/lint오류0·경고32, AAB/APK/native215개 에셋과 public191개 자료·사진40개/manifest 해시 일치. iOS 로컬 public과 실제 CI .app는 별도 검증한다.
+- **로컬 산출물**: Downloads/skylog-release-0.1.0-beta.9-build14/. APK9,446,602bytes·SHA256 `a903017f9d6153f5245493b580561abcb487220b5b54e2c5ff9742663e5eb111`, beta.9/build14·min24/target36·release flags·16KB 정렬·기존 build13 인증서 일치. AAB9,129,298bytes·SHA256 `cc3d95769f1d2efd8e7b1130060ba7761f81494b57e1aa890abdee2ad61bcae5`는 무서명이며 집 PC의 기존 Play 업로드키로 서명해야 한다. 공개 배포/모바일 CI 검증은 이어서 기록한다.
+- 공개 배포/모바일 CI 검증은 이어서 기록한다. 일반 가입·SMTP·실제 운영자·Play 업로드 서명·Apple 서명/TestFlight·실기기·스토어 심사는 별도다. 다음 CI기본15.
 
 ## beta.8 / build13 — 아바타 꾸미기·설치 APK
 

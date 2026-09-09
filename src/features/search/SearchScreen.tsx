@@ -6,6 +6,8 @@ import { eqjToSceneMatrix, applyMat3 } from '@/astro/frames';
 import { sceneToAltAz } from '@/astro/coords';
 import { displayName, loadCatalog, secondaryName, type Catalog } from '@/catalog/catalog';
 import { SUGGEST_ORDER } from '@/catalog/famous';
+import { getObjectPhoto } from '@/catalog/objectPhotos';
+import { PhotoCredit, PhotoThumbnail } from '@/features/object/ObjectPhoto';
 import type { ObjectId } from '@/catalog/objectId';
 import { fovForTarget, resolveTarget } from '@/catalog/objectTarget';
 import {
@@ -189,6 +191,7 @@ const MARK_TONE: Record<MarkerKind, string> = {
 
 function ResultRow({ id, kind, cat, lang, alt, daytime, mag, con, mark, onOpen }: RowProps) {
   const { t } = useTranslation();
+  const photo = getObjectPhoto(id);
   const name = displayName(cat, id, lang);
   const secondary = secondaryName(cat, id, lang);
   const conName = con
@@ -215,7 +218,11 @@ function ResultRow({ id, kind, cat, lang, alt, daytime, mag, con, mark, onOpen }
         data-testid="search-result"
         data-object-id={id}
       >
-        <KindIcon kind={kind} />
+        {photo ? (
+          <PhotoThumbnail photo={photo} fallback={<KindIcon kind={kind} />} />
+        ) : (
+          <KindIcon kind={kind} />
+        )}
         <span className="min-w-0 flex-1">
           <span className="block truncate text-body" data-testid="search-result-name">
             {name}
@@ -246,6 +253,7 @@ function ResultRow({ id, kind, cat, lang, alt, daytime, mag, con, mark, onOpen }
           </span>
         )}
       </button>
+      {photo && <PhotoCredit photo={photo} className="px-4 pb-2" />}
     </li>
   );
 }

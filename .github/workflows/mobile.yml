@@ -6,7 +6,7 @@ on:
         description: '새 빌드 번호 (이전 배포보다 큰 양의 정수, 최대 2100000000)'
         required: true
         type: string
-        default: '14'
+        default: '15'
 permissions:
   contents: read
 env:
@@ -80,6 +80,14 @@ jobs:
             for name in bundle.namelist():
               if name.startswith('base/assets/public/') and not name.endswith('/'):
                 assert bundle.read(name) == install.read(name.removeprefix('base/')), name
+            manifest = pathlib.Path('public/object-photos/v1/manifest.json').read_bytes()
+            assert bundle.read('base/assets/public/object-photos/v1/manifest.json') == manifest
+            for photo in json.loads(manifest)['photos']:
+              for size in ['hero', 'thumb']:
+                asset = photo[size]
+                image = bundle.read('base/assets/public/' + asset['path'])
+                assert len(image) == asset['bytes'], asset['path']
+                assert hashlib.sha256(image).hexdigest() == asset['sha256'], asset['path']
           apk.with_name('build-info.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'versionCode':os.environ['SKYLOG_VERSION_CODE'],'signature':'unsigned; an update needs the SAME certificate as the installed APK','sha256':hashlib.sha256(apk.read_bytes()).hexdigest()}, indent=2))
           PY
       - name: Read the public certificate of the previous personal-test APK
@@ -113,7 +121,9 @@ jobs:
         if: always()
         with:
           name: android-lint
-          path: android/app/build/reports/
+          path: |
+            android/app/build/reports/
+            android/app/build/outputs/androidTest-results/
   ios:
     needs: validate-version
     runs-on: macos-15
@@ -139,6 +149,18 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Release -destination 'generic/platform=iOS' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO CURRENT_PROJECT_VERSION="$SKYLOG_VERSION_CODE" build > ios-build.log 2>&1 || { tail -120 ios-build.log; exit 1; }
+          python3 - <<'PY'
+          import pathlib, hashlib, json
+          public = pathlib.Path('ios/DerivedData/Build/Products/Release-iphoneos/App.app/public')
+          manifest = pathlib.Path('public/object-photos/v1/manifest.json').read_bytes()
+          assert (public / 'object-photos/v1/manifest.json').read_bytes() == manifest
+          for photo in json.loads(manifest)['photos']:
+            for size in ['hero', 'thumb']:
+              asset = photo[size]
+              image = (public / asset['path']).read_bytes()
+              assert len(image) == asset['bytes'], asset['path']
+              assert hashlib.sha256(image).hexdigest() == asset['sha256'], asset['path']
+          PY
           ditto -c -k --keepParent ios/DerivedData/Build/Products/Release-iphoneos/App.app ios/skylog-ios-unsigned.zip
       - uses: actions/upload-artifact@v7
         with:

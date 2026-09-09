@@ -610,3 +610,11 @@ html.flash-warn::after {
 [data-theme='night'] .personal-art-tone .personal-art-tone {
   filter: none;
 }
+
+/* 관측 사진만 적색으로 변환한다. 글자·조작부·하늘 렌더러에는 필터를 적용하지 않는다. */
+[data-theme='night'] .object-photo-protected {
+  filter: var(--object-photo-night-filter);
+}
+[data-theme='night'] .object-photo-original {
+  filter: none;
+}

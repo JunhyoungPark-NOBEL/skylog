@@ -1,0 +1,22 @@
+{
+  "objectPhoto": {
+    "credit": "사진:",
+    "source": "원문",
+    "adaptation": "축소·WebP 변환 · 야간 보호 시 적색 표시",
+    "reference": "대표 관측 사진입니다. 현재 모습이나 맨눈·접안렌즈로 보는 밝기, 색, 크기와 다릅니다.",
+    "unavailable": "사진을 불러오지 못했어요. 천체 정보는 계속 볼 수 있어요.",
+    "retry": "사진 다시 불러오기",
+    "nightNotice": "야간 보호 · 사진을 적색으로 표시 중",
+    "originalNotice": "원래 색 표시 중 · 사진이 밝게 보일 수 있어요",
+    "original": "원래 색으로 보기",
+    "protect": "야간 보호로 돌아가기",
+    "sources": "천체 사진 출처와 이용 조건",
+    "licenseNote": "천체 사진에는 각각 CC BY 4.0이 적용됩니다. 원문 크레딧과 링크를 유지하며, 아래에 변환 내용을 표시합니다.",
+    "band": {
+      "visible": "가시광 관측",
+      "infrared": "적외선 관측",
+      "ultraviolet": "자외선 관측",
+      "multiwavelength": "여러 파장 합성"
+    }
+  }
+}

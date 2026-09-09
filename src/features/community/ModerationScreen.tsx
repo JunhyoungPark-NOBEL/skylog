@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { navigate } from '@/app/router';
 import { ScreenFrame } from '@/features/settings/ScreenFrame';
@@ -26,6 +26,17 @@ function ModerationContent({ user }: ReturnType<typeof useCommunityUser>) {
   const [error, setError] = useState('');
   const [tick, setTick] = useState(0);
   const [busy, setBusy] = useState(false);
+  const [loadedKey, setLoadedKey] = useState('');
+  const requestKey = `${section}:${tick}`;
+  const loading = !!user && loadedKey !== requestKey;
+  const visibleRows = loading ? [] : rows;
+  const mounted = useRef(true);
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
   useEffect(() => {
     if (!user) return;
     let alive = true;
@@ -34,7 +45,12 @@ function ModerationContent({ user }: ReturnType<typeof useCommunityUser>) {
         const c = communityClient();
         const role = await c.from('sky_moderators').select('id').eq('id', user.id).maybeSingle();
         if (role.error || !role.data) {
-          if (alive) setAllowed(false);
+          if (role.error) throw role.error;
+          if (alive) {
+            setAllowed(false);
+            setRows([]);
+            setLoadedKey(requestKey);
+          }
           return;
         }
         let q = c
@@ -51,27 +67,33 @@ function ModerationContent({ user }: ReturnType<typeof useCommunityUser>) {
         if (alive) {
           setAllowed(true);
           setRows(r.data as (CommunityPost | CommunityComment | CommunityCase)[]);
+          setLoadedKey(requestKey);
+          setError('');
         }
       } catch (e) {
-        if (alive) setError(communityError(e));
+        if (alive) {
+          setError(communityError(e));
+          setRows([]);
+          setLoadedKey(requestKey);
+        }
       }
     };
     void load();
     return () => {
       alive = false;
     };
-  }, [user, section, tick]);
+  }, [user, section, requestKey]);
   async function review(action: string, row: { id: string; owner: string }, status?: string) {
     const reason = window.prompt(t('social.reviewReason'));
     if (!reason?.trim()) return;
     setBusy(true);
     try {
       await communityAction(action, { id: row.id, status, text: reason });
-      setTick((n) => n + 1);
+      if (mounted.current) setTick((n) => n + 1);
     } catch (e) {
-      setError(communityError(e));
+      if (mounted.current) setError(communityError(e));
     } finally {
-      setBusy(false);
+      if (mounted.current) setBusy(false);
     }
   }
   async function openPhoto(row: CommunityPost | CommunityComment | CommunityCase) {
@@ -87,9 +109,9 @@ function ModerationContent({ user }: ReturnType<typeof useCommunityUser>) {
         id = result.data.post_id;
       }
       if (!id) throw new Error('NOT_AVAILABLE');
-      goToPhoto(id);
+      if (mounted.current) goToPhoto(id);
     } catch (e) {
-      setError(communityError(e));
+      if (mounted.current) setError(communityError(e));
     }
   }
   async function restrict(owner: string, on: boolean) {
@@ -98,11 +120,11 @@ function ModerationContent({ user }: ReturnType<typeof useCommunityUser>) {
     setBusy(true);
     try {
       await communityAction('suspend', { id: owner, on, text: reason });
-      setTick((n) => n + 1);
+      if (mounted.current) setTick((n) => n + 1);
     } catch (e) {
-      setError(communityError(e));
+      if (mounted.current) setError(communityError(e));
     } finally {
-      setBusy(false);
+      if (mounted.current) setBusy(false);
     }
   }
   return (
@@ -112,21 +134,34 @@ function ModerationContent({ user }: ReturnType<typeof useCommunityUser>) {
       testId="moderation-screen"
     >
       <div className="mx-auto max-w-2xl space-y-5 p-5">
-        {error && <p role="alert">{t(error)}</p>}
-        {!allowed ? (
+        {error && (
+          <div role="alert">
+            <p>{t(error)}</p>
+            <PillButton onClick={() => setTick((n) => n + 1)}>{t('study.retry')}</PillButton>
+          </div>
+        )}
+        {!allowed && loading ? (
+          <p role="status">{t('common.loading')}</p>
+        ) : !allowed ? (
           <p>{t('social.moderatorsOnly')}</p>
         ) : (
           <>
             <p className="text-body-sm text-muted">{t('social.reviewRules')}</p>
             <div className="flex flex-wrap gap-2">
               {(['posts', 'comments', 'reports', 'appeals'] as const).map((s) => (
-                <PillButton key={s} pressed={s === section} onClick={() => setSection(s)}>
+                <PillButton
+                  key={s}
+                  disabled={busy}
+                  pressed={s === section}
+                  onClick={() => setSection(s)}
+                >
                   {t('social.queues.' + s)}
                 </PillButton>
               ))}
             </div>
-            {!rows.length && <p>{t('social.queueEmpty')}</p>}
-            {rows.map((row) => (
+            {loading && <p role="status">{t('common.loading')}</p>}
+            {!loading && !error && !visibleRows.length && <p>{t('social.queueEmpty')}</p>}
+            {visibleRows.map((row) => (
               <article className="space-y-3 rounded-2xl bg-surface p-4" key={row.id}>
                 <p className="whitespace-pre-wrap">
                   {'caption' in row ? row.caption : 'body' in row ? row.body : row.reason}

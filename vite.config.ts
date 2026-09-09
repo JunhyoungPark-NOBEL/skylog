@@ -63,7 +63,11 @@ export default defineConfig(({ mode }) => ({
       },
       workbox: {
         // 앱 셸 + 기본 데이터 팩(밝은 별·별자리·DSO·검색 인덱스·메타)은 프리캐시
-        globPatterns: ['**/*.{js,css,html,svg,png,webp,ico,woff2}', ...precacheDataPatterns],
+        globPatterns: [
+          '**/*.{js,css,html,svg,png,webp,ico,woff2}',
+          'object-photos/v1/manifest.json',
+          ...precacheDataPatterns,
+        ],
         globIgnores: ['**/data/stars-deep.v1.bin', '**/data/content/**', '**/data/learn/**'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
         navigateFallback: 'index.html',

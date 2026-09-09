@@ -13,9 +13,10 @@ import {
   edgeAction,
   useCommunityUser,
 } from '@/community/client';
-import type { CommunityPost, CommunityComment, CommunityMember } from '@/community/types';
+import type { CommunityPost, CommunityMember } from '@/community/types';
 import { prepareCommunityImage } from '@/community/image';
 import { loadSearchIndex, search as searchObjects } from '@/catalog/searchIndex';
+import { CommentsPanel } from './CommentsPanel';
 
 function openCommunity(id?: string, object?: string) {
   window.location.hash =
@@ -95,7 +96,6 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
   const object = query.get('object') || '';
   const [cat, setCat] = useState<Catalog | null>(null);
   const [posts, setPosts] = useState<CommunityPost[]>([]);
-  const [comments, setComments] = useState<CommunityComment[]>([]);
   const [names, setNames] = useState<Record<string, string>>({});
   const [joined, setJoined] = useState(false);
   const [reacted, setReacted] = useState(false);
@@ -137,18 +137,9 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
         if (object) request = request.eq('object_id', object);
         if (category !== 'all' && !selected)
           request = request.like('object_id', category === 'moon' ? 'moon' : category + ':%');
-        const [p, m, cm, me, reaction] = await Promise.all([
+        const [p, m, me, reaction] = await Promise.all([
           request,
           c.from('sky_members').select('id,name').limit(1000),
-          selected
-            ? c
-                .from('sky_comments')
-                .select('*')
-                .eq('post_id', selected)
-                .neq('status', 'deleted')
-                .order('created_at')
-                .limit(100)
-            : Promise.resolve({ data: [], error: null }),
           user
             ? c.from('sky_members').select('id').eq('id', user.id).maybeSingle()
             : Promise.resolve({ data: null, error: null }),
@@ -156,10 +147,9 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
             ? c.from('sky_reactions').select('post_id').eq('post_id', selected).maybeSingle()
             : Promise.resolve({ data: null, error: null }),
         ]);
-        if (p.error || cm.error || m.error || me.error || reaction.error) throw new Error('LOAD');
+        if (p.error || m.error || me.error || reaction.error) throw new Error('LOAD');
         if (alive) {
           setPosts(p.data as CommunityPost[]);
-          setComments(cm.data as CommunityComment[]);
           setNames(Object.fromEntries((m.data as CommunityMember[]).map((v) => [v.id, v.name])));
           setJoined(!!me.data);
           setReacted(!!reaction.data);
@@ -345,112 +335,16 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
                       )}
                     </div>
                   </details>
-                  <section className="space-y-4">
-                    <h2 className="text-title">{t('social.comments')}</h2>
-                    {!comments.length && (
-                      <p className="text-body-sm text-muted">{t('social.noComments')}</p>
-                    )}
-                    {comments.map((comment) => (
-                      <article key={comment.id} className="rounded-2xl bg-surface p-4">
-                        <p className="text-body-sm text-muted">
-                          {names[comment.owner] || t('social.observer')}
-                          {comment.status !== 'published' &&
-                            ' · ' + t('social.states.' + comment.status)}
-                        </p>
-                        <p className="mt-2 whitespace-pre-wrap break-words">{comment.body}</p>
-                        {joined && (
-                          <details className="mt-2 text-body-sm">
-                            <summary className="min-h-11 cursor-pointer py-2">
-                              {t('social.options')}
-                            </summary>
-                            {comment.owner === user?.id ? (
-                              <div className="flex flex-wrap gap-2">
-                                <PillButton
-                                  disabled={busy}
-                                  onClick={() => {
-                                    if (window.confirm(t('social.deleteConfirm')))
-                                      void run('deleteComment', { id: comment.id });
-                                  }}
-                                >
-                                  {t('social.delete')}
-                                </PillButton>
-                                {['rejected', 'hidden'].includes(comment.status) && (
-                                  <PillButton
-                                    onClick={() => {
-                                      const reason = window.prompt(t('social.appealReason'));
-                                      if (reason?.trim())
-                                        void run('appeal', {
-                                          id: comment.id,
-                                          type: 'comment',
-                                          text: reason,
-                                        });
-                                    }}
-                                  >
-                                    {t('social.appeal')}
-                                  </PillButton>
-                                )}
-                              </div>
-                            ) : (
-                              <div className="flex flex-wrap gap-2">
-                                <PillButton
-                                  disabled={busy}
-                                  onClick={() => {
-                                    const reason = window.prompt(t('social.reportReason'));
-                                    if (reason?.trim())
-                                      void run('report', {
-                                        id: comment.id,
-                                        type: 'comment',
-                                        text: reason,
-                                      });
-                                  }}
-                                >
-                                  {t('social.report')}
-                                </PillButton>
-                                <PillButton
-                                  disabled={busy}
-                                  onClick={() => {
-                                    if (window.confirm(t('social.blockConfirm')))
-                                      void run('block', { id: comment.owner });
-                                  }}
-                                >
-                                  {t('social.block')}
-                                </PillButton>
-                              </div>
-                            )}
-                          </details>
-                        )}
-                      </article>
-                    ))}
-                    {joined && post.status === 'published' ? (
-                      <form
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          void run('comment', { id: post.id, text });
-                        }}
-                      >
-                        <label className="block text-body-sm">
-                          {t('social.writeComment')}
-                          <textarea
-                            required
-                            maxLength={500}
-                            value={text}
-                            onChange={(e) => setText(e.target.value)}
-                            className="mt-2 min-h-24 w-full rounded-2xl bg-surface p-4"
-                          />
-                        </label>
-                        <PillButton type="submit" disabled={busy || !text.trim()}>
-                          {t('social.sendReview')}
-                        </PillButton>
-                        <p className="mt-2 text-caption text-muted">{t('social.reviewHint')}</p>
-                      </form>
-                    ) : (
-                      !joined && (
-                        <PillButton onClick={() => navigate('account')}>
-                          {t('social.signIn')}
-                        </PillButton>
-                      )
-                    )}
-                  </section>
+                  <CommentsPanel
+                    postId={post.id}
+                    published={post.status === 'published'}
+                    userId={user?.id}
+                    joined={joined}
+                    onBlocked={() => {
+                      open();
+                      setTick((n) => n + 1);
+                    }}
+                  />
                 </>
               ) : (
                 <p role="status">{t(loading ? 'common.loading' : 'social.notAvailable')}</p>

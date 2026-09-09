@@ -1,0 +1,22 @@
+{
+  "objectPhoto": {
+    "credit": "Image:",
+    "source": "Source",
+    "adaptation": "Resized to WebP · red tint with night protection",
+    "reference": "Reference observation image. It differs from the current view and from the brightness, colour and size seen with your eyes or an eyepiece.",
+    "unavailable": "The image could not load. Object information is still available.",
+    "retry": "Retry image",
+    "nightNotice": "Night protection · image shown in red",
+    "originalNotice": "Original colours · the image may appear bright",
+    "original": "Show original colours",
+    "protect": "Restore night protection",
+    "sources": "Object image credits and licences",
+    "licenseNote": "Each object image is licensed under CC BY 4.0. Original credits and links are retained, with adaptations listed below.",
+    "band": {
+      "visible": "Visible-light observation",
+      "infrared": "Infrared observation",
+      "ultraviolet": "Ultraviolet observation",
+      "multiwavelength": "Multiwavelength composite"
+    }
+  }
+}

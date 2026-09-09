@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { ObjectInfo } from '@/render/SkyScene';
+import { getObjectPhoto } from '@/catalog/objectPhotos';
+import { PhotoCredit, PhotoThumbnail } from '@/features/object/ObjectPhoto';
 
 /**
  * 선택 툴팁 (task-01 §3.8): 이름·종류·등급·alt/az·별자리. "자세히" → 상세 시트(T3).
@@ -17,13 +19,15 @@ export function SelectionTooltip({
   onDetails(): void;
 }) {
   const { t } = useTranslation();
+  const photo = getObjectPhoto(info.id);
   return (
     <div
-      className="pointer-events-auto rounded-xl glass-strong p-4 text-body-sm text-fg shadow-float squircle"
+      className="pointer-events-auto max-h-[min(55dvh,30rem)] overflow-y-auto rounded-xl glass-strong p-4 text-body-sm text-fg shadow-float squircle"
       data-testid="tooltip"
       role="status"
     >
       <div className="flex items-start gap-2">
+        {photo && <PhotoThumbnail photo={photo} fallback={null} />}
         <div className="min-w-0 flex-1">
           <div className="truncate text-body font-semibold" data-testid="tooltip-name">
             {info.name}
@@ -60,6 +64,7 @@ export function SelectionTooltip({
           ✕
         </button>
       </div>
+      {photo && <PhotoCredit photo={photo} className="mt-2" />}
       <div className="mt-3 flex gap-2">
         <button
           type="button"
