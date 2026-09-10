@@ -1,15 +1,15 @@
 # Android AAB / iOS 출시 준비
 
-> 최신: **beta.12/build17 스카이야드 출시 준비 중. 첫 Play 업로드라는 사용자 확인으로 현재 PC의 새 업로드 전용 키를 준비했다.**
+> 최신: **스카이야드 beta.12/build17 — 이 PC의 Play 업로드 키와 서명 AAB 완성, 개인 APK·PWA 배포 검증 완료.** [출시 준비표](STORE-LAUNCH-CHECKLIST.md) · [현재 PC 서명 안내](SIGNING-ON-THIS-PC.md)
 
 ## beta.12 / build17 — 스카이야드와 최초 Play 업로드 준비
 
-- **구현**: 확정 이름 ‘스카이야드 Skyard - 천체 관측 가이드’를 웹/PWA·한영 UI·Android/iOS 표시·스토어 그래픽에 반영했다. 내부 앱ID·로그인URI·DB/백업 식별자는 유지한다. 지원 tony030214@gmail.com/운영자 박준형을 공개 정책에 반영하고 웹 계정·비로그인 이메일 계정 삭제 안내를 추가했다. Apple privacy manifest를 현행 선택계정/UGC/백업에 맞춰 계정 연결 7종으로 정리했다(D-060).
-- **사용자 확인**: 신규 개인 Play 계정(2023-11-13 이후), AAB 업로드 이력 없음, 집 PC 접근 불가·현재 PC에서 작업. 새 Play 업로드 전용 키를 이 PC에 만들고 DPAPI·ACL·공개 인증서를 검증했다. 개인 APK 기존 키는 보존한다(D-061). 첫 Play 등록은 아직 미실행이다.
-- **검증**: 타입 통과. 초기 단위551개 통과/4파일 worker 시작 timeout 뒤 해당29개를 1worker로 다시 실행해 통과(총580개 고유 검사). 제품 assertion/timeout을 완화하지 않았다. Chromium16+Windows WebKit16의 브랜드/정책/계정 연결·360px 확인 통과, JS/콘솔 오류0. 첫 검토의 영문 도움말 누락을 보완해 재검했다. 실제 폰/메일 요청/삭제 결과와 구분한다.
-- **산출물**: docs/STORE-LAUNCH-CHECKLIST.md와 STORE-LISTING.md, 새 SKYARD 스토어 그래픽, public/delete-account.html. beta.12/build17 최종 Android 빌드·서명·공개 배포 결과는 후속 검증 후 기록한다.
-- **남은 일/사용자 확인**: 일반 가입 SMTP·실제 운영자·심사 접근·삭제 실제 운영·서버 보관 정책·출시국/연령·12명14일 비공개 테스트·Apple 서명/TestFlight·실폰 확인. 현재 전 기능 무료, 미래 퀴즈2·3/망원경 코스 상품·두 사람 권한 미구현. 개인정보와 법적 선언/스토어 제출을 대신 확정하지 않았다.
-- **폰 체크**: 새 APK를 기존 앱 삭제 없이 업데이트해 스카이야드/beta.12 및 기존 기록/마당 확인. iPhone 홈 화면 웹앱 새 버전·사진·센서·메일 복귀·오프라인을 실제 기기로 확인한다.
+- **구현**: 확정 이름 ‘스카이야드 Skyard - 천체 관측 가이드’를 웹/PWA·한영 UI·Android/iOS 표시·스토어 그래픽에 반영했다. 앱ID·로그인URI·DB/백업 식별자를 유지한다. 사용자 제공 지원 이메일/운영자와 웹 계정·비로그인 이메일 삭제 안내를 공개 정책에 반영했다. 현행 선택계정/UGC/백업에 맞춰 Apple privacy manifest를 계정 연결7종으로 보완했다(D-060).
+- **서명 해결**: 사용자가 첫 Play 업로드 전임과 현재 PC에서 계속 작업할 것을 확인해 새 Play 업로드 전용키를 마련했다(D-061). DPAPI·사용자 ACL로 보관하며 개인 APK 키는 유지한다. **서명 AAB 완성**: 19474322bytes · SHA256 888b5acf93b879f33f3f6ed9e8f57771a3be1dcc4a9a8d9b1fb5e98eb52d0d6d. jarsigner strict/bundletool·RSA4096/SHA256withRSA·payload997개 전체 서명/원본 일치, 미서명 payload0. 공개 인증서 SHA256 f5ad3a778d18b33973938b40f5b93f604c0cb099095a9875b09aa4f0c57a98bd. 실제 Console 첫 등록과 별도 암호의 휴대용 키 백업은 미실행이다.
+- **빌드**: 소스 830c974bebeab0e873925ba58b0bd8a01798de6e, Android beta.12/build17/min24/target36·스카이야드 label·기존 APK 인증서·16KB 정렬 검증. public480/native502/photo328이 서명/무서명 AAB·APK·로컬 Android/iOS와 일치한다. Gradle release/lint 오류0·경고32. APK 20094988bytes · SHA256 ba0504adcaf6016cd54fee594a692bdb4724935840275c364d2f9fd94edd3a67. 무서명 원본 AAB SHA256 cc4abb02b4810fab2ec99941f645d85ea70b7bf8a28c7b4169eff3bf3ad72097도 보존한다. 최초 e2d9015 산출물은 최종 index 포맷 변경 후 별도로 보존하고 830c974를 다시 빌드했다.
+- **검증/배포**: 타입/lint·변경 파일 포맷 통과. 초기 단위551개 및 worker 시작 timeout4파일의 후속29개 통과(총580개 고유 검사, 제품 조건 변경 없음). 로컬 Chromium16+Windows WebKit16, 공개 Chromium9개 통과·JS/콘솔 오류0. 영문 도움말 누락은 수정 후 재검했다. [Pages 34423116491](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34423116491) 성공, [APK 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.12-build17) 공개 및 재다운로드 SHA 일치. 폰/설치PWA/오프라인/실제 메일/삭제 성공과 구분한다.
+- **자료**: Downloads/skylog-release-0.1.0-beta.12-build17/. Play 제출 파일은 skylog-0.1.0-beta.12-build17-play-signed.aab. docs/STORE-LAUNCH-CHECKLIST.md·STORE-LISTING.md·SIGNING-ON-THIS-PC.md에 등록값/한영 문안/정책/연락처/자산/서명 재사용과 백업 절차를 정리했다. 다음 수동 CI 기본18. 새 iOS CI 컴파일·Apple 서명/TestFlight는 수행하지 않았고 최근 실제 컴파일 증거는 build15이다.
+- **남은 일/사용자 확인**: 신규 개인 계정의 12명14일 비공개 테스트·일반 회원 SMTP·실제 운영자/심사 접근·삭제 실제 운영·보관 정책·출시국/연령·Apple 서명/TestFlight·실폰 확인. 현재 전 기능 무료, 향후 퀴즈2·3/망원경 코스 상품·두 사람 무료 권한은 계획이다. 앱 등록/법적 선언/스토어 공개 제출은 수행하지 않았다. 폰에서는 기존 앱을 지우지 않고 업데이트해 스카이야드/beta.12·기존 기록/마당·사진/센서/로그인·오프라인을 확인한다.
 
 ## beta.11 / build16 — 오늘 밤 추천 사진 표시
 

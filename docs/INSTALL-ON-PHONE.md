@@ -1,10 +1,10 @@
 # 휴대폰에서 별관찰 앱 사용하기
 
-최신 버전은 **0.1.0-beta.11 / build16**입니다. 오늘 밤의 추천·관측 계획·오늘의 볼거리에도 사진 미리보기를 적용했습니다. 기존 164개 천체 사진과 이메일 로그인 복구를 포함합니다. 기존 마당·아바타·관측 기록·학습 진도를 포함하는 무료 업데이트입니다.
+최신 버전은 **0.1.0-beta.12 / build17**입니다. 표시 이름을 스카이야드 Skyard로 통일하고 공개 지원·계정 삭제 안내를 보완했습니다. 오늘 밤의 사진 미리보기도 포함합니다. 기존 164개 천체 사진과 이메일 로그인 복구를 포함합니다. 기존 마당·아바타·관측 기록·학습 진도를 포함하는 무료 업데이트입니다.
 
-- [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.11-build16/skylog-0.1.0-beta.11-build16-local-test.apk): 기존 build15와 같은 인증서로 서명했습니다. JSON 백업을 보관하고 기존 앱을 삭제하지 않은 채 업데이트합니다.
-- [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari에서 열고 공유 → 홈 화면에 추가. 기존 홈 화면 앱도 다시 열어 설정의 **beta.11**을 확인합니다. 앱/사이트 데이터를 지우지 않습니다.
-- APK 20,090,813bytes · SHA256 `052a849b085e3ccf6bf5785e4f015ae3af2bbba54c8fa043c5e56d77b99a8610`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.11-build16) · [전체 검증 결과](MOBILE-RELEASE.md).
+- [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.12-build17/skylog-0.1.0-beta.12-build17-local-test.apk): 기존 build16와 같은 인증서로 서명했습니다. JSON 백업을 보관하고 기존 앱을 삭제하지 않은 채 업데이트합니다.
+- [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari에서 열고 공유 → 홈 화면에 추가. 기존 홈 화면 앱도 다시 열어 설정의 **beta.12**을 확인합니다. 앱/사이트 데이터를 지우지 않습니다.
+- APK 20,094,988bytes · SHA256 `ba0504adcaf6016cd54fee594a692bdb4724935840275c364d2f9fd94edd3a67`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.12-build17) · [전체 검증 결과](MOBILE-RELEASE.md).
 
 ## 사진 사용과 로그인
 
@@ -37,32 +37,32 @@
 
 자동 위치·센서 권한, 작은 반투명 시간 바/탭, 원형 하늘과 상세 창 전체 스와이프는 이전 버전처럼 사용할 수 있다. 은하수는 실제 낮/박명에 대기 효과로 흐려지고, 지도로 보고 싶으면 하늘 설정에서 대기 효과를 끈다.
 
-## 안드로이드 build16 설치
+## 안드로이드 build17 설치
 
-APK를 휴대폰 Download 폴더에 내려받고 내 파일/Files에서 엽니다. 설치 출처 허용을 요청하면 다운로드에 사용한 브라우저 또는 파일 앱에 허용한 뒤 **업데이트**를 누릅니다. 설치 후 출처 허용을 다시 끌 수 있습니다. 앱 목록에서 별관찰해쌀뚜를 열고 설정의 **0.1.0-beta.11**을 확인합니다. Android 7 이상이 필요하고 하늘·학습 자료는 APK에 포함됩니다. 날씨와 온라인 서비스 갱신에는 인터넷이 필요합니다.
+APK를 휴대폰 Download 폴더에 내려받고 내 파일/Files에서 엽니다. 설치 출처 허용을 요청하면 다운로드에 사용한 브라우저 또는 파일 앱에 허용한 뒤 **업데이트**를 누릅니다. 설치 후 출처 허용을 다시 끌 수 있습니다. 앱 목록에서 스카이야드를 열고 설정의 **0.1.0-beta.12**을 확인합니다. Android 7 이상이 필요하고 하늘·학습 자료는 APK에 포함됩니다. 날씨와 온라인 서비스 갱신에는 인터넷이 필요합니다.
 
-build16은 기존 build9 개인 APK와 같은 인증서로 서명했습니다. 다른 서명이나 향후 Play 설치판으로 옮길 때는 덮어쓰기 설치가 되지 않을 수 있으므로 먼저 JSON 백업을 내보내 파일을 확인하고, 새 앱에서 기록·사진·학습 진도를 가져옵니다. 현재 업데이트 때문에 기존 앱을 삭제하지 않습니다.
+build17은 기존 build9 개인 APK와 같은 인증서로 서명했습니다. 다른 서명이나 향후 Play 설치판으로 옮길 때는 덮어쓰기 설치가 되지 않을 수 있으므로 먼저 JSON 백업을 내보내 파일을 확인하고, 새 앱에서 기록·사진·학습 진도를 가져옵니다. 현재 업데이트 때문에 기존 앱을 삭제하지 않습니다.
 
 이번 로컬 AAB는 무서명입니다. 집 PC의 기존 Play 업로드 키로 서명하기 전 Play에 제출하지 않습니다. AAB는 휴대폰에서 직접 여는 설치 파일이 아닙니다.
 
 ## 아이폰: Safari 홈 화면 웹앱
 
-이번 build16에서는 Chromium과 Windows WebKit의 추천 사진·출처·야간·작은 화면·계획 저장을 확인했습니다. Chromium의 오프라인 사진 재실행과 APK/AAB/로컬 네이티브 자료 해시 검사도 통과했습니다. WebKit의 로그인 복구·온라인 캐시 검증은 이전 build15 결과입니다. Windows WebKit 오프라인 제어의 내부 오류 이력 때문에 이번에도 실제 iPhone의 비행기모드 재실행을 확인한 것으로 표시하지 않습니다. 먼저 온라인에서 앱을 충분히 연 뒤 비행기모드에서 홈 화면 앱을 다시 열어 사진/기존 기록을 확인해 주세요.
+이번 build17에서는 Chromium과 Windows WebKit의 추천 사진·출처·야간·작은 화면·계획 저장을 확인했습니다. Chromium의 오프라인 사진 재실행과 APK/AAB/로컬 네이티브 자료 해시 검사도 통과했습니다. WebKit의 로그인 복구·온라인 캐시 검증은 이전 build15 결과입니다. Windows WebKit 오프라인 제어의 내부 오류 이력 때문에 이번에도 실제 iPhone의 비행기모드 재실행을 확인한 것으로 표시하지 않습니다. 먼저 온라인에서 앱을 충분히 연 뒤 비행기모드에서 홈 화면 앱을 다시 열어 사진/기존 기록을 확인해 주세요.
 
-APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. beta.11 공개 배포 검증은 MOBILE-RELEASE.md의 최신 보고를 따른다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
+APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. beta.12 공개 배포 검증은 MOBILE-RELEASE.md의 최신 보고를 따른다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
 
 1. iOS 16.4 이상의 **Safari**에서 [별관찰 앱](https://junhyoungpark-nobel.github.io/skylog/)을 연다.
 2. **공유 → 홈 화면에 추가**를 선택한다. ‘웹 앱으로 열기’ 항목이 보이면 켜고 추가한다.
 3. 홈 화면 아이콘으로 실행한다. 현재 위치 권한을 허용하면 관측지를 자동 갱신한다. **휴대폰 방향으로 보기**를 눌러 최초 동작·방향 권한을 허용한다. 위치는 관측지 설정에서 자동 사용을 끄고 수동 입력할 수도 있다.
 4. 오프라인에서 쓸 이야기·배우기·별길 화면은 온라인 상태에서 한 번씩 연다. 기본 하늘 자료는 자동 저장되고 깊은 별·이야기·학습은 사용한 자료가 저장된다. 네이티브 앱의 첫 실행부터 모든 자료 포함과는 다르다.
 
-인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.11**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
+인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.12**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
 
 Safari 웹앱과 TestFlight 네이티브 앱은 저장소가 별개다. 옮길 때는 JSON 백업·가져오기를 사용한다.
 
 ## 아이폰: TestFlight 네이티브 앱
 
-현재 iPhone 설치용 서명 IPA는 없다. 최근 iOS 무서명 CI 컴파일은 build15이며, 이번 build16에서는 로컬 iOS 자료 동기화와 WebKit 화면을 확인했다. MOBILE-RELEASE.md의 최신 보고를 따른다. iPhone 설치와 실제 센서 검증에는 Apple 팀 서명과 실기기가 필요하다.
+현재 iPhone 설치용 서명 IPA는 없다. 최근 iOS 무서명 CI 컴파일은 build15이며, 이번 build17에서는 로컬 iOS 자료 동기화와 WebKit 화면을 확인했다. MOBILE-RELEASE.md의 최신 보고를 따른다. iPhone 설치와 실제 센서 검증에는 Apple 팀 서명과 실기기가 필요하다.
 
 Apple Developer 팀, 확정 Bundle ID, App Store Connect 앱, 배포 인증서/프로비저닝과 Xcode 26 이상이 설치된 Mac이 필요하다.
 
@@ -75,7 +75,7 @@ Apple Developer 팀, 확정 Bundle ID, App Store Connect 앱, 배포 인증서/�
 
 ## 먼저 해볼 실기기 확인
 
-- [ ] Android build16 APK 또는 홈 화면 PWA의 설정 버전 **0.1.0-beta.11** 확인.
+- [ ] Android build17 APK 또는 홈 화면 PWA의 설정 버전 **0.1.0-beta.12** 확인.
 - [ ] 새 로그인 메일을 받아 Android 앱 복귀와 iPhone 홈 화면 앱의 로그인 또는 링크 복구 확인. 만료된 예전 메일 대신 업데이트한 앱에서 새로 요청.
 - [ ] 토성·M31·M42·M110 사진이 검색/선택에 표시되고, 오늘 밤 추천/계획/볼거리도 사진이 있는 천체의 미리보기를 보여 주며 전체 출처는 자세히에서 보이는지 확인. 야간 모드와 원래 색 보기 전환 확인.
 - [ ] 기존 기록·사진·학습 진도·커스텀 장비 보존. JSON 내보내기/가져오기 후 수량과 내용을 대조.
