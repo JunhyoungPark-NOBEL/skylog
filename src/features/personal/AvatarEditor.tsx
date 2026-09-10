@@ -18,6 +18,7 @@ const GROUPS = {
   head: ['hair', 'hairColor', 'hat'],
   clothes: ['outfit', 'suit'],
   gear: ['accessory'],
+  sky: ['background'],
 } as const satisfies Record<string, readonly AvatarCategory[]>;
 type Group = keyof typeof GROUPS;
 type Props = {
@@ -107,7 +108,7 @@ export function AvatarEditor({
         </PillButton>
       </div>
       <div
-        className="grid grid-cols-4 gap-1 rounded-2xl bg-surface p-1"
+        className="grid grid-cols-3 gap-1 rounded-2xl bg-surface p-1 sm:grid-cols-5"
         aria-label={t('avatar.categories')}
       >
         {(Object.keys(GROUPS) as Group[]).map((key) => (

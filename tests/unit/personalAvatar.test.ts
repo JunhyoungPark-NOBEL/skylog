@@ -41,7 +41,7 @@ describe('아바타 보상과 코디 저장', () => {
     const badges = new Set(AVATAR_REWARDS.map((reward) => reward.badge));
     await Promise.all([grantRewards(badges), grantRewards(badges), grantRewards(badges)]);
     const rows = await getDb().progress.where('key').startsWith('avatar.reward:').toArray();
-    expect(rows).toHaveLength(6);
+    expect(rows).toHaveLength(12);
     for (const reward of AVATAR_REWARDS) {
       expect(rows.filter((row) => row.key === 'avatar.reward:' + reward.key)).toHaveLength(1);
       expect((await readPersonal()).ownedAvatar.has(reward.key)).toBe(true);
@@ -191,6 +191,7 @@ describe('아바타 보상과 코디 저장', () => {
       hairColor: 'silver',
       accessory: 'starwand',
       expression: 'joy',
+      background: 'galaxy',
     });
     await saveLook(0, '관측', { ...DEFAULT_AVATAR, accessory: 'binoculars' });
     await saveLook(2, '스케치', { ...DEFAULT_AVATAR, accessory: 'sketchbook', outfit: 'overalls' });

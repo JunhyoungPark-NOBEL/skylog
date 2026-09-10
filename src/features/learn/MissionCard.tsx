@@ -60,7 +60,9 @@ export function MissionCard({
         <button
           className={BUTTON}
           onClick={() =>
-            useLearnUiStore.getState().openQuiz({ ids: step.quizIds, limit: step.quizIds.length })
+            useLearnUiStore
+              .getState()
+              .openQuiz({ ids: step.quizIds, limit: step.quizIds.length, missionId: m.id })
           }
         >
           {t('study.quiz')}

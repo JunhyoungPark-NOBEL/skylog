@@ -56,7 +56,7 @@ describe('아바타 선택과 이전 프로필', () => {
         normalizeAvatar({ [reward.category]: reward.value }, new Set([reward.key])),
       ).toHaveProperty(reward.category, reward.value);
     }
-    expect(new Set(AVATAR_REWARDS.map((reward) => reward.key)).size).toBe(6);
+    expect(new Set(AVATAR_REWARDS.map((reward) => reward.key)).size).toBe(12);
   });
 
   it('알 수 없는 선택·보유 키·잘못된 값은 기본값으로 정리한다', () => {

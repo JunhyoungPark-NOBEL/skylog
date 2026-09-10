@@ -12,6 +12,7 @@ await db.exec(await readFile('supabase/migrations/202609080001_community.sql', '
 await db.exec(await readFile('supabase/migrations/202609080003_objects.sql', 'utf8'));
 await db.exec(await readFile('supabase/migrations/202609080004_usage.sql', 'utf8'));
 await db.exec(await readFile('supabase/migrations/202609080005_edit.sql', 'utf8'));
+await db.exec(await readFile('supabase/migrations/202609100001_community_identity.sql', 'utf8'));
 const a = '00000000-0000-4000-8000-000000000001',
   b = '00000000-0000-4000-8000-000000000002',
   m = '00000000-0000-4000-8000-000000000003';

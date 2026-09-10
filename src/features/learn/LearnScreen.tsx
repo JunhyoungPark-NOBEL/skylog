@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollArea } from '@/ui/ScrollArea';
 import { IconSettings } from '@/ui/icons';
@@ -7,6 +8,7 @@ import { QuizJourney } from './QuizJourney';
 import { CoursesScreen } from './CoursesScreen';
 import { StoriesScreen } from './StoriesScreen';
 import { AchievementsScreen } from './AchievementsScreen';
+const HistoryQuestsScreen = lazy(() => import('./HistoryQuestsScreen'));
 
 export function LearnScreen() {
   const { t } = useTranslation();
@@ -97,7 +99,9 @@ export function LearnScreen() {
           (nav.courseGroup ?? '') +
           (nav.pathId ?? '') +
           (nav.missionId ?? '') +
-          (nav.hopCourseId ?? '')
+          (nav.hopCourseId ?? '') +
+          nav.track +
+          (nav.questId ?? '')
         }
         className="pb-tab"
         fadeBottom="20px"
@@ -110,7 +114,31 @@ export function LearnScreen() {
           tabIndex={0}
           className="mx-auto w-full max-w-3xl px-4 pb-6 pt-2 outline-none"
         >
-          {!value ? (
+          {nav.section === 'quiz' && (
+            <div className="mb-5 grid grid-cols-3 gap-2" aria-label={t('observingCourse.choose')}>
+              {['sky', 'observing', 'physics'].map((key) => (
+                <button
+                  key={key}
+                  data-testid={'quiz-track-' + key}
+                  aria-pressed={nav.track === key}
+                  onClick={() => navigateLearn('quiz', { track: key })}
+                  className={
+                    'min-h-14 rounded-2xl border px-2 text-body-sm font-semibold ' +
+                    (nav.track === key
+                      ? 'border-accent bg-accent-soft text-accent'
+                      : 'border-hairline bg-surface')
+                  }
+                >
+                  {t(key === 'physics' ? 'history.track' : 'observingCourse.' + key)}
+                </button>
+              ))}
+            </div>
+          )}
+          {nav.section === 'quiz' && nav.track === 'physics' ? (
+            <Suspense fallback={<p role="status">{t('common.loading')}</p>}>
+              <HistoryQuestsScreen questId={nav.questId} />
+            </Suspense>
+          ) : !value ? (
             <div className="p-5">
               <p role="status">{t(error ? 'study.loadError' : 'common.loading')}</p>
               {error && (

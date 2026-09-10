@@ -3,6 +3,7 @@ import type { LearningState } from '@/learn/runtime';
 import { QUIZ_STAGES, stageTrack, stageNumber } from '@/learn/stages';
 import { useLearnUiStore } from '@/state/learnUiStore';
 import { navigateLearn } from './learnNavigation';
+import { PlusNotice } from './PlusAccess';
 
 export function QuizJourney({
   value,
@@ -26,24 +27,7 @@ export function QuizJourney({
   const allDone = cleared === trackStages.length;
   return (
     <div className="space-y-6" data-testid="quiz-journey">
-      <div className="grid grid-cols-2 gap-2" aria-label={t('observingCourse.choose')}>
-        {['sky', 'observing'].map((key) => (
-          <button
-            key={key}
-            data-testid={'quiz-track-' + key}
-            aria-pressed={track === key}
-            onClick={() => navigateLearn('quiz', { track: key })}
-            className={
-              'min-h-14 rounded-2xl border px-3 text-body-sm font-semibold ' +
-              (track === key
-                ? 'border-accent bg-accent-soft text-accent'
-                : 'border-hairline bg-surface')
-            }
-          >
-            {t('observingCourse.' + key)}
-          </button>
-        ))}
-      </div>
+      <PlusNotice />
       <section className="relative overflow-hidden rounded-3xl border border-hairline bg-surface p-6">
         <svg
           aria-hidden
@@ -105,6 +89,7 @@ export function QuizJourney({
             >
               <span className="block text-caption text-muted">
                 0{n} · {t(chapterKey + n + '.level')}
+                {n > 1 ? ' · Plus' : ''}
               </span>
               <span className="mt-1 block text-body-sm font-semibold">
                 {t(chapterKey + n + '.title')}

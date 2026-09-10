@@ -1,0 +1,41 @@
+{
+  "plus": {
+    "title": "Go deeper into observing and astronomy",
+    "intro": "Learn observing techniques and work through the reasoning behind discoveries in astronomy.",
+    "features": {
+      "quiz": "Advanced and expert quizzes on the night sky and observing equipment",
+      "physics": "10 historical stories, 30 astrophysics problems, step-by-step hints and worked solutions",
+      "courses": "10 telescope observing missions and 6 star-hopping courses",
+      "records": "Personal working notes, retrying mistakes and tracking solutions without hints"
+    },
+    "plannedPrice": "Planned launch price · KRW 9,900 once",
+    "price": "{{price}} · one-time purchase",
+    "noAds": "No ads or subscription. Confirm your local price in Google Play when purchasing becomes available.",
+    "previewShort": "Beta preview",
+    "preview": "Pre-launch beta preview: try Plus content at no charge. Purchases are not active. The paid launch will be announced separately.",
+    "active": "Plus is active",
+    "granted": "Plus access has been granted to this account.",
+    "discover": "Explore what's included",
+    "availability": {
+      "setup-required": "Purchases are being prepared. They will become available after store setup and verification are complete.",
+      "sign-in-required": "Sign in to the Skyard account that will hold and restore your purchase.",
+      "android-play": "Buy once through Google Play to keep using Plus on this Skyard account.",
+      "unsupported-platform": "New purchases are supported in the Android app installed from Google Play. If your account already has access, sign in and refresh its status."
+    },
+    "accountNote": "Restoring requires the original Google Play and Skyard accounts. Access is checked online periodically. Learning and observing records on this device remain available regardless of purchase status.",
+    "signIn": "Sign in",
+    "buy": "Buy once for {{price}}",
+    "processing": "Processing…",
+    "restore": "Restore purchase",
+    "refresh": "Refresh access",
+    "checkFailed": "Could not check access. Check your connection and sign-in status, then try again.",
+    "result": {
+      "verified": "Plus access verified.",
+      "pending": "Your Google Play payment is pending. Refresh access after payment completes.",
+      "cancelled": "Purchase cancelled.",
+      "nothing-to-restore": "No purchase found to restore. Check the accounts used for your original purchase.",
+      "unavailable": "Purchasing is not available here right now.",
+      "error": "Could not complete the request. Check your accounts and connection."
+    }
+  }
+}

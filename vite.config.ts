@@ -31,6 +31,16 @@ const precacheDataPatterns = PRECACHE_DATA_FILES.filter((f) =>
 
 export default defineConfig(({ mode }) => ({
   base: mode === 'native' ? '/' : base,
+  server: {
+    watch: {
+      ignored: [
+        '**/artifacts/**',
+        '**/test-results/**',
+        '**/playwright-report/**',
+        '**/tests/e2e/__screenshots__/**',
+      ],
+    },
+  },
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),
   },

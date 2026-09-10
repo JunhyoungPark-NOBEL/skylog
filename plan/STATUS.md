@@ -1,6 +1,6 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-10 · beta.12/build17 스토어 문안·이미지 묶음 준비
+> 마지막 갱신: 2026-09-10 · beta.13/build18 Plus 콘텐츠·공개 아바타 구현, 최종 배포 검증 진행
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -9,6 +9,16 @@
 - 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.12-build17
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
+
+## 이번 작업 보고 (2026-09-10 · Plus 콘텐츠와 첫 판매 준비)
+
+- 사용자 확정: **9,900원 1회 구매**, 광고·구독 없음. 정식 상품은 `skyard_plus_lifetime` / `buy`. 현재 앱은 명시적인 **베타 미리보기**이며 실결제 활성화와 구분한다(D-064). `docs/MONETIZATION-PLAN.md` 최신 절이 이전 계획을 대체한다.
+- ‘배우기 → 퀴즈 → 천체물리’에 역사 이야기 10개·30문제(수치 21/선택 9)·힌트 90개와 한영 풀이·출처를 추가했다. 메모 저장·단계별 힌트·원답 재채점·재도전·복습 필터를 지원한다. `learn.history:*`를 기존 progress에 보관하며 DB 버전·미션 키·기존 점수를 바꾸지 않는다. `docs/HISTORY-QUESTS-SOURCES.md`에 문제의 가정과 수치 답 21개의 독립 검산을 기록했다.
+- 심화 퀴즈·망원경 코스의 선택·저장·딥링크에 권한 검사를 연결했다. 무료 맨눈·쌍안경 미션에 지정된 심화 확인 문제 20개는 해당 활성 미션 안에서 무료로 풀 수 있다. 자동 정답 처리나 미션 키 이관은 없다. 기본 망원경 관측 도구·내 기록·획득 보상은 계속 무료다.
+- Android Billing 9.1.0 브리지·계정 귀속·Google 검증·서버 승인·환불 재검증·서버 무료 권한 코드를 작성했다. **실제 상품·Google 서비스 계정·purchases 서버 배포·환불 스케줄러·SMTP·심사 접근·두 사람의 무료 권한 부여·장기 오프라인 권한은 미완료**다. `docs/BILLING-SETUP.md`의 외부 설정과 라이선스 테스트 후 live로 전환한다. preview에서는 로그인 여부와 관계없이 구매 API를 호출하지 않는다.
+- 사진·댓글의 공통 아바타와 닉네임, 명시적인 공개 프로필 동기화·계정 변경 방어, 별 모자 2개·천체 배경 4개를 추가했다(D-065). 기존 보상 6개를 보존하고 공개 아바타 선택값을 개인정보처리방침에 한영으로 고지했다. 프로필 migration 202609100001을 실제 Supabase에 적용해 아바타 열·RPC·RLS와 회원 1명·댓글 0개 보존을 확인했다. 익명 수정·일반 회원의 정지 상태 수정은 차단된다. 증거: `artifacts/qa-build18/community-server-verification.json`.
+- 검증: 전체 83파일·652개 단위 테스트와 lint 통과. 관련 Chromium 15개(공개 프로필·아바타·댓글)와 4개(역사/Plus·업적) 통과. 초기 dev 테스트는 기록용 HTML의 Vite 갱신과 느린 모듈 로드로 실패했고, 증거를 보존한 뒤 watch 제외·정적 preview로 재검증했다. Windows WebKit은 12개 통과·오프라인 문서 새로고침 1개 내부 오류로 미확인이다. 열린 앱의 오프라인 답 저장은 통과했으며 동일한 Chromium 대조 5개는 서비스워커 새로고침까지 통과했다. 실제 아이폰 검증과 구분한다. Android 최종 빌드·공개 웹·서명 검증은 진행 중이다.
+- 출시 안내: `docs/PLAY-TEST-AND-PAID-LAUNCH.md`. 새 개인 계정은 내부 테스트 → 최소 12명이 14일 연속 참여하는 비공개 테스트 → 프로덕션 접근 신청 순서다. 공개 테스트는 접근 승인 후 선택한다. 실제 Console 제출·테스터 초대·거래·정식 출시는 수행하지 않았다. 일반 가입용 SMTP·상업용 날씨 API 계약·운영/심사·Apple 서명/TestFlight는 후속 준비 항목이다.
 
 ## 이번 작업 보고 (2026-09-10 · 스카이야드 beta.12/build17)
 

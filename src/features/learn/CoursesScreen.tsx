@@ -12,6 +12,8 @@ import { Card } from '@/ui/Card';
 import { MissionCard } from './MissionCard';
 import { navigateLearn } from './learnNavigation';
 import { HopCourses } from './HopCourses';
+import { canAccessPlus, useEntitlements } from '@/entitlements';
+import { PlusOffer, PlusNotice } from './PlusAccess';
 export function CoursesScreen({
   value,
   pathId,
@@ -28,12 +30,16 @@ export function CoursesScreen({
   group?: string | null;
 }) {
   const { t } = useTranslation();
+  const access = useEntitlements();
   const lang = useSettingsStore((s) => s.lang);
   const text = (x: Text) => (lang === 'en' ? (x.en ?? x.ko) : x.ko);
   const path = value.data.paths.find((p) => p.id === pathId);
   const mission = value.statuses.find((m) => m.mission.id === missionId);
   const equipment =
-    theme ?? path?.level ?? (hopCourseId || group === 'starhop' ? 'telescope' : 'naked');
+    mission?.mission.level ??
+    path?.level ??
+    theme ??
+    (hopCourseId || group === 'starhop' ? 'telescope' : 'naked');
   const site = useLocationStore((s) => s.site);
   const night = useObservingNight();
   const [now, setNow] = useState(() => useClockStore.getState().now());
@@ -62,7 +68,11 @@ export function CoursesScreen({
 
   return (
     <div className="space-y-5" data-testid="courses-screen">
-      {hopCourseId ? (
+      {equipment === 'telescope' && <PlusNotice />}
+      {(hopCourseId || mission?.mission.level === 'telescope' || path?.level === 'telescope') &&
+      !canAccessPlus(access) ? (
+        <PlusOffer />
+      ) : hopCourseId ? (
         <HopCourses value={value} courseId={hopCourseId} />
       ) : mission ? (
         <MissionCard

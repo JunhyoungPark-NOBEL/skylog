@@ -1,6 +1,7 @@
 import { useId } from 'react';
 import type { AvatarLook } from '@/personal/avatar';
 import { personalArtNightStyle } from './personalArtStyle';
+import { AvatarBackdrop } from './AvatarBackdrop';
 
 const SUIT_COLORS: Record<AvatarLook['suit'], string> = {
   sage: '#83b8a1',
@@ -172,6 +173,25 @@ function Outfit({ profile, suit }: { profile: AvatarLook; suit: string }) {
 }
 
 function Hat({ profile, suit }: { profile: AvatarLook; suit: string }) {
+  if (profile.hat === 'starcrown')
+    return (
+      <g fill="#e9cb80">
+        <path d="M-22-24L-24-39L-13-31L0-45L13-31L24-39L22-24Z" />
+        <path d="M0-57l3 7 8 1-6 5 2 7-7-4-7 4 2-7-6-5 8-1Z" fill="#f1e3b2" strokeWidth="1.3" />
+        <path d="M-21-26h42" stroke="#f1e3b2" strokeWidth="3" />
+        <circle cx="-15" cy="-30" r="2" fill={suit} />
+        <circle cx="15" cy="-30" r="2" fill={suit} />
+      </g>
+    );
+  if (profile.hat === 'meteorcap')
+    return (
+      <g fill={suit}>
+        <path d="M-22-21Q-20-43-6-46L20-51L10-40Q23-35 23-21Z" />
+        <path d="M-23-23Q0-19 24-24L25-15Q0-11-25-16Z" fill="#697fac" />
+        <path d="M9-46L-10-33M15-41L-5-29" fill="none" stroke="#e0d6ac" strokeWidth="2" />
+        <path d="M-12-39l2 5 6 1-5 3 1 6-4-3-5 3 1-6-4-3 6-1Z" fill="#f1e3b2" strokeWidth="1.1" />
+      </g>
+    );
   if (profile.hat === 'beanie')
     return (
       <g fill={suit}>
@@ -336,6 +356,7 @@ export function AvatarPreview({
         </radialGradient>
       </defs>
       <rect x="-100" y="-73" width="200" height="143" rx="18" fill={`url(#${id}-sky)`} />
+      <AvatarBackdrop background={profile.background} />
       <ellipse
         cy="2"
         rx="68"
@@ -356,6 +377,43 @@ export function AvatarPreview({
       <ellipse cy="57" rx="68" ry="12" fill="#729c81" opacity=".24" />
       <ellipse cy="55" rx="30" ry="5" fill="#172d2d" opacity=".5" />
       <AvatarArt profile={profile} />
+    </svg>
+  );
+}
+
+/** 사진·댓글의 동일한 원형 초상. 원격 SVG/이미지 URL을 받지 않는다. */
+export function AvatarPortrait({
+  profile,
+  label,
+  className = 'h-10 w-10',
+}: {
+  profile: AvatarLook;
+  label: string;
+  className?: string;
+}) {
+  const id = useId();
+  return (
+    <svg
+      viewBox="-48 -61 96 96"
+      role="img"
+      aria-label={label}
+      data-testid="author-avatar"
+      className={`personal-art personal-art-tone shrink-0 rounded-full ${className}`}
+      style={personalArtNightStyle(id + '-night')}
+    >
+      <defs>
+        <PersonalArtNightFilter id={id + '-night'} />
+        <clipPath id={id + '-circle'}>
+          <circle cy="-13" r="48" />
+        </clipPath>
+      </defs>
+      <g clipPath={`url(#${id}-circle)`}>
+        <circle cy="-13" r="48" fill="#365064" />
+        <g transform="translate(0 -17) scale(.6)">
+          <AvatarBackdrop background={profile.background} />
+        </g>
+        <AvatarArt profile={profile} />
+      </g>
     </svg>
   );
 }

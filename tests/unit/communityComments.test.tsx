@@ -5,6 +5,7 @@ import { CommentsPanel } from '@/features/community/CommentsPanel';
 import { communityAction } from '@/community/client';
 import { readComments, type CommentPage } from '@/community/comments';
 import type { CommunityComment } from '@/community/types';
+import { DEFAULT_AVATAR } from '@/personal/avatar';
 
 vi.mock('react-i18next', () => ({ useTranslation: () => ({ t: (key: string) => key }) }));
 vi.mock('@/community/client', () => ({
@@ -33,7 +34,14 @@ function comment(id: string, owner = 'author', body = id): CommunityComment {
   };
 }
 function page(comments: CommunityComment[] = []): CommentPage {
-  return { comments, names: { author: 'Author', me: 'Me' }, before: null };
+  return {
+    comments,
+    authors: {
+      author: { name: 'Author', avatar: DEFAULT_AVATAR },
+      me: { name: 'Me', avatar: DEFAULT_AVATAR },
+    },
+    before: null,
+  };
 }
 let host: HTMLDivElement;
 let root: Root;

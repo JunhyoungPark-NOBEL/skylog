@@ -1,5 +1,6 @@
 import { communityClient } from './client';
-import type { CommunityComment, CommunityMember } from './types';
+import type { CommunityComment } from './types';
+import { readCommunityIdentities, type CommunityIdentity } from './identity';
 
 export const COMMENTS_PAGE_SIZE = 50;
 export interface CommentCursor {
@@ -8,7 +9,7 @@ export interface CommentCursor {
 }
 export interface CommentPage {
   comments: CommunityComment[];
-  names: Record<string, string>;
+  authors: Record<string, CommunityIdentity>;
   before: CommentCursor | null;
 }
 
@@ -44,20 +45,11 @@ export async function readComments(
   const rows = result.data as CommunityComment[];
   const comments = rows.slice(0, COMMENTS_PAGE_SIZE);
   const owners = [...new Set(comments.map((comment) => comment.owner))];
-  let names: Record<string, string> = {};
-  if (owners.length) {
-    let members = client.from('sky_members').select('id,name').in('id', owners);
-    if (signal) members = members.abortSignal(signal);
-    const result = await members;
-    if (result.error) throw new Error(result.error.message);
-    names = Object.fromEntries(
-      (result.data as CommunityMember[]).map((member) => [member.id, member.name]),
-    );
-  }
+  const authors = await readCommunityIdentities(owners, signal);
   const last = comments.at(-1);
   return {
     comments,
-    names,
+    authors,
     before:
       rows.length > COMMENTS_PAGE_SIZE && last ? { createdAt: last.created_at, id: last.id } : null,
   };

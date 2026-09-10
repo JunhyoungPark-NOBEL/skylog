@@ -31,7 +31,13 @@ export function useLearnNavigation() {
       : null,
     courseGroup: params.get('group') === 'starhop' ? 'starhop' : null,
     chapter: Number(params.get('chapter')) || undefined,
-    track: params.get('track') === 'observing' ? 'observing' : 'sky',
+    questId: params.get('quest'),
+    track:
+      params.get('track') === 'physics'
+        ? 'physics'
+        : params.get('track') === 'observing'
+          ? 'observing'
+          : 'sky',
   };
 }
 export function navigateLearn(

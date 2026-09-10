@@ -19,6 +19,7 @@ export type Route =
   | 'profile'
   | 'community'
   | 'account'
+  | 'plus'
   | 'moderation'
   | 'debug/data'
   | 'debug/sensors';
@@ -34,6 +35,7 @@ const ALL_ROUTES: readonly Route[] = [
   'profile',
   'community',
   'account',
+  'plus',
   'moderation',
   'debug/data',
   'debug/sensors',

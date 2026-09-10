@@ -5,6 +5,8 @@ import { communityAction, communityError } from '@/community/client';
 import { readComments, type CommentCursor } from '@/community/comments';
 import type { CommunityComment } from '@/community/types';
 import { PillButton } from '@/ui/PillButton';
+import type { CommunityIdentity } from '@/community/identity';
+import { AuthorIdentity } from '@/features/personal/AuthorIdentity';
 
 interface Props {
   postId: string;
@@ -22,7 +24,7 @@ export function CommentsPanel(props: Props) {
 function CommentsContent({ postId, published, userId, joined, onBlocked }: Props) {
   const { t } = useTranslation();
   const [comments, setComments] = useState<CommunityComment[]>([]);
-  const [names, setNames] = useState<Record<string, string>>({});
+  const [authors, setAuthors] = useState<Record<string, CommunityIdentity>>({});
   const [before, setBefore] = useState<CommentCursor | null>(null);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
@@ -47,7 +49,7 @@ function CommentsContent({ postId, published, userId, joined, onBlocked }: Props
           const ids = new Set(current.map((comment) => comment.id));
           return [...current, ...page.comments.filter((comment) => !ids.has(comment.id))];
         });
-        setNames((current) => (cursor ? { ...current, ...page.names } : page.names));
+        setAuthors((current) => (cursor ? { ...current, ...page.authors } : page.authors));
         setBefore(page.before);
         return true;
       } catch (error) {
@@ -153,10 +155,10 @@ function CommentsContent({ postId, published, userId, joined, onBlocked }: Props
           className="rounded-2xl bg-surface p-4"
           data-testid={`comment-${comment.id}`}
         >
-          <p className="text-body-sm text-muted">
-            {names[comment.owner] || t('social.observer')}
-            {comment.status !== 'published' && ' · ' + t('social.states.' + comment.status)}
-          </p>
+          <AuthorIdentity identity={authors[comment.owner]} />
+          {comment.status !== 'published' && (
+            <p className="mt-1 text-caption text-muted">{t('social.states.' + comment.status)}</p>
+          )}
           <p className="mt-2 whitespace-pre-wrap break-words">{comment.body}</p>
           {joined && (
             <details className="mt-2 text-body-sm">

@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import type { ObjectId } from '@/catalog/objectId';
 export interface QuizRequest {
   stageId?: string;
+  missionId?: string;
   sessionId?: string;
   ids?: string[];
   objectId?: ObjectId;

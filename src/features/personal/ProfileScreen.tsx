@@ -10,6 +10,7 @@ import { onDbChange } from '@/db/events';
 import { PillButton } from '@/ui/PillButton';
 import { GardenArt, DecorationArt } from './GardenArt';
 import { AvatarEditor } from './AvatarEditor';
+import { PublicProfileSync } from './PublicProfileSync';
 
 export default function ProfileScreen() {
   const { t } = useTranslation();
@@ -153,6 +154,7 @@ export default function ProfileScreen() {
                     {t('avatar.saveName')}
                   </PillButton>
                 </form>
+                <PublicProfileSync profile={profile} />
                 <div className="rounded-2xl bg-surface p-1">
                   <button
                     className="flex min-h-16 w-full items-center justify-between px-4 text-left"

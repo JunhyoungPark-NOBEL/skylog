@@ -2,6 +2,7 @@ import { useId } from 'react';
 import type { DecorationId, Personal } from '@/personal/catalog';
 import { AvatarArt, PersonalArtNightFilter } from './AvatarArt';
 import { personalArtNightStyle } from './personalArtStyle';
+import { AvatarBackdrop } from './AvatarBackdrop';
 
 function DecorationShape({ id }: { id: DecorationId }) {
   if (id === 'flowers' || id === 'sunflowers')
@@ -99,6 +100,9 @@ export function DecorationArt({ id }: { id: DecorationId }) {
     <g className="personal-art-tone" style={personalArtNightStyle(nightId)}>
       <defs>
         <PersonalArtNightFilter id={nightId} />
+        <clipPath id={id + '-backdrop'}>
+          <rect width="400" height="166" rx="26" />
+        </clipPath>
       </defs>
       <DecorationShape id={id} />
     </g>
@@ -142,6 +146,11 @@ export function GardenArt({
         </linearGradient>
       </defs>
       <rect width="400" height="300" rx="26" fill={`url(#${id}sky)`} />
+      <g clipPath={`url(#${id}-backdrop)`}>
+        <g transform="translate(200 146) scale(2)">
+          <AvatarBackdrop background={profile.background} />
+        </g>
+      </g>
       <g fill="#e6e4cf" opacity=".7">
         <circle cx="63" cy="45" r="1.4" />
         <circle cx="162" cy="28" r="1" />
@@ -150,7 +159,9 @@ export function GardenArt({
         <circle cx="116" cy="80" r="1" />
         <circle cx="358" cy="71" r="1.3" />
       </g>
-      <path d="M331 24a17 17 0 1 0 9 29 18 18 0 0 1-9-29" fill="#efe4bf" />
+      {profile.background === 'garden' && (
+        <path d="M331 24a17 17 0 1 0 9 29 18 18 0 0 1-9-29" fill="#efe4bf" />
+      )}
       <path
         d="M0 166Q81 148 151 170T400 158V274q0 26-26 26H26Q0 300 0 274Z"
         fill={`url(#${id}grass)`}

@@ -14,6 +14,14 @@ import { useLearnUiStore, type QuizRequest } from '@/state/learnUiStore';
 import { useSettingsStore } from '@/state/settingsStore';
 import { openStory } from '@/state/contentUiStore';
 import { ScrollArea } from '@/ui/ScrollArea';
+import {
+  canAccessPlus,
+  ensurePlusAccess,
+  getEntitlementsSnapshot,
+  PlusAccessError,
+} from '@/entitlements';
+import { ensureQuizAccess } from '@/learn/access';
+import { PlusOffer } from './PlusAccess';
 
 export function QuizHost() {
   const request = useLearnUiStore((s) => s.quiz);
@@ -34,24 +42,37 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
   const [answers, setAnswers] = useState<boolean[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
+  const [plusRequired, setPlusRequired] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const lock = useRef(false);
   const [retry, setRetry] = useState(0);
   useEffect(() => {
     let alive = true;
     void readLearning()
-      .then((s) => {
+      .then(async (s) => {
+        if (alive) setPlusRequired(false);
+        if (stage && stage.chapter > 1) await ensurePlusAccess();
+        if (request.ids)
+          await Promise.all(
+            s.data.quiz
+              .filter((q) => request.ids!.includes(q.id))
+              .map((q) => ensureQuizAccess(q, request.missionId)),
+          );
+        const access = canAccessPlus(getEntitlementsSnapshot());
         if (alive) {
           if (request.stageId) {
             if (!stage || !s.journey.find((p) => p.stage.id === stage.id)?.unlocked)
               throw new Error('Stage locked');
             setQuestions(stageQuestions(stage, s.data.quiz));
-          } else setQuestions(selectQuiz(s, request));
+          } else setQuestions(selectQuiz(s, { ...request, plusAllowed: access }));
           setError(false);
         }
       })
-      .catch(() => {
-        if (alive) setError(true);
+      .catch((e: unknown) => {
+        if (alive) {
+          setError(true);
+          setPlusRequired(e instanceof PlusAccessError);
+        }
       });
     return () => {
       alive = false;
@@ -102,11 +123,12 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
     try {
       const response = stage
         ? await recordStageAnswer(stage.id, runId, index, choice)
-        : { correct: await recordAnswer(q, choice), result: null };
+        : { correct: await recordAnswer(q, choice, new Date(), request.missionId), result: null };
       const correct = response.correct;
       if (response.result) setStageResult(response.result);
       setAnswers((a) => [...a, correct]);
-    } catch {
+    } catch (e: unknown) {
+      if (e instanceof PlusAccessError) setPlusRequired(true);
       setError(true);
     } finally {
       lock.current = false;
@@ -169,7 +191,10 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
       </header>
       <ScrollArea className="flex-1 min-h-0">
         <div className="mx-auto w-full max-w-xl space-y-6 px-5 py-4 pb-10">
-          {!questions && <p role="status">{t(error ? 'study.loadError' : 'common.loading')}</p>}
+          {plusRequired && <PlusOffer />}
+          {!questions && !plusRequired && (
+            <p role="status">{t(error ? 'study.loadError' : 'common.loading')}</p>
+          )}
           {!questions && error && (
             <button
               className="min-h-11 rounded-pill bg-accent px-5 text-accent-fg"
@@ -178,7 +203,7 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
               {t('study.retry')}
             </button>
           )}
-          {q && (
+          {q && !plusRequired && (
             <>
               <div className="flex items-center justify-between text-caption text-muted">
                 <span>{stage ? t('journey.themes.' + stage.theme) : t('study.smallSteps')}</span>

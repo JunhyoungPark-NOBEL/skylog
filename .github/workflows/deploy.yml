@@ -35,6 +35,8 @@ jobs:
       - run: pnpm lint
       - run: pnpm test
       - run: node tests/backend/community.test.mjs
+      - run: node tests/backend/community-identity.test.mjs
+      - run: node tests/backend/entitlements.test.mjs
       - run: pnpm build
         env:
           # 저장소 이름이 바뀌어도 base가 따라가게 한다 (vite.config.ts VITE_BASE).

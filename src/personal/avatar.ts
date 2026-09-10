@@ -1,6 +1,15 @@
 export const SUITS = ['sage', 'lavender', 'clay', 'navy', 'ochre', 'rose'] as const;
 export const SKINS = ['sand', 'amber', 'cocoa', 'porcelain', 'umber'] as const;
-export const HATS = ['none', 'beanie', 'helmet', 'bucket', 'starcap'] as const;
+export const HATS = [
+  'none',
+  'beanie',
+  'helmet',
+  'bucket',
+  'starcap',
+  'starcrown',
+  'meteorcap',
+] as const;
+export const AVATAR_BACKGROUNDS = ['garden', 'orion', 'moonlit', 'saturn', 'galaxy'] as const;
 export const HAIR_STYLES = ['none', 'short', 'bob', 'waves', 'ponytail'] as const;
 export const HAIR_COLORS = ['ink', 'chestnut', 'copper', 'gold', 'silver'] as const;
 export const EXPRESSIONS = ['smile', 'calm', 'joy', 'wink'] as const;
@@ -16,6 +25,7 @@ export const AVATAR_OPTIONS = {
   expression: EXPRESSIONS,
   outfit: OUTFITS,
   accessory: ACCESSORIES,
+  background: AVATAR_BACKGROUNDS,
 } as const;
 
 export type AvatarCategory = keyof typeof AVATAR_OPTIONS;
@@ -33,6 +43,7 @@ export const DEFAULT_AVATAR: AvatarLook = {
   expression: 'smile',
   outfit: 'classic',
   accessory: 'none',
+  background: 'garden',
 };
 
 export function avatarOptionKey<Category extends AvatarCategory>(
@@ -53,6 +64,32 @@ type AvatarReward = {
 
 /** 로컬 업적 보상 목록. 결제 권한이나 서버에서 검증한 소유권을 뜻하지 않는다. */
 export const AVATAR_REWARDS = [
+  { key: 'hat:starcrown', category: 'hat', value: 'starcrown', badge: 'badge-quiz-3' },
+  { key: 'hat:meteorcap', category: 'hat', value: 'meteorcap', badge: 'badge-summer-guide' },
+  {
+    key: 'background:orion',
+    category: 'background',
+    value: 'orion',
+    badge: 'badge-constellations-2',
+  },
+  {
+    key: 'background:moonlit',
+    category: 'background',
+    value: 'moonlit',
+    badge: 'challenge-observation-nights-3',
+  },
+  {
+    key: 'background:saturn',
+    category: 'background',
+    value: 'saturn',
+    badge: 'challenge-stages-cleared-5',
+  },
+  {
+    key: 'background:galaxy',
+    category: 'background',
+    value: 'galaxy',
+    badge: 'badge-messier-three',
+  },
   {
     key: 'outfit:spacesuit',
     category: 'outfit',
@@ -124,11 +161,12 @@ export function normalizeAvatar(
     expression: option('expression'),
     outfit: option('outfit'),
     accessory: option('accessory'),
+    background: option('background'),
   };
 }
 
 /** 검증된 프로필에서 코디만 복사한다. 이름·마당 자리는 함께 저장하지 않는다. */
 export function avatarOf(profile: AvatarLook): AvatarLook {
-  const { suit, skin, hat, hair, hairColor, expression, outfit, accessory } = profile;
-  return { suit, skin, hat, hair, hairColor, expression, outfit, accessory };
+  const { suit, skin, hat, hair, hairColor, expression, outfit, accessory, background } = profile;
+  return { suit, skin, hat, hair, hairColor, expression, outfit, accessory, background };
 }

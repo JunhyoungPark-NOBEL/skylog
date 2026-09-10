@@ -31,6 +31,8 @@ import { requestWakeLock, releaseWakeLock } from '@/sensors/wakeLock';
 import { feedbackOk } from '@/sensors/feedback';
 import { emitSkill } from '@/learn/runtime';
 import { HOP_COURSES } from '@/learn/hopCourses';
+import { PlusOffer } from '@/features/learn/PlusAccess';
+import { canAccessPlus, useEntitlements } from '@/entitlements';
 import { flyToObject } from '@/features/sky/skyApi';
 import { Equipment } from './Equipment';
 import { FinderChart } from './FinderChart';
@@ -49,6 +51,18 @@ const freshReading = () => {
   return reading.status === 'active' && Date.now() - reading.at < 1000 ? reading : null;
 };
 export default function TelescopeMode() {
+  const paidCourse = HOP_COURSES.some((c) => c.id === hashQuery().get('course'));
+  const { t } = useTranslation();
+  const access = useEntitlements();
+  return paidCourse && !canAccessPlus(access) ? (
+    <ScreenFrame title={t('guide.hop')} onBack={closeTelescope}>
+      <PlusOffer />
+    </ScreenFrame>
+  ) : (
+    <TelescopeSession />
+  );
+}
+function TelescopeSession() {
   const { t } = useTranslation(),
     lang = useSettingsStore((s) => s.lang),
     theme = useSettingsStore((s) => s.theme);

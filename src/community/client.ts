@@ -93,6 +93,11 @@ export async function edgeAction(action: string, body: BodyInit | object): Promi
 }
 export function communityError(error: unknown): string {
   const msg = error instanceof Error ? error.message : '';
+  if (msg.includes('ACCOUNT_CHANGED')) return 'communityIdentity.accountChanged';
+  if (msg.includes('sky_update_profile') || msg.includes('SCHEMA_NOT_READY'))
+    return 'communityIdentity.unavailable';
+  if (msg.includes('INVALID_PROFILE') || msg.includes('sky_members_public_name'))
+    return 'communityIdentity.invalid';
   if (msg.includes('RATE_LIMIT')) return 'social.rateLimit';
   if (msg.includes('ACCOUNT_UNAVAILABLE')) return 'social.accountUnavailable';
   if (msg.includes('REAUTH_REQUIRED')) return 'social.reauth';

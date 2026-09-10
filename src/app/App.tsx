@@ -28,6 +28,7 @@ import { StoryHost } from '@/features/content/StoryHost';
 import { QuizHost } from '@/features/learn/QuizHost';
 import { startReadSync } from '@/content/readProgress';
 import { ToastHost } from '@/ui/Toast';
+import PlusScreen from '@/features/learn/PlusAccess';
 const TelescopeMode = lazy(() => import('@/features/telescope/TelescopeMode'));
 const ProfileScreen = lazy(() => import('@/features/personal/ProfileScreen'));
 const CommunityScreen = lazy(() => import('@/features/community/CommunityScreen'));
@@ -73,7 +74,7 @@ export function App() {
   useEffect(() => startLogSync(), []);
   useEffect(() => startReadSync(), []);
 
-  if (['profile', 'community', 'account', 'moderation'].includes(route))
+  if (['profile', 'community', 'account', 'moderation', 'plus'].includes(route))
     return (
       <Suspense
         fallback={
@@ -86,6 +87,7 @@ export function App() {
         {route === 'community' && <CommunityScreen />}
         {route === 'account' && <AccountScreen />}
         {route === 'moderation' && <ModerationScreen />}
+        {route === 'plus' && <PlusScreen />}
         <ToastHost />
       </Suspense>
     );

@@ -13,7 +13,9 @@ import {
   edgeAction,
   useCommunityUser,
 } from '@/community/client';
-import type { CommunityPost, CommunityMember } from '@/community/types';
+import type { CommunityPost } from '@/community/types';
+import { readCommunityIdentities, type CommunityIdentity } from '@/community/identity';
+import { AuthorIdentity } from '@/features/personal/AuthorIdentity';
 import { prepareCommunityImage } from '@/community/image';
 import { loadSearchIndex, search as searchObjects } from '@/catalog/searchIndex';
 import { CommentsPanel } from './CommentsPanel';
@@ -96,7 +98,7 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
   const object = query.get('object') || '';
   const [cat, setCat] = useState<Catalog | null>(null);
   const [posts, setPosts] = useState<CommunityPost[]>([]);
-  const [names, setNames] = useState<Record<string, string>>({});
+  const [authors, setAuthors] = useState<Record<string, CommunityIdentity>>({});
   const [joined, setJoined] = useState(false);
   const [reacted, setReacted] = useState(false);
   const [scope, setScope] = useState<'all' | 'mine'>('all');
@@ -137,9 +139,8 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
         if (object) request = request.eq('object_id', object);
         if (category !== 'all' && !selected)
           request = request.like('object_id', category === 'moon' ? 'moon' : category + ':%');
-        const [p, m, me, reaction] = await Promise.all([
+        const [p, me, reaction] = await Promise.all([
           request,
-          c.from('sky_members').select('id,name').limit(1000),
           user
             ? c.from('sky_members').select('id').eq('id', user.id).maybeSingle()
             : Promise.resolve({ data: null, error: null }),
@@ -147,10 +148,13 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
             ? c.from('sky_reactions').select('post_id').eq('post_id', selected).maybeSingle()
             : Promise.resolve({ data: null, error: null }),
         ]);
-        if (p.error || m.error || me.error || reaction.error) throw new Error('LOAD');
+        if (p.error || me.error || reaction.error) throw new Error('LOAD');
+        const members = await readCommunityIdentities(
+          (p.data as CommunityPost[]).map((row) => row.owner),
+        );
         if (alive) {
           setPosts(p.data as CommunityPost[]);
-          setNames(Object.fromEntries((m.data as CommunityMember[]).map((v) => [v.id, v.name])));
+          setAuthors(members);
           setJoined(!!me.data);
           setReacted(!!reaction.data);
           setError('');
@@ -235,8 +239,10 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
                       {name(post.object_id)} · {t('social.kinds.' + post.kind)}
                     </p>
                     <h2 className="mt-2 whitespace-pre-wrap text-title">{post.caption}</h2>
-                    <p className="mt-2 text-body-sm text-muted">
-                      {names[post.owner] || t('social.observer')} ·{' '}
+                    <div className="mt-3">
+                      <AuthorIdentity identity={authors[post.owner]} />
+                    </div>
+                    <p className="mt-1 text-caption text-muted">
                       {new Date(post.created_at).toLocaleDateString(i18n.language)}
                     </p>
                     {post.equipment && (
@@ -404,11 +410,14 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
                         <span className="mt-2 block truncate text-body-sm">
                           {name(p.object_id)}
                         </span>
-                        <span className="block truncate text-caption text-muted">
-                          {p.status === 'published'
-                            ? names[p.owner] || t('social.observer')
-                            : t('social.states.' + p.status)}
+                        <span className="mt-1 block">
+                          <AuthorIdentity identity={authors[p.owner]} compact />
                         </span>
+                        {p.status !== 'published' && (
+                          <span className="block text-caption text-muted">
+                            {t('social.states.' + p.status)}
+                          </span>
+                        )}
                       </button>
                     ))}
                   </div>

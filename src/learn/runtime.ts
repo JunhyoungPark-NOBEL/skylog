@@ -22,6 +22,7 @@ import {
   type Skill,
 } from './schema';
 import { initialSr, reviewSr, dueForReview, type SrState } from './sr';
+import { ensureQuizAccess, ensureMissionAccess, requirePlus, quizNeedsPlus } from './access';
 
 import {
   QUIZ_STAGES,
@@ -252,18 +253,21 @@ export async function readLearning() {
 }
 export type LearningState = Awaited<ReturnType<typeof readLearning>>;
 export async function beginMission(m: Mission, linkedObservationIds: string[] = []) {
+  await ensureMissionAccess(m);
   await setProgress('learn.start:' + missionKey(m), {
     at: nowIso(),
     linkedObservationIds,
   } satisfies MissionStart);
 }
 export async function checkMission(m: Mission, step: number, item: number, value: boolean) {
+  await ensureMissionAccess(m);
   await setProgress('learn.check:' + missionKey(m) + ':' + step + ':' + item, value);
 }
 export async function markFound(id: ObjectId) {
   await setProgress('learn.found:' + id, { at: nowIso() });
 }
 export async function emitSkill(type: Skill, meta?: Record<string, unknown>) {
+  if (type === 'starhop' && meta?.courseId) await requirePlus();
   await setProgress('learn.event:' + newId(), { type, at: nowIso(), meta } satisfies SkillEvent);
 }
 /** 응답과 복습 일정을 한 트랜잭션에 저장한다. 저장 실패 시 점수도 진행하지 않는다. */
@@ -271,7 +275,12 @@ export async function recordAnswer(
   q: QuizItem,
   answer: number | boolean | string,
   at = new Date(),
+  missionId?: string,
 ) {
+  await ensureQuizAccess(q, missionId);
+  return writeAnswer(q, answer, at);
+}
+async function writeAnswer(q: QuizItem, answer: number | boolean | string, at: Date) {
   if (q.enabled === false || q.type === 'skyPick' || !validAnswer(q, answer))
     throw new Error('Question unavailable');
   const correct = answer === q.answer;
@@ -306,11 +315,20 @@ export async function recordAnswer(
 /** 첫 풀이·복습을 우선하며 동일 개념·대상의 연속 출제를 피한다. */
 export function selectQuiz(
   state: LearningState,
-  opts: { ids?: string[]; objectId?: ObjectId; review?: boolean; limit?: number } = {},
+  opts: {
+    ids?: string[];
+    objectId?: ObjectId;
+    review?: boolean;
+    limit?: number;
+    missionId?: string;
+    plusAllowed?: boolean;
+  } = {},
 ) {
   const byId = new Set(opts.ids);
   const dueIds = new Set(state.due.map((q) => q.quizId));
   let candidates = state.data.quiz.filter((q) => q.enabled !== false && q.type !== 'skyPick');
+  if (opts.plusAllowed === false)
+    candidates = candidates.filter((q) => !quizNeedsPlus(q, state.data.missions, opts.missionId));
   if (opts.ids) candidates = candidates.filter((q) => byId.has(q.id));
   else if (opts.review) candidates = candidates.filter((q) => dueIds.has(q.id));
   else if (opts.objectId) {
@@ -352,6 +370,8 @@ export async function recordStageAnswer(
   const questions = stageQuestions(stage, data.quiz);
   const q = questions[index];
   if (!q || !validAnswer(q, answer)) throw new Error('Invalid answer');
+  if (stage.chapter > 1) await requirePlus();
+  await ensureQuizAccess(q);
   const db = getDb();
   const result = await db.transaction('rw', db.progress, async () => {
     const rows = await db.progress.toArray();
@@ -379,7 +399,7 @@ export async function recordStageAnswer(
     if (!stageProgress(data.quiz, runs).find((p) => p.stage.id === stage.id)?.unlocked)
       throw new Error('Stage locked');
     const at = new Date();
-    const correct = await recordAnswer(q, answer, at);
+    const correct = await writeAnswer(q, answer, at);
     const next = [...answers, { quizId: q.id, version: q.version ?? 1, answer }];
     const final = next.length === questions.length;
     const value = {

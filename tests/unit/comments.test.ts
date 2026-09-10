@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { communityClient } from '@/community/client';
 import { COMMENTS_PAGE_SIZE, readComments } from '@/community/comments';
 import type { CommunityComment } from '@/community/types';
+import { DEFAULT_AVATAR } from '@/personal/avatar';
 
 vi.mock('@/community/client', () => ({ communityClient: vi.fn() }));
 const postId = '00000000-0000-4000-8000-000000000100';
@@ -20,12 +21,14 @@ function row(n: number): CommunityComment {
 }
 let data: CommunityComment[];
 let errorTable: string;
+let legacyProfile: boolean;
 let requests: { url: URL; signal?: AbortSignal | null }[];
 let serial = 0;
 beforeEach(() => {
   data = [];
   requests = [];
   errorTable = '';
+  legacyProfile = false;
   serial += 1;
   const client = createClient('https://comments-test.invalid', 'test-public-key', {
     auth: {
@@ -42,6 +45,15 @@ beforeEach(() => {
         requests.push({ url, signal: init?.signal });
         if (url.pathname.endsWith(errorTable) && errorTable)
           return Response.json({ message: 'read failed' }, { status: 403 });
+        if (
+          legacyProfile &&
+          url.pathname.endsWith('sky_members') &&
+          url.searchParams.get('select')?.includes('avatar')
+        )
+          return Response.json(
+            { code: '42703', message: 'column sky_members.avatar does not exist' },
+            { status: 400 },
+          );
         return Response.json(
           url.pathname.endsWith('sky_comments') ? data : [{ id: owner, name: 'Writer' }],
         );
@@ -57,7 +69,7 @@ describe('댓글 페이지 조회', () => {
     const result = await readComments(postId);
     expect(result.comments).toEqual(data.slice(0, COMMENTS_PAGE_SIZE));
     expect(result.before).toEqual({ createdAt: row(51).created_at, id: id(51) });
-    expect(result.names).toEqual({ [owner]: 'Writer' });
+    expect(result.authors).toEqual({ [owner]: { name: 'Writer', avatar: DEFAULT_AVATAR } });
     const query = requests[0]!.url.searchParams;
     expect(query.get('post_id')).toBe('eq.' + postId);
     expect(query.get('status')).toBe('neq.deleted');
@@ -78,8 +90,17 @@ describe('댓글 페이지 조회', () => {
   });
 
   it('빈 페이지는 작성자 전체 조회 없이 끝낸다', async () => {
-    expect(await readComments(postId)).toEqual({ comments: [], names: {}, before: null });
+    expect(await readComments(postId)).toEqual({ comments: [], authors: {}, before: null });
     expect(requests).toHaveLength(1);
+  });
+
+  it('아바타 열이 아직 없는 서버에서는 작성자 이름과 기본 모습을 읽는다', async () => {
+    legacyProfile = true;
+    data = [row(1)];
+    const page = await readComments(postId);
+    expect(page.authors[owner]).toEqual({ name: 'Writer', avatar: DEFAULT_AVATAR });
+    expect(requests).toHaveLength(3);
+    expect(requests[2]!.url.searchParams.get('select')).toBe('id,name');
   });
 
   it('잘못된 커서는 필터 쿼리로 보내지 않는다', async () => {
