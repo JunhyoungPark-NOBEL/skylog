@@ -1,55 +1,55 @@
 {
   "capturedUI": "830c974bebeab0e873925ba58b0bd8a01798de6e / beta.12 build17",
-  "generatedAt": "2026-09-10T07:41:42.575Z",
+  "generatedAt": "2026-09-10T08:06:28.208Z",
   "assets": [
     {
       "file": "phone/01-sky.png",
       "raw": "raw-phone/01-sky.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 913928
+      "bytes": 920955
     },
     {
       "file": "phone/02-tonight.png",
       "raw": "raw-phone/02-tonight.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 228796
+      "bytes": 230450
     },
     {
       "file": "phone/03-photos.png",
       "raw": "raw-phone/03-photo.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 375849
+      "bytes": 375226
     },
     {
       "file": "phone/04-starhop.png",
       "raw": "raw-phone/07d-starhop-chart.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 238301
+      "bytes": 240330
     },
     {
       "file": "phone/05-log.png",
       "raw": "raw-phone/04-log.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 170396
+      "bytes": 172477
     },
     {
       "file": "phone/06-quiz.png",
       "raw": "raw-phone/05b-quiz.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 137863
+      "bytes": 136992
     },
     {
       "file": "phone/07-garden.png",
       "raw": "raw-phone/06-garden.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 145379
+      "bytes": 141191
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-10T07:43:24.201Z",
+  "checkedAt": "2026-09-10T08:07:14.412Z",
   "counts": {
     "app-name-ko.txt": 24,
     "short-description-ko.txt": 35,
@@ -19,64 +19,64 @@
       "width": 1024,
       "height": 500,
       "channels": 3,
-      "bytes": 393002,
-      "sha256": "8d844300833d6cc90c15d299248c4b05bfc76d61cd3b84ebdf7726a0acf3bd77"
+      "bytes": 396531,
+      "sha256": "84aaa73bbc89e6099a0d72c6fb10181bfeaa0c56af828a437da0884df89a9cb7"
     },
     {
       "file": "phone/01-sky.png",
       "width": 1080,
       "height": 1920,
       "channels": 3,
-      "bytes": 913928,
-      "sha256": "6bc811bcd74da8518909b68f3b7c19387a1407ed20d505cd5d9067a1f53444a0"
+      "bytes": 920955,
+      "sha256": "2d04f7352231ee077aece7de161dc5e285758afdc86abd2bbe121a5e061a2537"
     },
     {
       "file": "phone/02-tonight.png",
       "width": 1080,
       "height": 1920,
       "channels": 3,
-      "bytes": 228796,
-      "sha256": "254e13d9c7f5205de7d39e914d6b5d2a1eb52ea1d387b2fef548e99975ccf464"
+      "bytes": 230450,
+      "sha256": "7639247755098e50f5ed1b017b442086e2639825ecc4c56228ca61d9c13714aa"
     },
     {
       "file": "phone/03-photos.png",
       "width": 1080,
       "height": 1920,
       "channels": 3,
-      "bytes": 375849,
-      "sha256": "79f5609ea1ac6e4299940267f6487e55ac602980996d6d8cd9203b95f62dde36"
+      "bytes": 375226,
+      "sha256": "0b467ce8f2c1570fd82f68a979db1427d22b75dbd3ebd163994adaf9ea7dc038"
     },
     {
       "file": "phone/04-starhop.png",
       "width": 1080,
       "height": 1920,
       "channels": 3,
-      "bytes": 238301,
-      "sha256": "f308ef1b7ff2bb638c1d14829bdc38304a55425847c36b378bc3df533c55970c"
+      "bytes": 240330,
+      "sha256": "8e01e67fdb417e03a8166cfc25c23939f53527cad2aaad1a722ab321ac9f27dd"
     },
     {
       "file": "phone/05-log.png",
       "width": 1080,
       "height": 1920,
       "channels": 3,
-      "bytes": 170396,
-      "sha256": "7b29808fb7c389218f88eacce1c251b89485603c6f9ef5637cf89fea5611f889"
+      "bytes": 172477,
+      "sha256": "0e539f2cd8fbad09ea81328c200406aa1099a985e8acd8aa133d95099f9c1f6c"
     },
     {
       "file": "phone/06-quiz.png",
       "width": 1080,
       "height": 1920,
       "channels": 3,
-      "bytes": 137863,
-      "sha256": "137b4e91929ff5f49efba4bbb2e4b396d45b044817561c3d3c291850a3c2e146"
+      "bytes": 136992,
+      "sha256": "f6d1831466f0d6bdf4ae2021082c415bcc8b5ee2adcdf442af615c948038e24a"
     },
     {
       "file": "phone/07-garden.png",
       "width": 1080,
       "height": 1920,
       "channels": 3,
-      "bytes": 145379,
-      "sha256": "2dec5e4da4912c4bf9c6175222b74be25b4d442709b3b2b624395fadba6b4f08"
+      "bytes": 141191,
+      "sha256": "d635f00153a2e3fb01d111cb6b9bf514523c3d547c7ede3ca408b1aae54d94e7"
     },
     {
       "file": "tablet-7/01-sky.png",
@@ -143,5 +143,6 @@
       "sha256": "e27f5b40d94a4b79b8c3dba1308fc08e3c7fcc1c6b2a923ed33c4802e078cdc9"
     }
   ],
-  "scope": "File requirements and browser UI capture, not physical device or Play review."
+  "scope": "File requirements and browser UI capture, not physical device or Play review.",
+  "revision": "v2-plain-headings"
 }

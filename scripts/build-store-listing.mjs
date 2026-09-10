@@ -15,7 +15,7 @@ const cards = [
     id: '01-sky',
     raw: '01-sky',
     label: '하늘 지도',
-    title: '저 별,\n이름이 뭘까',
+    title: '별과 별자리를\n확인하는 하늘 지도',
     sub: '휴대폰 방향을 따라 살펴보는 밤하늘',
     theme: 'night',
   },
@@ -23,7 +23,7 @@ const cards = [
     id: '02-tonight',
     raw: '02-tonight',
     label: '오늘 밤 추천',
-    title: '오늘은\n어떤 별을 볼까',
+    title: '오늘 밤의\n관측 대상 추천',
     sub: '관측하기 좋은 천체를 한눈에',
     theme: 'cream',
   },
@@ -31,15 +31,15 @@ const cards = [
     id: '03-photos',
     raw: '03-photo',
     label: '천체 사진',
-    title: '작은 빛 너머,\n이런 모습이 있었네',
-    sub: '164개 천체의 실제 참고 사진',
+    title: '164개 천체의\n사진과 설명',
+    sub: '행성, 성운, 성단, 은하의 실제 참고 사진',
     theme: 'night',
   },
   {
     id: '04-starhop',
     raw: '07d-starhop-chart',
     label: '망원경 관측 · 스타호핑',
-    title: '별에서 별로,\n망원경과 한 걸음씩',
+    title: '망원경 관측을 위한\n스타호핑 가이드',
     sub: '장비 시야 6.0° 기준 · 차트는 주변까지',
     theme: 'cream',
   },
@@ -47,7 +47,7 @@ const cards = [
     id: '05-log',
     raw: '04-log',
     label: '관측 기록',
-    title: '그날의 하늘을\n내 기록으로',
+    title: '사진과 메모로\n남기는 관측 기록',
     sub: '메모와 사진, 스케치로 남기는 관측 노트',
     theme: 'night',
   },
@@ -55,15 +55,15 @@ const cards = [
     id: '06-quiz',
     raw: '05b-quiz',
     label: '퀴즈와 관측 코스',
-    title: '알아갈수록\n더 재밌는 밤하늘',
-    sub: '작은 호기심이 관측 실력이 되도록',
+    title: '단계별 퀴즈와\n관측 코스',
+    sub: '천체와 관측 방법을 배우는 학습 콘텐츠',
     theme: 'cream',
   },
   {
     id: '07-garden',
     raw: '06-garden',
     label: '아바타와 내 마당',
-    title: '별 보고 돌아와,\n내 마당에서 쉬어요',
+    title: '아바타와\n내 마당 꾸미기',
     sub: '관측과 학습으로 모으는 꾸미기 보상',
     theme: 'green',
   },
@@ -95,7 +95,7 @@ h1{position:absolute;top:104px;left:84px;right:72px;margin:0;font:700 65px/1.18 
 `;
 const cardHTML = (card) =>
   `<section class="card ${card.theme}" id="${card.id}"><div class="topline"><span class="eyebrow">${card.label}</span><span class="brand">Skyard</span></div><h1>${escape(card.title)}</h1><p class="sub">${card.sub}</p><div class="screen"><img src="raw-phone/${card.raw}.png" alt="${escape(card.label)} 실제 앱 화면"></div></section>`;
-const featureHTML = `<section class="feature" id="feature"><img class="sky" src="feature-sky-source.png" alt="앱에서 렌더링한 밤하늘"><div class="shade"></div><div class="brand"><img src="play-icon-512.png" alt="">스카이야드 Skyard</div><h1>오늘 밤,\n별 보러 가요</h1><p class="sub">오늘의 하늘부터\n나만의 관측 기록까지</p></section>`;
+const featureHTML = `<section class="feature" id="feature"><img class="sky" src="feature-sky-source.png" alt="앱에서 렌더링한 밤하늘"><div class="shade"></div><div class="brand"><img src="play-icon-512.png" alt="">스카이야드 Skyard</div><h1>하늘 지도와\n천체 관측 가이드</h1><p class="sub">별자리 찾기 · 스타호핑 · 관측 기록</p></section>`;
 // Play가 둥근 모서리를 적용하므로 제출용 아이콘은 기존 도안을 정사각형으로 내보낸다.
 const iconSVG = (await fs.readFile('public/icon.svg', 'utf8')).replace(' rx="112"', '');
 await fs.writeFile(path.join(root, 'play-icon-source.svg'), iconSVG);
@@ -165,7 +165,7 @@ try {
     path.join(root, 'graphics-report.json'),
     JSON.stringify(report, null, 2) + '\n',
   );
-  const contact = `<!doctype html><html lang="ko"><meta charset="utf-8"><title>스카이야드 · 스토어 등록 이미지</title><style>${fontCSS}body{background:#dedbd2;color:#263e3c;padding:32px}header{max-width:1100px;margin:0 auto 32px}header h2{font:700 32px GowunBatang;margin:12px 0}header p{font-size:17px;line-height:1.7}.banner{width:768px;max-width:100%;border-radius:8px;display:block}.row{display:grid;grid-template-columns:repeat(4,270px);gap:18px;max-width:1134px;margin:auto}.row img{width:270px;border-radius:8px}.row p{margin:6px 0 18px;font-size:16px}.row a{color:inherit;text-decoration:none}footer{max-width:1134px;margin:24px auto;font-size:14px;line-height:1.7}</style><header><h2>별 보러 가는 밤, 스카이야드</h2><p>실제 앱 화면 · 고운바탕과 고운돋움 · 한국어 등록 이미지</p><img class="banner" src="feature-ko-1024x500.png" alt="스카이야드 피처 그래픽"></header><div class="row">${cards.map((c, i) => `<a href="phone/${c.id}.png"><img src="phone/${c.id}.png" alt="${c.label}"><p>${i + 1}. ${c.label}</p></a>`).join('')}</div><footer>앱 beta.12/build17의 브라우저 화면을 촬영했습니다. 기록은 ‘샘플 기록’으로 표시한 예시입니다. 태블릿 이미지는 별도 폴더에 있습니다.<br>현재 빌드에 결제가 없어 유료 문구는 넣지 않았습니다. 향후 유료 기능을 적용할 때 안내를 추가합니다.</footer></html>`;
+  const contact = `<!doctype html><html lang="ko"><meta charset="utf-8"><title>스카이야드 · 스토어 등록 이미지</title><style>${fontCSS}body{background:#dedbd2;color:#263e3c;padding:32px}header{max-width:1100px;margin:0 auto 32px}header h2{font:700 32px GowunBatang;margin:12px 0}header p{font-size:17px;line-height:1.7}.banner{width:768px;max-width:100%;border-radius:8px;display:block}.row{display:grid;grid-template-columns:repeat(4,270px);gap:18px;max-width:1134px;margin:auto}.row img{width:270px;border-radius:8px}.row p{margin:6px 0 18px;font-size:16px}.row a{color:inherit;text-decoration:none}footer{max-width:1134px;margin:24px auto;font-size:14px;line-height:1.7}</style><header><h2>스카이야드 · 주요 기능</h2><p>실제 앱 화면 · 고운바탕과 고운돋움 · 한국어 등록 이미지</p><img class="banner" src="feature-ko-1024x500.png" alt="스카이야드 피처 그래픽"></header><div class="row">${cards.map((c, i) => `<a href="phone/${c.id}.png"><img src="phone/${c.id}.png" alt="${c.label}"><p>${i + 1}. ${c.label}</p></a>`).join('')}</div><footer>앱 beta.12/build17의 브라우저 화면을 촬영했습니다. 기록은 ‘샘플 기록’으로 표시한 예시입니다. 태블릿 이미지는 별도 폴더에 있습니다.<br>현재 빌드에 결제가 없어 유료 문구는 넣지 않았습니다. 향후 유료 기능을 적용할 때 안내를 추가합니다.</footer></html>`;
   await fs.writeFile(path.join(root, 'preview.html'), contact);
   await page.setViewportSize({ width: 1210, height: 1200 });
   await page.goto(pathToFileURL(path.join(root, 'preview.html')).href);
