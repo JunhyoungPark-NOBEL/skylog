@@ -42,8 +42,8 @@ export default defineConfig(({ mode }) => ({
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg', 'icons/apple-touch-icon-180.png'],
       manifest: {
-        name: '별관찰해쌀뚜',
-        short_name: '별관찰',
+        name: '스카이야드 Skyard - 천체 관측 가이드',
+        short_name: '스카이야드',
         description: '별·달·행성 관측용 개인 PWA — 하늘 보기, 검색, 관측 기록, 망원경 가이드, 학습',
         lang: 'ko',
         display: 'standalone',

@@ -1,6 +1,6 @@
-# 별관찰해쌀뚜 (skylog) — 진행 상황 (STATUS)
+# 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-09 · beta.11/build16 오늘 밤 추천 사진·APK·웹 배포 완료
+> 마지막 갱신: 2026-09-10 · 스카이야드 beta.12/build17 출시 준비
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
@@ -10,7 +10,16 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-09 · beta.11/build16 오늘 밤 추천 사진)
+## 이번 작업 보고 (2026-09-10 · 스카이야드 beta.12/build17 출시 준비)
+
+- **구현**: 확정 이름 ‘스카이야드 Skyard - 천체 관측 가이드’를 웹/PWA·한영 UI·Android/iOS 표시·스토어 그래픽에 반영했다. 내부 앱ID·로그인URI·DB/백업 식별자는 유지한다. 지원 tony030214@gmail.com/운영자 박준형을 공개 정책에 반영하고 웹 계정·비로그인 이메일 계정 삭제 안내를 추가했다. Apple privacy manifest를 현행 선택계정/UGC/백업에 맞춰 계정 연결 7종으로 정리했다(D-060).
+- **사용자 확인**: 신규 개인 Play 계정(2023-11-13 이후), AAB 업로드 이력 없음, 집 PC 접근 불가·현재 PC에서 작업. 새 Play 업로드 전용 키를 이 PC에 만들고 DPAPI·ACL·공개 인증서를 검증했다. 개인 APK 기존 키는 보존한다(D-061). 첫 Play 등록은 아직 미실행이다.
+- **검증**: 타입 통과. 초기 단위551개 통과/4파일 worker 시작 timeout 뒤 해당29개를 1worker로 다시 실행해 통과(총580개 고유 검사). 제품 assertion/timeout을 완화하지 않았다. Chromium16+Windows WebKit16의 브랜드/정책/계정 연결·360px 확인 통과, JS/콘솔 오류0. 첫 검토의 영문 도움말 누락을 보완해 재검했다. 실제 폰/메일 요청/삭제 결과와 구분한다.
+- **산출물**: docs/STORE-LAUNCH-CHECKLIST.md와 STORE-LISTING.md, 새 SKYARD 스토어 그래픽, public/delete-account.html. beta.12/build17 최종 Android 빌드·서명·공개 배포 결과는 후속 검증 후 기록한다.
+- **남은 일/사용자 확인**: 일반 가입 SMTP·실제 운영자·심사 접근·삭제 실제 운영·서버 보관 정책·출시국/연령·12명14일 비공개 테스트·Apple 서명/TestFlight·실폰 확인. 현재 전 기능 무료, 미래 퀴즈2·3/망원경 코스 상품·두 사람 권한 미구현. 개인정보와 법적 선언/스토어 제출을 대신 확정하지 않았다.
+- **폰 체크**: 새 APK를 기존 앱 삭제 없이 업데이트해 스카이야드/beta.12 및 기존 기록/마당 확인. iPhone 홈 화면 웹앱 새 버전·사진·센서·메일 복귀·오프라인을 실제 기기로 확인한다.
+
+## 이전 작업 보고 (2026-09-09 · beta.11/build16 오늘 밤 추천 사진)
 
 - **수정**: 공용 추천 행에서 검색과 같은 사진 카탈로그와 썸네일을 사용한다. 오늘 밤의 추천 6개 그룹·관측 계획·오늘의 볼거리에 함께 적용한다. 사진이 없거나 읽기에 실패하면 종류 기호를 표시하며 관측 상태와 계획 저장의 별 버튼은 유지한다. 전체 출처는 상세 화면과 앱 정보에 둔다. 기존 사진164개/328파일과 manifest version2는 변경하지 않았다(D-059).
 - **검증**: 타입·lint·포맷·단위580개, 기존 오늘 밤/사진 Chromium 시나리오9개 통과. Chromium과 Windows WebKit에서 세 카드·토성/M31/M39 사진·상세 출처·360px 영어125% 야간·계획 토글·이미지 실패 대체를 확인했고 JS예외0이었다. 초기 병렬 단위 실행의 사진 해시 검사1개가 5초 제한에 걸려 작업자4개로 전체580개를 다시 실행해 통과했다. 제품 검사 조건을 완화하지 않았다.
@@ -28,23 +37,6 @@
 - **공개 배포**: 소스 `62df2eab0f5da518e445ca9a7d642afdfc6c595a` · [Pages 34320972447](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34320972447) · [모바일 34320977187](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34320977187) 성공. [APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.10-build15/skylog-0.1.0-beta.10-build15-local-test.apk)와 [웹앱](https://junhyoungpark-nobel.github.io/skylog/)을 공개하고 APK 재다운로드·사진 328파일 공개 해시·beta.10·전체 출처·Chromium의 미방문 M110 오프라인 재실행·JS예외0을 확인했다.
 - **파일**: APK 20,090,813bytes, SHA256 `77921231e0e2f24d140a1715bb2f991d94b54317c43f944cdce0bbb991ca5fa0`. 무서명 AAB 19,382,425bytes, SHA256 `c72d866fb47662420235ace8b7200f9b91de70103966100a27bf665b5e5485c1`. 폴더: Downloads/skylog-release-0.1.0-beta.10-build15/. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.10-build15). 다음 수동 CI기본16.
 - **남은 경계**: Play용 AAB의 집 PC 기존 업로드 키 서명, Apple 팀 서명/TestFlight, 실제 폰의 메일 앱 왕복·iPhone 오프라인·센서, 일반 가입용 SMTP/운영자 개통 및 정식 스토어 심사는 남아 있다. Windows WebKit은 온라인 캐시까지 확인했으며 실제 iPhone 오프라인 성공으로 표시하지 않는다. 현재 전 기능 무료, 향후 난이도2·3 퀴즈/망원경 코스의 유료 상품·두 사람 무료 권한은 별도 계획이다.
-
-## 이전 작업 보고 (2026-09-09 · beta.9/build14 천체 사진·댓글 보완)
-
-- **최신 기준**: origin/main `9d39492a06a3d8e79ee96fe45853315ce228e052`를 fetch 후 `codex/object-photos-comments-20260909`에서 작업했다. 기준 타입·단위528개 통과. 집의 마당·잔디밭과 build13 아바타·기존 관측/장비/학습/센서를 유지한다.
-- **천체 사진**: 실제 관측 사진20개를 선택 카드·검색 미리보기·자세히 화면에 넣었다. ESA/Hubble·ESO 개별 CC BY 4.0 출처/전체 크레딧·활성 링크/확인일/가공·파장·촬영 범위를 기록했다. WebP40개 총1,295,446bytes. 크롭 없이 축소하며 XMP에도 출처를 포함한다. 사진/manifest는 PWA 프리캐시와 APK/iOS에 포함하고 야간 적색·명시 원래 색 보기·오류 대체를 제공한다. docs/OBJECT-PHOTOS.md.
-- **댓글**: 신고 사유/댓글 초안 분리, 전송 중 초안 보호, 사진·로그인 계정에 늦은 응답 분리, 최신50개와 이전 페이지, 새로고침·작성 성공/조회 실패 분리, 운영 검토 목록 전환을 보완했다. 공개 서비스 GET 확인과 로컬 DB/RLS/모킹 검증은 docs/COMMENTS-REVIEW.md에 구분한다. DB migration·실서버 쓰기·가입 플래그 변경은 없다.
-- **유료화**: D-054로 향후 난이도2·3과 망원경 학습 코스를 1회 이용권 후보로 정리했다. 가격/시행일/결제는 미정, 현재 접근은 모두 무료. 무료 맨눈/쌍안경 미션의 어려운 확인문항 교체와 기존 진도·보상 보존을 먼저 설계한다. 본인/GF 무료 권한도 후속 계정별 서버 권한 계획이다. docs/MONETIZATION-PLAN.md.
-- **로컬 최종 검증**: 타입/lint·데이터·전체 단위541개와 이후 추가 API6개(총547개 고유 검사), PostgreSQL/RLS46개, Chromium75개 전체 통과. 사진 야간 픽셀 검사에서 둥근 모서리 밖 부모 표면을 제외했고 원래 색 토글이 기존 전역 이미지 필터에 걸리는 문제를 수정한 최종 소스를 검사했다. Android release/lint오류0·경고32, AAB/APK/native215개 에셋과 public191개 자료·사진40개/manifest 해시 일치. iOS 로컬 public과 실제 CI .app는 별도 검증한다.
-- **로컬 산출물**: Downloads/skylog-release-0.1.0-beta.9-build14/. APK9,446,602bytes·SHA256 `a903017f9d6153f5245493b580561abcb487220b5b54e2c5ff9742663e5eb111`, beta.9/build14·min24/target36·release flags·16KB 정렬·기존 build13 인증서 일치. AAB9,129,298bytes·SHA256 `cc3d95769f1d2efd8e7b1130060ba7761f81494b57e1aa890abdee2ad61bcae5`는 무서명이며 집 PC의 기존 Play 업로드키로 서명해야 한다. 공개 배포/모바일 CI 검증도 완료했다.
-- **검증/배포**: 웹·모바일 CI와 공개 다운로드를 확인했다. 다음 CI기본15. 기존 개인 APK와 동일 인증서로 build14를 만들며 이 PC에 없는 Play 업로드키를 새로 생성하지 않는다. SMTP·실제 운영자·일반 가입·Apple 서명/TestFlight·실기기·스토어 심사는 대기다.
-- **폰 확인**: 앱 삭제 없이 APK 업데이트 후 토성/M31/M42 검색·사진/출처·야간 원래 색·스크롤·오프라인을 확인한다. iPhone은 같은 PWA 주소와 기존 홈 화면 앱에서 새 버전을 확인한다. 이전 기록/장비/마당/아바타/퀴즈가 유지되는지 확인한다.
-
-
-- **최종 배포**: 소스 `9f0047d084048d8f5831467771cead6835563a69`, [Pages34303341473](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34303341473)·[모바일34303357539](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34303357539) 전체 성공. 최종 Pages 단위547/547개·73/73파일 통과를 실제 작업 로그에서 확인했다. 공개 [beta.9/build14 APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.9-build14/skylog-0.1.0-beta.9-build14-local-test.apk)를 재다운로드해9,446,602bytes·SHA256 `a903017f9d6153f5245493b580561abcb487220b5b54e2c5ff9742663e5eb111` 일치를 확인했다. 웹 beta.9·사진40파일 공개 SHA·정보 화면20개 전체 크레딧/활성 링크·토성 상세·오프라인 재실행과 미방문 M42 사진·JS예외0 확인.
-- **모바일 증거**: Android API36/x86_64에서 Wi-Fi/data 끄기 명령 후 debug WebView 계측1개·실패0/오류0/누락0, 12.792초. JUnit XML·HTML·소스 @Test 수를 대조했다. CI lint오류0/경고32. iOS Xcode26.3·iphoneos26.2·build14·arm64·최소16.4 무서명 컴파일과 plist/실행파일 검사. CI .app의 public191개와 사진40개/manifest도 소스와 SHA256 일치한다.
-- **WebKit/실기기 경계**: Windows WebKit26.6/iPhone13 에뮬레이션에서 온라인·전체 출처·야간 픽셀·명시 원색·360px 영어125%·사진 캐시7단계 통과. 이후 오프라인 reload와 새 문서 열기는 브라우저 내부 오류로 실패했고 마지막 요약단계는 미실행이다. 캐시의 index/사진200과 온라인 복구·JS예외0을 확인해 도구 제어 제한 가능성으로 추정하지만 실제 iPhone 오프라인 성공으로 표시하지 않는다. [Playwright 서비스 워커 지원](https://playwright.dev/docs/service-workers)과 [브라우저 범위](https://playwright.dev/docs/browsers) 참조. 실제 iPhone의 비행기모드 홈 화면 재실행·사진/기존 기록·센서는 사용자 확인이 필요하다. APK 실폰 설치도 미확인이다.
-- **출시 경계**: 개인 APK와 웹 배포/사진 권리 기록/댓글 회귀/미래 유료화 계획은 완료했다. Play용 AAB는 현재PC에 없는 기존 업로드키로 서명해야 하며 Apple 팀 서명/TestFlight·스토어 심사·일반 가입 SMTP/운영자 개통·실제 유료 상품/두 사람 무료 권한 발급은 대기다. 이번 버전은 계속 무료이며 실서비스에 테스트 댓글을 전송하지 않았다.
 
 ## 태스크 현황
 
@@ -75,11 +67,11 @@
 
 ## 다음 세션이 알아야 할 것
 
-- **현재 작업**: beta.11/build16 오늘 밤 사진 수정과 APK·PWA 공개 검증 완료. 앱 소스 e672ca13e98da1eab747f5c7a2762afe6625d919. 이전 build12/build13 보고는 plan/reports/에 보관했다.
+- **현재 작업**: 스카이야드 beta.12/build17 출시 준비. 사용자 첫 Play 업로드 확인으로 이 PC 전용 업로드키 준비, 기존 개인 APK 키 유지. 최신 결과는 맨 위 보고와 docs/STORE-LAUNCH-CHECKLIST.md. 이전 build12/13/14 보고는 plan/reports/에 보관.
 
 - **우선 사항**: 현재 모든 기능과 이번 아바타 확장은 무료(D-048/D-052). 최신 유료화 계획은 D-054와 MONETIZATION-PLAN의 향후 난이도2·3/망원경 코스이며 현재 잠금·결제는 미구현이다. D-053 외형 팩/가격은 이전 제안이다. 서버/코드는 실제 구현됨. Supabase 프로젝트 ijxuwtbcwifttiuwvqrh/서울. 현재 PC의 대시보드 로그인과 정확한 앱 복귀 주소 저장을 확인했다. CLI 인증은 현재 PC에서 확인되지 않았으므로 대시보드 인증과 구분한다. 일반 가입용 SMTP와 운영자 실제 앱 계정 지정이 남았다. 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. GitHub 변수는 공개 URL/키만 포함. 백업은 수동 스냅샷으로 자동 동기화가 아니다. 자세한 절차는 docs/FREE-COMMUNITY.md.
 
-- 최신 풍경은 D-045와 docs/LANDSCAPE-REFINEMENT.md, 실제 무료 서비스는 D-048~051과 docs/FREE-COMMUNITY.md. COMMUNITY-AND-CUSTOMIZATION.md의 가격 후보는 이전 설계 이력이다. 개인 APK 서명 키는 Play 업로드 키와 다르며 자동 새 키 생성 금지.
+- 최신 풍경은 D-045와 docs/LANDSCAPE-REFINEMENT.md, 실제 무료 서비스는 D-048~051과 docs/FREE-COMMUNITY.md. COMMUNITY-AND-CUSTOMIZATION.md의 가격 후보는 이전 설계 이력이다. 개인 APK 키는 보존한다. Play는 최초 업로드라는 사용자 확인과 이 PC 작업 요청으로 새 전용키를 준비했다(D-061). 과거 집 PC 키 대기 기록보다 이 결정을 우선하며 등록 후 업로드키를 임의 변경하지 않는다.
 
 - **학습 탐색/스테이지(D-026)**: features/learn의 LearnScreen → QuizJourney/CoursesScreen/StoriesScreen/AchievementsScreen. 해시 section/path/mission/chapter로 복원하며 하단 탭 복귀 시 마지막 배우기 경로 유지. stageCatalog는 144문항을 중복 없이 고정한 28단계, 정답률 80% 해제·60/80/100% 별, 개인 합계는 단계별 최고점만. stage/question 버전을 함께 검증하며 마지막 응답과 완료 기록은 원자 저장. 기존 미션/응답/복습/관측 유지, 새 도장은 새 여정을 완주해야 획득한다. 리더보드는 아직 로컬 점수 기반만 준비됨.
 - **하늘 설정(D-038)**: `groundOpacity` 기본1, 단일 슬라이더와 기본값 복원. 불투명도1이면 지평선 아래 표시·선택을 함께 막고1 미만이면 함께 허용한다. layers persist v2로 이전 옵션을 이관한다. 기본 경계 false·은하수0.33·별 채도1, 저장된 커스텀 설정은 보존한다. 실제 관측 가능 판정은 그대로다.
@@ -96,7 +88,7 @@
 - **UI 규칙(D-021)**: 새 화면은 `docs/ARCHITECTURE.md` "UI 디자인 시스템 v2"와 토큰(`theme.css`)만 쓴다. 검색/오늘 밤/기록은 App의 `pt-status pb-tab` 래퍼를 쓴다. 배우기는 D-026: 자체 고정 제목·상단 4개 메뉴 + ScrollArea(pb-tab), 위치/센서 상태바는 생략한다. 카피는 D-021 용어집(해요체·평이한 용어)을 따른다.
 - **스크롤 규칙(D-022)**: 세로 스크롤 영역은 `ui/ScrollArea.tsx`(마우스 드래그 스크롤·관성·페이드 오버레이)로 만든다. 스크롤러에 `mask-image`를 걸지 않는다. 드래그 스크롤이 닿으면 안 되는 컨트롤은 `touch-action: none` 또는 `data-drag-scroll="off"`. 사용자 보고("스크롤이 뻑뻑하고 스크롤 바를 정확히 눌러야 함")에 대한 수정이며, 실기기 확인은 T3b 체크리스트의 스크롤 항목으로 받는다.
 - **주의(이 세션에서 겪은 것)**: 워크플로 에이전트가 "코드 스케치를 써 달라"는 프롬프트를 실제 경로에 파일을 만들었다가 지우는 바람에 `src/astro/phenomena.ts`가 사라진 적이 있다. 리서치용 에이전트 프롬프트에는 **"파일을 만들거나 고치지 말 것"**을 명시한다.
-- **최신 검증**: 문서 맨 위 beta.11/build16 보고를 따른다. 이전 build9 수치는 당시 검증 이력이다. T8 청크 분할·실기기 센서/성능은 잔여다.
+- **최신 검증**: 문서 맨 위 beta.12/build17 보고를 따른다. 이전 build9 수치는 당시 검증 이력이다. T8 청크 분할·실기기 센서/성능은 잔여다.
 - 데이터 원본(`data-src/raw/`)은 gitignore이며 새 환경에서 재생성할 때 원본 확보가 필요하다. 현재 실행 경로와 pnpm PATH는 위 **환경** 항목을 따른다. 과거 OneDrive PC 경로를 현재 작업 경로로 사용하지 않는다.
 - **사용자 장비**: 솔로몬 HQ 8×42 ED, SVBONY SV48P 102mm(제조사 초점거리663mm). 사용자 요청으로 쌍안경 시야7.50°·접안25mm/52°는 시작 예시이며 직접 입력하도록 한다. 마운트/실제 접안 사양은 확정하지 않았다. 관측지는 자동 GPS 또는 사용자가 고른 저장 장소·보이는 범위를 따른다.
 

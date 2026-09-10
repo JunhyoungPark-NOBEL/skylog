@@ -218,7 +218,7 @@ test('PWA: manifest와 서비스 워커가 등록된다', async ({ page }) => {
   const res = await page.request.get(new URL(manifestHref!, page.url()).toString());
   expect(res.ok()).toBe(true);
   const manifest = (await res.json()) as { name: string; display: string; icons: unknown[] };
-  expect(manifest.name).toBe('별관찰해쌀뚜');
+  expect(manifest.name).toBe('스카이야드 Skyard - 천체 관측 가이드');
   expect(manifest.display).toBe('standalone');
   expect(manifest.icons.length).toBeGreaterThanOrEqual(2);
   const swRegistered = await page.evaluate(async () => {

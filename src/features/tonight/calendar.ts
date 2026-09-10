@@ -74,7 +74,7 @@ export function eventsToIcs(
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Skylog//Astronomy Calendar//KO',
+    'PRODID:-//Skyard//Astronomy Calendar//KO',
     'CALSCALE:GREGORIAN',
   ];
   for (const event of events)

@@ -38,7 +38,7 @@
     "prepare": "Prepare the year",
     "download": "Save calendar (.ics)",
     "exportHelp": "Save all {{year}} events and import them into your phone, Google or Apple calendar. Later changes won’t sync automatically.",
-    "exportNote": "Events calculated by Skylog. Actual visibility depends on location and weather. Meteor peak times are approximate.",
+    "exportNote": "Events calculated by Skyard. Actual visibility depends on location and weather. Meteor peak times are approximate.",
     "exportError": "Could not save the calendar. Please try again.",
     "title": "Sky events",
     "currentYear": "Current year"

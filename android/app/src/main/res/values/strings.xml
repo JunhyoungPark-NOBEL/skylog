@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">별관찰해쌀뚜</string>
-    <string name="title_activity_main">별관찰해쌀뚜</string>
+    <string name="app_name">스카이야드</string>
+    <string name="title_activity_main">스카이야드</string>
     <string name="package_name">io.github.junhyoungparknobel.skylog</string>
     <string name="custom_url_scheme">io.github.junhyoungparknobel.skylog</string>
 </resources>

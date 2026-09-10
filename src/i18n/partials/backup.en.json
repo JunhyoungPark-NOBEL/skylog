@@ -23,7 +23,7 @@
     },
     "import": {
       "section": "Import",
-      "desc": "Pick a skylog backup (JSON) you exported earlier to restore it.",
+      "desc": "Pick a Skyard backup (JSON) you exported earlier to restore it.",
       "choose": "Choose file",
       "noFile": "No file chosen yet",
       "counts": "Log {{observations}} · plans {{bookmarks}} · sites {{sites}} · equipment {{equipment}} · sketches & photos {{blobs}}",
@@ -39,7 +39,7 @@
       "failed": "Import did not finish — nothing was changed",
       "error": {
         "json": "Not a JSON file",
-        "app": "Not a skylog backup file",
+        "app": "Not a Skyard backup file",
         "version": "Made by a newer app — please update the app",
         "shape": "Unexpected file structure ({{detail}})",
         "field": "Invalid value ({{detail}})"

@@ -1,8 +1,8 @@
 {
   "name": "skylog",
-  "version": "0.1.0-beta.11",
+  "version": "0.1.0-beta.12",
   "private": true,
-  "description": "별관찰해쌀뚜 — 별·달·행성 관측용 개인 PWA",
+  "description": "스카이야드 Skyard - 천체 관측 가이드",
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@12.3.4",

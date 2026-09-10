@@ -23,7 +23,7 @@
     },
     "import": {
       "section": "가져오기",
-      "desc": "예전에 내보낸 skylog 백업(JSON)을 골라 되돌려요.",
+      "desc": "예전에 내보낸 스카이야드 백업(JSON)을 골라 되돌려요.",
       "choose": "파일 선택",
       "noFile": "아직 고른 파일이 없어요",
       "counts": "기록 {{observations}} · 예정 {{bookmarks}} · 관측지 {{sites}} · 장비 {{equipment}} · 스케치·사진 {{blobs}}",
@@ -39,7 +39,7 @@
       "failed": "가져오기를 마치지 못했어요 — 바뀐 건 없어요",
       "error": {
         "json": "JSON 파일이 아니에요",
-        "app": "skylog 백업 파일이 아니에요",
+        "app": "스카이야드 백업 파일이 아니에요",
         "version": "더 새로운 앱에서 만든 파일이에요 — 앱을 업데이트해 주세요",
         "shape": "파일 구조가 달라요 ({{detail}})",
         "field": "잘못된 값이 있어요 ({{detail}})"

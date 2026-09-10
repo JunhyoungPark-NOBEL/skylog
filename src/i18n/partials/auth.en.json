@@ -5,7 +5,7 @@
     "otherBrowser": "This link opened in a different browser from the app where you started. Return to the original app below to finish signing in.",
     "expired": "This link or code has expired or was already used. Request a new email.",
     "rateLimit": "Emails were requested too quickly. Wait a moment before trying again.",
-    "invalidLink": "Use a Skylog sign-in link: copy the email confirmation link or the recovery link from the button below.",
+    "invalidLink": "Use a Skyard sign-in link: copy the email confirmation link or the recovery link from the button below.",
     "unavailable": "Email sign-in is currently unavailable. Please try again later.",
     "network": "Check your internet connection. Request a new email if link verification keeps failing.",
     "emailMismatch": "This link belongs to a different email address. Use the email you requested from this app.",
