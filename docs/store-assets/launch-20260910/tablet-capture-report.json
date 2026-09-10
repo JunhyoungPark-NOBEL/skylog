@@ -1,0 +1,162 @@
+[
+  {
+    "device": "tablet-7",
+    "viewport": {
+      "width": 960,
+      "height": 540
+    },
+    "deviceScaleFactor": 2,
+    "filename": "01-sky.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 788574,
+    "sha256": "101255ef9e147cce97c0965ae0759a8b7dd67f7968543f84880a9ecdada088e9",
+    "layout": {
+      "horizontalOverflow": false,
+      "fontStatus": "loaded",
+      "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", sans-serif",
+      "replacementCharacters": false,
+      "loadingText": []
+    }
+  },
+  {
+    "device": "tablet-7",
+    "viewport": {
+      "width": 960,
+      "height": 540
+    },
+    "deviceScaleFactor": 2,
+    "filename": "02-search-photos.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 208748,
+    "sha256": "6a9140687029a56998509cd5d476eabd3286d1080531fb86eb8fb03badc2333b",
+    "layout": {
+      "horizontalOverflow": false,
+      "fontStatus": "loaded",
+      "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", sans-serif",
+      "replacementCharacters": false,
+      "loadingText": []
+    }
+  },
+  {
+    "device": "tablet-7",
+    "viewport": {
+      "width": 960,
+      "height": 540
+    },
+    "deviceScaleFactor": 2,
+    "filename": "03-learning.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 95892,
+    "sha256": "38af374c07206bdf9cde06f64b4f0cdebea441cd48b05bcddc5ba609ae74b27c",
+    "layout": {
+      "horizontalOverflow": false,
+      "fontStatus": "loaded",
+      "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", sans-serif",
+      "replacementCharacters": false,
+      "loadingText": []
+    }
+  },
+  {
+    "device": "tablet-7",
+    "viewport": {
+      "width": 960,
+      "height": 540
+    },
+    "deviceScaleFactor": 2,
+    "filename": "04-garden.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 74359,
+    "sha256": "b58823b4e46f5a3515f05a302ad36b2e17e0e0b1916488cc4c237b4f5d54064e",
+    "layout": {
+      "horizontalOverflow": false,
+      "fontStatus": "loaded",
+      "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", sans-serif",
+      "replacementCharacters": false,
+      "loadingText": []
+    }
+  },
+  {
+    "device": "tablet-10",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "deviceScaleFactor": 1.5,
+    "filename": "01-sky.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 754353,
+    "sha256": "1c3b589790ae11961c60fde712d24072bedd2983edd2e4e4e1207cc0db129022",
+    "layout": {
+      "horizontalOverflow": false,
+      "fontStatus": "loaded",
+      "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", sans-serif",
+      "replacementCharacters": false,
+      "loadingText": []
+    }
+  },
+  {
+    "device": "tablet-10",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "deviceScaleFactor": 1.5,
+    "filename": "02-search-photos.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 203523,
+    "sha256": "c7f7c48c9fa11300c27591367b630c2efbec9725b6f5b44ae0a1d01787243a73",
+    "layout": {
+      "horizontalOverflow": false,
+      "fontStatus": "loaded",
+      "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", sans-serif",
+      "replacementCharacters": false,
+      "loadingText": []
+    }
+  },
+  {
+    "device": "tablet-10",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "deviceScaleFactor": 1.5,
+    "filename": "03-learning.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 91512,
+    "sha256": "0cd4bac61f5cea64bf00c7f384d1df0b31ae80afbf560471745ab3605c9c1ecd",
+    "layout": {
+      "horizontalOverflow": false,
+      "fontStatus": "loaded",
+      "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", sans-serif",
+      "replacementCharacters": false,
+      "loadingText": []
+    }
+  },
+  {
+    "device": "tablet-10",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "deviceScaleFactor": 1.5,
+    "filename": "04-garden.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 67433,
+    "sha256": "e27f5b40d94a4b79b8c3dba1308fc08e3c7fcc1c6b2a923ed33c4802e078cdc9",
+    "layout": {
+      "horizontalOverflow": false,
+      "fontStatus": "loaded",
+      "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Apple SD Gothic Neo\", \"Noto Sans KR\", \"Malgun Gothic\", sans-serif",
+      "replacementCharacters": false,
+      "loadingText": []
+    }
+  }
+]

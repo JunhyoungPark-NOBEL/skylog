@@ -1,0 +1,31 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><title>스카이야드 스토어 그래픽 원본</title><style>
+@font-face{font-family:GowunDodum;src:url('fonts/GowunDodum-Regular.ttf') format('truetype');font-weight:400;font-display:block}
+@font-face{font-family:GowunBatang;src:url('fonts/GowunBatang-Bold.ttf') format('truetype');font-weight:700;font-display:block}
+*{box-sizing:border-box}html,body{margin:0}body{font-family:GowunDodum,sans-serif;-webkit-font-smoothing:antialiased}
+
+.card{position:relative;width:1080px;height:1920px;overflow:hidden;color:#f8f2e7;background:#101c21}
+.card.cream{background:#efeade;color:#263e3c}.card.green{background:#233d37;color:#faf0df}
+.topline{position:absolute;top:46px;left:84px;right:84px;display:flex;justify-content:space-between;align-items:center;font-size:25px;letter-spacing:.03em}
+.brand{font-size:27px;letter-spacing:.015em}.eyebrow{opacity:.82}
+h1{position:absolute;top:104px;left:84px;right:72px;margin:0;font:700 65px/1.18 GowunBatang,serif;letter-spacing:-.045em;white-space:pre-line}
+.sub{position:absolute;top:282px;left:86px;right:75px;margin:0;font-size:29px;line-height:1.45;letter-spacing:-.035em;opacity:.86;white-space:nowrap}
+.screen{position:absolute;top:360px;left:108px;width:864px;height:1536px;border-radius:36px;overflow:hidden;background:#080d16;box-shadow:0 12px 35px #0003;outline:1px solid #ffffff1a}
+.screen img{display:block;width:100%;height:100%;object-fit:contain}
+.cream .screen{outline:1px solid #182d3422;box-shadow:0 14px 35px #18302822}
+.feature{position:relative;width:1024px;height:500px;background:#0b161c;overflow:hidden;color:#f8f0e2}
+.feature .sky{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feature .shade{position:absolute;inset:0;background:linear-gradient(90deg,#0b181ff5 0%,#0b181feb 36%,#0b181f8a 66%,#0b181f00 100%)}
+.feature .brand{position:absolute;top:49px;left:64px;display:flex;gap:12px;align-items:center;font-size:24px}
+.feature .brand img{width:38px;height:38px;border-radius:10px}
+.feature h1{top:135px;left:64px;font-size:56px;line-height:1.27;letter-spacing:-.04em}
+.feature .sub{top:324px;left:68px;font-size:21px;letter-spacing:-.035em;line-height:1.7;white-space:pre-line}
+body{display:flex;flex-wrap:wrap;gap:40px;padding:40px;background:#bbb8ae}</style><section class="feature" id="feature"><img class="sky" src="feature-sky-source.png" alt="앱에서 렌더링한 밤하늘"><div class="shade"></div><div class="brand"><img src="play-icon-512.png" alt="">스카이야드 Skyard</div><h1>오늘 밤,
+별 보러 가요</h1><p class="sub">오늘의 하늘부터
+나만의 관측 기록까지</p></section><section class="card night" id="01-sky"><div class="topline"><span class="eyebrow">하늘 지도</span><span class="brand">Skyard</span></div><h1>저 별,
+이름이 뭘까</h1><p class="sub">휴대폰 방향을 따라 살펴보는 밤하늘</p><div class="screen"><img src="raw-phone/01-sky.png" alt="하늘 지도 실제 앱 화면"></div></section><section class="card cream" id="02-tonight"><div class="topline"><span class="eyebrow">오늘 밤 추천</span><span class="brand">Skyard</span></div><h1>오늘은
+어떤 별을 볼까</h1><p class="sub">관측하기 좋은 천체를 한눈에</p><div class="screen"><img src="raw-phone/02-tonight.png" alt="오늘 밤 추천 실제 앱 화면"></div></section><section class="card night" id="03-photos"><div class="topline"><span class="eyebrow">천체 사진</span><span class="brand">Skyard</span></div><h1>작은 빛 너머,
+이런 모습이 있었네</h1><p class="sub">164개 천체의 실제 참고 사진</p><div class="screen"><img src="raw-phone/03-photo.png" alt="천체 사진 실제 앱 화면"></div></section><section class="card cream" id="04-starhop"><div class="topline"><span class="eyebrow">망원경 관측 · 스타호핑</span><span class="brand">Skyard</span></div><h1>별에서 별로,
+망원경과 한 걸음씩</h1><p class="sub">장비 시야 6.0° 기준 · 차트는 주변까지</p><div class="screen"><img src="raw-phone/07d-starhop-chart.png" alt="망원경 관측 · 스타호핑 실제 앱 화면"></div></section><section class="card night" id="05-log"><div class="topline"><span class="eyebrow">관측 기록</span><span class="brand">Skyard</span></div><h1>그날의 하늘을
+내 기록으로</h1><p class="sub">메모와 사진, 스케치로 남기는 관측 노트</p><div class="screen"><img src="raw-phone/04-log.png" alt="관측 기록 실제 앱 화면"></div></section><section class="card cream" id="06-quiz"><div class="topline"><span class="eyebrow">퀴즈와 관측 코스</span><span class="brand">Skyard</span></div><h1>알아갈수록
+더 재밌는 밤하늘</h1><p class="sub">작은 호기심이 관측 실력이 되도록</p><div class="screen"><img src="raw-phone/05b-quiz.png" alt="퀴즈와 관측 코스 실제 앱 화면"></div></section><section class="card green" id="07-garden"><div class="topline"><span class="eyebrow">아바타와 내 마당</span><span class="brand">Skyard</span></div><h1>별 보고 돌아와,
+내 마당에서 쉬어요</h1><p class="sub">관측과 학습으로 모으는 꾸미기 보상</p><div class="screen"><img src="raw-phone/06-garden.png" alt="아바타와 내 마당 실제 앱 화면"></div></section></html>

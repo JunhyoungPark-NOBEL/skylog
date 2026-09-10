@@ -1,0 +1,47 @@
+{
+  "sourceCommit": "830c974bebeab0e873925ba58b0bd8a01798de6e",
+  "appVersion": "0.1.0-beta.12",
+  "androidBuild": 17,
+  "base": "http://127.0.0.1:5181/",
+  "sampleTime": "2026-09-10T12:00:00Z",
+  "site": "대전 (KAIST) 기본 장소",
+  "viewport": {
+    "width": 432,
+    "height": 768,
+    "deviceScaleFactor": 2.5
+  },
+  "physicalDevice": false,
+  "personalData": false,
+  "completedObservation": false,
+  "errors": [],
+  "shots": [
+    {
+      "filename": "07d-starhop-chart.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 193917,
+      "sha256": "9d0fef3bfaade4cba9d1a9934d8da499f6a9d1b0205ccc7cd38d9ba95ea4b2e5",
+      "layout": {
+        "horizontalOverflow": false,
+        "fontStatus": "loaded",
+        "replacementCharacters": false,
+        "actualDate": "2026-09-10T12:00:00.000Z"
+      },
+      "screenText": "별길 가이드\n장비·사용 방법\n\n찾을 천체\n\n헤르쿨레스 대성단\n\n높이 53.2° · 방위 284.3° · 지평선 위\n\n바꾸기\n방향 안내\n시야 차트\n스타호핑\n허큘리스 사각형 속 별무리\n\n허큘리스자리의 사다리꼴을 찾고, 서쪽 변의 에타별에서 제타별 쪽으로 약 3분의 1만큼 이동해요. 작은 솜뭉치 같은 M13이 기다려요.\n\n밝은 별부터 한 단계씩 이동해요. 선택한 실제 시야는 6.0°예요. 방위 설명은 천구 북쪽 기준이고, 차트는 파인더의 상 방향을 반영해요.\n\n하늘에 경로 펼쳐 보기\n\n출발 별\n\nη Her\n출발 별을 시야 중앙에 놓았어요\n\n1 / 1\n\nη Her → 헤르쿨레스 대성단\n\n남쪽으로 2.5° 이동해요.\n보이는 원 너비의 약 41%만큼 이동해요.\n\n주변까지 넓힌 길잡이 차트예요. 실제 시야는 위에 적힌 장비 시야를 기준으로 이동하세요.\n\n다음 별을 찾아 확인했어요\n관측 코스로 돌아가기\n하늘에서 장비 시야 보기"
+    },
+    {
+      "filename": "07e-starhop-night.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 133988,
+      "sha256": "1b0a281c9f2adf6cc3419d9fc7f586c4b0314c8a7db30b00a18d2e91a5d81c9a",
+      "layout": {
+        "horizontalOverflow": false,
+        "fontStatus": "loaded",
+        "replacementCharacters": false,
+        "actualDate": "2026-09-10T12:00:00.000Z"
+      },
+      "screenText": "대전 (KAIST)\nTianji\nNuchuang\nBaltesha\nAsuusiha\nKhepdenreret\nGuansuo\nAlkalurops\n헤르쿨레스 대성단\nM92\n북쪽왕관자리\n허큘리스자리\n휴대폰 방향으로 보기\n\n한 번 허용하면 다음부터 휴대폰 방향을 따라가요.\n\n지금21:00\n하늘\n검색\n오늘 밤\n기록\n배우기"
+    }
+  ]
+}
