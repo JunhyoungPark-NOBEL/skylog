@@ -140,6 +140,28 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
     setIndex((n) => n + 1);
     setError(false);
   };
+  const retrySession = async () => {
+    if (lock.current) return;
+    if (!questions || !q) {
+      setRetry((n) => n + 1);
+      return;
+    }
+    // 이미 푼 문항·현재 선택·runId를 보존하고 현재 문항의 접근 권한만 다시 확인한다.
+    lock.current = true;
+    setBusy(true);
+    try {
+      if (stage && stage.chapter > 1) await ensurePlusAccess();
+      await ensureQuizAccess(q, request.missionId);
+      setPlusRequired(false);
+      setError(false);
+    } catch {
+      setPlusRequired(true);
+      setError(true);
+    } finally {
+      lock.current = false;
+      setBusy(false);
+    }
+  };
   return (
     <div
       ref={dialog}
@@ -195,10 +217,11 @@ function QuizSession({ request, onClose }: { request: QuizRequest; onClose(): vo
           {!questions && !plusRequired && (
             <p role="status">{t(error ? 'study.loadError' : 'common.loading')}</p>
           )}
-          {!questions && error && (
+          {error && (!questions || plusRequired) && (
             <button
-              className="min-h-11 rounded-pill bg-accent px-5 text-accent-fg"
-              onClick={() => setRetry((n) => n + 1)}
+              className="min-h-11 rounded-pill bg-accent px-5 text-accent-fg disabled:opacity-40"
+              disabled={busy}
+              onClick={() => void retrySession()}
             >
               {t('study.retry')}
             </button>

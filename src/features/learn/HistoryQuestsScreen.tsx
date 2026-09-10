@@ -36,7 +36,7 @@ export default function HistoryQuestsScreen({ questId }: { questId: string | nul
           }
         })
         .catch(() => {
-          if (alive) setError(true);
+          if (alive && n === generation) setError(true);
         });
     };
     refresh();
@@ -49,16 +49,15 @@ export default function HistoryQuestsScreen({ questId }: { questId: string | nul
     };
   }, [retry]);
   const quest = HISTORY_QUESTS.find((q) => q.id === questId);
-  if (error)
-    return (
-      <div role="alert">
-        <p>{t('history.loadError')}</p>
-        <button className="min-h-11 text-accent" onClick={() => setRetry((n) => n + 1)}>
-          {t('study.retry')}
-        </button>
-      </div>
-    );
-  if (!progress) return <p role="status">{t('common.loading')}</p>;
+  const loadError = error && (
+    <div role="alert" id="history-load-error">
+      <p>{t('history.loadError')}</p>
+      <button className="min-h-11 text-accent" onClick={() => setRetry((n) => n + 1)}>
+        {t('study.retry')}
+      </button>
+    </div>
+  );
+  if (!progress) return loadError || <p role="status">{t('common.loading')}</p>;
   const all = HISTORY_QUESTS.flatMap((pack) => pack.questions);
   const solved = all.filter(
     (q) => historySummary(q, progress.get(q.id) ?? emptyHistoryProgress()).solved,
@@ -68,96 +67,108 @@ export default function HistoryQuestsScreen({ questId }: { questId: string | nul
   ).length;
   return (
     <div className="space-y-5" data-testid="history-screen">
-      <PlusNotice />
-      {quest ? (
-        <QuestDetail key={quest.id} quest={quest} progress={progress} />
-      ) : (
-        <>
-          <section className="relative overflow-hidden rounded-3xl border border-hairline bg-surface p-6">
-            <svg
-              className="pointer-events-none absolute -right-6 -top-5 h-40 w-40 text-accent opacity-15"
-              aria-hidden
-              viewBox="0 0 160 160"
-              fill="none"
+      {loadError}
+      {/* 읽기 재시도 중에도 작성 중인 문제를 마운트한 채 유지한다. */}
+      <fieldset
+        disabled={error}
+        aria-describedby={error ? 'history-load-error' : undefined}
+        className="min-w-0 space-y-5"
+      >
+        <PlusNotice />
+        {quest ? (
+          <QuestDetail key={quest.id} quest={quest} progress={progress} />
+        ) : (
+          <>
+            <section className="relative overflow-hidden rounded-3xl border border-hairline bg-surface p-6">
+              <svg
+                className="pointer-events-none absolute -right-6 -top-5 h-40 w-40 text-accent opacity-15"
+                aria-hidden
+                viewBox="0 0 160 160"
+                fill="none"
+              >
+                <ellipse
+                  cx="80"
+                  cy="80"
+                  rx="70"
+                  ry="34"
+                  transform="rotate(-30 80 80)"
+                  stroke="currentColor"
+                />
+                <circle cx="59" cy="92" r="16" fill="currentColor" />
+                <circle cx="136" cy="49" r="5" fill="currentColor" />
+                <path d="M20 120h120M40 100v40M80 110v30" stroke="currentColor" />
+              </svg>
+              <p className="text-caption font-semibold text-accent">{t('history.eyebrow')}</p>
+              <h2 className="relative mt-3 text-headline">{t('history.title')}</h2>
+              <p className="relative mt-3 text-body-sm leading-6 text-muted">
+                {t('history.intro')}
+              </p>
+              <p className="mt-4 text-caption text-accent">
+                {t('history.progress', { solved, total: all.length, independent })}
+              </p>
+            </section>
+            <p className="px-1 text-caption leading-6 text-muted">{t('history.method')}</p>
+            <button
+              className="min-h-11 rounded-pill border border-hairline px-4 text-body-sm"
+              aria-pressed={reviewOnly}
+              onClick={() => setReviewOnly(!reviewOnly)}
             >
-              <ellipse
-                cx="80"
-                cy="80"
-                rx="70"
-                ry="34"
-                transform="rotate(-30 80 80)"
-                stroke="currentColor"
-              />
-              <circle cx="59" cy="92" r="16" fill="currentColor" />
-              <circle cx="136" cy="49" r="5" fill="currentColor" />
-              <path d="M20 120h120M40 100v40M80 110v30" stroke="currentColor" />
-            </svg>
-            <p className="text-caption font-semibold text-accent">{t('history.eyebrow')}</p>
-            <h2 className="relative mt-3 text-headline">{t('history.title')}</h2>
-            <p className="relative mt-3 text-body-sm leading-6 text-muted">{t('history.intro')}</p>
-            <p className="mt-4 text-caption text-accent">
-              {t('history.progress', { solved, total: all.length, independent })}
-            </p>
-          </section>
-          <p className="px-1 text-caption leading-6 text-muted">{t('history.method')}</p>
-          <button
-            className="min-h-11 rounded-pill border border-hairline px-4 text-body-sm"
-            aria-pressed={reviewOnly}
-            onClick={() => setReviewOnly(!reviewOnly)}
-          >
-            {t(reviewOnly ? 'history.showAll' : 'history.reviewFilter')}
-          </button>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {HISTORY_QUESTS.filter(
-              (pack) =>
-                !reviewOnly ||
-                pack.questions.some((q) => {
-                  const p = progress.get(q.id) ?? emptyHistoryProgress();
-                  return p.attempts.length > 0 && !historySummary(q, p).independent;
-                }),
-            ).map((pack, i) => {
-              const n = pack.questions.filter(
-                (q) => historySummary(q, progress.get(q.id) ?? emptyHistoryProgress()).solved,
-              ).length;
-              return (
-                <button
-                  key={pack.id}
-                  className="min-h-40 rounded-3xl border border-hairline bg-surface p-5 text-left"
-                  data-testid={'history-quest-' + pack.id}
-                  onClick={() => navigateLearn('quiz', { track: 'physics', quest: pack.id })}
-                >
-                  <span className="flex justify-between gap-2 text-caption text-muted">
-                    <span>{pack.era}</span>
-                    <span>
-                      {t('history.' + pack.difficulty)} ·{' '}
-                      {t('history.minutes', { n: pack.minutes })}
+              {t(reviewOnly ? 'history.showAll' : 'history.reviewFilter')}
+            </button>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {HISTORY_QUESTS.filter(
+                (pack) =>
+                  !reviewOnly ||
+                  pack.questions.some((q) => {
+                    const p = progress.get(q.id) ?? emptyHistoryProgress();
+                    return p.attempts.length > 0 && !historySummary(q, p).independent;
+                  }),
+              ).map((pack, i) => {
+                const n = pack.questions.filter(
+                  (q) => historySummary(q, progress.get(q.id) ?? emptyHistoryProgress()).solved,
+                ).length;
+                return (
+                  <button
+                    key={pack.id}
+                    className="min-h-40 rounded-3xl border border-hairline bg-surface p-5 text-left"
+                    data-testid={'history-quest-' + pack.id}
+                    onClick={() => navigateLearn('quiz', { track: 'physics', quest: pack.id })}
+                  >
+                    <span className="flex justify-between gap-2 text-caption text-muted">
+                      <span>{pack.era}</span>
+                      <span>
+                        {t('history.' + pack.difficulty)} ·{' '}
+                        {t('history.minutes', { n: pack.minutes })}
+                      </span>
                     </span>
-                  </span>
-                  <span className="mt-3 block text-title">{pack.title[lang]}</span>
-                  <span className="mt-2 block text-body-sm text-muted">{pack.scientist[lang]}</span>
-                  <span className="mt-4 flex justify-between text-caption text-accent">
-                    <span>
-                      {pack.concepts
-                        .map((c) => c[lang])
-                        .slice(0, 2)
-                        .join(' · ')}
+                    <span className="mt-3 block text-title">{pack.title[lang]}</span>
+                    <span className="mt-2 block text-body-sm text-muted">
+                      {pack.scientist[lang]}
                     </span>
-                    <span>
-                      {n}/{pack.questions.length} {n === pack.questions.length ? '✓' : '→'}
+                    <span className="mt-4 flex justify-between text-caption text-accent">
+                      <span>
+                        {pack.concepts
+                          .map((c) => c[lang])
+                          .slice(0, 2)
+                          .join(' · ')}
+                      </span>
+                      <span>
+                        {n}/{pack.questions.length} {n === pack.questions.length ? '✓' : '→'}
+                      </span>
                     </span>
-                  </span>
-                  <span className="sr-only">{i + 1}</span>
-                </button>
-              );
-            })}
-          </div>
-          {reviewOnly &&
-            !all.some((q) => {
-              const p = progress.get(q.id) ?? emptyHistoryProgress();
-              return p.attempts.length && !historySummary(q, p).independent;
-            }) && <p className="p-4 text-muted">{t('history.noReview')}</p>}
-        </>
-      )}
+                    <span className="sr-only">{i + 1}</span>
+                  </button>
+                );
+              })}
+            </div>
+            {reviewOnly &&
+              !all.some((q) => {
+                const p = progress.get(q.id) ?? emptyHistoryProgress();
+                return p.attempts.length && !historySummary(q, p).independent;
+              }) && <p className="p-4 text-muted">{t('history.noReview')}</p>}
+          </>
+        )}
+      </fieldset>
     </div>
   );
 }
