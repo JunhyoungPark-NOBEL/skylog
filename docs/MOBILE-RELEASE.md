@@ -1,6 +1,18 @@
 # Android AAB / iOS 출시 준비
 
-> 최신: **스카이야드 beta.12/build17 — 이 PC의 Play 업로드 키와 서명 AAB 완성, 개인 APK·PWA 배포 검증 완료.** [출시 준비표](STORE-LAUNCH-CHECKLIST.md) · [현재 PC 서명 안내](SIGNING-ON-THIS-PC.md)
+> 최신: **스카이야드 beta.13/build18 — 개인 APK·Play 서명 AAB 완성, 학습·공개 아바타·Plus 베타 미리보기.** APK 공개 재다운로드·공개 PWA 점검·Pages와 모바일 CI 전체 성공. 실제 폰·Apple 서명/TestFlight·유료 판매 개통은 별도다. 아래 이전 버전의 ‘미서명/계획’은 당시 기록이다. [출시 준비표](STORE-LAUNCH-CHECKLIST.md) · [현재 PC 서명 안내](SIGNING-ON-THIS-PC.md)
+
+## beta.13 / build18 — 역사 학습·공개 아바타·Plus 베타 미리보기
+
+- **구현**: 역사·천체물리 10이야기/30문제/90단계별 힌트, 숫자·선택 답과 문제 메모·재도전, 사진·댓글의 공개 아바타/닉네임, 별 모자2개·천체 배경4개 보상을 추가했다. 학습 저장·로딩 오류의 안내와 재시도 경로를 보완하고 기존 기록·학습 성취·꾸미기를 유지한다.
+- **유료화 경계**: **₩9,900 1회 구매**로 난이도2·3 퀴즈·역사 문제/힌트·망원경 학습 코스를 제공하기로 확정했다. 계정별 서버 권한과 Play Billing 9.1.0 브리지를 구현했지만 현재는 **무료 베타 미리보기**다. `preview`에서는 구매 API·네이티브 구매/복원을 호출하지 않고 `hasPlus=false`를 유지한다. 실제 상품 등록·`purchases` 서버/자격 증명·환불 재검증 운영·일반 SMTP는 미완료이며 본인/여자친구의 만료일 없는 무상 grant도 미발급이다. [결제 연결](BILLING-SETUP.md) · [일반 테스트와 라이선스 테스트](PLAY-TEST-AND-PAID-LAUNCH.md).
+- **소스/Android**: `870747c964f81cdec60da06764c70949aad29357`, `0.1.0-beta.13`/versionCode18, 앱ID `io.github.junhyoungparknobel.skylog`, 표시 ‘스카이야드’, min24/target36. 로컬 release/lint 성공(오류0·경고32), APK 서명·16KB 정렬·bundletool·앱 메타데이터 검증 통과. 기존 build17 APK와 동일 인증서 `2dce38b758c9091f919465d32453b64e0835ff8b541bdeaa7c6f3231313fc110`를 직접 대조했다.
+- **APK**: `skylog-0.1.0-beta.13-build18-local-test.apk`, **20,407,416bytes**, SHA256 `30527c6d96ecacf950674f121c02aaf922a5042107d4cdb5a1eff4e727e64a03`. [APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.13-build18/skylog-0.1.0-beta.13-build18-local-test.apk) · [공개 사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.13-build18). 공개 재다운로드가 로컬 검증 APK와 크기·SHA256까지 일치한다(`artifacts/qa-build18/public-apk-verification.json`).
+- **Play 제출 AAB**: `skylog-0.1.0-beta.13-build18-play-signed.aab`, **19,792,810bytes**, SHA256 `c03c9e60dae1ce5efc3aab6991a1a0364994f44a3f57f3cf23c58b437a5cdd26`. build17에 마련한 동일 업로드 인증서 `f5ad3a778d18b33973938b40f5b93f604c0cb099095a9875b09aa4f0c57a98bd`, RSA4096/SHA256withRSA·jarsigner strict·bundletool 검증 통과. payload **1,012개 전부 서명/원본 일치**, 미서명 payload0. 서명 AAB는 로컬 제공하며 공개 릴리스에는 개인 APK만 올린다. Console 업로드/등록 성공은 아직 확인하지 않았다.
+- **보존 원본/자료**: 무서명 AAB **19,700,736bytes**, SHA256 `0608acb530a0b1f8a142c1c4c877063b4716cf022e253f39677289f6629e441a`도 별도 보존한다. 내장 native507개와 소스 public480개, 실제 천체 사진164개/파생328개가 APK·서명/무서명 AAB·로컬 Android/iOS 자료와 해시 일치한다. 로컬 iOS 자료 일치는 기기용 iOS 컴파일과 별도다.
+- **배포/CI**: [Pages34461832598](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34461832598) 성공. 공개 HTTP와 읽기 전용 브라우저에서 beta.13·10이야기/30문제 진도·Payne 숫자 문제/3힌트/메모·₩9,900 일회성 Plus 미리보기/구매 버튼 없음·개인정보 페이지 원본 일치를 확인했다(`public-web-verification.json`). 글·학습 답·실결제는 전송하지 않았다. [모바일34461881585](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34461881585)도 전체 성공했다. Android release/lint·내장 자료 검사와 API36 에뮬레이터의 기존 오프라인 계측 단계, iOS Xcode26 무서명 컴파일·사진328개 해시 검사를 통과했다. 이 단계 성공은 실제 휴대폰이나 결제 검증을 대신하지 않는다.
+- **검증 문서**: `Downloads/skylog-release-0.1.0-beta.13-build18/`의 `release-info.json`과 `play-signing-verification.json`을 기준으로 기록했다. 이전 버전 비교 보고의 고정 숫자 오류를 바로잡고 `verification-corrected/`에서 재검증해 실제 build17 비교를 확인했다. 최초 보고는 `release-info-before-report-correction.json`으로 보존하며 앱 바이너리 수정과 구분한다. 개인키·암호는 배포 폴더에 포함하지 않는다.
+- **사용자/출시 잔여**: Android 실폰 설치·센서·기록 보존, iPhone 홈 화면의 로그인/오프라인·센서, 일반 SMTP·심사 접근·운영/삭제 절차, 실제 라이선스 구매/복원·환불, 12명14일 비공개 테스트·스토어 심사, Apple 서명/TestFlight가 남아 있다. 기존 앱을 삭제하지 않고 업데이트한 뒤 아래 [설치 안내](INSTALL-ON-PHONE.md)의 점검표를 따른다.
 
 ## beta.12 / build17 — 스카이야드와 최초 Play 업로드 준비
 

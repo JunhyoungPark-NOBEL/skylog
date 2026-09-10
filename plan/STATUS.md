@@ -1,12 +1,12 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-10 · beta.13/build18 Plus 콘텐츠·공개 아바타 구현, 최종 배포 검증 진행
+> 마지막 갱신: 2026-09-10 · beta.13/build18 서명 AAB·APK·웹앱 배포 완료, Plus 실제 판매 설정 대기
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
 - 앱: https://junhyoungpark-nobel.github.io/skylog/ · 내 마당: https://junhyoungpark-nobel.github.io/skylog/#/profile
-- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.12-build17
+- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.13-build18
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
@@ -17,9 +17,12 @@
 - 심화 퀴즈·망원경 코스의 선택·저장·딥링크에 권한 검사를 연결했다. 무료 맨눈·쌍안경 미션에 지정된 심화 확인 문제 20개는 해당 활성 미션 안에서 무료로 풀 수 있다. 자동 정답 처리나 미션 키 이관은 없다. 기본 망원경 관측 도구·내 기록·획득 보상은 계속 무료다.
 - Android Billing 9.1.0 브리지·계정 귀속·Google 검증·서버 승인·환불 재검증·서버 무료 권한 코드를 작성했다. **실제 상품·Google 서비스 계정·purchases 서버 배포·환불 스케줄러·SMTP·심사 접근·두 사람의 무료 권한 부여·장기 오프라인 권한은 미완료**다. `docs/BILLING-SETUP.md`의 외부 설정과 라이선스 테스트 후 live로 전환한다. preview에서는 로그인 여부와 관계없이 구매 API를 호출하지 않는다.
 - 사진·댓글의 공통 아바타와 닉네임, 명시적인 공개 프로필 동기화·계정 변경 방어, 별 모자 2개·천체 배경 4개를 추가했다(D-065). 기존 보상 6개를 보존하고 공개 아바타 선택값을 개인정보처리방침에 한영으로 고지했다. 프로필 migration 202609100001을 실제 Supabase에 적용해 아바타 열·RPC·RLS와 회원 1명·댓글 0개 보존을 확인했다. 익명 수정·일반 회원의 정지 상태 수정은 차단된다. 증거: `artifacts/qa-build18/community-server-verification.json`.
-- 검증: 전체 83파일·652개 단위 테스트와 lint 통과. 관련 Chromium 15개(공개 프로필·아바타·댓글)와 4개(역사/Plus·업적) 통과. 초기 dev 테스트는 기록용 HTML의 Vite 갱신과 느린 모듈 로드로 실패했고, 증거를 보존한 뒤 watch 제외·정적 preview로 재검증했다. Windows WebKit은 12개 통과·오프라인 문서 새로고침 1개 내부 오류로 미확인이다. 열린 앱의 오프라인 답 저장은 통과했으며 동일한 Chromium 대조 5개는 서비스워커 새로고침까지 통과했다. 실제 아이폰 검증과 구분한다. Android 최종 빌드·공개 웹·서명 검증은 진행 중이다.
+- 검증: 전체 83파일·652개 단위 테스트와 lint 통과. 관련 Chromium 15개(공개 프로필·아바타·댓글)와 4개(역사/Plus·업적) 통과. 초기 dev 테스트는 기록용 HTML의 Vite 갱신과 느린 모듈 로드로 실패했고, 증거를 보존한 뒤 watch 제외·정적 preview로 재검증했다. Windows WebKit은 12개 통과·오프라인 문서 새로고침 1개 내부 오류로 미확인이다. 열린 앱의 오프라인 답 저장은 통과했으며 동일한 Chromium 대조 5개는 서비스워커 새로고침까지 통과했다. 실제 아이폰 검증과 구분한다. 최종 Android·공개 웹·서명 검증 결과는 아래에 기록했다.
 - 출시 안내: `docs/PLAY-TEST-AND-PAID-LAUNCH.md`. 새 개인 계정은 내부 테스트 → 최소 12명이 14일 연속 참여하는 비공개 테스트 → 프로덕션 접근 신청 순서다. 공개 테스트는 접근 승인 후 선택한다. 실제 Console 제출·테스터 초대·거래·정식 출시는 수행하지 않았다. 일반 가입용 SMTP·상업용 날씨 API 계약·운영/심사·Apple 서명/TestFlight는 후속 준비 항목이다.
-- 최종 독립 검토의 오류 복구 2건을 수정했다. 기록 읽기 실패 때 미저장 답·메모를 보존하고 오래된 응답은 무시한다. 퀴즈 제출 중 이용권 오류는 같은 runId·현재 문항·선택을 유지한 채 재확인할 수 있다. 전용 회귀 테스트 6개를 추가했다. 최초 `2a77a29` 빌드는 서명 전에 중단하고 로그를 별도 보존했으며 최종 소스로 다시 생성한다.
+- 최종 독립 검토의 오류 복구 2건을 수정했다. 기록 읽기 실패 때 미저장 답·메모를 보존하고 오래된 응답은 무시한다. 퀴즈 제출 중 이용권 오류는 같은 runId·현재 문항·선택을 유지한 채 재확인할 수 있다. 전용 회귀 테스트 6개를 추가했다. 최초 `2a77a29` 빌드는 서명 전에 중단하고 로그를 별도 보존했으며 최종 소스로 다시 생성했다.
+- **최종 빌드 완료**: 소스 `870747c964f81cdec60da06764c70949aad29357`, beta.13/build18/min24/target36. Downloads/skylog-release-0.1.0-beta.13-build18/의 **play-signed.aab**가 Play 내부 테스트 제출 파일이다. AAB 19,792,810bytes · SHA256 `c03c9e60dae1ce5efc3aab6991a1a0364994f44a3f57f3cf23c58b437a5cdd26`. 기존 업로드키·jarsigner strict·bundletool 검증, payload 1,012개 전체 서명·원본 일치. 개인 APK 20,407,416bytes · SHA256 `30527c6d96ecacf950674f121c02aaf922a5042107d4cdb5a1eff4e727e64a03`. 기존 build17 APK 인증서·16KB 정렬·앱 이름·native 507/public 480/사진 328개 일치. 로컬 Android lint 오류 0·경고 32. 검증 보고서의 이전 버전 숫자 오기를 실제 aapt 값으로 읽도록 고치고 별도 폴더에서 재검증했으며 정정 전 보고서를 보존했다. 산출물 바이트 변경은 없다.
+- **공개 배포 완료**: [Pages 34461832598](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34461832598) 전체 성공, [APK 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.13-build18) 공개·인증 없는 재다운로드 SHA 일치. 공개 웹의 beta.13·10개 이야기·전문가 수치 문제·9,900원 베타 미리보기와 개인정보 페이지 원본 일치를 확인했다. [모바일 CI 34461881585](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34461881585) 전체 성공: Android release/lint·API36 에뮬레이터 오프라인 계측, iOS Xcode26 무서명 컴파일과 사진 해시 검증. 실제 휴대폰·Play 거래·Apple 서명 성공으로 간주하지 않는다. `artifacts/qa-build18/`과 다운로드 폴더의 검증 자료·`READ-ME-KO.txt`에 증거와 설치 방법을 보관했다.
+- **최종 UI 회귀**: 같은 소스의 PWA 번들에서 역사/Plus·여정·관측 코스·스타호핑·학습 기록·망원경 관련 18개 E2E가 모두 통과했다(57.2초). 대표 화면 4장을 직접 확인했고 PNG 18장을 별도 보존했다. 테스트가 바꾼 추적 스크린샷 15장은 사전 해시로 복구했다. 증거: `artifacts/qa-build18/final-learning-e2e/`.
 
 ## 이번 작업 보고 (2026-09-10 · 스카이야드 beta.12/build17)
 
