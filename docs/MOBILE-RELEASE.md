@@ -1,5 +1,16 @@
 # Android AAB / iOS 출시 준비
 
+## beta.16 / build21 — 하늘과 연결되는 지평선 꾸미기 (최종 제출 준비본)
+
+- **구현**: 기존 장식 21종·지면 4종·아바타 보상 28개를 유지하면서 build20에서 발생한 잠긴 장식 SVG 좌표 누락 콘솔 오류를 수정한 최종본. 장식은 고도 0° 이하에서만 보이며, 해상도/기기 회전/야간 모드/지면 투명도(기본 0)·은하수 밝기(기본 0.33) 상태를 일관되게 적용한다. 프로필은 공개/비공개 모두에서 지평선과 아바타를 함께 보여주며, 댓글은 아바타만 표시한다. 기존 코디·기록·획득 보상은 보존한다. [설계·보존 기준](HORIZON-PROFILES.md), [설명서](HORIZON-ART.md).
+- **소스**: `f4a584442126a855c3a85565201e3e8c610fb984`, `0.1.0-beta.16`/versionCode21, 앱ID `io.github.junhyoungparknobel.skylog`, min24/target36.
+- **검사**: [모바일 CI 34555542455](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34555542455), [Pages CI 34555541150](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34555541150) 모두 성공. 모바일 CI는 typecheck/lint/test·형상 점검·오프라인 계측·무서명/서명 APK 산출 확인을 모두 통과했고, Pages CI는 `pnpm data:content`, `data:learn`, typecheck/lint/test 및 빌드/배포까지 통과했다.
+- **APK**: [다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.16-build21/skylog-0.1.0-beta.16-build21-local-test.apk), **21,446,107bytes**, SHA256 `5ff52bb0179bf8757dd3fb9a5786079941ce327dcfa44e270bbc1d201a9a2576`. 개인 테스트 서명은 build20와 동일 체인을 유지했고 공개 재다운로드도 로컬 APK와 SHA256 일치로 재검증했다.
+- **Play 제출 AAB**: `skylog-0.1.0-beta.16-build21-play-signed.aab`, **20,836,059bytes**, SHA256 `0e2ce28856e1c0f5384a34c5cbaaf7c29b31283f0a6d5a844b4ba5c44a26dbb1`. RSA4096/SHA256withRSA·jarsigner strict·bundletool 검증이 통과했고, 업로드키 지문은 기존 키(`f5ad3a778d18b33973938b40f5b93f604c0cb099095a9875b09aa4f0c57a98bd`)와 동일하다. 이 파일은 `Downloads/skylog-release-0.1.0-beta.16-build21/`와 [Play 제출 가이드](SIGNING-ON-THIS-PC.md)에 준비되어 있다.
+- **내장 자료**: 무서명 원본 `skylog-0.1.0-beta.16-build21-unsigned.aab`는 **20,737,114bytes**, SHA256 `db4e0348b4dd6583a5271f53d1c7475d609cf3fe47f7dc4a18340c6c72f482ef`로 보존한다. native572개·source public480개·사진164개/파생328개가 APK/서명·무서명 AAB/로컬 Android·iOS와 일치한다. Android lint 오류 0·경고 32. 키·암호는 산출물 폴더에 포함하지 않았다.
+- **서버/보존 이력**: migration202609110001과 사용자 기여/프로필 enum 정책은 검증되었고, 기존 회원1·사진0·댓글0 데이터 지문은 보존됐다. 고급 장식/지형은 이전 build에서 보존하던 항목을 해치지 않도록 확인했다.
+- **실기기 전환점**: 기존 앱 삭제 없이 업데이트하면, 내 프로필의 지평선 장식 이동/숨김 설정이 보존되는지, 하늘로 복귀 후 센서 이동성·야간 표시가 자연스러운지, 재실행 후 기록과 성과 보존이 유지되는지 확인한다. 실제 휴대폰 센서/터치감, iPhone 비행기 모드 재실행, Apple 서명/TestFlight·Play 심사·실결제는 별도 단계다.
+
 ## beta.15 / build20 — 하늘과 연결되는 지평선 꾸미기 (수정 전 검증 이력)
 
 - **구현**: 장식21종·지면4종·아바타 보상28개. 벤치·식탁·정자와 굴절/반사/돕소니안/SCT 등 서로 다른 장비를 남쪽 다섯 자리에 놓는다. 장식은 고도0° 아래에만 보이며 크기·숨김·지면 투명도·야간 적색을 반영한다. 프로필은 지평선과 아바타를 함께, 댓글은 아바타만 표시한다. 이전 무료 코디·장식과 획득한 보상은 보존하며 신규 기본 무료 선택을 줄였다. [설계·보존 기준](HORIZON-PROFILES.md).

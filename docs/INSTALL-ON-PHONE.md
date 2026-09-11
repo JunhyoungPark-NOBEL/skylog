@@ -1,10 +1,10 @@
 # 휴대폰에서 스카이야드 사용하기
 
-최신 Android 버전은 **0.1.0-beta.15 / build20**입니다. 내 마당을 첫 하늘 화면의 **지평선 꾸미기**로 연결했습니다. 장식 **21개**, 지면 **4개**, 아바타 업적 보상 **28개**를 제공하며, 기존 코디·획득 장식·관측 기록·학습 진도는 보존합니다. 현재는 **무료 베타 미리보기**입니다.
+최신 Android 버전은 **0.1.0-beta.16 / build21**입니다. 내 마당을 첫 하늘 화면의 **지평선 꾸미기**로 연결했습니다. 장식 **21개**, 지면 **4개**, 아바타 업적 보상 **28개**를 제공하며, 기존 코디·획득 장식·관측 기록·학습 진도는 보존합니다. 현재는 **무료 베타 미리보기**입니다.
 
-- [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.15-build20/skylog-0.1.0-beta.15-build20-local-test.apk): 직전 build19와 같은 개인 APK 인증서로 서명했습니다. **기존 앱을 삭제하지 않고 업데이트**합니다.
+- [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.16-build21/skylog-0.1.0-beta.16-build21-local-test.apk): 직전 build20과 같은 개인 APK 인증서로 서명했습니다. **기존 앱을 삭제하지 않고 업데이트**합니다.
 - [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari에서 열고 공유 → 홈 화면에 추가. 기존 홈 화면 앱도 다시 열어 설정의 버전을 확인합니다. 앱/사이트 데이터를 지우지 않습니다. 이번 웹 배포·CI의 완료 범위는 [모바일 출시 준비](MOBILE-RELEASE.md)의 최신 보고를 따릅니다.
-- 로컬 최종 APK **21,446,107bytes** · SHA256 `4056a741abc1d3b1732f6152c1e9bad543704f9c0747d7d171412e3aeff87837`. 소스 `b320642293d86b4e1e16a8f9c968d893ebc8b1b7`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.15-build20) · [전체 검증 결과](MOBILE-RELEASE.md).
+- 로컬 최종 APK **21,446,107bytes** · SHA256 `5ff52bb0179bf8757dd3fb9a5786079941ce327dcfa44e270bbc1d201a9a2576`. 소스 `f4a584442126a855c3a85565201e3e8c610fb984`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.16-build21) · [전체 검증 결과](MOBILE-RELEASE.md).
 
 ## 지평선과 아바타 꾸미기
 
@@ -48,45 +48,45 @@
 
 자동 위치·센서 권한, 작은 반투명 시간 바/탭, 원형 하늘과 상세 창 전체 스와이프는 이전 버전처럼 사용할 수 있다. 은하수는 실제 낮/박명에 대기 효과로 흐려지고, 지도로 보고 싶으면 하늘 설정에서 대기 효과를 끈다.
 
-## 안드로이드 build20 설치
+## 안드로이드 build21 설치
 
-APK를 휴대폰 Download 폴더에 내려받고 내 파일/Files에서 엽니다. 설치 출처 허용을 요청하면 다운로드에 사용한 브라우저 또는 파일 앱에 허용한 뒤 **업데이트**를 누릅니다. 설치 후 출처 허용을 다시 끌 수 있습니다. 앱 목록에서 스카이야드를 열고 설정의 **0.1.0-beta.15**를 확인합니다. Android 7 이상이 필요하고 하늘·학습 자료는 APK에 포함됩니다. 날씨와 온라인 서비스 갱신에는 인터넷이 필요합니다.
+APK를 휴대폰 Download 폴더에 내려받고 내 파일/Files에서 엽니다. 설치 출처 허용을 요청하면 다운로드에 사용한 브라우저 또는 파일 앱에 허용한 뒤 **업데이트**를 누릅니다. 설치 후 출처 허용을 다시 끌 수 있습니다. 앱 목록에서 스카이야드를 열고 설정의 **0.1.0-beta.16**를 확인합니다. Android 7 이상이 필요하고 하늘·학습 자료는 APK에 포함됩니다. 날씨와 온라인 서비스 갱신에는 인터넷이 필요합니다.
 
-build20은 build19와 동일한 개인 APK 인증서를 직접 대조했습니다(이전 개인 APK 키 계열 유지). 다른 서명이나 향후 Play 설치판으로 옮길 때는 덮어쓰기 설치가 되지 않을 수 있으므로 먼저 JSON 백업을 내보내 파일을 확인하고, 새 앱에서 기록·사진·학습 진도를 가져옵니다. 현재 업데이트 때문에 기존 앱을 삭제하지 않습니다.
+build21은 build20과 동일한 개인 APK 인증서를 직접 대조했습니다(이전 개인 APK 키 계열 유지). 다른 서명이나 향후 Play 설치판으로 옮길 때는 덮어쓰기 설치가 되지 않을 수 있으므로 먼저 JSON 백업을 내보내 파일을 확인하고, 새 앱에서 기록·사진·학습 진도를 가져옵니다. 현재 업데이트 때문에 기존 앱을 삭제하지 않습니다.
 
-Play 제출용은 `Downloads/skylog-release-0.1.0-beta.15-build20/skylog-0.1.0-beta.15-build20-play-signed.aab`입니다. 이 PC에서 기존 Play 업로드 키로 서명했고 **20,836,038bytes**, SHA256 `4ef9fe1f9bf3644bcd68f32836cf9d465fe61ae2290a589d28c98df90ebf9bf0`입니다. 실제 Play Console 업로드·등록은 아직 하지 않았습니다. 무서명 원본도 별도 보존하지만 제출에는 `play-signed.aab`를 사용합니다. AAB는 휴대폰에서 직접 여는 설치 파일이 아닙니다. [현재 PC 서명 안내](SIGNING-ON-THIS-PC.md).
+Play 제출용은 `Downloads/skylog-release-0.1.0-beta.16-build21/skylog-0.1.0-beta.16-build21-play-signed.aab`입니다. 이 PC에서 기존 Play 업로드 키로 서명했고 **20,836,059bytes**, SHA256 `0e2ce28856e1c0f5384a34c5cbaaf7c29b31283f0a6d5a844b4ba5c44a26dbb1`입니다. 실제 Play Console 업로드·등록은 아직 하지 않았습니다. 무서명 원본도 별도 보존하지만 제출에는 `play-signed.aab`를 사용합니다. AAB는 휴대폰에서 직접 여는 설치 파일이 아닙니다. [현재 PC 서명 안내](SIGNING-ON-THIS-PC.md).
 
 ## 아이폰: Safari 홈 화면 웹앱
 
-build20의 소스 public480개·사진 파생328개와 네이티브 자료572개는 APK/AAB/로컬 Android/iOS 자료와 해시가 일치합니다. 이번 지평선은 실제 PWA 캐시를 사용하는 Chromium에서 오프라인 저장·재실행·하늘 렌더를 통과했습니다. 이 결과는 실제 iPhone 설치·센서·비행기모드 재실행을 뜻하지 않습니다. 직전 build19의 iOS CI 무서명 컴파일 성공과 이번 CI 진행 상태도 구분합니다. 먼저 온라인에서 앱을 충분히 연 뒤 비행기모드에서 홈 화면 앱을 다시 열어 지평선·사진·기존 기록을 확인해 주세요.
+build21의 소스 public480개·사진 파생328개와 네이티브 자료572개는 APK/AAB/로컬 Android/iOS 자료와 해시가 일치합니다. 이번 지평선은 실제 PWA 캐시를 사용하는 Chromium에서 오프라인 저장·재실행·하늘 렌더를 통과했습니다. 이 결과는 실제 iPhone 설치·센서·비행기모드 재실행을 뜻하지 않습니다. 직전 build19의 iOS CI 무서명 컴파일 성공과 이번 CI 진행 상태도 구분합니다. 먼저 온라인에서 앱을 충분히 연 뒤 비행기모드에서 홈 화면 앱을 다시 열어 지평선·사진·기존 기록을 확인해 주세요.
 
-APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. beta.15 공개 배포와 CI의 완료 범위는 [모바일 출시 준비](MOBILE-RELEASE.md)의 최신 보고를 따른다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
+APK는 Android 설치 파일이므로 iPhone에서 실행할 수 없다. iPhone에서는 [기존 웹앱 주소](https://junhyoungpark-nobel.github.io/skylog/)와 홈 화면 아이콘을 계속 사용한다. beta.16 공개 배포와 CI의 완료 범위는 [모바일 출시 준비](MOBILE-RELEASE.md)의 최신 보고를 따른다. 실제 iPhone의 센서·성능은 아래 점검표로 확인한다.
 
 1. iOS 16.4 이상의 **Safari**에서 [별관찰 앱](https://junhyoungpark-nobel.github.io/skylog/)을 연다.
 2. **공유 → 홈 화면에 추가**를 선택한다. ‘웹 앱으로 열기’ 항목이 보이면 켜고 추가한다.
 3. 홈 화면 아이콘으로 실행한다. 현재 위치 권한을 허용하면 관측지를 자동 갱신한다. **휴대폰 방향으로 보기**를 눌러 최초 동작·방향 권한을 허용한다. 위치는 관측지 설정에서 자동 사용을 끄고 수동 입력할 수도 있다.
 4. 오프라인에서 쓸 이야기·배우기·별길 화면은 온라인 상태에서 한 번씩 연다. 기본 하늘 자료는 자동 저장되고 깊은 별·이야기·학습은 사용한 자료가 저장된다. 네이티브 앱의 첫 실행부터 모든 자료 포함과는 다르다.
 
-인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.15**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
+인터넷에 연결해 기존 홈 화면 웹앱을 열고 잠시 기다린 뒤 완전히 닫았다 다시 연다. **설정 → 버전 0.1.0-beta.16**를 확인한다. 이전 버전이면 Safari에서 새로고침한다. 갱신을 위해 홈 화면 앱이나 Safari 웹사이트 데이터를 삭제하지 않는다. 기존 관측 기록을 보존한다.
 
 Safari 웹앱과 TestFlight 네이티브 앱은 저장소가 별개다. 옮길 때는 JSON 백업·가져오기를 사용한다.
 
 ## 아이폰: TestFlight 네이티브 앱
 
-현재 iPhone 설치용 서명 IPA는 없다. 직전 build19의 iOS CI 작업은 Xcode26 무서명 컴파일과 사진 해시 검사를 통과했다. 이번 build20 모바일 CI의 완료 상태는 [모바일 출시 준비](MOBILE-RELEASE.md)를 따른다. iPhone 설치와 실제 센서 검증에는 Apple 팀 서명과 실기기가 필요하다.
+현재 iPhone 설치용 서명 IPA는 없다. 직전 build19의 iOS CI 작업은 Xcode26 무서명 컴파일과 사진 해시 검사를 통과했다. 이번 build21 모바일 CI의 완료 상태는 [모바일 출시 준비](MOBILE-RELEASE.md)를 따른다. iPhone 설치와 실제 센서 검증에는 Apple 팀 서명과 실기기가 필요하다.
 
 Apple Developer 팀, 확정 Bundle ID, App Store Connect 앱, 배포 인증서/프로비저닝과 Xcode 26 이상이 설치된 Mac이 필요하다.
 
 1. 최신 코드에서 `pnpm install --frozen-lockfile`, `pnpm mobile:sync`를 실행한다.
 2. `ios/App/App.xcodeproj`를 Xcode로 열고 **Signing & Capabilities → Team**을 설정한다. 현재 Bundle ID는 `io.github.junhyoungparknobel.skylog`이며 최초 등록 전에 소유자가 확정한다.
-3. 최소 iOS **16.4**, marketing **0.1.0**, 이번 Build **20**을 확인한다. App Store Connect에 이미 사용한 번호가 있으면 그보다 커야 한다.
+3. 최소 iOS **16.4**, marketing **0.1.0**, 이번 Build **21**을 확인한다. App Store Connect에 이미 사용한 번호가 있으면 그보다 커야 한다.
 4. 기기용 **Archive → Validate App → Distribute App → App Store Connect**로 업로드한다.
 5. App Store Connect에서 테스터를 추가하고 iPhone의 TestFlight 초대로 설치한다. 외부 테스터는 베타 심사 조건이 추가된다.
 6. 실제 iPhone에서 센서 축·권한·부드러움·오프라인·사진·백업을 확인한다.
 
 ## 먼저 해볼 실기기 확인
 
-- [ ] Android build20 APK 또는 홈 화면 PWA의 설정 버전 **0.1.0-beta.15** 확인.
+- [ ] Android build21 APK 또는 홈 화면 PWA의 설정 버전 **0.1.0-beta.16** 확인.
 - [ ] 새 역사 10이야기/30문제·단계별 힌트·숫자/선택 답·메모·재도전과 앱 재실행 후 저장 유지 확인. 오류가 나면 안내와 재시도가 보이는지 확인.
 - [ ] 내 프로필 → 지평선 꾸미기에서 장식21개·지면4개·해금 조건과 아바타 보상28개 확인. 기존 코디·획득 장식이 남아 있고 새 사용자는 벤치 하나로 시작하는지 확인.
 - [ ] 장식을 옮긴 뒤 하늘로 돌아가 남쪽 지평선에서 확인. 센서 회전 중 같은 방위를 유지하며 낮은 천체를 방해하지 않는지, 크기·숨기기와 오프라인 재실행 후 배치가 유지되는지 확인.
