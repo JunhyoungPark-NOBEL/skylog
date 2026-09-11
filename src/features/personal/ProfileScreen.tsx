@@ -4,11 +4,12 @@ import { navigate } from '@/app/router';
 import { returnToLearning } from '@/features/learn/learnNavigation';
 import { useLearning } from '@/features/learn/useLearning';
 import { ScreenFrame } from '@/features/settings/ScreenFrame';
-import { DECORATIONS } from '@/personal/catalog';
 import { grantRewards, readPersonal, saveGarden } from '@/personal/store';
 import { onDbChange } from '@/db/events';
 import { PillButton } from '@/ui/PillButton';
-import { GardenArt, DecorationArt } from './GardenArt';
+import { GardenArt } from './GardenArt';
+import { HorizonEditor } from './HorizonEditor';
+import './horizon.css';
 import { AvatarEditor } from './AvatarEditor';
 import { PublicProfileSync } from './PublicProfileSync';
 
@@ -17,8 +18,8 @@ export default function ProfileScreen() {
   const { value } = useLearning();
   const [data, setData] = useState<Awaited<ReturnType<typeof readPersonal>> | null>(null);
   const [mode, setMode] = useState<'home' | 'garden' | 'avatar'>('home');
-  const [slot, setSlot] = useState(0);
-  const [collection, setCollection] = useState<'owned' | 'rewards'>('owned');
+  const [slot, setSlot] = useState(2);
+  const [saved, setSaved] = useState(false);
   const [error, setError] = useState(false);
   const [readError, setReadError] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -65,9 +66,11 @@ export default function ProfileScreen() {
   async function save(next: Parameters<typeof saveGarden>[0]) {
     setBusy(true);
     setError(false);
+    setSaved(false);
     try {
       await saveGarden(next);
       await refreshData();
+      setSaved(true);
     } catch {
       setError(true);
     } finally {
@@ -87,7 +90,7 @@ export default function ProfileScreen() {
       testId="personal-screen"
       scrollKey={mode}
     >
-      <div className="mx-auto max-w-xl space-y-5 p-5">
+      <div className="mx-auto max-w-xl space-y-4 px-4 py-5">
         {error && !readError && (
           <p role="alert" className="text-danger">
             {t('personal.error')}
@@ -109,13 +112,28 @@ export default function ProfileScreen() {
         {!profile ? (
           <p role="status">{t('common.loading')}</p>
         ) : (
-          <fieldset disabled={readError} className="min-w-0 space-y-5">
+          <fieldset disabled={readError} className="min-w-0 space-y-4">
             {mode !== 'avatar' && (
               <GardenArt
                 profile={profile}
                 label={t('personal.scene')}
                 selectedSlot={mode === 'garden' ? slot : undefined}
               />
+            )}
+            {mode !== 'avatar' && (
+              <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-caption text-muted">
+                <span>{t('horizon.previewCaption')}</span>
+                <span role="status" aria-live="polite">
+                  {busy
+                    ? t('avatar.saving')
+                    : saved
+                      ? t('horizon.saved')
+                      : mode === 'garden'
+                        ? t('horizon.autoSave')
+                        : ''}
+                </span>
+                {!profile.sceneryEnabled && <span className="w-full">{t('horizon.hidden')}</span>}
+              </div>
             )}
             {mode === 'home' ? (
               <>
@@ -176,82 +194,16 @@ export default function ProfileScreen() {
                 </div>
               </>
             ) : mode === 'garden' ? (
-              <>
-                <p className="text-body-sm text-muted">{t('personal.pickSlot')}</p>
-                <div className="flex flex-wrap gap-2" aria-label={t('personal.slots')}>
-                  {profile.slots.map((_, i) => (
-                    <PillButton
-                      key={i}
-                      pressed={slot === i}
-                      onClick={() => setSlot(i)}
-                      aria-label={t('personal.slot', { n: i + 1 })}
-                    >
-                      {i + 1}
-                    </PillButton>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <PillButton
-                    pressed={collection === 'owned'}
-                    onClick={() => setCollection('owned')}
-                  >
-                    {t('personal.owned')}
-                  </PillButton>
-                  <PillButton
-                    pressed={collection === 'rewards'}
-                    onClick={() => setCollection('rewards')}
-                  >
-                    {t('personal.newRewards')}
-                  </PillButton>
-                </div>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-                  {DECORATIONS.filter((item) =>
-                    collection === 'owned' ? data.owned.has(item.id) : !data.owned.has(item.id),
-                  ).map((item) => {
-                    const owned = data.owned.has(item.id);
-                    return (
-                      <button
-                        key={item.id}
-                        disabled={busy || !owned}
-                        aria-pressed={profile.slots[slot] === item.id}
-                        className="min-h-28 rounded-2xl bg-surface p-2 text-body-sm aria-pressed:ring-2 aria-pressed:ring-accent disabled:opacity-50"
-                        onClick={() =>
-                          void save({
-                            slots: profile.slots.map((v, i) =>
-                              i === slot ? item.id : v === item.id ? null : v,
-                            ),
-                          })
-                        }
-                      >
-                        <svg
-                          viewBox="-40 -60 80 80"
-                          className="personal-art mx-auto h-16 w-16"
-                          aria-hidden
-                        >
-                          <DecorationArt id={item.id} />
-                        </svg>
-                        <span className="block">{t('personal.items.' + item.id)}</span>
-                        {!owned && (
-                          <span className="mt-1 block text-caption">
-                            {t('personal.unlock.' + item.id)}
-                          </span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-                <PillButton
-                  disabled={busy || !profile.slots[slot]}
-                  onClick={() =>
-                    void save({
-                      slots: profile.slots.map((v, i) => (i === slot ? null : v)),
-                    })
-                  }
-                >
-                  {t('personal.remove')}
-                </PillButton>
-                <p className="text-caption text-muted">{t('personal.free')}</p>
-              </>
+              <HorizonEditor
+                profile={profile}
+                owned={data.owned}
+                ownedGround={data.ownedGround}
+                progress={value?.badgeProgress}
+                busy={busy}
+                slot={slot}
+                onSlot={setSlot}
+                onSave={save}
+              />
             ) : (
               <AvatarEditor
                 profile={profile}

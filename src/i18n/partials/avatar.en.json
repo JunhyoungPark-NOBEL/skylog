@@ -44,13 +44,18 @@
         "beanie": "Cozy beanie",
         "helmet": "Space helmet",
         "bucket": "Walking hat",
-        "starcap": "Starlight hat"
+        "starcap": "Starlight hat",
+        "crescentberet": "Crescent beret",
+        "saturnhat": "Saturn cap",
+        "planetarium": "Planetarium hat"
       },
       "outfit": {
         "classic": "Observing jacket",
         "hoodie": "Cozy hoodie",
         "overalls": "Overalls",
-        "spacesuit": "Explorer suit"
+        "spacesuit": "Explorer suit",
+        "observatorycoat": "Observatory coat",
+        "constellationponcho": "Constellation poncho"
       },
       "suit": {
         "sage": "Sage",
@@ -65,7 +70,10 @@
         "binoculars": "Mini binoculars",
         "sketchbook": "Field notebook",
         "lantern": "Night lantern",
-        "starwand": "Starlight wand"
+        "starwand": "Starlight wand",
+        "cometscarf": "Comet scarf",
+        "planisphere": "Pocket star wheel",
+        "orrery": "Mini solar system"
       }
     },
     "unlock": {
@@ -74,11 +82,27 @@
       "binoculars": "Log your first observation",
       "sketchbook": "Save your first sketch",
       "lantern": "Observe on 3 different dates",
-      "starwand": "Observe 25 different objects"
+      "starwand": "Observe 25 different objects",
+      "lavender": "Answer 3 new questions correctly in a row on the first try",
+      "navy": "Observe 4 different constellations",
+      "ochre": "Complete 3 observing missions",
+      "rose": "Save your first sketch",
+      "helmet": "Clear 5 quiz stages with 80% or more",
+      "bucket": "Log your first observation",
+      "hoodie": "Observe on 3 different dates",
+      "overalls": "Add a 20-character observing note for each of 5 different objects",
+      "crescentberet": "Observe on 10 different dates",
+      "saturnhat": "Have correct latest answers to 25 different quizzes",
+      "planetarium": "Get full marks in 5 different quiz stages",
+      "observatorycoat": "Clear 20 quiz stages with 80% or more",
+      "constellationponcho": "Observe 12 different constellations",
+      "cometscarf": "Answer 10 new questions correctly in a row on the first try",
+      "planisphere": "Answer 5 new questions correctly in a row on the first try",
+      "orrery": "Clear 40 quiz stages with 80% or more"
     },
-    "earned": "Reward earned",
+    "earned": "Owned",
     "progress": "{{n}} / {{total}}",
-    "free": "All starter choices are free. Earn rewards without paying. {{n}} / {{total}} rewards collected",
+    "free": "Build your collection through quizzes and observing achievements. {{n}} / {{total}} owned. Previously available starter styles stay yours.",
     "achievements": "See achievements",
     "looks": "My saved looks · 3 slots",
     "looksHint": "Keep the look you are previewing. Loading a look only previews it until you apply it. Saved looks are included in your device backup.",

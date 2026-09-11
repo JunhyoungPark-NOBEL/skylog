@@ -1,6 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import sharp from 'sharp';
 import { DEFAULT_AVATAR, type AvatarLook } from '../../src/personal/avatar';
+import { DEFAULT_PERSONAL, horizonOf, type HorizonLook } from '../../src/personal/catalog';
 
 test.use({ serviceWorkers: 'block' });
 const me = '00000000-0000-4000-8000-000000000081';
@@ -29,6 +30,7 @@ async function fixtures(page: Page, signedIn = false) {
   const state = {
     name: '별빛 산책',
     avatar: { ...DEFAULT_AVATAR } as AvatarLook,
+    horizon: undefined as HorizonLook | undefined,
     writes: [] as Record<string, unknown>[],
     failNext: false,
   };
@@ -43,7 +45,7 @@ async function fixtures(page: Page, signedIn = false) {
   await page.route('**/rest/v1/**', async (route) => {
     const url = new URL(route.request().url());
     const table = url.pathname.split('/').at(-1);
-    if (table === 'sky_update_profile') {
+    if (table === 'sky_update_profile' || table === 'sky_update_profile_v2') {
       const body = route.request().postDataJSON() as Record<string, unknown>;
       state.writes.push(body);
       if (state.failNext) {
@@ -53,13 +55,14 @@ async function fixtures(page: Page, signedIn = false) {
       }
       state.name = String(body.display_name);
       state.avatar = body.look as AvatarLook;
+      if (table === 'sky_update_profile_v2') state.horizon = body.scenery as HorizonLook;
       await route.fulfill({ json: null });
       return;
     }
     let rows: unknown[] = [];
     if (table === 'sky_members') {
       const members = [
-        { id: me, name: state.name, avatar: state.avatar },
+        { id: me, name: state.name, avatar: state.avatar, horizon: state.horizon },
         { id: other, name: '오래된 관측자' },
       ];
       rows = members.filter(
@@ -202,22 +205,23 @@ test('실제 관측·퀴즈 기록의 보상을 장착하고 닉네임+아바타
   await page.getByRole('button', { name: '별빛 왕관', exact: true }).click();
   await page
     .getByTestId('avatar-current')
-    .screenshot({ path: 'artifacts/qa-community-identity/earned-galaxy-crown.png' });
+    .screenshot({ path: 'artifacts/qa-build20/earned-galaxy-crown.png' });
   await page.getByRole('button', { name: '이 모습 적용', exact: true }).click();
   expect(state.writes).toHaveLength(0);
   const form = page.getByTestId('public-profile-sync');
   await form.getByRole('textbox', { name: '공개 닉네임', exact: true }).fill('은하수 산책자');
   state.failNext = true;
-  await form.getByRole('button', { name: '이 닉네임과 모습 공개 동기화', exact: true }).click();
+  await form.getByRole('button', { name: '이 모습으로 공개 동기화', exact: true }).click();
   await expect(form.getByRole('alert')).toBeVisible();
   await expect(form.getByRole('textbox')).toHaveValue('은하수 산책자');
-  await form.getByRole('button', { name: '이 닉네임과 모습 공개 동기화', exact: true }).click();
+  await form.getByRole('button', { name: '이 모습으로 공개 동기화', exact: true }).click();
   await expect(form.getByRole('status')).toContainText('동기화했어요');
   expect(state.writes).toHaveLength(2);
   expect(state.writes[1]).toEqual({
     display_name: '은하수 산책자',
     look: { ...DEFAULT_AVATAR, hat: 'starcrown', background: 'galaxy' },
     expected_user: me,
+    scenery: horizonOf(DEFAULT_PERSONAL),
   });
   await page.reload();
   await expect(page.getByTestId('public-profile-sync').getByRole('textbox')).toHaveValue(
@@ -234,7 +238,7 @@ test('실제 관측·퀴즈 기록의 보상을 장착하고 닉네임+아바타
     page.getByTestId('comments-panel').getByText('오래된 관측자', { exact: true }),
   ).toBeVisible();
   await page.screenshot({
-    path: 'artifacts/qa-community-identity/public-authors-ko.png',
+    path: 'artifacts/qa-build20/public-authors-ko.png',
     fullPage: true,
   });
   await expect(page.getByText('fixture@example.invalid', { exact: true })).toHaveCount(0);
@@ -272,8 +276,96 @@ test('공개 원형 아바타의 야간 적색과 작은 영문 화면, 구형 �
   expect(bright).toBeGreaterThan(100);
   expect(bad / bright).toBeLessThan(0.001);
   await page.screenshot({
-    path: 'artifacts/qa-community-identity/public-authors-en-night.png',
+    path: 'artifacts/qa-build20/public-authors-en-night.png',
     fullPage: true,
   });
+  expect(errors).toEqual([]);
+});
+
+test('사진과 댓글에서 같은 공개 지평선·아바타를 열고 닫으며 작은 야간 화면에서도 초점을 유지한다', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  const state = await fixtures(page);
+  state.avatar = {
+    ...DEFAULT_AVATAR,
+    hat: 'saturnhat',
+    outfit: 'observatorycoat',
+    accessory: 'orrery',
+  };
+  state.name = '밤하늘을 기록하는 관측자';
+  state.horizon = {
+    ground: 'stone',
+    sceneryEnabled: true,
+    sceneryScale: 'small',
+    slots: ['pavilion', 'refractor-long', 'sct', 'radio-dish', 'bench'],
+  };
+  await page.setViewportSize({ width: 360, height: 780 });
+  await page.goto(`./#/community?post=${postId}`);
+  await expect(page.getByTestId('author-avatar')).toHaveCount(3);
+  await expect(page.locator('[data-avatar-background]')).toHaveCount(0);
+  await expect(page.locator('button button')).toHaveCount(0);
+  const photoAuthor = page.getByTestId('author-identity').first();
+  await photoAuthor.click();
+  const modal = page.getByTestId('public-horizon-profile');
+  const preview = modal.getByTestId('horizon-preview');
+  await expect(preview).toHaveAttribute('data-ground', 'stone');
+  await expect(preview).toHaveAttribute('data-scenery', 'visible');
+  await expect(preview.getByTestId('horizon-profile-avatar')).toHaveCount(1);
+  const photoDrawing = await preview
+    .locator('path')
+    .evaluateAll((paths) => paths.map((path) => path.getAttribute('d')));
+  await expect(modal.getByRole('button', { name: '프로필 닫기', exact: true })).toBeFocused();
+  await preview.click();
+  await expect(modal).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(modal).toHaveCount(0);
+  await expect(photoAuthor).toBeFocused();
+  const commentAuthor = page
+    .getByTestId('comment-00000000-0000-4000-8000-000000000084')
+    .getByTestId('author-identity');
+  await commentAuthor.click();
+  await expect(preview).toBeVisible();
+  expect(
+    await preview
+      .locator('path')
+      .evaluateAll((paths) => paths.map((path) => path.getAttribute('d'))),
+  ).toEqual(photoDrawing);
+  await page.screenshot({ path: 'artifacts/qa-build20/public-profile-modal.png' });
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = '125%';
+    document.documentElement.dataset.theme = 'night';
+  });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  expect(await modal.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
+  await expect(modal.getByRole('heading', { name: state.name })).toHaveCSS(
+    'color',
+    'rgb(255, 59, 48)',
+  );
+  await expect(modal.getByRole('button', { name: '프로필 닫기', exact: true })).toHaveCSS(
+    'color',
+    'rgb(255, 59, 48)',
+  );
+  await page.keyboard.press('Tab');
+  await expect(modal.getByRole('button', { name: '프로필 닫기', exact: true })).toBeFocused();
+  const pixels = await sharp(await preview.screenshot())
+    .removeAlpha()
+    .raw()
+    .toBuffer();
+  let bright = 0,
+    bad = 0;
+  for (let i = 0; i < pixels.length; i += 3)
+    if (pixels[i]! > 20) {
+      bright++;
+      if (pixels[i + 1]! > 3 || pixels[i + 2]! > 3) bad++;
+    }
+  expect(bright).toBeGreaterThan(100);
+  expect(bad / bright).toBeLessThan(0.001);
+  await page.screenshot({ path: 'artifacts/qa-build20/public-profile-modal-night.png' });
+  await page.keyboard.press('Escape');
+  await expect(modal).toHaveCount(0);
+  await expect(commentAuthor).toBeFocused();
+  expect(state.writes).toEqual([]);
   expect(errors).toEqual([]);
 });

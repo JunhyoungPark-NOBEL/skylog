@@ -1,25 +1,36 @@
 {
   "communityIdentity": {
-    "title": "My photo and comment profile",
-    "accountChanged": "The signed-in account changed. Reopen your garden before syncing.",
-    "hint": "Syncing makes this nickname and avatar public on your existing photos and comments too. Your observations, garden name and layout stay on this device.",
+    "title": "Public profile",
+    "accountChanged": "The signed-in account changed. Reopen your profile before syncing.",
+    "hint": "Sync to share your nickname, avatar and decorated horizon. Comments show your avatar; opening your profile shows the horizon too.",
     "join": "Set up a public profile in Account",
     "nickname": "Public nickname",
     "nicknameHint": "Use a nickname of 1–24 characters. Leave out email addresses and personal contact details.",
-    "currentLook": "Share the avatar and background currently applied in your garden. Sync again here after changing your look.",
+    "currentLook": "Share your applied outfit and horizon. Sync again after changing your look.",
     "preview": "Current avatar to make public",
     "avatarLabel": "{{name}}'s avatar",
-    "sync": "Sync this public name and look",
+    "sync": "Sync this public profile",
     "saved": "Public profile synced. Reopen photos and comments to see the change.",
     "upToDate": "This matches your current public profile.",
     "invalid": "Check your 1–24 character nickname. Email addresses, markup and control characters are not allowed.",
-    "unavailable": "Public avatars are being prepared. Try again after the server update."
+    "unavailable": "Public avatars are being prepared. Try again after the server update.",
+    "view": "View {{name}}'s profile",
+    "close": "Close profile",
+    "profileLabel": "{{name}}'s horizon and avatar",
+    "noHorizon": "This observer has not shared a horizon yet."
   },
   "avatar": {
-    "groups": { "sky": "Backdrop" },
-    "fields": { "background": "My astronomy backdrop" },
+    "groups": {
+      "sky": "Backdrop"
+    },
+    "fields": {
+      "background": "My astronomy backdrop"
+    },
     "options": {
-      "hat": { "starcrown": "Starlight crown", "meteorcap": "Meteor observer cap" },
+      "hat": {
+        "starcrown": "Starlight crown",
+        "meteorcap": "Meteor observer cap"
+      },
       "background": {
         "garden": "Original garden",
         "orion": "Orion constellation",
@@ -29,7 +40,7 @@
       }
     },
     "unlock": {
-      "starcrown": "Answer 3 different quizzes correctly in a row",
+      "starcrown": "Answer 3 new questions correctly in a row on the first try",
       "meteorcap": "Observe all three Summer Triangle stars",
       "orion": "Record sightings of 2 different constellations",
       "moonlit": "Record observations on 3 different nights",

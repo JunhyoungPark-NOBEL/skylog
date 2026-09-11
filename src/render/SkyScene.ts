@@ -54,6 +54,8 @@ import { SkyBackground, skyBrightnessPenaltyMag } from '@/render/SkyBackground';
 import { StarLayer } from '@/render/StarLayer';
 import { renderStats } from '@/render/stats';
 import type { LayerValues } from '@/state/layerStore';
+import { onDbChange } from '@/db/events';
+import { readPersonal } from '@/personal/store';
 
 export interface SkySceneOptions {
   canvas: HTMLCanvasElement;
@@ -125,6 +127,16 @@ export class SkyScene {
   private selectionEl: HTMLDivElement;
   private disposed = false;
   private sunState: BodyState | null = null;
+  private personalReadGeneration = 0;
+  private unsubscribePersonal: (() => void) | null = null;
+  private readonly onContextLost = (event: Event): void => {
+    event.preventDefault();
+    this.stop();
+  };
+  private readonly onContextRestored = (): void => {
+    this.dirty = true;
+    this.start();
+  };
 
   constructor(opts: SkySceneOptions) {
     this.opts = opts;
@@ -175,18 +187,27 @@ export class SkyScene {
     );
     this.projection.attach(this.scene);
     this.horizon.blendMeadowEdge();
-    void this.horizon.loadMeadow(() => {
-      this.dirty = true;
-    }, this.renderer.capabilities.getMaxAnisotropy());
+    this.unsubscribePersonal = onDbChange((table) => {
+      if (table === 'progress' || table === 'all') void this.refreshPersonalHorizon();
+    });
+    void this.refreshPersonalHorizon();
 
-    opts.canvas.addEventListener('webglcontextlost', (e) => {
-      e.preventDefault();
-      this.stop();
-    });
-    opts.canvas.addEventListener('webglcontextrestored', () => {
-      this.dirty = true;
-      this.start();
-    });
+    opts.canvas.addEventListener('webglcontextlost', this.onContextLost);
+    opts.canvas.addEventListener('webglcontextrestored', this.onContextRestored);
+  }
+
+  /** 프로필 변경 때만 읽는다. 늦게 끝난 이전 읽기나 폐기된 씬에 결과를 적용하지 않는다. */
+  private async refreshPersonalHorizon(): Promise<void> {
+    const generation = ++this.personalReadGeneration;
+    try {
+      const { profile } = await readPersonal();
+      if (this.disposed || generation !== this.personalReadGeneration) return;
+      this.horizon.setPersonal(profile, () => {
+        this.dirty = true;
+      });
+    } catch {
+      // 저장소가 잠시 응답하지 않아도 현재 지면을 유지한다. 다음 변경 알림에서 재시도한다.
+    }
   }
 
   private resolveReady: (() => void) | null = null;
@@ -255,6 +276,11 @@ export class SkyScene {
 
   dispose(): void {
     this.disposed = true;
+    this.personalReadGeneration++;
+    this.unsubscribePersonal?.();
+    this.unsubscribePersonal = null;
+    this.opts.canvas.removeEventListener('webglcontextlost', this.onContextLost);
+    this.opts.canvas.removeEventListener('webglcontextrestored', this.onContextRestored);
     this.stop();
     this.controller.detach();
     this.labels.dispose();

@@ -168,11 +168,80 @@ function Outfit({ profile, suit }: { profile: AvatarLook; suit: string }) {
           <path d="M-25 24l8 2m0 15h14m8 0h13m1-15 7-2" stroke={suit} strokeWidth="4" />
         </>
       )}
+      {profile.outfit === 'observatorycoat' && (
+        <g>
+          <path d="M-16 5L-24 40Q-16 45-5 42L0 31L5 42Q17 45 25 40L16 5Z" fill={suit} />
+          <path d="M-8 4L-3 17L-10 22L0 34L10 22L3 17L8 4" fill={CREAM} />
+          <path d="M0 12v29M-19 28h9v7h-10m30-7h-9v7h10" fill="none" strokeWidth="1.4" />
+          <circle cx="0" cy="26" r="1" fill={INK} />
+          <circle cx="0" cy="33" r="1" fill={INK} />
+          <path d="M8 12l7-3 2 4-7 3Zm4 4v5m0-2-3 3m3-3 3 3" fill="#a9c7d0" strokeWidth="1" />
+        </g>
+      )}
+      {profile.outfit === 'constellationponcho' && (
+        <g>
+          <path d="M-13 4Q0 10 13 4L31 29Q17 38 0 40Q-16 38-31 29Z" fill={suit} />
+          <path d="M-27 29Q0 43 27 29M-11 5Q0 16 11 5" fill="none" stroke={CREAM} strokeWidth="2" />
+          <path d="M-19 19L-8 16L1 23L13 20L19 27" fill="none" stroke={CREAM} strokeWidth="1" />
+          <g fill={CREAM} stroke="none">
+            <circle cx="-19" cy="19" r="1.7" />
+            <circle cx="-8" cy="16" r="2" />
+            <circle cx="1" cy="23" r="1.6" />
+            <circle cx="13" cy="20" r="1.7" />
+            <circle cx="19" cy="27" r="2" />
+          </g>
+          <path d="M-22 34v4m8-1v4m9-2v4m10-4v4m9-6v4m8-7v4" stroke={CREAM} strokeWidth="1.5" />
+        </g>
+      )}
     </>
   );
 }
 
 function Hat({ profile, suit }: { profile: AvatarLook; suit: string }) {
+  if (profile.hat === 'crescentberet')
+    return (
+      <g fill={suit}>
+        <path d="M-24-25Q-36-37-14-43Q4-52 24-39Q33-28 20-23Z" />
+        <path d="M-20-24Q0-18 21-25L22-19Q0-12-22-18Z" fill="#6e7791" />
+        <path d="M-5-46l-2-6" fill="none" strokeWidth="3" />
+        <path d="M13-42A9 9 0 1 0 18-27Q7-26 13-42Z" fill="#ead79b" strokeWidth="1.1" />
+        <path d="M22-40v4m-2-2h4" fill="none" stroke={CREAM} strokeWidth="1.2" />
+      </g>
+    );
+  if (profile.hat === 'saturnhat')
+    return (
+      <g fill={suit}>
+        <path d="M-21-23Q-22-44 0-45Q23-45 22-23Z" />
+        <path d="M-23-24Q1-28 23-22L29-16Q2-11-24-17Z" />
+        <g transform="translate(0 -34) rotate(-24)">
+          <ellipse rx="15" ry="4.5" fill="none" stroke="#d7ba83" strokeWidth="2.8" />
+          <circle r="7" fill="#dfc591" strokeWidth="1.2" />
+          <path d="M-6-2h12m-12 4h12" stroke="#b39471" strokeWidth="1" />
+          <path d="M-15 0A15 4.5 0 0 0 15 0" fill="none" stroke="#eee0b7" strokeWidth="2.8" />
+        </g>
+      </g>
+    );
+  if (profile.hat === 'planetarium')
+    return (
+      <g fill="#6e84a2">
+        <path d="M-24-24Q-24-48 0-48Q24-48 24-24Z" />
+        <path
+          d="M-8-46Q-14-36-12-24m20-22q6 10 4 22"
+          fill="none"
+          stroke="#b5c9d6"
+          strokeWidth="1.5"
+        />
+        <path d="M-25-25h50v8h-50Z" fill={suit} />
+        <path d="M0-51v5m-4 3 4-3 4 3" fill="none" stroke="#dfc68f" strokeWidth="2" />
+        <path
+          d="M-4-39l1.5 3.5 4 .5-3 2.5.8 4-3.3-2-3.3 2 .8-4-3-2.5 4-.5Z"
+          fill={CREAM}
+          strokeWidth=".8"
+        />
+        <circle cx="17" cy="-29" r="1.8" fill={CREAM} stroke="none" />
+        <circle cx="-18" cy="-29" r="1.3" fill={CREAM} stroke="none" />
+      </g>
+    );
   if (profile.hat === 'starcrown')
     return (
       <g fill="#e9cb80">
@@ -232,6 +301,66 @@ function Hat({ profile, suit }: { profile: AvatarLook; suit: string }) {
 }
 
 function Accessory({ profile, skin }: { profile: AvatarLook; skin: string }) {
+  if (profile.accessory === 'cometscarf')
+    return (
+      <g>
+        <path d="M9 8Q22 12 25 21L38 34L32 38L24 31Q17 28 16 17" fill="#b6a3d0" />
+        <path d="M11 8Q22 9 28 17L38 20L37 26L25 23L12 15" fill="#d7b28e" />
+        <path d="M-11 4Q0 11 12 4L14 11Q0 19-13 10Z" fill="#b6a3d0" />
+        <path d="M-8 8Q0 12 9 8m17 22 7 5m-6-16 8 3" fill="none" stroke={CREAM} strokeWidth="1.2" />
+        <circle cx="7" cy="10" r="2.5" fill="#efe1b0" strokeWidth="1" />
+        <path d="M3 10l-5 2m5 0-4 3" stroke="#efe1b0" strokeWidth="1.2" />
+      </g>
+    );
+  if (profile.accessory === 'planisphere')
+    return (
+      <g transform="translate(25 25) rotate(12)">
+        <circle r="17" fill="#d8c096" />
+        <circle r="13.5" fill="#4f6b86" strokeWidth="1.2" />
+        <ellipse cy="1" rx="11" ry="8" fill="none" stroke="#b6c7c9" strokeWidth=".8" />
+        <path d="M0-16v3m0 26v3m-16-16h3m26 0h3" strokeWidth="1" />
+        <path d="M-7-4L-1-7L4-2L8-4M-4 5L2 3L6 7" fill="none" stroke="#e8d5a8" strokeWidth=".8" />
+        <g fill="#f1e0b7" stroke="none">
+          <circle cx="-7" cy="-4" r="1.2" />
+          <circle cx="-1" cy="-7" r="1.3" />
+          <circle cx="4" cy="-2" r="1.1" />
+          <circle cx="8" cy="-4" r="1.1" />
+          <circle cx="-4" cy="5" r="1.1" />
+          <circle cx="2" cy="3" r="1.1" />
+          <circle cx="6" cy="7" r="1.2" />
+        </g>
+        <path d="M-14 9l5 1" stroke={skin} strokeWidth="5" />
+      </g>
+    );
+  if (profile.accessory === 'orrery')
+    return (
+      <g transform="translate(29 20)">
+        <path d="M0-7v28m-8 3h16l-2-4H-6Z" fill="#ad9062" />
+        <ellipse
+          cy="-2"
+          rx="18"
+          ry="7"
+          fill="none"
+          stroke="#d8c69b"
+          strokeWidth="1.5"
+          transform="rotate(-22)"
+        />
+        <ellipse
+          cy="-2"
+          rx="11"
+          ry="4"
+          fill="none"
+          stroke="#d8c69b"
+          strokeWidth="1.2"
+          transform="rotate(22)"
+        />
+        <circle cy="-3" r="5" fill="#e0be71" />
+        <circle cx="-14" cy="4" r="3.2" fill="#91b9c9" strokeWidth="1.1" />
+        <circle cx="15" cy="-8" r="3.5" fill="#d4a387" strokeWidth="1.1" />
+        <circle cx="7" cy="3" r="2.2" fill="#aec6a0" strokeWidth=".9" />
+        <path d="M-6 10h6" stroke={skin} strokeWidth="5" />
+      </g>
+    );
   if (profile.accessory === 'binoculars')
     return (
       <g>
@@ -409,9 +538,6 @@ export function AvatarPortrait({
       </defs>
       <g clipPath={`url(#${id}-circle)`}>
         <circle cy="-13" r="48" fill="#365064" />
-        <g transform="translate(0 -17) scale(.6)">
-          <AvatarBackdrop background={profile.background} />
-        </g>
         <AvatarArt profile={profile} />
       </g>
     </svg>

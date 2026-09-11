@@ -11,8 +11,9 @@ import {
 import { avatarOf, type AvatarLook } from '@/personal/avatar';
 import { PillButton } from '@/ui/PillButton';
 import { AvatarPortrait } from './AvatarArt';
+import { horizonOf, type HorizonLook } from '@/personal/catalog';
 
-export function PublicProfileSync({ profile }: { profile: AvatarLook }) {
+export function PublicProfileSync({ profile }: { profile: AvatarLook & Partial<HorizonLook> }) {
   const auth = useCommunityUser();
   return (
     <PublicProfileContent
@@ -29,7 +30,7 @@ function PublicProfileContent({
   userId,
   ready,
 }: {
-  profile: AvatarLook;
+  profile: AvatarLook & Partial<HorizonLook>;
   userId?: string;
   ready: boolean;
 }) {
@@ -67,19 +68,32 @@ function PublicProfileContent({
     };
   }, [userId, retry]);
   const current = avatarOf(profile);
+  const horizon =
+    profile.slots &&
+    profile.ground &&
+    profile.sceneryScale &&
+    typeof profile.sceneryEnabled === 'boolean'
+      ? horizonOf(profile as AvatarLook & HorizonLook)
+      : undefined;
   const same =
     !!saved &&
     publicNickname(name) === saved.name &&
-    JSON.stringify(current) === JSON.stringify(saved.avatar);
+    JSON.stringify(current) === JSON.stringify(saved.avatar) &&
+    (!horizon || JSON.stringify(horizon) === JSON.stringify(saved.horizon));
   async function sync() {
     if (!userId || !saved || writing.current) return;
     writing.current = true;
     setBusy(true);
     setError('');
     setMessage(false);
-    const snapshot = { name: publicNickname(name), avatar: current };
+    const snapshot = {
+      name: publicNickname(name),
+      avatar: current,
+      ...(horizon ? { horizon } : {}),
+    };
     try {
-      await saveCommunityIdentity(snapshot.name, snapshot.avatar, userId);
+      if (horizon) await saveCommunityIdentity(snapshot.name, snapshot.avatar, userId, horizon);
+      else await saveCommunityIdentity(snapshot.name, snapshot.avatar, userId);
       if (alive.current) {
         setSaved(snapshot);
         setMessage(true);

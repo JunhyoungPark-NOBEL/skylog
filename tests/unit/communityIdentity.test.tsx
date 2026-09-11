@@ -76,7 +76,7 @@ describe('공개 작성자와 천문학 꾸미기', () => {
     await grantRewards(new Set());
     expect((await readPersonal()).profile).toMatchObject({ hat: 'starcrown', background: 'orion' });
   });
-  it('배경과 모자 그림은 각기 다르고 원형 초상·야간 필터의 ID를 중복하지 않는다', () => {
+  it('댓글은 아바타만 표시하며 원형 초상·야간 필터의 ID를 중복하지 않는다', () => {
     const looks = [
       DEFAULT_AVATAR,
       { ...DEFAULT_AVATAR, hat: 'starcrown', background: 'orion' },
@@ -91,8 +91,7 @@ describe('공개 작성자와 천문학 꾸미기', () => {
     );
     const ids = [...markup.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
     expect(new Set(ids).size).toBe(ids.length);
-    expect(markup).toContain('data-avatar-background="orion"');
-    expect(markup).toContain('data-avatar-background="galaxy"');
+    expect(markup).not.toContain('data-avatar-background');
     expect(markup.match(/data-testid="author-avatar"/g)).toHaveLength(3);
   });
 });

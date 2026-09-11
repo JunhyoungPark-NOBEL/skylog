@@ -1,0 +1,39 @@
+.horizon-ground-swatch {
+  border: 1px solid var(--color-fg);
+  border-color: color-mix(in srgb, var(--color-fg) 10%, transparent);
+}
+.horizon-ground-meadow {
+  background:
+    repeating-linear-gradient(
+      113deg,
+      transparent 0 17px,
+      #64816b66 18px 19px,
+      transparent 20px 35px
+    ),
+    linear-gradient(#527963, #2e5348);
+}
+.horizon-ground-sand {
+  background:
+    repeating-radial-gradient(ellipse at 15% 170%, #b4a37e55 0 2px, transparent 3px 18px),
+    linear-gradient(#aaa07d, #786e58);
+}
+.horizon-ground-stone {
+  background:
+    linear-gradient(30deg, transparent 44%, #b4b8b655 45% 47%, transparent 48%) 0 0 / 45px 33px,
+    linear-gradient(#81898a, #555f64);
+}
+.horizon-ground-snow {
+  background:
+    radial-gradient(ellipse at 65% 110%, #cad7d977, transparent 60%),
+    linear-gradient(#b3c4ca, #82979f);
+}
+[data-theme='night'] .horizon-ground-swatch {
+  background:
+    repeating-linear-gradient(
+      113deg,
+      transparent 0 17px,
+      #7c171744 18px 19px,
+      transparent 20px 35px
+    ),
+    linear-gradient(#511717, #220909);
+}

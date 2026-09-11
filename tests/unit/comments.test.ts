@@ -99,8 +99,10 @@ describe('댓글 페이지 조회', () => {
     data = [row(1)];
     const page = await readComments(postId);
     expect(page.authors[owner]).toEqual({ name: 'Writer', avatar: DEFAULT_AVATAR });
-    expect(requests).toHaveLength(3);
-    expect(requests[2]!.url.searchParams.get('select')).toBe('id,name');
+    expect(requests).toHaveLength(4);
+    expect(requests[1]!.url.searchParams.get('select')).toBe('id,name,avatar,horizon');
+    expect(requests[2]!.url.searchParams.get('select')).toBe('id,name,avatar');
+    expect(requests[3]!.url.searchParams.get('select')).toBe('id,name');
   });
 
   it('잘못된 커서는 필터 쿼리로 보내지 않는다', async () => {

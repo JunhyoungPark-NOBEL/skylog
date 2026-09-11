@@ -9,6 +9,7 @@ import { useSelectionStore } from '@/state/selectionStore';
 import { RealSkyToggle } from '@/features/sky/RealSkyToggle';
 import { useSensorStore } from '@/state/sensorStore';
 import { FovRingOptions } from '@/features/telescope/FovRingOptions';
+import { navigate } from '@/app/router';
 
 type AlphaKey = {
   [K in keyof LayerValues]: LayerValues[K] extends number ? K : never;
@@ -208,6 +209,13 @@ export function LayerPanel({
         </div>
         <Row id="landscape" label={t('nightRefresh.landscape')} />
         <p className="px-4 pb-2 text-caption text-muted">{t('nightRefresh.landscapeHelp')}</p>
+        <button
+          type="button"
+          onClick={() => navigate('profile')}
+          className="mx-4 mb-3 min-h-11 rounded-xl bg-surface-2 px-4 text-body-sm text-accent"
+        >
+          {t('personal.garden')} <span aria-hidden="true">↗</span>
+        </button>
         <Row id="atmosphere" label={t('sky.layer.atmosphere')} />
         <Row id="extinction" label={t('sky.layer.extinction')} />
         <Row id="magnifyBodies" label={t('sky.layer.magnifyBodies')} />

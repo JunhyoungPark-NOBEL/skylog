@@ -2,7 +2,12 @@ import { act } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { emitDbChange } from '@/db/events';
-import { DEFAULT_AVATAR, FREE_AVATAR_OPTIONS, type AvatarLook } from '@/personal/avatar';
+import {
+  DEFAULT_AVATAR,
+  FREE_AVATAR_OPTIONS,
+  LEGACY_FREE_AVATAR_OPTIONS,
+  type AvatarLook,
+} from '@/personal/avatar';
 import { DEFAULT_PERSONAL, type Personal } from '@/personal/catalog';
 import {
   deleteLook,
@@ -64,9 +69,15 @@ function snapshot(
   looks: SavedLooks = [null, null, null],
 ): PersonalState {
   return {
-    profile: { ...DEFAULT_PERSONAL, ...profile },
+    profile: {
+      ...DEFAULT_PERSONAL,
+      slots: ['flowers', 'bench', null, 'fern', 'stones'],
+      ...profile,
+    },
     owned: new Set(['flowers', 'bench', 'fern', 'stones']),
-    ownedAvatar: new Set(FREE_AVATAR_OPTIONS),
+    ownedAvatar: new Set([...FREE_AVATAR_OPTIONS, ...LEGACY_FREE_AVATAR_OPTIONS]),
+    ownedGround: new Set(['meadow']),
+    legacy: true,
     looks,
   };
 }
@@ -236,6 +247,7 @@ describe('아바타 저장 뒤 화면 갱신 경계', () => {
   it('마당의 다음 배치는 저장 후 읽기가 끝난 새 슬롯 배열에서 계산한다', async () => {
     await act(async () => root.render(<ProfileScreen />));
     await click(button('personal.garden'));
+    await click(button('personal.slot:{"n":1}'));
     const reading = deferred<PersonalState>();
     vi.mocked(readPersonal).mockReturnValue(reading.promise);
     await click(button('personal.items.stones'));

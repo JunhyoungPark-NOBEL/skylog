@@ -44,13 +44,18 @@
         "beanie": "포근한 비니",
         "helmet": "우주 헬멧",
         "bucket": "산책 모자",
-        "starcap": "별빛 모자"
+        "starcap": "별빛 모자",
+        "crescentberet": "초승달 베레모",
+        "saturnhat": "토성 모자",
+        "planetarium": "천문관 모자"
       },
       "outfit": {
         "classic": "관측 점퍼",
         "hoodie": "포근한 후디",
         "overalls": "멜빵 바지",
-        "spacesuit": "탐험 우주복"
+        "spacesuit": "탐험 우주복",
+        "observatorycoat": "천문대 코트",
+        "constellationponcho": "별자리 판초"
       },
       "suit": {
         "sage": "세이지",
@@ -65,7 +70,10 @@
         "binoculars": "작은 쌍안경",
         "sketchbook": "관측 수첩",
         "lantern": "별밤 등불",
-        "starwand": "별빛 지팡이"
+        "starwand": "별빛 지팡이",
+        "cometscarf": "혜성 머플러",
+        "planisphere": "손안의 별자리판",
+        "orrery": "작은 태양계 모형"
       }
     },
     "unlock": {
@@ -74,14 +82,30 @@
       "binoculars": "첫 관측 기록",
       "sketchbook": "첫 스케치 기록",
       "lantern": "서로 다른 3일 관측",
-      "starwand": "서로 다른 천체 25개 관측"
+      "starwand": "서로 다른 천체 25개 관측",
+      "lavender": "서로 다른 퀴즈 3개를 첫 시도에 연속 정답",
+      "navy": "서로 다른 별자리 4개 관측",
+      "ochre": "관측 미션 3개 완료",
+      "rose": "첫 스케치 기록",
+      "helmet": "퀴즈 단계 5개를 80% 이상으로 통과",
+      "bucket": "첫 관측 기록",
+      "hoodie": "서로 다른 3일 관측",
+      "overalls": "서로 다른 천체 5개의 관측 기록에 20자 이상 메모 남기기",
+      "crescentberet": "서로 다른 10일 관측",
+      "saturnhat": "서로 다른 퀴즈 25개의 최근 답 맞히기",
+      "planetarium": "서로 다른 퀴즈 단계 5개에서 만점",
+      "observatorycoat": "퀴즈 단계 20개를 80% 이상으로 통과",
+      "constellationponcho": "서로 다른 별자리 12개 관측",
+      "cometscarf": "서로 다른 퀴즈 10개를 첫 시도에 연속 정답",
+      "planisphere": "서로 다른 퀴즈 5개를 첫 시도에 연속 정답",
+      "orrery": "퀴즈 단계 40개를 80% 이상으로 통과"
     },
-    "earned": "획득한 보상",
+    "earned": "보유 중",
     "progress": "{{n}} / {{total}}",
-    "free": "기본 꾸미기는 무료예요. 업적 보상도 결제 없이 열려요. 보상 {{n}} / {{total}}개 획득",
+    "free": "기본 옷으로 시작해 퀴즈와 관측 업적으로 코디를 모아 보세요. 보유 {{n}} / {{total}}개 · 이전에 쓰던 기본 코디도 그대로예요.",
     "achievements": "업적 보러 가기",
     "looks": "내 코디 보관함 · 3칸",
-    "looksHint": "지금 미리보는 코디를 보관해 두세요. 꺼낸 코디는 적용을 눌러야 마당에 반영돼요. 기기 백업에도 함께 담겨요.",
+    "looksHint": "지금 미리보는 코디를 보관해 두세요. 꺼낸 코디는 적용을 눌러야 프로필에 반영돼요. 기기 백업에도 함께 담겨요.",
     "lookNumber": "코디 {{n}}",
     "lookName": "코디 이름",
     "saveLook": "이 코디 보관",

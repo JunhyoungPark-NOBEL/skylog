@@ -2,6 +2,11 @@ import * as THREE from 'three';
 import { altAzToScene, type Vec3 } from '@/astro/coords';
 import { circlePoints } from '@/render/greatCircle';
 import { LineLayer } from '@/render/LineLayer';
+import {
+  HORIZON_GROUND_PALETTE,
+  horizonAtlasSvg,
+  type HorizonArtwork,
+} from '@/personal/horizonArt';
 
 /**
  * 지평선·땅·방위 눈금. 땅은 반지름 95의 아래 반구(반투명 또는 불투명), 지평선 링(고도 0)과 30° 눈금.
@@ -19,11 +24,26 @@ export class HorizonLayer {
   private readonly meadowUniforms = {
     uMeadowEnabled: { value: 0 },
     uMeadowTint: { value: new THREE.Color() },
+    uSceneryEnabled: { value: 0 },
+    uSceneryHeight: { value: 9 },
+    uGroundFar: { value: new THREE.Color('#718779') },
+    uGroundNear: { value: new THREE.Color('#344e46') },
+    uGroundDetail: { value: new THREE.Color('#a1ad87') },
+    uGroundType: { value: 0 },
   };
   private disposed = false;
+  private atlasKey = '';
+  private atlasGeneration = 0;
+  private pendingImage: HTMLImageElement | null = null;
+  private sceneryEnabled = true;
+  private atlasReady = false;
 
   get meadowVisible(): boolean {
     return this.meadowUniforms.uMeadowEnabled.value > 0 && this.groundMaterial.opacity > 0.001;
+  }
+
+  get sceneryVisible(): boolean {
+    return this.meadowVisible && this.meadowUniforms.uSceneryEnabled.value > 0;
   }
 
   constructor() {
@@ -36,7 +56,10 @@ export class HorizonLayer {
       opacity: 1,
       depthWrite: false,
       depthTest: false,
+      // 아틀라스가 준비되기 전에도 map 셰이더 형식을 유지한다. 하늘 복귀마다 다시 컴파일하지 않는다.
+      map: new THREE.DataTexture(new Uint8Array(4), 1, 1, THREE.RGBAFormat),
     });
+    this.groundMaterial.map!.needsUpdate = true;
     this.ground = new THREE.Mesh(geom, this.groundMaterial);
     this.ground.renderOrder = 40;
     this.ground.frustumCulled = false;
@@ -55,25 +78,62 @@ export class HorizonLayer {
     this.ring.setStyle(ringColor, 0.8);
   }
 
-  async loadMeadow(invalidate: () => void, maxAnisotropy = 1): Promise<void> {
-    try {
-      const texture = await new THREE.TextureLoader().loadAsync(
-        `${import.meta.env.BASE_URL}landscapes/meadow-v2.webp`,
-      );
-      if (this.disposed) {
-        texture.dispose();
-        return;
-      }
+  setPersonal(profile: HorizonArtwork & { sceneryEnabled: boolean }, invalidate: () => void): void {
+    if (this.disposed) return;
+    this.sceneryEnabled = profile.sceneryEnabled;
+    const colors = HORIZON_GROUND_PALETTE[profile.ground];
+    this.meadowUniforms.uGroundFar.value.set(colors[0]);
+    this.meadowUniforms.uGroundNear.value.set(colors[1]);
+    this.meadowUniforms.uGroundDetail.value.set(colors[2]);
+    this.meadowUniforms.uGroundType.value = ['meadow', 'sand', 'stone', 'snow'].indexOf(
+      profile.ground,
+    );
+    this.meadowUniforms.uSceneryHeight.value = profile.sceneryScale === 'medium' ? 12 : 9;
+    const key = JSON.stringify([profile.slots, profile.sceneryScale]);
+    if (this.atlasKey === key) {
+      invalidate();
+      return;
+    }
+    this.atlasKey = key;
+    const generation = ++this.atlasGeneration;
+    this.cancelPendingImage();
+    const image = new Image();
+    this.pendingImage = image;
+    image.onload = () => {
+      if (this.disposed || generation !== this.atlasGeneration) return;
+      const texture = new THREE.Texture(image);
       texture.colorSpace = THREE.SRGBColorSpace;
-      texture.anisotropy = Math.max(1, Math.min(8, maxAnisotropy));
       texture.minFilter = THREE.LinearMipmapLinearFilter;
       texture.magFilter = THREE.LinearFilter;
+      texture.needsUpdate = true;
+      const previous = this.groundMaterial.map;
       this.groundMaterial.map = texture;
-      this.groundMaterial.needsUpdate = true;
+      previous?.dispose();
+      this.atlasReady = profile.slots.some(Boolean);
+      this.pendingImage = null;
+      image.onload = null;
+      image.onerror = null;
       invalidate();
-    } catch {
-      /* 풍경을 읽지 못해도 기존 지면·하늘은 계속 표시한다. */
-    }
+    };
+    image.onerror = () => {
+      if (this.disposed || generation !== this.atlasGeneration) return;
+      this.atlasReady = false;
+      this.atlasKey = '';
+      this.pendingImage = null;
+      image.onload = null;
+      image.onerror = null;
+      invalidate();
+    };
+    image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(horizonAtlasSvg(profile))}`;
+    invalidate();
+  }
+
+  private cancelPendingImage(): void {
+    if (!this.pendingImage) return;
+    this.pendingImage.onload = null;
+    this.pendingImage.onerror = null;
+    this.pendingImage.src = '';
+    this.pendingImage = null;
   }
   /** 풍경과 지면을 한 번만 합성한다. 별도 반투명 레이어가 겹쳐 짙어지는 현상을 막는다. */
   blendMeadowEdge(): void {
@@ -81,31 +141,63 @@ export class HorizonLayer {
     this.groundMaterial.onBeforeCompile = (shader, renderer) => {
       project(shader, renderer);
       Object.assign(shader.uniforms, this.meadowUniforms);
-      shader.fragmentShader = `uniform float uMeadowEnabled;\nuniform vec3 uMeadowTint;\n${shader.fragmentShader}`;
+      shader.vertexShader = `varying vec3 vGroundDirection;\n${shader.vertexShader}`;
+      shader.vertexShader = shader.vertexShader.replace(
+        '#include <begin_vertex>',
+        '#include <begin_vertex>\nvGroundDirection = normalize(transformed);',
+      );
+      shader.fragmentShader = `
+        uniform float uMeadowEnabled;
+        uniform vec3 uMeadowTint;
+        uniform float uSceneryEnabled;
+        uniform float uSceneryHeight;
+        uniform vec3 uGroundFar;
+        uniform vec3 uGroundNear;
+        uniform vec3 uGroundDetail;
+        uniform float uGroundType;
+        varying vec3 vGroundDirection;
+        float groundHash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+        ${shader.fragmentShader}`;
       shader.fragmentShader = shader.fragmentShader.replace(
         '#include <map_fragment>',
         `
         #ifdef USE_MAP
-        // 아래 반구 UV: 지평선 y=1, 천저 y=0. 하늘 위에는 장식을 그리지 않는다.
-        float belowDeg = (1.0 - vMapUv.y) * 90.0;
-        float meadowBlend = smoothstep(0.0, 2.5, belowDeg)
-          * (1.0 - smoothstep(14.0, 32.0, belowDeg)) * uMeadowEnabled;
-        // 반복 가장자리 10%를 겹쳐, 원본이 완전한 타일이 아니어도 이음매를 숨긴다.
-        float mx = fract(vMapUv.x * 6.0) * 0.9;
-        float my = clamp(1.0 - belowDeg / 32.0, 0.0, 1.0);
-        vec3 meadowA = texture2D(map, vec2(mx, my)).rgb;
-        vec3 meadowB = texture2D(map, vec2(mx + 0.9, my)).rgb;
-        vec3 meadowColor = mix(meadowA, meadowB, 1.0 - smoothstep(0.0, 0.1, mx));
-        diffuseColor.rgb = mix(diffuseColor.rgb, meadowColor * uMeadowTint, meadowBlend);
-        diffuseColor.a *= mix(1.0, smoothstep(0.0, 0.8, belowDeg), uMeadowEnabled);
+        // 실제 씬 방향으로 배치한다. UV 이음매·카메라 회전·입체 투영의 영향을 받지 않는다.
+        vec3 groundDir = normalize(vGroundDirection);
+        float belowDeg = degrees(asin(clamp(-groundDir.y, 0.0, 1.0)));
+        float az = fract(atan(groundDir.x, -groundDir.z) / 6.28318530718 + 1.0);
+        float groundBlend = smoothstep(0.0, 1.2, belowDeg)
+          * (1.0 - smoothstep(22.0, 42.0, belowDeg)) * uMeadowEnabled;
+        vec3 groundColor = mix(uGroundFar, uGroundNear, smoothstep(0.0, 28.0, belowDeg));
+        // 성긴 붓결만 남긴 잔디/모래/돌/눈. 광도 무늬를 세게 만들지 않는다.
+        vec2 groundCell = vec2(az * 180.0, belowDeg * 1.15);
+        vec2 cellLocal = fract(groundCell) - 0.5;
+        float seed = groundHash(floor(groundCell));
+        float grain = (1.0 - smoothstep(0.18, 0.33, abs(cellLocal.x)))
+          * (1.0 - smoothstep(0.02, 0.12, abs(cellLocal.y))) * step(0.55, seed);
+        if (uGroundType < 0.5) {
+          grain = (1.0 - smoothstep(0.015, 0.065, abs(cellLocal.x - cellLocal.y * 0.23)))
+            * (1.0 - smoothstep(0.03, 0.27, abs(cellLocal.y))) * step(0.73, seed);
+        }
+        groundColor = mix(groundColor, uGroundDetail, grain * 0.16);
+        groundColor *= 0.97 + 0.03 * sin(belowDeg * 0.55 + sin(az * 37.699));
+        diffuseColor.rgb = mix(diffuseColor.rgb, groundColor * uMeadowTint, groundBlend);
+        // 발끝은 작은 크기에서 -8.33°, 큰 크기에서 -10.95°. 최고점도 -0.45° 아래다.
+        float artY = (belowDeg - 0.45) / uSceneryHeight;
+        vec4 decoration = texture2D(map, vec2(az, 1.0 - clamp(artY, 0.0, 1.0)));
+        float artAlpha = decoration.a * step(0.0, artY) * step(artY, 1.0)
+          * uSceneryEnabled * uMeadowEnabled;
+        diffuseColor.rgb = mix(diffuseColor.rgb, decoration.rgb * uMeadowTint, artAlpha);
+        diffuseColor.a *= mix(1.0, smoothstep(0.0, 0.35, belowDeg), uMeadowEnabled);
         #endif
       `,
       );
     };
-    this.groundMaterial.customProgramCacheKey = () => 'skylog-stereographic-meadow-blend-v2';
+    this.groundMaterial.customProgramCacheKey = () => 'skylog-stereographic-horizon-garden-v3';
   }
   setMeadow(enabled: boolean, night: boolean, sunAltitude: number): void {
-    this.meadowUniforms.uMeadowEnabled.value = enabled && !!this.groundMaterial.map ? 1 : 0;
+    this.meadowUniforms.uMeadowEnabled.value = enabled ? 1 : 0;
+    this.meadowUniforms.uSceneryEnabled.value = this.sceneryEnabled && this.atlasReady ? 1 : 0;
     // 적색 테마를 유지하고, 낮/밤에 맞춰 장식의 밝기만 조절한다.
     const brightness = Math.max(0.3, Math.min(0.8, 0.3 + (sunAltitude + 18) / 48));
     this.meadowUniforms.uMeadowTint.value.setRGB(
@@ -117,6 +209,8 @@ export class HorizonLayer {
 
   dispose(): void {
     this.disposed = true;
+    this.atlasGeneration++;
+    this.cancelPendingImage();
     this.groundMaterial.map?.dispose();
     this.ground.geometry.dispose();
     this.groundMaterial.dispose();

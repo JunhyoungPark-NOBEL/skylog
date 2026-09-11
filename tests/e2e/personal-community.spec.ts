@@ -6,12 +6,12 @@ test('영어 큰 글자와 야간 마당은 넘침과 밝은 색 번짐이 없�
   await page.goto('./#/settings');
   await page.getByRole('radio', { name: 'English', exact: true }).click();
   await page.goto('./#/profile');
-  await expect(page.getByRole('heading', { name: 'My garden', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'My profile', exact: true })).toBeVisible();
   await page.evaluate(() => {
     document.documentElement.style.fontSize = '125%';
   });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.screenshot({ path: 'artifacts/screenshots/community-garden-en-large.png' });
+  await page.screenshot({ path: 'artifacts/qa-build20/community-horizon-en-large.png' });
   await page.evaluate(() => {
     document.documentElement.dataset.theme = 'night';
   });
@@ -29,33 +29,33 @@ test('영어 큰 글자와 야간 마당은 넘침과 밝은 색 번짐이 없�
   }
   expect(bright).toBeGreaterThan(100);
   expect(bad / bright).toBeLessThan(0.001);
-  await page.screenshot({ path: 'artifacts/screenshots/community-garden-night.png' });
+  await page.screenshot({ path: 'artifacts/qa-build20/community-horizon-night.png' });
 });
 test('무료 마당은 작은 화면과 키보드에서 꾸미고 재실행해도 유지된다', async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 780 });
   await page.goto('./#/profile');
-  await expect(page.getByRole('heading', { name: '별빛 아래, 나만의 자리' })).toBeVisible();
-  await page.getByRole('button', { name: '마당 꾸미기', exact: true }).click();
+  await expect(page.getByRole('heading', { name: '나의 관측 자리' })).toBeVisible();
+  await page.getByRole('button', { name: '지평선 꾸미기', exact: true }).click();
   await page.getByRole('button', { name: '1번 자리', exact: true }).click();
-  await page.getByRole('button', { name: '조약돌', exact: true }).focus();
+  await page.getByRole('button', { name: '나무 벤치', exact: true }).focus();
   await page.keyboard.press('Enter');
-  await expect(page.getByRole('button', { name: '조약돌', exact: true })).toHaveAttribute(
+  await expect(page.getByRole('button', { name: '나무 벤치', exact: true })).toHaveAttribute(
     'aria-pressed',
     'true',
   );
   await page.screenshot({
-    path: 'artifacts/screenshots/community-garden-edit-ko.png',
+    path: 'artifacts/qa-build20/community-horizon-edit-ko.png',
     fullPage: true,
   });
   await page.getByTestId('back').click();
   await page.getByRole('button', { name: '아바타', exact: true }).click();
-  await page.getByRole('button', { name: '라벤더', exact: true }).click();
-  await expect(page.getByRole('button', { name: '라벤더', exact: true })).toHaveAttribute(
+  await page.getByRole('button', { name: '테라코타', exact: true }).click();
+  await expect(page.getByRole('button', { name: '테라코타', exact: true })).toHaveAttribute(
     'aria-pressed',
     'true',
   );
   await page.getByRole('button', { name: '이 모습 적용', exact: true }).click();
-  await page.getByRole('textbox', { name: '마당 이름' }).fill('별이 머무는 곳');
+  await page.getByRole('textbox', { name: '프로필 이름' }).fill('별이 머무는 곳');
   await page.getByRole('button', { name: '이름 저장', exact: true }).click();
   await expect
     .poll(async () =>
@@ -82,7 +82,7 @@ test('무료 마당은 작은 화면과 키보드에서 꾸미고 재실행해�
   await page.reload();
   await expect(page.getByRole('heading', { name: '별이 머무는 곳' })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.screenshot({ path: 'artifacts/screenshots/community-garden-ko.png', fullPage: true });
+  await page.screenshot({ path: 'artifacts/qa-build20/community-horizon-ko.png', fullPage: true });
 });
 test('사진 모음과 상세를 분리하고 본문·옵션을 읽을 수 있다', async ({ page }) => {
   const id = '00000000-0000-4000-8000-000000000099';

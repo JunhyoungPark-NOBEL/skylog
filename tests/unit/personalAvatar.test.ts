@@ -41,7 +41,7 @@ describe('아바타 보상과 코디 저장', () => {
     const badges = new Set(AVATAR_REWARDS.map((reward) => reward.badge));
     await Promise.all([grantRewards(badges), grantRewards(badges), grantRewards(badges)]);
     const rows = await getDb().progress.where('key').startsWith('avatar.reward:').toArray();
-    expect(rows).toHaveLength(12);
+    expect(rows).toHaveLength(AVATAR_REWARDS.length);
     for (const reward of AVATAR_REWARDS) {
       expect(rows.filter((row) => row.key === 'avatar.reward:' + reward.key)).toHaveLength(1);
       expect((await readPersonal()).ownedAvatar.has(reward.key)).toBe(true);
@@ -126,6 +126,9 @@ describe('아바타 보상과 코디 저장', () => {
   });
 
   it('마당 이름·배치·아바타를 어느 순서로 동시에 저장해도 각 변경을 보존한다', async () => {
+    await grantRewards(
+      new Set(['badge-first-sketch', 'challenge-observation-nights-3', 'badge-quiz-3']),
+    );
     for (const reversed of [false, true]) {
       await savePersonal(DEFAULT_PERSONAL);
       const actions = [
@@ -136,7 +139,7 @@ describe('아바타 보상과 코디 저장', () => {
       ];
       await Promise.all((reversed ? actions.reverse() : actions).map((save) => save()));
       expect((await readPersonal()).profile).toEqual({
-        ...DEFAULT_AVATAR,
+        ...DEFAULT_PERSONAL,
         name: '최신 마당',
         slots: [null, 'flowers', 'bench', null, null],
         suit: 'rose',
@@ -148,6 +151,7 @@ describe('아바타 보상과 코디 저장', () => {
   });
 
   it('비어 있던 코디 세 칸의 동시 저장과 다른 칸 삭제를 원자적으로 보존한다', async () => {
+    await grantRewards(new Set(['badge-first-sketch', 'challenge-detailed-objects-5']));
     await saveGarden({ name: '현재 마당' });
     const looks = [
       { ...DEFAULT_AVATAR, suit: 'rose' },

@@ -3,6 +3,53 @@ import sharp from 'sharp';
 
 test.use({ serviceWorkers: 'block' });
 
+/** 이전 버전의 저장된 기본 프로필만 만든다. 보상은 추가하지 않는다. */
+async function seedLegacyProfile(page: Page) {
+  await page.goto('./#/profile');
+  await expect(page.getByTestId('horizon-preview')).toBeVisible();
+  await page.evaluate(
+    async () =>
+      new Promise<void>((resolve, reject) => {
+        const request = indexedDB.open('skylog');
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+          const db = request.result;
+          const transaction = db.transaction('progress', 'readwrite');
+          const at = '2026-09-10T00:00:00.000Z';
+          transaction.objectStore('progress').put({
+            id: crypto.randomUUID(),
+            key: 'personal.profile',
+            value: {
+              name: '',
+              suit: 'sage',
+              skin: 'amber',
+              hat: 'beanie',
+              hair: 'none',
+              hairColor: 'ink',
+              expression: 'smile',
+              outfit: 'classic',
+              accessory: 'none',
+              background: 'garden',
+              slots: ['flowers', 'bench', null, 'fern', 'stones'],
+            },
+            createdAt: at,
+            updatedAt: at,
+            schemaVersion: 1,
+          });
+          transaction.oncomplete = () => {
+            db.close();
+            resolve();
+          };
+          transaction.onerror = () => {
+            db.close();
+            reject(transaction.error);
+          };
+        };
+      }),
+  );
+  await page.reload();
+}
+
 async function openEditor(page: Page) {
   await page.goto('./#/profile');
   await page.getByRole('button', { name: /^(아바타|Avatar)$/ }).click();
@@ -38,6 +85,7 @@ async function readProfile(page: Page) {
 test('아바타 미리보기는 취소·뒤로에서 저장되지 않고 적용한 모습은 재실행 뒤 남는다', async ({
   page,
 }) => {
+  await seedLegacyProfile(page);
   await openEditor(page);
   const before = await readProfile(page);
   await page.getByRole('button', { name: '라벤더', exact: true }).click();
@@ -79,10 +127,12 @@ test('아바타 미리보기는 취소·뒤로에서 저장되지 않고 적용�
     'aria-pressed',
     'true',
   );
-  await page.screenshot({ path: 'artifacts/screenshots/avatar-clothes-ko.png' });
+  await page.screenshot({ path: 'artifacts/qa-build20/avatar-clothes-ko.png' });
 });
 
 test('코디 보관·불러오기·되돌리기·교체·삭제는 적용 모습과 분리된다', async ({ page }) => {
+  await seedLegacyProfile(page);
+  const before = await readProfile(page);
   await openEditor(page);
   await page.getByRole('button', { name: '라벤더', exact: true }).click();
   await page.getByTestId('avatar-looks').locator('summary').click();
@@ -90,7 +140,7 @@ test('코디 보관·불러오기·되돌리기·교체·삭제는 적용 모습
   await first.getByRole('textbox').fill('달빛 산책');
   await first.getByRole('button', { name: '이 코디 보관', exact: true }).click();
   await expect(page.getByRole('status')).toHaveText('미리보던 코디를 보관했어요.');
-  expect(await readProfile(page)).toBeNull();
+  expect(await readProfile(page)).toEqual(before);
   await page.getByRole('button', { name: '햇살 노랑', exact: true }).click();
   await first.getByRole('button', { name: '꺼내 입어보기', exact: true }).click();
   await expect(page.getByRole('button', { name: '라벤더', exact: true })).toHaveAttribute(
@@ -160,7 +210,7 @@ test('영어 125% 작은 화면에서 꾸미기 부위·보관함은 넘치지 �
   await page.getByRole('button', { name: 'Waves', exact: true }).click();
   await page.getByRole('button', { name: 'Copper', exact: true }).click();
   await page.getByTestId('avatar-current').scrollIntoViewIfNeeded();
-  await page.screenshot({ path: 'artifacts/screenshots/avatar-en-large.png' });
+  await page.screenshot({ path: 'artifacts/qa-build20/avatar-en-large.png' });
   await page.evaluate(() => {
     document.documentElement.dataset.theme = 'night';
   });
@@ -178,5 +228,5 @@ test('영어 125% 작은 화면에서 꾸미기 부위·보관함은 넘치지 �
   }
   expect(bright).toBeGreaterThan(100);
   expect(bad / bright).toBeLessThan(0.001);
-  await page.screenshot({ path: 'artifacts/screenshots/avatar-night.png' });
+  await page.screenshot({ path: 'artifacts/qa-build20/avatar-night.png' });
 });

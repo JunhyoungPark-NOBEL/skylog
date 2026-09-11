@@ -2,13 +2,22 @@ import { getDb, newId, nowIso } from '@/db/database';
 import { emitDbChange } from '@/db/events';
 import { getProgress, listProgress } from '@/db/repos/progress';
 import { DB_SCHEMA_VERSION, type Progress } from '@/db/types';
-import { AVATAR_REWARDS, FREE_AVATAR_OPTIONS, normalizeAvatar, type AvatarLook } from './avatar';
+import {
+  AVATAR_REWARDS,
+  FREE_AVATAR_OPTIONS,
+  LEGACY_FREE_AVATAR_OPTIONS,
+  normalizeAvatar,
+  type AvatarLook,
+} from './avatar';
 import {
   DECORATIONS,
+  GROUND_STYLES,
+  LEGACY_FREE_DECORATIONS,
   normalizePersonal,
   normalizePersonalName,
   rewardsFor,
   type Personal,
+  type HorizonLook,
 } from './catalog';
 
 export type SavedLook = { name: string; avatar: AvatarLook } | null;
@@ -28,6 +37,9 @@ export async function grantRewards(badges: ReadonlySet<string>): Promise<void> {
     ...rewardsFor(badges).map((id) => 'personal.reward:' + id),
     ...AVATAR_REWARDS.filter((reward) => badges.has(reward.badge)).map(
       (reward) => 'avatar.reward:' + reward.key,
+    ),
+    ...GROUND_STYLES.filter((item) => item.badge && badges.has(item.badge)).map(
+      (item) => 'ground.reward:' + item.id,
     ),
   ];
   await db.transaction('rw', db.progress, async () => {
@@ -70,26 +82,43 @@ function normalizeLooks(value: unknown, ownedAvatar: ReadonlySet<string>): Saved
 
 /** 호출자의 progress 트랜잭션 안에서 보유 목록·프로필을 일관된 시점에 읽는다. */
 async function loadPersonal() {
-  const [rewards, avatarRewards, profile, looks] = await Promise.all([
+  const [rewards, avatarRewards, groundRewards, profile, looks, ownership] = await Promise.all([
     listProgress('personal.reward:'),
     listProgress('avatar.reward:'),
+    listProgress('ground.reward:'),
     getProgress('personal.profile'),
     getProgress('personal.looks'),
+    getProgress('personal.ownership-v2'),
   ]);
+  // 구버전에서 이미 제공했던 기본 코디·장식은 회수하지 않는다.
+  // 최초 저장 때 판정 값을 고정하므로 새 사용자는 저장 후에도 기존 사용자로 바뀌지 않는다.
+  const legacy =
+    ownership && typeof ownership === 'object'
+      ? (ownership as Record<string, unknown>).legacy === true
+      : !!(profile && typeof profile === 'object') || Array.isArray(looks);
   const owned = new Set<string>(
     DECORATIONS.filter((d) => !d.badge || hasReward(rewards.get('personal.reward:' + d.id))).map(
       (d) => d.id,
     ),
   );
+  if (legacy) for (const id of LEGACY_FREE_DECORATIONS) owned.add(id);
   const ownedAvatar = new Set(FREE_AVATAR_OPTIONS);
+  if (legacy) for (const key of LEGACY_FREE_AVATAR_OPTIONS) ownedAvatar.add(key);
   for (const reward of AVATAR_REWARDS) {
     if (hasReward(avatarRewards.get('avatar.reward:' + reward.key))) ownedAvatar.add(reward.key);
   }
+  const ownedGround = new Set<string>(
+    GROUND_STYLES.filter(
+      (item) => !item.badge || hasReward(groundRewards.get('ground.reward:' + item.id)),
+    ).map((item) => item.id),
+  );
   return {
-    profile: normalizePersonal(profile, owned, ownedAvatar),
+    profile: normalizePersonal(profile, owned, ownedAvatar, ownedGround),
     owned,
     ownedAvatar,
+    ownedGround,
     looks: normalizeLooks(looks, ownedAvatar),
+    legacy,
   };
 }
 
@@ -110,11 +139,20 @@ async function writeProgress(key: string, value: unknown): Promise<void> {
   await db.progress.put(record);
 }
 
+async function preserveOwnership(legacy: boolean): Promise<void> {
+  if (!(await getProgress('personal.ownership-v2')))
+    await writeProgress('personal.ownership-v2', { version: 2, legacy });
+}
+
 export async function savePersonal(profile: Personal): Promise<void> {
   const db = getDb();
   await db.transaction('rw', db.progress, async () => {
-    const { owned, ownedAvatar } = await loadPersonal();
-    await writeProgress('personal.profile', normalizePersonal(profile, owned, ownedAvatar));
+    const { owned, ownedAvatar, ownedGround, legacy } = await loadPersonal();
+    await preserveOwnership(legacy);
+    await writeProgress(
+      'personal.profile',
+      normalizePersonal(profile, owned, ownedAvatar, ownedGround),
+    );
   });
   emitDbChange('progress');
 }
@@ -123,23 +161,33 @@ export async function savePersonal(profile: Personal): Promise<void> {
 export async function saveAvatarLook(look: AvatarLook): Promise<void> {
   const db = getDb();
   await db.transaction('rw', db.progress, async () => {
-    const { profile, ownedAvatar } = await loadPersonal();
+    const { profile, ownedAvatar, legacy } = await loadPersonal();
+    await preserveOwnership(legacy);
     await writeProgress('personal.profile', { ...profile, ...normalizeAvatar(look, ownedAvatar) });
   });
   emitDbChange('progress');
 }
 
 /** 이름 또는 배치만 저장해도 최신 아바타와 다른 마당 설정을 보존한다. */
-export async function saveGarden(garden: Partial<Pick<Personal, 'name' | 'slots'>>): Promise<void> {
+export async function saveGarden(
+  garden: Partial<HorizonLook & Pick<Personal, 'name'>>,
+): Promise<void> {
   const db = getDb();
   await db.transaction('rw', db.progress, async () => {
-    const { profile, owned, ownedAvatar } = await loadPersonal();
+    const { profile, owned, ownedAvatar, ownedGround, legacy } = await loadPersonal();
+    await preserveOwnership(legacy);
     const next = {
       ...profile,
       name: garden.name ?? profile.name,
       slots: garden.slots ?? profile.slots,
+      ground: garden.ground ?? profile.ground,
+      sceneryEnabled: garden.sceneryEnabled ?? profile.sceneryEnabled,
+      sceneryScale: garden.sceneryScale ?? profile.sceneryScale,
     };
-    await writeProgress('personal.profile', normalizePersonal(next, owned, ownedAvatar));
+    await writeProgress(
+      'personal.profile',
+      normalizePersonal(next, owned, ownedAvatar, ownedGround),
+    );
   });
   emitDbChange('progress');
 }
@@ -155,7 +203,8 @@ export async function saveLook(index: number, name: string, look: AvatarLook): P
   checkLookIndex(index);
   const db = getDb();
   await db.transaction('rw', db.progress, async () => {
-    const { looks, ownedAvatar } = await loadPersonal();
+    const { looks, ownedAvatar, legacy } = await loadPersonal();
+    await preserveOwnership(legacy);
     looks[index] = {
       name: normalizePersonalName(name),
       avatar: normalizeAvatar(look, ownedAvatar),
@@ -169,7 +218,8 @@ export async function deleteLook(index: number): Promise<void> {
   checkLookIndex(index);
   const db = getDb();
   await db.transaction('rw', db.progress, async () => {
-    const { looks } = await loadPersonal();
+    const { looks, legacy } = await loadPersonal();
+    await preserveOwnership(legacy);
     looks[index] = null;
     await writeProgress('personal.looks', looks);
   });

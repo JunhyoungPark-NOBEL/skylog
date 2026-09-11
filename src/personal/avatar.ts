@@ -8,13 +8,32 @@ export const HATS = [
   'starcap',
   'starcrown',
   'meteorcap',
+  'crescentberet',
+  'saturnhat',
+  'planetarium',
 ] as const;
 export const AVATAR_BACKGROUNDS = ['garden', 'orion', 'moonlit', 'saturn', 'galaxy'] as const;
 export const HAIR_STYLES = ['none', 'short', 'bob', 'waves', 'ponytail'] as const;
 export const HAIR_COLORS = ['ink', 'chestnut', 'copper', 'gold', 'silver'] as const;
 export const EXPRESSIONS = ['smile', 'calm', 'joy', 'wink'] as const;
-export const OUTFITS = ['classic', 'hoodie', 'overalls', 'spacesuit'] as const;
-export const ACCESSORIES = ['none', 'binoculars', 'sketchbook', 'lantern', 'starwand'] as const;
+export const OUTFITS = [
+  'classic',
+  'hoodie',
+  'overalls',
+  'spacesuit',
+  'observatorycoat',
+  'constellationponcho',
+] as const;
+export const ACCESSORIES = [
+  'none',
+  'binoculars',
+  'sketchbook',
+  'lantern',
+  'starwand',
+  'cometscarf',
+  'planisphere',
+  'orrery',
+] as const;
 
 export const AVATAR_OPTIONS = {
   suit: SUITS,
@@ -126,7 +145,86 @@ export const AVATAR_REWARDS = [
     value: 'starwand',
     badge: 'challenge-observed-objects-25',
   },
+  { key: 'suit:lavender', category: 'suit', value: 'lavender', badge: 'badge-quiz-3' },
+  { key: 'suit:navy', category: 'suit', value: 'navy', badge: 'badge-constellations-4' },
+  { key: 'suit:ochre', category: 'suit', value: 'ochre', badge: 'badge-missions-3' },
+  { key: 'suit:rose', category: 'suit', value: 'rose', badge: 'badge-first-sketch' },
+  { key: 'hat:helmet', category: 'hat', value: 'helmet', badge: 'challenge-stages-cleared-5' },
+  { key: 'hat:bucket', category: 'hat', value: 'bucket', badge: 'badge-first-look' },
+  {
+    key: 'outfit:hoodie',
+    category: 'outfit',
+    value: 'hoodie',
+    badge: 'challenge-observation-nights-3',
+  },
+  {
+    key: 'outfit:overalls',
+    category: 'outfit',
+    value: 'overalls',
+    badge: 'challenge-detailed-objects-5',
+  },
+  {
+    key: 'hat:crescentberet',
+    category: 'hat',
+    value: 'crescentberet',
+    badge: 'challenge-observation-nights-10',
+  },
+  {
+    key: 'hat:saturnhat',
+    category: 'hat',
+    value: 'saturnhat',
+    badge: 'challenge-quiz-mastered-25',
+  },
+  {
+    key: 'hat:planetarium',
+    category: 'hat',
+    value: 'planetarium',
+    badge: 'challenge-stages-perfect-5',
+  },
+  {
+    key: 'outfit:observatorycoat',
+    category: 'outfit',
+    value: 'observatorycoat',
+    badge: 'challenge-stages-cleared-20',
+  },
+  {
+    key: 'outfit:constellationponcho',
+    category: 'outfit',
+    value: 'constellationponcho',
+    badge: 'challenge-constellation-count-12',
+  },
+  {
+    key: 'accessory:cometscarf',
+    category: 'accessory',
+    value: 'cometscarf',
+    badge: 'badge-quiz-10',
+  },
+  {
+    key: 'accessory:planisphere',
+    category: 'accessory',
+    value: 'planisphere',
+    badge: 'badge-quiz-5',
+  },
+  {
+    key: 'accessory:orrery',
+    category: 'accessory',
+    value: 'orrery',
+    badge: 'challenge-stages-cleared-40',
+  },
 ] as const satisfies readonly AvatarReward[];
+
+/** build19까지 무료였던 선택의 고정 목록. 새 사용자의 기본 소유권으로 사용하지 않는다. */
+export const LEGACY_FREE_AVATAR_OPTIONS: ReadonlySet<string> = new Set([
+  ...SUITS.map((value) => `suit:${value}`),
+  ...SKINS.map((value) => `skin:${value}`),
+  ...['none', 'beanie', 'helmet', 'bucket'].map((value) => `hat:${value}`),
+  ...HAIR_STYLES.map((value) => `hair:${value}`),
+  ...HAIR_COLORS.map((value) => `hairColor:${value}`),
+  ...EXPRESSIONS.map((value) => `expression:${value}`),
+  ...['classic', 'hoodie', 'overalls'].map((value) => `outfit:${value}`),
+  'accessory:none',
+  'background:garden',
+]);
 
 export const FREE_AVATAR_OPTIONS: ReadonlySet<string> = new Set(
   Object.entries(AVATAR_OPTIONS).flatMap(([category, values]) =>

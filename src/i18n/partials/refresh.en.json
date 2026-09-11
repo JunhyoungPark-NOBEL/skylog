@@ -14,8 +14,8 @@
     "dew": "Dew may form on lenses from around {{time}}.",
     "weatherDetails": "Humidity & cloud layers",
     "unavailable": "No forecast is available for this time. You can still explore the night sky.",
-    "landscape": "Meadow landscape",
-    "landscapeHelp": "An illustrative meadow, not your real site. Look down to gradually see through the scenery and ground.",
+    "landscape": "My decorated horizon",
+    "landscapeHelp": "Show your chosen ground and decorations. Look down to gradually see through the scenery and ground.",
     "noDarkSky": "No fully dark window",
     "clear": "Fewer clouds from {{from}} to {{to}}.",
     "cloudy": "Mostly cloudy during this time."

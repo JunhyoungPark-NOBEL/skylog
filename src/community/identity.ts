@@ -1,9 +1,11 @@
 import { AVATAR_OPTIONS, normalizeAvatar, type AvatarLook } from '@/personal/avatar';
 import { communityClient } from './client';
+import { normalizePublicHorizon, type HorizonLook } from '@/personal/catalog';
 
 export interface CommunityIdentity {
   name: string;
   avatar: AvatarLook;
+  horizon?: HorizonLook;
 }
 
 const SAFE_OPTIONS = new Set(
@@ -24,7 +26,13 @@ export function publicNickname(value: unknown): string {
 /** 다른 작성자의 보상은 검증된 선택값으로 표시한다. 서버 검증 성취나 결제 권한을 뜻하지 않는다. */
 export function communityIdentity(value: unknown): CommunityIdentity {
   const v = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
-  return { name: publicNickname(v.name), avatar: normalizeAvatar(v.avatar, SAFE_OPTIONS) };
+  return {
+    name: publicNickname(v.name),
+    avatar: normalizeAvatar(v.avatar, SAFE_OPTIONS),
+    ...(v.horizon && typeof v.horizon === 'object'
+      ? { horizon: normalizePublicHorizon(v.horizon) }
+      : {}),
+  };
 }
 
 export async function readCommunityIdentities(
@@ -33,23 +41,30 @@ export async function readCommunityIdentities(
 ): Promise<Record<string, CommunityIdentity>> {
   const owners = [...new Set(ids)];
   if (!owners.length) return {};
-  let query = communityClient().from('sky_members').select('id,name,avatar').in('id', owners);
+  let query = communityClient()
+    .from('sky_members')
+    .select('id,name,avatar,horizon')
+    .in('id', owners);
   if (signal) query = query.abortSignal(signal);
   const result = await query;
   // 마이그레이션 전 서버와 구버전 작성자는 이름과 기본 초상으로 읽을 수 있다.
   if (result.error?.code === '42703') {
-    let legacy = communityClient().from('sky_members').select('id,name').in('id', owners);
+    let legacy = communityClient().from('sky_members').select('id,name,avatar').in('id', owners);
     if (signal) legacy = legacy.abortSignal(signal);
-    const old = await legacy;
+    let old = await legacy;
+    if (old.error?.code === '42703') {
+      let names = communityClient().from('sky_members').select('id,name').in('id', owners);
+      if (signal) names = names.abortSignal(signal);
+      old = (await names) as typeof old;
+    }
     if (old.error) throw new Error(old.error.message);
     return Object.fromEntries((old.data ?? []).map((row) => [row.id, communityIdentity(row)]));
   }
   if (result.error) throw new Error(result.error.message);
   return Object.fromEntries(
-    (result.data as { id: string; name: unknown; avatar: unknown }[]).map((row) => [
-      row.id,
-      communityIdentity(row),
-    ]),
+    (result.data as { id: string; name: unknown; avatar: unknown; horizon: unknown }[]).map(
+      (row) => [row.id, communityIdentity(row)],
+    ),
   );
 }
 
@@ -57,13 +72,18 @@ export async function saveCommunityIdentity(
   name: string,
   avatar: AvatarLook,
   expectedUser: string,
+  horizon?: HorizonLook,
 ): Promise<void> {
   const nickname = publicNickname(name);
   if (!nickname) throw new Error('INVALID_PROFILE');
-  const result = await communityClient().rpc('sky_update_profile', {
-    display_name: nickname,
-    look: avatar,
-    expected_user: expectedUser,
-  });
+  const result = await communityClient().rpc(
+    horizon ? 'sky_update_profile_v2' : 'sky_update_profile',
+    {
+      display_name: nickname,
+      look: avatar,
+      expected_user: expectedUser,
+      ...(horizon ? { scenery: normalizePublicHorizon(horizon) } : {}),
+    },
+  );
   if (result.error) throw new Error(result.error.message);
 }
