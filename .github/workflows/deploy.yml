@@ -36,6 +36,7 @@ jobs:
       - run: pnpm test
       - run: node tests/backend/community.test.mjs
       - run: node tests/backend/community-identity.test.mjs
+      - run: node tests/backend/horizon.test.mjs
       - run: node tests/backend/entitlements.test.mjs
       - run: pnpm build
         env:

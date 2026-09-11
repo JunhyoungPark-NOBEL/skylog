@@ -86,7 +86,7 @@ export function decorationSvg(id: DecorationId): string {
         .join('');
       break;
     case 'fern':
-      art = `<path d="M0 2q-7-26 3-70" fill="none" stroke="#54755d" stroke-width="3"/>${[-55, -43, -30, -17].map((y, i) => `<path d="M0 ${y}q${-20 - i * 3}-21 ${-23 - i * 2}-11Q-23 ${y + 6}0 ${y + 7}q30 0 ${26 + i * 2}-20Q9 ${y - 13}0 ${y}" fill="${i % 2 ? '#829c7e' : '#627f67'}"/>`).join('')}<path d="M-15 2q-18-9-17-27m47 27q20-11 16-28" stroke="#6f8a6d" stroke-width="3" fill="none"/>`;
+      art = `<path d="M0 2q-7-26 3-70" fill="none" stroke="#54755d" stroke-width="3"/>${[-55, -43, -30, -17].map((y, i) => `<path d="M0 ${y}q${-20 - i * 3}-21 ${-23 - i * 2}-11Q-23 ${y + 6} 0 ${y + 7}q30 0 ${26 + i * 2}-20Q9 ${y - 13} 0 ${y}" fill="${i % 2 ? '#829c7e' : '#627f67'}"/>`).join('')}<path d="M-15 2q-18-9-17-27m47 27q20-11 16-28" stroke="#6f8a6d" stroke-width="3" fill="none"/>`;
       break;
     case 'stones':
       art = `<path d="M-51-5l9-15 21-4 18 16-7 13h-31z" fill="#899999"/><path d="M-22-11l12-22 21-5 21 23-8 16H-8z" fill="#b0bcb6"/><path d="M16 0l8-16 21-3 12 15-9 8H25z" fill="#7b8e8e"/><path d="M-10-32l10 17 26 1M-43-20l8 10 17-2" stroke="#d0d4c4" fill="none" stroke-width="2" opacity=".55"/>`;

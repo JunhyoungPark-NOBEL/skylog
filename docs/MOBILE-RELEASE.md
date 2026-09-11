@@ -1,5 +1,17 @@
 # Android AAB / iOS 출시 준비
 
+## beta.15 / build20 — 하늘과 연결되는 지평선 꾸미기 (수정 전 검증 이력)
+
+- **구현**: 장식21종·지면4종·아바타 보상28개. 벤치·식탁·정자와 굴절/반사/돕소니안/SCT 등 서로 다른 장비를 남쪽 다섯 자리에 놓는다. 장식은 고도0° 아래에만 보이며 크기·숨김·지면 투명도·야간 적색을 반영한다. 프로필은 지평선과 아바타를 함께, 댓글은 아바타만 표시한다. 이전 무료 코디·장식과 획득한 보상은 보존하며 신규 기본 무료 선택을 줄였다. [설계·보존 기준](HORIZON-PROFILES.md).
+- **소스**: `b320642293d86b4e1e16a8f9c968d893ebc8b1b7`, `0.1.0-beta.15`/versionCode20, 앱ID `io.github.junhyoungparknobel.skylog`, min24/target36. 새 외형을 구매 상품으로 만들거나 실제 결제·광고·SMTP를 변경하지 않았다.
+- **검사**: 타입·전체 lint·포맷·전체99파일/733단위 통과. 정적 PWA 관련 Chromium26개(오프라인1개 포함), 실제 WebGL7개, PostgreSQL/RLS78개(기존46+지평선32) 통과. 360px·영어125%·야간 색·기존 소유권·계정 전환·공개 프로필·오프라인 저장/재실행을 확인했다. 모달 그림 클릭 후 Escape와 야간 글자색 문제를 발견해 수정하고 회귀 검증했다.
+- **서버**: migration202609110001 적용, 함수3개 본문이 로컬 SQL과 일치. 기존 회원1·사진0·댓글0와 기존 회원 데이터 지문을 보존했고 실제 사용자 프로필을 게시하지 않았다. 익명 RPC 차단·회원 자체 변경·enum 검증과 한영 공개 안내를 확인했다.
+- **APK**: [다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.15-build20/skylog-0.1.0-beta.15-build20-local-test.apk), **21,446,107bytes**, SHA256 `4056a741abc1d3b1732f6152c1e9bad543704f9c0747d7d171412e3aeff87837`. build19와 같은 개인 인증서·16KB 정렬·메타데이터를 검증했고 공개 재다운로드가 로컬 파일과 완전히 일치한다.
+- **Play 제출 AAB**: `skylog-0.1.0-beta.15-build20-play-signed.aab`, **20,836,038bytes**, SHA256 `4ef9fe1f9bf3644bcd68f32836cf9d465fe61ae2290a589d28c98df90ebf9bf0`. 기존 업로드 키·RSA4096/SHA256withRSA·jarsigner strict·bundletool 통과. payload1077개 전체 서명/무서명 원본 일치, 미서명payload0. 로컬 `Downloads/skylog-release-0.1.0-beta.15-build20/`에 제공하며 Console 업로드는 수행하지 않았다.
+- **내장 자료**: 무서명 원본 **20,737,126bytes**, SHA256 `31e4666dc6a0e6cda82885f6866a46971172f7c9c9ad1143e98646be998b1ee4` 보존. native572개·소스public480개·사진164개/파생328개의 AAB/APK/로컬 Android/iOS 일치를 확인했다. Android lint 오류0·경고32. 키·암호는 배포 폴더에 포함하지 않았다.
+- **공개 검수 후 수정**: Pages34555024724 배포와 다섯 기능 검사는 통과했지만 모든 잠긴 장식 미리보기에서 고사리 SVG 좌표 구분자 누락에 따른 console 오류4개를 발견했다. 이 빌드는 보존하고 수정된 beta.16/build21을 최종 제공한다. 오류 로그·그림은 artifacts/qa-build20/public-first-attempt-b320/에 보존한다.
+- **실기기 확인**: 기존 앱 삭제 없이 업데이트 → 프로필에서 장식을 옮기고 하늘로 돌아오기 → 센서 이동 중 크기·야간 표시 → 앱 재실행 후 코디·기록 보존. 실제 휴대폰 센서/터치감, iPhone 비행기 모드 재실행, Apple 서명/TestFlight·Play 심사·실결제는 별도다.
+
 ## beta.14 / build19 — 선행 문제·문맥 용어 설명·이야기 이미지
 
 - **소스**: `c31c615e89dafeb64af48ee1095d571265d178e9`, `0.1.0-beta.14`/versionCode19, 기존 앱ID·min24/target36 유지. 기존 30문제 앞의 준비 문제60개, 용어 홀딩·탭·키보드 설명, 주제별 도해와 로컬 수식 조판, 이야기 사진/좌표 도해를 추가했다. 아래첨자는 직립체다. 기존 원답·정답·허용오차·메모·진도와 광고 없는 Plus 베타 미리보기를 유지한다.

@@ -1,12 +1,12 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-11 · beta.15/build20 지평선 꾸미기·공개 프로필·해금 보상 확장, 출시 빌드 검증 중
+> 마지막 갱신: 2026-09-11 · beta.16/build21 지평선 꾸미기·공개 프로필·해금 보상 확장, 최종 그림 오류 수정 검증 중
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
 - 앱: https://junhyoungpark-nobel.github.io/skylog/ · 내 프로필: https://junhyoungpark-nobel.github.io/skylog/#/profile
-- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.14-build19
+- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.15-build20
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
@@ -16,7 +16,7 @@
 - 장식21개(벤치·식탁·정자·서로 다른 망원경 등), 지면4개, 아바타 보상28개. 신규 기본 지평선은 남쪽 벤치1개·잔디이며 나머지 장식20개·지면3개는 기존 활성 업적으로 해금한다. 예전 무료 코디·장식과 획득 보상은 ownership-v2 이관으로 보존하고 신규 저장을 기존 사용자로 오인하지 않는다.
 - 장식은 고도0° 아래에서 기존 지면에 한 번만 합성하며 카메라·센서 갱신마다 이미지를 만들지 않는다. 단일 불투명도, 야간 적색, 아래 보기 페이드, 원형 줌아웃, DB 갱신 경합·WebGL 복구를 검증했다. 360px 초기 화면에서 벤치가 하단 UI 위에 보이며 기존 카메라 기본값을 유지했다.
 - 공개 동기화는 enum만 보낸다. SQL migration202609110001을 운영 서버에 적용하고 회원1·사진0·댓글0 및 기존 회원 지문을 보존했다. RLS·익명 RPC 차단·계정 경합과 한영 개인정보 안내를 갱신했다. 함수3개 본문이 로컬 SQL과 일치하며 실제 사용자 프로필은 게시하지 않았다.
-- 현재 타입·lint·웹 빌드, 전체 99파일/732개 단위와 AuthorIdentity 추가 회귀 1개(고유 733개), 정적 PWA 관련 Chromium 16개, 로컬 PostgreSQL 32개, 실제 WebGL 7개 점검이 통과했다. 추가 브라우저 검사 9개는 진행 중이며 최종 서명·배포·CI 결과는 아직 확정하지 않았다. 꾸미기 구매·광고·실결제·SMTP 설정은 변경하지 않는다. 설명/보존 기준: docs/HORIZON-PROFILES.md.
+- 타입·전체 lint·포맷·PWA 빌드·전체99파일/733단위, 관련 Chromium26개(오프라인1 포함), PostgreSQL/RLS78개, 실제 WebGL7개 통과. 모달 그림 클릭 후 Escape와 야간 글자색을 실제 브라우저에서 수정·회귀 검증했다. 꾸미기 구매·광고·실결제·SMTP 설정은 변경하지 않았다. 설명/보존 기준: docs/HORIZON-PROFILES.md.
 - 실제 서비스워커를 사용한 오프라인 지평선 E2E 1개 통과(9.9초). 온라인 벤치 배치 저장 → 오프라인 재실행 → 다른 자리로 이동·크기 변경 → 하늘 첫 렌더 → 다시 실행해 보존을 확인했다. 오프라인 문서 2회 모두 HTTP 200·서비스워커 응답이며 WebGL 컨텍스트 정상, 외부 요청·서버 쓰기·JavaScript 오류 0이다. 저장한 남동쪽 144°의 벤치가 실제 하늘 지면에 보이는 캡처를 직접 검수했다. `artifacts/qa-build20/horizon-offline.log`, `horizon-offline-results/` 참고. 물리 휴대폰 검증과 구분한다.
 
 ## 이전 작업 보고 (2026-09-11 · 선행 문제로 배우는 역사 천체물리)
@@ -77,11 +77,11 @@
 
 ## 다음 세션이 알아야 할 것
 
-- **현재 작업**: 스카이야드 beta.12/build17 서명 AAB·개인 APK·PWA 준비 완료. 앱 소스 830c974bebeab0e873925ba58b0bd8a01798de6e. Play 최초 업로드용 현재 PC 키를 재사용한다. 다음은 docs/STORE-LAUNCH-CHECKLIST.md의 SMTP/운영·심사·12명14일 테스트·Apple 서명·실폰 검증.
+- **현재 작업**: 스카이야드 beta.15/build20 지평선 개편·서명 AAB·개인 APK 완성. 소스 b320642293d86b4e1e16a8f9c968d893ebc8b1b7. 앱 첫 하늘/개인·공개 프로필이 같은 장식을 사용하며 댓글은 아바타만 표시한다(D-067). Play 업로드 키와 개인 APK 키를 각각 그대로 재사용한다. 최신 검사/배포 결과는 이 문서 맨 위와 docs/MOBILE-RELEASE.md를 따른다.
 
-- **우선 사항**: 현재 모든 기능과 이번 아바타 확장은 무료(D-048/D-052). 최신 유료화 계획은 D-054와 MONETIZATION-PLAN의 향후 난이도2·3/망원경 코스이며 현재 잠금·결제는 미구현이다. D-053 외형 팩/가격은 이전 제안이다. 서버/코드는 실제 구현됨. Supabase 프로젝트 ijxuwtbcwifttiuwvqrh/서울. 현재 PC의 대시보드 로그인과 정확한 앱 복귀 주소 저장을 확인했다. CLI 인증은 현재 PC에서 확인되지 않았으므로 대시보드 인증과 구분한다. 일반 가입용 SMTP와 운영자 실제 앱 계정 지정이 남았다. 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. GitHub 변수는 공개 URL/키만 포함. 백업은 수동 스냅샷으로 자동 동기화가 아니다. 자세한 절차는 docs/FREE-COMMUNITY.md.
+- **우선 사항**: 최신 유료화는 D-064, ₩9,900 1회 구매 계획이다. 현재 무료 베타 미리보기이며 구매 브리지/권한 검사는 구현했지만 실제 상품·purchases 서버·환불 재검증·일반 SMTP·두 사람의 무상 grant는 미완료다. D-053~054는 이전 설계 이력이다. docs/BILLING-SETUP.md·MONETIZATION-PLAN.md를 따른다. Supabase ijxuwtbcwifttiuwvqrh/서울 대시보드 인증으로 지평선 migration202609110001까지 적용했다. 대시보드 인증은 CLI 인증과 구분하며 일반 가입·숫자 메일 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. 공개 프로필만 사용자가 명시적으로 동기화하며 개인 백업은 수동 스냅샷이다.
 
-- 최신 풍경은 D-045와 docs/LANDSCAPE-REFINEMENT.md, 실제 무료 서비스는 D-048~051과 docs/FREE-COMMUNITY.md. COMMUNITY-AND-CUSTOMIZATION.md의 가격 후보는 이전 설계 이력이다. 개인 APK 키는 보존한다. Play는 최초 업로드라는 사용자 확인과 이 PC 작업 요청으로 새 전용키를 준비했다(D-061). 과거 집 PC 키 대기 기록보다 이 결정을 우선하며 등록 후 업로드키를 임의 변경하지 않는다.
+- 최신 지평선은 D-067과 docs/HORIZON-ART.md·HORIZON-PROFILES.md가 정본이다. D-045의 실제 잔디 이미지와 독립 마당 설계는 이전 이력이다. 개인 APK 키는 보존한다. Play는 최초 업로드 전이라는 확인에 따라 현재 PC에서 마련한 전용키를 재사용한다(D-061). Console 등록 뒤에도 키를 임의 변경하지 않는다.
 
 - **학습 탐색/스테이지(D-026)**: features/learn의 LearnScreen → QuizJourney/CoursesScreen/StoriesScreen/AchievementsScreen. 해시 section/path/mission/chapter로 복원하며 하단 탭 복귀 시 마지막 배우기 경로 유지. stageCatalog는 144문항을 중복 없이 고정한 28단계, 정답률 80% 해제·60/80/100% 별, 개인 합계는 단계별 최고점만. stage/question 버전을 함께 검증하며 마지막 응답과 완료 기록은 원자 저장. 기존 미션/응답/복습/관측 유지, 새 도장은 새 여정을 완주해야 획득한다. 리더보드는 아직 로컬 점수 기반만 준비됨.
 - **하늘 설정(D-038)**: `groundOpacity` 기본1, 단일 슬라이더와 기본값 복원. 불투명도1이면 지평선 아래 표시·선택을 함께 막고1 미만이면 함께 허용한다. layers persist v2로 이전 옵션을 이관한다. 기본 경계 false·은하수0.33·별 채도1, 저장된 커스텀 설정은 보존한다. 실제 관측 가능 판정은 그대로다.
@@ -98,7 +98,7 @@
 - **UI 규칙(D-021)**: 새 화면은 `docs/ARCHITECTURE.md` "UI 디자인 시스템 v2"와 토큰(`theme.css`)만 쓴다. 검색/오늘 밤/기록은 App의 `pt-status pb-tab` 래퍼를 쓴다. 배우기는 D-026: 자체 고정 제목·상단 4개 메뉴 + ScrollArea(pb-tab), 위치/센서 상태바는 생략한다. 카피는 D-021 용어집(해요체·평이한 용어)을 따른다.
 - **스크롤 규칙(D-022)**: 세로 스크롤 영역은 `ui/ScrollArea.tsx`(마우스 드래그 스크롤·관성·페이드 오버레이)로 만든다. 스크롤러에 `mask-image`를 걸지 않는다. 드래그 스크롤이 닿으면 안 되는 컨트롤은 `touch-action: none` 또는 `data-drag-scroll="off"`. 사용자 보고("스크롤이 뻑뻑하고 스크롤 바를 정확히 눌러야 함")에 대한 수정이며, 실기기 확인은 T3b 체크리스트의 스크롤 항목으로 받는다.
 - **주의(이 세션에서 겪은 것)**: 워크플로 에이전트가 "코드 스케치를 써 달라"는 프롬프트를 실제 경로에 파일을 만들었다가 지우는 바람에 `src/astro/phenomena.ts`가 사라진 적이 있다. 리서치용 에이전트 프롬프트에는 **"파일을 만들거나 고치지 말 것"**을 명시한다.
-- **최신 검증**: 문서 맨 위 beta.12/build17 보고를 따른다. 이전 build9 수치는 당시 검증 이력이다. T8 청크 분할·실기기 센서/성능은 잔여다.
+- **최신 검증**: 문서 맨 위 beta.15/build20 보고를 따른다. 이전 버전 수치는 당시 이력이며 실제 휴대폰 센서/성능·일반 SMTP·스토어 심사·Apple 서명은 별도다.
 - 데이터 원본(`data-src/raw/`)은 gitignore이며 새 환경에서 재생성할 때 원본 확보가 필요하다. 현재 실행 경로와 pnpm PATH는 위 **환경** 항목을 따른다. 과거 OneDrive PC 경로를 현재 작업 경로로 사용하지 않는다.
 - **사용자 장비**: 솔로몬 HQ 8×42 ED, SVBONY SV48P 102mm(제조사 초점거리663mm). 사용자 요청으로 쌍안경 시야7.50°·접안25mm/52°는 시작 예시이며 직접 입력하도록 한다. 마운트/실제 접안 사양은 확정하지 않았다. 관측지는 자동 GPS 또는 사용자가 고른 저장 장소·보이는 범위를 따른다.
 
