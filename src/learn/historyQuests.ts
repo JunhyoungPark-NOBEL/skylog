@@ -83,10 +83,13 @@ export const HISTORY_QUESTS: HistoryQuest[] = [
             'The central angle equals the difference in zenith angles.',
           ),
           text(
-            '호의 길이/둘레 = 중심각/360°를 쓴다.',
-            'Use arc length/circumference = central angle/360°.',
+            String.raw`호의 길이와 둘레, 중심각을 \(s/C=\theta/360^\circ\)로 연결한다.`,
+            String.raw`Relate arc length, circumference, and central angle using \(s/C=\theta/360^\circ\).`,
           ),
-          text('C = 800.0 × 360 / 7.200을 계산한다.', 'Evaluate C = 800.0 × 360 / 7.200.'),
+          text(
+            String.raw`\(C=800.0\times360/7.200\)을 계산한다.`,
+            String.raw`Evaluate \(C=800.0\times360/7.200\).`,
+          ),
         ],
         answer: 40000,
         tolerance: 5,
@@ -94,23 +97,26 @@ export const HISTORY_QUESTS: HistoryQuest[] = [
         inputHelp: numberHelp,
         workedSteps: [
           text('7.200°는 한 바퀴의 1/50이다.', '7.200° is 1/50 of a full turn.'),
-          text('따라서 C = 50 × 800.0 = 40,000 km다.', 'Therefore C = 50 × 800.0 = 40,000 km.'),
+          text(
+            String.raw`따라서 \(C=50\times800.0=40{,}000\,\mathrm{km}\)다.`,
+            String.raw`Therefore \(C=50\times800.0=40{,}000\,\mathrm{km}\).`,
+          ),
           text(
             '이 값의 정밀도는 입력 거리·각도와 구형 가정의 정밀도를 넘을 수 없다.',
             'Its precision cannot exceed that of the baseline, angles, and spherical approximation.',
           ),
         ],
         explanation: text(
-          '둘레와 반지름을 혼동하지 않는다. 반지름을 원한다면 이 결과를 2π로 나눠야 한다. 지구가 구형이라는 가정을 쓴 계산이지, 이 두 숫자만으로 모든 가능한 지구 모형을 배제한 증명은 아니다.',
-          'Do not confuse circumference with radius: divide this result by 2π for the radius. The calculation assumes a spherical Earth; these two numbers alone do not rule out every alternative geometric model.',
+          String.raw`둘레와 반지름을 혼동하지 않는다. 반지름을 원한다면 이 결과를 \(2\pi\)로 나눠야 한다. 지구가 구형이라는 가정을 쓴 계산이지, 이 두 숫자만으로 모든 가능한 지구 모형을 배제한 증명은 아니다.`,
+          String.raw`Do not confuse circumference with radius: divide this result by \(2\pi\) for the radius. The calculation assumes a spherical Earth; these two numbers alone do not rule out every alternative geometric model.`,
         ),
       },
       {
         id: 'eratosthenes-uncertainty',
         type: 'numeric',
         prompt: text(
-          's = 800 ± 8 km, θ = 7.20 ± 0.12°가 서로 독립인 1σ 측정값이다. 1차 오차 전파로 구한 C = 360s/θ의 상대 표준불확도는 몇 %인가?',
-          'Independent 1σ measurements give s = 800 ± 8 km and θ = 7.20 ± 0.12°. Using first-order propagation, what is the relative standard uncertainty of C = 360s/θ, in percent?',
+          String.raw`\(s=(800\pm8)\,\mathrm{km}\), \(\theta=(7.20\pm0.12)^\circ\)가 서로 독립인 \(1\sigma\) 측정값이다. 1차 오차 전파로 구한 \(C=360s/\theta\)의 상대 표준불확도는 몇 %인가?`,
+          String.raw`Independent \(1\sigma\) measurements give \(s=(800\pm8)\,\mathrm{km}\) and \(\theta=(7.20\pm0.12)^\circ\). Using first-order propagation, what is the relative standard uncertainty of \(C=360s/\theta\), in percent?`,
         ),
         context: text(
           '교육용 통계 모형. 작은 독립 무작위 오차만 고려하며, 도시의 경도 차나 구형 근사 같은 계통오차는 제외한다.',
@@ -121,10 +127,13 @@ export const HISTORY_QUESTS: HistoryQuest[] = [
             '곱과 나눗셈의 독립 오차는 상대오차의 제곱을 합친다.',
             'For products and ratios, independent fractional variances add.',
           ),
-          text('(σC/C)² = (σs/s)² + (σθ/θ)²다.', '(σC/C)² = (σs/s)² + (σθ/θ)².'),
           text(
-            '100 × √[(8/800)² + (0.12/7.20)²]를 계산한다.',
-            'Evaluate 100 × √[(8/800)² + (0.12/7.20)²].',
+            String.raw`\((\sigma_{C}/C)^2=(\sigma_{s}/s)^2+(\sigma_{\theta}/\theta)^2\)다.`,
+            String.raw`\((\sigma_{C}/C)^2=(\sigma_{s}/s)^2+(\sigma_{\theta}/\theta)^2\).`,
+          ),
+          text(
+            String.raw`\(100\sqrt{(8/800)^2+(0.12/7.20)^2}\)를 계산한다.`,
+            String.raw`Evaluate \(100\sqrt{(8/800)^2+(0.12/7.20)^2}\).`,
           ),
         ],
         answer: 1.9436506316,
@@ -154,8 +163,8 @@ export const HISTORY_QUESTS: HistoryQuest[] = [
         id: 'eratosthenes-baseline',
         type: 'choice',
         prompt: text(
-          '작은 구역의 평면 근사에서 두 도시를 잇는 길 s가 남북 방향과 30°를 이룬다. 천정각 차는 남북 성분에 해당하는데, 계산에 전체 s를 넣었다. 둘레에는 어떤 편향이 생기는가?',
-          'In a local flat approximation, a baseline s makes 30° with north–south. The zenith-angle difference measures only the north–south component, but the calculation uses the full s. What bias results?',
+          String.raw`작은 구역의 평면 근사에서 두 도시를 잇는 길 \(s\)가 남북 방향과 30°를 이룬다. 천정각 차는 남북 성분에 해당하는데, 계산에 전체 \(s\)를 넣었다. 둘레에는 어떤 편향이 생기는가?`,
+          String.raw`In a local flat approximation, a baseline \(s\) makes 30° with north–south. The zenith-angle difference measures only the north–south component, but the calculation uses the full \(s\). What bias results?`,
         ),
         context: text(
           '실제 알렉산드리아–시에네의 좌표를 재현한 문제가 아니다. 수평 성분과 관측량을 일치시켜야 한다는 교육용 반례다.',
@@ -174,8 +183,8 @@ export const HISTORY_QUESTS: HistoryQuest[] = [
           {
             id: 'half',
             label: text(
-              '30°/360°이므로 약 8.3% 크게 나온다.',
-              'It is about 8.3% too large, from 30°/360°.',
+              String.raw`\(30^\circ/360^\circ\)이므로 약 8.3% 크게 나온다.`,
+              String.raw`It is about 8.3% too large, from \(30^\circ/360^\circ\).`,
             ),
           },
         ],
@@ -186,19 +195,22 @@ export const HISTORY_QUESTS: HistoryQuest[] = [
             'The north–south component is shorter than the full baseline.',
           ),
           text(
-            '올바른 성분은 s cos30°. 잘못된 값/올바른 값 = 1/cos30°다.',
-            'The correct component is s cos30°. Wrong/correct = 1/cos30°.',
+            String.raw`올바른 성분은 \(s\cos30^\circ\). 잘못된 값/올바른 값 = \(1/\cos30^\circ\)다.`,
+            String.raw`The correct component is \(s\cos30^\circ\). Wrong/correct = \(1/\cos30^\circ\).`,
           ),
-          text('(1/0.866025 − 1) × 100 ≈ 15.47%다.', '(1/0.866025 − 1) × 100 ≈ 15.47%.'),
+          text(
+            String.raw`\((1/0.866025-1)\times100\approx15.47\%\)다.`,
+            String.raw`\((1/0.866025-1)\times100\approx15.47\%\).`,
+          ),
         ],
         workedSteps: [
           text(
-            '올바른 둘레는 C = 360s cos30°/θ다.',
-            'The correct circumference is C = 360s cos30°/θ.',
+            String.raw`올바른 둘레는 \(C=360s\cos30^\circ/\theta\)다.`,
+            String.raw`The correct circumference is \(C=360s\cos30^\circ/\theta\).`,
           ),
           text(
-            '계산에 전체 s를 쓰면 비율이 1/cos30° ≈ 1.1547이 된다.',
-            'Using the full s gives a ratio of 1/cos30° ≈ 1.1547.',
+            String.raw`계산에 전체 \(s\)를 쓰면 비율이 \(1/\cos30^\circ\approx1.1547\)이 된다.`,
+            String.raw`Using the full \(s\) gives a ratio of \(1/\cos30^\circ\approx1.1547\).`,
           ),
           text(
             '무작위 오차를 줄여도 이 기하학적 편향은 남는다.',
@@ -249,8 +261,8 @@ HISTORY_QUESTS.push({
         'A binary’s relative orbit has semimajor axis 4.00 AU and period 2.00 years. What is its total mass in solar masses?',
       ),
       context: text(
-        '가상의 고립된 뉴턴 두 물체계다. AU·년·태양질량 단위에서 M₁+M₂ = a³/P²를 사용한다. a는 한 별의 질량중심 궤도가 아니라 두 별 사이 거리의 궤도다.',
-        'Use an ideal isolated Newtonian binary and M₁+M₂ = a³/P² in AU, years, and solar masses. Here a describes their separation, not one star’s orbit about the barycenter.',
+        String.raw`가상의 고립된 뉴턴 두 물체계다. AU·년·태양질량 단위에서 \(M_1+M_2=a^3/P^2\)를 사용한다. \(a\)는 한 별의 질량중심 궤도가 아니라 두 별 사이 거리의 궤도다.`,
+        String.raw`Use an ideal isolated Newtonian binary and \(M_1+M_2=a^3/P^2\) in AU, years, and solar masses. Here \(a\) describes their separation, not one star’s orbit about the barycenter.`,
       ),
       hints: [
         text(
@@ -261,15 +273,21 @@ HISTORY_QUESTS.push({
           '쌍성에서는 중심 질량 대신 두 질량의 합이 들어간다.',
           'For a binary, the relevant mass is the sum of both masses.',
         ),
-        text('4.00³/2.00²를 계산한다.', 'Evaluate 4.00³/2.00².'),
+        text(String.raw`\(4.00^3/2.00^2\)를 계산한다.`, String.raw`Evaluate \(4.00^3/2.00^2\).`),
       ],
       answer: 16,
       tolerance: 0.02,
       unit: 'M☉',
       inputHelp: numberHelp,
       workedSteps: [
-        text('상대 궤도의 a³ = 64 AU³다.', 'The relative orbit gives a³ = 64 AU³.'),
-        text('P² = 4년²이므로 총질량은 16 M☉다.', 'P² = 4 yr², so the total mass is 16 M☉.'),
+        text(
+          String.raw`상대 궤도의 \(a^3=64\,\mathrm{AU}^3\)다.`,
+          String.raw`The relative orbit gives \(a^3=64\,\mathrm{AU}^3\).`,
+        ),
+        text(
+          String.raw`\(P^2=4\,\mathrm{yr}^2\)이므로 총질량은 16 \(M_{\odot}\)다.`,
+          String.raw`\(P^2=4\,\mathrm{yr}^2\), so the total mass is 16 \(M_{\odot}\).`,
+        ),
         text(
           '질량비 정보가 없으므로 각 별의 질량은 아직 정할 수 없다.',
           'Without a mass ratio, neither individual stellar mass is determined.',
@@ -284,8 +302,8 @@ HISTORY_QUESTS.push({
       id: 'kepler-apsis-speed',
       type: 'numeric',
       prompt: text(
-        '이심률 e = 0.600인 타원 궤도에서 근일점 속력/원일점 속력의 비는 얼마인가?',
-        'For an ellipse with eccentricity e = 0.600, what is the ratio of periapsis speed to apoapsis speed?',
+        String.raw`이심률 \(e=0.600\)인 타원 궤도에서 근일점 속력/원일점 속력의 비는 얼마인가?`,
+        String.raw`For an ellipse with eccentricity \(e=0.600\), what is the ratio of periapsis speed to apoapsis speed?`,
       ),
       context: text(
         '가상의 케플러 궤도다. 두 끝점에서 속도는 반지름 방향과 수직이다. 에너지 손실과 다른 천체의 섭동은 없다.',
@@ -294,10 +312,13 @@ HISTORY_QUESTS.push({
       hints: [
         text('같은 시간 동안 쓸고 가는 면적이 같아야 한다.', 'Equal times sweep equal areas.'),
         text(
-          '끝점에서는 rₚvₚ = rₐvₐ, rₚ = a(1−e), rₐ = a(1+e)다.',
-          'At the apsides, rₚvₚ = rₐvₐ, with rₚ = a(1−e) and rₐ = a(1+e).',
+          String.raw`끝점에서는 \(r_{p}v_{p}=r_{a}v_{a}\), \(r_{p}=a(1-e)\), \(r_{a}=a(1+e)\)다.`,
+          String.raw`At the apsides, \(r_{p}v_{p}=r_{a}v_{a}\), with \(r_{p}=a(1-e)\) and \(r_{a}=a(1+e)\).`,
         ),
-        text('vₚ/vₐ = (1+0.600)/(1−0.600)이다.', 'vₚ/vₐ = (1+0.600)/(1−0.600).'),
+        text(
+          String.raw`\(v_{p}/v_{a}=\frac{1+0.600}{1-0.600}\)이다.`,
+          String.raw`\(v_{p}/v_{a}=\frac{1+0.600}{1-0.600}\).`,
+        ),
       ],
       answer: 4,
       tolerance: 0.005,
@@ -308,48 +329,60 @@ HISTORY_QUESTS.push({
           '각운동량 보존으로 속력비는 거리비의 역수다.',
           'Conservation of angular momentum makes the speed ratio the inverse radius ratio.',
         ),
-        text('1.6/0.4 = 4다.', '1.6/0.4 = 4.'),
+        text(String.raw`\(1.6/0.4=4\)다.`, String.raw`\(1.6/0.4=4\).`),
         text(
           '중력 가속도비 16과 속력비 4를 구별한다.',
           'Distinguish the acceleration ratio, 16, from the speed ratio, 4.',
         ),
       ],
       explanation: text(
-        '서로 다른 반지름의 원궤도 속력 √(GM/r)를 한 타원의 두 끝점에 그대로 적용하면 안 된다. 두 지점은 같은 궤도 에너지를 공유한다.',
-        'Do not apply the circular-orbit speed √(GM/r) independently at the ends of one ellipse. Both points share the same orbital energy.',
+        String.raw`서로 다른 반지름의 원궤도 속력 \(\sqrt{GM/r}\)를 한 타원의 두 끝점에 그대로 적용하면 안 된다. 두 지점은 같은 궤도 에너지를 공유한다.`,
+        String.raw`Do not apply the circular-orbit speed \(\sqrt{GM/r}\) independently at the ends of one ellipse. Both points share the same orbital energy.`,
       ),
     },
     {
       id: 'kepler-flight-time',
       type: 'numeric',
       prompt: text(
-        'P = 400일, e = 0.600인 궤도에서 근일점 출발 후 이심근점이각 E = π/2에 처음 도달한다. 경과 시간은 며칠인가?',
-        'An orbit has P = 400 days and e = 0.600. How many days after periapsis does it first reach eccentric anomaly E = π/2?',
+        String.raw`\(P=400\,\mathrm{days}\), \(e=0.600\)인 궤도에서 근일점 출발 후 이심근점이각 \(E=\pi/2\)에 처음 도달한다. 경과 시간은 며칠인가?`,
+        String.raw`An orbit has \(P=400\,\mathrm{days}\) and \(e=0.600\). How many days after periapsis does it first reach eccentric anomaly \(E=\pi/2\)?`,
       ),
       context: text(
-        '교육용 궤도다. 평균근점이각 M = E − e sinE = 2πt/P이며 각도는 라디안이다. E는 태양에서 본 진근점이각과 다른 보조 각도다.',
-        'Use the educational orbit with mean anomaly M = E − e sinE = 2πt/P, in radians. E is an auxiliary angle, not the true anomaly seen from the central body.',
+        String.raw`교육용 궤도다. 평균근점이각 \(M=E-e\sin E=2\pi t/P\)이며 각도는 라디안이다. \(E\)는 태양에서 본 진근점이각과 다른 보조 각도다.`,
+        String.raw`Use the educational orbit with mean anomaly \(M=E-e\sin E=2\pi t/P\), in radians. \(E\) is an auxiliary angle, not the true anomaly seen from the central body.`,
       ),
       hints: [
         text(
-          '타원에서 E가 90°라고 해서 주기의 1/4이 지난 것은 아니다.',
-          'E = 90° does not imply that one quarter of the period has passed.',
+          String.raw`타원에서 \(E\)가 90°라고 해서 주기의 1/4이 지난 것은 아니다.`,
+          String.raw`\(E=90^\circ\) does not imply that one quarter of the period has passed.`,
         ),
-        text('먼저 M을 구하고 t = PM/(2π)에 넣는다.', 'First obtain M, then use t = PM/(2π).'),
-        text('t = 400(π/2 − 0.600)/(2π)다.', 't = 400(π/2 − 0.600)/(2π).'),
+        text(
+          String.raw`먼저 \(M\)을 구하고 \(t=PM/(2\pi)\)에 넣는다.`,
+          String.raw`First obtain \(M\), then use \(t=PM/(2\pi)\).`,
+        ),
+        text(
+          String.raw`\(t=\frac{400(\pi/2-0.600)}{2\pi}\)다.`,
+          String.raw`\(t=\frac{400(\pi/2-0.600)}{2\pi}\).`,
+        ),
       ],
       answer: 61.8028136579,
       tolerance: 0.03,
       unit: 'day',
       inputHelp: numberHelp,
       workedSteps: [
-        text('sin(π/2) = 1이므로 M = 0.9707963 rad다.', 'Since sin(π/2) = 1, M = 0.9707963 rad.'),
-        text('시간 비율은 M/(2π) ≈ 0.154507이다.', 'The elapsed fraction is M/(2π) ≈ 0.154507.'),
+        text(
+          String.raw`\(\sin(\pi/2)=1\)이므로 \(M=0.9707963\,\mathrm{rad}\)다.`,
+          String.raw`Since \(\sin(\pi/2)=1\), \(M=0.9707963\,\mathrm{rad}\).`,
+        ),
+        text(
+          String.raw`시간 비율은 \(M/(2\pi)\approx0.154507\)이다.`,
+          String.raw`The elapsed fraction is \(M/(2\pi)\approx0.154507\).`,
+        ),
         text('400일의 약 15.45%인 61.803일이 지난다.', 'About 15.45% of 400 days is 61.803 days.'),
       ],
       explanation: text(
-        '일정하게 증가하는 것은 M이다. E나 진근점이각이 아니다. 100일이라는 답은 이심률을 무시한 원궤도 직관에서 나온다.',
-        'M increases uniformly; E and true anomaly do not. The answer 100 days comes from treating an eccentric orbit as a circle.',
+        String.raw`일정하게 증가하는 것은 \(M\)이다. \(E\)나 진근점이각이 아니다. 100일이라는 답은 이심률을 무시한 원궤도 직관에서 나온다.`,
+        String.raw`\(M\) increases uniformly; \(E\) and true anomaly do not. The answer 100 days comes from treating an eccentric orbit as a circle.`,
       ),
     },
   ],
@@ -358,11 +391,11 @@ HISTORY_QUESTS.push({
 HISTORY_QUESTS.push({
   id: 'romer-light',
   title: text('이오의 시계가 늦어진 까닭', 'Why Io’s clock appeared to run late'),
-  scientist: text('올레 뢰머 · 파리 천문대', 'Ole Rømer · Paris Observatory'),
+  scientist: text('올레 뢰머 · 파리 천문대', String.raw`Ole \(R\)ømer · Paris Observatory`),
   era: '1676',
   story: text(
     '파리 천문대의 목성 위성 관측에서 카시니와 뢰머는 예측 시각과 관측 시각의 차이를 살폈다. 뢰머는 빛이 도착하는 데 시간이 걸린다는 해석을 발전시켰다. 이를 현대 단위의 정확한 광속 측정과 혼동하지 말자. 경로 길이와 사건의 시계를 구별하는 것이 이번 탐구의 핵심이다.',
-    'Cassini and Rømer studied discrepancies between predicted and observed times of Jupiter’s satellite events at Paris Observatory. Rømer developed the finite-light-time interpretation. This was not a precise modern-unit measurement of c. The challenge is to separate the event’s clock from its changing light path.',
+    String.raw`Cassini and \(R\)ømer studied discrepancies between predicted and observed times of Jupiter’s satellite events at Paris Observatory. \(R\)ømer developed the finite-light-time interpretation. This was not a precise modern-unit measurement of \(c\). The challenge is to separate the event’s clock from its changing light path.`,
   ),
   concepts: [
     text('빛의 이동 시간', 'Light-travel time'),
@@ -390,27 +423,36 @@ HISTORY_QUESTS.push({
         'After correcting comparable Io eclipse events, a 1.80 AU increase in light path produces a 1200 s increase in timing residual. What speed of light, in km/s, follows?',
       ),
       context: text(
-        '교육용 가상 관측이며 뢰머의 원자료가 아니다. 1 AU = 1.496×10⁸ km로 두고, 잔차 변화가 전부 경로 변화 때문이라고 가정한다.',
-        'These are invented teaching data, not Rømer’s original measurements. Use 1 AU = 1.496×10⁸ km and attribute the residual change entirely to the path change.',
+        String.raw`교육용 가상 관측이며 뢰머의 원자료가 아니다. \(1\,\mathrm{AU}=1.496\times10^8\,\mathrm{km}\)로 두고, 잔차 변화가 전부 경로 변화 때문이라고 가정한다.`,
+        String.raw`These are invented teaching data, not \(R\)ømer’s original measurements. Use \(1\,\mathrm{AU}=1.496\times10^8\,\mathrm{km}\) and attribute the residual change entirely to the path change.`,
       ),
       hints: [
         text(
           '출발 사건의 차이가 아니라 빛의 추가 이동 거리를 쓴다.',
           'Use the additional light path, not a change in the underlying event.',
         ),
-        text('Δt = ΔD/c를 c에 대해 푼다.', 'Solve Δt = ΔD/c for c.'),
-        text('c = 1.80 × 1.496×10⁸ / 1200이다.', 'c = 1.80 × 1.496×10⁸ / 1200.'),
+        text(
+          String.raw`\(\Delta t=\Delta D/c\)를 \(c\)에 대해 푼다.`,
+          String.raw`Solve \(\Delta t=\Delta D/c\) for \(c\).`,
+        ),
+        text(
+          String.raw`\(c=1.80\times1.496\times10^8/1200\)이다.`,
+          String.raw`\(c=1.80\times1.496\times10^8/1200\).`,
+        ),
       ],
       answer: 224400,
       tolerance: 100,
       unit: 'km/s',
       inputHelp: numberHelp,
       workedSteps: [
-        text('추가 경로는 2.6928×10⁸ km다.', 'The extra path is 2.6928×10⁸ km.'),
+        text(
+          String.raw`추가 경로는 \(2.6928\times10^8\,\mathrm{km}\)다.`,
+          String.raw`The extra path is \(2.6928\times10^8\,\mathrm{km}\).`,
+        ),
         text('이를 1200초로 나누면 224,400 km/s다.', 'Dividing by 1200 s gives 224,400 km/s.'),
         text(
           '현대 광속과 차이가 있어도 주어진 자료로부터의 추론과 자료의 정확성은 별개다.',
-          'The inference from these data is separate from how accurately the data recover modern c.',
+          String.raw`The inference from these data is separate from how accurately the data recover modern \(c\).`,
         ),
       ],
       explanation: text(
@@ -434,8 +476,11 @@ HISTORY_QUESTS.push({
           '전체 지연을 한 주기에 모두 배정하지 않는다.',
           'Do not assign the whole accumulated delay to a single orbit.',
         ),
-        text('P관측 − P고유 = Δ잔차/N이다.', 'Pobserved − Pintrinsic = Δresidual/N.'),
-        text('60초/40을 계산한다.', 'Compute 60 s/40.'),
+        text(
+          String.raw`\(P_{\mathrm{observed}}-P_{\mathrm{intrinsic}}=\Delta t_{\mathrm{residual}}/N\)이다.`,
+          String.raw`\(P_{\mathrm{observed}}-P_{\mathrm{intrinsic}}=\Delta t_{\mathrm{residual}}/N\).`,
+        ),
+        text('60초/40을 계산한다.', String.raw`Compute \(60\,\mathrm{s}/40\).`),
       ],
       answer: 1.5,
       tolerance: 0.005,
@@ -443,10 +488,13 @@ HISTORY_QUESTS.push({
       inputHelp: numberHelp,
       workedSteps: [
         text(
-          '관측한 총 시간은 고유한 40P보다 60초 길다.',
-          'The observed total interval exceeds 40P by 60 s.',
+          String.raw`관측한 총 시간은 고유한 \(40P\)보다 60초 길다.`,
+          String.raw`The observed total interval exceeds \(40P\) by 60 s.`,
         ),
-        text('(40P+60)/40 = P+1.5초다.', '(40P+60)/40 = P+1.5 s.'),
+        text(
+          String.raw`\((40P+60\,\mathrm{s})/40=P+1.5\,\mathrm{s}\)다.`,
+          String.raw`\((40P+60\,\mathrm{s})/40=P+1.5\,\mathrm{s}\).`,
+        ),
         text(
           '지구가 접근하여 경로가 줄어들면 편향의 부호가 바뀐다.',
           'The sign reverses when the observer approaches and the path shrinks.',
@@ -505,8 +553,8 @@ HISTORY_QUESTS.push({
           'A period error and a changing path produce different time patterns.',
         ),
         text(
-          '일정 주기 오차의 누적은 선형, 경로에 의한 지연은 ΔD(t)/c다.',
-          'A constant period error accumulates linearly; a path delay follows ΔD(t)/c.',
+          String.raw`일정 주기 오차의 누적은 선형, 경로에 의한 지연은 \(\Delta D(t)/c\)다.`,
+          String.raw`A constant period error accumulates linearly; a path delay follows \(\Delta D(t)/c\).`,
         ),
         text(
           '접근과 후퇴를 함께 보아 기울기의 반전과 기하학적 상관을 시험한다.',
@@ -566,12 +614,12 @@ HISTORY_QUESTS.push({
       id: 'leavitt-modulus',
       type: 'numeric',
       prompt: text(
-        '세페이드의 P = 10.0일, 평균 mV = 15.20, AV = 0.30등급이다. 주어진 보정식 MV = −2.76 log₁₀(P/일) − 1.40으로 거리를 kpc 단위로 구하라.',
-        'A Cepheid has P = 10.0 days, mean mV = 15.20, and AV = 0.30 mag. Using the supplied calibration MV = −2.76 log₁₀(P/day) − 1.40, find its distance in kpc.',
+        String.raw`세페이드의 \(P=10.0\,\mathrm{days}\), 평균 \(m_{V}=15.20\), \(A_{V}=0.30\,\mathrm{mag}\)이다. 주어진 보정식 \(M_{V}=-2.76\log_{10}(P/\mathrm{day})-1.40\)으로 거리를 kpc 단위로 구하라.`,
+        String.raw`A Cepheid has \(P=10.0\,\mathrm{days}\), mean \(m_{V}=15.20\), and \(A_{V}=0.30\,\mathrm{mag}\). Using the supplied calibration \(M_{V}=-2.76\log_{10}(P/\mathrm{day})-1.40\), find its distance in kpc.`,
       ),
       context: text(
-        '교육용 단일 V대역 보정식이며 리비트 원논문의 계수가 아니다. 금속함량·변광 종류에 따른 차이는 무시하고 mV−AV−MV = 5 log₁₀(d/pc)−5를 사용한다.',
-        'This teaching calibration is not Leavitt’s original fit. Ignore metallicity and population differences; use mV−AV−MV = 5 log₁₀(d/pc)−5.',
+        String.raw`교육용 단일 V대역 보정식이며 리비트 원논문의 계수가 아니다. 금속함량·변광 종류에 따른 차이는 무시하고 \(m_{V}-A_{V}-M_{V}=5\log_{10}(d/\mathrm{pc})-5\)를 사용한다.`,
+        String.raw`This teaching calibration is not Leavitt’s original fit. Ignore metallicity and population differences; use \(m_{V}-A_{V}-M_{V}=5\log_{10}(d/\mathrm{pc})-5\).`,
       ),
       hints: [
         text(
@@ -579,12 +627,12 @@ HISTORY_QUESTS.push({
           'Subtract the dimming by dust from the apparent magnitude.',
         ),
         text(
-          'P로 MV를 구한 다음 소광 보정 거리 지수를 만든다.',
-          'Use P to obtain MV, then form the extinction-corrected distance modulus.',
+          String.raw`\(P\)로 \(M_V\)를 구한 다음 소광 보정 거리 지수를 만든다.`,
+          String.raw`Use \(P\) to obtain \(M_V\), then form the extinction-corrected distance modulus.`,
         ),
         text(
-          'MV = −4.16, μ = 15.20−0.30+4.16 = 19.06이다.',
-          'MV = −4.16 and μ = 15.20−0.30+4.16 = 19.06.',
+          String.raw`\(M_{V}=-4.16\), \(\mu=15.20-0.30+4.16=19.06\)이다.`,
+          String.raw`\(M_{V}=-4.16\) and \(\mu=15.20-0.30+4.16=19.06\).`,
         ),
       ],
       answer: 64.8634433548,
@@ -592,8 +640,14 @@ HISTORY_QUESTS.push({
       unit: 'kpc',
       inputHelp: numberHelp,
       workedSteps: [
-        text('d/pc = 10^[(19.06+5)/5] = 10^4.812다.', 'd/pc = 10^[(19.06+5)/5] = 10^4.812.'),
-        text('d ≈ 64,863 pc = 64.863 kpc다.', 'd ≈ 64,863 pc = 64.863 kpc.'),
+        text(
+          String.raw`\(d/\mathrm{pc}=10^{(19.06+5)/5}=10^{4.812}\)다.`,
+          String.raw`\(d/\mathrm{pc}=10^{(19.06+5)/5}=10^{4.812}\).`,
+        ),
+        text(
+          String.raw`\(d\approx64{,}863\,\mathrm{pc}=64.863\,\mathrm{kpc}\)다.`,
+          String.raw`\(d\approx64{,}863\,\mathrm{pc}=64.863\,\mathrm{kpc}\).`,
+        ),
         text(
           '계수나 별의 종류가 달라지면 같은 주기에도 거리가 달라진다.',
           'Different calibrations or stellar populations change the inferred distance even at the same period.',
@@ -608,8 +662,8 @@ HISTORY_QUESTS.push({
       id: 'leavitt-extinction-bias',
       type: 'numeric',
       prompt: text(
-        '실제로 AV = 0.30등급인데 소광을 0으로 놓고 같은 별의 거리를 구했다. 추정 거리/올바른 거리의 비는 얼마인가?',
-        'The true extinction is AV = 0.30 mag, but the distance calculation assumes zero extinction. What is estimated distance/correct distance?',
+        String.raw`실제로 \(A_{V}=0.30\,\mathrm{mag}\)인데 소광을 0으로 놓고 같은 별의 거리를 구했다. 추정 거리/올바른 거리의 비는 얼마인가?`,
+        String.raw`The true extinction is \(A_{V}=0.30\,\mathrm{mag}\), but the distance calculation assumes zero extinction. What is estimated distance/correct distance?`,
       ),
       context: text(
         '앞 문제와 같은 교육용 관계를 쓴다. 주기·절대등급 보정에는 오차가 없고 소광만 누락했다.',
@@ -621,10 +675,10 @@ HISTORY_QUESTS.push({
           'Ignoring dust attributes its dimming to extra distance.',
         ),
         text(
-          '거리 지수 차는 5 log₁₀(d잘못/d정답)이다.',
-          'The modulus difference is 5 log₁₀(dwrong/dcorrect).',
+          String.raw`거리 지수 차는 \(5\log_{10}(d_{\mathrm{wrong}}/d_{\mathrm{correct}})\)이다.`,
+          String.raw`The modulus difference is \(5\log_{10}(d_{\mathrm{wrong}}/d_{\mathrm{correct}})\).`,
         ),
-        text('비는 10^(0.30/5)이다.', 'The ratio is 10^(0.30/5).'),
+        text(String.raw`비는 \(10^{0.30/5}\)이다.`, String.raw`The ratio is \(10^{0.30/5}\).`),
       ],
       answer: 1.1481536215,
       tolerance: 0.001,
@@ -636,8 +690,8 @@ HISTORY_QUESTS.push({
           'Omitting extinction increases the modulus by 0.30 mag.',
         ),
         text(
-          '10^0.06 = 1.14815이므로 약 14.8% 멀게 추정한다.',
-          '10^0.06 = 1.14815, an overestimate of about 14.8%.',
+          String.raw`\(10^{0.06}=1.14815\)이므로 약 14.8% 멀게 추정한다.`,
+          String.raw`\(10^{0.06}=1.14815\), an overestimate of about 14.8%.`,
         ),
         text(
           '0.30등급을 거리의 30%로 바꾸면 안 된다.',
@@ -657,8 +711,8 @@ HISTORY_QUESTS.push({
         'Suppose the Small Magellanic Cloud Cepheids share approximately one unknown distance. What remains undetermined even with arbitrarily precise periods and apparent magnitudes?',
       ),
       context: text(
-        '소광과 집단 차이를 무시한 선형 모형 m = a logP + b다. 공통 거리라는 조건이 무엇을 없애고 무엇을 남기는지 따진다.',
-        'Use m = a logP + b, ignoring extinction and population differences. Ask what the common-distance assumption removes and what it leaves.',
+        String.raw`소광과 집단 차이를 무시한 선형 모형 \(m=a\log P+b\)다. 공통 거리라는 조건이 무엇을 없애고 무엇을 남기는지 따진다.`,
+        String.raw`Use \(m=a\log P+b\), ignoring extinction and population differences. Ask what the common-distance assumption removes and what it leaves.`,
       ),
       options: [
         {
@@ -688,8 +742,8 @@ HISTORY_QUESTS.push({
           'A shared distance modulus adds the same constant to every magnitude.',
         ),
         text(
-          'm = a logP + (절대 영점 + 거리 지수)다.',
-          'm = a logP + (absolute zero point + distance modulus).',
+          String.raw`\(m=a\log P\) + (절대 영점 + 거리 지수)다.`,
+          String.raw`\(m=a\log P\) + (absolute zero point + distance modulus).`,
         ),
         text(
           '상수 두 개의 합만 알면 두 상수를 각각 분리할 수 없다.',
@@ -753,12 +807,12 @@ HISTORY_QUESTS.push({
       id: 'payne-saha-ratio',
       type: 'numeric',
       prompt: text(
-        '전자 밀도와 분배함수가 일정할 때 수소의 이온/중성 비 R은 T^(3/2) exp(−χ/kT)에 비례한다. 6000 K에서 10000 K로 올리면 R은 몇 배가 되는가?',
-        'At fixed electron density and partition functions, the hydrogen ion/neutral ratio R is proportional to T^(3/2) exp(−χ/kT). By what factor does R rise from 6000 K to 10000 K?',
+        String.raw`전자 밀도와 분배함수가 일정할 때 수소의 이온/중성 비 \(R\)은 \(T^{3/2}\exp(-\chi/(kT))\)에 비례한다. 6000 K에서 10000 K로 올리면 \(R\)은 몇 배가 되는가?`,
+        String.raw`At fixed electron density and partition functions, the hydrogen ion/neutral ratio \(R\) is proportional to \(T^{3/2}\exp(-\chi/(kT))\). By what factor does \(R\) rise from 6000 K to 10000 K?`,
       ),
       context: text(
-        '페인 원자료가 아닌 LTE 교육 모형이다. χ = 13.6 eV, k = 8.617333262×10⁻⁵ eV/K. 외부 전자 공급원이 밀도를 일정하게 유지한다고 가정한다.',
-        'This LTE teaching model is not Payne’s original dataset. Use χ = 13.6 eV and k = 8.617333262×10⁻⁵ eV/K. Assume an external electron reservoir keeps the density fixed.',
+        String.raw`페인 원자료가 아닌 LTE 교육 모형이다. \(\chi=13.6\,\mathrm{eV}\), \(k=8.617333262\times10^{-5}\,\mathrm{eV/K}\). 외부 전자 공급원이 밀도를 일정하게 유지한다고 가정한다.`,
+        String.raw`This LTE teaching model is not Payne’s original dataset. Use \(\chi=13.6\,\mathrm{eV}\) and \(k=8.617333262\times10^{-5}\,\mathrm{eV/K}\). Assume an external electron reservoir keeps the density fixed.`,
       ),
       hints: [
         text(
@@ -766,12 +820,12 @@ HISTORY_QUESTS.push({
           'Compare both the temperature factor and the exponential factor.',
         ),
         text(
-          'R₂/R₁ = (T₂/T₁)^(3/2) exp[(χ/k)(1/T₁−1/T₂)]다.',
-          'R₂/R₁ = (T₂/T₁)^(3/2) exp[(χ/k)(1/T₁−1/T₂)].',
+          String.raw`\(\frac{R_2}{R_1}=\left(\frac{T_2}{T_1}\right)^{3/2}\exp\!\left[\frac{\chi}{k}\left(\frac1{T_1}-\frac1{T_2}\right)\right]\)다.`,
+          String.raw`\(\frac{R_2}{R_1}=\left(\frac{T_2}{T_1}\right)^{3/2}\exp\!\left[\frac{\chi}{k}\left(\frac1{T_1}-\frac1{T_2}\right)\right]\).`,
         ),
         text(
-          '(10000/6000)^1.5 × exp[(13.6/k)(1/6000−1/10000)]를 계산한다.',
-          'Evaluate (10000/6000)^1.5 × exp[(13.6/k)(1/6000−1/10000)].',
+          String.raw`\((10000/6000)^{1.5}\exp\left[\frac{13.6}{k}\left(\frac1{6000}-\frac1{10000}\right)\right]\)를 계산한다.`,
+          String.raw`Evaluate \((10000/6000)^{1.5}\exp\left[\frac{13.6}{k}\left(\frac1{6000}-\frac1{10000}\right)\right]\).`,
         ),
       ],
       answer: 79831.0814424,
@@ -795,22 +849,25 @@ HISTORY_QUESTS.push({
       id: 'payne-level-population',
       type: 'numeric',
       prompt: text(
-        '서로 다른 두 LTE 층에서 T₁=6000 K, T₂=10000 K, 이온/중성 비는 각각 0.01, 10이다. n₂/n중성 ≈ 4 exp(−10.2 eV/kT)일 때, 전체 수소 중 n=2 준위 비율은 2번 층에서 몇 배인가?',
-        'Two LTE layers have T₁=6000 K, T₂=10000 K and ion/neutral ratios 0.01 and 10. With n₂/nneutral ≈ 4 exp(−10.2 eV/kT), by what factor is the fraction of all hydrogen in n=2 larger in layer 2?',
+        String.raw`서로 다른 두 LTE 층에서 \(T_1=6000\,\mathrm{K}\), \(T_2=10000\,\mathrm{K}\), 이온/중성 비는 각각 0.01, 10이다. \(n_2/n_{\mathrm{neutral}}\approx4\exp[-10.2\,\mathrm{eV}/(kT)]\)일 때, 전체 수소 중 \(n=2\) 준위 비율은 2번 층에서 몇 배인가?`,
+        String.raw`Two LTE layers have \(T_1=6000\,\mathrm{K}\), \(T_2=10000\,\mathrm{K}\) and ion/neutral ratios 0.01 and 10. With \(n_2/n_{\mathrm{neutral}}\approx4\exp[-10.2\,\mathrm{eV}/(kT)]\), by what factor is the fraction of all hydrogen in \(n=2\) larger in layer 2?`,
       ),
       context: text(
-        '독립된 교육 문제다. 두 층의 전자 밀도는 같지 않으며 앞 문제의 고정 밀도 조건을 적용하지 않는다. k = 8.617333262×10⁻⁵ eV/K, 중성 수소는 대부분 바닥 상태라고 근사한다.',
-        'This is an independent teaching problem: electron densities differ, so the preceding fixed-density condition does not apply. Use k = 8.617333262×10⁻⁵ eV/K and approximate neutral hydrogen as mostly in its ground state.',
+        String.raw`독립된 교육 문제다. 두 층의 전자 밀도는 같지 않으며 앞 문제의 고정 밀도 조건을 적용하지 않는다. \(k=8.617333262\times10^{-5}\,\mathrm{eV/K}\), 중성 수소는 대부분 바닥 상태라고 근사한다.`,
+        String.raw`This is an independent teaching problem: electron densities differ, so the preceding fixed-density condition does not apply. Use \(k=8.617333262\times10^{-5}\,\mathrm{eV/K}\) and approximate neutral hydrogen as mostly in its ground state.`,
       ),
       hints: [
         text(
           '들뜸의 증가만 계산하지 말고 중성으로 남은 분율을 곱한다.',
           'Multiply the excitation increase by the fraction remaining neutral.',
         ),
-        text('n₂/n전체 ≈ 4 exp(−10.2/kT)/(1+R)다.', 'n₂/ntotal ≈ 4 exp(−10.2/kT)/(1+R).'),
         text(
-          'exp[(10.2/k)(1/6000−1/10000)] × 1.01/11을 계산한다.',
-          'Evaluate exp[(10.2/k)(1/6000−1/10000)] × 1.01/11.',
+          String.raw`\(n_2/n_{\mathrm{total}}\approx\frac{4\exp[-10.2/(kT)]}{1+R}\)다.`,
+          String.raw`\(n_2/n_{\mathrm{total}}\approx\frac{4\exp[-10.2/(kT)]}{1+R}\).`,
+        ),
+        text(
+          String.raw`\(\exp\left[\frac{10.2}{k}\left(\frac1{6000}-\frac1{10000}\right)\right]\times\frac{1.01}{11}\)을 계산한다.`,
+          String.raw`Evaluate \(\exp\left[\frac{10.2}{k}\left(\frac1{6000}-\frac1{10000}\right)\right]\times\frac{1.01}{11}\).`,
         ),
       ],
       answer: 245.45837498,
@@ -820,8 +877,8 @@ HISTORY_QUESTS.push({
       workedSteps: [
         text('들뜸 인자의 비는 약 2673.31이다.', 'The excitation-factor ratio is about 2673.31.'),
         text(
-          '중성 분율의 비는 1.01/11 ≈ 0.091818이다.',
-          'The neutral-fraction ratio is 1.01/11 ≈ 0.091818.',
+          String.raw`중성 분율의 비는 \(1.01/11\approx0.091818\)이다.`,
+          String.raw`The neutral-fraction ratio is \(1.01/11\approx0.091818\).`,
         ),
         text(
           '곱은 약 245.46이다. 전체 수소 존재량은 같아도 준위 인구는 크게 달라진다.',
@@ -829,8 +886,8 @@ HISTORY_QUESTS.push({
         ),
       ],
       explanation: text(
-        '이 수치는 선 세기 그 자체가 아니다. 실제 선 세기에는 광학 깊이·복사 전달도 들어간다. 특히 첫 문제의 R 비와 이 문제의 R 비를 동시에 고정 밀도 조건으로 강제하면 모순이다.',
-        'This is not itself a line-strength ratio: optical depth and radiative transfer also matter. Imposing the first problem’s fixed-density condition on these different prescribed R values would be inconsistent.',
+        String.raw`이 수치는 선 세기 그 자체가 아니다. 실제 선 세기에는 광학 깊이·복사 전달도 들어간다. 특히 첫 문제의 \(R\) 비와 이 문제의 \(R\) 비를 동시에 고정 밀도 조건으로 강제하면 모순이다.`,
+        String.raw`This is not itself a line-strength ratio: optical depth and radiative transfer also matter. Imposing the first problem’s fixed-density condition on these different prescribed \(R\) values would be inconsistent.`,
       ),
     },
     {
@@ -878,8 +935,8 @@ HISTORY_QUESTS.push({
           'Absorption requires atoms in the transition’s lower level.',
         ),
         text(
-          '그 수는 총 존재량 × 이온화 분율 × 들뜸 분율에 의존한다.',
-          'That number depends on total abundance × ionization fraction × excitation fraction.',
+          '그 수는 총 존재량, 이온화 분율, 들뜸 분율의 곱에 의존한다.',
+          'That number depends on the product of total abundance, ionization fraction, and excitation fraction.',
         ),
         text(
           '추가 선을 관측하여 같은 세기를 만드는 서로 다른 모형의 가능성을 줄인다.',
@@ -942,58 +999,70 @@ HISTORY_QUESTS.push({
       id: 'einstein-deflection',
       type: 'numeric',
       prompt: text(
-        '태양 중심에서 충돌 매개변수 b = 2R☉인 빛의 편향 α = 4GM☉/(bc²)를 초각으로 구하라.',
-        'Find the light deflection α = 4GM☉/(bc²), in arcseconds, for impact parameter b = 2R☉ measured from the Sun’s center.',
+        String.raw`태양 중심에서 충돌 매개변수 \(b=2R_{\odot}\)인 빛의 편향 \(\alpha=4GM_{\odot}/(bc^2)\)를 초각으로 구하라.`,
+        String.raw`Find the light deflection \(\alpha=4GM_{\odot}/(bc^2)\), in arcseconds, for impact parameter \(b=2R_{\odot}\) measured from the Sun’s center.`,
       ),
       context: text(
-        '현대 약한 중력장 교육 계산이다. G=6.67430×10⁻¹¹ m³ kg⁻¹ s⁻², M☉=1.98847×10³⁰ kg, R☉=6.957×10⁸ m, c=299792458 m/s, 1 rad=206264.806247초각. 태양 관측 실습 지시가 아니다.',
-        'Modern weak-field teaching calculation: G=6.67430×10⁻¹¹ m³ kg⁻¹ s⁻², M☉=1.98847×10³⁰ kg, R☉=6.957×10⁸ m, c=299792458 m/s, and 1 rad=206264.806247 arcsec. This is not a solar-observing exercise.',
+        String.raw`현대 약한 중력장 교육 계산이다. \(G=6.67430\times10^{-11}\,\mathrm{m}^3\,\mathrm{kg}^{-1}\,\mathrm{s}^{-2}\), \(M_{\odot}=1.98847\times10^{30}\,\mathrm{kg}\), \(R_{\odot}=6.957\times10^8\,\mathrm{m}\), \(c=299792458\,\mathrm{m/s}\), \(1\,\mathrm{rad}=206264.806247\,\mathrm{arcsec}\). 태양 관측 실습 지시가 아니다.`,
+        String.raw`Modern weak-field teaching calculation: \(G=6.67430\times10^{-11}\,\mathrm{m}^3\,\mathrm{kg}^{-1}\,\mathrm{s}^{-2}\), \(M_{\odot}=1.98847\times10^{30}\,\mathrm{kg}\), \(R_{\odot}=6.957\times10^8\,\mathrm{m}\), \(c=299792458\,\mathrm{m/s}\), and \(1\,\mathrm{rad}=206264.806247\,\mathrm{arcsec}\). This is not a solar-observing exercise.`,
       ),
       hints: [
         text(
-          'b는 태양 표면에서의 높이가 아니라 중심으로부터의 거리다.',
-          'b is measured from the center, not from the solar surface.',
+          String.raw`\(b\)는 태양 표면에서의 높이가 아니라 중심으로부터의 거리다.`,
+          String.raw`\(b\) is measured from the center, not from the solar surface.`,
         ),
         text(
           '먼저 SI 단위로 라디안을 계산한 뒤 초각으로 바꾼다.',
           'First calculate radians in SI units, then convert to arcseconds.',
         ),
-        text('4GM☉/[2R☉c²] × 206264.806247이다.', 'Evaluate 4GM☉/[2R☉c²] × 206264.806247.'),
+        text(
+          String.raw`\(\frac{4GM_{\odot}}{2R_{\odot}c^2}\times206264.806247\)이다.`,
+          String.raw`Evaluate \(\frac{4GM_{\odot}}{2R_{\odot}c^2}\times206264.806247\).`,
+        ),
       ],
       answer: 0.8756216407,
       tolerance: 0.001,
       unit: 'arcsec',
       inputHelp: numberHelp,
       workedSteps: [
-        text('b=1.3914×10⁹ m를 사용한다.', 'Use b=1.3914×10⁹ m.'),
-        text('편향은 약 4.24513×10⁻⁶ rad다.', 'The deflection is about 4.24513×10⁻⁶ rad.'),
+        text(
+          String.raw`\(b=1.3914\times10^9\,\mathrm{m}\)를 사용한다.`,
+          String.raw`Use \(b=1.3914\times10^9\,\mathrm{m}\).`,
+        ),
+        text(
+          String.raw`편향은 약 \(4.24513\times10^{-6}\,\mathrm{rad}\)다.`,
+          String.raw`The deflection is about \(4.24513\times10^{-6}\,\mathrm{rad}\).`,
+        ),
         text('초각으로 변환하면 약 0.87562″다.', 'Converting gives about 0.87562 arcsec.'),
       ],
       explanation: text(
-        '태양 가장자리 b=R☉의 약 1.75″를 그대로 답하면 거리 의존성을 놓친다. 여기서는 b가 두 배이므로 편향은 절반이다. 도와 초각도 구별해야 한다.',
-        'Using the approximately 1.75 arcsec limb value at b=R☉ misses the distance dependence: twice b gives half the deflection. Also distinguish degrees from arcseconds.',
+        String.raw`태양 가장자리 \(b=R_{\odot}\)의 약 1.75″를 그대로 답하면 거리 의존성을 놓친다. 여기서는 \(b\)가 두 배이므로 편향은 절반이다. 도와 초각도 구별해야 한다.`,
+        String.raw`Using the approximately 1.75 arcsec limb value at \(b=R_{\odot}\) misses the distance dependence: twice \(b\) gives half the deflection. Also distinguish degrees from arcseconds.`,
       ),
     },
     {
       id: 'einstein-weighted-fit',
       type: 'numeric',
       prompt: text(
-        '같은 충돌 매개변수로 보정한 가상의 독립 측정 두 개가 1.70±0.20″, 1.90±0.30″다. ±가 가우스 1σ일 때 역분산 가중 평균은 몇 초각인가?',
-        'Two invented independent measurements, reduced to the same impact parameter, give 1.70±0.20 and 1.90±0.30 arcsec. The errors are Gaussian 1σ. What is their inverse-variance weighted mean, in arcseconds?',
+        String.raw`같은 충돌 매개변수로 보정한 가상의 독립 측정 두 개가 \((1.70\pm0.20)^{\prime\prime}\), \((1.90\pm0.30)^{\prime\prime}\)다. ±가 가우스 \(1\sigma\)일 때 역분산 가중 평균은 몇 초각인가?`,
+        String.raw`Two invented independent measurements, reduced to the same impact parameter, give \(1.70\pm0.20\) and \(1.90\pm0.30\) arcsec. The errors are Gaussian \(1\sigma\). What is their inverse-variance weighted mean, in arcseconds?`,
       ),
       context: text(
-        '1919년 측정값을 옮긴 것이 아니다. 당시 문헌의 probable error를 현대 1σ와 혼동하지 않도록 새로운 가상 값을 사용한다. 공통 계통오차는 이 문제에서 0이다.',
-        'These are not the 1919 measurements. Invented values avoid confusing historical probable errors with modern 1σ uncertainties. Assume no shared systematic error here.',
+        String.raw`1919년 측정값을 옮긴 것이 아니다. 당시 문헌의 probable error를 현대 \(1\sigma\)와 혼동하지 않도록 새로운 가상 값을 사용한다. 공통 계통오차는 이 문제에서 0이다.`,
+        String.raw`These are not the 1919 measurements. Invented values avoid confusing historical probable errors with modern \(1\sigma\) uncertainties. Assume no shared systematic error here.`,
       ),
       hints: [
         text(
           '더 정확한 측정에 더 큰 무게를 준다.',
           'Give the more precise measurement greater weight.',
         ),
-        text('wᵢ=1/σᵢ², 평균=Σwᵢxᵢ/Σwᵢ다.', 'Use wᵢ=1/σᵢ² and mean=Σwᵢxᵢ/Σwᵢ.'),
         text(
-          '(1.70/0.20²+1.90/0.30²)/(1/0.20²+1/0.30²)를 계산한다.',
-          'Evaluate (1.70/0.20²+1.90/0.30²)/(1/0.20²+1/0.30²).',
+          String.raw`\(w_i=1/\sigma_i^2\), 평균=\(\frac{\sum_i w_i x_i}{\sum_i w_i}\)다.`,
+          String.raw`Use \(w_i=1/\sigma_i^2\) and mean=\(\frac{\sum_i w_i x_i}{\sum_i w_i}\).`,
+        ),
+        text(
+          String.raw`\(\frac{1.70/0.20^2+1.90/0.30^2}{1/0.20^2+1/0.30^2}\)를 계산한다.`,
+          String.raw`Evaluate \(\frac{1.70/0.20^2+1.90/0.30^2}{1/0.20^2+1/0.30^2}\).`,
         ),
       ],
       answer: 1.7615384615,
@@ -1004,8 +1073,8 @@ HISTORY_QUESTS.push({
         text('가중치는 25와 11.1111이다.', 'The weights are 25 and 11.1111.'),
         text('가중 평균은 1.76154″다.', 'The weighted mean is 1.76154 arcsec.'),
         text(
-          '독립 오차 가정에서 평균의 1σ는 1/√(25+11.1111)=0.16641″다.',
-          'Under independence, the mean’s 1σ error is 1/√(25+11.1111)=0.16641 arcsec.',
+          String.raw`독립 오차 가정에서 평균의 \(1\sigma\)는 \(1/\sqrt{25+11.1111}=0.16641^{\prime\prime}\)다.`,
+          String.raw`Under independence, the mean’s \(1\sigma\) error is \(1/\sqrt{25+11.1111}=0.16641\,\mathrm{arcsec}\).`,
         ),
       ],
       explanation: text(
@@ -1017,12 +1086,12 @@ HISTORY_QUESTS.push({
       id: 'einstein-systematics',
       type: 'choice',
       prompt: text(
-        '별 100개의 변위를 같은 사진판에서 측정했다. 각 별의 독립 오차 σ=0.20″와 사진판 전체에 공통인 영점 오차 τ=0.10″가 있다. 평균 오차에 대한 올바른 판단은?',
-        'Displacements of 100 stars are measured on one plate. Each has independent error σ=0.20 arcsec, plus a shared plate zero-point error τ=0.10 arcsec. Which statement about the mean’s error is correct?',
+        String.raw`별 100개의 변위를 같은 사진판에서 측정했다. 각 별의 독립 오차 \(\sigma=0.20^{\prime\prime}\)와 사진판 전체에 공통인 영점 오차 \(\tau=0.10^{\prime\prime}\)가 있다. 평균 오차에 대한 올바른 판단은?`,
+        String.raw`Displacements of 100 stars are measured on one plate. Each has independent error \(\sigma=0.20\,\mathrm{arcsec}\), plus a shared plate zero-point error \(\tau=0.10\,\mathrm{arcsec}\). Which statement about the mean’s error is correct?`,
       ),
       context: text(
-        '평균 오차의 분산은 σ²/N+τ²인 가상 모형이다. 영점은 평균 0의 불확실한 공통 이동이고, 별마다 새로 추출되는 독립 잡음이 아니다.',
-        'Use the teaching model Var(mean)=σ²/N+τ². The uncertain zero point is a common shift with mean zero, not independent noise redrawn for each star.',
+        String.raw`평균 오차의 분산은 \(\sigma^2/N+\tau^2\)인 가상 모형이다. 영점은 평균 0의 불확실한 공통 이동이고, 별마다 새로 추출되는 독립 잡음이 아니다.`,
+        String.raw`Use the teaching model \(\operatorname{Var}(\mathrm{mean})=\sigma^2/N+\tau^2\). The uncertain zero point is a common shift with mean zero, not independent noise redrawn for each star.`,
       ),
       options: [
         {
@@ -1035,8 +1104,8 @@ HISTORY_QUESTS.push({
         {
           id: 'shrink',
           label: text(
-            '모든 오차가 √100으로 줄어 약 0.022″다.',
-            'All errors shrink by √100 to about 0.022 arcsec.',
+            String.raw`모든 오차가 \(\sqrt{100}\)으로 줄어 약 0.022″다.`,
+            String.raw`All errors shrink by \(\sqrt{100}\) to about 0.022 arcsec.`,
           ),
         },
         {
@@ -1046,7 +1115,13 @@ HISTORY_QUESTS.push({
             'Enough stars make the error exactly zero.',
           ),
         },
-        { id: 'add', label: text('100×0.20+0.10=20.10″다.', 'It is 100×0.20+0.10=20.10 arcsec.') },
+        {
+          id: 'add',
+          label: text(
+            String.raw`\(100\times0.20+0.10=20.10\)″다.`,
+            String.raw`It is \(100\times0.20+0.10=20.10\) arcsec.`,
+          ),
+        },
       ],
       answerId: 'floor',
       hints: [
@@ -1055,15 +1130,18 @@ HISTORY_QUESTS.push({
           'A common plate shift survives averaging over stars.',
         ),
         text(
-          '독립 부분에만 N으로 나누는 분산 감소를 적용한다.',
-          'Divide only the independent variance by N.',
+          String.raw`독립 부분에만 \(N\)으로 나누는 분산 감소를 적용한다.`,
+          String.raw`Divide only the independent variance by \(N\).`,
         ),
-        text('√(0.20²/100+0.10²)=√0.0104다.', '√(0.20²/100+0.10²)=√0.0104.'),
+        text(
+          String.raw`\(\sqrt{0.20^2/100+0.10^2}=\sqrt{0.0104}\)다.`,
+          String.raw`\(\sqrt{0.20^2/100+0.10^2}=\sqrt{0.0104}\).`,
+        ),
       ],
       workedSteps: [
         text(
-          '독립 오차 분산은 0.0004 arcsec²다.',
-          'The independent contribution is 0.0004 arcsec².',
+          String.raw`독립 오차 분산은 0.0004 \(\mathrm{arcsec}^2\)다.`,
+          String.raw`The independent contribution is 0.0004 \(\mathrm{arcsec}^2\).`,
         ),
         text(
           '공통 분산 0.0100을 더하면 0.0104다.',
@@ -1116,44 +1194,53 @@ HISTORY_QUESTS.push({
       id: 'chandra-composition',
       type: 'numeric',
       prompt: text(
-        '차갑고 회전하지 않는 이상적인 백색왜성에 M한계/M☉=5.83/μₑ²를 쓴다. 전자 하나당 평균 질량이 μₑ=2.15 원자질량단위이면 한계는 몇 M☉인가?',
-        'For a cold nonrotating ideal white dwarf, use Mlimit/M☉=5.83/μₑ². If the mean mass per electron is μₑ=2.15 atomic mass units, what is the limit in solar masses?',
+        String.raw`차갑고 회전하지 않는 이상적인 백색왜성에 \(M_{\mathrm{limit}}/M_{\odot}=5.83/\mu_e^2\)를 쓴다. 전자 하나당 평균 질량이 \(\mu_e=2.15\) 원자질량단위이면 한계는 몇 \(M_{\odot}\)인가?`,
+        String.raw`For a cold nonrotating ideal white dwarf, use \(M_{\mathrm{limit}}/M_{\odot}=5.83/\mu_e^2\). If the mean mass per electron is \(\mu_e=2.15\) atomic mass units, what is the limit in solar masses?`,
       ),
       context: text(
-        '교육용 이상 기체 모형이다. 유한 온도·일반상대론·쿨롱 보정은 제외한다. μₑ는 전자 분율 Yₑ의 역수다.',
-        'Use an ideal teaching model without finite-temperature, general-relativistic, or Coulomb corrections. μₑ is the inverse of electron fraction Yₑ.',
+        String.raw`교육용 이상 기체 모형이다. 유한 온도·일반상대론·쿨롱 보정은 제외한다. \(\mu_e\)는 전자 분율 \(Y_e\)의 역수다.`,
+        String.raw`Use an ideal teaching model without finite-temperature, general-relativistic, or Coulomb corrections. \(\mu_e\) is the inverse of electron fraction \(Y_e\).`,
       ),
       hints: [
         text(
           '같은 질량에 전자가 적으면 축퇴압의 지지가 줄어든다.',
           'Fewer electrons per unit mass reduce electron pressure support.',
         ),
-        text('μₑ 자체가 아니라 그 제곱으로 나눈다.', 'Divide by the square of μₑ, not μₑ itself.'),
-        text('5.83/(2.15×2.15)를 계산한다.', 'Evaluate 5.83/(2.15×2.15).'),
+        text(
+          String.raw`\(\mu_e\) 자체가 아니라 그 제곱으로 나눈다.`,
+          String.raw`Divide by the square of \(\mu_e\), not \(\mu_e\) itself.`,
+        ),
+        text(
+          String.raw`\(5.83/(2.15\times2.15)\)를 계산한다.`,
+          String.raw`Evaluate \(5.83/(2.15\times2.15)\).`,
+        ),
       ],
       answer: 1.2612222823,
       tolerance: 0.002,
       unit: 'M☉',
       inputHelp: numberHelp,
       workedSteps: [
-        text('μₑ²=4.6225다.', 'μₑ²=4.6225.'),
-        text('5.83/4.6225=1.26122 M☉다.', '5.83/4.6225=1.26122 M☉.'),
+        text(String.raw`\(\mu_e^2=4.6225\)다.`, String.raw`\(\mu_e^2=4.6225\).`),
         text(
-          'μₑ=2 모형의 1.4575 M☉보다 작다.',
-          'This is below the 1.4575 M☉ limit of the μₑ=2 model.',
+          String.raw`\(5.83/4.6225=1.26122\) \(M_{\odot}\)다.`,
+          String.raw`\(5.83/4.6225=1.26122\) \(M_{\odot}\).`,
+        ),
+        text(
+          String.raw`\(\mu_e=2\) 모형의 1.4575 \(M_{\odot}\)보다 작다.`,
+          String.raw`This is below the 1.4575 \(M_{\odot}\) limit of the \(\mu_e=2\) model.`,
         ),
       ],
       explanation: text(
-        '흔히 쓰는 약 1.4 M☉는 모든 조성과 조건에 적용되는 정확한 상수가 아니다. 또 이 식으로 붕괴 후 잔해가 반드시 블랙홀이 된다고 결정할 수는 없다.',
-        'The familiar approximate 1.4 M☉ is not an exact constant for every composition and condition. This equation alone also does not determine that collapse must produce a black hole.',
+        String.raw`흔히 쓰는 약 1.4 \(M_{\odot}\)는 모든 조성과 조건에 적용되는 정확한 상수가 아니다. 또 이 식으로 붕괴 후 잔해가 반드시 블랙홀이 된다고 결정할 수는 없다.`,
+        String.raw`The familiar approximate 1.4 \(M_{\odot}\) is not an exact constant for every composition and condition. This equation alone also does not determine that collapse must produce a black hole.`,
       ),
     },
     {
       id: 'chandra-radius',
       type: 'numeric',
       prompt: text(
-        '상대론 효과가 작은 축퇴 백색왜성 모형에서 같은 조성이면 R∝M^(−1/3)이다. 질량이 0.40 M☉에서 0.80 M☉로 바뀔 때 새 반지름/원래 반지름은?',
-        'In a nonrelativistic degenerate white-dwarf model of fixed composition, R∝M^(−1/3). What is new radius/original radius when mass changes from 0.40 to 0.80 M☉?',
+        String.raw`상대론 효과가 작은 축퇴 백색왜성 모형에서 같은 조성이면 \(R\propto M^{-1/3}\)이다. 질량이 0.40 \(M_{\odot}\)에서 0.80 \(M_{\odot}\)로 바뀔 때 새 반지름/원래 반지름은?`,
+        String.raw`In a nonrelativistic degenerate white-dwarf model of fixed composition, \(R\propto M^{-1/3}\). What is new radius/original radius when mass changes from 0.40 to 0.80 \(M_{\odot}\)?`,
       ),
       context: text(
         '한 별에 실제로 질량을 옮기는 과정 대신 두 정적 모형을 비교한다. 이 근사를 질량 한계 가까이까지 외삽하지 않는다.',
@@ -1164,10 +1251,13 @@ HISTORY_QUESTS.push({
           '같은 조성이므로 비례상수는 비를 낼 때 사라진다.',
           'The same composition makes the proportionality constant cancel.',
         ),
-        text('R₂/R₁=(M₂/M₁)^(−1/3)이다.', 'R₂/R₁=(M₂/M₁)^(−1/3).'),
         text(
-          '2^(−1/3), 즉 2의 세제곱근의 역수다.',
-          'Compute 2^(−1/3), the reciprocal cube root of 2.',
+          String.raw`\(R_2/R_1=(M_2/M_1)^{-1/3}\)이다.`,
+          String.raw`\(R_2/R_1=(M_2/M_1)^{-1/3}\).`,
+        ),
+        text(
+          String.raw`\(2^{-1/3}\), 즉 2의 세제곱근의 역수다.`,
+          String.raw`Compute \(2^{-1/3}\), the reciprocal cube root of 2.`,
         ),
       ],
       answer: 0.793700526,
@@ -1191,19 +1281,19 @@ HISTORY_QUESTS.push({
       id: 'chandra-scaling',
       type: 'choice',
       prompt: text(
-        '초상대론적 축퇴압은 P축퇴∝(M/R³)^(4/3), 중력 지지에 필요한 압력은 P중력∝GM²/R⁴다. 두 식을 맞출 때 질량 한계가 등장하는 핵심은?',
-        'Ultrarelativistic degeneracy gives Pdeg∝(M/R³)^(4/3), while support against gravity requires Pgrav∝GM²/R⁴. What is the key reason balancing them yields a mass limit?',
+        String.raw`초상대론적 축퇴압은 \(P_{\mathrm{deg}}\propto(M/R^3)^{4/3}\), 중력 지지에 필요한 압력은 \(P_{\mathrm{grav}}\propto GM^2/R^4\)다. 두 식을 맞출 때 질량 한계가 등장하는 핵심은?`,
+        String.raw`Ultrarelativistic degeneracy gives \(P_{\mathrm{deg}}\propto(M/R^3)^{4/3}\), while support against gravity requires \(P_{\mathrm{grav}}\propto GM^2/R^4\). What is the key reason balancing them yields a mass limit?`,
       ),
       context: text(
-        '차갑고 회전하지 않는 같은 조성의 별을 한 길이 척도 R로 표현한 교육용 차원 분석이다. 수치 계수는 정밀한 별 구조 해가 정한다.',
+        String.raw`차갑고 회전하지 않는 같은 조성의 별을 한 길이 척도 \(R\)로 표현한 교육용 차원 분석이다. 수치 계수는 정밀한 별 구조 해가 정한다.`,
         'Use a one-radius scaling model for cold nonrotating stars of fixed composition. A detailed stellar-structure solution supplies the numerical coefficients.',
       ),
       options: [
         {
           id: 'cancel',
           label: text(
-            '두 압력이 모두 R⁻⁴여서 수축만으로 비율을 바꿀 수 없고, 질량 의존성은 서로 다르다.',
-            'Both scale as R⁻⁴, so contraction alone cannot change their ratio; their mass dependences differ.',
+            String.raw`두 압력이 모두 \(R^{-4}\)여서 수축만으로 비율을 바꿀 수 없고, 질량 의존성은 서로 다르다.`,
+            String.raw`Both scale as \(R^{-4}\), so contraction alone cannot change their ratio; their mass dependences differ.`,
           ),
         },
         {
@@ -1227,24 +1317,27 @@ HISTORY_QUESTS.push({
       ],
       answerId: 'cancel',
       hints: [
-        text('(R³)^(4/3)을 먼저 정리한다.', 'First simplify (R³)^(4/3).'),
         text(
-          'P축퇴/P중력은 고정 조성에서 M^(−2/3)에 비례하고 R은 약분된다.',
-          'At fixed composition Pdeg/Pgrav∝M^(−2/3), with R cancelling.',
+          String.raw`\((R^3)^{4/3}\)을 먼저 정리한다.`,
+          String.raw`First simplify \((R^3)^{4/3}\).`,
         ),
         text(
-          'M이 증가해 지지가 모자라지면 R만 줄여서는 회복하지 못한다.',
-          'If increasing M makes support insufficient, reducing R alone cannot restore it.',
+          String.raw`\(P_{\mathrm{deg}}/P_{\mathrm{grav}}\)은 고정 조성에서 \(M^{-2/3}\)에 비례하고 \(R\)은 약분된다.`,
+          String.raw`At fixed composition \(P_{\mathrm{deg}}/P_{\mathrm{grav}}\propto M^{-2/3}\), with \(R\) cancelling.`,
+        ),
+        text(
+          String.raw`\(M\)이 증가해 지지가 모자라지면 \(R\)만 줄여서는 회복하지 못한다.`,
+          String.raw`If increasing \(M\) makes support insufficient, reducing \(R\) alone cannot restore it.`,
         ),
       ],
       workedSteps: [
         text(
-          '축퇴압은 M^(4/3)/R⁴, 중력 항은 M²/R⁴다.',
-          'Degeneracy scales as M^(4/3)/R⁴, versus M²/R⁴ for gravity.',
+          String.raw`축퇴압은 \(M^{4/3}/R^4\), 중력 항은 \(M^2/R^4\)다.`,
+          String.raw`Degeneracy scales as \(M^{4/3}/R^4\), versus \(M^2/R^4\) for gravity.`,
         ),
         text(
-          '평형에서 R⁴가 사라지고 허용 질량을 정하는 식이 남는다.',
-          'Balancing cancels R⁴ and leaves a condition on mass.',
+          String.raw`평형에서 \(R^4\)가 사라지고 허용 질량을 정하는 식이 남는다.`,
+          String.raw`Balancing cancels \(R^4\) and leaves a condition on mass.`,
         ),
         text(
           '정밀한 구조 해가 조성에 따른 한계 질량을 준다.',
@@ -1290,21 +1383,21 @@ HISTORY_QUESTS.push({
       id: 'hubble-slope',
       type: 'numeric',
       prompt: text(
-        '(거리 Mpc, 속도 km/s)가 (10,800), (20,1300), (40,2900)이다. 거리 오차가 없고 세 속도의 오차가 같을 때, 원점을 지나는 v=Hd의 최소제곱 H는?',
-        'Data (distance in Mpc, velocity in km/s) are (10,800), (20,1300), (40,2900). Distances are exact and velocity errors equal. What is the least-squares H for v=Hd constrained through the origin?',
+        String.raw`(거리 Mpc, 속도 km/s)가 (10,800), (20,1300), (40,2900)이다. 거리 오차가 없고 세 속도의 오차가 같을 때, 원점을 지나는 \(v=Hd\)의 최소제곱 \(H\)는?`,
+        String.raw`Data (distance in Mpc, velocity in km/s) are (10,800), (20,1300), (40,2900). Distances are exact and velocity errors equal. What is the least-squares \(H\) for \(v=Hd\) constrained through the origin?`,
       ),
       context: text(
-        '가상의 저적색편이 자료이며 허블의 원자료도 최신 H₀ 측정도 아니다. 태양 운동은 이미 보정했고 절편은 0으로 고정한다.',
-        'These invented low-redshift data are neither Hubble’s originals nor a current H₀ measurement. Observer motion is already corrected and the intercept is fixed at zero.',
+        String.raw`가상의 저적색편이 자료이며 허블의 원자료도 최신 \(H_0\) 측정도 아니다. 태양 운동은 이미 보정했고 절편은 0으로 고정한다.`,
+        String.raw`These invented low-redshift data are neither Hubble’s originals nor a current \(H_0\) measurement. Observer motion is already corrected and the intercept is fixed at zero.`,
       ),
       hints: [
         text(
-          '각각의 v/d를 단순 평균하는 것과는 다른 최적화다.',
-          'This optimization differs from simply averaging each v/d.',
+          String.raw`각각의 \(v/d\)를 단순 평균하는 것과는 다른 최적화다.`,
+          String.raw`This optimization differs from simply averaging each \(v/d\).`,
         ),
         text(
-          'Σ(vᵢ−Hdᵢ)²를 H로 미분하면 H=Σdᵢvᵢ/Σdᵢ²다.',
-          'Differentiating Σ(vᵢ−Hdᵢ)² gives H=Σdᵢvᵢ/Σdᵢ².',
+          String.raw`\(\sum_i(v_i-Hd_i)^2\)를 \(H\)로 미분하면 \(H=\frac{\sum_i d_i v_i}{\sum_i d_i^2}\)다.`,
+          String.raw`Differentiating \(\sum_i(v_i-Hd_i)^2\) gives \(H=\frac{\sum_i d_i v_i}{\sum_i d_i^2}\).`,
         ),
         text('분자는 150000, 분모는 2100이다.', 'The numerator is 150000 and denominator 2100.'),
       ],
@@ -1313,9 +1406,18 @@ HISTORY_QUESTS.push({
       unit: 'km/s/Mpc',
       inputHelp: numberHelp,
       workedSteps: [
-        text('Σdv=8000+26000+116000=150000이다.', 'Σdv=8000+26000+116000=150000.'),
-        text('Σd²=100+400+1600=2100이다.', 'Σd²=100+400+1600=2100.'),
-        text('H=71.4286 km/s/Mpc다.', 'H=71.4286 km/s/Mpc.'),
+        text(
+          String.raw`\(\sum dv=8000+26000+116000=150000\)이다.`,
+          String.raw`\(\sum dv=8000+26000+116000=150000\).`,
+        ),
+        text(
+          String.raw`\(\sum d^2=100+400+1600=2100\)이다.`,
+          String.raw`\(\sum d^2=100+400+1600=2100\).`,
+        ),
+        text(
+          String.raw`\(H=71.4286\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\)다.`,
+          String.raw`\(H=71.4286\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\).`,
+        ),
       ],
       explanation: text(
         '거리 오차·선택 효과·고유 속도가 있는 실제 우주론 분석에는 더 정교한 모형이 필요하다. 여기서 얻은 기울기는 이 세 점과 명시한 오차 모형에 대한 답이다.',
@@ -1326,22 +1428,25 @@ HISTORY_QUESTS.push({
       id: 'hubble-time',
       type: 'numeric',
       prompt: text(
-        '별도의 모형에서 H=70.0 km/s/Mpc다. 1/H인 허블 시간을 Gyr 단위로 구하라. 1 Mpc=3.0856775814913673×10¹⁹ km, 1년=365.25일이다.',
-        'In a separate model H=70.0 km/s/Mpc. Find the Hubble time 1/H in Gyr. Use 1 Mpc=3.0856775814913673×10¹⁹ km and 1 year=365.25 days.',
+        String.raw`별도의 모형에서 \(H=70.0\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\)다. \(1/H\)인 허블 시간을 Gyr 단위로 구하라. \(1\,\mathrm{Mpc}=3.0856775814913673\times10^{19}\,\mathrm{km}\), \(1\,\mathrm{yr}=365.25\,\mathrm{days}\)이다.`,
+        String.raw`In a separate model \(H=70.0\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\). Find the Hubble time \(1/H\) in Gyr. Use \(1\,\mathrm{Mpc}=3.0856775814913673\times10^{19}\,\mathrm{km}\) and \(1\,\mathrm{yr}=365.25\,\mathrm{days}\).`,
       ),
       context: text(
-        '허블 시간을 구하는 문제이지 특정 우주론의 나이를 계산하는 문제가 아니다. 1일=86400초이며 앞 문항에서 맞춘 H와 구분한다.',
-        'Calculate a Hubble time, not the age of a specified cosmology. Use 86400 seconds per day and distinguish this H from the preceding fitted value.',
+        String.raw`허블 시간을 구하는 문제이지 특정 우주론의 나이를 계산하는 문제가 아니다. \(1\,\mathrm{day}=86400\,\mathrm{s}\)이며 앞 문항에서 맞춘 \(H\)와 구분한다.`,
+        String.raw`Calculate a Hubble time, not the age of a specified cosmology. Use 86400 seconds per day and distinguish this \(H\) from the preceding fitted value.`,
       ),
       hints: [
-        text('km/s/Mpc는 먼저 s⁻¹로 바꿔야 한다.', 'First convert km/s/Mpc to s⁻¹.'),
         text(
-          '1/H = (1 Mpc를 km로 나타낸 값)/70.0초다.',
-          '1/H is (one Mpc expressed in km)/70.0 seconds.',
+          String.raw`km/s/Mpc는 먼저 \(\mathrm{s}^{-1}\)로 바꿔야 한다.`,
+          String.raw`First convert km/s/Mpc to \(\mathrm{s}^{-1}\).`,
         ),
         text(
-          '3.0856775814913673×10¹⁹/70/86400/365.25/10⁹를 계산한다.',
-          'Evaluate 3.0856775814913673×10¹⁹/70/86400/365.25/10⁹.',
+          String.raw`\(1/H\) = (1 Mpc를 km로 나타낸 값)/70.0초다.`,
+          String.raw`\(1/H\) is (one Mpc expressed in km)/70.0 seconds.`,
+        ),
+        text(
+          String.raw`\(\frac{3.0856775814913673\times10^{19}}{70\times86400\times365.25\times10^9}\)를 계산한다.`,
+          String.raw`Evaluate \(\frac{3.0856775814913673\times10^{19}}{70\times86400\times365.25\times10^9}\).`,
         ),
       ],
       answer: 13.9684603097,
@@ -1349,58 +1454,79 @@ HISTORY_QUESTS.push({
       unit: 'Gyr',
       inputHelp: numberHelp,
       workedSteps: [
-        text('1/H ≈ 4.40811×10¹⁷초다.', '1/H ≈ 4.40811×10¹⁷ s.'),
         text(
-          '년으로 바꾸고 10⁹으로 나누면 13.96846 Gyr다.',
-          'Convert to years and divide by 10⁹ to obtain 13.96846 Gyr.',
+          String.raw`\(1/H\approx4.40811\times10^{17}\,\mathrm{s}\)다.`,
+          String.raw`\(1/H\approx4.40811\times10^{17}\,\mathrm{s}\).`,
         ),
         text(
-          '실제 나이는 과거의 팽창률 H(a)을 적분해야 구한다.',
-          'An actual cosmic age requires integrating the expansion history H(a).',
+          String.raw`년으로 바꾸고 \(10^9\)으로 나누면 13.96846 Gyr다.`,
+          String.raw`Convert to years and divide by \(10^9\) to obtain 13.96846 Gyr.`,
+        ),
+        text(
+          String.raw`실제 나이는 과거의 팽창률 \(H(a)\)을 적분해야 구한다.`,
+          String.raw`An actual cosmic age requires integrating the expansion history \(H(a)\).`,
         ),
       ],
       explanation: text(
-        '1/H는 현재 팽창률의 역수라는 시간 척도다. 팽창률이 역사 내내 일정한 속도로 이어졌다고 단정하지 않으므로 언제나 우주 나이와 같지는 않다.',
-        '1/H is a timescale built from the current expansion rate. It does not encode the full expansion history and is not universally equal to the age of the Universe.',
+        String.raw`\(1/H\)는 현재 팽창률의 역수라는 시간 척도다. 팽창률이 역사 내내 일정한 속도로 이어졌다고 단정하지 않으므로 언제나 우주 나이와 같지는 않다.`,
+        String.raw`\(1/H\) is a timescale built from the current expansion rate. It does not encode the full expansion history and is not universally equal to the age of the Universe.`,
       ),
     },
     {
       id: 'hubble-calibration',
       type: 'choice',
       prompt: text(
-        '같은 은하들의 거리를 모두 2배로 보정하고 속도는 그대로 둔다. 원점 고정 최소제곱의 H와 허블 시간은 어떻게 바뀌는가?',
-        'All galaxy distances are recalibrated upward by a factor of 2 while velocities stay fixed. How do the origin-constrained fitted H and Hubble time change?',
+        String.raw`같은 은하들의 거리를 모두 2배로 보정하고 속도는 그대로 둔다. 원점 고정 최소제곱의 \(H\)와 허블 시간은 어떻게 바뀌는가?`,
+        String.raw`All galaxy distances are recalibrated upward by a factor of 2 while velocities stay fixed. How do the origin-constrained fitted \(H\) and Hubble time change?`,
       ),
       context: text(
         '동일 표본·동일 속도 오차 모형에서 거리 영점만 바꾼다. 다른 선택 효과는 없다.',
         'Only the distance zero point changes; the sample and velocity-error model remain the same, with no additional selection effects.',
       ),
       options: [
-        { id: 'half-double', label: text('H는 절반, 1/H는 2배', 'H halves and 1/H doubles') },
-        { id: 'double-half', label: text('H는 2배, 1/H는 절반', 'H doubles and 1/H halves') },
+        {
+          id: 'half-double',
+          label: text(
+            String.raw`\(H\)는 절반, \(1/H\)는 2배`,
+            String.raw`\(H\) halves and \(1/H\) doubles`,
+          ),
+        },
+        {
+          id: 'double-half',
+          label: text(
+            String.raw`\(H\)는 2배, \(1/H\)는 절반`,
+            String.raw`\(H\) doubles and \(1/H\) halves`,
+          ),
+        },
         { id: 'both-double', label: text('둘 다 2배', 'Both double') },
         { id: 'same', label: text('둘 다 그대로', 'Both stay unchanged') },
       ],
       answerId: 'half-double',
       hints: [
         text(
-          '같은 속도로 더 멀리 있는 은하의 v/d는 작아진다.',
-          'At unchanged velocity, a larger distance lowers v/d.',
+          String.raw`같은 속도로 더 멀리 있는 은하의 \(v/d\)는 작아진다.`,
+          String.raw`At unchanged velocity, a larger distance lowers \(v/d\).`,
         ),
-        text('Σ(2d)v/Σ(2d)² = (2/4)H다.', 'Σ(2d)v/Σ(2d)² = (2/4)H.'),
-        text('H가 절반이면 그 역수는 두 배다.', 'Halving H doubles its reciprocal.'),
+        text(
+          String.raw`\(\frac{\sum(2d)v}{\sum(2d)^2}=(2/4)H\)다.`,
+          String.raw`\(\frac{\sum(2d)v}{\sum(2d)^2}=(2/4)H\).`,
+        ),
+        text(
+          String.raw`\(H\)가 절반이면 그 역수는 두 배다.`,
+          String.raw`Halving \(H\) doubles its reciprocal.`,
+        ),
       ],
       workedSteps: [
         text(
           '최소제곱 분자는 2배, 분모는 4배가 된다.',
           'The least-squares numerator doubles and denominator quadruples.',
         ),
-        text('새 기울기는 H/2다.', 'The new slope is H/2.'),
-        text('새 허블 시간은 2/H다.', 'The new Hubble time is 2/H.'),
+        text(String.raw`새 기울기는 \(H/2\)다.`, String.raw`The new slope is \(H/2\).`),
+        text(String.raw`새 허블 시간은 \(2/H\)다.`, String.raw`The new Hubble time is \(2/H\).`),
       ],
       explanation: text(
-        '속도가 정밀해도 거리 영점이 틀리면 팽창률이 편향된다. 역사적 큰 H 값과 현대 값의 차이를 단순히 측정자의 계산 실수로 설명해서는 안 된다.',
-        'Precise velocities do not protect against a biased distance zero point. Differences between historically large H values and modern ones are not explained merely by arithmetic mistakes.',
+        String.raw`속도가 정밀해도 거리 영점이 틀리면 팽창률이 편향된다. 역사적 큰 \(H\) 값과 현대 값의 차이를 단순히 측정자의 계산 실수로 설명해서는 안 된다.`,
+        String.raw`Precise velocities do not protect against a biased distance zero point. Differences between historically large \(H\) values and modern ones are not explained merely by arithmetic mistakes.`,
       ),
     },
   ],
@@ -1437,65 +1563,77 @@ HISTORY_QUESTS.push({
       id: 'zwicky-virial-mass',
       type: 'numeric',
       prompt: text(
-        '반지름 R=1.00 Mpc인 균일한 구형 은하단의 1차원 속도 분산은 σ=900 km/s다. U=−3GM²/(5R), T=(3/2)Mσ²와 2T+U=0으로 총질량을 10¹⁴ M☉ 단위로 구하라.',
-        'A uniform spherical cluster has R=1.00 Mpc and one-dimensional velocity dispersion σ=900 km/s. Use U=−3GM²/(5R), T=(3/2)Mσ², and 2T+U=0 to find its mass in units of 10¹⁴ M☉.',
+        String.raw`반지름 \(R=1.00\,\mathrm{Mpc}\)인 균일한 구형 은하단의 1차원 속도 분산은 \(\sigma=900\,\mathrm{km/s}\)다. \(U=-3GM^2/(5R)\), \(T=(3/2)M\sigma^2\)와 \(2T+U=0\)으로 총질량을 \(10^{14}M_{\odot}\) 단위로 구하라.`,
+        String.raw`A uniform spherical cluster has \(R=1.00\,\mathrm{Mpc}\) and one-dimensional velocity dispersion \(\sigma=900\,\mathrm{km/s}\). Use \(U=-3GM^2/(5R)\), \(T=(3/2)M\sigma^2\), and \(2T+U=0\) to find its mass in units of \(10^{14}M_{\odot}\).`,
       ),
       context: text(
-        '실제 머리털자리 은하단의 밀도 모형이 아닌 가상의 평형계다. 속도는 등방적, σ는 평균 속도를 뺀 시선 분산이다. G=4.30091×10⁻⁶ kpc (km/s)²/M☉, 1 Mpc=1000 kpc다.',
-        'This is an invented equilibrium system, not a realistic Coma density profile. Velocities are isotropic; σ is the line-of-sight dispersion after subtracting the mean. Use G=4.30091×10⁻⁶ kpc (km/s)²/M☉ and 1 Mpc=1000 kpc.',
+        String.raw`실제 머리털자리 은하단의 밀도 모형이 아닌 가상의 평형계다. 속도는 등방적, \(\sigma\)는 평균 속도를 뺀 시선 분산이다. \(G=4.30091\times10^{-6}\,\mathrm{kpc}\,(\mathrm{km/s})^2/M_{\odot}\), \(1\,\mathrm{Mpc}=1000\,\mathrm{kpc}\)다.`,
+        String.raw`This is an invented equilibrium system, not a realistic Coma density profile. Velocities are isotropic; \(\sigma\) is the line-of-sight dispersion after subtracting the mean. Use \(G=4.30091\times10^{-6}\,\mathrm{kpc}\,(\mathrm{km/s})^2/M_{\odot}\) and \(1\,\mathrm{Mpc}=1000\,\mathrm{kpc}\).`,
       ),
       hints: [
         text(
           '시선 분산이므로 세 방향의 운동 에너지를 합친다.',
-          'Combine three velocity components because σ is one-dimensional.',
+          String.raw`Combine three velocity components because \(\sigma\) is one-dimensional.`,
         ),
-        text('3Mσ²=3GM²/(5R), 따라서 M=5Rσ²/G다.', '3Mσ²=3GM²/(5R), hence M=5Rσ²/G.'),
         text(
-          '5×1000×900²/(4.30091×10⁻⁶)을 구하고 10¹⁴으로 나눈다.',
-          'Evaluate 5×1000×900²/(4.30091×10⁻⁶), then divide by 10¹⁴.',
+          String.raw`\(3M\sigma^2=3GM^2/(5R)\), 따라서 \(M=5R\sigma^2/G\)다.`,
+          String.raw`\(3M\sigma^2=3GM^2/(5R)\), hence \(M=5R\sigma^2/G\).`,
+        ),
+        text(
+          String.raw`\(\frac{5\times1000\times900^2}{4.30091\times10^{-6}}\)을 구하고 \(10^{14}\)으로 나눈다.`,
+          String.raw`Evaluate \(\frac{5\times1000\times900^2}{4.30091\times10^{-6}}\), then divide by \(10^{14}\).`,
         ),
       ],
       answer: 9.4166118333,
       tolerance: 0.006,
       unit: '10¹⁴ M☉',
       inputHelp: text(
-        '예: 질량이 2×10¹⁴ M☉라면 2를 입력해요.',
-        'For example, enter 2 for a mass of 2×10¹⁴ M☉.',
+        String.raw`예: 질량이 \(2\times10^{14}M_{\odot}\)라면 2를 입력해요.`,
+        String.raw`For example, enter 2 for a mass of \(2\times10^{14}M_{\odot}\).`,
       ),
       workedSteps: [
         text(
           '비리얼 평형과 균일 구의 위치 에너지를 결합한다.',
           'Combine virial equilibrium with the potential energy of a uniform sphere.',
         ),
-        text('M≈9.41661×10¹⁴ M☉다.', 'M≈9.41661×10¹⁴ M☉.'),
         text(
-          '요구한 10¹⁴ M☉ 단위 답은 9.41661이다.',
-          'In the requested units of 10¹⁴ M☉, the answer is 9.41661.',
+          String.raw`\(M\approx9.41661\times10^{14}M_{\odot}\)다.`,
+          String.raw`\(M\approx9.41661\times10^{14}M_{\odot}\).`,
+        ),
+        text(
+          String.raw`요구한 \(10^{14}M_{\odot}\) 단위 답은 9.41661이다.`,
+          String.raw`In the requested units of \(10^{14}M_{\odot}\), the answer is 9.41661.`,
         ),
       ],
       explanation: text(
-        '계수 5는 모든 은하단에 보편적인 상수가 아니라 균일 구·등방 속도라는 모형에서 나온다. 은하단 전체의 큰 후퇴 속도를 σ로 쓰면 내부 질량을 심하게 잘못 추정한다.',
-        'The factor 5 follows from the uniform-sphere and isotropy assumptions, not a universal cluster constant. Substituting the cluster’s bulk recession for σ would badly misestimate its internal mass.',
+        String.raw`계수 5는 모든 은하단에 보편적인 상수가 아니라 균일 구·등방 속도라는 모형에서 나온다. 은하단 전체의 큰 후퇴 속도를 \(\sigma\)로 쓰면 내부 질량을 심하게 잘못 추정한다.`,
+        String.raw`The factor 5 follows from the uniform-sphere and isotropy assumptions, not a universal cluster constant. Substituting the cluster’s bulk recession for \(\sigma\) would badly misestimate its internal mass.`,
       ),
     },
     {
       id: 'zwicky-noise-correction',
       type: 'numeric',
       prompt: text(
-        '관측 분산 σ관측=900 km/s에는 독립 측정오차 σ측정=300 km/s가 포함됐다. 반지름과 모형을 유지할 때 오차 보정 질량/보정 전 질량은 얼마인가?',
-        'The observed dispersion σobs=900 km/s includes independent measurement noise σerr=300 km/s. Holding radius and model fixed, what is corrected mass/uncorrected mass?',
+        String.raw`관측 분산 \(\sigma_{\mathrm{obs}}=900\,\mathrm{km/s}\)에는 독립 측정오차 \(\sigma_{\mathrm{err}}=300\,\mathrm{km/s}\)가 포함됐다. 반지름과 모형을 유지할 때 오차 보정 질량/보정 전 질량은 얼마인가?`,
+        String.raw`The observed dispersion \(\sigma_{\mathrm{obs}}=900\,\mathrm{km/s}\) includes independent measurement noise \(\sigma_{\mathrm{err}}=300\,\mathrm{km/s}\). Holding radius and model fixed, what is corrected mass/uncorrected mass?`,
       ),
       context: text(
-        '가상의 큰 표본에서 모든 측정의 오차 분산이 같다고 가정한다. σ관측²=σ진짜²+σ측정²이며 M∝σ진짜²다.',
-        'Assume a large invented sample with equal error variance for all measurements. Use σobs²=σtrue²+σerr² and M∝σtrue².',
+        String.raw`가상의 큰 표본에서 모든 측정의 오차 분산이 같다고 가정한다. \(\sigma_{\mathrm{obs}}^2=\sigma_{\mathrm{true}}^2+\sigma_{\mathrm{err}}^2\)이며 \(M\propto\sigma_{\mathrm{true}}^2\)다.`,
+        String.raw`Assume a large invented sample with equal error variance for all measurements. Use \(\sigma_{\mathrm{obs}}^2=\sigma_{\mathrm{true}}^2+\sigma_{\mathrm{err}}^2\) and \(M\propto\sigma_{\mathrm{true}}^2\).`,
       ),
       hints: [
         text(
           '속도 표준편차를 직접 빼지 않고 분산을 뺀다.',
           'Subtract variances, not standard deviations.',
         ),
-        text('질량비=(σ관측²−σ측정²)/σ관측²다.', 'The mass ratio is (σobs²−σerr²)/σobs².'),
-        text('(900²−300²)/900²=1−1/9다.', '(900²−300²)/900²=1−1/9.'),
+        text(
+          String.raw`질량비=\(\frac{\sigma_{\mathrm{obs}}^2-\sigma_{\mathrm{err}}^2}{\sigma_{\mathrm{obs}}^2}\)다.`,
+          String.raw`The mass ratio is \(\frac{\sigma_{\mathrm{obs}}^2-\sigma_{\mathrm{err}}^2}{\sigma_{\mathrm{obs}}^2}\).`,
+        ),
+        text(
+          String.raw`\((900^2-300^2)/900^2=1-1/9\)다.`,
+          String.raw`\((900^2-300^2)/900^2=1-1/9\).`,
+        ),
       ],
       answer: 0.8888888889,
       tolerance: 0.001,
@@ -1503,21 +1641,21 @@ HISTORY_QUESTS.push({
       inputHelp: numberHelp,
       workedSteps: [
         text(
-          '진짜 분산은 810000−90000=720000 (km/s)²다.',
-          'The true variance is 810000−90000=720000 (km/s)².',
+          String.raw`진짜 분산은 \(810000-90000=720000\,(\mathrm{km/s})^2\)다.`,
+          String.raw`The true variance is \(810000-90000=720000\,(\mathrm{km/s})^2\).`,
         ),
         text(
           '진짜 표준편차는 약 848.53 km/s다.',
           'The true standard deviation is about 848.53 km/s.',
         ),
         text(
-          '질량비는 720000/810000=8/9≈0.88889다.',
-          'The mass ratio is 720000/810000=8/9≈0.88889.',
+          String.raw`질량비는 \(720000/810000=8/9\approx0.88889\)다.`,
+          String.raw`The mass ratio is \(720000/810000=8/9\approx0.88889\).`,
         ),
       ],
       explanation: text(
-        '900−300=600 km/s를 쓰면 잡음을 지나치게 빼게 된다. 이 보정은 서로 독립인 측정오차에만 해당하며 은하단 병합이나 비구성원 오염을 없애 주지는 않는다.',
-        'Using 900−300=600 km/s subtracts too much noise. This correction addresses independent measurement errors, not mergers or contaminating nonmembers.',
+        String.raw`\(900-300=600\,\mathrm{km/s}\)를 쓰면 잡음을 지나치게 빼게 된다. 이 보정은 서로 독립인 측정오차에만 해당하며 은하단 병합이나 비구성원 오염을 없애 주지는 않는다.`,
+        String.raw`Using \(900-300=600\,\mathrm{km/s}\) subtracts too much noise. This correction addresses independent measurement errors, not mergers or contaminating nonmembers.`,
       ),
     },
     {
@@ -1629,12 +1767,12 @@ HISTORY_QUESTS.push({
       id: 'rubin-inclined-mass',
       type: 'numeric',
       prompt: text(
-        '은하 장축 위 r=20.0 kpc에서 계통 속도를 뺀 시선 속력은 180 km/s다. 원반 경사각 i=60.0°(정면은 0°)일 때, 구대칭 근사의 내부 질량 M=rv²/G를 10¹¹ M☉ 단위로 구하라.',
-        'At r=20.0 kpc on a galaxy’s projected major axis, the line-of-sight speed relative to systemic velocity is 180 km/s. With disk inclination i=60.0° (face-on is 0°), find enclosed mass M=rv²/G in units of 10¹¹ M☉ using a spherical approximation.',
+        String.raw`은하 장축 위 \(r=20.0\,\mathrm{kpc}\)에서 계통 속도를 뺀 시선 속력은 180 km/s다. 원반 경사각 \(i=60.0^\circ\)(정면은 0°)일 때, 구대칭 근사의 내부 질량 \(M=rv^2/G\)를 \(10^{11}M_{\odot}\) 단위로 구하라.`,
+        String.raw`At \(r=20.0\,\mathrm{kpc}\) on a galaxy’s projected major axis, the line-of-sight speed relative to systemic velocity is 180 km/s. With disk inclination \(i=60.0^\circ\) (face-on is 0°), find enclosed mass \(M=rv^2/G\) in units of \(10^{11}M_{\odot}\) using a spherical approximation.`,
       ),
       context: text(
-        '가상의 원궤도·얇은 원반 자료다. v시선=v sin i, G=4.30091×10⁻⁶ kpc (km/s)²/M☉. 구대칭 질량 추정은 교육용 근사이지 원반의 정확한 중력장이 아니다.',
-        'Invented circular-orbit data in a thin disk: vlos=v sin i and G=4.30091×10⁻⁶ kpc (km/s)²/M☉. The spherical mass estimator is a teaching approximation, not the exact gravity of a disk.',
+        String.raw`가상의 원궤도·얇은 원반 자료다. \(v_{\mathrm{los}}=v\sin i\), \(G=4.30091\times10^{-6}\,\mathrm{kpc}\,(\mathrm{km/s})^2/M_{\odot}\). 구대칭 질량 추정은 교육용 근사이지 원반의 정확한 중력장이 아니다.`,
+        String.raw`Invented circular-orbit data in a thin disk: \(v_{\mathrm{los}}=v\sin i\) and \(G=4.30091\times10^{-6}\,\mathrm{kpc}\,(\mathrm{km/s})^2/M_{\odot}\). The spherical mass estimator is a teaching approximation, not the exact gravity of a disk.`,
       ),
       hints: [
         text(
@@ -1642,50 +1780,68 @@ HISTORY_QUESTS.push({
           'A more face-on disk has a smaller line-of-sight rotation component.',
         ),
         text(
-          'v=180/sin60°를 구한 뒤 제곱해서 질량식에 넣는다.',
-          'Find v=180/sin60°, then square it in the mass estimator.',
+          String.raw`\(v=180/\sin60^\circ\)를 구한 뒤 제곱해서 질량식에 넣는다.`,
+          String.raw`Find \(v=180/\sin60^\circ\), then square it in the mass estimator.`,
         ),
         text(
-          '20×(180/sin60°)²/(4.30091×10⁻⁶)/10¹¹이다.',
-          'Evaluate 20×(180/sin60°)²/(4.30091×10⁻⁶)/10¹¹.',
+          String.raw`\(\frac{20(180/\sin60^\circ)^2}{4.30091\times10^{-6}\times10^{11}}\)이다.`,
+          String.raw`Evaluate \(\frac{20(180/\sin60^\circ)^2}{4.30091\times10^{-6}\times10^{11}}\).`,
         ),
       ],
       answer: 2.0088771888,
       tolerance: 0.002,
       unit: '10¹¹ M☉',
       inputHelp: text(
-        '예: 질량이 3×10¹¹ M☉라면 3을 입력해요.',
-        'For example, enter 3 for a mass of 3×10¹¹ M☉.',
+        String.raw`예: 질량이 \(3\times10^{11}M_{\odot}\)라면 3을 입력해요.`,
+        String.raw`For example, enter 3 for a mass of \(3\times10^{11}M_{\odot}\).`,
       ),
       workedSteps: [
-        text('v≈207.846 km/s, v²=43200 (km/s)²다.', 'v≈207.846 km/s and v²=43200 (km/s)².'),
-        text('M=864000/(4.30091×10⁻⁶) M☉다.', 'M=864000/(4.30091×10⁻⁶) M☉.'),
         text(
-          '약 2.009×10¹¹ M☉이므로 입력값은 약 2.009다.',
-          'This is about 2.009×10¹¹ M☉, so enter about 2.009.',
+          String.raw`\(v\approx207.846\,\mathrm{km/s}\), \(v^2=43200\,(\mathrm{km/s})^2\)다.`,
+          String.raw`\(v\approx207.846\,\mathrm{km/s}\) and \(v^2=43200\,(\mathrm{km/s})^2\).`,
+        ),
+        text(
+          String.raw`\(M=\frac{864000}{4.30091\times10^{-6}}M_{\odot}\)다.`,
+          String.raw`\(M=\frac{864000}{4.30091\times10^{-6}}M_{\odot}\).`,
+        ),
+        text(
+          String.raw`약 \(2.009\times10^{11}M_{\odot}\)이므로 입력값은 약 2.009다.`,
+          String.raw`This is about \(2.009\times10^{11}M_{\odot}\), so enter about 2.009.`,
         ),
       ],
       explanation: text(
-        '180 km/s를 그대로 쓰면 질량을 sin²60°=0.75배로 과소평가한다. i가 0°에 가까우면 작은 경사각 오차가 큰 회전 속도 오차를 만든다.',
-        'Using 180 km/s directly underestimates mass by sin²60°=0.75. Near face-on, a small inclination error produces a large rotation-speed error.',
+        String.raw`180 km/s를 그대로 쓰면 질량을 \(\sin^2 60^\circ=0.75\)배로 과소평가한다. \(i\)가 0°에 가까우면 작은 경사각 오차가 큰 회전 속도 오차를 만든다.`,
+        String.raw`Using 180 km/s directly underestimates mass by \(\sin^2 60^\circ=0.75\). Near face-on, a small inclination error produces a large rotation-speed error.`,
       ),
     },
     {
       id: 'rubin-density-slope',
       type: 'choice',
       prompt: text(
-        '구대칭·원궤도 모형에서 어느 반지름 구간의 v(r)=v₀가 일정하다. 그 구간에서 요구되는 밀도 ρ(r)의 반지름 의존성은?',
-        'In a spherical circular-orbit model, v(r)=v₀ is constant over a radial interval. What radial density dependence ρ(r) is required in that interval?',
+        String.raw`구대칭·원궤도 모형에서 어느 반지름 구간의 \(v(r)=v_0\)가 일정하다. 그 구간에서 요구되는 밀도 \(\rho(r)\)의 반지름 의존성은?`,
+        String.raw`In a spherical circular-orbit model, \(v(r)=v_0\) is constant over a radial interval. What radial density dependence \(\rho(r)\) is required in that interval?`,
       ),
       context: text(
-        'M(<r)=rv₀²/G와 dM/dr=4πr²ρ를 사용한다. 유한 구간의 모형이며 은하 중심 r=0이나 무한대까지 그대로 확장하지 않는다.',
-        'Use M(<r)=rv₀²/G and dM/dr=4πr²ρ. This is a finite-interval model, not an extrapolation to r=0 or infinity.',
+        String.raw`\(M(<r)=rv_0^2/G\)와 \(\frac{\mathrm{d}M}{\mathrm{d}r}=4\pi r^2\rho\)를 사용한다. 유한 구간의 모형이며 은하 중심 \(r=0\)이나 무한대까지 그대로 확장하지 않는다.`,
+        String.raw`Use \(M(<r)=rv_0^2/G\) and \(\frac{\mathrm{d}M}{\mathrm{d}r}=4\pi r^2\rho\). This is a finite-interval model, not an extrapolation to \(r=0\) or infinity.`,
       ),
       options: [
-        { id: 'inverse-square', label: text('ρ∝r⁻²', 'ρ∝r⁻²') },
-        { id: 'constant', label: text('ρ는 일정', 'ρ is constant') },
-        { id: 'inverse', label: text('ρ∝r⁻¹', 'ρ∝r⁻¹') },
-        { id: 'cube', label: text('ρ∝r⁻³', 'ρ∝r⁻³') },
+        {
+          id: 'inverse-square',
+          label: text(String.raw`\(\rho\propto r^{-2}\)`, String.raw`\(\rho\propto r^{-2}\)`),
+        },
+        {
+          id: 'constant',
+          label: text(String.raw`\(\rho\)는 일정`, String.raw`\(\rho\) is constant`),
+        },
+        {
+          id: 'inverse',
+          label: text(String.raw`\(\rho\propto r^{-1}\)`, String.raw`\(\rho\propto r^{-1}\)`),
+        },
+        {
+          id: 'cube',
+          label: text(String.raw`\(\rho\propto r^{-3}\)`, String.raw`\(\rho\propto r^{-3}\)`),
+        },
       ],
       answerId: 'inverse-square',
       hints: [
@@ -1693,20 +1849,32 @@ HISTORY_QUESTS.push({
           '평평한 속도는 내부 질량이 일정하다는 뜻이 아니다.',
           'Constant speed does not mean constant enclosed mass.',
         ),
-        text('M이 r에 비례하므로 dM/dr는 상수다.', 'M is proportional to r, so dM/dr is constant.'),
-        text('ρ=(dM/dr)/(4πr²)=v₀²/(4πGr²)다.', 'ρ=(dM/dr)/(4πr²)=v₀²/(4πGr²).'),
+        text(
+          String.raw`\(M\)이 \(r\)에 비례하므로 \(\mathrm{d}M/\mathrm{d}r\)는 상수다.`,
+          String.raw`\(M\) is proportional to \(r\), so \(\mathrm{d}M/\mathrm{d}r\) is constant.`,
+        ),
+        text(
+          String.raw`\(\rho=\frac{\mathrm{d}M/\mathrm{d}r}{4\pi r^2}=\frac{v_0^2}{4\pi G r^2}\)다.`,
+          String.raw`\(\rho=\frac{\mathrm{d}M/\mathrm{d}r}{4\pi r^2}=\frac{v_0^2}{4\pi G r^2}\).`,
+        ),
       ],
       workedSteps: [
-        text('원운동 식에서 M(<r)∝r를 얻는다.', 'Circular balance gives M(<r)∝r.'),
+        text(
+          String.raw`원운동 식에서 \(M(<r)\propto r\)를 얻는다.`,
+          String.raw`Circular balance gives \(M(<r)\propto r\).`,
+        ),
         text(
           '구각 껍질의 질량을 미분하여 밀도로 바꾼다.',
           'Differentiate shell mass to obtain density.',
         ),
-        text('ρ(r)=v₀²/(4πGr²)이므로 지수는 −2다.', 'ρ(r)=v₀²/(4πGr²), giving exponent −2.'),
+        text(
+          String.raw`\(\rho(r)=\frac{v_0^2}{4\pi G r^2}\)이므로 지수는 −2다.`,
+          String.raw`\(\rho(r)=\frac{v_0^2}{4\pi G r^2}\), giving exponent −2.`,
+        ),
       ],
       explanation: text(
-        'ρ가 일정하면 M∝r³이어서 v∝r인 강체형 회전이 된다. 또한 r⁻² 모형을 무한대까지 늘리면 총질량이 발산하므로 실제 헤일로의 전체 모형은 더 복잡하다.',
-        'Constant density gives M∝r³ and v∝r, a solid-body-like curve. Extending r⁻² to infinity makes the mass diverge, so real halo models need additional structure.',
+        String.raw`\(\rho\)가 일정하면 \(M\propto r^3\)이어서 \(v\propto r\)인 강체형 회전이 된다. 또한 \(r^{-2}\) 모형을 무한대까지 늘리면 총질량이 발산하므로 실제 헤일로의 전체 모형은 더 복잡하다.`,
+        String.raw`Constant density gives \(M\propto r^3\) and \(v\propto r\), a solid-body-like curve. Extending \(r^{-2}\) to infinity makes the mass diverge, so real halo models need additional structure.`,
       ),
     },
     {
@@ -1717,8 +1885,8 @@ HISTORY_QUESTS.push({
         'At the same radius in another invented galaxy, baryons alone predict circular speed 120 km/s, while the measured circular speed is 200 km/s. In a spherical approximation, what percentage of total enclosed mass is absent from the baryonic model?',
       ),
       context: text(
-        '두 속도는 이미 경사각 보정을 끝냈다. 바리온 모형에는 별과 기체를 모두 포함하며 같은 r과 같은 G를 사용한다.',
-        'Both speeds are already inclination-corrected. The baryonic model includes both stars and gas; use the same r and G.',
+        String.raw`두 속도는 이미 경사각 보정을 끝냈다. 바리온 모형에는 별과 기체를 모두 포함하며 같은 \(r\)과 같은 \(G\)를 사용한다.`,
+        String.raw`Both speeds are already inclination-corrected. The baryonic model includes both stars and gas; use the same \(r\) and \(G\).`,
       ),
       hints: [
         text(
@@ -1726,10 +1894,13 @@ HISTORY_QUESTS.push({
           'At the same radius, mass scales with speed squared, not speed.',
         ),
         text(
-          '누락 비율=1−M바리온/M전체=1−(v바리온/v관측)²다.',
-          'Missing fraction=1−Mbaryon/Mtotal=1−(vbaryon/vobserved)².',
+          String.raw`누락 비율=\(1-\frac{M_{\mathrm{baryon}}}{M_{\mathrm{total}}}=1-\left(\frac{v_{\mathrm{baryon}}}{v_{\mathrm{observed}}}\right)^2\)다.`,
+          String.raw`Missing fraction=\(1-\frac{M_{\mathrm{baryon}}}{M_{\mathrm{total}}}=1-\left(\frac{v_{\mathrm{baryon}}}{v_{\mathrm{observed}}}\right)^2\).`,
         ),
-        text('100×[1−(120/200)²]를 계산한다.', 'Evaluate 100×[1−(120/200)²].'),
+        text(
+          String.raw`\(100[1-(120/200)^2]\)를 계산한다.`,
+          String.raw`Evaluate \(100[1-(120/200)^2]\).`,
+        ),
       ],
       answer: 64,
       tolerance: 0.05,
@@ -1738,12 +1909,12 @@ HISTORY_QUESTS.push({
       workedSteps: [
         text('속력비는 0.6이다.', 'The speed ratio is 0.6.'),
         text(
-          '내부 바리온 질량 비율은 0.6²=0.36이다.',
-          'The enclosed baryonic mass fraction is 0.6²=0.36.',
+          String.raw`내부 바리온 질량 비율은 \(0.6^2=0.36\)이다.`,
+          String.raw`The enclosed baryonic mass fraction is \(0.6^2=0.36\).`,
         ),
         text(
-          '모형에 없는 비율은 1−0.36=0.64, 즉 64%다.',
-          'The missing fraction is 1−0.36=0.64, or 64%.',
+          String.raw`모형에 없는 비율은 \(1-0.36=0.64\), 즉 64%다.`,
+          String.raw`The missing fraction is \(1-0.36=0.64\), or 64%.`,
         ),
       ],
       explanation: text(

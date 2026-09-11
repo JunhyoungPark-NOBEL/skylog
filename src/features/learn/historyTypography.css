@@ -1,0 +1,29 @@
+.skyard-math {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.18em 0.08em;
+  vertical-align: middle;
+  overscroll-behavior-x: contain;
+}
+.skyard-math .katex {
+  font-size: 1.05em;
+  color: inherit;
+}
+.history-term {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--color-muted);
+  text-underline-offset: 0.2em;
+  cursor: help;
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: pan-y;
+  border-radius: 0.15em;
+  word-break: keep-all;
+}
+.history-term:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

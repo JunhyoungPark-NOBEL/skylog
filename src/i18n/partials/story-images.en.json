@@ -1,0 +1,14 @@
+{
+  "storyImages": {
+    "photo": "Real photo",
+    "sharedPhoto": "Both clusters",
+    "chart": "Sky chart",
+    "chartTitle": "Sky chart from catalog positions",
+    "chartAlt": "Sky chart showing catalog star positions around {{name}}",
+    "targetNotice": "The center marker is this story's object. This is a chart of catalog star positions in a {{field}}° field, not a photograph. It does not show the object's true size or its appearance through a telescope.",
+    "constellationNotice": "This chart shows catalog star positions and the constellation's connecting lines. It is not a photograph. The lines help identify the pattern; they are not physical lines between stars.",
+    "orientation": "North is up and east is left. J2000 equatorial positions use stereographic projection. The pattern can appear rotated in the sky depending on time and viewing direction.",
+    "chartCredit": "Coordinates and lines, redrawn as a chart:",
+    "sharedNotice": "This photograph contains both NGC 869 and NGC 884. It shows the whole Double Cluster in Perseus, rather than a close-up of just the cluster in this story."
+  }
+}

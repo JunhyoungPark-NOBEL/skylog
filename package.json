@@ -1,6 +1,6 @@
 {
   "name": "skylog",
-  "version": "0.1.0-beta.13",
+  "version": "0.1.0-beta.14",
   "private": true,
   "description": "스카이야드 Skyard - 천체 관측 가이드",
   "type": "module",
@@ -42,6 +42,7 @@
     "astronomy-engine": "^2.1.19",
     "dexie": "^4.4.5",
     "i18next": "^26.4.2",
+    "katex": "0.18.7",
     "magvar": "2.2.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

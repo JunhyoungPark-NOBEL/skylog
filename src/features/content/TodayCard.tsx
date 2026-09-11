@@ -19,6 +19,7 @@ import { useSettingsStore } from '@/state/settingsStore';
 import { getProgress, setProgress } from '@/db/repos/progress';
 import { Card } from '@/ui/Card';
 import { formatAlt, formatAzimuth } from '@/ui/format';
+import { StoryThumbnail } from './StoryThumbnail';
 
 const BTN_PRIMARY =
   'inline-flex min-h-11 items-center justify-center rounded-pill bg-accent px-5 text-body font-semibold text-accent-fg active:scale-[0.97]';
@@ -117,19 +118,22 @@ export function TodayCard({ night, now }: TodayCardProps) {
       aside={pick.value.unread ? t('content.unread') : undefined}
       testId="today-card"
     >
-      <div className="flex flex-col gap-1" data-object-id={id}>
-        <p className="text-title" data-testid="today-name">
-          {displayName(cat, id, lang)}
-        </p>
-        <p className="text-body text-fg/90">{meta.oneLiner}</p>
-        <p className="text-caption text-muted tabular-nums" data-testid="today-now">
-          {nowPos && nowPos.altDeg > 0
-            ? t('content.nowAt', {
-                dir: formatAzimuth(nowPos.azDeg, lang),
-                alt: formatAlt(nowPos.altDeg, 0),
-              })
-            : t('content.laterTonight', { alt: formatAlt(pick.value.altMaxDeg, 0) })}
-        </p>
+      <div className="flex items-start gap-3" data-object-id={id}>
+        <StoryThumbnail id={id} cat={cat} read={readSet.has(id)} />
+        <div className="flex min-w-0 flex-1 flex-col gap-1">
+          <p className="text-title" data-testid="today-name">
+            {displayName(cat, id, lang)}
+          </p>
+          <p className="text-body text-fg/90">{meta.oneLiner}</p>
+          <p className="text-caption text-muted tabular-nums" data-testid="today-now">
+            {nowPos && nowPos.altDeg > 0
+              ? t('content.nowAt', {
+                  dir: formatAzimuth(nowPos.azDeg, lang),
+                  alt: formatAlt(nowPos.altDeg, 0),
+                })
+              : t('content.laterTonight', { alt: formatAlt(pick.value.altMaxDeg, 0) })}
+          </p>
+        </div>
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
         <button

@@ -15,6 +15,9 @@ import { useSettingsStore } from '@/state/settingsStore';
 import { canAccessPlus, useEntitlements } from '@/entitlements';
 import { PlusOffer, PlusNotice } from './PlusAccess';
 import { navigateLearn } from './learnNavigation';
+import { HISTORY_LESSONS } from '@/learn/historyLessons';
+import { HistoryGlossary, HistoryRichText } from './HistoryRichText';
+import { HistoryPreparation } from './HistoryPreparation';
 
 export default function HistoryQuestsScreen({ questId }: { questId: string | null }) {
   const { t } = useTranslation();
@@ -194,75 +197,91 @@ function QuestDetail({
   const p = progress.get(q.id) ?? emptyHistoryProgress();
   const allowed = canAccessPlus(access);
   return (
-    <div className="space-y-5">
-      <button
-        className="min-h-11 text-accent"
-        onClick={() => navigateLearn('quiz', { track: 'physics' })}
-      >
-        ← {t('history.allQuests')}
-      </button>
-      <div>
-        <p className="text-caption text-accent">
-          {quest.era} · {quest.scientist[lang]}
-        </p>
-        <h2 className="mt-2 text-headline">{quest.title[lang]}</h2>
-        <p className="mt-4 whitespace-pre-line text-body-sm leading-7 text-muted">
-          {quest.story[lang]}
-        </p>
-      </div>
-      <div className="grid grid-cols-3 gap-2" aria-label={t('history.chooseQuestion')}>
-        {quest.questions.map((item, i) => (
-          <button
-            key={item.id}
-            aria-pressed={index === i}
-            className={
-              'min-h-11 rounded-xl border px-2 text-body-sm ' +
-              (index === i
-                ? 'border-accent bg-accent-soft text-accent'
-                : 'border-hairline bg-surface')
-            }
-            onClick={() => setIndex(i)}
-          >
-            {t('history.question', { n: i + 1 })}{' '}
-            {historySummary(item, progress.get(item.id) ?? emptyHistoryProgress()).solved
-              ? '✓'
-              : ''}
-          </button>
-        ))}
-      </div>
-      {allowed || p.attempts.length ? (
-        <Question
-          key={q.id + ':' + p.round}
-          quest={quest}
-          q={q}
-          progress={p}
-          allowed={allowed}
-          onNext={index < quest.questions.length - 1 ? () => setIndex(index + 1) : undefined}
-        />
-      ) : (
-        <PlusOffer />
-      )}
-      <details className="rounded-2xl border border-hairline p-4">
-        <summary className="min-h-8 cursor-pointer text-body-sm text-muted">
-          {t('history.sources')}
-        </summary>
-        <p className="mt-3 text-caption leading-6 text-muted">{t('history.sourceNote')}</p>
-        <ul className="mt-3 space-y-2">
-          {quest.sources.map((s) => (
-            <li key={s.url}>
-              <a
-                className="inline-block min-h-11 break-words py-2 text-body-sm text-accent underline"
-                href={s.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {s.title} ↗
-              </a>
-            </li>
+    <HistoryGlossary concepts={HISTORY_LESSONS[q.id]!.concepts} lang={lang}>
+      <div className="space-y-5">
+        <button
+          className="min-h-11 text-accent"
+          onClick={() => navigateLearn('quiz', { track: 'physics' })}
+        >
+          ← {t('history.allQuests')}
+        </button>
+        <div>
+          <p className="text-caption text-accent">
+            {quest.era} · {quest.scientist[lang]}
+          </p>
+          <h2 className="mt-2 text-headline">{quest.title[lang]}</h2>
+          <details className="mt-3 text-body-sm leading-7 text-muted">
+            <summary className="min-h-11 cursor-pointer">
+              {lang === 'ko' ? '발견의 배경 읽기' : 'Read the discovery story'}
+            </summary>
+            <p className="mt-2 whitespace-pre-line">
+              <HistoryRichText text={quest.story[lang]} />
+            </p>
+          </details>
+        </div>
+        <div className="grid grid-cols-3 gap-2" aria-label={t('history.chooseQuestion')}>
+          {quest.questions.map((item, i) => (
+            <button
+              key={item.id}
+              aria-pressed={index === i}
+              className={
+                'min-h-11 rounded-xl border px-2 text-body-sm ' +
+                (index === i
+                  ? 'border-accent bg-accent-soft text-accent'
+                  : 'border-hairline bg-surface')
+              }
+              onClick={() => setIndex(i)}
+            >
+              {t('history.question', { n: i + 1 })}{' '}
+              {historySummary(item, progress.get(item.id) ?? emptyHistoryProgress()).solved
+                ? '✓'
+                : ''}
+            </button>
           ))}
-        </ul>
-      </details>
-    </div>
+        </div>
+        {allowed || p.attempts.length ? (
+          <HistoryPreparation
+            key={q.id}
+            questionId={q.id}
+            questId={quest.id}
+            lang={lang}
+            allowed={allowed}
+            resume={!!(p.input || p.note || p.hints || p.attempts.length)}
+          >
+            <Question
+              key={q.id + ':' + p.round}
+              quest={quest}
+              q={q}
+              progress={p}
+              allowed={allowed}
+              onNext={index < quest.questions.length - 1 ? () => setIndex(index + 1) : undefined}
+            />
+          </HistoryPreparation>
+        ) : (
+          <PlusOffer />
+        )}
+        <details className="rounded-2xl border border-hairline p-4">
+          <summary className="min-h-8 cursor-pointer text-body-sm text-muted">
+            {t('history.sources')}
+          </summary>
+          <p className="mt-3 text-caption leading-6 text-muted">{t('history.sourceNote')}</p>
+          <ul className="mt-3 space-y-2">
+            {quest.sources.map((s) => (
+              <li key={s.url}>
+                <a
+                  className="inline-block min-h-11 break-words py-2 text-body-sm text-accent underline"
+                  href={s.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {s.title} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      </div>
+    </HistoryGlossary>
   );
 }
 function Question({
@@ -320,13 +339,13 @@ function Question({
       data-testid="history-question"
     >
       <h3 ref={h} tabIndex={-1} className="text-title leading-7 outline-none">
-        {q.prompt[lang]}
+        <HistoryRichText text={q.prompt[lang]} />
       </h3>
       <div
         className="whitespace-pre-line rounded-2xl bg-surface-2 p-4 text-body-sm leading-7"
         data-testid="history-context"
       >
-        {q.context[lang]}
+        <HistoryRichText text={q.context[lang]} />
       </div>
       {q.type === 'numeric' ? (
         <label className="block text-body-sm">
@@ -347,7 +366,7 @@ function Question({
             }}
           />
           <span className="mt-2 block text-caption leading-5 text-muted">
-            {q.inputHelp[lang]} {t('history.numberHelp')}
+            <HistoryRichText text={q.inputHelp[lang]} /> {t('history.numberHelp')}
           </span>
         </label>
       ) : (
@@ -371,7 +390,7 @@ function Question({
                   setSaved(false);
                 }}
               />
-              {o.label[lang]}
+              <HistoryRichText text={o.label[lang]} terms={false} />
             </label>
           ))}
         </fieldset>
@@ -391,7 +410,7 @@ function Question({
             <p className="mb-2 text-caption font-semibold text-accent">
               {t('history.hint', { n: i + 1 })}
             </p>
-            {hint[lang]}
+            <HistoryRichText text={hint[lang]} />
           </div>
         ))}
         {!submitted && allowed && p.hints < q.hints.length && (
@@ -413,10 +432,14 @@ function Question({
           <p role="status" className="text-title text-accent">
             {t(gradeHistoryAnswer(q, latest.answer) ? 'history.correct' : 'history.incorrect')}
           </p>
-          <p className="whitespace-pre-line text-body-sm leading-7">{q.explanation[lang]}</p>
+          <p className="whitespace-pre-line text-body-sm leading-7">
+            <HistoryRichText text={q.explanation[lang]} />
+          </p>
           <ol className="list-decimal space-y-3 pl-5 text-body-sm leading-7">
             {q.workedSteps.map((step, i) => (
-              <li key={i}>{step[lang]}</li>
+              <li key={i}>
+                <HistoryRichText text={step[lang]} />
+              </li>
             ))}
           </ol>
           <p className="text-caption text-muted">

@@ -4,6 +4,7 @@ import { loadContentIndex } from '@/content/loader';
 import type { ContentIndex } from '@/content/schema';
 import type { LearningState } from '@/learn/runtime';
 import { TodayCard } from '@/features/content/TodayCard';
+import { StoryThumbnail } from '@/features/content/StoryThumbnail';
 import { useObservingNight } from '@/features/tonight/useNight';
 import { useSettingsStore } from '@/state/settingsStore';
 import { useClockStore } from '@/state/clockStore';
@@ -102,12 +103,7 @@ export function StoriesScreen({ value }: { value: LearningState }) {
                 data-testid={'story-' + e.id}
                 className="flex min-h-24 items-center gap-4 rounded-2xl border border-hairline bg-surface p-4 text-left"
               >
-                <span
-                  aria-hidden
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-soft text-title text-accent"
-                >
-                  {value.snap.readSet.has(e.id) ? '✓' : e.kind === 'moon' ? '☾' : '✦'}
-                </span>
+                <StoryThumbnail id={e.id} cat={value.cat} read={value.snap.readSet.has(e.id)} />
                 <span className="min-w-0 flex-1">
                   <span className="block text-body font-semibold">{e.title[lang]}</span>
                   <span className="mt-1 line-clamp-2 block text-caption leading-5 text-muted">

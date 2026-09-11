@@ -25,6 +25,10 @@ vi.mock('@/learn/historyProgress', async () => {
   const actual = await vi.importActual<typeof HistoryProgressModule>('@/learn/historyProgress');
   return { ...actual, readHistoryProgress: vi.fn(), updateHistoryProgress: vi.fn() };
 });
+vi.mock('@/learn/historyPreparation', () => ({
+  readPreparation: vi.fn(async () => ({ version: 1, answers: {} })),
+  preparationComplete: () => false,
+}));
 
 const quest = HISTORY_QUESTS[0]!;
 const question = quest.questions[0]!;
@@ -55,6 +59,10 @@ afterEach(async () => {
 });
 const mount = async () => {
   await act(async () => root.render(<HistoryQuestsScreen questId={quest.id} />));
+  const skip = [...host.querySelectorAll<HTMLButtonElement>('button')].find((b) =>
+    b.textContent?.includes('본 문제로'),
+  );
+  if (skip) await act(async () => skip.click());
 };
 function button(label: string) {
   const found = [...host.querySelectorAll<HTMLButtonElement>('button')].find(

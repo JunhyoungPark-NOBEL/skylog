@@ -11,6 +11,7 @@ import { flyToObject } from '@/features/sky/skyApi';
 import { showToast } from '@/state/logUiStore';
 import { Chip, ChipRow } from '@/ui/Chip';
 import { Segmented } from '@/ui/Segmented';
+import { StoryImage } from './StoryThumbnail';
 
 type Equip = 'nakedEye' | 'binoculars' | 'telescope';
 
@@ -116,6 +117,8 @@ export function StoryView({
           <p className={PARA}>{entry.safety}</p>
         </section>
       )}
+
+      <StoryImage id={entry.id} cat={cat} />
 
       <section className={SECTION}>
         <p className={PARA}>

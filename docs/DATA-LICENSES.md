@@ -63,3 +63,29 @@
 - 현재 사용: public/landscapes/meadow-v2.webp. 내장 image_gen 새 생성, 실제1774×887, WebP805,980bytes. 별도 사진/코드/경쟁사 풍경 미사용. 투명 sky cutout 대신 식물로 가득한 RGB 표면을 지면 셰이더에서 혼합한다. [실제 프롬프트·제약·검증](LANDSCAPE-REFINEMENT.md). 아래 v1은 Git 이력의 이전 자료다.
 
 - public/landscapes/meadow-v1.webp: 내장 image_gen으로 이 프로젝트용 새 잔디·꽃 이미지를 생성했다. 외부 사진·Stellarium 풍경을 가져오지 않았다. 실제 지형이 아닌 장식용 가상 풍경이며 생성 PNG를 alpha 보존 WebP로 압축했다. 프롬프트·해상도·생성 방식은 [개선 기록](TONIGHT-REFRESH.md)에 남긴다.
+
+## 수식 조판과 글꼴 · KaTeX 0.18.7
+
+역사 천체물리의 수식은 KaTeX와 동봉된 글꼴로 기기 안에서 조판합니다. 외부 CDN으로 문제나 입력을 전송하지 않습니다. https://katex.org / https://github.com/KaTeX/KaTeX
+
+The MIT License (MIT)
+
+Copyright (c) 2013-2020 Khan Academy and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
