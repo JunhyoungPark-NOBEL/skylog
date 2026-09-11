@@ -7,6 +7,7 @@ import { HORIZON_SLOTS } from '@/personal/horizonArt';
 import type { saveGarden } from '@/personal/store';
 import { PillButton } from '@/ui/PillButton';
 import { DecorationArt } from './GardenArt';
+import { BackdropPicker } from './BackdropPicker';
 
 const GROUPS = ['all', 'equipment', 'furniture', 'nature'] as const;
 type Group = (typeof GROUPS)[number];
@@ -28,6 +29,8 @@ const FURNITURE: ReadonlySet<string> = new Set([
   'signpost',
   'lantern',
   'books',
+  'house',
+  'observing-deck',
 ]);
 
 function groupFor(id: DecorationId): Group {
@@ -38,6 +41,7 @@ export function HorizonEditor({
   profile,
   owned,
   ownedGround,
+  ownedBackdrop,
   progress,
   busy,
   slot,
@@ -47,6 +51,7 @@ export function HorizonEditor({
   profile: Personal;
   owned: ReadonlySet<string>;
   ownedGround: ReadonlySet<string>;
+  ownedBackdrop: ReadonlySet<string>;
   progress?: ReadonlyMap<string, { n: number; total: number }>;
   busy: boolean;
   slot: number;
@@ -55,7 +60,7 @@ export function HorizonEditor({
 }) {
   const { t } = useTranslation();
   const id = useId();
-  const [tab, setTab] = useState<'placement' | 'ground' | 'view'>('placement');
+  const [tab, setTab] = useState<'placement' | 'background' | 'ground' | 'view'>('placement');
   const [collection, setCollection] = useState<'owned' | 'rewards'>('owned');
   const [group, setGroup] = useState<Group>('all');
   const items = DECORATIONS.filter(
@@ -78,10 +83,10 @@ export function HorizonEditor({
         </PillButton>
       </div>
       <div
-        className="grid grid-cols-3 gap-1 rounded-2xl bg-surface p-1"
+        className="grid grid-cols-4 gap-1 rounded-2xl bg-surface p-1"
         aria-label={t('horizon.sections')}
       >
-        {(['placement', 'ground', 'view'] as const).map((key) => (
+        {(['placement', 'background', 'ground', 'view'] as const).map((key) => (
           <button
             key={key}
             type="button"
@@ -273,6 +278,14 @@ export function HorizonEditor({
           </div>
           <p className="text-caption text-muted">{t('horizon.groundHint')}</p>
         </fieldset>
+      )}
+      {tab === 'background' && (
+        <BackdropPicker
+          profile={profile}
+          owned={ownedBackdrop}
+          busy={busy}
+          onSelect={(backdrop) => onSave({ backdrop })}
+        />
       )}
       {tab === 'view' && (
         <fieldset disabled={busy} className="min-w-0 space-y-4">

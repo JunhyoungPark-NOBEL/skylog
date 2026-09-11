@@ -14,6 +14,7 @@ describe('공개 지평선의 데이터 경계', () => {
       avatar: { ...DEFAULT_AVATAR, hat: 'saturnhat' },
       horizon: {
         ground: 'snow',
+        backdrop: 'snow-peaks',
         slots: ['observatory-dome', null, 'sct', 'pavilion', null],
         sceneryEnabled: false,
         sceneryScale: 'medium',
@@ -30,6 +31,7 @@ describe('공개 지평선의 데이터 경계', () => {
       avatar: { ...DEFAULT_AVATAR, hat: 'saturnhat' },
       horizon: {
         ground: 'snow',
+        backdrop: 'snow-peaks',
         slots: ['observatory-dome', null, 'sct', 'pavilion', null],
         sceneryEnabled: false,
         sceneryScale: 'medium',
@@ -60,6 +62,7 @@ describe('공개 지평선의 데이터 경계', () => {
     copy.ground = 'snow';
     expect(source.slots).toEqual(['bench', null, null, null, 'sct']);
     expect(source.ground).toBe('stone');
+    expect(source.backdrop).toBe('field');
   });
 
   it('새 사용자가 빈 코디 칸을 비워도 기존 사용자 기본품을 지급하지 않는다', async () => {

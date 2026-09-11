@@ -10,7 +10,10 @@ vi.mock('react-i18next', () => ({
       values ? `${key}:${JSON.stringify(values)}` : key,
   }),
 }));
-vi.mock('@/features/personal/GardenArt', () => ({ DecorationArt: () => <g /> }));
+vi.mock('@/features/personal/GardenArt', () => ({
+  DecorationArt: () => <g />,
+  GardenArt: ({ profile }: { profile: Personal }) => <div data-backdrop={profile.backdrop} />,
+}));
 
 let container: HTMLDivElement;
 let root: Root;
@@ -41,6 +44,7 @@ async function render(profile: Partial<Personal> = {}, owned = new Set(['bench']
         profile={{ ...DEFAULT_PERSONAL, ...profile }}
         owned={owned}
         ownedGround={new Set(['meadow'])}
+        ownedBackdrop={new Set(['field'])}
         progress={new Map([['challenge-stages-cleared-20', { n: 3, total: 20 }]])}
         busy={busy}
         slot={0}
@@ -95,5 +99,21 @@ describe('관측 지평선 편집', () => {
     await click('horizon.tabs.view');
     expect(button('horizon.scale.medium').matches(':disabled')).toBe(true);
     expect(save).not.toHaveBeenCalled();
+  });
+  it('잠긴 배경도 미리 볼 수 있지만 저장하지 않으며 닫으면 초점을 돌려준다', async () => {
+    await render();
+    await click('horizon.tabs.background');
+    expect(button('horizon.backdrop.snow-peaks').disabled).toBe(true);
+    const preview = button('horizon.previewBackdrop:{"name":"horizon.backdrop.snow-peaks"}');
+    await act(async () => preview.click());
+    expect(
+      document.querySelector('[role="dialog"] [data-backdrop]')?.getAttribute('data-backdrop'),
+    ).toBe('snow-peaks');
+    expect(save).not.toHaveBeenCalled();
+    await act(async () =>
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })),
+    );
+    expect(document.querySelector('[role="dialog"]')).toBeNull();
+    expect(document.activeElement).toBe(preview);
   });
 });

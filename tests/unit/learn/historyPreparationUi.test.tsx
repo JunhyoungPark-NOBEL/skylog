@@ -94,7 +94,7 @@ const choose = async (index: number) => {
 it('첫 조회 실패 뒤 선택하고 재조회해도 그 선택은 동일한 준비 문제에 남는다', async () => {
   vi.mocked(readPreparation).mockRejectedValueOnce(new Error('read unavailable'));
   await mount();
-  expect(prep().querySelector('[role="alert"]')).not.toBeNull();
+  expect(host.querySelector('[role="alert"]')).not.toBeNull();
   const title = heading().textContent;
   await choose(0);
   const selected = radios()[0]!;
@@ -112,7 +112,7 @@ it('첫 조회 실패 뒤 선택하고 재조회해도 그 선택은 동일한 �
   expect(radios()[0]).toBe(selected);
   expect(selected.name).toBe('prep-' + first.id);
   expect(selected.checked).toBe(true);
-  expect(prep().querySelector('[role="alert"]')).toBeNull();
+  expect(host.querySelector('[role="alert"]')).toBeNull();
   expect(main().hidden).toBe(true);
   expect(answerPreparation).not.toHaveBeenCalled();
   await click('생각 확인하기');
@@ -139,7 +139,7 @@ it('다음 준비 문제의 새 제목으로 초점을 옮기며 이전 선택�
       focusedTitles.push(this.textContent);
     nativeFocus.call(this, options);
   });
-  await click('다음 준비 문제');
+  await click('다음으로');
   expect(heading().textContent).not.toBe(oldTitle);
   // 초점을 받는 바로 그 순간에 새 질문이 있어야 한다. 같은 h3 노드라는 사실만 검사하지 않는다.
   expect(focusedTitles).toEqual([heading().textContent]);
@@ -164,12 +164,12 @@ it('본 문제를 작성하다 준비 문제를 다시 보고 돌아와도 저�
     );
     note.dispatchEvent(new Event('input', { bubbles: true }));
   });
-  await click('선행 문제 다시 보기');
+  await click('1단계');
   expect(main().hidden).toBe(true);
   expect(main().querySelector('input')).toBe(input);
   expect(input.value).toBe('41000');
   expect(note.value).toBe('아직 저장하지 않은 새 풀이');
-  await click('본 문제로');
+  await click('3단계');
   expect(main().hidden).toBe(false);
   expect(main().querySelector('input')).toBe(input);
   expect(main().querySelector('textarea')).toBe(note);
@@ -177,4 +177,32 @@ it('본 문제를 작성하다 준비 문제를 다시 보고 돌아와도 저�
   expect(note.value).toBe('아직 저장하지 않은 새 풀이');
   expect(document.activeElement).toBe(main().querySelector('h3'));
   expect(answerPreparation).not.toHaveBeenCalled();
+});
+
+it('하나의 카드에서 서로 다른 장면과 9단계 위치를 이어 주고 복습은 기존 완료를 지우지 않는다', async () => {
+  await mount();
+  const card = host.querySelector('[data-testid="history-story-step"]')!;
+  const scene = () => host.querySelector('[data-testid="history-scene"]')!.textContent;
+  const count = () => host.querySelector('[data-testid="history-step-count"]')!.textContent;
+  const opening = scene();
+  expect(count()).toContain('1 / 9');
+  expect(host.textContent).not.toMatch(/준비 문제|선행 문제|본문제로/);
+  await choose(first.choices.findIndex((choice) => choice.id === first.answerId));
+  await click('생각 확인하기');
+  await click('다음으로');
+  const middle = scene();
+  expect(middle).not.toBe(opening);
+  expect(count()).toContain('2 / 9');
+  await choose(second.choices.findIndex((choice) => choice.id === second.answerId));
+  await click('생각 확인하기');
+  await click('다음으로');
+  expect(count()).toContain('3 / 9');
+  expect(scene()).not.toBe(middle);
+  expect(main().hidden).toBe(false);
+  expect(host.querySelector('[data-testid="history-story-step"]')).toBe(card);
+  await click('1단계');
+  expect(count()).toContain('1 / 9');
+  await click('다음으로');
+  expect(count()).toContain('2 / 9');
+  expect(answerPreparation).toHaveBeenCalledTimes(2);
 });

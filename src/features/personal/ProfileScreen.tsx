@@ -198,6 +198,7 @@ export default function ProfileScreen() {
                 profile={profile}
                 owned={data.owned}
                 ownedGround={data.ownedGround}
+                ownedBackdrop={data.ownedBackdrop}
                 progress={value?.badgeProgress}
                 busy={busy}
                 slot={slot}

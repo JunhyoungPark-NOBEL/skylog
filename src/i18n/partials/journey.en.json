@@ -84,7 +84,7 @@
       "firstStarHop": "Complete a star hop",
       "align2Success": "Complete a two-star alignment",
       "missionsCompleted": "Complete {{n}} observing missions",
-      "quizStreak": "Answer {{n}} new questions correctly in a row",
+      "quizStreak": "Answer {{n}} new questions correctly on the first try, in a row",
       "constellationCount": "Record sightings of {{n}} different constellations",
       "seasonSignature": "Record every star in the {{signature}}",
       "messierCount": "Record {{n}} different Messier objects",

@@ -118,9 +118,9 @@ describe('아바타 선택과 이전 프로필', () => {
       hairColor: 'copper',
       expression: 'wink',
       outfit: 'spacesuit',
-      slots: ['bench', null, 'flowers', null, null],
+      slots: ['bench', null, 'house', null, null],
     };
-    const owned = new Set(['bench', 'flowers']);
+    const owned = new Set(['bench', 'house']);
     expect(normalizePersonal(source, owned, LEGACY_FREE_AVATAR_OPTIONS)).toMatchObject({
       name: '별밤',
       slots: source.slots,

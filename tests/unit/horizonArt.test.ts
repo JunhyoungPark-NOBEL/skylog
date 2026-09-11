@@ -23,10 +23,12 @@ describe('공유 지평선 그림', () => {
   it('아틀라스에는 지정한 다섯 방위만 한 번씩 놓이며 빈 자리는 그리지 않는다', () => {
     const svg = horizonAtlasSvg(DEFAULT_PERSONAL);
     expect(svg).toContain('width="4096"');
-    expect(svg).toContain(`translate(${(180 / 360) * 5120} 112)`);
+    expect(svg).toContain(`translate(${(180 / 360) * 5120} 218)`);
     expect(svg.match(/<ellipse cy="5"/g)).toHaveLength(1);
     expect(HORIZON_SLOTS.map((slot) => slot.azDeg)).toEqual([108, 144, 180, 216, 252]);
-    expect(horizonAtlasSvg({ slots: [null, null, null, null, null] })).not.toContain('<g');
+    expect(horizonAtlasSvg({ slots: [null, null, null, null, null] })).not.toContain(
+      decorationSvg('bench'),
+    );
   });
 
   it('프로필 그림은 같은 물품을 쓰고 ID 입력을 마크업으로 해석하지 않는다', () => {
@@ -93,7 +95,7 @@ describe('지평선 합성 수명', () => {
     }
   });
 
-  it('지면·밝기 변경은 같은 아틀라스를 재사용하고 배치·크기 변경만 새로 그린다', () => {
+  it('센서·밝기·숨김은 아틀라스를 재사용하고 풍경 선택 때만 새로 그린다', () => {
     let images = 0;
     class FakeImage {
       src = '';
@@ -107,14 +109,13 @@ describe('지평선 합성 수명', () => {
     try {
       const layer = new HorizonLayer();
       layer.setPersonal(DEFAULT_PERSONAL, () => undefined);
-      layer.setPersonal(
-        { ...DEFAULT_PERSONAL, ground: 'snow', sceneryEnabled: false },
-        () => undefined,
-      );
+      layer.setPersonal({ ...DEFAULT_PERSONAL, sceneryEnabled: false }, () => undefined);
       for (let frame = 0; frame < 120; frame++) layer.setMeadow(true, frame > 60, -15);
       expect(images).toBe(1);
-      layer.setPersonal({ ...DEFAULT_PERSONAL, sceneryScale: 'medium' }, () => undefined);
+      layer.setPersonal({ ...DEFAULT_PERSONAL, ground: 'snow' }, () => undefined);
       expect(images).toBe(2);
+      layer.setPersonal({ ...DEFAULT_PERSONAL, sceneryScale: 'medium' }, () => undefined);
+      expect(images).toBe(3);
       layer.dispose();
     } finally {
       vi.unstubAllGlobals();

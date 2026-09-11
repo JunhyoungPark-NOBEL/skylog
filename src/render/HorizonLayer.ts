@@ -4,6 +4,7 @@ import { circlePoints } from '@/render/greatCircle';
 import { LineLayer } from '@/render/LineLayer';
 import {
   HORIZON_GROUND_PALETTE,
+  HORIZON_ATLAS_DEPTH_DEG,
   horizonAtlasSvg,
   type HorizonArtwork,
 } from '@/personal/horizonArt';
@@ -88,8 +89,13 @@ export class HorizonLayer {
     this.meadowUniforms.uGroundType.value = ['meadow', 'sand', 'stone', 'snow'].indexOf(
       profile.ground,
     );
-    this.meadowUniforms.uSceneryHeight.value = profile.sceneryScale === 'medium' ? 12 : 9;
-    const key = JSON.stringify([profile.slots, profile.sceneryScale]);
+    this.meadowUniforms.uSceneryHeight.value = HORIZON_ATLAS_DEPTH_DEG;
+    const key = JSON.stringify([
+      profile.slots,
+      profile.sceneryScale,
+      profile.backdrop,
+      profile.ground,
+    ]);
     if (this.atlasKey === key) {
       invalidate();
       return;
@@ -109,7 +115,7 @@ export class HorizonLayer {
       const previous = this.groundMaterial.map;
       this.groundMaterial.map = texture;
       previous?.dispose();
-      this.atlasReady = profile.slots.some(Boolean);
+      this.atlasReady = true;
       this.pendingImage = null;
       image.onload = null;
       image.onerror = null;
@@ -156,7 +162,6 @@ export class HorizonLayer {
         uniform vec3 uGroundDetail;
         uniform float uGroundType;
         varying vec3 vGroundDirection;
-        float groundHash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
         ${shader.fragmentShader}`;
       shader.fragmentShader = shader.fragmentShader.replace(
         '#include <map_fragment>',
@@ -169,26 +174,19 @@ export class HorizonLayer {
         float groundBlend = smoothstep(0.0, 1.2, belowDeg)
           * (1.0 - smoothstep(22.0, 42.0, belowDeg)) * uMeadowEnabled;
         vec3 groundColor = mix(uGroundFar, uGroundNear, smoothstep(0.0, 28.0, belowDeg));
-        // 성긴 붓결만 남긴 잔디/모래/돌/눈. 광도 무늬를 세게 만들지 않는다.
-        vec2 groundCell = vec2(az * 180.0, belowDeg * 1.15);
-        vec2 cellLocal = fract(groundCell) - 0.5;
-        float seed = groundHash(floor(groundCell));
-        float grain = (1.0 - smoothstep(0.18, 0.33, abs(cellLocal.x)))
-          * (1.0 - smoothstep(0.02, 0.12, abs(cellLocal.y))) * step(0.55, seed);
-        if (uGroundType < 0.5) {
-          grain = (1.0 - smoothstep(0.015, 0.065, abs(cellLocal.x - cellLocal.y * 0.23)))
-            * (1.0 - smoothstep(0.03, 0.27, abs(cellLocal.y))) * step(0.73, seed);
-        }
-        groundColor = mix(groundColor, uGroundDetail, grain * 0.16);
+        // 세부 반복 무늬 대신 넓은 면과 색의 깊이로 가까운 잔디를 표현한다.
         groundColor *= 0.97 + 0.03 * sin(belowDeg * 0.55 + sin(az * 37.699));
         diffuseColor.rgb = mix(diffuseColor.rgb, groundColor * uMeadowTint, groundBlend);
-        // 발끝은 작은 크기에서 -8.33°, 큰 크기에서 -10.95°. 최고점도 -0.45° 아래다.
+        // 원경과 장식은 한 그림으로 합성하며 최고점도 -0.45° 아래다.
         float artY = (belowDeg - 0.45) / uSceneryHeight;
         vec4 decoration = texture2D(map, vec2(az, 1.0 - clamp(artY, 0.0, 1.0)));
         float artAlpha = decoration.a * step(0.0, artY) * step(artY, 1.0)
-          * uSceneryEnabled * uMeadowEnabled;
+          * (1.0 - smoothstep(0.89, 1.0, artY)) * uSceneryEnabled * uMeadowEnabled;
         diffuseColor.rgb = mix(diffuseColor.rgb, decoration.rgb * uMeadowTint, artAlpha);
         diffuseColor.a *= mix(1.0, smoothstep(0.0, 0.35, belowDeg), uMeadowEnabled);
+        // 봉우리 사이를 평평한 잔디 띠로 메우지 않는다. 원경 실루엣 뒤에는 하늘이 보인다.
+        float sceneryCoverage = max(decoration.a, smoothstep(12.0, 15.0, belowDeg));
+        diffuseColor.a *= mix(1.0, sceneryCoverage, uSceneryEnabled * uMeadowEnabled);
         #endif
       `,
       );

@@ -59,8 +59,8 @@ afterEach(async () => {
 });
 const mount = async () => {
   await act(async () => root.render(<HistoryQuestsScreen questId={quest.id} />));
-  const skip = [...host.querySelectorAll<HTMLButtonElement>('button')].find((b) =>
-    b.textContent?.includes('본 문제로'),
+  const skip = [...host.querySelectorAll<HTMLButtonElement>('button')].find(
+    (b) => b.textContent === '3단계',
   );
   if (skip) await act(async () => skip.click());
 };

@@ -16,6 +16,7 @@ for (const file of [
   '202609080005_edit.sql',
   '202609100001_community_identity.sql',
   '202609110001_horizon_profiles.sql',
+  '202609110002_horizon_scenery.sql',
 ])
   await db.exec(await readFile('supabase/migrations/' + file, 'utf8'));
 const a = '00000000-0000-4000-8000-000000000001',
@@ -62,6 +63,30 @@ for (const id of [a, b]) {
 await actor(a);
 await save(a);
 checks++;
+// 새 풍경은 고정된 선택값만 받는다. 구버전 네 필드 형식도 계속 허용한다.
+for (const backdrop of ['field', 'snow-peaks', 'rocky-peaks', 'sea']) {
+  const scenery = {
+    ...horizon,
+    slots: ['house', 'observing-deck', 'dog', 'sct', 'pavilion'],
+    backdrop,
+  };
+  await save(a, scenery);
+  assert.deepEqual(
+    (await db.query('select horizon from sky_members where id=$1', [a])).rows[0].horizon,
+    scenery,
+  );
+  checks++;
+}
+for (const oldId of ['flowers', 'stones', 'fern', 'sunflowers']) {
+  const scenery = { ...horizon, slots: [oldId, null, null, null, null] };
+  await save(a, scenery);
+  assert.deepEqual(
+    (await db.query('select horizon from sky_members where id=$1', [a])).rows[0].horizon,
+    scenery,
+  );
+  checks++;
+}
+await save(a);
 assert.deepEqual(
   (await db.query('select horizon from sky_members where id=$1', [a])).rows[0].horizon,
   horizon,
@@ -105,6 +130,13 @@ for (const malformed of [
   { ...horizon, slots: [0, null, null, null, null] },
   { ...horizon, slots: ['https://private', null, null, null, null] },
   { ...horizon, ground: '<svg>' },
+  { ...horizon, backdrop: null },
+  { ...horizon, backdrop: 0 },
+  { ...horizon, backdrop: ['sea'] },
+  { ...horizon, backdrop: { svg: '<svg onload="alert(1)">' } },
+  { ...horizon, backdrop: 'https://private/landscape.svg' },
+  { ...horizon, backdrop: 'unknown' },
+  { ...horizon, backdrop: 'sea', extra: 'anything' },
   { ...horizon, sceneryEnabled: 'true' },
   { ...horizon, sceneryScale: 20 },
   { ...horizon, lat: 37 },

@@ -7,6 +7,7 @@ import {
   DEFAULT_PERSONAL,
   DECORATIONS,
   GROUND_STYLES,
+  BACKDROP_STYLES,
   normalizePublicHorizon,
 } from '@/personal/catalog';
 import { readPersonal, saveGarden, saveAvatarLook, saveLook, grantRewards } from '@/personal/store';
@@ -17,6 +18,7 @@ describe('지평선 꾸미기 소유권과 이전 버전 보존', () => {
     const first = await readPersonal();
     expect([...first.owned]).toEqual(['bench']);
     expect([...first.ownedGround]).toEqual(['meadow']);
+    expect([...first.ownedBackdrop]).toEqual(['field']);
     expect(first.profile.slots).toEqual([null, null, 'bench', null, null]);
     expect(first.ownedAvatar.has('outfit:hoodie')).toBe(false);
     await saveGarden({
@@ -51,11 +53,11 @@ describe('지평선 꾸미기 소유권과 이전 버전 보존', () => {
     expect(old.ownedAvatar.has('hat:starcrown')).toBe(false);
     await saveGarden({ sceneryScale: 'medium' });
     expect((await readPersonal()).profile.slots).toEqual([
-      'flowers',
+      'house',
       'bench',
       null,
-      'fern',
-      'stones',
+      'dog',
+      'observing-deck',
     ]);
     expect(await getProgress('personal.ownership-v2')).toEqual({ version: 2, legacy: true });
   });
@@ -90,7 +92,7 @@ describe('지평선 꾸미기 소유권과 이전 버전 보존', () => {
   it('아바타와 지평선을 동시에 저장해도 서로 덮어쓰지 않으며 백업으로 복원한다', async () => {
     await grantRewards(new Set(['badge-quiz-5']));
     await Promise.all([
-      saveGarden({ ground: 'sand', sceneryEnabled: false }),
+      saveGarden({ ground: 'sand', backdrop: 'sea', sceneryEnabled: false }),
       saveAvatarLook({ ...DEFAULT_AVATAR, skin: 'cocoa' }),
     ]);
     const bundle = await exportBundle();
@@ -100,6 +102,7 @@ describe('지평선 꾸미기 소유권과 이전 버전 보존', () => {
     expect(result.profile).toEqual({
       ...DEFAULT_PERSONAL,
       ground: 'sand',
+      backdrop: 'sea',
       sceneryEnabled: false,
       skin: 'cocoa',
     });
@@ -107,7 +110,7 @@ describe('지평선 꾸미기 소유권과 이전 버전 보존', () => {
   });
   it('모든 보상 조건이 실제 활성 업적으로 존재한다', () => {
     const available = new Set(badges.filter((b) => b.enabled !== false).map((b) => b.id));
-    for (const item of [...DECORATIONS, ...GROUND_STYLES, ...AVATAR_REWARDS])
+    for (const item of [...DECORATIONS, ...GROUND_STYLES, ...BACKDROP_STYLES, ...AVATAR_REWARDS])
       if (item.badge) expect(available.has(item.badge), item.badge).toBe(true);
   });
   it('공개 지평선에 임의 SVG·URL·좌표·이름을 포함하지 않는다', () => {
@@ -122,8 +125,26 @@ describe('지평선 꾸미기 소유권과 이전 버전 보존', () => {
     expect(result).toEqual({
       slots: ['sct', null, null, null, 'bench'],
       ground: 'meadow',
+      backdrop: 'field',
       sceneryScale: 'small',
       sceneryEnabled: true,
     });
+  });
+  it('이전 소품 보상을 의미 있는 장식으로 이관하고 잠긴 배경을 저장하지 않는다', async () => {
+    await setProgress('personal.ownership-v2', { version: 2, legacy: false });
+    await setProgress('personal.reward:sunflowers', { earnedAt: '2026-09-11T00:00:00Z' });
+    await setProgress('personal.reward:fern', { earnedAt: '2026-09-11T00:00:00Z' });
+    const before = await readPersonal();
+    expect(before.owned.has('house')).toBe(true);
+    expect(before.owned.has('dog')).toBe(true);
+    await saveGarden({
+      slots: ['sunflowers', 'house', 'bench', 'fern', null],
+      backdrop: 'snow-peaks',
+    });
+    expect((await readPersonal()).profile.slots).toEqual(['house', null, 'bench', 'dog', null]);
+    expect((await readPersonal()).profile.backdrop).toBe('field');
+    await grantRewards(new Set(['challenge-observation-nights-10']));
+    await saveGarden({ backdrop: 'snow-peaks' });
+    expect((await readPersonal()).profile.backdrop).toBe('snow-peaks');
   });
 });

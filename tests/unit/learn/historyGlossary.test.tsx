@@ -39,6 +39,27 @@ const pointer = async (type: string, x: number, y: number) =>
     term().dispatchEvent(new MouseEvent(type, { bubbles: true, clientX: x, clientY: y }));
   });
 describe('in-context long-press glossary', () => {
+  it('does not open after a short touch or mouse click, including its synthetic click', async () => {
+    await mount();
+    await pointer('pointerdown', 10, 10);
+    await act(async () => vi.advanceTimersByTime(200));
+    await pointer('pointerup', 10, 10);
+    await act(async () => term().click());
+    await act(async () => vi.advanceTimersByTime(600));
+    expect(document.querySelector('[role="dialog"]')).toBeNull();
+  });
+  it('cancels when the page scrolls or the pointer is canceled before the hold threshold', async () => {
+    await mount();
+    for (const event of ['scroll', 'pointercancel']) {
+      await pointer('pointerdown', 10, 10);
+      await act(async () => vi.advanceTimersByTime(300));
+      await act(async () => {
+        (event === 'scroll' ? window : term()).dispatchEvent(new Event(event, { bubbles: true }));
+      });
+      await act(async () => vi.advanceTimersByTime(300));
+      expect(document.querySelector('[role="dialog"]')).toBeNull();
+    }
+  });
   it('keeps the definition open on hold release and closes only a fresh backdrop gesture', async () => {
     await mount();
     await pointer('pointerdown', 10, 10);

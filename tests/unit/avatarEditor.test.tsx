@@ -71,12 +71,13 @@ function snapshot(
   return {
     profile: {
       ...DEFAULT_PERSONAL,
-      slots: ['flowers', 'bench', null, 'fern', 'stones'],
+      slots: ['house', 'bench', null, 'dog', 'observing-deck'],
       ...profile,
     },
-    owned: new Set(['flowers', 'bench', 'fern', 'stones']),
+    owned: new Set(['house', 'bench', 'dog', 'observing-deck']),
     ownedAvatar: new Set([...FREE_AVATAR_OPTIONS, ...LEGACY_FREE_AVATAR_OPTIONS]),
     ownedGround: new Set(['meadow']),
+    ownedBackdrop: new Set(['field']),
     legacy: true,
     looks,
   };
@@ -250,24 +251,26 @@ describe('아바타 저장 뒤 화면 갱신 경계', () => {
     await click(button('personal.slot:{"n":1}'));
     const reading = deferred<PersonalState>();
     vi.mocked(readPersonal).mockReturnValue(reading.promise);
-    await click(button('personal.items.stones'));
-    expect(saveGarden).toHaveBeenLastCalledWith({ slots: ['stones', 'bench', null, 'fern', null] });
-    expect(button('personal.items.flowers').disabled).toBe(true);
-    await click(button('personal.items.flowers'));
+    await click(button('personal.items.observing-deck'));
+    expect(saveGarden).toHaveBeenLastCalledWith({
+      slots: ['observing-deck', 'bench', null, 'dog', null],
+    });
+    expect(button('personal.items.house').disabled).toBe(true);
+    await click(button('personal.items.house'));
     expect(saveGarden).toHaveBeenCalledTimes(1);
     await act(async () =>
-      reading.resolve(snapshot({ slots: ['stones', 'bench', null, 'fern', null] })),
+      reading.resolve(snapshot({ slots: ['observing-deck', 'bench', null, 'dog', null] })),
     );
     await click(button('personal.slot:{"n":2}'));
     vi.mocked(readPersonal).mockResolvedValue(
-      snapshot({ slots: ['stones', 'flowers', null, 'fern', null] }),
+      snapshot({ slots: ['observing-deck', 'house', null, 'dog', null] }),
     );
-    await click(button('personal.items.flowers'));
+    await click(button('personal.items.house'));
     expect(saveGarden).toHaveBeenLastCalledWith({
-      slots: ['stones', 'flowers', null, 'fern', null],
+      slots: ['observing-deck', 'house', null, 'dog', null],
     });
     expect(container.querySelector('[data-testid="garden-art"]')?.getAttribute('data-slots')).toBe(
-      JSON.stringify(['stones', 'flowers', null, 'fern', null]),
+      JSON.stringify(['observing-deck', 'house', null, 'dog', null]),
     );
   });
 

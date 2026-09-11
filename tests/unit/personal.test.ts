@@ -13,7 +13,7 @@ describe('무료 마당', () => {
       },
       new Set(['flowers']),
     );
-    expect(p.slots).toEqual(['flowers', null, null, null, null]);
+    expect(p.slots).toEqual(['house', null, null, null, null]);
     expect(p.suit).toBe('sage');
     expect(p.name).toBe('my garden');
   });

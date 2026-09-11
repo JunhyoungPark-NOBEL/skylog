@@ -458,8 +458,8 @@ export const HISTORY_LESSONS: Record<string, HistoryLesson> = {
       warmup(
         'eratosthenes-circumference-fraction',
         t(
-          '별도의 연습: 두 지점의 중심각이 한 바퀴의 1/12이다. 두 지점 사이 호와 전체 둘레의 관계는?',
-          'Separate practice: a central angle is 1/12 of a full turn. How does its arc relate to the circumference?',
+          '두 도시의 그림자를 잰다고 상상하자. 중심각이 한 바퀴의 1/12이라면, 두 도시 사이 호와 지구 전체 둘레의 관계는?',
+          'Imagine measuring shadows in two cities. If their central angle is 1/12 of a turn, how does the arc between them relate to Earth’s circumference?',
         ),
         [
           t('호 길이 = 둘레의 1/12', 'Arc length = circumference/12'),
@@ -984,8 +984,8 @@ export const HISTORY_LESSONS: Record<string, HistoryLesson> = {
       warmup(
         'leavitt-modulus-log',
         t(
-          '별도의 연습에서 \\(\\log_{10}x=3\\)이다. \\(x\\)를 되찾는 방법은?',
-          'In separate practice, \\(\\log_{10}x=3\\). How do you recover \\(x\\)?',
+          '거리 계산에서 먼저 로그를 거꾸로 읽어 보자. \\(\\log_{10}x=3\\)이면 \\(x\\)를 되찾는 방법은?',
+          'First undo a logarithm, as a distance calculation will require. If \\(\\log_{10}x=3\\), how do you recover \\(x\\)?',
         ),
         [
           t('\\(x=10^3\\)', '\\(x=10^3\\)'),
@@ -1269,8 +1269,8 @@ export const HISTORY_LESSONS: Record<string, HistoryLesson> = {
       warmup(
         'payne-level-population-subset',
         t(
-          '전체 구슬의 절반이 빨갛고, 빨간 구슬의 1/4이 크다. 전체 중 크고 빨간 구슬은?',
-          'Half the marbles are red; one quarter of the red marbles are large. What fraction of all marbles is both?',
+          '입자 수를 세는 간단한 모형에서 수소의 절반이 중성이고, 그중 1/4이 특정 준위에 있다. 전체 수소 중 두 조건을 만족하는 몫은?',
+          'In a simple counting model, half the hydrogen is neutral and one quarter of those atoms occupy a particular level. What fraction of all hydrogen meets both conditions?',
         ),
         [t('1/8', '1/8'), t('3/4', '3/4'), t('1/4', '1/4')],
         0,
@@ -1737,8 +1737,8 @@ export const HISTORY_LESSONS: Record<string, HistoryLesson> = {
       warmup(
         'chandra-radius-root',
         t(
-          '별도의 수학 연습: \\(27^{-1/3}\\)을 계산하는 순서는?',
-          'Separate mathematical practice: how do you evaluate \\(27^{-1/3}\\)?',
+          '반지름 관계의 지수를 읽어 보자. 수학적으로 \\(27^{-1/3}\\)을 계산하는 순서는?',
+          'Read the power used in the radius relation. Mathematically, how do you evaluate \\(27^{-1/3}\\)?',
         ),
         [
           t('27에서 \\(\\frac{1}{3}\\)을 뺀다', 'Subtract \\(\\frac{1}{3}\\) from 27'),
@@ -1821,8 +1821,8 @@ export const HISTORY_LESSONS: Record<string, HistoryLesson> = {
       warmup(
         'chandra-scaling-exponent',
         t(
-          '다른 수학 연습: \\((x^3)^2\\)의 지수는?',
-          'Separate mathematical practice: what is \\((x^3)^2\\)?',
+          '압력 식을 펼치기 전에 거듭제곱을 합쳐 보자. \\((x^3)^2\\)의 지수는?',
+          'Combine powers before expanding the pressure relations. What is \\((x^3)^2\\)?',
         ),
         [
           t('\\(x^{5}\\)', '\\(x^{5}\\)'),
@@ -2492,8 +2492,8 @@ export const HISTORY_LESSONS: Record<string, HistoryLesson> = {
       warmup(
         'rubin-missing-fraction-complement',
         t(
-          '다른 연습: 전체 질량의 1/4을 설명했다. 아직 설명되지 않은 몫을 구하는 식은?',
-          'Separate practice: one quarter of total mass is explained. Which expression gives the unexplained share?',
+          '질량 장부를 읽어 보자. 어떤 모형이 전체 질량의 1/4을 설명했다면, 아직 설명되지 않은 몫을 구하는 식은?',
+          'Read a mass ledger: if a model explains one quarter of the total mass, which expression gives the unexplained share?',
         ),
         [
           t('\\(1-\\frac{1}{4}\\)', '\\(1-\\frac{1}{4}\\)'),

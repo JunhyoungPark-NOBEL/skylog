@@ -1,0 +1,47 @@
+{
+  "achievementCollection": {
+    "completed": "달성",
+    "tapHint": "업적을 누르면 달성 조건을 볼 수 있어요.",
+    "open": "{{name}} · {{status}} · 달성 조건 보기",
+    "condition": "달성 조건",
+    "constellationTitle": "별자리 {{n}}개",
+    "groups": {
+      "discovery": "하늘 발견",
+      "deepSky": "깊은 하늘",
+      "journal": "관측 기록",
+      "learning": "퀴즈·이야기",
+      "fieldwork": "관측 실전"
+    },
+    "signatures": {
+      "summerTriangle": "여름 대삼각형",
+      "winterDiamond": "겨울 육각형",
+      "springTriangle": "봄 대삼각형",
+      "autumnSquare": "가을 사각형"
+    },
+    "short": {
+      "firstObservation": "첫 관측",
+      "firstSketch": "첫 스케치",
+      "firstStarHop": "첫 별길",
+      "align2Success": "두 별 정렬",
+      "observedObjects": "천체 {{n}}개",
+      "constellationCount": "별자리 {{n}}개",
+      "seasonSignature": "계절 길잡이",
+      "planetsAll": "일곱 행성",
+      "moonPhasesAll": "달의 모든 얼굴",
+      "messierCount": "메시에 {{n}}개",
+      "caldwellCount": "콜드웰 {{n}}개",
+      "observationNights": "관측 {{n}}밤",
+      "streakNights": "{{n}}밤 연속",
+      "detailedObjects": "메모 {{n}}개",
+      "sketchedObjects": "스케치 {{n}}개",
+      "photographedObjects": "사진 {{n}}개",
+      "quizStreak": "연속 정답 {{n}}",
+      "quizMastered": "퀴즈 {{n}}문제",
+      "stagesCleared": "{{n}}단계 통과",
+      "stagesPerfect": "{{n}}단계 만점",
+      "storiesRead": "이야기 {{n}}편",
+      "missionsCompleted": "미션 {{n}}개",
+      "hopCoursesCompleted": "별길 {{n}}코스"
+    }
+  }
+}

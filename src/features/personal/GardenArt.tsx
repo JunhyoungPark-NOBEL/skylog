@@ -48,6 +48,7 @@ export function GardenArt({
       aria-label={label}
       data-testid="horizon-preview"
       data-ground={profile.ground}
+      data-backdrop={profile.backdrop ?? 'field'}
       data-scenery={profile.sceneryEnabled ? 'visible' : 'hidden'}
       className={`personal-art personal-art-tone block w-full overflow-hidden rounded-3xl ${className}`}
       style={personalArtNightStyle(nightId)}

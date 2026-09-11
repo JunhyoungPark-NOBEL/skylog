@@ -79,6 +79,10 @@ it('목록은 실제 사진·별자리 도해·별 위치 도해와 기존 읽�
   expect(row('planet:saturn').querySelector('[data-testid="story-image-read"]')).not.toBeNull();
   expect(row('planet:saturn').textContent).toContain('journey.read');
   expect(row('const:Ori').querySelector('[data-testid="story-sky-chart"]')).not.toBeNull();
+  const lines = row('const:Ori').querySelector('[data-testid="story-chart-lines"]')!;
+  expect(lines.getAttribute('stroke-width')).toBe('2.2');
+  expect(lines.getAttribute('stroke-opacity')).toBe('.94');
+  expect(lines.getAttribute('stroke-linecap')).toBe('round');
   expect(row('star:HIP91262').querySelector('[data-testid="story-chart-target"]')).not.toBeNull();
   expect(row('star:HIP91262').querySelector('img')).toBeNull();
   expect(
@@ -145,6 +149,12 @@ it('이야기 상세의 실제 사진에 전체 출처·야간 원래 색 선택
   );
   expect(host.querySelector('[data-testid="story-sky-chart"]')!.classList.contains('text-fg')).toBe(
     true,
+  );
+  expect(
+    host.querySelector('[data-testid="story-chart-lines"]')!.getAttribute('stroke-width'),
+  ).toBe('1.05');
+  expect(host.querySelector('[data-testid="story-chart-lines"]')!.getAttribute('stroke')).toBe(
+    'currentColor',
   );
 });
 

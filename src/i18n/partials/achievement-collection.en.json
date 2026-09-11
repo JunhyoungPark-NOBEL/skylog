@@ -1,0 +1,47 @@
+{
+  "achievementCollection": {
+    "completed": "earned",
+    "tapHint": "Tap a badge to see how to earn it.",
+    "open": "{{name}} · {{status}} · View goal",
+    "condition": "How to earn it",
+    "constellationTitle": "{{n}} constellations",
+    "groups": {
+      "discovery": "Sky discoveries",
+      "deepSky": "Deep sky",
+      "journal": "Observing journal",
+      "learning": "Quizzes & stories",
+      "fieldwork": "Field skills"
+    },
+    "signatures": {
+      "summerTriangle": "Summer Triangle",
+      "winterDiamond": "Winter Hexagon",
+      "springTriangle": "Spring Triangle",
+      "autumnSquare": "Autumn Square"
+    },
+    "short": {
+      "firstObservation": "First sighting",
+      "firstSketch": "First sketch",
+      "firstStarHop": "First star hop",
+      "align2Success": "Two-star align",
+      "observedObjects": "{{n}} objects",
+      "constellationCount": "{{n}} constell.",
+      "seasonSignature": "Season guide",
+      "planetsAll": "Seven planets",
+      "moonPhasesAll": "All Moon phases",
+      "messierCount": "{{n}} Messiers",
+      "caldwellCount": "{{n}} Caldwells",
+      "observationNights": "{{n}} nights",
+      "streakNights": "{{n}}-night streak",
+      "detailedObjects": "{{n}} notes",
+      "sketchedObjects": "{{n}} sketches",
+      "photographedObjects": "{{n}} photos",
+      "quizStreak": "{{n}}-answer streak",
+      "quizMastered": "{{n}} answers",
+      "stagesCleared": "{{n}} stages",
+      "stagesPerfect": "{{n}} perfect stages",
+      "storiesRead": "{{n}} stories",
+      "missionsCompleted": "{{n}} missions",
+      "hopCoursesCompleted": "{{n}} star hops"
+    }
+  }
+}

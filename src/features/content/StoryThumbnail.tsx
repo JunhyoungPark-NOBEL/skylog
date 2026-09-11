@@ -25,7 +25,15 @@ function SkyChart({
       data-testid="story-sky-chart"
     >
       <circle cx="50" cy="50" r="47" fill="var(--bg)" stroke="currentColor" strokeOpacity=".15" />
-      <g stroke="currentColor" strokeOpacity=".6" strokeWidth={small ? 1 : 0.6} fill="none">
+      <g
+        stroke="currentColor"
+        strokeOpacity=".94"
+        strokeWidth={small ? 2.2 : 1.05}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        data-testid="story-chart-lines"
+      >
         {chart.lines.map(([a, b], i) => (
           <line key={i} x1={a.x} y1={a.y} x2={b.x} y2={b.y} />
         ))}

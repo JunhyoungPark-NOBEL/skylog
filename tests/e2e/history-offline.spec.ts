@@ -35,7 +35,7 @@ async function storedProgress(page: Page) {
 async function solvePreparation(page: Page, index: number) {
   const step = lesson.warmups[index]!;
   const section = page.getByTestId('history-preparation');
-  await expect(section).toContainText(`${index + 1}/2`);
+  await expect(page.getByTestId('history-step-count')).toHaveText(`단계 ${index + 1} / 9`);
   const rightIndex = step.choices.findIndex((choice) => choice.id === step.answerId);
   await section.getByRole('radio').nth(rightIndex).check();
   await section.getByRole('button', { name: '생각 확인하기', exact: true }).click();
@@ -107,7 +107,7 @@ test('실제 PWA 캐시에서 선행 문제·본 문제 저장을 이어가고 �
     await page.goto(path);
     await expect(page.getByTestId('history-preparation')).toBeVisible();
     await solvePreparation(page, 0);
-    await page.getByRole('button', { name: /다음 준비 문제/ }).click();
+    await page.getByRole('button', { name: /다음으로/ }).click();
     const before = await storedProgress(page);
     const preparationKey = `learn.preparation:${questionId}`;
     expect(before.find((row) => row.key === preparationKey)?.value).toEqual({
@@ -138,11 +138,11 @@ test('실제 PWA 캐시에서 선행 문제·본 문제 저장을 이어가고 �
     const firstOfflineDocument = await page.reload();
     expect(firstOfflineDocument?.status()).toBe(200);
     expect(firstOfflineDocument?.fromServiceWorker()).toBe(true);
-    await expect(page.getByTestId('history-preparation')).toContainText('2/2');
+    await expect(page.getByTestId('history-step-count')).toHaveText('단계 2 / 9');
     await expect(page.getByTestId('history-main-content')).toBeHidden();
     expect(await page.evaluate(() => navigator.onLine)).toBe(false);
     await solvePreparation(page, 1);
-    await page.getByRole('button', { name: /이제 본 문제 풀기/ }).click();
+    await page.getByRole('button', { name: /다음으로/ }).click();
     await expect(page.getByTestId('history-main-content')).toBeVisible();
     await expect(page.getByTestId('history-result')).toHaveCount(0);
     await page.getByTestId('history-numeric').fill('4e4');
@@ -177,9 +177,10 @@ test('실제 PWA 캐시에서 선행 문제·본 문제 저장을 이어가고 �
     await page.getByRole('button', { name: /이야기 목록/ }).click();
     await page.getByTestId('history-quest-kepler-orbits').click();
     const preparation = page.getByTestId('history-preparation');
-    await expect(preparation).toContainText('1/2');
+    await expect(page.getByTestId('history-step-count')).toHaveText('단계 1 / 9');
     await expect(preparation.locator('svg[role="img"]')).toBeVisible();
-    await preparation.getByRole('button', { name: /본 문제로/ }).click();
+    await page.getByText('단계 이동', { exact: true }).click();
+    await page.getByRole('button', { name: '3단계', exact: true }).click();
     const main = page.getByTestId('history-main-content');
     await main.getByText('그림과 풀이의 연결 고리', { exact: true }).click();
     await expect(main.locator('svg[role="img"]')).toBeVisible();

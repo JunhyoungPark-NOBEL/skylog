@@ -33,7 +33,10 @@
       "dobsonian": "돕소니안 망원경",
       "sct": "슈미트 카세그레인",
       "radio-dish": "전파망원경",
-      "observatory-dome": "작은 천문대"
+      "observatory-dome": "작은 천문대",
+      "house": "작은 주택",
+      "observing-deck": "관측 데크",
+      "dog": "별밤 강아지"
     },
     "unlock": {
       "flowers": "새 퀴즈 3문제 첫 시도 연속 정답",
@@ -55,19 +58,33 @@
       "dobsonian": "메시에 천체 5개 관측",
       "sct": "퀴즈 스테이지 5개 만점",
       "radio-dish": "퀴즈 100문제 익히기",
-      "observatory-dome": "퀴즈 스테이지 40개 완료"
+      "observatory-dome": "퀴즈 스테이지 40개 완료",
+      "house": "새 퀴즈 3문제 첫 시도 연속 정답",
+      "observing-deck": "미션 3개 완료",
+      "dog": "첫 관측 기록"
     }
   },
   "horizon": {
     "intro": "장식은 첫 하늘 화면의 남쪽 지평선에 나타나요.",
     "openSky": "하늘에서 보기",
     "sections": "지평선 꾸미기 항목",
-    "tabs": { "placement": "장식 배치", "ground": "지면", "view": "표시" },
+    "tabs": {
+      "placement": "장식 배치",
+      "ground": "지면",
+      "view": "표시",
+      "background": "배경"
+    },
     "previewCaption": "남쪽 지평선 미리보기",
     "autoSave": "선택하면 자동 저장",
     "saved": "저장됨",
     "hidden": "현재 하늘에서는 장식을 숨기고 있어요.",
-    "directions": { "0": "동남동", "1": "남동", "2": "남", "3": "남서", "4": "서남서" },
+    "directions": {
+      "0": "동남동",
+      "1": "남동",
+      "2": "남",
+      "3": "남서",
+      "4": "서남서"
+    },
     "currentSpot": "{{n}}번 자리",
     "emptySpot": "비어 있음",
     "collection": "장식 보관함",
@@ -76,7 +93,7 @@
       "all": "전체",
       "equipment": "관측 장비",
       "furniture": "가구·소품",
-      "nature": "자연"
+      "nature": "동행·기념"
     },
     "noOwned": "아직 이 종류의 장식이 없어요. 해금할 장식에서 획득 조건을 확인해 보세요.",
     "noLocked": "이 종류의 장식을 모두 모았어요.",
@@ -95,12 +112,30 @@
       "stone": "첫 스타 호핑 완료",
       "snow": "서로 다른 10일 관측"
     },
-    "groundHint": "지면은 하늘 화면에도 함께 적용돼요.",
+    "groundHint": "잔디 마당이나 따뜻한 모래 해안을 골라 보세요. 선택한 배경과 함께 하늘에 보여요.",
     "showScenery": "하늘에 장식 표시",
-    "showHint": "잠시 숨겨도 배치는 그대로 남아요.",
+    "showHint": "배경과 장식을 잠시 숨겨도 배치는 그대로 남아요.",
     "scaleTitle": "장식 크기",
-    "scale": { "small": "작게", "medium": "조금 크게" },
-    "scaleHint": "낮은 고도의 천체가 가려지면 작게 보거나 장식을 숨겨 주세요.",
-    "skyHint": "하늘 화면에서 남쪽 지평선을 내려다보면 배치한 장비와 가구를 볼 수 있어요. 지면 투명도는 하늘 설정을 따라요."
+    "scale": {
+      "small": "작게",
+      "medium": "조금 크게"
+    },
+    "scaleHint": "장식은 지평선 아래에 놓여요. 가까이 보고 싶을 때 크기를 조금 키워 보세요.",
+    "skyHint": "하늘 화면에서 남쪽 지평선을 내려다보면 배치한 장비와 가구를 볼 수 있어요. 지면 투명도는 하늘 설정을 따라요.",
+    "backdropHint": "그림을 눌러 풍경을 크게 둘러보세요. 배경과 지면은 따로 고를 수 있어요.",
+    "backdrop": {
+      "field": "푸른 언덕",
+      "rocky-peaks": "바위산 능선",
+      "snow-peaks": "눈 덮인 산맥",
+      "sea": "고요한 바다"
+    },
+    "backdropUnlock": {
+      "rocky-peaks": "퀴즈 스테이지 5개 완료",
+      "snow-peaks": "서로 다른 10일 관측",
+      "sea": "새 퀴즈 5문제 첫 시도 연속 정답"
+    },
+    "previewBackdrop": "{{name}} 미리보기",
+    "closePreview": "풍경 미리보기 닫기",
+    "previewOnly": "미리보기예요. 현재 배경은 바뀌지 않았어요."
   }
 }

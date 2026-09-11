@@ -9,7 +9,8 @@ test('역사 문제의 단계 힌트·숫자 답·메모·재도전과 새로고
   await expect(page.getByTestId('history-screen')).toBeVisible();
   await expect(page.getByTestId('plus-notice')).toContainText('베타 미리보기');
   await page.getByTestId('history-quest-eratosthenes-earth').click();
-  await page.getByRole('button', { name: '본 문제로', exact: false }).click();
+  await page.getByText('단계 이동', { exact: true }).click();
+  await page.getByRole('button', { name: '3단계', exact: true }).click();
   await expect(page.getByTestId('history-question')).toBeVisible();
   await expect(page.getByTestId('history-result')).toHaveCount(0);
   const input = page.getByTestId('history-numeric');
@@ -55,7 +56,8 @@ test('Plus 미리보기는 가격과 준비 상태를 알리고 구매 완료로
   await page.getByRole('radio', { name: 'English', exact: true }).click();
   await page.goto('#/learn?section=quiz&track=physics&quest=eratosthenes-earth');
   await expect(page.getByTestId('quiz-track-physics')).toHaveText('Astrophysics');
-  await page.getByRole('button', { name: 'Skip to challenge', exact: false }).click();
+  await page.getByText('Go to a step', { exact: true }).click();
+  await page.getByRole('button', { name: 'Step 3', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Check answer', exact: true })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: 'artifacts/qa-build18/history-question-en.png' });

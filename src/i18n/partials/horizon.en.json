@@ -33,7 +33,10 @@
       "dobsonian": "Dobsonian telescope",
       "sct": "Schmidt–Cassegrain",
       "radio-dish": "Radio telescope",
-      "observatory-dome": "Small observatory"
+      "observatory-dome": "Small observatory",
+      "house": "Country cottage",
+      "observing-deck": "Observing deck",
+      "dog": "Stargazing companion"
     },
     "unlock": {
       "flowers": "First-try streak: 3 new questions",
@@ -55,19 +58,33 @@
       "dobsonian": "Observe 5 Messier objects",
       "sct": "Perfect 5 quiz stages",
       "radio-dish": "Master 100 quiz questions",
-      "observatory-dome": "Clear 40 quiz stages"
+      "observatory-dome": "Clear 40 quiz stages",
+      "house": "Answer 3 new quizzes correctly on the first try in a row",
+      "observing-deck": "Complete 3 missions",
+      "dog": "Record your first observation"
     }
   },
   "horizon": {
     "intro": "Your decorations appear along the southern horizon on the sky screen.",
     "openSky": "View in sky",
     "sections": "Horizon settings",
-    "tabs": { "placement": "Place items", "ground": "Ground", "view": "Display" },
+    "tabs": {
+      "placement": "Place items",
+      "ground": "Ground",
+      "view": "Display",
+      "background": "Backdrop"
+    },
     "previewCaption": "Southern horizon preview",
     "autoSave": "Selections save automatically",
     "saved": "Saved",
     "hidden": "Decorations are currently hidden in the sky.",
-    "directions": { "0": "ESE", "1": "SE", "2": "S", "3": "SW", "4": "WSW" },
+    "directions": {
+      "0": "ESE",
+      "1": "SE",
+      "2": "S",
+      "3": "SW",
+      "4": "WSW"
+    },
     "currentSpot": "Spot {{n}}",
     "emptySpot": "Empty",
     "collection": "Decoration collection",
@@ -76,7 +93,7 @@
       "all": "All",
       "equipment": "Equipment",
       "furniture": "Furniture",
-      "nature": "Nature"
+      "nature": "Companions"
     },
     "noOwned": "No items in this category yet. Check To unlock to see how to earn them.",
     "noLocked": "You have every item in this category.",
@@ -95,12 +112,30 @@
       "stone": "Complete your first star hop",
       "snow": "Observe on 10 different nights"
     },
-    "groundHint": "Your ground style also appears on the sky screen.",
+    "groundHint": "Choose a grassy yard or warm sandy shore. Your ground and backdrop appear together in the sky view.",
     "showScenery": "Show decorations in sky",
-    "showHint": "Hiding items keeps their positions saved.",
+    "showHint": "Temporarily hide your backdrop and items without losing the layout.",
     "scaleTitle": "Decoration size",
-    "scale": { "small": "Small", "medium": "A little larger" },
-    "scaleHint": "Use the smaller size or hide decorations if they cover a low object.",
-    "skyHint": "Look toward the southern horizon to see your equipment and furniture. Ground opacity follows your sky settings."
+    "scale": {
+      "small": "Small",
+      "medium": "A little larger"
+    },
+    "scaleHint": "Items stay below the horizon. Make them a little larger when you want a closer view.",
+    "skyHint": "Look toward the southern horizon to see your equipment and furniture. Ground opacity follows your sky settings.",
+    "backdropHint": "Tap an illustration to explore the view. Choose the distant landscape and ground separately.",
+    "backdrop": {
+      "field": "Rolling hills",
+      "rocky-peaks": "Rocky ridgeline",
+      "snow-peaks": "Snowy mountains",
+      "sea": "Quiet coast"
+    },
+    "backdropUnlock": {
+      "rocky-peaks": "Complete 5 quiz stages",
+      "snow-peaks": "Observe on 10 different nights",
+      "sea": "Answer 5 new quizzes correctly on the first try in a row"
+    },
+    "previewBackdrop": "Preview {{name}}",
+    "closePreview": "Close landscape preview",
+    "previewOnly": "Preview only. Your current landscape has not changed."
   }
 }

@@ -11,8 +11,11 @@ import {
 } from './avatar';
 import {
   DECORATIONS,
+  BACKDROP_STYLES,
   GROUND_STYLES,
   LEGACY_FREE_DECORATIONS,
+  LEGACY_DECORATION_REPLACEMENTS,
+  activeDecorationId,
   normalizePersonal,
   normalizePersonalName,
   rewardsFor,
@@ -40,6 +43,9 @@ export async function grantRewards(badges: ReadonlySet<string>): Promise<void> {
     ),
     ...GROUND_STYLES.filter((item) => item.badge && badges.has(item.badge)).map(
       (item) => 'ground.reward:' + item.id,
+    ),
+    ...BACKDROP_STYLES.filter((item) => item.badge && badges.has(item.badge)).map(
+      (item) => 'backdrop.reward:' + item.id,
     ),
   ];
   await db.transaction('rw', db.progress, async () => {
@@ -82,14 +88,16 @@ function normalizeLooks(value: unknown, ownedAvatar: ReadonlySet<string>): Saved
 
 /** 호출자의 progress 트랜잭션 안에서 보유 목록·프로필을 일관된 시점에 읽는다. */
 async function loadPersonal() {
-  const [rewards, avatarRewards, groundRewards, profile, looks, ownership] = await Promise.all([
-    listProgress('personal.reward:'),
-    listProgress('avatar.reward:'),
-    listProgress('ground.reward:'),
-    getProgress('personal.profile'),
-    getProgress('personal.looks'),
-    getProgress('personal.ownership-v2'),
-  ]);
+  const [rewards, avatarRewards, groundRewards, backdropRewards, profile, looks, ownership] =
+    await Promise.all([
+      listProgress('personal.reward:'),
+      listProgress('avatar.reward:'),
+      listProgress('ground.reward:'),
+      listProgress('backdrop.reward:'),
+      getProgress('personal.profile'),
+      getProgress('personal.looks'),
+      getProgress('personal.ownership-v2'),
+    ]);
   // 구버전에서 이미 제공했던 기본 코디·장식은 회수하지 않는다.
   // 최초 저장 때 판정 값을 고정하므로 새 사용자는 저장 후에도 기존 사용자로 바뀌지 않는다.
   const legacy =
@@ -101,7 +109,11 @@ async function loadPersonal() {
       (d) => d.id,
     ),
   );
-  if (legacy) for (const id of LEGACY_FREE_DECORATIONS) owned.add(id);
+  if (legacy) for (const id of LEGACY_FREE_DECORATIONS) owned.add(activeDecorationId(id)!);
+  // 보상 행을 삭제하거나 덮어쓰지 않고 새 장식 소유권으로 읽는다. 옛 백업도 같은 규칙을 따른다.
+  for (const [oldId, newId] of Object.entries(LEGACY_DECORATION_REPLACEMENTS)) {
+    if (hasReward(rewards.get('personal.reward:' + oldId))) owned.add(newId);
+  }
   const ownedAvatar = new Set(FREE_AVATAR_OPTIONS);
   if (legacy) for (const key of LEGACY_FREE_AVATAR_OPTIONS) ownedAvatar.add(key);
   for (const reward of AVATAR_REWARDS) {
@@ -112,11 +124,17 @@ async function loadPersonal() {
       (item) => !item.badge || hasReward(groundRewards.get('ground.reward:' + item.id)),
     ).map((item) => item.id),
   );
+  const ownedBackdrop = new Set<string>(
+    BACKDROP_STYLES.filter(
+      (item) => !item.badge || hasReward(backdropRewards.get('backdrop.reward:' + item.id)),
+    ).map((item) => item.id),
+  );
   return {
-    profile: normalizePersonal(profile, owned, ownedAvatar, ownedGround),
+    profile: normalizePersonal(profile, owned, ownedAvatar, ownedGround, ownedBackdrop),
     owned,
     ownedAvatar,
     ownedGround,
+    ownedBackdrop,
     looks: normalizeLooks(looks, ownedAvatar),
     legacy,
   };
@@ -147,11 +165,11 @@ async function preserveOwnership(legacy: boolean): Promise<void> {
 export async function savePersonal(profile: Personal): Promise<void> {
   const db = getDb();
   await db.transaction('rw', db.progress, async () => {
-    const { owned, ownedAvatar, ownedGround, legacy } = await loadPersonal();
+    const { owned, ownedAvatar, ownedGround, ownedBackdrop, legacy } = await loadPersonal();
     await preserveOwnership(legacy);
     await writeProgress(
       'personal.profile',
-      normalizePersonal(profile, owned, ownedAvatar, ownedGround),
+      normalizePersonal(profile, owned, ownedAvatar, ownedGround, ownedBackdrop),
     );
   });
   emitDbChange('progress');
@@ -174,7 +192,8 @@ export async function saveGarden(
 ): Promise<void> {
   const db = getDb();
   await db.transaction('rw', db.progress, async () => {
-    const { profile, owned, ownedAvatar, ownedGround, legacy } = await loadPersonal();
+    const { profile, owned, ownedAvatar, ownedGround, ownedBackdrop, legacy } =
+      await loadPersonal();
     await preserveOwnership(legacy);
     const next = {
       ...profile,
@@ -183,10 +202,11 @@ export async function saveGarden(
       ground: garden.ground ?? profile.ground,
       sceneryEnabled: garden.sceneryEnabled ?? profile.sceneryEnabled,
       sceneryScale: garden.sceneryScale ?? profile.sceneryScale,
+      backdrop: garden.backdrop ?? profile.backdrop,
     };
     await writeProgress(
       'personal.profile',
-      normalizePersonal(next, owned, ownedAvatar, ownedGround),
+      normalizePersonal(next, owned, ownedAvatar, ownedGround, ownedBackdrop),
     );
   });
   emitDbChange('progress');

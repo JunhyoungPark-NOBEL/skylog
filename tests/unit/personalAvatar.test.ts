@@ -21,7 +21,7 @@ describe('아바타 보상과 코디 저장', () => {
       skin: 'cocoa',
       hat: 'helmet',
       name: '두 사람의 마당',
-      slots: ['stones', null, 'fern', 'flowers', 'bench'],
+      slots: ['observing-deck', null, 'dog', 'house', 'bench'],
     });
     const before = await readPersonal();
     expect(before.profile).toEqual({
@@ -30,7 +30,7 @@ describe('아바타 보상과 코디 저장', () => {
       skin: 'cocoa',
       hat: 'helmet',
       name: '두 사람의 마당',
-      slots: ['stones', null, 'fern', 'flowers', 'bench'],
+      slots: ['observing-deck', null, 'dog', 'house', 'bench'],
     });
     expect(before.looks).toEqual([null, null, null]);
     await saveAvatarLook({ ...avatarOf(before.profile), hair: 'bob' });
@@ -133,7 +133,7 @@ describe('아바타 보상과 코디 저장', () => {
       await savePersonal(DEFAULT_PERSONAL);
       const actions = [
         () => saveGarden({ name: '최신 마당' }),
-        () => saveGarden({ slots: [null, 'flowers', 'bench', null, null] }),
+        () => saveGarden({ slots: [null, 'house', 'bench', null, null] }),
         () =>
           saveAvatarLook({ ...DEFAULT_AVATAR, suit: 'rose', hair: 'ponytail', outfit: 'hoodie' }),
       ];
@@ -141,7 +141,7 @@ describe('아바타 보상과 코디 저장', () => {
       expect((await readPersonal()).profile).toEqual({
         ...DEFAULT_PERSONAL,
         name: '최신 마당',
-        slots: [null, 'flowers', 'bench', null, null],
+        slots: [null, 'house', 'bench', null, null],
         suit: 'rose',
         hair: 'ponytail',
         outfit: 'hoodie',
@@ -188,7 +188,7 @@ describe('아바타 보상과 코디 저장', () => {
     await savePersonal({
       ...DEFAULT_PERSONAL,
       name: '별밤',
-      slots: ['telescope', 'bench', null, 'fern', null],
+      slots: ['telescope', 'bench', null, 'dog', null],
       outfit: 'spacesuit',
       hat: 'starcap',
       hair: 'waves',

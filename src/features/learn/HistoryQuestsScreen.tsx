@@ -16,8 +16,11 @@ import { canAccessPlus, useEntitlements } from '@/entitlements';
 import { PlusOffer, PlusNotice } from './PlusAccess';
 import { navigateLearn } from './learnNavigation';
 import { HISTORY_LESSONS } from '@/learn/historyLessons';
+import { HISTORY_STORY } from '@/learn/historyStory';
 import { HistoryGlossary, HistoryRichText } from './HistoryRichText';
 import { HistoryPreparation } from './HistoryPreparation';
+
+type HistoryDraft = { input: string; note: string };
 
 export default function HistoryQuestsScreen({ questId }: { questId: string | null }) {
   const { t } = useTranslation();
@@ -185,6 +188,9 @@ function QuestDetail({
   const { t } = useTranslation();
   const lang = useSettingsStore((s) => s.lang);
   const access = useEntitlements();
+  // 단계 이동은 DB 저장 버튼과 별개다. 장을 바꿔도 이 이야기의 미저장 초안을 유지한다.
+  const [drafts, setDrafts] = useState(() => new Map<string, HistoryDraft>());
+  const [entryStep, setEntryStep] = useState<number | undefined>();
   const [index, setIndex] = useState(() =>
     Math.max(
       0,
@@ -219,26 +225,38 @@ function QuestDetail({
             </p>
           </details>
         </div>
-        <div className="grid grid-cols-3 gap-2" aria-label={t('history.chooseQuestion')}>
-          {quest.questions.map((item, i) => (
-            <button
-              key={item.id}
-              aria-pressed={index === i}
-              className={
-                'min-h-11 rounded-xl border px-2 text-body-sm ' +
-                (index === i
-                  ? 'border-accent bg-accent-soft text-accent'
-                  : 'border-hairline bg-surface')
-              }
-              onClick={() => setIndex(i)}
-            >
-              {t('history.question', { n: i + 1 })}{' '}
-              {historySummary(item, progress.get(item.id) ?? emptyHistoryProgress()).solved
-                ? '✓'
-                : ''}
-            </button>
-          ))}
-        </div>
+        <details className="rounded-2xl border border-hairline px-4 py-1">
+          <summary className="min-h-11 cursor-pointer py-3 text-body-sm text-muted">
+            {t('history.chooseQuestion')}
+          </summary>
+          <div className="space-y-2 pb-3">
+            {quest.questions.map((item, i) => (
+              <button
+                key={item.id}
+                aria-pressed={index === i}
+                className={
+                  'flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border px-3 py-2 text-left text-body-sm ' +
+                  (index === i
+                    ? 'border-accent bg-accent-soft text-accent'
+                    : 'border-hairline bg-surface')
+                }
+                onClick={(event) => {
+                  setEntryStep(undefined);
+                  setIndex(i);
+                  event.currentTarget.closest('details')?.removeAttribute('open');
+                }}
+              >
+                <span>{HISTORY_STORY[item.id]!.title[lang]}</span>
+                <span className="shrink-0 text-caption text-muted">
+                  {i * 3 + 1}–{i * 3 + 3}{' '}
+                  {historySummary(item, progress.get(item.id) ?? emptyHistoryProgress()).solved
+                    ? '✓'
+                    : ''}
+                </span>
+              </button>
+            ))}
+          </div>
+        </details>
         {allowed || p.attempts.length ? (
           <HistoryPreparation
             key={q.id}
@@ -246,15 +264,37 @@ function QuestDetail({
             questId={quest.id}
             lang={lang}
             allowed={allowed}
+            chapterIndex={index}
+            chapterCount={quest.questions.length}
+            initialStep={entryStep}
+            onPreviousChapter={
+              index > 0
+                ? () => {
+                    setEntryStep(2);
+                    setIndex(index - 1);
+                  }
+                : undefined
+            }
             resume={!!(p.input || p.note || p.hints || p.attempts.length)}
           >
             <Question
               key={q.id + ':' + p.round}
+              initialDraft={drafts.get(q.id + ':' + p.round)}
+              onDraftChange={(draft) =>
+                setDrafts((old) => new Map(old).set(q.id + ':' + p.round, draft))
+              }
               quest={quest}
               q={q}
               progress={p}
               allowed={allowed}
-              onNext={index < quest.questions.length - 1 ? () => setIndex(index + 1) : undefined}
+              onNext={
+                index < quest.questions.length - 1
+                  ? () => {
+                      setEntryStep(0);
+                      setIndex(index + 1);
+                    }
+                  : undefined
+              }
             />
           </HistoryPreparation>
         ) : (
@@ -290,17 +330,21 @@ function Question({
   progress: p,
   allowed,
   onNext,
+  initialDraft,
+  onDraftChange,
 }: {
   quest: HistoryQuest;
   q: HistoryQuestion;
   progress: HistoryProgress;
   allowed: boolean;
   onNext?: () => void;
+  initialDraft?: HistoryDraft;
+  onDraftChange: (draft: HistoryDraft) => void;
 }) {
   const { t } = useTranslation();
   const lang = useSettingsStore((s) => s.lang);
-  const [input, setInput] = useState(p.input);
-  const [note, setNote] = useState(p.note);
+  const [input, setInput] = useState(initialDraft?.input ?? p.input);
+  const [note, setNote] = useState(initialDraft?.note ?? p.note);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -334,10 +378,7 @@ function Question({
     }
   };
   return (
-    <section
-      className="space-y-5 rounded-3xl border border-hairline bg-surface p-5"
-      data-testid="history-question"
-    >
+    <section className="space-y-5" data-testid="history-question">
       <h3 ref={h} tabIndex={-1} className="text-title leading-7 outline-none">
         <HistoryRichText text={q.prompt[lang]} />
       </h3>
@@ -362,6 +403,7 @@ function Question({
             disabled={!!submitted || !allowed || busy}
             onChange={(e) => {
               setInput(e.target.value);
+              onDraftChange({ input: e.target.value, note });
               setSaved(false);
             }}
           />
@@ -387,6 +429,7 @@ function Question({
                 checked={input === o.id}
                 onChange={() => {
                   setInput(o.id);
+                  onDraftChange({ input: o.id, note });
                   setSaved(false);
                 }}
               />
@@ -459,6 +502,14 @@ function Question({
               {t('history.nextQuestion')} →
             </button>
           )}
+          {!onNext && (
+            <button
+              className="min-h-11 px-3 text-accent"
+              onClick={() => navigateLearn('quiz', { track: 'physics' })}
+            >
+              {t('history.allQuests')} →
+            </button>
+          )}
         </div>
       )}
       <label className="block text-body-sm">
@@ -470,6 +521,7 @@ function Question({
           value={note}
           onChange={(e) => {
             setNote(e.target.value);
+            onDraftChange({ input, note: e.target.value });
             setSaved(false);
           }}
         />

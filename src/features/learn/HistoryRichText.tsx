@@ -120,12 +120,20 @@ function Term({
 }) {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const start = useRef({ x: 0, y: 0 });
-  const moved = useRef(false);
   const cancel = () => {
     if (timer.current) clearTimeout(timer.current);
     timer.current = null;
   };
-  useEffect(() => cancel, []);
+  useEffect(() => {
+    // 스크롤바·트랙패드·다른 손가락이 스크롤해도 아직 진행 중인 홀드는 취소한다.
+    window.addEventListener('scroll', cancel, true);
+    window.addEventListener('blur', cancel);
+    return () => {
+      cancel();
+      window.removeEventListener('scroll', cancel, true);
+      window.removeEventListener('blur', cancel);
+    };
+  }, []);
   return (
     <span
       role="button"
@@ -133,9 +141,14 @@ function Term({
       className="history-term"
       aria-haspopup="dialog"
       aria-label={glossary.lang === 'ko' ? `${children} 뜻 보기` : `Define ${children}`}
+      aria-description={
+        glossary.lang === 'ko'
+          ? '꾹 누르거나 키보드 Enter 또는 Space를 누르세요.'
+          : 'Press and hold, or use Enter or Space on a keyboard.'
+      }
       onPointerDown={(event) => {
         cancel();
-        moved.current = false;
+        if (event.button !== 0 || event.isPrimary === false) return;
         start.current = { x: event.clientX, y: event.clientY };
         const target = event.currentTarget;
         timer.current = setTimeout(() => {
@@ -145,24 +158,19 @@ function Term({
       }}
       onPointerMove={(event) => {
         if (Math.hypot(event.clientX - start.current.x, event.clientY - start.current.y) > 9) {
-          moved.current = true;
           cancel();
         }
       }}
       onPointerUp={cancel}
-      onPointerCancel={() => {
-        moved.current = true;
-        cancel();
-      }}
+      onPointerCancel={cancel}
       onPointerLeave={cancel}
+      onBlur={cancel}
       onContextMenu={(event) => event.preventDefault()}
-      onClick={(event) => {
-        cancel();
-        if (!moved.current) glossary.open(concept, event.currentTarget);
-      }}
+      onClick={cancel}
       onKeyDown={(event) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
+          cancel();
           glossary.open(concept, event.currentTarget);
         }
       }}
