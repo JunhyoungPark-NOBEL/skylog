@@ -1,6 +1,7 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { HISTORY_LESSONS } from '../../src/learn/historyLessons';
 import { HISTORY_QUESTS } from '../../src/learn/historyQuests';
+import { HISTORY_NARRATIVES } from '../../src/learn/historyNarrative';
 
 test.use({ serviceWorkers: 'block' });
 const path = '#/learn?section=quiz&track=physics&quest=eratosthenes-earth';
@@ -230,10 +231,18 @@ test('하나의 발견을 1→9단계로 이어가며 장 경계를 되짚어도
   expect(saved).toHaveLength(3);
   for (const row of saved)
     expect(row.value).toMatchObject({ attempts: [expect.objectContaining({ hints: 0 })] });
-  await page
-    .getByTestId('history-result')
-    .getByRole('button', { name: /이야기 목록/ })
-    .click();
+  await page.getByTestId('history-finish').click();
+  await expect(page.getByTestId('history-ending')).toBeVisible();
+  await expect(page.getByTestId('history-ending')).toContainText(
+    HISTORY_NARRATIVES[quest.id]!.ending.ko,
+  );
+  await expect(page.getByTestId('history-ending-score')).toContainText('3/3');
+  expect((await progress(page)).filter((r) => r.key.startsWith('learn.history:'))).toEqual(saved);
+  await page.screenshot({ path: testInfo.outputPath('story-ending-ko-360.png') });
+  await page.reload();
+  await page.getByTestId('history-read-ending').click();
+  await expect(page.getByTestId('history-ending')).toBeVisible();
+  await page.getByRole('button', { name: /다른 이야기 고르기/ }).click();
   await expect(page.getByTestId('history-quest-eratosthenes-earth')).toContainText('3/3');
   await expect(page.getByTestId('history-screen')).toContainText('힌트 없이 3문제');
   await page.screenshot({ path: testInfo.outputPath('story-complete-ko-360.png') });

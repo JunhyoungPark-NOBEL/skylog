@@ -17,6 +17,8 @@ import { PlusOffer, PlusNotice } from './PlusAccess';
 import { navigateLearn } from './learnNavigation';
 import { HISTORY_LESSONS } from '@/learn/historyLessons';
 import { HISTORY_STORY } from '@/learn/historyStory';
+import { canReadHistoryEnding, HISTORY_NARRATIVES } from '@/learn/historyNarrative';
+import { HistoryEnding } from './HistoryEnding';
 import { HistoryGlossary, HistoryRichText } from './HistoryRichText';
 import { HistoryPreparation } from './HistoryPreparation';
 
@@ -149,7 +151,7 @@ export default function HistoryQuestsScreen({ questId }: { questId: string | nul
                     </span>
                     <span className="mt-3 block text-title">{pack.title[lang]}</span>
                     <span className="mt-2 block text-body-sm text-muted">
-                      {pack.scientist[lang]}
+                      {HISTORY_NARRATIVES[pack.id]!.question[lang]}
                     </span>
                     <span className="mt-4 flex justify-between text-caption text-accent">
                       <span>
@@ -191,6 +193,7 @@ function QuestDetail({
   // 단계 이동은 DB 저장 버튼과 별개다. 장을 바꿔도 이 이야기의 미저장 초안을 유지한다.
   const [drafts, setDrafts] = useState(() => new Map<string, HistoryDraft>());
   const [entryStep, setEntryStep] = useState<number | undefined>();
+  const [showEnding, setShowEnding] = useState(false);
   const [index, setIndex] = useState(() =>
     Math.max(
       0,
@@ -202,6 +205,13 @@ function QuestDetail({
   const q = quest.questions[index]!;
   const p = progress.get(q.id) ?? emptyHistoryProgress();
   const allowed = canAccessPlus(access);
+  const narrative = HISTORY_NARRATIVES[quest.id]!;
+  const endingReady = canReadHistoryEnding(quest, progress);
+  const returnToStory = (chapter: number) => {
+    setEntryStep(0);
+    setIndex(chapter);
+    setShowEnding(false);
+  };
   return (
     <HistoryGlossary concepts={HISTORY_LESSONS[q.id]!.concepts} lang={lang}>
       <div className="space-y-5">
@@ -212,99 +222,147 @@ function QuestDetail({
           ← {t('history.allQuests')}
         </button>
         <div>
-          <p className="text-caption text-accent">
-            {quest.era} · {quest.scientist[lang]}
-          </p>
+          <p className="text-caption text-accent">{narrative.setting[lang]}</p>
           <h2 className="mt-2 text-headline">{quest.title[lang]}</h2>
+          {!(showEnding && endingReady) && (
+            <div className="mt-4 space-y-3" data-testid="history-opening">
+              <p className="text-body-sm leading-7">{narrative.opening[lang]}</p>
+              <p className="text-body-sm font-semibold leading-6">{narrative.question[lang]}</p>
+            </div>
+          )}
           <details className="mt-3 text-body-sm leading-7 text-muted">
             <summary className="min-h-11 cursor-pointer">
               {lang === 'ko' ? '발견의 배경 읽기' : 'Read the discovery story'}
             </summary>
+            <p className="mt-2 text-caption text-accent">{quest.scientist[lang]}</p>
             <p className="mt-2 whitespace-pre-line">
               <HistoryRichText text={quest.story[lang]} />
             </p>
           </details>
         </div>
-        <details className="rounded-2xl border border-hairline px-4 py-1">
-          <summary className="min-h-11 cursor-pointer py-3 text-body-sm text-muted">
-            {t('history.chooseQuestion')}
-          </summary>
-          <div className="space-y-2 pb-3">
-            {quest.questions.map((item, i) => (
-              <button
-                key={item.id}
-                aria-pressed={index === i}
-                className={
-                  'flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border px-3 py-2 text-left text-body-sm ' +
-                  (index === i
-                    ? 'border-accent bg-accent-soft text-accent'
-                    : 'border-hairline bg-surface')
-                }
-                onClick={(event) => {
-                  setEntryStep(undefined);
-                  setIndex(i);
-                  event.currentTarget.closest('details')?.removeAttribute('open');
-                }}
-              >
-                <span>{HISTORY_STORY[item.id]!.title[lang]}</span>
-                <span className="shrink-0 text-caption text-muted">
-                  {i * 3 + 1}–{i * 3 + 3}{' '}
-                  {historySummary(item, progress.get(item.id) ?? emptyHistoryProgress()).solved
-                    ? '✓'
-                    : ''}
-                </span>
-              </button>
-            ))}
-          </div>
-        </details>
-        {allowed || p.attempts.length ? (
-          <HistoryPreparation
-            key={q.id}
-            questionId={q.id}
-            questId={quest.id}
+        {showEnding && endingReady ? (
+          <HistoryEnding
+            quest={quest}
+            progress={progress}
             lang={lang}
-            allowed={allowed}
-            chapterIndex={index}
-            chapterCount={quest.questions.length}
-            initialStep={entryStep}
-            onPreviousChapter={
-              index > 0
-                ? () => {
-                    setEntryStep(2);
-                    setIndex(index - 1);
-                  }
-                : undefined
-            }
-            resume={!!(p.input || p.note || p.hints || p.attempts.length)}
-          >
-            <Question
-              key={q.id + ':' + p.round}
-              initialDraft={drafts.get(q.id + ':' + p.round)}
-              onDraftChange={(draft) =>
-                setDrafts((old) => new Map(old).set(q.id + ':' + p.round, draft))
-              }
-              quest={quest}
-              q={q}
-              progress={p}
-              allowed={allowed}
-              onNext={
-                index < quest.questions.length - 1
-                  ? () => {
-                      setEntryStep(0);
-                      setIndex(index + 1);
-                    }
-                  : undefined
-              }
-            />
-          </HistoryPreparation>
+            onReturn={returnToStory}
+            onList={() => navigateLearn('quiz', { track: 'physics' })}
+          />
         ) : (
-          <PlusOffer />
+          <>
+            {endingReady && (
+              <button
+                className="min-h-11 text-body-sm text-accent"
+                data-testid="history-read-ending"
+                onClick={() => setShowEnding(true)}
+              >
+                {lang === 'ko' ? '이 이야기의 결말 보기' : 'Read this story’s ending'} →
+              </button>
+            )}
+            <details className="rounded-2xl border border-hairline px-4 py-1">
+              <summary className="min-h-11 cursor-pointer py-3 text-body-sm text-muted">
+                {t('history.chooseQuestion')}
+              </summary>
+              <div className="space-y-2 pb-3">
+                {quest.questions.map((item, i) => (
+                  <button
+                    key={item.id}
+                    aria-pressed={index === i}
+                    className={
+                      'flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border px-3 py-2 text-left text-body-sm ' +
+                      (index === i
+                        ? 'border-accent bg-accent-soft text-accent'
+                        : 'border-hairline bg-surface')
+                    }
+                    onClick={(event) => {
+                      setEntryStep(undefined);
+                      setIndex(i);
+                      event.currentTarget.closest('details')?.removeAttribute('open');
+                    }}
+                  >
+                    <span>{HISTORY_STORY[item.id]!.title[lang]}</span>
+                    <span className="shrink-0 text-caption text-muted">
+                      {i * 3 + 1}–{i * 3 + 3}{' '}
+                      {historySummary(item, progress.get(item.id) ?? emptyHistoryProgress()).solved
+                        ? '✓'
+                        : ''}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </details>
+            {allowed || p.attempts.length ? (
+              <HistoryPreparation
+                key={q.id}
+                questionId={q.id}
+                questId={quest.id}
+                lang={lang}
+                allowed={allowed}
+                chapterIndex={index}
+                chapterCount={quest.questions.length}
+                initialStep={entryStep}
+                onPreviousChapter={
+                  index > 0
+                    ? () => {
+                        setEntryStep(2);
+                        setIndex(index - 1);
+                      }
+                    : undefined
+                }
+                resume={!!(p.input || p.note || p.hints || p.attempts.length)}
+              >
+                <Question
+                  key={q.id + ':' + p.round}
+                  initialDraft={drafts.get(q.id + ':' + p.round)}
+                  onDraftChange={(draft) =>
+                    setDrafts((old) => new Map(old).set(q.id + ':' + p.round, draft))
+                  }
+                  quest={quest}
+                  q={q}
+                  progress={p}
+                  allowed={allowed}
+                  onFinish={
+                    index === quest.questions.length - 1
+                      ? () => {
+                          if (endingReady) setShowEnding(true);
+                          else
+                            returnToStory(
+                              Math.max(
+                                0,
+                                quest.questions.findIndex(
+                                  (item) => !progress.get(item.id)?.attempts.length,
+                                ),
+                              ),
+                            );
+                        }
+                      : undefined
+                  }
+                  endingReady={endingReady}
+                  onNext={
+                    index < quest.questions.length - 1
+                      ? () => {
+                          setEntryStep(0);
+                          setIndex(index + 1);
+                        }
+                      : undefined
+                  }
+                />
+              </HistoryPreparation>
+            ) : (
+              <PlusOffer />
+            )}
+          </>
         )}
         <details className="rounded-2xl border border-hairline p-4">
           <summary className="min-h-8 cursor-pointer text-body-sm text-muted">
             {t('history.sources')}
           </summary>
           <p className="mt-3 text-caption leading-6 text-muted">{t('history.sourceNote')}</p>
+          <p className="mt-2 text-caption leading-6 text-muted">
+            {lang === 'ko'
+              ? '장면은 역사적 발견을 바탕으로 구성한 교육용 이야기입니다. 실제 대화·일기의 재현이 아니며, 계산에는 각 문제에 표시한 모형과 예시 수치를 사용합니다.'
+              : 'Scenes are educational narratives based on historical discoveries, not reconstructions of dialogue or diaries. Calculations use the models and example values stated in each question.'}
+          </p>
           <ul className="mt-3 space-y-2">
             {quest.sources.map((s) => (
               <li key={s.url}>
@@ -330,6 +388,8 @@ function Question({
   progress: p,
   allowed,
   onNext,
+  onFinish,
+  endingReady,
   initialDraft,
   onDraftChange,
 }: {
@@ -338,6 +398,8 @@ function Question({
   progress: HistoryProgress;
   allowed: boolean;
   onNext?: () => void;
+  onFinish?: () => void;
+  endingReady: boolean;
   initialDraft?: HistoryDraft;
   onDraftChange: (draft: HistoryDraft) => void;
 }) {
@@ -475,6 +537,20 @@ function Question({
           <p role="status" className="text-title text-accent">
             {t(gradeHistoryAnswer(q, latest.answer) ? 'history.correct' : 'history.incorrect')}
           </p>
+          <div className="rounded-2xl bg-accent-soft p-4" data-testid="history-discovery">
+            <p className="mb-2 text-caption font-semibold text-accent">
+              {lang === 'ko' ? '이 장면이 남긴 발견' : 'What this scene revealed'}
+            </p>
+            <p className="text-body-sm leading-7">
+              <HistoryRichText
+                text={
+                  HISTORY_NARRATIVES[quest.id]!.chapters[
+                    quest.questions.findIndex((item) => item.id === q.id)
+                  ]!.discovery[lang]
+                }
+              />
+            </p>
+          </div>
           <p className="whitespace-pre-line text-body-sm leading-7">
             <HistoryRichText text={q.explanation[lang]} />
           </p>
@@ -502,12 +578,20 @@ function Question({
               {t('history.nextQuestion')} →
             </button>
           )}
-          {!onNext && (
+          {onFinish && (
             <button
               className="min-h-11 px-3 text-accent"
-              onClick={() => navigateLearn('quiz', { track: 'physics' })}
+              onClick={onFinish}
+              data-testid="history-finish"
             >
-              {t('history.allQuests')} →
+              {endingReady
+                ? lang === 'ko'
+                  ? '이야기 마치기'
+                  : 'Finish the story'
+                : lang === 'ko'
+                  ? '남은 장면 이어가기'
+                  : 'Continue the remaining scenes'}{' '}
+              →
             </button>
           )}
         </div>

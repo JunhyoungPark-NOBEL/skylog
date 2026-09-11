@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { HISTORY_LESSONS } from '@/learn/historyLessons';
 import { HISTORY_STORY } from '@/learn/historyStory';
+import { HISTORY_NARRATIVES } from '@/learn/historyNarrative';
 import {
   answerPreparation,
   preparationComplete,
@@ -180,11 +181,16 @@ export function HistoryPreparation({
           </details>
         </div>
       </div>
-      <p className="text-body-sm leading-7" data-testid="history-scene">
-        <HistoryRichText
-          text={(localStep === 0 ? lesson.scene : story.bridges[localStep - 1]!)[lang]}
-        />
-      </p>
+      <div className="border-l-2 border-accent/50 py-1 pl-4">
+        <p className="mb-2 text-caption text-accent">
+          {say(`장면 ${absoluteStep}`, `Scene ${absoluteStep}`)}
+        </p>
+        <p className="text-body-sm leading-7" data-testid="history-scene">
+          <HistoryRichText
+            text={HISTORY_NARRATIVES[questId]!.chapters[chapterIndex]!.scenes[localStep]![lang]}
+          />
+        </p>
+      </div>
       <p className="text-caption leading-5 text-muted">
         {say(
           '점선 밑줄 용어는 꾹 누르면 뜻이 열려요.',
