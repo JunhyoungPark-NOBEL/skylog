@@ -4,8 +4,13 @@
 
 - 새 풍경4개·장식20개·지면4개, 기존 보상 보존 및 공개 프로필 호환, 업적48개의5분류·3열 카드, 이야기10개의9단계 학습과450ms 용어 홀드를 구현했다. 장 경계에서 미저장 답·메모가 사라지는 경로도 수정했다.
 - 최종 소스 검증: typecheck·lint·포맷·PWA build, 단위102파일745개, 정적 Chromium33개(서비스워커 오프라인2개 포함), WebGL7개, PostgreSQL/RLS150개 통과. 메인 JS gzip479.09KB. 화면은360px·영어125%·적색 야간에서 검수했다.
-- Android versionName0.1.0-beta.17/code23/min24/target36. 기존 Play 업로드키와 개인 APK키를 각각 재사용한다. **이 소스 기록 시점은 서명·배포 전이며 최종 파일·해시는 생성 후 갱신한다.**
+- Android versionName0.1.0-beta.17/code23/min24/target36. 기존 Play 업로드키와 개인 APK키를 각각 재사용한다. 최종 소스 `0287a2b8a5a49275fdb9f7e627a9008f7485962b`, 릴리스 태그 `v0.1.0-beta.17-build23`.
 - Supabase migration202609110002를 적용하고 기존 회원/기여 데이터와 RLS를 보존했다. 실제 결제·SMTP·Apple 배포 서명·Console 제출은 수행하지 않는다. 물리 휴대폰 검사는 사용자가 진행한다.
+
+- **산출물**: 소스 `0287a2b8a5a49275fdb9f7e627a9008f7485962b`, beta.17/code23/min24/target36. 제출 AAB **20,849,753bytes** · SHA256 `b732d47a80ffd1af91b729423fb2e940c560d2f7afd6bbb843349c8716b0f50b`. 기존 업로드키·jarsigner strict·bundletool 검증과 payload1077개 전체 서명/원본 일치. 개인 APK **21,462,491bytes** · SHA256 `63c003206fa60c9ad39f1592cdd383a399393e6dcc0165972ec6144b477afa58`, build21 인증서와 동일하며 16KB 정렬·공개 재다운로드 일치를 확인했다. native572/public480/사진328개의 APK·AAB·로컬 Android/iOS 일치, Android lint 오류0·경고32. 키·암호는 배포 폴더에 포함하지 않았다.
+- **파일**: `Downloads/skylog-release-0.1.0-beta.17-build23/skylog-0.1.0-beta.17-build23-play-signed.aab` · [개인 APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.17-build23/skylog-0.1.0-beta.17-build23-local-test.apk) · [웹앱](https://junhyoungpark-nobel.github.io/skylog/). 무서명 원본 `skylog-0.1.0-beta.17-build23-unsigned.aab`는 20,750,772bytes/SHA256 `248cacd6287a502b16746c8a711f082d38087b50da701e6b3ea409c1aeb36a47`로 보존했다.
+- **배포/CI**: [Pages 34568725207](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34568725207)·[모바일 34568743773](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34568743773) 전체 성공. Android API36 오프라인 계측·release/lint와 iOS Xcode26 무서명 Release 컴파일의 job/step 성공을 확인했다. 공개 앱의 풍경·업적·역사·도해9개 시나리오와 자산 해시·PNG를 확인했고 서버 쓰기·콘솔/JS오류0이다. CI XML 원본을 별도로 내려받아 재분석하지 않았으며 Apple 배포 서명이나 실제 휴대폰 검증으로 간주하지 않는다.
+- **공개 검수/설치**: 격리 브라우저에서 실제 배포 UI를 검수하고 자산 해시·PNG·네트워크 오류를 기록한다. 최종 보고는 `artifacts/qa-build23/public-release-verification.json`, 설치 안내는 다운로드 폴더의 `READ-ME-KO.txt`와 [INSTALL-ON-PHONE.md](INSTALL-ON-PHONE.md)를 따른다.
 
 ## beta.16 / build22 — AAB 재생성 (로컬 배포 준비본)
 

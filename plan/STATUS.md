@@ -1,12 +1,12 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-11 · beta.17/build23 풍경·업적·역사 학습 개편, 최종 산출물 검증 중
+> 마지막 갱신: 2026-09-11 · beta.17/build23 풍경·업적·역사 학습 개편, 서명 AAB/APK·공개 배포 완료
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
 - 앱: https://junhyoungpark-nobel.github.io/skylog/ · 내 프로필: https://junhyoungpark-nobel.github.io/skylog/#/profile
-- 새 산출물 대상: 로컬 `Downloads/skylog-release-0.1.0-beta.17-build23/` (현재 서명·배포 전; 아래 보고의 완료 상태 확인)
+- 최신 산출물: 로컬 `Downloads/skylog-release-0.1.0-beta.17-build23/skylog-0.1.0-beta.17-build23-play-signed.aab` · [APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.17-build23/skylog-0.1.0-beta.17-build23-local-test.apk)
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
@@ -16,7 +16,11 @@
 - 기존 업적48개를 5분류(11·8·9·11·9개)와 가로3칸 카드로 묶었다. 전체·분류별 달성수, 개별 상세조건·진도를 표시하며 ID·획득 조건은 보존한다. 이야기 하늘 도해는 같은 좌표에 더 진한 연결선을 사용한다.
 - 역사 이야기10개는 각각9단계로 이어진다. 60개 개념 질문과30개 채점 문항의 정답/오차는 보존한다. 용어는450ms 홀드로 열고 짧은 탭/스크롤에서는 열리지 않으며 키보드 접근을 지원한다. 장 경계에서도 미저장 답·메모 보존을 검증한다.
 - migration202609110002를 운영 Supabase에 적용했다. 기존 회원1·사진0·댓글0와 회원 데이터 지문, RLS·익명 쓰기 차단을 보존했다. 공개 프로필의 선택적 backdrop만 확장하며 실제 사용자 프로필 게시를 수행하지 않았다. 로컬 PostgreSQL/RLS 관련150개 검사 통과.
-- 버전은0.1.0-beta.17/code23. 타입·전체 lint·변경 파일 포맷·PWA 빌드, 전체102파일/745개 단위 검사와 정적 Chromium33개(실제 PWA 오프라인2개 포함), 실제 WebGL7개를 통과했다. 서명 AAB/APK 생성과 공개 배포는 다음 단계이며 완료 결과를 이 절에 추가한다. 실제 결제·광고·일반 SMTP·Apple 배포 서명은 변경하지 않는다. 결정 D-069; 설명 docs/HORIZON-ART.md·HORIZON-PROFILES.md·ACHIEVEMENT-COLLECTION.md·HISTORY-LEARNING-UX.md.
+- 버전은0.1.0-beta.17/code23. 타입·전체 lint·변경 파일 포맷·PWA 빌드, 전체102파일/745개 단위 검사와 정적 Chromium33개(실제 PWA 오프라인2개 포함), 실제 WebGL7개를 통과했다. 서명 AAB/APK 생성·공개 배포를 완료했고 아래에 최종 근거를 기록했다. 실제 결제·광고·일반 SMTP·Apple 배포 서명은 변경하지 않는다. 결정 D-069; 설명 docs/HORIZON-ART.md·HORIZON-PROFILES.md·ACHIEVEMENT-COLLECTION.md·HISTORY-LEARNING-UX.md.
+
+- **최종 산출물**: 소스 `0287a2b8a5a49275fdb9f7e627a9008f7485962b`, beta.17/code23/min24/target36. 제출 AAB **20,849,753bytes** · SHA256 `b732d47a80ffd1af91b729423fb2e940c560d2f7afd6bbb843349c8716b0f50b`. 기존 업로드키·jarsigner strict·bundletool 검증과 payload1077개 전체 서명/원본 일치. 개인 APK **21,462,491bytes** · SHA256 `63c003206fa60c9ad39f1592cdd383a399393e6dcc0165972ec6144b477afa58`, build21 인증서와 동일하며 16KB 정렬·공개 재다운로드 일치를 확인했다. native572/public480/사진328개의 APK·AAB·로컬 Android/iOS 일치, Android lint 오류0·경고32. 키·암호는 배포 폴더에 포함하지 않았다.
+- **배포/CI**: [Pages 34568725207](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34568725207)·[모바일 34568743773](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34568743773) 전체 성공. Android API36 오프라인 계측·release/lint와 iOS Xcode26 무서명 Release 컴파일의 job/step 성공을 확인했다. 공개 앱의 풍경·업적·역사·도해9개 시나리오와 자산 해시·PNG를 확인했고 서버 쓰기·콘솔/JS오류0이다. CI XML 원본을 별도로 내려받아 재분석하지 않았으며 Apple 배포 서명이나 실제 휴대폰 검증으로 간주하지 않는다. 공개 브라우저 검수는 artifacts/qa-build23/public-release-verification.json에 보관한다.
+- **사용자 확인**: 기존 개인 APK 위에 업데이트 후 지평선 선택/보존·센서 이동·용어 홀드·단계 왕복을 확인한다. 아이폰은 기존 홈 화면 웹앱을 다시 열어 beta.17을 확인하고 오프라인 재실행한다. 실제 Play 업로드/심사·Apple 서명·실결제·일반 SMTP는 별도다.
 
 ## 이전 작업 보고 (2026-09-11 · 플레이 제출용 AAB 재생성)
 

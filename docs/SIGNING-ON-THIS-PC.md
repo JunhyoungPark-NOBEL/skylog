@@ -18,26 +18,17 @@
 
 ## 이번 Play 업로드
 
-최종 제출 파일은 `Downloads/skylog-release-0.1.0-beta.16-build21/`의 **`skylog-0.1.0-beta.16-build21-play-signed.aab`**다. 소스 `f4a584442126a855c3a85565201e3e8c610fb984`, beta.16/build21, **20,836,059bytes**, SHA256 `0e2ce28856e1c0f5384a34c5cbaaf7c29b31283f0a6d5a844b4ba5c44a26dbb1`. build17에서 마련한 위 업로드 키를 그대로 사용했다.
+최종 파일은 `Downloads/skylog-release-0.1.0-beta.17-build23/skylog-0.1.0-beta.17-build23-play-signed.aab`다. **20,849,753bytes**, SHA256 `b732d47a80ffd1af91b729423fb2e940c560d2f7afd6bbb843349c8716b0f50b`. 소스 `0287a2b8a5a49275fdb9f7e627a9008f7485962b`, beta.17/build23이며 기존 Play 업로드 전용키를 재사용했다.
 
-`play-signing-verification.json`에서 RSA4096/SHA256withRSA·jarsigner strict·bundletool 검증, payload **1,077개 전부 서명/무서명 원본 일치**·미서명 payload0을 확인했다. 내장 native572개·소스 public480개·사진328개도 APK/서명·무서명 AAB/로컬 Android/iOS와 일치한다. 이 자료 비교는 iOS 앱 서명·실기기 설치 검증이 아니다. 무서명 원본은 **20,737,114bytes**, SHA256 `db4e0348b4dd6583a5271f53d1c7475d609cf3fe47f7dc4a18340c6c72f482ef`로 보존한다.
+play-signing-verification.json의 jarsigner strict·bundletool, payload1077개 전체 서명/무서명 원본 일치를 확인했다. 미서명 payload0개, native572/public480/사진328개가 APK·AAB·로컬 Android/iOS와 같다. 개인 APK는 build21과 같은 별도 키이며 공개 다운로드 해시까지 검증했다. [전체 결과](MOBILE-RELEASE.md).
 
-개인 APK는 **21,446,107bytes**, SHA256 `5ff52bb0179bf8757dd3fb9a5786079941ce327dcfa44e270bbc1d201a9a2576`이며 build20의 개인 인증서 `2dce38b758c9091f919465d32453b64e0835ff8b541bdeaa7c6f3231313fc110`와 직접 일치 확인했다. 제출 AAB와 설치 APK의 키를 서로 바꾸지 않는다. [전체 검증/배포 상태](MOBILE-RELEASE.md).
+1. Google Play 내부 테스트 릴리스의 App Bundle에 위 **play-signed.aab**를 올린다.
+2. 패키지 `io.github.junhyoungparknobel.skylog`, 버전 코드23, API36과 이 문서의 업로드 인증서를 대조한다.
+3. 최초 Play App Signing 등록 후에도 이 업로드키를 유지한다. Console 업로드·등록 자체는 아직 수행하지 않았다.
 
-1. Console 앱 패키지에 `io.github.junhyoungparknobel.skylog`를 입력한다.
-2. 첫 릴리스에서 Play App Signing을 설정한다. Google이 앱 서명키를 관리하는 기본 방식을 사용하는 경우 이 AAB의 인증서는 업로드키로 등록된다.
-3. 서명된 AAB를 내부 테스트 릴리스에 올리고 버전 코드21·API36·업로드 인증서 SHA256을 대조한다.
-4. 등록이 끝나면 이후 AAB도 이 업로드키를 유지한다. Console 등록 성공은 현재 로컬 서명 성공과 별도이며 이번 build21의 업로드·등록 성공은 아직 확인하지 않았다.
+AAB는 Play 제출용이고 local-test.apk는 직접 설치용이다. Play가 쓰는 앱 서명키와 개인 APK 키가 다를 수 있으므로 Play 설치본으로 옮길 때에는 관측 JSON 백업을 먼저 내보낸다. [Android 앱 서명](https://developer.android.com/studio/publish/app-signing).
 
-Google이 최종 설치본에 쓰는 **앱 서명키**와 개발자가 업로드할 때 쓰는 **업로드키**는 역할이 다르다. 개인 APK의 서명과 Play 설치본 서명이 달라지면 덮어쓰기가 불가능할 수 있으므로 먼저 관측 JSON 백업을 내보내고 테스트 트랙에서 이전을 확인한다. [Android 앱 서명 설명](https://developer.android.com/studio/publish/app-signing)
-
-이전 beta.12/build17 서명 AAB는 `Downloads/skylog-release-0.1.0-beta.12-build17/`에 보존한다. SHA256 `888b5acf93b879f33f3f6ed9e8f57771a3be1dcc4a9a8d9b1fb5e98eb52d0d6d`, payload997개로 검증한 이력이며 이번 제출 안내의 build21과 구분한다. 서명 성공은 실제 판매 개통도 아니다. build21은 구매 API를 호출하지 않는 무료 미리보기이며, ₩9,900 일회성 Plus의 상품·구매 서버·SMTP·라이선스 구매 검증과 두 사람의 무상 권한 발급은 별도 미완료다.
-
-이전 beta.14/build19의 Play 서명 AAB는 `Downloads/skylog-release-0.1.0-beta.14-build19/`에 보존한다. **20,820,473bytes**, SHA256 `37aa667b96cd87c5a43294abd6d2e49df2a09bd01ae57271a66b7b48af992887`, payload1,072개·native567개로 검증한 이력이다.
-
-이번 build21에는 첫 하늘 화면과 연결되는 지평선 꾸미기·공개 프로필·해금 보상 확장을 포함한다. **내 프로필 → 지평선 꾸미기**에서 5자리·장식21개·지면4개를 설정하고, 아바타 보상28개를 관측·퀴즈 업적으로 얻는다. 기존 코디·획득 장식은 보존한다. 실제 휴대폰 확인·Play 업로드·실제 구매/복원은 아직 완료하지 않았으며 [휴대폰 설치 안내](INSTALL-ON-PHONE.md)를 따른다.
-
-중간 beta.15/build20도 `Downloads/skylog-release-0.1.0-beta.15-build20/`에 보존한다. 당시 서명 AAB는 **20,836,038bytes**, SHA256 `4ef9fe1f9bf3644bcd68f32836cf9d465fe61ae2290a589d28c98df90ebf9bf0`다. 작은 풀숲 SVG 경로 오류를 수정하고 전체 장식을 재검증한 **beta.16/build21**을 이번 최종 제출 파일로 사용한다.
+광고·실결제는 켜지 않았다. 현재 Plus 베타 미리보기이며 실제 상품·구매 서버·SMTP·라이선스 테스트·두 사람의 무료 권한은 후속이다. 이전 산출물과 해시는 [출시 이력](MOBILE-RELEASE.md)에 보존한다.
 
 ## 다음 버전
 

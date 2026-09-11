@@ -4,7 +4,7 @@
 
 - [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.17-build23/skylog-0.1.0-beta.17-build23-local-test.apk): 이전 build21과 같은 개인 APK 인증서를 사용합니다. **기존 앱을 삭제하지 않고 업데이트**합니다.
 - [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari에서 열고 공유 → 홈 화면에 추가. 기존 홈 화면 앱도 다시 열어 설정의 버전을 확인합니다. 앱/사이트 데이터를 지우지 않습니다. 이번 웹 배포·CI의 완료 범위는 [모바일 출시 준비](MOBILE-RELEASE.md)의 최신 보고를 따릅니다.
-- 새 AAB/APK의 해시·서명·공개 다운로드 검증 결과는 [모바일 출시 준비](MOBILE-RELEASE.md)에 기록합니다.
+- APK **21,462,491bytes**, SHA256 `63c003206fa60c9ad39f1592cdd383a399393e6dcc0165972ec6144b477afa58`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.17-build23) · [검증 결과](MOBILE-RELEASE.md).
 
 ## 지평선과 아바타 꾸미기
 
