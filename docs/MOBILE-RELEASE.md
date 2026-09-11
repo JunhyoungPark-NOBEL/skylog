@@ -1,5 +1,13 @@
 # Android AAB / iOS 출시 준비
 
+## beta.16 / build22 — AAB 재생성 (로컬 배포 준비본)
+
+- **구현**: 기능 변경 없음. 최신 지평선·프로필 확장 상태를 유지한 상태에서 Play 제출용 산출물을 다시 생성함.
+- **소스**: `f4a584442126a855c3a85565201e3e8c610fb984`, `0.1.0-beta.16`/versionCode22, 앱ID `io.github.junhyoungparknobel.skylog`, min24/target36.
+- **산출물**: `0.1.0-beta.16-build22-play-signed.aab`, **20,836,061bytes**, SHA256 `18ADAE63BB34A736F4C0B8BE90A8ECB3CB44A0E8FCBF3E10F761E005B3324E5D`. jarsigner strict 및 bundletool 유효성 검증 통과(로컬).
+- **무서명 원본**: `0.1.0-beta.16-build22-unsigned.aab`, **20,737,113bytes**, SHA256 `1DDE39EDF9627CC131541E5606A63B69596F501123444F376DB69C7CF8799A0A`.
+- **비고**: 업로드 인증키는 기존 키(`C:\\Users\\박준형\\AppData\\Local\\skylog-signing`)를 재사용했으며, 현재 경로의 비ASCII 경고 대응으로 `android/gradle.properties`에 `android.overridePathCheck=true`를 반영해 빌드 재현성을 확보했다. 산출물은 로컬 `C:\\Users\\박준형\\Downloads\\skylog-release-0.1.0-beta.16-build22\\`에 보관.
+
 ## beta.16 / build21 — 하늘과 연결되는 지평선 꾸미기 (최종 제출 준비본)
 
 - **구현**: 기존 장식 21종·지면 4종·아바타 보상 28개를 유지하면서 build20에서 발생한 잠긴 장식 SVG 좌표 누락 콘솔 오류를 수정한 최종본. 장식은 고도 0° 이하에서만 보이며, 해상도/기기 회전/야간 모드/지면 투명도(기본 0)·은하수 밝기(기본 0.33) 상태를 일관되게 적용한다. 프로필은 공개/비공개 모두에서 지평선과 아바타를 함께 보여주며, 댓글은 아바타만 표시한다. 기존 코디·기록·획득 보상은 보존한다. [설계·보존 기준](HORIZON-PROFILES.md), [설명서](HORIZON-ART.md).

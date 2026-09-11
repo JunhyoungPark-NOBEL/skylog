@@ -464,3 +464,14 @@ D-066 검증: 소스 `c31c615e89dafeb64af48ee1095d571265d178e9`의 beta.14/build
 신규 기본 지급은 간소화하고 아바타28개·장식20개·지면3개를 실제 퀴즈/관측 업적으로 해금한다. 이미 제공한 코디와 장식은 회수하지 않고 기존 프로필/코디에 한해 이전 목록을 유지한다. 첫 쓰기에서 ownership-v2 판정을 고정해 새 사용자의 저장/삭제로 잠금이 풀리지 않게 한다. 보상은 DB progress 안에 보존하며 새 과금이나 무작위 뽑기를 추가하지 않는다.
 
 공개 지평선 선택 ID는 명시적인 공개 동기화에만 포함한다. 운영 migration202609110001은 기존 회원 데이터·RLS·구버전 RPC를 유지한다. 위치·전체 관측기록·개인 프로필 이름은 보내지 않고 개인정보 안내에 공개 항목을 반영한다. 렌더·저장·서버 검증의 상세 근거는 docs/HORIZON-PROFILES.md에 기록한다.
+## D-068 · 2026-09-11 · 비ASCII 경로 대응을 위한 Gradle 경로 검사 우회
+
+로컬 폴더명이 비ASCII 문자열(`박준형`)인 환경에서 Gradle의 경로 검사 경고가 build 실패 원인이 될 수 있음을 확인했다. 현재 실행 세션의 안정된 빌드 재현을 위해 `android/gradle.properties`에 `android.overridePathCheck=true`를 추가해 경로 검사 비활성화를 적용한다. 영향 범위는 Android 빌드 단계에 한정되며 앱 동작·정렬·서명·자료 포맷에는 변경을 주지 않는다.
+
+## D-068 부록 · 2026-09-11 · build22 산출물 정리
+
+- 기존 서명키/DNS 경로 정책: 로컬 빌드는 `D-061`와 동일한 업로드키(`f5ad3a778d18b33973938b40f5b93f604c0cb099095a9875b09aa4f0c57a98bd`)를 유지한다.
+- beta.16/build22는 build21 산출물 동작을 유지하면서 새로 생성한 제출용 AAB이며, `docs/MOBILE-RELEASE.md`의 build22 항목으로 관리한다.
+- `android.overridePathCheck=true`는 필요 시에만 유지하고, 추적 가능한 빌드 로그와 함께 `docs/MOBILE-RELEASE.md` 및 `plan/STATUS.md`에 반영한다.
+
+D-067/D-068 배포: 소스 `f4a584442126a855c3a85565201e3e8c610fb984`, `0.1.0-beta.16`/build22 산출물(`0.1.0-beta.16-build22-play-signed.aab`, SHA256 `18ADAE63BB34A736F4C0B8BE90A8ECB3CB44A0E8FCBF3E10F761E005B3324E5D`)의 jarsigner strict 및 bundletool 검증은 로컬에서 통과했다.

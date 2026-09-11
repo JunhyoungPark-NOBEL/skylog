@@ -1,16 +1,23 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-11 · beta.16/build21 지평선 꾸미기·공개 프로필·해금 보상 확장, 최종 제출 준비본 정리 완료
+> 마지막 갱신: 2026-09-11 · beta.16/build22 AAB 재생성 완료(로컬 제출 준비)
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
 - 앱: https://junhyoungpark-nobel.github.io/skylog/ · 내 프로필: https://junhyoungpark-nobel.github.io/skylog/#/profile
-- 최신 산출물: 로컬 `Downloads/skylog-release-0.1.0-beta.16-build21/` 및 GitHub Release [`v0.1.0-beta.16-build21`](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.16-build21) 공개
+- 최신 산출물: 로컬 `Downloads/skylog-release-0.1.0-beta.16-build22/` (`0.1.0-beta.16-build22-play-signed.aab`)
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-11 · 첫 하늘과 연결되는 지평선 꾸미기 / build21 검증 반영)
+## 이번 작업 보고 (2026-09-11 · 플레이 제출용 AAB 재생성)
+
+- Android AAB `0.1.0-beta.16-build22-play-signed.aab` 생성 완료. 소스는 `f4a584442126a855c3a85565201e3e8c610fb984`, 버전은 `0.1.0-beta.16` / `versionCode22`, 패키지 `io.github.junhyoungparknobel.skylog`.
+- 산출물 해시: Play 제출 AAB `18ADAE63BB34A736F4C0B8BE90A8ECB3CB44A0E8FCBF3E10F761E005B3324E5D`, 무서명 `1DDE39EDF9627CC131541E5606A63B69596F501123444F376DB69C7CF8799A0A`.
+- 기능은 기존 build21 상태 유지(별자리/배경/사진/커뮤니티/유료 예시 구조 변경 없음). jarsigner strict 및 `bundletool validate`는 로컬에서 통과.
+- 현재 작업 폴더 경로가 비ASCII 경로라 `android/gradle.properties`에 `android.overridePathCheck=true`를 적용해 재현 가능한 빌드 환경을 고정함(D-068).
+
+## 이전 작업 보고 (2026-09-11 · 첫 하늘과 연결되는 지평선 꾸미기 / build21 검증 반영)
 
 - 사용자의 마당 개편 요청에 따라 같은 장식 도안을 첫 하늘 화면·개인/공개 프로필에서 사용한다. 댓글에는 아바타 초상만 보이고, 작성자 프로필을 열면 공개한 지평선과 함께 보인다(D-067).
 - 장식21개(벤치·식탁·정자·서로 다른 망원경 등), 지면4개, 아바타 보상28개. 신규 기본 지평선은 남쪽 벤치1개·잔디이며 나머지 장식20개·지면3개는 기존 활성 업적으로 해금한다. 예전 무료 코디·장식과 획득 보상은 ownership-v2 이관으로 보존하고 신규 저장을 기존 사용자로 오인하지 않는다.
@@ -77,7 +84,7 @@
 
 ## 다음 세션이 알아야 할 것
 
-- **현재 작업**: 스카이야드 beta.16/build21 지평선 개편·공개 프로필·보상 확장 반영. 소스 `f4a584442126a855c3a85565201e3e8c610fb984`. 앱 첫 하늘/개인·공개 프로필이 같은 장식을 사용하며 댓글은 아바타만 표시한다(D-067). Play 업로드 키와 개인 APK 키를 각각 그대로 재사용한다. 최신 검사/배포 결과는 이 문서 맨 위와 docs/MOBILE-RELEASE.md를 따른다.
+- **현재 작업**: 스카이야드 beta.16/build22 지평선 개편·공개 프로필·보상 확장 반영. 소스 `f4a584442126a855c3a85565201e3e8c610fb984`. 앱 첫 하늘/개인·공개 프로필이 같은 장식을 사용하며 댓글은 아바타만 표시한다(D-067). Play 업로드 키와 개인 APK 키를 각각 그대로 재사용한다. 최신 검사/배포 결과는 이 문서 맨 위와 docs/MOBILE-RELEASE.md를 따른다.
 
 - **우선 사항**: 최신 유료화는 D-064, ₩9,900 1회 구매 계획이다. 현재 무료 베타 미리보기이며 구매 브리지/권한 검사는 구현했지만 실제 상품·purchases 서버·환불 재검증·일반 SMTP·두 사람의 무상 grant는 미완료다. D-053~054는 이전 설계 이력이다. docs/BILLING-SETUP.md·MONETIZATION-PLAN.md를 따른다. Supabase ijxuwtbcwifttiuwvqrh/서울 대시보드 인증으로 지평선 migration202609110001까지 적용했다. 대시보드 인증은 CLI 인증과 구분하며 일반 가입·숫자 메일 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. 공개 프로필만 사용자가 명시적으로 동기화하며 개인 백업은 수동 스냅샷이다.
 
@@ -98,7 +105,7 @@
 - **UI 규칙(D-021)**: 새 화면은 `docs/ARCHITECTURE.md` "UI 디자인 시스템 v2"와 토큰(`theme.css`)만 쓴다. 검색/오늘 밤/기록은 App의 `pt-status pb-tab` 래퍼를 쓴다. 배우기는 D-026: 자체 고정 제목·상단 4개 메뉴 + ScrollArea(pb-tab), 위치/센서 상태바는 생략한다. 카피는 D-021 용어집(해요체·평이한 용어)을 따른다.
 - **스크롤 규칙(D-022)**: 세로 스크롤 영역은 `ui/ScrollArea.tsx`(마우스 드래그 스크롤·관성·페이드 오버레이)로 만든다. 스크롤러에 `mask-image`를 걸지 않는다. 드래그 스크롤이 닿으면 안 되는 컨트롤은 `touch-action: none` 또는 `data-drag-scroll="off"`. 사용자 보고("스크롤이 뻑뻑하고 스크롤 바를 정확히 눌러야 함")에 대한 수정이며, 실기기 확인은 T3b 체크리스트의 스크롤 항목으로 받는다.
 - **주의(이 세션에서 겪은 것)**: 워크플로 에이전트가 "코드 스케치를 써 달라"는 프롬프트를 실제 경로에 파일을 만들었다가 지우는 바람에 `src/astro/phenomena.ts`가 사라진 적이 있다. 리서치용 에이전트 프롬프트에는 **"파일을 만들거나 고치지 말 것"**을 명시한다.
-- **최신 검증**: 문서 맨 위 beta.16/build21 보고를 따른다. 이전 버전 수치는 당시 이력이며 실제 휴대폰 센서/성능·일반 SMTP·스토어 심사·Apple 서명은 별도다.
+- **최신 검증**: 문서 맨 위 beta.16/build22 보고를 따른다. 이전 버전 수치는 당시 이력이며 실제 휴대폰 센서/성능·일반 SMTP·스토어 심사·Apple 서명은 별도다.
 - 데이터 원본(`data-src/raw/`)은 gitignore이며 새 환경에서 재생성할 때 원본 확보가 필요하다. 현재 실행 경로와 pnpm PATH는 위 **환경** 항목을 따른다. 과거 OneDrive PC 경로를 현재 작업 경로로 사용하지 않는다.
 - **사용자 장비**: 솔로몬 HQ 8×42 ED, SVBONY SV48P 102mm(제조사 초점거리663mm). 사용자 요청으로 쌍안경 시야7.50°·접안25mm/52°는 시작 예시이며 직접 입력하도록 한다. 마운트/실제 접안 사양은 확정하지 않았다. 관측지는 자동 GPS 또는 사용자가 고른 저장 장소·보이는 범위를 따른다.
 
@@ -118,3 +125,4 @@
 - D-029(2026-09-08): 별길 가이드의 물리 윗변·상대 센서·정렬/장비/시야·실제 업적 이벤트.
 
 - D-038~D-041(2026-09-08): 하늘 기본값·단일 지면/천체 표시, 두 장비 시야 예시, 업적 v2/기존 진도 호환, 센서 프레임 보간·Dexie 중복 쓰기 제거.
+
