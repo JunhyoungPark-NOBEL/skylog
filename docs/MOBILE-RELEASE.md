@@ -1,5 +1,14 @@
 # Android AAB / iOS 출시 준비
 
+## beta.18 / build24 — 관측자가 되어 따라가는 발견 이야기
+
+- **구현**: 한영 도입10개·관측 장면90개·발견 기록30개·결말10개. 기존90문항의 수치·답·저장 ID를 보존하고 결말/정답/복습을 구별한다. [서사 흐름](HISTORY-NARRATIVE.md)·[출처와 계산 가정](HISTORY-QUESTS-SOURCES.md).
+- **산출물**: 소스 `a0225d33708fb725c7770831ad3fa6aa0402605f`, beta.18/code24/min24/target36. Play AAB **20,872,938bytes**·SHA256 `b4a83bf074d6bd4dee68ed4d4406f279751dcf33a5d2941dd4ae2582388874b1`. 개인 APK **21,482,971bytes**·SHA256 `de33422f0bee82362d95c5f28f9c3560cae6519356223d7b8465f5f8e4e35658`. 기존 Play 업로드키·개인 APK키를 유지하고 build23 개인 APK와 인증서 일치를 확인했다. jarsigner strict·bundletool·16KB APK 정렬, payload1077개 전체 서명/원본 일치, native572/public480/사진328개 Android·로컬 iOS 자산 일치를 검증했다.
+- **파일**: `Downloads/skylog-release-0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-play-signed.aab` · [개인 APK](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-local-test.apk) · [아이폰 웹앱](https://junhyoungpark-nobel.github.io/skylog/). 태그 `v0.1.0-beta.18-build24`.
+- **검증**: 전체102파일/747단위, 최종 관련단위11개, Chromium8개(실제PWA오프라인1), 타입·전체lint·변경파일포맷·PWA빌드 통과. PWA초기JS gzip479.21kB. 사진 검사의 초기5초 시간 초과는 단독/4worker 전체 재검증으로 해소했다.
+- **배포/CI**: [Pages 34590649099](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34590649099)·[모바일 34590650742](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34590650742) 성공. Android release/lint·에뮬레이터 계측 및 iOS 무서명 Release 컴파일의 job/step 성공을 확인했다. 공개 웹앱4개 시나리오(열 편 도입·9단계 완주·결말 재실행·영어 야간125%)와 배포 자산 해시를 기록했고 서버 쓰기·JS/콘솔 오류0이다. 공개 APK도 재다운로드해 로컬 서명본과 일치했다. 물리 휴대폰·Apple 배포 서명·Play 업로드/심사는 별도다.
+- **후속**: 실제폰에서9장면·결말·홀드·초안/기존기록·오프라인 재실행 확인. Plus는 베타 미리보기, 기존 가격/실결제/일반SMTP 상태를 유지한다.
+
 ## beta.17 / build23 — 풍경·업적·단계별 천체물리
 
 - 새 풍경4개·장식20개·지면4개, 기존 보상 보존 및 공개 프로필 호환, 업적48개의5분류·3열 카드, 이야기10개의9단계 학습과450ms 용어 홀드를 구현했다. 장 경계에서 미저장 답·메모가 사라지는 경로도 수정했다.

@@ -18,17 +18,13 @@
 
 ## 이번 Play 업로드
 
-최종 파일은 `Downloads/skylog-release-0.1.0-beta.17-build23/skylog-0.1.0-beta.17-build23-play-signed.aab`다. **20,849,753bytes**, SHA256 `b732d47a80ffd1af91b729423fb2e940c560d2f7afd6bbb843349c8716b0f50b`. 소스 `0287a2b8a5a49275fdb9f7e627a9008f7485962b`, beta.17/build23이며 기존 Play 업로드 전용키를 재사용했다.
+최종 파일은 `Downloads/skylog-release-0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-play-signed.aab`입니다. 소스 `a0225d33708fb725c7770831ad3fa6aa0402605f`, beta.18/code24/min24/target36. Play AAB **20,872,938bytes**·SHA256 `b4a83bf074d6bd4dee68ed4d4406f279751dcf33a5d2941dd4ae2582388874b1`. 개인 APK **21,482,971bytes**·SHA256 `de33422f0bee82362d95c5f28f9c3560cae6519356223d7b8465f5f8e4e35658`. 기존 Play 업로드키·개인 APK키를 유지하고 build23 개인 APK와 인증서 일치를 확인했다. jarsigner strict·bundletool·16KB APK 정렬, payload1077개 전체 서명/원본 일치, native572/public480/사진328개 Android·로컬 iOS 자산 일치를 검증했다.
 
-play-signing-verification.json의 jarsigner strict·bundletool, payload1077개 전체 서명/무서명 원본 일치를 확인했다. 미서명 payload0개, native572/public480/사진328개가 APK·AAB·로컬 Android/iOS와 같다. 개인 APK는 build21과 같은 별도 키이며 공개 다운로드 해시까지 검증했다. [전체 결과](MOBILE-RELEASE.md).
+1. Google Play 내부 테스트 릴리스의 App Bundle에 **play-signed.aab**를 올립니다.
+2. 패키지 `io.github.junhyoungparknobel.skylog`, 버전 코드24, API36 및 위 업로드 인증서를 대조합니다.
+3. Console 등록/업로드 자체는 이번 작업에서 수행하지 않았습니다. 이 업로드 키를 다음 버전에도 유지합니다.
 
-1. Google Play 내부 테스트 릴리스의 App Bundle에 위 **play-signed.aab**를 올린다.
-2. 패키지 `io.github.junhyoungparknobel.skylog`, 버전 코드23, API36과 이 문서의 업로드 인증서를 대조한다.
-3. 최초 Play App Signing 등록 후에도 이 업로드키를 유지한다. Console 업로드·등록 자체는 아직 수행하지 않았다.
-
-AAB는 Play 제출용이고 local-test.apk는 직접 설치용이다. Play가 쓰는 앱 서명키와 개인 APK 키가 다를 수 있으므로 Play 설치본으로 옮길 때에는 관측 JSON 백업을 먼저 내보낸다. [Android 앱 서명](https://developer.android.com/studio/publish/app-signing).
-
-광고·실결제는 켜지 않았다. 현재 Plus 베타 미리보기이며 실제 상품·구매 서버·SMTP·라이선스 테스트·두 사람의 무료 권한은 후속이다. 이전 산출물과 해시는 [출시 이력](MOBILE-RELEASE.md)에 보존한다.
+개인 설치용 APK는 Play 앱 서명키와 다를 수 있습니다. 이번 APK는 기존 build23 개인 APK 위에 업데이트할 수 있는 인증서입니다. 실제폰 설치는 확인해 주세요. [전체검증](MOBILE-RELEASE.md)·[설치안내](INSTALL-ON-PHONE.md).
 
 ## 다음 버전
 

@@ -1,10 +1,18 @@
 # 휴대폰에서 스카이야드 사용하기
 
-최신 Android 버전은 **0.1.0-beta.17 / build23**입니다. 지평선에 설산·돌산·바다·들판을 넣고, 주택·관측 데크·강아지와 여러 관측 장비를 배치할 수 있습니다. 장식 **20개**, 원경 **4개**, 지면 **4개**, 아바타 업적 보상 **28개**를 제공합니다. 기존 코디·획득 보상·관측 기록·학습 진도를 보존하며 현재는 **무료 베타 미리보기**입니다.
+최신 버전은 **0.1.0-beta.18 / build24**입니다. 역사 천체물리 열 편을 관측 장면에서 결말까지 이어지는 이야기로 다듬었습니다. 기존 관측·퀴즈·메모·아바타·지평선 기록은 유지하며 현재는 **무료 베타 미리보기**입니다.
 
-- [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.17-build23/skylog-0.1.0-beta.17-build23-local-test.apk): 이전 build21과 같은 개인 APK 인증서를 사용합니다. **기존 앱을 삭제하지 않고 업데이트**합니다.
-- [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari에서 열고 공유 → 홈 화면에 추가. 기존 홈 화면 앱도 다시 열어 설정의 버전을 확인합니다. 앱/사이트 데이터를 지우지 않습니다. 이번 웹 배포·CI의 완료 범위는 [모바일 출시 준비](MOBILE-RELEASE.md)의 최신 보고를 따릅니다.
-- APK **21,462,491bytes**, SHA256 `63c003206fa60c9ad39f1592cdd383a399393e6dcc0165972ec6144b477afa58`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.17-build23) · [검증 결과](MOBILE-RELEASE.md).
+- [Android APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-local-test.apk): build23과 같은 개인 APK 인증서입니다. 기존 앱을 삭제하지 않고 업데이트합니다.
+- [iPhone 웹앱 열기](https://junhyoungpark-nobel.github.io/skylog/): Safari 또는 기존 홈 화면 앱에서 다시 열어 설정의 beta.18을 확인합니다. 앱/사이트 데이터를 지우지 않습니다.
+- APK **21,482,971bytes**, SHA256 `de33422f0bee82362d95c5f28f9c3560cae6519356223d7b8465f5f8e4e35658`. [사전 릴리스](https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.18-build24) · [검증 결과](MOBILE-RELEASE.md).
+
+## 새 천체물리 이야기
+
+1. **배우기 → 퀴즈 → 천체물리**에서 관심 있는 이야기를 고릅니다. 도입의 질문을 읽고9개 장면을 따라갑니다.
+2. 점선 밑줄 용어는 꾹 눌러 뜻을 확인합니다. 문제의 도해·힌트와 함께 계산하거나 판단해 보세요.
+3. 각 장의 답을 제출하면 발견 기록이 이어집니다. 세 장을 모두 제출한 뒤 **이야기 마치기**를 누르면 처음의 의문으로 돌아오는 결말을 읽습니다.
+4. 결말에서 복습할 장을 펼쳐 돌아갈 수 있습니다. 정답 수는 별도이며 결말 감상으로 점수가 바뀌지 않습니다. 이미 푼 이야기도 **이 이야기의 결말 보기**로 다시 열립니다.
+5. 온라인 초기 저장 후 비행기 모드로 재실행하여 장면·도해·메모가 남아 있는지 확인해 주세요.
 
 ## 지평선과 아바타 꾸미기
 
