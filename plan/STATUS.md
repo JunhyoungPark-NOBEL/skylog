@@ -1,12 +1,12 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-11 · beta.14/build19 학습 선행 문제·용어 홀딩·이야기 이미지 개선, 배포 검증 진행 중
+> 마지막 갱신: 2026-09-11 · beta.14/build19 선행 문제·용어 홀딩·이야기 이미지 개선, 서명 AAB·APK·웹앱 배포 검증 완료
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
 - 앱: https://junhyoungpark-nobel.github.io/skylog/ · 내 마당: https://junhyoungpark-nobel.github.io/skylog/#/profile
-- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.13-build18
+- 최신 산출물: https://github.com/JunhyoungPark-NOBEL/skylog/releases/tag/v0.1.0-beta.14-build19
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
@@ -16,9 +16,12 @@
 - 30개 본 문제 앞에 60개 준비 문제를 연결하고, 관측 상황 → 개념 질문 → 관계 연습 → 본 문제로 이어지는 한영 흐름을 구성한다. 한 번에 한 문제만 표시하고 오답 피드백·재시도·건너뛰기·준비 복습을 지원한다. 준비 진도는 별도 `learn.preparation:` 키에 저장하며 원래 채점·ID·메모·30개 본 문제의 수치 답을 보존한다.
 - 10개 역사 주제의 도해를 30개 문항 상황에 맞춰 제공한다. 수식은 로컬 KaTeX/글꼴로 렌더링하고 변수 이탤릭·아래첨자 직립체와 MathML을 적용한다. 용어 홀딩은 스크롤 이동 시 취소되며 탭·키보드도 지원한다. `docs/HISTORY-LEARNING-UX.md` 참고.
 - 이야기 121개 중 정확 일치 사진 58개·대상을 함께 담은 이중성단 사진 2개·카탈로그 도해 61개를 목록/오늘 카드/상세에 연결했다. 다른 대상 사진으로 대체하지 않으며 도해는 사진과 구분한다. 출처는 상세에서 확인한다. `docs/STORY-IMAGES.md` 참고.
-- 현재 공개 기준은 아래 beta.13/build18이며, 이번 beta.14/build19의 통합 테스트·서명·배포 결과는 완료 후 이 절에 추가한다. 광고 없음·9,900원 1회 구매 계획과 preview 모드를 유지하며 실제 구매 서버/상품/SMTP를 변경하지 않는다.
+- 현재 공개 버전은 beta.14/build19다. 광고 없음·9,900원 1회 구매 계획과 preview 모드를 유지하며 실제 구매 서버/상품/SMTP를 변경하지 않는다.
 - 통합 검증: 타입·전체 lint·변경 파일 포맷·전체 93파일/701개 단위 통과. 360px·영어125%·야간·용어 실제 CDP 홀딩·오답 재시도·진도·초안·이야기 이미지/출처의 정적 번들 Chromium 8개 통과. 독립 검토에서 찾은 홀딩 해제 후 모달 즉시 닫힘, 조회 재시도 때 선택이 다른 준비 문제로 옮겨 붙음, 이전 제목 초점 안내를 수정하고 회귀 검사했다. 60개 한영 도해의 작은 폭 검수·원래 문제 데이터 구조 동일성·수식 전체 렌더링 검증을 완료했다. 관련 로그와 최초 실패 증거는 `artifacts/qa-build19/` 등에 보존했다.
 - 실제 PWA 서비스워커를 사용하는 오프라인 E2E 1개도 통과했다. 첫 선행 문제 정답 후 오프라인 새로고침 → 두 번째 완료 → 본 문제 입력/힌트/메모 저장 → 다시 새로고침해 보존 → 미방문 Kepler 도해·수식과 캐시된 로컬 글꼴 열기를 확인했다. 외부 요청·서버 쓰기·글꼴 실패·JS 오류 0. Node JSON import·worker activating 대기·라디오 선택자의 초기 하네스 실패를 수정하고 로그를 보존했다. 전체 관련 Chromium 검사는 9개이며 실제 아이폰 검증과 구분한다.
+- **최종 소스/산출물**: `c31c615e89dafeb64af48ee1095d571265d178e9`, beta.14/code19/min24/target36. 로컬 Downloads/skylog-release-0.1.0-beta.14-build19/의 Play 서명 AAB **20,820,473bytes** · SHA256 `37aa667b96cd87c5a43294abd6d2e49df2a09bd01ae57271a66b7b48af992887`. 기존 업로드 인증서·jarsigner strict·bundletool·payload1072개 전체 서명과 원본 일치. 개인 APK **21,433,369bytes** · SHA256 `848166e5601427eb5b1fef6901d5bb0a04ddd7349194a225ad7534744f230ade`. 이전 build18 인증서·16KB 정렬·native567/public480/사진328개 비교, 공개 APK 재다운로드 일치. Android lint 오류0/경고32. 키/암호는 배포 폴더에 포함하지 않았다.
+- **배포/CI**: [Pages34549739499](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34549739499) build/deploy, [모바일34549764863](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34549764863) validate-version/android/ios 모든 step 성공. Android API36 오프라인 계측·릴리스/lint, iOS Xcode26 무서명 Release 컴파일 단계를 확인했다. API 응답의 job/step 성공을 검증했으며 CI 아티팩트 XML 원본을 별도로 내려받아 재분석하지 않았다. 실제 휴대폰·Apple 서명·실제 거래/심사는 별도다.
+- **공개 웹 검사**: 새 Chromium context에서 실제 beta.14·선행2단계·길게 누른 뒤 손을 떼어도 설명 유지·KaTeX Main/Math 로컬 글꼴·토성 이야기 사진과 출처를 확인했다. 공개 JS/CSS/woff2 실제 응답17개 해시를 기록하고 PNG3장을 검수했다. 외부 요청·쓰기·실패 요청·JS오류0. `artifacts/qa-build19/public-web-verification.json`, `pages-ci.json`, `mobile-ci.json`과 다운로드 폴더의 READ-ME-KO.txt에 설치/검증 범위를 보관했다.
 
 ## 이전 작업 보고 (2026-09-10 · Plus 콘텐츠와 첫 판매 준비)
 

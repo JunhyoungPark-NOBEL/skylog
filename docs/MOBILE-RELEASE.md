@@ -1,6 +1,17 @@
 # Android AAB / iOS 출시 준비
 
-> 최신: **스카이야드 beta.13/build18 — 개인 APK·Play 서명 AAB 완성, 학습·공개 아바타·Plus 베타 미리보기.** APK 공개 재다운로드·공개 PWA 점검·Pages와 모바일 CI 전체 성공. 실제 폰·Apple 서명/TestFlight·유료 판매 개통은 별도다. 아래 이전 버전의 ‘미서명/계획’은 당시 기록이다. [출시 준비표](STORE-LAUNCH-CHECKLIST.md) · [현재 PC 서명 안내](SIGNING-ON-THIS-PC.md)
+## beta.14 / build19 — 선행 문제·문맥 용어 설명·이야기 이미지
+
+- **소스**: `c31c615e89dafeb64af48ee1095d571265d178e9`, `0.1.0-beta.14`/versionCode19, 기존 앱ID·min24/target36 유지. 기존 30문제 앞의 준비 문제60개, 용어 홀딩·탭·키보드 설명, 주제별 도해와 로컬 수식 조판, 이야기 사진/좌표 도해를 추가했다. 아래첨자는 직립체다. 기존 원답·정답·허용오차·메모·진도와 광고 없는 Plus 베타 미리보기를 유지한다.
+- **검사**: 전체93파일/701단위·타입·lint·포맷, Chromium 관련9개(실제 PWA offline 포함), 좁은폭/125% 한영60도해 검수 통과. 오프라인 새로고침·준비 진도·본 문제 입력/힌트/메모·미방문 도해와 로컬 글꼴을 확인했다. 외부 서버 쓰기는 하지 않았다.
+- **APK**: [다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.14-build19/skylog-0.1.0-beta.14-build19-local-test.apk), **21,433,369bytes**, SHA256 `848166e5601427eb5b1fef6901d5bb0a04ddd7349194a225ad7534744f230ade`. 기존 build18 APK와 동일 인증서·version19·16KB 정렬, 공개 재다운로드 해시 일치까지 확인했다.
+- **Play 제출 AAB**: `skylog-0.1.0-beta.14-build19-play-signed.aab`, **20,820,473bytes**, SHA256 `37aa667b96cd87c5a43294abd6d2e49df2a09bd01ae57271a66b7b48af992887`. 기존 Play 업로드 인증서·RSA4096/SHA256withRSA·jarsigner strict·bundletool 통과. payload1072개 전체 서명/원본 일치, 미서명payload0. AAB는 로컬 Downloads/skylog-release-0.1.0-beta.14-build19/에 제공하며 Console 업로드는 수행하지 않았다.
+- **내장 자료**: 무서명 AAB20,722,069bytes·SHA256 `bd4f2cd251358dfd6e7ae72a1db1bc51cebe34ef594d14e92993968d71d35025`도 보존. Android/APK/AAB/iOS 로컬 public의 native567개·원본public480개와 사진164개/파생328개를 비교했다. 글꼴 추가도 native 에셋 비교에 포함한다. Android lint 오류0/경고32. 개인 키는 산출물에 넣지 않았다.
+- **배포/CI**: [Pages34549739499](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34549739499), [모바일34549764863](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34549764863)의 모든 작업 단계가 성공했다. Android API36 오프라인 계측·release/lint, iOS Xcode26 무서명 Release 컴파일 단계 포함. API의 job/step 상태를 검증했으며 CI 아티팩트 XML을 별도로 재분석하지 않았다.
+- **공개 웹**: 새 Chromium context에서 beta.14와 선행2단계·용어 홀딩 후 설명 유지·로컬 KaTeX 글꼴·토성 이야기 사진/출처를 확인했다. JS/CSS/woff2 응답17개 지문과 PNG3장 검수, 외부 요청·서버 쓰기·실패 요청·JS오류0. `artifacts/qa-build19/public-web-verification.json`에 근거가 있다.
+- **한계**: 실제 휴대폰 설치·센서·터치감·iPhone 비행기 모드 재실행과 Play 거래·Apple 서명/TestFlight/스토어 심사는 별도다.
+
+> 아래 beta.13 이하의 내용은 당시 배포 기록이다. [출시 준비표](STORE-LAUNCH-CHECKLIST.md) · [현재 PC 서명 안내](SIGNING-ON-THIS-PC.md)
 
 ## beta.13 / build18 — 역사 학습·공개 아바타·Plus 베타 미리보기
 
