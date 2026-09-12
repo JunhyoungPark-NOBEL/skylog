@@ -330,3 +330,9 @@ typecheck·lint·데이터 검증·PWA/native 빌드 통과. 단위 493개, 브�
 소스80eb31730890feff8e100c1224c533c36e2c3c6d. S24+ 센서·카메라·기록 개선은 FIELD-USE-BUILD25.md. Pages34704907732/모바일34704907215 성공, Android lint/오프라인 에뮬레이터와 iOS Release 컴파일 확인. AAB20,779,731bytes·SHA256 1f472c9fdf7151ae55e54a030ca19e7a782412e275d435e15ba669e89a6ebfb5. bundletool·정적 파일480개 원본 일치·CAMERA와 마이크 권한 없음 검증.
 
 현재 집 PC의 업로드키가 연구실 build24 키와 달라 이 파일은 **무서명**이다. Downloads/skylog-0.1.0-beta.19-build25-signing-kit.zip을 연구실에 풀고 PowerShell7에서 sign-play-update.ps1을 실행한다. 키/비밀번호는 패키지에 없다. 기존 인증서 검증 후에만 최종 서명 파일을 생성하며 잘못된 집 키가 거부되는 것을 실제 확인했다. Play 제출/심사나 물리 S24+ 테스트를 완료했다고 주장하지 않는다.
+
+## beta.20 / build26 · 2026-09-13
+
+**최종 배포/산출물**: 실행 소스 `7730a5cc3b38886275d2163b29e0fd8e5b391f4b`, 태그 `v0.1.0-beta.20-build26`. [Pages34708595022](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34708595022)·[모바일34708594801](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34708594801) 성공. Android release/lint(오류0, 기존 경고32)·API36 오프라인 계측2개 및 iOS 무서명 Release 컴파일을 확인했다. CI 원본 XML의 failures/errors=0을 재확인했다. 공개 웹200·beta.20 JS·상단 설정/메인 시야 원/코스 왕복·새로고침, JS오류0·서버쓰기0이다. AAB **20,785,236bytes**, SHA256 `ffb79695a018737cf5acb2a148e46f8174ade62ecc073b8d4a3c426ae60e3b06`. bundletool validate·앱ID/버전26·CAMERA/마이크 없음·정적 파일480개 원본 비교를 통과했다. ZIP8항목의 AAB 해시도 동일하다. 파일은 **무서명**이며 연구실의 기존 Play 업로드키로 마무리한다. 물리 S24+ 감각/접안 정렬·Play 제출/심사·Apple 배포 서명은 별도다.
+
+Downloads/skylog-0.1.0-beta.20-build26-signing-kit.zip의 READ-ME-KO.txt와 sign-play-update.ps1을 따른다. 키/암호는 없으며 기존 연구실 인증서만 허용한다. 체크리스트는 [확대·하늘 안내 보고](SKY-REFINEMENT-BUILD26.md)를 따른다.

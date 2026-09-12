@@ -174,6 +174,7 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - 세로 스크롤 영역은 `ui/ScrollArea.tsx`(D-022): 네이티브 터치 스크롤 + 마우스 드래그 스크롤(`ui/useDragScroll.ts`, 6px 임계값·축 고정·관성·드래그 직후 click 억제) + 아래쪽 페이드 오버레이(`fadeBottom`). 스크롤러에 `mask-image`를 걸지 않는다. 높이 제한 컨테이너는 훅만 붙인다. 드래그 스크롤이 닿으면 안 되는 영역은 `touch-action: none` 또는 `data-drag-scroll="off"`.
 
 ## 기록·콘텐츠·학습 통합 (T4/T6/T7 일부)
+
 - 기록 쓰기는 db/repos/observations, 파생 상태는 logStore, UI 진입은 openObservationForm. blobs는 사진/스케치 별도 저장. DB v2는 인덱스 변경 없이 누락값만 보충(D-023). 기록 변경 이벤트가 하늘 MarkerLayer·검색·추천·통계·미션에 전파된다.
 - content/schema와 content/crossCheck를 빌드/테스트에서 공유한다. build-content → content/v1/index.json과 항목 파일. loader는 본문을 요청할 때만 읽으며 항목 version 쿼리로 캐시를 구별한다. readProgress/TodayCard는 progress 테이블을 공유한다(D-024).
 - learn/schema → build-learn → learn/v1/{paths,missions,badges,quiz,manifest}. 원본 구조 대조 후 실행 가능한 항목만 활성화한다. i18n/partials는 app/i18n에서 기본 리소스와 합친다.
@@ -183,6 +184,7 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - T7 미완료: 전천 skyPick 판정/격리, 일별 복습 누적 상한, 영구 배지 이력/연출. T5 장비 실작업 증거는 D-029에서 연결했다. 기존 장문 콘텐츠 영어 번역과 JS 코드 분할은 후속이다.
 
 ## 배우기 탐색·퀴즈 여정과 지평선 (D-026·D-027)
+
 - LearnScreen은 고정 제목/4개 메뉴 + ScrollArea. URL: #/learn?section=quiz|courses|stories|achievements, path/mission/chapter 선택. learnNavigation은 배우기 경로만 기억해 다른 탭의 hashchange가 복귀 위치를 덮어쓰지 않게 한다.
 - QuizJourney는 stages.stageProgress의 unlocked/result를 표시한다. stageCatalog.json은 source에 포함되는 별도 버전 계약이며 질문 배열의 자동 정렬/재구성 금지. stageQuestions가 활성화/문항 버전을 검사하고 gradeStage가 전체 응답을 검증한다.
 - QuizHost의 stage 요청은 고정 순서로 출제하며 일반 selectQuiz의 적응형 정렬과 분리된다. useLearnUiStore의 sessionId로 다음 스테이지/재도전 때 UI를 새로 만든다. recordStageAnswer가 잠금·순서·재전송을 검사하고 마지막 응답/복습/완료 이력을 함께 저장한다. readLearning은 로컬 완료 이력에서 단계별 최고점과 해제를 파생한다.
@@ -210,7 +212,6 @@ const pack = await loadStarPack('stars-bright'); // { positions: Float32Array(co
 - `HOP_COURSES`는 고정된 대표 이정표, `curatedHop`은 위치각/거리/시야 수, `hopCourseProgress`는 courseId가 있는 실제 skill event와 관측 기록으로 코스 진행을 계산한다. `openTelescope`가 course를 해시에 전달한다.
 - CI는 `mobile.yml`에서 Android AAB/lint/오프라인 계측, iOS arm64 컴파일을 검증한다. 서명 키는 로컬 저장소 밖에 둔다. 제출 절차는 `MOBILE-RELEASE.md`.
 
-
 ## beta.5 오늘 밤·달력·풍경
 
 EventCalendar는 list/month/year UI를 분리하고 calendar.ts가 시간대 날짜·월 이동·날짜별 그룹·ICS 생성을 담당한다. useTonight의 분 경계/복귀 갱신과 CalendarBrowser 월 키로 현재 달을 따라간다. 코스는 theme/group 해시를 더하며 데이터 ID/진도를 바꾸지 않는다. HorizonLayer의 낮은 풍경 밴드에 공통 천구 투영을 적용하고 landscape.ts의 유효 불투명도를 지면·라벨·선택에 공유한다. 이미지·오프라인·설계 근거는 [개선 기록](TONIGHT-REFRESH.md).
@@ -222,3 +223,11 @@ HorizonLayer의 지면 한 표면에서 meadow-v2 색을 혼합한 뒤 사용자
 ## 무료 꾸미기·커뮤니티(T9)
 
 개인 꾸미기: src/personal의 정규화/보상과 features/personal의 독립 화면. 기존 progress 고유 키를 이용하며 DB/팩 버전은 유지한다. 온라인: src/community의 분리된 Supabase 클라이언트, features/community의 목록/상세/계정/운영 화면. 서버 마이그레이션과 Edge 함수는 supabase/. 전체 흐름·권한·실제 연결/개통 상태는 [FREE-COMMUNITY.md](FREE-COMMUNITY.md).
+
+## beta.20 하늘·망원경·코스 (D-072, 이전 T5 구조를 갱신)
+
+- SkyView의 상단 도구와 SkySettings가 카메라/일반 센서 설정을 맡고 하단에는 GPS 센서 전환을 둔다. ResizeObserver로 상단 도구 높이를 공유해 목표 칩을 배치한다. GPS는 관측 위치, 방향 센서는 자세라는 설명을 제공한다.
+- `OrientationFilter.setViewport`는 시야각·픽셀과 왕복 움직임의 일관성으로 평활 강도를 조절한다. 일반 AR과 망원경 센서 모두 사용하며 줌 때 상태를 초기화하지 않는다. 네이티브 요청은60Hz, 망원경 필터는 모든 입력을 받고 UI 발행은 약30ms 간격으로 제한한다.
+- 망원경 기본 경로는 `#/sky?scope=ObjectId`. TelescopeSkyGuide는 기존 SkyScene 하나에 `pointingCameraQuaternion`으로 물리 +Y를 카메라 -Z에 대응시킨다. 실제 안내 중 시각은 현재를 사용하고 시간 도구를 잠근다. guide FovOverlay는 중심 파인더·접안 원을 표시한다. 정렬/장비/보조 차트만 전역 탭 위 포털이며 일반 코스는 독립 ScreenFrame이다.
+- 스타호핑은 `#/telescope?view=hop&course=기존ID`에 한정한다. HOP_COURSES의 밝은 이정표·한영 안내를 curatedHop으로 계산한다. 세션 체크포인트에 코스 ID·경로·FOV를 포함하며 기존 실제 완료 이벤트를 바꾸지 않는다. FinderChart는 기기 배율에 맞춘 캔버스와 이름 배치/연결선, 실제 파인더 원을 사용한다. `astro/starHop.ts` 자동 탐색은 보존하지만 코스 UI에서는 사용하지 않는다.
+- 구현/검증/물리 확인 경계는 [build26 보고](SKY-REFINEMENT-BUILD26.md)를 따른다.
