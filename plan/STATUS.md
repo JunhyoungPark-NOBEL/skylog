@@ -1,12 +1,14 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-13 · beta.19/build25 S24+ 실사용 개선, 배포·AAB 검증 진행
+> 마지막 갱신: 2026-09-13 · beta.19/build25 S24+ 실사용 개선, 웹/네이티브 검증 완료 · 연구실 Play 서명 대기
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
+- 최신 AAB(build25): 로컬 `Downloads/skylog-release-0.1.0-beta.19-build25/app-release.aab`(**서명 전**) · 서명 인계 ZIP `Downloads/skylog-0.1.0-beta.19-build25-signing-kit.zip`. 연구실 기존 키로 마무리한다.
+
 - 앱: https://junhyoungpark-nobel.github.io/skylog/ · 내 프로필: https://junhyoungpark-nobel.github.io/skylog/#/profile
-- 최신 산출물: 로컬 `Downloads/skylog-release-0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-play-signed.aab` · [APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-local-test.apk)
+- 이전 서명 산출물(build24): 로컬 `Downloads/skylog-release-0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-play-signed.aab` · [APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-local-test.apk)
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
@@ -18,6 +20,8 @@
 - 별 색을 등급·거리 옆에 표시하며 별 크기/색 대비·확대 표시 행성 크기(약2배)를 높였다. 탭 시점 대상을 고르고 화면 거리 우선/주변 원뿔 선별/소광 판정으로 선택 정확도와 계산 비용을 개선했다. 이야기·퀴즈·지평선·커뮤니티의 연구실 변경은 유지한다.
 - 자동 검증: 타입/lint,108파일766단위 검사 통과. 전체 Chromium109개 통과(2.5분), 최종 공유 권한/카메라/기록·댓글 관련12개도 추가 통과했다. 360px/200% 하늘 안내·목표·버튼 비겹침과 스케치 PNG 내보내기·로그인 전 공유 차단·개인 메모 미전송을 확인했다. 초기 전체검사에서 하단 안내의 시간 버튼 가림/목표 위치 의존성을 찾아 수정했고, 연구실에서 바뀐 업적 카드의 오래된 테스트 선택자를 실제 버튼/획득 상태로 갱신했다. 상세 docs/FIELD-USE-BUILD25.md, 결정 D-071.
 - **서명 경계**: 연구실 build24 Play 키 f5ad…98bd와 이 PC의37e1…6443은 다르다. 키 교체/생성 없이 AAB 원본을 만들고 기존 키가 있는 연구실에서 동일 인증서 검증 후 서명하는 도구를 준비했다. 무서명 AAB는 Play 제출 완료본이 아니다. S24+ 물리 센서·카메라 느낌은 사용자 확인이 필요하다.
+
+- **최종 검증/배포**: 실행 소스80eb31730890feff8e100c1224c533c36e2c3c6d, beta.19/build25. [Pages34704907732](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34704907732)·[모바일34704907215](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34704907215) 성공(Android release/lint/오프라인 에뮬레이터·iOS Release 컴파일). 공개 페이지200·beta.19 JS·별 색/카메라/자이로 UI·JS 오류0·서버 쓰기0 확인. AAB20,779,731bytes, SHA256 1f472c9fdf7151ae55e54a030ca19e7a782412e275d435e15ba669e89a6ebfb5. bundletool validate·정적 파일480개 원본 비교·버전/앱ID/CAMERA 권한·마이크 권한 없음 검증. 기존 집 키의 오서명 차단도 실행 검증했다. 이 AAB는 **무서명**이며 연구실의 기존 Play 키로 서명해야 한다.
 
 ## 이전 작업 보고 (2026-09-11 · 발견을 따라가는 천체물리 이야기 / build24)
 

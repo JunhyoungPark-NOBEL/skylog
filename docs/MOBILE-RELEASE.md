@@ -324,3 +324,9 @@ typecheck·lint·데이터 검증·PWA/native 빌드 통과. 단위 493개, 브�
 - [Play 개인 계정 테스트](https://support.google.com/googleplay/android-developer/answer/14151465): 계정 조건별 12명/14일.
 - [Apple SDK 요구](https://developer.apple.com/news/upcoming-requirements/): 2026-04-28부터 iOS 26 SDK 이상.
 - [Capacitor 환경](https://capacitorjs.com/docs/getting-started/environment-setup), [Android 자체 플러그인](https://capacitorjs.com/docs/android/custom-code), [iOS 자체 플러그인](https://capacitorjs.com/docs/ios/custom-code), [Privacy manifest](https://capacitorjs.com/docs/ios/privacy-manifest).
+
+## beta.19 / build25 · 2026-09-13
+
+소스80eb31730890feff8e100c1224c533c36e2c3c6d. S24+ 센서·카메라·기록 개선은 FIELD-USE-BUILD25.md. Pages34704907732/모바일34704907215 성공, Android lint/오프라인 에뮬레이터와 iOS Release 컴파일 확인. AAB20,779,731bytes·SHA256 1f472c9fdf7151ae55e54a030ca19e7a782412e275d435e15ba669e89a6ebfb5. bundletool·정적 파일480개 원본 일치·CAMERA와 마이크 권한 없음 검증.
+
+현재 집 PC의 업로드키가 연구실 build24 키와 달라 이 파일은 **무서명**이다. Downloads/skylog-0.1.0-beta.19-build25-signing-kit.zip을 연구실에 풀고 PowerShell7에서 sign-play-update.ps1을 실행한다. 키/비밀번호는 패키지에 없다. 기존 인증서 검증 후에만 최종 서명 파일을 생성하며 잘못된 집 키가 거부되는 것을 실제 확인했다. Play 제출/심사나 물리 S24+ 테스트를 완료했다고 주장하지 않는다.
