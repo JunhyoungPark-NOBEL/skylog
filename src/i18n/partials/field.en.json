@@ -1,0 +1,68 @@
+{
+  "field": {
+    "sketchAccount": "Sign in to share",
+    "sensorOn": "Track sky",
+    "sensorResume": "Resume",
+    "alignedWith": "Aligned with {{target}}",
+    "permissionHint": "Tap the sensor button and allow motion access.",
+    "manual": "Explore by touch · tap the sensor button to resume",
+    "sensorSettings": "Tracking settings and star alignment",
+    "trackingMethod": "How to track the sky",
+    "mode": {
+      "compass": "Automatic · compass",
+      "gyro": "Gyroscope · align a star"
+    },
+    "gyroAlign": "Align one bright star to start tracking",
+    "gyroHint": "Uses no magnetometer. Align one bright star, then move your phone. Realign if the view drifts. A new alignment is needed after restarting the app.",
+    "gyroUnavailable": "A magnetometer-free sensor is unavailable here. Choose automatic tracking or explore by touch.",
+    "compassHint": "Uses the compass to find north. Near magnets or metal, switch to the gyroscope and align a star.",
+    "directionUncertain": "Direction accuracy is low",
+    "correctionHint": "Tracking continues. Move away from magnets or metal, or use the gyroscope and align a star.",
+    "align": "Align a bright star",
+    "camera": {
+      "on": "Camera overlay",
+      "off": "Camera off",
+      "cancel": "Cancel camera",
+      "settings": "Adjust camera overlay",
+      "opacity": "Background video brightness",
+      "fov": "Match camera field of view",
+      "hint": "Video stays on your device and is never saved or uploaded. Lens coverage varies: adjust while comparing a real star. This is not precision image alignment.",
+      "error": {
+        "unsupported": "Camera preview is unavailable in this environment.",
+        "timeout": "Camera connection timed out. Check permission and try again.",
+        "denied": "Allow camera access in app permissions, then try again.",
+        "unavailable": "The rear camera could not be opened. Close other camera apps and try again.",
+        "interrupted": "The camera connection ended. Turn it on again when needed."
+      }
+    },
+    "starColor": "Star color",
+    "colorEstimate": "Estimated from catalog data. Perceived color depends on observing conditions.",
+    "colors": {
+      "blue": "Blue",
+      "blueWhite": "Blue-white",
+      "white": "White",
+      "yellowWhite": "Yellow-white",
+      "yellow": "Yellow",
+      "orange": "Orange",
+      "red": "Red",
+      "unknown": "Color unavailable"
+    },
+    "shareSketch": "Share sketch",
+    "saveSketch": "Export image",
+    "communitySketch": "Share with the community",
+    "sketchShareHint": "Only the sketch image is shared, without your observing location or private notes. You can review it before posting.",
+    "sketchMissing": "The sketch file could not be found.",
+    "sketchShareFailed": "Sharing could not start. Please try again.",
+    "sketchDraft": "Observing sketch · review before posting"
+  },
+  "sketch": {
+    "color": {
+      "blueWhite": "Blue-white",
+      "blue": "Blue",
+      "yellowWhite": "Yellow-white",
+      "yellow": "Yellow",
+      "orange": "Orange",
+      "red": "Red"
+    }
+  }
+}

@@ -17,6 +17,7 @@ import type { CommunityPost } from '@/community/types';
 import { readCommunityIdentities, type CommunityIdentity } from '@/community/identity';
 import { AuthorIdentity } from '@/features/personal/AuthorIdentity';
 import { prepareCommunityImage } from '@/community/image';
+import { clearSketchDraft, useSketchDraft, type SketchDraft } from '@/community/sketchDraft';
 import { loadSearchIndex, search as searchObjects } from '@/catalog/searchIndex';
 import { CommentsPanel } from './CommentsPanel';
 
@@ -110,7 +111,8 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
   const [limit, setLimit] = useState(24);
   const [text, setText] = useState('');
   const [notice, setNotice] = useState('');
-  const [compose, setCompose] = useState(false);
+  const draft = useSketchDraft((s) => s.draft);
+  const [compose, setCompose] = useState(() => !!useSketchDraft.getState().draft);
   const post = posts.find((p) => p.id === selected);
   useEffect(() => {
     let alive = true;
@@ -198,7 +200,13 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
   return (
     <ScreenFrame
       title={selected ? t('social.photo') : t('social.title')}
-      onBack={() => (compose ? setCompose(false) : selected ? open() : navigate('profile'))}
+      onBack={() => {
+        if (compose) {
+          clearSketchDraft();
+          setCompose(false);
+        } else if (selected) open();
+        else navigate('profile');
+      }}
       testId="community-screen"
     >
       <div className="mx-auto max-w-2xl space-y-5 p-5">
@@ -222,9 +230,12 @@ function CommunityContent({ user, ready }: ReturnType<typeof useCommunityUser>) 
             )}
             {compose ? (
               <Composer
+                draft={draft}
+                canPublish={!!user && joined}
                 initialObject={object}
                 onDone={() => {
                   setCompose(false);
+                  clearSketchDraft();
                   setScope('mine');
                   setTick((n) => n + 1);
                   setNotice(t('social.pendingNotice'));
@@ -516,17 +527,27 @@ function EditPost({ post, onDone }: { post: CommunityPost; onDone(): void }) {
     </details>
   );
 }
-function Composer({ initialObject, onDone }: { initialObject: string; onDone(): void }) {
+function Composer({
+  initialObject,
+  draft,
+  canPublish,
+  onDone,
+}: {
+  initialObject: string;
+  draft: SketchDraft | null;
+  canPublish: boolean;
+  onDone(): void;
+}) {
   const { t, i18n } = useTranslation();
-  const [object, setObject] = useState(initialObject);
+  const [object, setObject] = useState(draft?.objectId ?? initialObject);
   const [search, setSearch] = useState('');
   const [hits, setHits] = useState<string[]>([]);
   const [cat, setCat] = useState<Catalog | null>(null);
-  const [blob, setBlob] = useState<Blob | null>(null);
+  const [blob, setBlob] = useState<Blob | null>(draft?.image ?? null);
   const [preview, setPreview] = useState('');
   const [caption, setCaption] = useState('');
   const [equipment, setEquipment] = useState('');
-  const [kind, setKind] = useState('capture');
+  const [kind, setKind] = useState(draft ? 'creative' : 'capture');
   const [agree, setAgree] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
@@ -559,7 +580,7 @@ function Composer({ initialObject, onDone }: { initialObject: string; onDone(): 
   const name = (id: string) =>
     cat && isObjectId(id) ? displayName(cat, id, i18n.language === 'en' ? 'en' : 'ko') : id;
   async function submit() {
-    if (!blob || !agree || !object) return;
+    if (!blob || !agree || !object || !canPublish) return;
     setBusy(true);
     setError('');
     try {
@@ -588,7 +609,9 @@ function Composer({ initialObject, onDone }: { initialObject: string; onDone(): 
     >
       <div>
         <h2 className="text-title">{t('social.share')}</h2>
-        <p className="mt-2 text-body-sm text-muted">{t('social.uploadHint')}</p>
+        <p className="mt-2 text-body-sm text-muted">
+          {t(draft ? 'field.sketchDraft' : 'social.uploadHint')}
+        </p>
       </div>
       {error && (
         <p role="alert" className="text-danger">
@@ -699,10 +722,15 @@ function Composer({ initialObject, onDone }: { initialObject: string; onDone(): 
       <PillButton
         type="submit"
         variant="primary"
-        disabled={busy || !blob || !object || !caption.trim() || !agree}
+        disabled={!canPublish || busy || !blob || !object || !caption.trim() || !agree}
       >
         {t(busy ? 'common.loading' : 'social.sendReview')}
       </PillButton>
+      {!canPublish && (
+        <PillButton onClick={() => navigate('account')} testId="sketch-share-account">
+          {t('field.sketchAccount')}
+        </PillButton>
+      )}
     </form>
   );
 }

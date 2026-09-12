@@ -10,9 +10,10 @@ test('기록·스케치·퀴즈·백업 복원 흐름', async ({ page, browser, 
   await page.getByTestId('quickpick-input').fill('moon');
   await page.getByTestId('quickpick-item').filter({ hasText: '달' }).first().click();
   await expect(page.getByTestId('obs-save')).toBeEnabled();
-  await page.getByTestId('obs-rating-4').click();
+  await expect(page.getByTestId('obs-rating-4')).toHaveCount(0);
   await page.getByTestId('obs-notes').fill('달의 밝은 부분과 가장자리를 봤어요.');
   await page.getByTestId('obs-sketch-open').click();
+  await page.getByTestId('sketch-color-orange').click();
   const box = await page.getByTestId('sketch-surface').boundingBox();
   expect(box).not.toBeNull();
   await page.mouse.move(box!.x + box!.width * 0.45, box!.y + box!.height * 0.5);

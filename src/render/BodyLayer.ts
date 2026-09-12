@@ -126,7 +126,10 @@ export class BodyLayer {
       pos.setXYZ(i, dir[0], dir[1], dir[2]);
       c.set(BODY_COLOR[key]);
       color.setXYZ(i, c.r, c.g, c.b);
-      kind.setX(i, key === 'sun' ? 1 : key === 'saturn' ? 2 : 0);
+      kind.setX(
+        i,
+        key === 'sun' ? 1 : key === 'saturn' ? 2 : key === 'jupiter' ? 3 : key === 'mars' ? 4 : 0,
+      );
       tilt.setX(i, key === 'saturn' ? Math.abs(s.ringTiltDeg ?? 15) : 0);
       placements.push({ key, state: s, dir, sizePx: 0 });
       if (key === 'sun') sunDir = dir;
@@ -188,7 +191,7 @@ export class BodyLayer {
         placement.sizePx =
           state.magnitude > this.limitingMag
             ? 0
-            : Math.min(400, Math.max(7, magSize, angularPx)) * pixelRatio;
+            : Math.min(400, Math.max(7, magSize, angularPx) * (magnify ? 2 : 1)) * pixelRatio;
         size.setX(i, placement.sizePx);
       }
     });

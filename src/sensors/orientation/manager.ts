@@ -1,7 +1,7 @@
 /**
  * 센서 매니저: Provider → (편각) → 필터 → (나침반 동기화 / 별 정렬 δ) → 카메라.
  * - Provider는 우선순위대로 시도하고 1.5초 안에 유효 샘플이 없으면 다음으로 넘어간다.
- * - 수동 드래그 시 5초 일시 정지("수동"), 버튼으로 즉시 복귀.
+ * - 수동 드래그 후에는 버튼으로만 복귀한다. 탭과 핀치는 추적을 멈추지 않는다.
  * - 상태는 sensorStore(≤10Hz), 카메라는 CameraController.setOrientationQuaternion.
  */
 import { wrap180 } from '@/astro/coords';
@@ -32,7 +32,6 @@ import { useViewStore } from '@/state/viewStore';
 import { needsOrientationPermission } from '@/sensors/permissions';
 
 const NO_DATA_TIMEOUT_MS = 1500;
-const MANUAL_PAUSE_MS = 5000;
 
 /** GPS라는 같은 이름을 쓰더라도 좌표가 가까운 보정만 재사용한다. 기존 좌표 없는 기록은 제외한다. */
 export function calibrationMatchesSite(
@@ -63,7 +62,7 @@ export class SensorManager {
   private lastSampleRaw: OrientationSample | null = null;
   private declination = 0;
   private declinationKey = '';
-  private resumeTimer = 0;
+  private badAccuracySince: number | null = null;
   private sampleWatchdog = 0;
   private lastWallSample = 0;
 
@@ -84,7 +83,8 @@ export class SensorManager {
     this.rate.reset();
     this.candidates = st.simulator
       ? [new SimulatorProvider(() => this.simValues())]
-      : availableProviders();
+      : availableProviders(st.trackingMode === 'gyro');
+    this.badAccuracySince = null;
     if (this.candidates.length === 0) {
       st.patch({
         arActive: false,
@@ -118,7 +118,6 @@ export class SensorManager {
     this.provider?.stop();
     this.provider = null;
     window.clearTimeout(this.noDataTimer);
-    window.clearTimeout(this.resumeTimer);
     window.clearInterval(this.sampleWatchdog);
     this.lastQ = null;
     this.lastSampleRaw = null;
@@ -130,13 +129,21 @@ export class SensorManager {
       headingSource: 'none',
       eventHz: null,
       calibration: null,
+      manualPauseUntil: 0,
+      anomaly: false,
     });
     useViewStore.getState().setMode('manual');
   }
 
   private simValues(): SimValues {
     const s = useSensorStore.getState().sim;
-    return { ...s, absolute: (s as SimValues).absolute ?? false };
+    return {
+      ...s,
+      absolute:
+        useSensorStore.getState().trackingMode === 'gyro'
+          ? false
+          : ((s as SimValues).absolute ?? false),
+    };
   }
 
   private tryNextProvider(): void {
@@ -238,15 +245,17 @@ export class SensorManager {
     if (magnetic && st.applyDeclination) q = applyYawOffset(q, this.declination);
 
     // 2) 필터 (절대 소스는 yaw 평활 강화)
-    if (this.filter['opts'].smoothYaw !== magnetic)
+    if (this.filter.smoothYaw !== magnetic)
       this.filter = new OrientationFilter({ smoothYaw: magnetic });
+    // 정지 출력의 계단이 확대 시 여러 픽셀로 커지지 않도록 0.35px 이하로 제한한다.
+    this.filter.setDeadband(Math.min(0.035, (this.camera?.degreesPerPixel() ?? 0.1) * 0.35));
     const qf = this.filter.push(q, s.timestampMs);
     this.lastQ = qf;
 
     // 3) 상대 소스: 나침반 동기화 (별 정렬 전까지)
     let delta = st.deltaAzDeg;
     let source: HeadingSource = absolute ? 'absolute' : 'relative';
-    if (!absolute) {
+    if (!absolute && st.trackingMode !== 'gyro') {
       const quasiStatic = this.filter.rateDegPerSec < 10;
       const cand = compassSyncCandidate({
         qRel: qf,
@@ -269,15 +278,20 @@ export class SensorManager {
 
     // 4) 오프셋 적용 → 카메라 (수동 일시 정지 중이면 카메라는 건드리지 않음)
     const qCal = applyOffset(qf, delta, st.pitchOffsetDeg);
-    const paused = st.manualPauseUntil > performance.now();
+    const paused = st.manualPauseUntil > 0;
     if (!paused && this.camera) {
       // 나침반 동기화 전의 임의 상대 yaw로 실제 하늘 방위를 바꾸지 않는다.
       if (source === 'relative') this.camera.setSensorQuaternion(null);
       else this.camera.setSensorQuaternion(qCal, st.keepLevel);
     }
 
-    // 5) 상태(≤10Hz)
+    // OS가 지속적으로 낮은 정확도를 보고할 때만 방향 불안정 안내를 띄운다.
+    // 회전량만으로 자석 간섭을 단정하지 않으며 경고가 추적을 막지 않는다.
     const now = performance.now();
+    const poorAccuracy = magnetic && s.compassAccuracyDeg !== null && s.compassAccuracyDeg > 25;
+    this.badAccuracySince = poorAccuracy ? (this.badAccuracySince ?? now) : null;
+    const anomaly = this.badAccuracySince !== null && now - this.badAccuracySince >= 1000;
+    // 5) 상태(≤10Hz)
     if (now - this.lastStorePatch > 100) {
       this.lastStorePatch = now;
       const aa = quaternionToAltAz(qCal);
@@ -289,7 +303,7 @@ export class SensorManager {
         deltaAzDeg: delta,
         headingSource: paused ? 'manual' : source,
         compassAccuracyDeg: s.compassAccuracyDeg,
-        anomaly: this.filter.anomaly || st.anomaly,
+        anomaly,
         eventHz: this.rate.hz,
         raw: {
           alpha: s.raw.alpha,
@@ -303,8 +317,6 @@ export class SensorManager {
         filtered: { azDeg: aa.azDeg, altDeg: aa.altDeg, rollDeg },
         lastSampleMs: now,
       });
-      if (this.filter.anomaly)
-        window.setTimeout(() => useSensorStore.getState().patch({ anomaly: false }), 4000);
     }
   }
 
@@ -360,19 +372,18 @@ export class SensorManager {
     this.setCalibration(cal);
   }
 
-  /** 수동 드래그 시작: 센서 추종을 5초 멈춘다 */
-  pauseForManual(ms = MANUAL_PAUSE_MS): void {
+  /** 수동 드래그 후 자동 복귀하지 않는다. 런타임 표시는 기존 필드를 호환해서 쓴다. */
+  pauseForManual(): void {
     const st = useSensorStore.getState();
     if (!st.arActive) return;
-    st.patch({ manualPauseUntil: performance.now() + ms, headingSource: 'manual' });
+    st.patch({ manualPauseUntil: 1, headingSource: 'manual' });
     this.camera?.setSensorQuaternion(null);
-    window.clearTimeout(this.resumeTimer);
-    this.resumeTimer = window.setTimeout(() => this.resumeNow(), ms);
+    useViewStore.getState().setMode('manual');
   }
 
   resumeNow(): void {
-    window.clearTimeout(this.resumeTimer);
     useSensorStore.getState().patch({ manualPauseUntil: 0 });
+    useViewStore.getState().setMode('sensor');
   }
 
   get lastSample(): OrientationSample | null {

@@ -71,7 +71,8 @@ export class CameraController {
   private view: ViewState = { altDeg: 45, azDeg: 180, fovDeg: 90 };
   private pointers: Pointer[] = [];
   private lastPinchDist = 0;
-  private velocity = { alt: 0, az: 0 };
+  private velocity = { x: 0, y: 0 };
+  private manualQuat: THREE.Quaternion | null = null;
   private lastMoveTime = 0;
   private lastTapTime = 0;
   private lastTapPos = { x: 0, y: 0 };
@@ -90,7 +91,13 @@ export class CameraController {
     return { ...this.view };
   }
 
+  degreesPerPixel(): number {
+    const { width, height } = this.opts.getSize();
+    return degPerPixel(this.view.fovDeg, width, height);
+  }
+
   setView(v: Partial<ViewState>, notify = true): void {
+    if (v.altDeg !== undefined || v.azDeg !== undefined) this.manualQuat = null;
     if (v.altDeg !== undefined) this.view.altDeg = clamp(v.altDeg, -ALT_LIMIT_DEG, ALT_LIMIT_DEG);
     if (v.azDeg !== undefined) this.view.azDeg = wrap360(v.azDeg);
     if (v.fovDeg !== undefined) this.view.fovDeg = clampFov(v.fovDeg);
@@ -118,6 +125,8 @@ export class CameraController {
   ): void {
     if (!q) {
       const wasActive = this.sensorPose.active;
+      // 마지막으로 보인 자세를 그대로 이어받는다. 천정에서 세계의 위쪽으로 재정렬하지 않는다.
+      if (this.sensorQuat) this.manualQuat = this.sensorQuat.clone();
       this.sensorPose.reset();
       this.sensorQuat = null;
       this.lastSensorNotifyMs = -Infinity;
@@ -125,7 +134,7 @@ export class CameraController {
       return;
     }
     this.fly = null;
-    this.velocity = { alt: 0, az: 0 };
+    this.velocity = { x: 0, y: 0 };
     this.sensorKeepLevel = keepLevel;
     const target = keepLevel
       ? (() => {
@@ -173,7 +182,8 @@ export class CameraController {
     // 실제 투영은 CPU/셰이더 입체 투영이 담당한다. 내부 원근 행렬은 안전한90°로 고정한다.
     cam.fov = verticalFovDeg(90, width, height);
     if (this.sensorQuat) cam.quaternion.copy(this.sensorQuat);
-    else cam.quaternion.copy(altAzToQuaternion(this.view.altDeg, this.view.azDeg));
+    else
+      cam.quaternion.copy(this.manualQuat ?? altAzToQuaternion(this.view.altDeg, this.view.azDeg));
     cam.updateProjectionMatrix();
     cam.updateMatrixWorld();
   }
@@ -195,7 +205,8 @@ export class CameraController {
   flyTo(target: { altDeg: number; azDeg: number; fovDeg?: number }, durationMs = 450): void {
     const from = altAzToScene(this.view.altDeg, this.view.azDeg);
     const to = altAzToScene(clamp(target.altDeg, -ALT_LIMIT_DEG, ALT_LIMIT_DEG), target.azDeg);
-    this.velocity = { alt: 0, az: 0 };
+    this.velocity = { x: 0, y: 0 };
+    this.manualQuat = null;
     this.fly = {
       from,
       to,
@@ -210,7 +221,7 @@ export class CameraController {
     return (
       this.sensorPose.isMoving(performance.now()) ||
       this.fly !== null ||
-      Math.hypot(this.velocity.alt, this.velocity.az) > 0.02
+      Math.hypot(this.velocity.x, this.velocity.y) > 0.02
     );
   }
 
@@ -242,17 +253,17 @@ export class CameraController {
       this.opts.onChange(this.getView());
       return true;
     }
-    if (!this.dragging && Math.hypot(this.velocity.alt, this.velocity.az) > 0.02) {
+    if (!this.dragging && Math.hypot(this.velocity.x, this.velocity.y) > 0.02) {
       const decay = Math.pow(0.004, dtMs / 1000); // ~0.5초 안에 소멸
-      this.view.altDeg = clamp(
-        this.view.altDeg + this.velocity.alt * dtMs,
-        -ALT_LIMIT_DEG,
-        ALT_LIMIT_DEG,
+      const { width, height } = this.opts.getSize();
+      this.panPixels(
+        width / 2,
+        height / 2,
+        this.velocity.x * Math.min(dtMs, 32),
+        this.velocity.y * Math.min(dtMs, 32),
       );
-      this.view.azDeg = wrap360(this.view.azDeg + this.velocity.az * dtMs);
-      this.velocity.alt *= decay;
-      this.velocity.az *= decay;
-      this.opts.onChange(this.getView());
+      this.velocity.x *= decay;
+      this.velocity.y *= decay;
       return true;
     }
     return false;
@@ -283,19 +294,27 @@ export class CameraController {
 
   /** 마지막 포인터업이 "탭"(이동 없음)이었는지 — 선택(hit-test)에 사용 */
   onTap: ((x: number, y: number) => void) | null = null;
+  /** 센서가 계속 움직여도 손가락을 댔을 때 보인 대상을 선택할 수 있게 한다. */
+  onTapStart: ((x: number, y: number) => void) | null = null;
   private downPos = { x: 0, y: 0 };
   private moved = false;
+  private panStarted = false;
 
   private readonly onPointerDown = (e: PointerEvent): void => {
+    if (e.button !== 0 || this.pointers.some((p) => p.id === e.pointerId)) return;
     this.element?.setPointerCapture(e.pointerId);
     this.pointers.push({ id: e.pointerId, x: e.clientX, y: e.clientY });
     this.fly = null;
-    this.velocity = { alt: 0, az: 0 };
+    this.velocity = { x: 0, y: 0 };
     this.dragging = true;
-    this.moved = false;
-    this.downPos = { x: e.clientX, y: e.clientY };
-    this.onDragStart?.();
+    if (this.pointers.length === 1) {
+      this.moved = false;
+      this.panStarted = false;
+      this.downPos = { x: e.clientX, y: e.clientY };
+      this.onTapStart?.(e.clientX, e.clientY);
+    }
     if (this.pointers.length === 2) {
+      this.moved = true; // 핀치는 탭이나 수동 드래그가 아니다.
       const [a, b] = this.pointers as [Pointer, Pointer];
       this.lastPinchDist = Math.hypot(a.x - b.x, a.y - b.y);
     }
@@ -307,9 +326,15 @@ export class CameraController {
     const { width, height } = this.opts.getSize();
     const dpp = degPerPixel(this.view.fovDeg, width, height);
     if (this.pointers.length === 1) {
+      if (!this.panStarted) {
+        if (Math.hypot(e.clientX - this.downPos.x, e.clientY - this.downPos.y) <= 6) return;
+        this.moved = true;
+        this.panStarted = true;
+        this.onDragStart?.();
+        this.lastMoveTime = performance.now() - 16;
+      }
       const dx = e.clientX - p.x;
       const dy = e.clientY - p.y;
-      if (Math.hypot(e.clientX - this.downPos.x, e.clientY - this.downPos.y) > 6) this.moved = true;
       // 손가락 아래 하늘이 따라오도록: 오른쪽으로 끌면 방위 감소, 아래로 끌면 고도 증가
       const cosAlt = Math.max(0.2, Math.cos((this.view.altDeg * Math.PI) / 180));
       const dAz = (-dx * dpp) / cosAlt;
@@ -322,13 +347,12 @@ export class CameraController {
         return;
       }
       if (this.sensorPose.active) this.setSensorQuaternion(null); // 수동 드래그는 보간 목표까지 해제
-      this.view.altDeg = clamp(this.view.altDeg + dAlt, -ALT_LIMIT_DEG, ALT_LIMIT_DEG);
-      this.view.azDeg = wrap360(this.view.azDeg + dAz);
+      const rect = this.element?.getBoundingClientRect();
+      this.panPixels(p.x - (rect?.left ?? 0), p.y - (rect?.top ?? 0), dx, dy);
       const now = performance.now();
       const dt = Math.max(1, now - this.lastMoveTime);
-      this.velocity = { alt: dAlt / dt, az: dAz / dt };
+      this.velocity = { x: dx / dt, y: dy / dt };
       this.lastMoveTime = now;
-      this.opts.onChange(this.getView());
     }
     p.x = e.clientX;
     p.y = e.clientY;
@@ -346,12 +370,17 @@ export class CameraController {
   };
 
   private readonly onPointerUp = (e: PointerEvent): void => {
+    if (!this.pointers.some((p) => p.id === e.pointerId)) return;
+    if (e.type === 'pointercancel') this.moved = true;
+    if (this.element?.hasPointerCapture(e.pointerId))
+      this.element.releasePointerCapture(e.pointerId);
     this.pointers = this.pointers.filter((q) => q.id !== e.pointerId);
     if (this.pointers.length === 0) {
       this.dragging = false;
       this.lastPinchDist = 0;
       // 마지막 이동 후 시간이 지났으면 관성 없음
-      if (performance.now() - this.lastMoveTime > 80) this.velocity = { alt: 0, az: 0 };
+      if (performance.now() - this.lastMoveTime > 80 || e.type === 'pointercancel')
+        this.velocity = { x: 0, y: 0 };
       if (!this.moved) {
         const now = performance.now();
         const dist = Math.hypot(e.clientX - this.lastTapPos.x, e.clientY - this.lastTapPos.y);
@@ -366,8 +395,27 @@ export class CameraController {
       }
     } else if (this.pointers.length === 1) {
       this.lastPinchDist = 0;
+      this.panStarted = false;
+      this.downPos = { x: this.pointers[0]!.x, y: this.pointers[0]!.y };
     }
   };
+
+  /** 화면의 두 점을 직접 대응시킨다. 방위/cos(고도) 계산으로 생기는 천정 부근 회전이 없다. */
+  panPixels(x: number, y: number, dx: number, dy: number): void {
+    const { width, height } = this.opts.getSize();
+    const oldRay = new THREE.Vector3(
+      ...stereographicUnproject(x, y, this.view.fovDeg, width, height),
+    );
+    const newRay = new THREE.Vector3(
+      ...stereographicUnproject(x + dx, y + dy, this.view.fovDeg, width, height),
+    );
+    const q = (this.manualQuat ??= this.camera.quaternion.clone());
+    q.multiply(new THREE.Quaternion().setFromUnitVectors(newRay, oldRay)).normalize();
+    const aa = quaternionToAltAz(q);
+    this.view.altDeg = aa.altDeg;
+    this.view.azDeg = aa.azDeg;
+    this.opts.onChange(this.getView());
+  }
 
   private readonly onWheel = (e: WheelEvent): void => {
     e.preventDefault();
@@ -382,6 +430,10 @@ export class CameraController {
     const x = clientX - (rect?.left ?? 0);
     const y = clientY - (rect?.top ?? 0);
     if (!isInsideSkyDisk(x, y, this.view.fovDeg, width, height)) return;
+    if (this.sensorPose.active) {
+      this.setView({ fovDeg: zoomFov(this.view.fovDeg, factor) });
+      return;
+    }
     const dir = this.pixelToDirection(x, y, width, height);
     const { altDeg, azDeg } = sceneToAltAz(dir);
     this.flyTo({ altDeg, azDeg, fovDeg: zoomFov(this.view.fovDeg, factor) }, 350);

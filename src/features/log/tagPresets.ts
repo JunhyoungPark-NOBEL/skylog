@@ -70,20 +70,21 @@ export function categoryOf(tagId: string): TagCategory | null {
  * 대상 종류에 맞는 카테고리 순서. 그 종류에서 먼저 볼 카테고리를 앞에 둔다
  * (행성 → 행성 그룹, 달 → 달 그룹, DSO → 형태·분해, 별 → 색·이중성). 난이도·기법은 항상 마지막.
  */
-export function presetsFor(kind: ObjectKind): TagCategory[] {
+export function presetsFor(kind: ObjectKind, isDouble = false): TagCategory[] {
+  const common: TagCategory[] = ['color', 'difficulty', 'resolve'];
   switch (kind) {
     case 'planet':
-      return ['planet', 'color', 'difficulty', 'technique'];
+      return [...common, 'planet'];
     case 'moon':
-      return ['moon', 'color', 'difficulty', 'technique'];
+      return [...common, 'moon'];
     case 'sun':
-      return ['color', 'difficulty', 'technique'];
+      return common;
     case 'dso':
-      return ['shape', 'resolve', 'color', 'difficulty', 'technique'];
+      return [...common, 'shape'];
     case 'star':
-      return ['color', 'double', 'resolve', 'difficulty', 'technique'];
+      return isDouble ? [...common, 'double'] : common;
     case 'const':
-      return ['difficulty', 'technique'];
+      return common;
   }
 }
 

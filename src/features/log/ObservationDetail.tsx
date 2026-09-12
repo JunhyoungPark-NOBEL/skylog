@@ -9,7 +9,8 @@ import { kindOf } from '@/catalog/objectId';
 import { fovForTarget, resolveTarget } from '@/catalog/objectTarget';
 import { deleteObservation, restoreObservation } from '@/db/repos/observations';
 import type { Observation } from '@/db/types';
-import { formatLocalDateTime, nightLabel, ratingGlyphs, siteLabel } from '@/features/log/logUtils';
+import { formatLocalDateTime, nightLabel, siteLabel } from '@/features/log/logUtils';
+import { tagLabelKey } from './tagPresets';
 import { useBlobUrl } from '@/features/log/useObservations';
 import { openObject } from '@/features/object/objectApi';
 import { ScreenFrame } from '@/features/settings/ScreenFrame';
@@ -21,6 +22,9 @@ import { Card } from '@/ui/Card';
 import { Chip } from '@/ui/Chip';
 import { formatAlt, formatAzimuth, formatSeparation } from '@/ui/format';
 import { PillButton } from '@/ui/PillButton';
+import { getBlob } from '@/db/repos/blobs';
+import { downloadBlob } from '@/native/files';
+import { prepareSketchDraft } from '@/community/sketchDraft';
 
 const UNDO_MS = 5000;
 
@@ -109,6 +113,27 @@ export function ObservationDetail({ observation: o, cat, lang, onClose }: Observ
   const site = useLocationStore((s) => s.site);
   const [confirming, setConfirming] = useState(false);
   const [viewer, setViewer] = useState<string | null>(null);
+  const [sharing, setSharing] = useState(false);
+  const shareSketch = async (community: boolean) => {
+    if (!o.sketchBlobId || sharing) return;
+    setSharing(true);
+    try {
+      const stored = await getBlob(o.sketchBlobId);
+      if (!stored) {
+        showToast(t('field.sketchMissing'));
+        return;
+      }
+      if (community) {
+        await prepareSketchDraft(o.objectId, stored.data);
+        onClose();
+        navigate('community');
+      } else await downloadBlob(stored.data, `skyard-sketch-${o.nightKey}.png`);
+    } catch {
+      showToast(t('field.sketchShareFailed'));
+    } finally {
+      setSharing(false);
+    }
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -216,26 +241,6 @@ export function ObservationDetail({ observation: o, cat, lang, onClose }: Observ
             {o.equipment?.magnification !== undefined && (
               <Row label={t('log.detail.magnification')} value={`×${o.equipment.magnification}`} />
             )}
-            <Row
-              label={t('log.detail.rating')}
-              value={
-                o.rating !== undefined ? (
-                  <span className="text-marker">{ratingGlyphs(o.rating)}</span>
-                ) : (
-                  '—'
-                )
-              }
-              testId="detail-rating"
-            />
-            {c?.seeing !== undefined && (
-              <Row label={t('log.detail.seeing')} value={t('log.detail.outOf5', { n: c.seeing })} />
-            )}
-            {c?.transparency !== undefined && (
-              <Row
-                label={t('log.detail.transparency')}
-                value={t('log.detail.outOf5', { n: c.transparency })}
-              />
-            )}
           </Card>
 
           {hasConditions && c && (
@@ -283,7 +288,7 @@ export function ObservationDetail({ observation: o, cat, lang, onClose }: Observ
                 <div className="flex flex-wrap gap-1.5">
                   {o.tags.map((tag) => (
                     <Chip key={tag} tone="muted" selected>
-                      {tag}
+                      {t(tagLabelKey(tag), { defaultValue: tag })}
                     </Chip>
                   ))}
                 </div>
@@ -319,6 +324,32 @@ export function ObservationDetail({ observation: o, cat, lang, onClose }: Observ
                   />
                 ))}
               </div>
+              {o.sketchBlobId && (
+                <details className="mt-3" data-testid="sketch-share">
+                  <summary className="min-h-11 cursor-pointer py-3 text-body-sm font-semibold">
+                    {t('field.shareSketch')}
+                  </summary>
+                  <p className="mb-2 text-caption text-muted">{t('field.sketchShareHint')}</p>
+                  <div className="flex flex-wrap gap-2">
+                    <PillButton
+                      size="sm"
+                      disabled={sharing}
+                      onClick={() => void shareSketch(false)}
+                      testId="sketch-export"
+                    >
+                      {t('field.saveSketch')}
+                    </PillButton>
+                    <PillButton
+                      size="sm"
+                      disabled={sharing}
+                      onClick={() => void shareSketch(true)}
+                      testId="sketch-community"
+                    >
+                      {t('field.communitySketch')}
+                    </PillButton>
+                  </div>
+                </details>
+              )}
             </Card>
           )}
 

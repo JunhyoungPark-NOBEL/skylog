@@ -29,7 +29,7 @@ public class SkylogMotionPlugin extends Plugin implements SensorEventListener {
             relative = call.getBoolean("relative", true);
             session = call.getString("session", "");
             Sensor sensor = manager == null ? null : manager.getDefaultSensor(relative ? Sensor.TYPE_GAME_ROTATION_VECTOR : Sensor.TYPE_ROTATION_VECTOR);
-            if (sensor == null || !manager.registerListener(this, sensor, 33333)) { call.reject("Orientation sensor unavailable"); return; }
+            if (sensor == null || !manager.registerListener(this, sensor, 16667)) { call.reject("Orientation sensor unavailable"); return; }
             running = true;
             call.resolve();
         });
@@ -59,6 +59,9 @@ public class SkylogMotionPlugin extends Plugin implements SensorEventListener {
         JSObject value = new JSObject();
         value.put("quaternion", xyzw); value.put("session", session);
         value.put("northReference", relative ? "relative" : "magnetic");
+        // TYPE_ROTATION_VECTOR의 다섯 번째 성분은 방위 오차(rad), 음수는 미상이다.
+        if (!relative && event.values.length >= 5 && Float.isFinite(event.values[4]))
+            value.put("headingAccuracyDeg", event.values[4] < 0 ? -1 : Math.toDegrees(event.values[4]));
         notifyListeners("orientation", value);
     }
     @Override public void onAccuracyChanged(Sensor sensor, int accuracy) { }

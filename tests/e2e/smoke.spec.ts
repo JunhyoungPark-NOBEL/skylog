@@ -93,13 +93,15 @@ test('큰 글자 200%: 센서 권한 안내·목표·좌표와 하단 탭이 겹
   await expect
     .poll(async () => {
       const controls = (await page.getByTestId('ar-toggle-wrap').boundingBox())!;
+      const layers = (await page.getByTestId('open-layers').boundingBox())!;
       const target = (await page.getByTestId('target-pill').boundingBox())!;
       const view = (await page.getByTestId('view-info').boundingBox())!;
       const time = (await page.getByTestId('time-bar').boundingBox())!;
       return (
-        target.y >= controls.y + controls.height + 7 &&
+        target.y >= layers.y + layers.height + 7 &&
         view.y >= target.y + target.height + 7 &&
-        view.y + view.height < time.y
+        view.y + view.height < time.y &&
+        controls.y >= time.y + time.height
       );
     })
     .toBe(true);

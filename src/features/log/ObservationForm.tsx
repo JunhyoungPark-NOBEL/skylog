@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { moonPhaseName } from '@/astro/bodies';
 import { displayName, loadCatalog, type Catalog } from '@/catalog/catalog';
 import { kindOf, type ObjectId } from '@/catalog/objectId';
+import { DOUBLE_STARS } from '@/catalog/recommendCandidates';
 import { deleteBlob, getBlob, putBlob } from '@/db/repos/blobs';
 import {
   addObservation,
@@ -19,7 +20,6 @@ import type {
   Observation,
   ObservationConditions,
   ObservationSite,
-  Rating1to5,
   Site,
 } from '@/db/types';
 import { fromLocalInput, loadAutoFill, loadForecast, toLocalInput } from '@/features/log/autoFill';
@@ -27,7 +27,6 @@ import { useBlobUrl } from '@/features/log/imageUtils';
 import { PhotoInput } from '@/features/log/PhotoInput';
 import { SketchCanvas } from '@/features/log/SketchCanvas';
 import {
-  TAG_CATEGORIES,
   TAG_PRESETS,
   presetsFor,
   tagLabelKey,
@@ -62,7 +61,6 @@ const CHIP_BTN =
 const INPUT =
   'min-h-11 rounded-sm bg-surface-2 px-3 text-body text-fg tabular-nums outline-none focus-visible:ring-2 focus-visible:ring-accent';
 
-const RATINGS: readonly Rating1to5[] = [1, 2, 3, 4, 5];
 const EQUIPMENT_KINDS: readonly EquipmentKind[] = ['naked', 'binoculars', 'telescope'];
 const LAST_EQUIPMENT_KEY = 'log.lastEquipment';
 const AUTO_DEBOUNCE_MS = 250;
@@ -112,33 +110,6 @@ function Row({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-function ScaleChips({
-  value,
-  onChange,
-  testPrefix,
-}: {
-  value: Rating1to5 | undefined;
-  onChange(next: Rating1to5 | undefined): void;
-  testPrefix: string;
-}) {
-  return (
-    <div className="flex gap-2" role="group">
-      {RATINGS.map((n) => (
-        <button
-          key={n}
-          type="button"
-          aria-pressed={value === n}
-          onClick={() => onChange(value === n ? undefined : n)}
-          className={`${CHIP_BTN} min-w-11 justify-center px-0`}
-          data-testid={`${testPrefix}-${n}`}
-        >
-          {n}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 interface AutoState {
   conditions: ObservationConditions;
   /** 대상이 카탈로그에 없어 계산하지 못함 */
@@ -178,14 +149,10 @@ export function ObservationForm({ request, onClose, onSaved }: ObservationFormPr
   const [sites, setSites] = useState<Site[]>([]);
   const [equipmentKind, setEquipmentKind] = useState<EquipmentKind>('naked');
   const [magnification, setMagnification] = useState('');
-  const [rating, setRating] = useState<Rating1to5 | undefined>(undefined);
-  const [seeing, setSeeing] = useState<Rating1to5 | undefined>(undefined);
-  const [transparency, setTransparency] = useState<Rating1to5 | undefined>(undefined);
   const [tags, setTags] = useState<string[]>([]);
   const [notes, setNotes] = useState('');
   const [sketchBlobId, setSketchBlobId] = useState<string | null>(null);
   const [photoBlobIds, setPhotoBlobIds] = useState<string[]>([]);
-  const [showAllTags, setShowAllTags] = useState(false);
 
   // 자동 조건
   const [auto, setAuto] = useState<AutoState | null>(null);
@@ -253,9 +220,6 @@ export function ObservationForm({ request, onClose, onSaved }: ObservationFormPr
         if (o.equipment.magnification !== undefined)
           setMagnification(String(o.equipment.magnification));
       }
-      setRating(o.rating);
-      setSeeing(o.conditions?.seeing);
-      setTransparency(o.conditions?.transparency);
       setTags(o.tags ?? []);
       setNotes(o.notes ?? '');
       setSketchBlobId(o.sketchBlobId ?? null);
@@ -327,12 +291,14 @@ export function ObservationForm({ request, onClose, onSaved }: ObservationFormPr
   }, []);
 
   /* ---------- 태그 ---------- */
-  const primaryCats = useMemo(() => presetsFor(kind), [kind]);
-  const otherCats = useMemo(
-    () => TAG_CATEGORIES.filter((c) => !primaryCats.includes(c)),
-    [primaryCats],
+  const visibleCats: TagCategory[] = useMemo(
+    () =>
+      presetsFor(
+        kind,
+        DOUBLE_STARS.some((s) => s.objectId === objectId),
+      ),
+    [kind, objectId],
   );
-  const visibleCats: TagCategory[] = showAllTags ? [...primaryCats, ...otherCats] : primaryCats;
   // 저장된 태그 중 프리셋에 없는 것(예: 다른 카테고리)도 보이게
   const extraTags = tags.filter((id) => !visibleCats.some((c) => TAG_PRESETS[c].includes(id)));
 
@@ -366,10 +332,11 @@ export function ObservationForm({ request, onClose, onSaved }: ObservationFormPr
     try {
       const mag = Number(magnification);
       const conditions: ObservationConditions = { ...(auto?.conditions ?? existing?.conditions) };
-      if (seeing) conditions.seeing = seeing;
-      else delete conditions.seeing;
-      if (transparency) conditions.transparency = transparency;
-      else delete conditions.transparency;
+      // 입력 UI에서 뺀 과거 평가 값은 원본 기록/백업에 그대로 보존한다.
+      if (existing?.conditions?.seeing !== undefined)
+        conditions.seeing = existing.conditions.seeing;
+      if (existing?.conditions?.transparency !== undefined)
+        conditions.transparency = existing.conditions.transparency;
       const input: ObservationInput = {
         objectId,
         observedAt: at.toISOString(),
@@ -383,7 +350,7 @@ export function ObservationForm({ request, onClose, onSaved }: ObservationFormPr
             : {}),
         },
         conditions,
-        rating,
+        rating: existing?.rating,
         notes: notes.trim(),
         tags,
         sketchBlobId: sketchBlobId ?? undefined,
@@ -607,46 +574,6 @@ export function ObservationForm({ request, onClose, onSaved }: ObservationFormPr
               )}
             </Group>
 
-            {/* 평점 · 하늘 상태 */}
-            <Group>
-              <Field
-                label={t('log.form.rating')}
-                hint={t('log.form.ratingHint')}
-                testId="obs-rating"
-              >
-                <div className="flex gap-1" role="group" aria-label={t('log.form.rating')}>
-                  {RATINGS.map((n) => {
-                    const on = rating !== undefined && n <= rating;
-                    return (
-                      <button
-                        key={n}
-                        type="button"
-                        aria-pressed={rating === n}
-                        aria-label={`${n}`}
-                        onClick={() => setRating(rating === n ? undefined : n)}
-                        className={`flex h-11 w-11 items-center justify-center rounded-pill text-headline transition-[transform,color] duration-150 ease-standard active:scale-90 ${
-                          on ? 'text-marker' : 'text-muted'
-                        }`}
-                        data-testid={`obs-rating-${n}`}
-                      >
-                        {on ? '★' : '☆'}
-                      </button>
-                    );
-                  })}
-                </div>
-              </Field>
-              <Field label={t('log.form.seeing')} hint={t('log.form.seeingHint')}>
-                <ScaleChips value={seeing} onChange={setSeeing} testPrefix="obs-seeing" />
-              </Field>
-              <Field label={t('log.form.transparency')} hint={t('log.form.transparencyHint')}>
-                <ScaleChips
-                  value={transparency}
-                  onChange={setTransparency}
-                  testPrefix="obs-transparency"
-                />
-              </Field>
-            </Group>
-
             {/* 특징 태그 */}
             <Group testId="obs-tags">
               {visibleCats.map((c) => (
@@ -684,19 +611,6 @@ export function ObservationForm({ request, onClose, onSaved }: ObservationFormPr
                     ))}
                   </div>
                 </Field>
-              )}
-              {otherCats.length > 0 && (
-                <div className="px-4 py-2">
-                  <button
-                    type="button"
-                    className={TERTIARY_BTN}
-                    onClick={() => setShowAllTags((v) => !v)}
-                    aria-expanded={showAllTags}
-                    data-testid="obs-tags-more"
-                  >
-                    {showAllTags ? t('log.form.tagsLess') : t('log.form.tagsMore')}
-                  </button>
-                </div>
               )}
             </Group>
 

@@ -1,18 +1,12 @@
 /**
  * 자세 융합·필터 (task-02 §3.4).
- * - 쿼터니언 저역통과(slerp, 시간 상수 τ≈100ms) + 데드밴드 0.2° + 적응 이득(각속도 > 30°/s면 즉시 추종).
- * - 절대 소스는 yaw만 더 강하게 평활(τ_yaw≈500ms): 나침반 노이즈는 yaw에만 실리고 자이로 pitch/roll은 빠르다.
- * - 자기장 이상: 한 샘플 사이(≤120ms)에 yaw가 15° 이상 튀는데 pitch/roll 변화는 작으면(< 5°) 물리 회전이 아니라 간섭.
+ * - 쿼터니언 저역통과 + 화면 픽셀 기준 데드밴드, 움직일 때 시간 상수를 줄여 지연을 낮춘다.
+ * - 천정에서 정의되지 않는 시선 방위각을 평활하지 않는다. 모든 자세에서 같은 3차원 회전을 쓴다.
+ * - 급격한 세계 수직축 회전은 진단 후보일 뿐 자석 간섭으로 단정하거나 추적을 멈추지 않는다.
  * 목표(단위 테스트): 60Hz 합성 입력에서 정지 잔여 떨림 < 0.2°, 90° 스텝 후 2° 이내 도달 ≤ 150ms.
  */
 import type { Quaternion } from 'three';
-import { wrap180 } from '@/astro/coords';
-import {
-  angleBetween,
-  applyYawOffset,
-  quaternionToAltAz,
-  slerpShortest,
-} from '@/sensors/orientation/math';
+import { angleBetween, slerpShortest } from '@/sensors/orientation/math';
 
 export interface FilterOptions {
   tauMs: number;
@@ -40,7 +34,7 @@ export class OrientationFilter {
   private state: Quaternion | null = null;
   private lastRaw: Quaternion | null = null;
   private lastMs = 0;
-  private yawState: number | null = null;
+  private deadbandDeg: number;
   /** 마지막 갱신에서 감지된 이상 여부 */
   anomaly = false;
   /** 마지막 추정 각속도(도/초) */
@@ -48,6 +42,16 @@ export class OrientationFilter {
 
   constructor(opts: Partial<FilterOptions> = {}) {
     this.opts = { ...DEFAULT_FILTER, ...opts };
+    this.deadbandDeg = this.opts.deadbandDeg;
+  }
+
+  get smoothYaw(): boolean {
+    return this.opts.smoothYaw;
+  }
+
+  /** 줌이 바뀌어도 필터 이력을 지우지 않는다. */
+  setDeadband(deg: number): void {
+    this.deadbandDeg = Math.max(0.001, Math.min(0.2, deg));
   }
 
   reset(): void {
@@ -55,7 +59,6 @@ export class OrientationFilter {
     this.output = null;
     this.history = [];
     this.lastRaw = null;
-    this.yawState = null;
     this.anomaly = false;
     this.rateDegPerSec = 0;
   }
@@ -73,7 +76,6 @@ export class OrientationFilter {
       this.history = [{ t: tMs, q: raw.clone() }];
       this.lastRaw = raw.clone();
       this.lastMs = tMs;
-      this.yawState = quaternionToAltAz(raw).azDeg;
       this.anomaly = false;
       return this.state.clone();
     }
@@ -85,41 +87,28 @@ export class OrientationFilter {
     const span = Math.max(1, tMs - oldest.t);
     this.rateDegPerSec = span >= 50 ? (angleBetween(oldest.q, raw) / span) * 1000 : 0;
 
-    // 자기장 이상: yaw만 크게 튀고 pitch/roll은 그대로
-    const prevAlt = quaternionToAltAz(this.lastRaw);
-    const curAlt = quaternionToAltAz(raw);
-    const yawJump =
-      prevAlt.azDeg !== null && curAlt.azDeg !== null
-        ? Math.abs(wrap180(curAlt.azDeg - prevAlt.azDeg))
-        : 0;
-    const pitchJump = Math.abs(curAlt.altDeg - prevAlt.altDeg);
-    this.anomaly = dt <= o.anomalyMaxDtMs && yawJump >= o.anomalyJumpDeg && pitchJump < 5;
+    // 상대 회전의 세계 Y축 성분으로 판정한다. 천정을 가로지르는 작은 회전은 180° yaw 점프가 아니다.
+    const rotation = raw.clone().multiply(this.lastRaw.clone().invert()).normalize();
+    const rotationDeg = (2 * Math.acos(Math.min(1, Math.abs(rotation.w))) * 180) / Math.PI;
+    const axisLength = Math.hypot(rotation.x, rotation.y, rotation.z);
+    const verticalFraction = axisLength > 1e-8 ? Math.abs(rotation.y) / axisLength : 0;
+    this.anomaly =
+      o.smoothYaw &&
+      dt <= o.anomalyMaxDtMs &&
+      rotationDeg >= o.anomalyJumpDeg &&
+      verticalFraction > 0.96;
 
     this.lastRaw = raw.clone();
     this.lastMs = tMs;
 
     // 적응 이득 — 추정치는 항상 갱신(데드밴드는 출력에만: 첫 샘플 편향이 고정되지 않도록)
     const fast = this.rateDegPerSec > o.fastRateDegPerSec;
-    const gain = fast ? 1 : 1 - Math.exp(-dt / o.tauMs);
-    let next = slerpShortest(this.state, raw, gain);
-
-    // yaw 별도 평활(절대 소스): 필터된 자세의 yaw를 더 느린 yaw 추정으로 바꾼다
-    if (o.smoothYaw && !fast) {
-      const rawYaw = curAlt.azDeg;
-      const nextYaw = quaternionToAltAz(next).azDeg;
-      if (rawYaw !== null && nextYaw !== null) {
-        const yawGain = 1 - Math.exp(-dt / o.yawTauMs);
-        const prevYaw = this.yawState ?? rawYaw;
-        const smoothed = prevYaw + wrap180(rawYaw - prevYaw) * yawGain;
-        this.yawState = ((smoothed % 360) + 360) % 360;
-        next = applyYawOffset(next, wrap180(this.yawState - nextYaw));
-      }
-    } else {
-      this.yawState = curAlt.azDeg;
-    }
+    const tau = o.tauMs / (1 + Math.max(0, this.rateDegPerSec - 3) / 3);
+    const gain = fast ? 1 : 1 - Math.exp(-dt / tau);
+    const next = slerpShortest(this.state, raw, gain);
     this.state = next;
     // 출력 데드밴드: 추정치가 마지막 출력에서 0.2° 미만 움직였으면 출력을 유지(미세 떨림 제거)
-    if (this.output && !fast && angleBetween(this.output, next) < o.deadbandDeg)
+    if (this.output && !fast && angleBetween(this.output, next) < this.deadbandDeg)
       return this.output.clone();
     this.output = next.clone();
     return next.clone();

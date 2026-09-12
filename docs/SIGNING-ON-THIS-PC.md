@@ -50,3 +50,7 @@ $env:JAVA_HOME = Join-Path $env:LOCALAPPDATA 'skylog-tools/jdk-21.0.12.1+1'
 4. 암호화 키 백업은 별도 보관 장치/암호화 저장소에, 복구 암호는 암호 관리자에 분리 보관한다.
 
 공개 `upload-certificate.pem`과 서명된 AAB는 제출 자료에 포함할 수 있다. `.p12`와 `password.dpapi.xml`은 Git 저장소·공개 릴리스·제출용 ZIP에 포함하지 않는다. Play 등록 후 키를 잃은 경우에는 임의 교체 대신 업로드키 재설정 절차를 사용한다.
+
+## 2026-09-13 집 PC 후속 작업
+
+위의 “현재 키/이 PC”는 2026-09-10 연구실 환경을 뜻한다. 집 PC의 이전 키와 공개 인증서가 다르다. build25는 docs/FIELD-USE-BUILD25.md와 배포 패키지의 sign-play-update.ps1을 따른다. 이 도구는 AAB 해시와 build24의 실제 업로드 인증서를 비교하며 새 키를 만들지 않는다.

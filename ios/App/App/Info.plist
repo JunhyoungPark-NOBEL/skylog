@@ -75,5 +75,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>실제 하늘 위에 별 지도를 겹쳐 보기 위해 후면 카메라를 사용합니다. 영상은 저장하거나 전송하지 않습니다.</string>
 </dict>
 </plist>

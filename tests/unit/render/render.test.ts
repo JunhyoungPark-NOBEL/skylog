@@ -78,7 +78,7 @@ describe('projection', () => {
 });
 
 describe('hit-test · 라벨 임계 · DSO 한계', () => {
-  it('가까운 어두운 별보다 조금 먼 밝은 별을 고른다', () => {
+  it('조금 먼 밝은 별보다 손가락에 가까운 별을 고른다', () => {
     const best = pickBest(
       [
         { id: 'star:HIP1', x: 103, y: 100, mag: 5.5 },
@@ -88,7 +88,7 @@ describe('hit-test · 라벨 임계 · DSO 한계', () => {
       100,
       100,
     );
-    expect(best?.id).toBe('star:HIP2');
+    expect(best?.id).toBe('star:HIP1');
     expect(hitWeight(0, 6)).toBe(0);
     expect(hitWeight(10, 0)).toBeLessThan(hitWeight(10, 6));
     expect(pickBest([{ id: 'moon', x: 150, y: 100, mag: -10, radiusPx: 60 }], 100, 100)?.id).toBe(

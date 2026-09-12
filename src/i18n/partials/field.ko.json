@@ -1,0 +1,68 @@
+{
+  "field": {
+    "sketchAccount": "로그인하고 공유 준비하기",
+    "sensorOn": "센서 켜기",
+    "sensorResume": "센서 복귀",
+    "alignedWith": "{{target}}에 맞춤",
+    "permissionHint": "센서 버튼을 누르고 방향 센서 사용을 허용해 주세요.",
+    "manual": "손으로 둘러보는 중 · 센서는 버튼으로 다시 켜요",
+    "sensorSettings": "센서 설정과 별 맞추기",
+    "trackingMethod": "하늘을 따라가는 방법",
+    "mode": {
+      "compass": "자동 방향 · 나침반",
+      "gyro": "자이로 · 별에 맞추기"
+    },
+    "gyroAlign": "밝은 별 하나에 맞추면 추적을 시작해요",
+    "gyroHint": "자력계를 쓰지 않아요. 밝은 별에 한 번 맞춘 뒤 움직여 보세요. 시간이 지나 방향이 어긋나면 다시 맞춰 주세요. 앱을 다시 열면 새로 맞춰야 해요.",
+    "gyroUnavailable": "이 환경에서는 자력계를 쓰지 않는 센서를 사용할 수 없어요. 자동 방향을 선택하거나 손으로 둘러보세요.",
+    "compassHint": "나침반으로 북쪽을 찾아요. 자석이나 금속 가까이에서 방향이 흔들리면 자이로로 바꾼 뒤 별에 맞춰 보세요.",
+    "directionUncertain": "방향 정확도가 낮아요",
+    "correctionHint": "추적은 계속돼요. 자석·금속에서 떨어지거나 자이로 방식으로 별에 맞춰 보세요.",
+    "align": "밝은 별에 맞추기",
+    "camera": {
+      "on": "카메라 겹치기",
+      "off": "카메라 끄기",
+      "cancel": "연결 취소",
+      "settings": "카메라 겹치기 조절",
+      "opacity": "배경 영상 밝기",
+      "fov": "카메라 시야 맞추기",
+      "hint": "후면 영상은 저장하거나 전송하지 않아요. 기기마다 렌즈 시야가 달라 실제 별과 겹쳐 보며 조절해 주세요. 정밀 사진 정렬 기능은 아니에요.",
+      "error": {
+        "unsupported": "이 환경에서는 카메라 미리보기를 사용할 수 없어요.",
+        "timeout": "카메라 연결을 기다리다 멈췄어요. 권한을 확인한 뒤 다시 켜 주세요.",
+        "denied": "카메라 권한이 필요해요. 앱 권한에서 허용한 뒤 다시 켜 주세요.",
+        "unavailable": "후면 카메라를 열지 못했어요. 다른 카메라 앱을 닫고 다시 켜 주세요.",
+        "interrupted": "카메라 연결이 끝났어요. 원할 때 다시 켜 주세요."
+      }
+    },
+    "starColor": "별의 색",
+    "colorEstimate": "자료로 추정한 색이에요. 눈에 보이는 색은 관측 환경에 따라 달라요.",
+    "colors": {
+      "blue": "푸른색",
+      "blueWhite": "청백색",
+      "white": "흰색",
+      "yellowWhite": "황백색",
+      "yellow": "노란색",
+      "orange": "주황색",
+      "red": "붉은색",
+      "unknown": "색 정보 없음"
+    },
+    "shareSketch": "스케치 공유",
+    "saveSketch": "이미지로 내보내기",
+    "communitySketch": "모두의 사진에 공유",
+    "sketchShareHint": "스케치 이미지만 공유해요. 관측 위치와 개인 메모는 포함하지 않아요. 공개 게시 전 미리보기에서 확인할 수 있어요.",
+    "sketchMissing": "스케치 파일을 찾지 못했어요.",
+    "sketchShareFailed": "공유를 시작하지 못했어요. 다시 시도해 주세요.",
+    "sketchDraft": "관측 스케치 · 게시 전 확인해 주세요"
+  },
+  "sketch": {
+    "color": {
+      "blueWhite": "청백색",
+      "blue": "푸른색",
+      "yellowWhite": "황백색",
+      "yellow": "노란색",
+      "orange": "주황색",
+      "red": "붉은색"
+    }
+  }
+}

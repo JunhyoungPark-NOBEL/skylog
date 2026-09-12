@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { hashQuery } from '@/app/router';
 import type { ObjectId } from '@/catalog/objectId';
 import { ArToggle } from '@/features/sky/ArToggle';
+import { useRearCamera } from './useRearCamera';
+import { RearCameraControls, RearCameraSettings, RearCameraView } from './RearCameraView';
 import { CalibrationWizard } from '@/features/sky/CalibrationWizard';
 import { LayerPanel } from '@/features/sky/LayerPanel';
 import { SensorSimPanel } from '@/features/sky/SensorSimPanel';
@@ -89,6 +91,8 @@ export function SkyView() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const labelsRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<SkyScene | null>(null);
+  const rearVideoRef = useRef<HTMLVideoElement>(null);
+  const rearCamera = useRearCamera(rearVideoRef);
   const [ready, setReady] = useState(false);
   const [layersOpen, setLayersOpen] = useState(false);
   const [wizardOpen, setWizardOpen] = useState(false);
@@ -143,7 +147,7 @@ export function SkyView() {
     registerSkyScene(scene);
     sensorManager.attachCamera(scene.controller);
     scene.controller.onDragStart = () => {
-      // 센서 모드에서 수동 드래그 → 5초 일시 정지(보정 미세 조정 중에는 dragHandler가 처리)
+      // 실제 한 손가락 드래그에서만 수동 탐색으로 전환한다. 자동 복귀는 없다.
       if (useSensorStore.getState().arActive && !scene.controller.dragHandler)
         sensorManager.pauseForManual();
     };
@@ -231,6 +235,9 @@ export function SkyView() {
   useEffect(() => {
     sceneRef.current?.invalidate();
   }, [lang]);
+  useEffect(() => {
+    sceneRef.current?.setCameraOverlay(rearCamera.status === 'on');
+  }, [rearCamera.status]);
 
   // 선택 정보 갱신(1초마다 alt/az 갱신). 선택이 없으면 표시하지 않는다(파생).
   useEffect(() => {
@@ -251,7 +258,8 @@ export function SkyView() {
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-bg" data-testid="sky-view">
-      <canvas ref={canvasRef} className="block h-full w-full" data-testid="sky-canvas" />
+      <RearCameraView camera={rearCamera} videoRef={rearVideoRef} />
+      <canvas ref={canvasRef} className="relative block h-full w-full" data-testid="sky-canvas" />
       <div
         ref={labelsRef}
         className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -281,7 +289,6 @@ export function SkyView() {
         <IconLayers size={20} />
       </button>
 
-      <ArToggle />
       <FovOverlay />
       {simulator && arActive && <SensorSimPanel />}
       {wizardOpen && <CalibrationWizard onClose={() => setWizardOpen(false)} />}
@@ -321,6 +328,19 @@ export function SkyView() {
             />
           )}
           <TimeBar />
+          <RearCameraSettings camera={rearCamera} />
+          <ArToggle
+            onAlign={() => setWizardOpen(true)}
+            cameraControl={
+              <RearCameraControls
+                camera={rearCamera}
+                onStart={() => {
+                  sceneRef.current?.controller.setView({ fovDeg: rearCamera.fov });
+                  void rearCamera.start();
+                }}
+              />
+            }
+          />
         </div>
       </div>
     </div>

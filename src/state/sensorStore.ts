@@ -7,6 +7,8 @@ import type { OrientationPermissionState } from '@/sensors/permissions';
 
 /** 저장되는 설정 */
 export interface SensorSettings {
+  /** 자동 북 기준 / 자력계를 쓰지 않는 상대 자이로 + 별 정렬 */
+  trackingMode: 'compass' | 'gyro';
   /** 명시적으로 끄면 다음 진입에도 수동 탐색을 유지한다. */
   autoStart: boolean;
   /** 앱에서 마지막으로 확인한 사용자 권한 응답. OS 권한을 대신하지 않는다. */
@@ -91,6 +93,7 @@ export interface SensorState extends SensorSettings, SensorRuntime {
 }
 
 export const DEFAULT_SENSOR_SETTINGS: SensorSettings = {
+  trackingMode: 'compass',
   autoStart: true,
   orientationConsent: 'unknown',
   applyDeclination: true,
@@ -148,6 +151,7 @@ export const useSensorStore = create<SensorState>()(
       version: 1,
       storage: createJSONStorage(() => createDexieSettingsStorage(SENSOR_PERSIST_NAME)),
       partialize: (s): SensorSettings => ({
+        trackingMode: s.trackingMode,
         autoStart: s.autoStart,
         orientationConsent: s.orientationConsent,
         applyDeclination: s.applyDeclination,

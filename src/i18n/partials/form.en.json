@@ -65,11 +65,11 @@
     "tagCategory": {
       "color": "Color",
       "shape": "Shape",
-      "resolve": "Resolution",
+      "resolve": "Degree of resolution",
       "double": "Double star",
       "planet": "Planet",
       "moon": "Moon",
-      "difficulty": "Difficulty",
+      "difficulty": "Observing difficulty",
       "technique": "Technique"
     },
     "tag": {

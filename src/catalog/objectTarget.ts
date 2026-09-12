@@ -9,6 +9,7 @@ import type { Catalog, ConstellationData, DsoCategory } from '@/catalog/catalog'
 import type { ObjectId } from '@/catalog/objectId';
 import type { SearchKind } from '@/catalog/searchIndex';
 import { FOV_MAX_DEG } from '@/render/projection';
+import { starColor, type StarColor } from './starColor';
 
 export interface ObjectTarget {
   id: ObjectId;
@@ -23,6 +24,7 @@ export interface ObjectTarget {
   extended: boolean;
   category?: DsoCategory;
   con?: string;
+  starColor?: StarColor;
 }
 
 export interface J2000Fallback {
@@ -75,6 +77,7 @@ export function resolveTarget(
       decJ2000Deg: star.dec,
       mag: star.mag,
       distLy: star.distLy,
+      starColor: starColor(star.spect),
       extended: false,
       con: star.con,
     };

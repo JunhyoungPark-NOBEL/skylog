@@ -56,19 +56,20 @@ describe('tagPresets — 프리셋 데이터', () => {
 });
 
 describe('presetsFor(kind) — 종류별 카테고리 순서', () => {
-  it('행성은 행성 그룹, 달은 달 그룹, DSO는 형태·분해가 먼저 온다', () => {
-    expect(presetsFor('planet')[0]).toBe('planet');
-    expect(presetsFor('moon')[0]).toBe('moon');
-    expect(presetsFor('dso').slice(0, 2)).toEqual(['shape', 'resolve']);
-    expect(presetsFor('star')).toContain('double');
+  it('공통 항목 다음에 해당 종류의 항목만 제공한다', () => {
+    expect(presetsFor('planet')).toEqual(['color', 'difficulty', 'resolve', 'planet']);
+    expect(presetsFor('moon')).toContain('moon');
+    expect(presetsFor('dso')).toContain('shape');
+    expect(presetsFor('star')).not.toContain('double');
+    expect(presetsFor('star', true)).toContain('double');
   });
 
-  it('모든 종류에서 중복이 없고, 난이도·기법이 마지막이며, 어울리지 않는 그룹은 빠진다', () => {
+  it('중복과 무관한 분류 없이 색·난이도·분해된 정도를 공통 제공한다', () => {
     for (const kind of ['star', 'dso', 'planet', 'moon', 'sun', 'const'] as const) {
       const cats = presetsFor(kind);
       expect(cats.length).toBeGreaterThan(0);
       expect(new Set(cats).size).toBe(cats.length);
-      expect(cats.slice(-2)).toEqual(['difficulty', 'technique']);
+      expect(cats.slice(0, 3)).toEqual(['color', 'difficulty', 'resolve']);
       for (const c of cats) expect(TAG_CATEGORIES).toContain(c);
       if (kind !== 'planet') expect(cats).not.toContain('planet');
       if (kind !== 'moon') expect(cats).not.toContain('moon');

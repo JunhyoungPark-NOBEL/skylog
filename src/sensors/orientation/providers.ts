@@ -112,22 +112,20 @@ type GenericSensorCtor = new (opts: {
 
 /** Chrome/Edge Android: Generic Sensor API 절대 방향(선택적 Provider). 자북 ENU. */
 export class AbsoluteOrientationSensorProvider implements OrientationProvider {
-  readonly name: ProviderName = 'AbsoluteOrientationSensor';
+  constructor(private readonly relative = false) {}
+  get name(): ProviderName {
+    return this.relative ? 'RelativeOrientationSensor' : 'AbsoluteOrientationSensor';
+  }
   private sensor: GenericSensor | null = null;
 
   isSupported(): boolean {
-    return (
-      typeof window !== 'undefined' &&
-      'AbsoluteOrientationSensor' in window &&
-      window.isSecureContext
-    );
+    return typeof window !== 'undefined' && this.name in window && window.isSecureContext;
   }
 
   start(onSample: (s: OrientationSample) => void, onError: (err: Error) => void): void {
-    const Ctor = (window as unknown as { AbsoluteOrientationSensor?: GenericSensorCtor })
-      .AbsoluteOrientationSensor;
+    const Ctor = (window as unknown as Partial<Record<ProviderName, GenericSensorCtor>>)[this.name];
     if (!Ctor) {
-      onError(new Error('AbsoluteOrientationSensor unavailable'));
+      onError(new Error(`${this.name} unavailable`));
       return;
     }
     try {
@@ -137,10 +135,10 @@ export class AbsoluteOrientationSensorProvider implements OrientationProvider {
         if (!q || q.length < 4) return;
         onSample({
           q: genericSensorToScene(q, currentScreenAngle(), 'device'),
-          northReference: 'magnetic',
+          northReference: this.relative ? 'relative' : 'magnetic',
           compassHeadingDeg: null,
           compassAccuracyDeg: null,
-          raw: { alpha: null, beta: null, gamma: null, absolute: true },
+          raw: { alpha: null, beta: null, gamma: null, absolute: !this.relative },
           screenAngleDeg: currentScreenAngle(),
           timestampMs: performance.now(),
           provider: this.name,
@@ -220,12 +218,15 @@ export class SimulatorProvider implements OrientationProvider {
 }
 
 /** 지원되는 Provider를 우선순위대로 (시뮬레이터 제외) */
-export function availableProviders(): OrientationProvider[] {
-  const all: OrientationProvider[] = [
-    new NativeOrientationProvider(),
-    new DeviceOrientationAbsoluteProvider(),
-    new AbsoluteOrientationSensorProvider(),
-    new DeviceOrientationProvider(),
-  ];
+export function availableProviders(relative = false): OrientationProvider[] {
+  // 자이로 선택 시 절대/나침반 소스로 몰래 되돌아가지 않는다.
+  const all: OrientationProvider[] = relative
+    ? [new NativeOrientationProvider(true), new AbsoluteOrientationSensorProvider(true)]
+    : [
+        new NativeOrientationProvider(),
+        new DeviceOrientationAbsoluteProvider(),
+        new AbsoluteOrientationSensorProvider(),
+        new DeviceOrientationProvider(),
+      ];
   return all.filter((p) => p.isSupported());
 }

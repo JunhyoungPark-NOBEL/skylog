@@ -33,7 +33,7 @@ public class SkylogMotionPlugin: CAPPlugin, CAPBridgedPlugin {
             guard CMMotionManager.availableAttitudeReferenceFrames().contains(frame) else { call.reject("Reference frame unavailable"); return }
             self.session = call.getString("session") ?? ""
             let token = self.session
-            self.motion.deviceMotionUpdateInterval = 1.0 / 30.0
+            self.motion.deviceMotionUpdateInterval = 1.0 / 60.0
             self.motion.startDeviceMotionUpdates(using: frame, to: .main) { [weak self] data, _ in
                 guard let self = self, self.session == token, let data = data else { return }
                 let q = data.attitude.quaternion

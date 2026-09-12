@@ -4,6 +4,7 @@ import type { Lang } from '@/app/i18n';
 import { nightKey } from '@/astro/time';
 import { displayName, type Catalog } from '@/catalog/catalog';
 import { kindOf } from '@/catalog/objectId';
+import { tagLabelKey } from './tagPresets';
 import { deleteObservation, restoreObservation } from '@/db/repos/observations';
 import type { Observation } from '@/db/types';
 import { groupByNight, nightLabel } from '@/features/log/logUtils';
@@ -238,7 +239,7 @@ function LogRow({ row, cat, lang, first, onOpen, onDelete }: LogRowProps) {
             <span className="mt-1 flex flex-wrap gap-1">
               {row.tags.slice(0, 2).map((tag) => (
                 <Chip key={tag} tone="muted" selected>
-                  {tag}
+                  {t(tagLabelKey(tag), { defaultValue: tag })}
                 </Chip>
               ))}
               {row.tags.length > 2 && (
@@ -248,14 +249,6 @@ function LogRow({ row, cat, lang, first, onOpen, onDelete }: LogRowProps) {
           )}
         </span>
         <span className="shrink-0 text-right text-caption tabular-nums">
-          {row.rating !== undefined && (
-            <span
-              className="block text-marker"
-              aria-label={t('log.detail.outOf5', { n: row.rating })}
-            >
-              {'★'.repeat(row.rating)}
-            </span>
-          )}
           {!seen && <span className="block text-muted">{t('log.timeline.attempted')}</span>}
         </span>
       </button>

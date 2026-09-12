@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 
 /**
  * T2 센서 e2e (task-02 §6): 시뮬레이터로 AR 켜기 → alpha 변경 → 화면 중심 방위 일치 → 1-별 정렬 → δ 반영
- * → 수동 드래그 → 5초 후 복귀. 관측지 CRUD·범위 선택기, 디버그 덤프 복사.
+ * → 수동 드래그 → 버튼으로 복귀. 관측지 CRUD·범위 선택기, 디버그 덤프 복사.
  */
 const T = '2026-09-06T12:00:00Z';
 
@@ -32,7 +32,7 @@ async function setSlider(page: Page, id: string, value: number): Promise<void> {
   await page.getByTestId(id).fill(String(value));
 }
 
-test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 정렬 → 수동 드래그 → 5초 후 복귀', async ({
+test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 정렬 → 수동 드래그 → 버튼으로 복귀', async ({
   page,
 }) => {
   await enableSimulator(page);
@@ -51,7 +51,7 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   let v = await getView(page);
   expect(Math.abs(v.azDeg - 180)).toBeLessThan(1.5);
   expect(Math.abs(v.altDeg - 30)).toBeLessThan(1.5);
-  await expect(page.getByTestId('ar-source')).toContainText('평평하게');
+  await expect(page.getByTestId('ar-source')).toContainText('밝은 별');
 
   // 절대 모드(Android형): 자북 기준 α=0 → 편각(대전 −8.7°) 적용 → 방위 ≈ 351.3
   await page.getByTestId('sim-absolute').check();
@@ -106,20 +106,24 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   v = await getView(page);
   expect(Math.abs(((v.azDeg - tgt!.azDeg + 540) % 360) - 180)).toBeLessThan(1.5);
   expect(Math.abs(v.altDeg - tgt!.altDeg)).toBeLessThan(1.5);
-  await expect(page.getByTestId('ar-source')).toContainText(/보정됨/);
+  await page.getByTestId('sensor-settings-toggle').click();
+  await expect(page.getByTestId('ar-source')).toContainText(/맞춤/);
+  await page.getByTestId('sensor-settings-toggle').click();
 
-  // 수동 드래그 → "수동" → 5초 후 센서 복귀
+  // 수동 드래그 → "수동" → 버튼으로 센서 복귀
   const box = (await page.getByTestId('sky-canvas').boundingBox())!;
   await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
   await page.mouse.down();
   await page.mouse.move(box.x + box.width / 2 - 120, box.y + box.height / 2, { steps: 6 });
   await page.mouse.up();
-  await expect(page.getByTestId('ar-source')).toContainText(/수동/);
+  await expect(page.getByTestId('ar-source')).toContainText(/손으로/);
   await expect(page.getByTestId('ar-resume')).toBeVisible();
   const dragged = await getView(page);
   expect(Math.abs(((dragged.azDeg - v.azDeg + 540) % 360) - 180)).toBeGreaterThan(5);
   await page.waitForTimeout(5600);
-  await expect(page.getByTestId('ar-source')).not.toContainText(/수동/);
+  await expect(page.getByTestId('ar-source')).toContainText(/손으로/);
+  await page.getByTestId('ar-resume').click();
+  await page.waitForTimeout(500);
   const back = await getView(page);
   expect(Math.abs(((back.azDeg - v.azDeg + 540) % 360) - 180)).toBeLessThan(1.5);
 

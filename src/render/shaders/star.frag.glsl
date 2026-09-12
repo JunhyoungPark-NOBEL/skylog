@@ -22,9 +22,9 @@ void main() {
   float glow = exp(-r * r * 3.0) * glowAmount * 0.6;
   float intensity = clamp(core + glow, 0.0, 1.0);
 
-  vec3 color = skylogSaturate(vColorBv, uSaturation);
+  vec3 color = clamp(skylogSaturate(vColorBv, uSaturation * 1.3), 0.0, 1.0);
   // 밝은 중심에도 B−V 색을 남긴다. 최대 채도에서 청백색·주황색 별이 흰 점으로 같아지지 않는다.
-  color = mix(color, vec3(1.0), (1.0 - smoothstep(0.0, 0.55, r)) * 0.22);
+  color = mix(color, vec3(1.0), (1.0 - smoothstep(0.0, 0.55, r)) * 0.08);
   if (uNight > 0.5) {
     float lum = dot(color, vec3(0.299, 0.587, 0.114));
     color = uNightColor * lum;

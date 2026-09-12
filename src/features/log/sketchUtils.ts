@@ -13,7 +13,8 @@ export const FIELD_INSET = 4;
 /** 이보다 가까운 점은 버린다(내부 px) — 떨림 억제 + 경로 길이 절약 */
 export const MIN_POINT_DIST = 1.5;
 
-export type PenColor = 'white' | 'gray';
+export type PenColor =
+  'white' | 'gray' | 'blueWhite' | 'blue' | 'yellowWhite' | 'yellow' | 'orange' | 'red';
 export type PenWidth = 'thin' | 'medium' | 'thick';
 export type StrokeTool = 'pen' | 'eraser';
 
@@ -31,14 +32,32 @@ export interface Stroke {
 }
 
 /** 펜 색(시야는 항상 #000 — 야간 모드와 무관하게 접안렌즈 안 느낌을 유지) */
-export const PEN_COLORS: Record<PenColor, string> = { white: '#ffffff', gray: '#9aa3b5' };
+export const PEN_COLORS: Record<PenColor, string> = {
+  white: '#ffffff',
+  gray: '#9aa3b5',
+  blueWhite: '#c7dcff',
+  blue: '#78a7ff',
+  yellowWhite: '#fff3c5',
+  yellow: '#ffe066',
+  orange: '#ffa05c',
+  red: '#ff6666',
+};
 /** 굵기(내부 px, 800 기준) */
 export const PEN_WIDTH_PX: Record<PenWidth, number> = { thin: 3, medium: 6, thick: 12 };
 /** 지우개는 검은 붓: 배경(이어 그리기 이미지)까지 함께 지워져 "검은 시야로 되돌리기"가 된다 */
 export const ERASER_WIDTH_PX = 28;
 export const FIELD_COLOR = '#000000';
 
-export const PEN_COLOR_LIST: readonly PenColor[] = ['white', 'gray'];
+export const PEN_COLOR_LIST: readonly PenColor[] = [
+  'white',
+  'gray',
+  'blueWhite',
+  'blue',
+  'yellowWhite',
+  'yellow',
+  'orange',
+  'red',
+];
 export const PEN_WIDTH_LIST: readonly PenWidth[] = ['thin', 'medium', 'thick'];
 
 /* ------------------------------------------------------------------ 좌표 */

@@ -39,9 +39,9 @@ export class StarLayer {
         uShowBelowHorizon: { value: 1 },
         uExtinction: { value: 1 },
         uRefraction: { value: 1 },
-        uMinSizePx: { value: 1.98 },
-        uMaxSizePx: { value: 18 },
-        uSizeScale: { value: 10.32 },
+        uMinSizePx: { value: 2.6 },
+        uMaxSizePx: { value: 24 },
+        uSizeScale: { value: 13.9 },
         uSaturation: { value: 1 },
         uNight: { value: 0 },
         uNightColor: { value: new THREE.Color('#ff3b30') },
@@ -88,7 +88,7 @@ export class StarLayer {
     const u = this.material.uniforms;
     u['uFovDeg']!.value = p.fovDeg;
     u['uPixelRatio']!.value = p.pixelRatio;
-    u['uMinSizePx']!.value = 1.98 * p.pixelRatio;
+    u['uMinSizePx']!.value = 2.6 * p.pixelRatio;
     u['uLimitingMag']!.value = p.limitingMag;
     u['uSaturation']!.value = p.saturation;
     u['uShowBelowHorizon']!.value = p.showBelowHorizon ? 1 : 0;

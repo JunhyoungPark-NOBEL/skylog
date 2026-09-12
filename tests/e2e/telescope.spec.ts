@@ -191,12 +191,8 @@ test('장비 저장 → 폰 윗변 두 별 정렬 → 목표 안내·차트·스
   await expect(page.getByTestId('hop-finish')).toContainText('업적');
   await page.goto('#/learn?section=achievements');
   await expect(page.getByTestId('learn-screen')).toBeVisible();
-  for (const title of ['별을 이어 가는 길', '두 별로 맞춘 방향']) {
-    await expect(
-      page
-        .locator('article')
-        .filter({ has: page.getByRole('heading', { name: title, exact: true }) }),
-    ).toContainText('획득');
+  for (const title of ['첫 별길', '두 별 정렬']) {
+    await expect(page.getByRole('button', { name: new RegExp(`${title}.*획득`) })).toBeVisible();
   }
   await page.goto('#/backup');
   const [download] = await Promise.all([

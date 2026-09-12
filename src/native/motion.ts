@@ -3,6 +3,8 @@ export interface MotionReading {
   /** 기기 물리 프레임 → ENU, [x,y,z,w]. 화면 회전은 호출자가 한 번만 적용한다. */
   quaternion: [number, number, number, number];
   northReference: 'relative' | 'magnetic';
+  /** 기기가 보고한 방위 오차. 미상은 생략하고 무효는 음수다. */
+  headingAccuracyDeg?: number;
 }
 interface MotionPlugin {
   start(options: { relative: boolean; session: string }): Promise<void>;

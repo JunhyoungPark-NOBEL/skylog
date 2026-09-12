@@ -106,9 +106,58 @@ describe('보정의 실제 관측지 비교', () => {
   });
 });
 describe('자동 재시작을 지원하는 하늘 센서 세션', () => {
+  it('수동 이동 후 계속 샘플이 와도 5초 자동 복귀 없이 버튼을 기다린다', () => {
+    manager.start();
+    publish(sample('magnetic'));
+    manager.pauseForManual();
+    for (let i = 0; i < 70; i++) {
+      vi.advanceTimersByTime(100);
+      publish(sample('magnetic'));
+    }
+    expect(useSensorStore.getState()).toMatchObject({
+      arActive: true,
+      manualPauseUntil: 1,
+      headingSource: 'manual',
+    });
+    manager.resumeNow();
+    vi.advanceTimersByTime(120);
+    publish(sample('magnetic'));
+    expect(useSensorStore.getState()).toMatchObject({
+      manualPauseUntil: 0,
+      headingSource: 'absolute',
+    });
+  });
+  it('자이로 선택은 상대 센서만 요청하며 별에 맞추기 전 임의 북쪽을 사용하지 않는다', () => {
+    useSensorStore.getState().setSetting('trackingMode', 'gyro');
+    const setSensorQuaternion = vi.fn();
+    manager.attachCamera({
+      setSensorQuaternion,
+      degreesPerPixel: () => 0.01,
+    } as unknown as CameraController);
+    manager.start();
+    expect(providers.available).toHaveBeenLastCalledWith(true);
+    publish({ ...sample(), compassHeadingDeg: 0, compassAccuracyDeg: 1 });
+    expect(setSensorQuaternion).toHaveBeenLastCalledWith(null);
+    manager.setCalibration(calibration('relative'));
+    publish(sample());
+    expect(setSensorQuaternion.mock.lastCall?.[0]).not.toBeNull();
+  });
+  it('OS의 지속적인 낮은 정확도만 안내하고 추적은 유지한다', () => {
+    manager.start();
+    for (let i = 0; i < 12; i++) {
+      publish({ ...sample('magnetic'), compassAccuracyDeg: 40 });
+      vi.advanceTimersByTime(120);
+    }
+    expect(useSensorStore.getState()).toMatchObject({ arActive: true, anomaly: true });
+    publish({ ...sample('magnetic'), compassAccuracyDeg: 5 });
+    expect(useSensorStore.getState().anomaly).toBe(false);
+  });
   it('북 기준 없는 상대 센서로 자동 하늘 방위를 덮어쓰지 않는다', () => {
     const setSensorQuaternion = vi.fn();
-    manager.attachCamera({ setSensorQuaternion } as unknown as CameraController);
+    manager.attachCamera({
+      setSensorQuaternion,
+      degreesPerPixel: () => 0.01,
+    } as unknown as CameraController);
     manager.start();
     publish(sample());
     expect(setSensorQuaternion).toHaveBeenLastCalledWith(null);

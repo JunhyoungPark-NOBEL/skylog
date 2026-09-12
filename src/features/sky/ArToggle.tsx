@@ -1,5 +1,5 @@
 import { emitSkill } from '@/learn/runtime';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { sensorManager } from '@/sensors/orientation/manager';
 import { orientationEventsSupported } from '@/sensors/permissions';
@@ -10,167 +10,200 @@ import {
 import { useSensorStore } from '@/state/sensorStore';
 import { IconCompass } from '@/ui/icons';
 
-/**
- * AR(센서) 모드 토글 (task-02 §3.6). 권한 요청은 이 버튼의 탭 핸들러 안에서만 한다(iOS).
- * 상태 배지: 소스(절대/나침반 동기/상대/보정됨/수동), 보정 상태, 간섭 경고. 수동 일시 정지 중에는 "센서 복귀".
- * 정상 추종은 버튼 하나만 보이고, 권한·간섭·수동 일시 정지처럼 필요한 상태만 펼친다.
- */
-export function ArToggle() {
+/** 엄지가 닿는 하단: 주 조작 하나 + 필요할 때 여는 추적/보정 설정. */
+export function ArToggle({
+  onAlign,
+  cameraControl,
+}: {
+  onAlign(): void;
+  cameraControl: ReactNode;
+}) {
   const { t } = useTranslation();
-  const arActive = useSensorStore((s) => s.arActive);
+  const active = useSensorStore((s) => s.arActive);
   const source = useSensorStore((s) => s.headingSource);
   const calibration = useSensorStore((s) => s.calibration);
   const anomaly = useSensorStore((s) => s.anomaly);
-  const paused = useSensorStore((s) => s.manualPauseUntil > 0 && s.headingSource === 'manual');
+  const paused = useSensorStore((s) => s.manualPauseUntil > 0);
   const permission = useSensorStore((s) => s.permission);
   const simulator = useSensorStore((s) => s.simulator);
-  const provider = useSensorStore((s) => s.provider);
+  const mode = useSensorStore((s) => s.trackingMode);
   const startup = useSensorStore((s) => s.startup);
-  const autoStart = useSensorStore((s) => s.autoStart);
+  const [settings, setSettings] = useState(false);
   const [help, setHelp] = useState<string | null>(null);
-
-  const supported = simulator || orientationEventsSupported();
-
+  const tracking = active && !paused;
   const toggle = async () => {
-    const st = useSensorStore.getState();
-    if (st.arActive) {
+    if (active && paused) {
+      sensorManager.resumeNow();
+      return;
+    }
+    if (active) {
       disableSkyOrientation();
       setHelp(null);
       return;
     }
-    if (!supported) {
+    if (!simulator && !orientationEventsSupported()) {
       setHelp(t('sensor.unsupported'));
       return;
     }
-    // 권한: 사용자 제스처 안에서, 불필요한 await 없이 즉시 호출
-    const perm = await enableSkyOrientationFromGesture();
-    if (perm === null) return;
-    if (perm === 'denied') {
+    const result = await enableSkyOrientationFromGesture();
+    if (result === 'denied') {
       setHelp(t('sensor.permission.deniedHelp'));
       return;
     }
+    if (result !== 'granted') return;
     setHelp(null);
-    if (useSensorStore.getState().arActive && !st.simulator) void emitSkill('arMode');
+    if (useSensorStore.getState().arActive && !simulator) void emitSkill('arMode');
   };
-
-  const sourceText = (() => {
-    if (startup === 'starting') return t('sensorAuto.connecting');
-    if (!arActive) return null;
-    if (paused) return t('sensor.source.manual');
-    if (calibration)
-      return t('sensor.calibrated', {
-        target: calibration.targetName,
-        ago: agoText(calibration.at, t),
-      });
-    if (source === 'absolute') return anomaly ? t('sensor.source.absolute') : null;
-    if (source === 'compass-sync') return anomaly ? t('sensor.source.compassSync') : null;
-    if (source === 'relative') return t('sensorAuto.compassHelp');
-    return t('sensor.source.none');
-  })();
-  const needsTap =
-    !arActive && autoStart && (startup === 'permission-required' || startup === 'unavailable');
+  const align = () => {
+    sensorManager.resumeNow();
+    setSettings(false);
+    onAlign();
+  };
+  const setMode = (next: 'compass' | 'gyro') => {
+    if (next === mode) return;
+    useSensorStore.getState().setSetting('trackingMode', next);
+    if (active) sensorManager.start();
+  };
+  const sourceText = paused
+    ? t('field.manual')
+    : calibration && settings
+      ? t('field.alignedWith', { target: calibration.targetName })
+      : source === 'relative'
+        ? t('field.gyroAlign')
+        : anomaly
+          ? t('field.directionUncertain')
+          : null;
 
   return (
-    <div
-      className="absolute right-[12px] top-[calc(var(--status-height)+env(safe-area-inset-top)+12px)] z-10 flex flex-col items-end gap-[8px]"
-      data-testid="ar-toggle-wrap"
-    >
-      <button
-        type="button"
-        onClick={() => void toggle()}
-        aria-pressed={arActive}
-        aria-label={t(
-          arActive
-            ? 'sensorAuto.turnOff'
-            : needsTap
-              ? permission === 'denied' || startup === 'unavailable'
-                ? 'sensorAuto.retry'
-                : 'sensorAuto.enable'
-              : 'sensor.ar',
-        )}
-        data-testid="ar-toggle"
-        className={`flex min-h-[44px] ${arActive || needsTap ? 'max-w-[70vw] gap-[8px] px-[12px] py-[8px] text-caption font-semibold' : 'h-[44px] w-[44px]'} items-center justify-center rounded-pill glass-hud text-fg transition-[transform,background-color,color] duration-150 ease-standard active:scale-95 aria-pressed:bg-accent-soft aria-pressed:text-accent ${
-          paused ? 'shadow-[inset_0_0_0_1.5px_var(--danger),var(--elev-float)]' : 'shadow-float'
-        }`}
-      >
-        <IconCompass size={22} />
-        {arActive && <span>{t('sensorAuto.on')}</span>}
-        {needsTap && (
-          <span>
-            {t(
-              permission === 'denied' || startup === 'unavailable'
-                ? 'sensorAuto.retry'
-                : 'sensorAuto.enable',
-            )}
-          </span>
-        )}
-      </button>
-      {needsTap && !help && (
-        <p
-          className="max-w-[65vw] rounded-xl glass-sm px-3 py-2 text-right text-caption leading-5 text-muted"
-          data-testid="ar-start-help"
-        >
-          {t(
-            permission === 'denied'
-              ? 'sensor.permission.deniedHelp'
-              : startup === 'unavailable'
-                ? 'sensorAuto.unavailable'
-                : 'sensorAuto.permissionHelp',
-          )}
-        </p>
-      )}
-      {sourceText && (
+    <div className="pointer-events-none flex w-full flex-col gap-2">
+      <div className="order-2 flex items-center justify-between gap-2">
+        {cameraControl}
         <div
-          className="max-w-[60vw] rounded-pill glass px-3 py-1.5 text-right text-caption text-fg shadow-float"
+          className="pointer-events-auto flex min-w-0 items-center gap-2"
+          data-testid="ar-toggle-wrap"
+        >
+          <button
+            type="button"
+            className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-pill glass-hud text-body-lg"
+            aria-label={t('field.sensorSettings')}
+            aria-expanded={settings}
+            onClick={() => setSettings(!settings)}
+            data-testid="sensor-settings-toggle"
+          >
+            ⋯
+          </button>
+          <button
+            type="button"
+            onClick={() => void toggle()}
+            aria-pressed={tracking}
+            aria-label={t(tracking ? 'sensorAuto.turnOff' : paused ? 'sensor.resume' : 'sensor.ar')}
+            data-testid="ar-toggle"
+            className="flex min-h-12 min-w-0 items-center gap-2 rounded-pill glass-hud px-3 text-body-sm font-semibold shadow-float aria-pressed:bg-accent-soft aria-pressed:text-accent"
+          >
+            <IconCompass size={22} />
+            <span className="min-w-0 truncate">
+              {t(
+                startup === 'starting'
+                  ? 'sensorAuto.connecting'
+                  : tracking
+                    ? 'sensorAuto.on'
+                    : paused
+                      ? 'field.sensorResume'
+                      : 'field.sensorOn',
+              )}
+            </span>
+          </button>
+        </div>
+      </div>
+      {(settings ||
+        sourceText ||
+        help ||
+        (!active && (startup === 'unavailable' || startup === 'permission-required'))) && (
+        <div
+          className="pointer-events-auto order-1 max-h-[28dvh] overflow-y-auto rounded-2xl glass-strong p-3 text-body-sm shadow-float"
           data-testid="ar-status"
         >
-          <span data-testid="ar-source">{sourceText}</span>
-          {provider === 'Simulator' && <span className="text-fg/60"> · SIM</span>}
-          {anomaly && (
-            <span className="ml-1 font-medium text-danger" data-testid="ar-anomaly">
-              ⚠ {t('sensor.anomaly')}
-            </span>
+          {sourceText && (
+            <p data-testid="ar-source" className="text-caption">
+              {sourceText}
+            </p>
           )}
-        </div>
-      )}
-      {arActive && paused && (
-        <div className="flex gap-2">
-          {paused && (
+          {anomaly && (
+            <p data-testid="ar-anomaly" className="mt-1 text-caption text-muted">
+              {t('field.correctionHint')}
+            </p>
+          )}
+          {active && paused && (
             <button
               type="button"
               onClick={() => sensorManager.resumeNow()}
-              className="inline-flex min-h-9 items-center justify-center rounded-pill bg-accent px-3.5 text-caption font-semibold text-accent-fg shadow-float transition-transform duration-150 ease-standard active:scale-[0.97]"
+              className="mt-2 min-h-11 rounded-pill bg-accent-soft px-4 text-accent"
               data-testid="ar-resume"
             >
               {t('sensor.resume')}
             </button>
           )}
-        </div>
-      )}
-      {help && (
-        <div
-          role="alert"
-          className="max-h-[35dvh] max-w-[70vw] overflow-y-auto overscroll-contain rounded-md bg-surface p-[12px] text-caption text-fg shadow-float squircle"
-          data-testid="ar-help"
-        >
-          {help}
-          {permission === 'denied' && (
-            <p className="mt-1 text-muted">{t('sensor.permission.deniedIosSteps')}</p>
+          {active && !paused && (source === 'relative' || anomaly) && (
+            <button
+              type="button"
+              onClick={align}
+              className="mt-2 min-h-11 rounded-pill bg-accent-soft px-4 text-accent"
+              data-testid="sensor-align"
+            >
+              {t('field.align')}
+            </button>
           )}
-          <button
-            type="button"
-            onClick={() => setHelp(null)}
-            className="mt-[8px] inline-flex min-h-[44px] items-center justify-center rounded-pill bg-surface-3 px-[14px] text-caption font-medium text-fg transition-transform duration-150 ease-standard active:scale-[0.97]"
-          >
-            {t('common.close')}
-          </button>
+          {!active && startup === 'unavailable' && (
+            <p data-testid="ar-start-help">
+              {t(mode === 'gyro' ? 'field.gyroUnavailable' : 'sensorAuto.unavailable')}
+            </p>
+          )}
+          {!active && startup === 'permission-required' && (
+            <p data-testid="ar-start-help">{t('field.permissionHint')}</p>
+          )}
+          {help && (
+            <p role="alert" data-testid="ar-help">
+              {help}
+              {permission === 'denied' && ` ${t('sensor.permission.deniedIosSteps')}`}
+            </p>
+          )}
+          {settings && (
+            <div className="mt-2 space-y-2" data-testid="sensor-settings">
+              <fieldset>
+                <legend className="mb-2 font-semibold">{t('field.trackingMethod')}</legend>
+                {(['compass', 'gyro'] as const).map((value) => (
+                  <label
+                    key={value}
+                    className="flex min-h-11 items-center gap-3 rounded-xl px-2 has-checked:bg-accent-soft"
+                  >
+                    <input
+                      type="radio"
+                      name="tracking-method"
+                      checked={mode === value}
+                      onChange={() => setMode(value)}
+                      data-testid={`sensor-mode-${value}`}
+                    />
+                    {t(`field.mode.${value}`)}
+                  </label>
+                ))}
+              </fieldset>
+              <p className="text-caption text-muted">
+                {t(mode === 'gyro' ? 'field.gyroHint' : 'field.compassHint')}
+              </p>
+              {active && (
+                <button
+                  type="button"
+                  onClick={align}
+                  className="min-h-11 w-full rounded-pill bg-surface-3 px-3"
+                  data-testid="sensor-align-settings"
+                >
+                  {t('field.align')}
+                </button>
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>
   );
-}
-
-function agoText(at: number, t: (k: string, o?: Record<string, unknown>) => string): string {
-  const min = Math.max(0, Math.round((Date.now() - at) / 60_000));
-  return min < 1 ? t('sensor.justNow') : t('sensor.minutesAgo', { min });
 }

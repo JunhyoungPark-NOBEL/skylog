@@ -37,7 +37,13 @@ import { CameraController, type ViewState } from '@/render/CameraController';
 import { ConstellationLayer } from '@/render/ConstellationLayer';
 import { DsoLayer, dsoMagLimits } from '@/render/DsoLayer';
 import { GridLayer } from '@/render/GridLayer';
-import { pickBest, type Candidate } from '@/render/HitTest';
+import {
+  pickBest,
+  pickConeCos,
+  toCatalogDirection,
+  pickExtinctionMag,
+  type Candidate,
+} from '@/render/HitTest';
 import { cardinalPoints, HorizonLayer } from '@/render/HorizonLayer';
 import {
   constellationLabelBudget,
@@ -72,12 +78,16 @@ export interface SkySceneOptions {
   preserveDrawingBuffer?: boolean;
 }
 
+import { starColor, type StarColor } from '@/catalog/starColor';
+
 export interface ObjectInfo {
   id: ObjectId;
   name: string;
   secondary?: string;
   kind: 'star' | 'dso' | 'planet' | 'moon' | 'sun' | 'const';
   mag?: number;
+  starColor?: StarColor;
+  distLy?: number;
   altDeg: number;
   azDeg: number;
   con?: string;
@@ -126,6 +136,7 @@ export class SkyScene {
   private selectedId: ObjectId | null = null;
   private selectionEl: HTMLDivElement;
   private disposed = false;
+  private cameraOverlay = false;
   private sunState: BodyState | null = null;
   private personalReadGeneration = 0;
   private unsubscribePersonal: (() => void) | null = null;
@@ -143,7 +154,7 @@ export class SkyScene {
     this.renderer = new THREE.WebGLRenderer({
       canvas: opts.canvas,
       antialias: false,
-      alpha: false,
+      alpha: true,
       powerPreference: 'high-performance',
       preserveDrawingBuffer: opts.preserveDrawingBuffer ?? false,
     });
@@ -156,11 +167,12 @@ export class SkyScene {
       },
       getSize: () => ({ width: this.width, height: this.height }),
     });
-    this.controller.onTap = (cx, cy) => {
+    let touchTarget: ObjectId | null = null;
+    this.controller.onTapStart = (cx, cy) => {
       const rect = opts.canvas.getBoundingClientRect();
-      const id = this.pick(cx - rect.left, cy - rect.top);
-      this.select(id);
+      touchTarget = this.pick(cx - rect.left, cy - rect.top);
     };
+    this.controller.onTap = () => this.select(touchTarget);
     this.controller.attach(opts.canvas);
     this.labels = new Labels(opts.labelContainer);
     this.markers = new MarkerLayer(opts.labelContainer);
@@ -298,6 +310,11 @@ export class SkyScene {
   }
 
   // ---------- 프레임 ----------
+  setCameraOverlay(enabled: boolean): void {
+    this.cameraOverlay = enabled;
+    this.renderer.setClearColor(0x000000, enabled ? 0 : 1);
+    this.dirty = true;
+  }
 
   private frame(now: number): void {
     const dt = Math.min(100, now - this.lastFrameMs);
@@ -389,6 +406,7 @@ export class SkyScene {
 
     this.background.setSun(sunDir, sunAlt);
     this.background.setStyle(p.bg, layers.atmosphere, p.night);
+    this.background.mesh.visible = !this.cameraOverlay;
 
     this.stars.setMatrix(this.matrix);
     this.stars.setParams(
@@ -407,7 +425,8 @@ export class SkyScene {
 
     this.milkyWay.setMatrix(this.matrix);
     const milkyAlpha = milkyWayOpacity(layers.milkyWayAlpha, sunAlt, layers.atmosphere);
-    this.milkyWay.mesh.visible = layers.milkyWay && this.milkyWay.loaded && milkyAlpha > 0;
+    this.milkyWay.mesh.visible =
+      !this.cameraOverlay && layers.milkyWay && this.milkyWay.loaded && milkyAlpha > 0;
     this.milkyWay.setStyle(p.milkyWay, milkyAlpha, true, p.night);
 
     this.constellations.setMatrix(this.matrix);
@@ -444,7 +463,7 @@ export class SkyScene {
       layers.landscape,
       view.altDeg,
     );
-    this.horizon.ground.visible = groundOpacity > 0;
+    this.horizon.ground.visible = !this.cameraOverlay && groundOpacity > 0;
     this.horizon.setStyle(p.night ? '#050000' : '#0b0d12', groundOpacity, p.horizon);
     this.horizon.setMeadow(layers.landscape, p.night, sunAlt);
 
@@ -624,6 +643,8 @@ export class SkyScene {
         ...base,
         kind: 'star',
         mag: star.mag,
+        starColor: starColor(star.spect),
+        distLy: star.distLy,
         con: star.con,
         conName: conName(cat, star.con, lang),
       };
@@ -699,12 +720,21 @@ export class SkyScene {
     const pack = this.packs.get(packName);
     const limits = dsoMagLimits(view.fovDeg);
     if (pack) {
-      const maxMag = Math.min(
-        view.fovDeg > 40 ? 6.5 : view.fovDeg > 15 ? 8 : 99,
-        this.effectiveLimitingMag(layers) + 0.5,
+      const maxMag = this.effectiveLimitingMag(layers) + 0.5;
+      const ray = toCatalogDirection(
+        this.controller.pixelToDirection(x, y, this.width, this.height),
+        this.matrix,
       );
+      const cone = pickConeCos(view.fovDeg, this.width, this.height);
       for (let i = 0; i < pack.count; i++) {
         if (pack.mag[i]! > maxMag) continue;
+        if (
+          pack.positions[i * 3]! * ray[0] +
+            pack.positions[i * 3 + 1]! * ray[1] +
+            pack.positions[i * 3 + 2]! * ray[2] <
+          cone
+        )
+          continue;
         const v: Vec3 = [
           pack.positions[i * 3]!,
           pack.positions[i * 3 + 1]!,
@@ -712,6 +742,11 @@ export class SkyScene {
         ];
         const dir = this.j2000ToSceneDir(v);
         if (!showBelow && dir[1] < 0) continue;
+        if (layers.extinction && layers.atmosphere) {
+          const trueAlt =
+            (Math.asin(Math.max(-1, Math.min(1, applyMat3(this.matrix, v)[1]))) * 180) / Math.PI;
+          if (pack.mag[i]! + pickExtinctionMag(trueAlt, showBelow) >= maxMag) continue;
+        }
         const px = this.controller.directionToPixel(dir, this.width, this.height);
         if (!px) continue;
         candidates.push({

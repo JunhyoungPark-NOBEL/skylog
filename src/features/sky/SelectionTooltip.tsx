@@ -2,6 +2,8 @@ import { useTranslation } from 'react-i18next';
 import type { ObjectInfo } from '@/render/SkyScene';
 import { getObjectPhoto } from '@/catalog/objectPhotos';
 import { PhotoThumbnail } from '@/features/object/ObjectPhoto';
+import { StarColorLabel } from '@/features/object/StarColorLabel';
+import { formatDistance } from '@/ui/format';
 
 /**
  * 선택 툴팁 (task-01 §3.8): 이름·종류·등급·alt/az·별자리. "자세히" → 상세 시트(T3).
@@ -18,7 +20,7 @@ export function SelectionTooltip({
   onCenter(): void;
   onDetails(): void;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const photo = getObjectPhoto(info.id);
   return (
     <div
@@ -43,6 +45,12 @@ export function SelectionTooltip({
               </span>
             )}
             {info.conName && <span>{info.conName}</span>}
+            {info.starColor && <StarColorLabel color={info.starColor} />}
+            {info.distLy !== undefined && info.distLy > 0 && (
+              <span>
+                {formatDistance({ ly: info.distLy }, i18n.language === 'en' ? 'en' : 'ko')}
+              </span>
+            )}
             {info.phase !== undefined && info.kind === 'moon' && (
               <span className="tabular-nums">
                 {t('sky.tooltip.illum')} {(info.phase * 100).toFixed(0)}%

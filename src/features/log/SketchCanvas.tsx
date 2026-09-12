@@ -1,6 +1,7 @@
 import {
   useCallback,
   useEffect,
+  useId,
   useRef,
   useState,
   type PointerEvent as ReactPointerEvent,
@@ -31,7 +32,7 @@ import {
 } from '@/features/log/sketchUtils';
 import type { SketchCanvasProps } from '@/features/log/types';
 import { PillButton } from '@/ui/PillButton';
-import { Toggle } from '@/ui/Toggle';
+import { useSettingsStore } from '@/state/settingsStore';
 
 /**
  * 스케치 캔버스(task-04 §3.5): 검은 원형 시야 안에 흰/회색 펜·굵기 3단계·지우개·실행 취소·전체 지우기.
@@ -97,8 +98,10 @@ function IconEraser(p: IconProps) {
   );
 }
 
-export function SketchCanvas({ initial, objectId, title, onSave, onCancel }: SketchCanvasProps) {
+export function SketchCanvas({ initial, title, onSave, onCancel }: SketchCanvasProps) {
   const { t } = useTranslation();
+  const night = useSettingsStore((s) => s.theme === 'night');
+  const filterId = useId().replace(/:/g, '');
 
   const frameRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -379,10 +382,21 @@ export function SketchCanvas({ initial, objectId, title, onSave, onCancel }: Ske
       </header>
 
       <div ref={frameRef} className="flex min-h-0 flex-1 items-center justify-center px-4 py-3">
+        <svg width="0" height="0" className="absolute" aria-hidden="true">
+          <defs>
+            <filter id={filterId}>
+              <feColorMatrix
+                type="matrix"
+                values="0.21 0.72 0.07 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"
+              />
+            </filter>
+          </defs>
+        </svg>
         <div className="relative" style={{ width: cssSize, height: cssSize }}>
           <canvas
             ref={canvasRef}
             className="block h-full w-full touch-none select-none"
+            style={{ filter: night ? `url(#${filterId})` : undefined }}
             data-drag-scroll="off"
             data-testid="sketch-surface"
             role="img"
@@ -421,29 +435,19 @@ export function SketchCanvas({ initial, objectId, title, onSave, onCancel }: Ske
           role="toolbar"
           aria-label={t('sketch.tools')}
         >
-          {objectId && (
-            <div data-testid="sketch-overlay">
-              <Toggle
-                id="sketch-overlay-toggle"
-                label={t('sketch.overlay')}
-                hint={t('sketch.overlaySoon')}
-                checked={false}
-                disabled
-                onChange={() => undefined}
-              />
-            </div>
-          )}
-          <div
-            className={`flex items-center justify-between gap-1 px-2 py-1.5 ${objectId ? 'hairline-t' : ''}`}
-          >
-            <div className="flex items-center gap-1" role="group" aria-label={t('sketch.pen')}>
+          <div className="flex flex-wrap items-center justify-between gap-1 px-2 py-1.5">
+            <div
+              className="grid w-full grid-cols-4 justify-items-center gap-1"
+              role="group"
+              aria-label={t('sketch.pen')}
+            >
               {PEN_COLOR_LIST.map((c) => {
                 const selected = tool === 'pen' && color === c;
                 return (
                   <button
                     key={c}
                     type="button"
-                    className={TOOL_BTN}
+                    className={`${TOOL_BTN} w-full gap-1.5 px-1 text-[11px]`}
                     aria-label={t(`sketch.color.${c}`)}
                     aria-pressed={selected}
                     data-testid={`sketch-color-${c}`}
@@ -457,11 +461,13 @@ export function SketchCanvas({ initial, objectId, title, onSave, onCancel }: Ske
                       className="block h-6 w-6 rounded-pill"
                       style={{
                         background: PEN_COLORS[c],
+                        filter: night ? `url(#${filterId})` : undefined,
                         boxShadow: selected
                           ? '0 0 0 2px var(--accent)'
                           : '0 0 0 1px var(--hairline-strong)',
                       }}
                     />
+                    <span>{t(`sketch.color.${c}`)}</span>
                   </button>
                 );
               })}

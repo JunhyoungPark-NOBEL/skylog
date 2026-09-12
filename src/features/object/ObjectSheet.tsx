@@ -38,6 +38,7 @@ import { useDragScroll } from '@/ui/useDragScroll';
 import { ScrollArea } from '@/ui/ScrollArea';
 import { useSheetGesture } from '@/ui/useSheetGesture';
 import { ObjectPhotoCard } from './ObjectPhoto';
+import { StarColorLabel } from './StarColorLabel';
 
 const REFRESH_MS = 10_000;
 
@@ -87,7 +88,7 @@ function Row({
   testId,
 }: {
   label: string;
-  value: string;
+  value: React.ReactNode;
   tip?: string;
   testId?: string;
 }) {
@@ -460,6 +461,13 @@ export function ObjectSheet() {
               </div>
               <Row label={t('object.mag')} value={formatMag(d.now.mag)} tip={t('object.tip.mag')} />
               <Row label={t('object.distance')} value={formatDistance(d.now.distance, lang)} />
+              {tg.kind === 'star' && (
+                <Row
+                  label={t('field.starColor')}
+                  value={<StarColorLabel color={tg.starColor ?? 'unknown'} />}
+                  tip={t('field.colorEstimate')}
+                />
+              )}
               {tg.majArcmin !== undefined && tg.kind !== 'const' && (
                 <Row
                   label={t('object.size')}
@@ -635,11 +643,6 @@ function RecordsSection({ id }: { id: ObjectId }) {
                   <span className="shrink-0 text-body-sm font-semibold tabular-nums">
                     {formatDateTime(new Date(o.observedAt))}
                   </span>
-                  {o.rating !== undefined && (
-                    <span className="shrink-0 text-label text-marker" aria-label={`${o.rating}/5`}>
-                      {'★'.repeat(o.rating)}
-                    </span>
-                  )}
                   <span className="flex min-w-0 flex-1 gap-1 overflow-hidden">
                     {o.tags.slice(0, 2).map((tag) => (
                       <span

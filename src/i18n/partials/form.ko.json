@@ -65,11 +65,11 @@
     "tagCategory": {
       "color": "색",
       "shape": "형태",
-      "resolve": "분해",
+      "resolve": "분해된 정도",
       "double": "이중성",
       "planet": "행성",
       "moon": "달",
-      "difficulty": "난이도",
+      "difficulty": "관측 난이도",
       "technique": "기법"
     },
     "tag": {

@@ -59,10 +59,10 @@ export function TargetGuide() {
     const container = containerRef.current;
     const pill = pillRef.current;
     const sky = container?.parentElement;
-    const controls = sky?.querySelector<HTMLElement>('[data-testid="ar-toggle-wrap"]');
+    const controls = sky?.querySelector<HTMLElement>('[data-testid="open-layers"]');
     if (!container || !pill || !sky || !controls) return;
 
-    // 권한 안내·센서 상태와 글자 확대에 따라 AR 묶음 높이가 달라진다.
+    // 목표는 상단 하늘 도구 아래에 놓는다. 센서/권한 안내는 하단 독에서 자체 배치한다.
     // 렌더 틱에서 재지 않고 크기가 바뀔 때만 실제 경계를 공유한다.
     const measure = () => {
       const top = sky.getBoundingClientRect().top;

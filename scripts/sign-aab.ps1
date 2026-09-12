@@ -3,6 +3,7 @@ param(
   [Parameter(Mandatory=$true)][string]$Bundle,
   [Parameter(Mandatory=$true)][string]$Output,
   [string]$JdkPath = $env:JAVA_HOME,
+  [string]$ExpectedCertificateSha256,
   [switch]$CreateNewKey
 )
 $ErrorActionPreference = 'Stop'
@@ -27,6 +28,7 @@ $skylogOutput = [IO.Path]::GetFullPath($Output)
 if (Test-Path -LiteralPath $skylogOutput) { throw 'Choose a new output filename; an existing signed bundle will not be overwritten.' }
 if (-not (Test-Path -LiteralPath (Split-Path -Parent $skylogOutput))) { throw 'Create the output directory first.' }
 $skylogTemp = $skylogOutput + '.' + [guid]::NewGuid().ToString('N') + '.tmp.aab'
+$skylogCertificateTemp = $skylogTemp + '.cer'
 if (-not (Test-Path -LiteralPath $skylogKey) -and -not $CreateNewKey) {
   throw 'Upload key not found on this PC. Restore the existing key. Use -CreateNewKey only for a confirmed first registration or an approved upload-key replacement.'
 }
@@ -42,6 +44,13 @@ try {
     $skylogSecure = Import-Clixml -LiteralPath $skylogPasswordFile
     $env:SKYLOG_UPLOAD_PASSWORD = [System.Net.NetworkCredential]::new('', $skylogSecure).Password
   }
+  if ($ExpectedCertificateSha256) {
+    if ($ExpectedCertificateSha256 -notmatch '^[a-fA-F0-9]{64}$') { throw 'Invalid expected certificate SHA256.' }
+    & (Join-Path $JdkPath 'bin/keytool.exe') -exportcert -keystore $skylogKey -storepass:env SKYLOG_UPLOAD_PASSWORD -alias skylog-upload -file $skylogCertificateTemp
+    if ($LASTEXITCODE -ne 0) { throw 'Could not verify the upload certificate.' }
+    $skylogCertificateHash = (Get-FileHash -LiteralPath $skylogCertificateTemp -Algorithm SHA256).Hash
+    if ($skylogCertificateHash -ne $ExpectedCertificateSha256) { throw 'Wrong Play upload key for this update. Sign on the PC holding the existing key; do not generate a replacement.' }
+  }
   Copy-Item -LiteralPath $skylogInput -Destination $skylogTemp
   & (Join-Path $JdkPath 'bin/jarsigner.exe') -keystore $skylogKey -storepass:env SKYLOG_UPLOAD_PASSWORD -keypass:env SKYLOG_UPLOAD_PASSWORD -sigalg SHA256withRSA -digestalg SHA-256 $skylogTemp skylog-upload
   if ($LASTEXITCODE -ne 0) { throw 'AAB signing failed.' }
@@ -54,5 +63,6 @@ try {
   Write-Output "Upload key location (private, never commit): $skylogSigningDir"
 } finally {
   Remove-Item Env:SKYLOG_UPLOAD_PASSWORD -ErrorAction SilentlyContinue
+  if (Test-Path -LiteralPath $skylogCertificateTemp) { Remove-Item -LiteralPath $skylogCertificateTemp -Force }
   if (Test-Path -LiteralPath $skylogTemp) { Remove-Item -LiteralPath $skylogTemp -Force }
 }
