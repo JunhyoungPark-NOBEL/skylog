@@ -248,7 +248,10 @@ export class SensorManager {
     if (this.filter.smoothYaw !== magnetic)
       this.filter = new OrientationFilter({ smoothYaw: magnetic });
     // 정지 출력의 계단이 확대 시 여러 픽셀로 커지지 않도록 0.35px 이하로 제한한다.
-    this.filter.setDeadband(Math.min(0.035, (this.camera?.degreesPerPixel() ?? 0.1) * 0.35));
+    this.filter.setViewport(
+      this.camera?.getView().fovDeg ?? 60,
+      this.camera?.degreesPerPixel() ?? 0.1,
+    );
     const qf = this.filter.push(q, s.timestampMs);
     this.lastQ = qf;
 

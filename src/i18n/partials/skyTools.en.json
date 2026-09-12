@@ -1,0 +1,39 @@
+{
+  "sensor": {
+    "ar": "Turn GPS sensors on"
+  },
+  "sensorAuto": {
+    "turnOff": "Turn GPS sensors off",
+    "on": "GPS sensors on"
+  },
+  "skyTools": {
+    "gps": "GPS sensors",
+    "gpsHint": "GPS provides your observing location; orientation sensors track where your phone points.",
+    "stabilization": "Stronger stabilization when zoomed in, with faster tracking as you move.",
+    "appSettings": "All app settings"
+  },
+  "scopeSky": {
+    "title": "Find with your telescope on the sky",
+    "phoneTop": "Place your phone parallel to the tube, with its top edge pointing toward the front. Align with a bright star to reduce pointing error.",
+    "rings": "The dashed outer ring is the finder field; the solid inner ring is the eyepiece field. Sizes use your saved equipment.",
+    "preview": "Preview · not the actual tube direction",
+    "close": "End telescope guidance",
+    "chart": "Detailed finder and eyepiece charts"
+  },
+  "hopJourney": {
+    "progress": "Step {{n}} of {{total}}",
+    "overview": "See landmarks",
+    "closeOverview": "This segment",
+    "nextStar": "Find next",
+    "previous": "Previous",
+    "chartHint": "The dashed ring is your {{fov}}° finder field. This wider context chart shows more sky than the actual finder.",
+    "lost": "Lost the trail?",
+    "lostHelp": "Return to the last bright star you identified. Lower the magnification and compare two or three nearby stars. If the pattern is inverted, match your finder type below.",
+    "restartView": "Review the starting star",
+    "orientation": "Finder orientation",
+    "upright": "Upright finder",
+    "inverted": "Rotated 180°",
+    "redDot": "Red dot",
+    "targetConfirmed": "I found the target"
+  }
+}

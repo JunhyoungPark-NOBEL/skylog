@@ -59,7 +59,7 @@ export function TargetGuide() {
     const container = containerRef.current;
     const pill = pillRef.current;
     const sky = container?.parentElement;
-    const controls = sky?.querySelector<HTMLElement>('[data-testid="open-layers"]');
+    const controls = sky?.querySelector<HTMLElement>('[data-testid="sky-toolbar"]');
     if (!container || !pill || !sky || !controls) return;
 
     // 목표는 상단 하늘 도구 아래에 놓는다. 센서/권한 안내는 하단 독에서 자체 배치한다.

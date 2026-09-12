@@ -113,7 +113,10 @@ export function LayerPanel({
           <button
             type="button"
             className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-surface-2 px-2 text-caption text-fg"
-            onClick={() => openTelescope(useSelectionStore.getState().selectedId ?? undefined)}
+            onClick={() => {
+              onClose();
+              openTelescope(useSelectionStore.getState().selectedId ?? undefined);
+            }}
             data-testid="sky-telescope"
           >
             <span aria-hidden="true">◎</span>

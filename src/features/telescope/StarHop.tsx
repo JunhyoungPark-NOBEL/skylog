@@ -1,13 +1,13 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { starHop } from '@/astro/starHop';
 import { curatedHop } from '@/astro/curatedHop';
 import type { HopCourse } from '@/learn/hopCourses';
 import { hopFieldHint } from './hopCopy';
 import { navigateLearn } from '@/features/learn/learnNavigation';
-import { altAzToScene } from '@/astro/coords';
+import { altAzToScene, angularSeparation, type Vec3 } from '@/astro/coords';
 import { eqjToAltAzSlow, type ObserverLike } from '@/astro/frames';
-import { displayName, type Catalog } from '@/catalog/catalog';
+import type { Catalog } from '@/catalog/catalog';
+import { hopName as displayName } from './hopNames';
 import type { ObjectId } from '@/catalog/objectId';
 import type { StarPack } from '@/catalog/starPackFormat';
 import { emitSkill } from '@/learn/runtime';
@@ -15,10 +15,12 @@ import { useTelescopeStore } from '@/state/telescopeStore';
 import { useSettingsStore } from '@/state/settingsStore';
 import { useSensorStore } from '@/state/sensorStore';
 import { flyToObject } from '@/features/sky/skyApi';
-import { compass16 } from '@/ui/format';
-import { hopStars, guideTarget } from './skyData';
+import { openObservationForm } from '@/state/logUiStore';
+import { guideTarget } from './skyData';
 import { FinderChart } from './FinderChart';
 import { EQUIPMENT_BUTTON } from './styles';
+
+/** 한 구간만 크게 보여 준다. 되돌아가도 확인한 구간은 보존하되 완료는 실제 관측 확인 후 기록한다. */
 export function StarHop({
   cat,
   pack,
@@ -40,60 +42,96 @@ export function StarHop({
     p = useTelescopeStore((s) => s.profile);
   const fov = p.mode === 'binoculars' ? p.binocularFov : p.finderFov;
   const target = guideTarget(cat, targetId, date, observer);
-  const ra = target?.raJ2000Deg,
-    dec = target?.decJ2000Deg;
-  const stars = useMemo(() => hopStars(pack), [pack]);
-  const route = useMemo(
-    () =>
-      course
-        ? (() => {
-            const points = course.points.map((id) => cat.starById.get(id) ?? cat.dsoById.get(id));
-            return points.every((p) => p !== undefined)
-              ? curatedHop(
-                  points.map((p) => ({ id: p!.id, ra: p!.ra, dec: p!.dec })),
-                  fov,
-                )
-              : null;
-          })()
-        : ra !== undefined && dec !== undefined
-          ? starHop(
-              { id: targetId, ra, dec },
-              stars,
-              fov,
-              p.mode === 'binoculars' ? 9 : p.finderKind === 'rdf' ? 5.5 : 7.5,
-            )
-          : null,
-    [targetId, ra, dec, stars, fov, p.mode, p.finderKind, course, cat],
-  );
-  const [step, setStep] = useState(-1),
-    [done, setDone] = useState(false),
+  const route = useMemo(() => {
+    if (!course || course.target !== targetId) return null;
+    const points = course.points.map((id) => cat.starById.get(id) ?? cat.dsoById.get(id));
+    return points.every((p) => p !== undefined)
+      ? curatedHop(
+          points.map((p) => ({ id: p!.id, ra: p!.ra, dec: p!.dec })),
+          fov,
+        )
+      : null;
+  }, [course, targetId, cat, fov]);
+  const storageKey = `skylog.hop.v2.${course?.id}.${course?.points.join('.')}.${fov}`;
+  const [progress, setProgress] = useState(() => {
+    try {
+      const n = Number(sessionStorage.getItem(storageKey) ?? -1);
+      return Number.isInteger(n) && n >= -1 && n <= (route?.steps.length ?? 0) ? n : -1;
+    } catch {
+      return -1;
+    }
+  });
+  const [step, setStep] = useState(progress);
+  const [overview, setOverview] = useState(false);
+  const [done, setDone] = useState(false),
     [error, setError] = useState(false),
     [busy, setBusy] = useState(false);
-  if (!target || !route)
-    return (
-      <div className="rounded-3xl bg-surface p-5">
-        <h2 className="text-title">{t('guide.hop')}</h2>
-        <p className="mt-3 leading-7 text-muted">{t('guide.noRoute')}</p>
-      </div>
-    );
-  const dir = (s: { ra: number; dec: number }) => {
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(storageKey, String(progress));
+    } catch {
+      /* 저장 공간이 없어도 관측은 계속한다. */
+    }
+  }, [progress, storageKey]);
+  if (!target || !route || !course) return <p>{t('guide.noRoute')}</p>;
+  const dir = (s: { ra: number; dec: number }): Vec3 => {
     const a = eqjToAltAzSlow(date, observer, s.ra, s.dec, 'normal');
     return altAzToScene(a.altDeg, a.azDeg);
   };
   const visible =
     target.altDeg > 0 && dir(route.start)[1] > 0 && route.steps.every((s) => dir(s.to)[1] > 0);
+  const activeStep = route.steps[Math.max(0, Math.min(route.steps.length - 1, step))]!;
+  const start = step < 0,
+    finish = step >= route.steps.length;
+  const from = start ? route.start : activeStep.from,
+    to = activeStep.to;
+  const center = dir(from);
+  const landmarks = (
+    overview
+      ? course.landmarks
+      : [
+          ...new Set([
+            from.id,
+            to.id,
+            ...(course.target === 'dso:M13'
+              ? ['star:HIP81693' as const]
+              : course.target === 'dso:M57' && !start
+                ? ['star:HIP93194' as const]
+                : []),
+          ]),
+        ]
+  ).flatMap((id) => {
+    const s = cat.starById.get(id) ?? cat.dsoById.get(id);
+    return s ? [{ direction: dir(s), label: displayName(cat, id, lang) }] : [];
+  });
+  // 출발별을 중심에 유지하고 도착별까지 한 화면에 담는다. 긴 구간에서도 목표를 잘라내지 않는다.
+  const contextFov = Math.min(
+    90,
+    Math.max(
+      fov * 1.5,
+      ...landmarks.map((s) => angularSeparation(center, s.direction) * 2.5),
+      activeStep.distanceDeg * 2.5,
+    ),
+  );
+  const confirm = () => {
+    const next = step + 1;
+    setProgress(Math.max(progress, next));
+    setStep(next);
+    setOverview(false);
+  };
   const complete = async () => {
-    if (busy || done || !visible) return;
+    if (busy || done || !visible || progress < route.steps.length) return;
     setBusy(true);
+    setError(false);
     try {
-      if (!useSensorStore.getState().simulator)
+      if (!simulator)
         await emitSkill('starhop', {
           objectId: targetId,
           from: route.start.id,
           hops: route.steps.map((s) => s.to.id),
           fovDeg: fov,
           confirmed: true,
-          courseId: course?.id,
+          courseId: course.id,
           at: date.toISOString(),
         });
       setDone(true);
@@ -104,111 +142,179 @@ export function StarHop({
     }
   };
   return (
-    <div className="space-y-4" data-testid="starhop">
-      <h2 className="text-title">{course ? course.title[lang] : t('guide.hop')}</h2>
-      {course && <p className="text-body-sm leading-6 text-muted">{course.description[lang]}</p>}
-      <p className="text-body-sm leading-6 text-muted">
-        {t('guide.hopIntro', { fov: fov.toFixed(1) })}
-      </p>
+    <div className="mx-auto max-w-lg space-y-4 p-4" data-testid="starhop">
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-caption text-accent">
+          {t('hopJourney.progress', {
+            n: Math.min(route.steps.length + 1, Math.max(1, step + 2)),
+            total: route.steps.length + 1,
+          })}
+        </p>
+        <button
+          onClick={() => setOverview(!overview)}
+          className="min-h-11 rounded-pill bg-surface-2 px-3 text-caption"
+          aria-pressed={overview}
+          data-testid="hop-overview"
+        >
+          {t(overview ? 'hopJourney.closeOverview' : 'hopJourney.overview')}
+        </button>
+      </div>
+      <div className="flex gap-1.5" aria-hidden>
+        {[route.start, ...route.steps].map((_, i) => (
+          <div
+            key={i}
+            className={`h-1.5 flex-1 rounded-full ${i <= progress ? 'bg-accent' : 'bg-surface-3'}`}
+          />
+        ))}
+      </div>
       {!visible && (
-        <p role="status" className="rounded-xl bg-surface-2 p-3">
+        <p role="status" className="rounded-xl bg-surface-2 p-3 text-body-sm">
           {t('guide.hopBelow')}
         </p>
       )}
-      {route.steps.some((s) => s.fields > 0.8) && (
-        <p role="status" className="rounded-xl bg-surface-2 p-3 text-body-sm leading-6">
-          {t('hopCourses.longStep')}
-        </p>
-      )}
-      <button
-        className="min-h-12 w-full rounded-pill bg-surface-2 px-4 text-accent"
-        onClick={() => {
-          useTelescopeStore.getState().setRoute(route);
-          flyToObject(route.start.id, Math.max(15, fov * 3));
-          window.location.hash = '#/sky';
-        }}
-      >
-        {t('guide.routeOnSky')}
-      </button>
-      <div className="rounded-3xl bg-surface p-5">
-        <p className="text-caption text-accent">{t('guide.startStar')}</p>
-        <h3 className="my-2 text-title">{displayName(cat, route.start.id, lang)}</h3>
-        <button
-          disabled={step >= 0 || !visible}
-          className={EQUIPMENT_BUTTON + ' w-full'}
-          onClick={() => setStep(0)}
-        >
-          {t(step >= 0 ? 'guide.checked' : 'guide.startConfirmed')}
-        </button>
-      </div>
-      {route.steps.map((s, i) => (
+      {finish ? (
+        <section className="space-y-4 rounded-3xl bg-surface p-5" data-testid="hop-completion">
+          <h2 className="text-title">{displayName(cat, targetId, lang)}</h2>
+          <p className="text-body-sm leading-7 text-muted">{course.tip[lang]}</p>
+          <button
+            className={EQUIPMENT_BUTTON + ' w-full'}
+            disabled={busy || done || !visible}
+            data-testid="hop-finish"
+            onClick={() => void complete()}
+          >
+            {t(done ? (simulator ? 'guide.simulation' : 'guide.hopDone') : 'guide.hopFinish')}
+          </button>
+          {done && (
+            <button
+              className={EQUIPMENT_BUTTON + ' w-full'}
+              onClick={() => {
+                navigateLearn('courses', {
+                  theme: 'telescope',
+                  group: 'starhop',
+                  hopCourse: course.id,
+                });
+                openObservationForm({ objectId: targetId });
+              }}
+            >
+              {t('hopCourses.write')}
+            </button>
+          )}
+        </section>
+      ) : (
         <section
-          key={s.to.id}
-          className={
-            'rounded-3xl border p-5 ' +
-            (step === i ? 'border-accent bg-accent-soft' : 'border-hairline bg-surface')
-          }
+          className="space-y-3 rounded-3xl border border-hairline bg-surface p-4"
           data-testid="hop-step"
         >
-          <p className="text-caption text-accent">
-            {i + 1} / {route.steps.length}
+          <p className="text-caption text-muted">
+            {t(start ? 'guide.startStar' : 'hopJourney.nextStar')}
           </p>
-          <h3 className="mt-2 text-title">
-            {displayName(cat, s.from.id, lang)} → {displayName(cat, s.to.id, lang)}
-          </h3>
-          <p className="my-3 text-body-sm">
-            {t('guide.hopDistance', {
-              direction: compass16(s.bearingDeg, lang),
-              deg: s.distanceDeg.toFixed(1),
-            })}
-            <span className="mt-1 block text-caption text-muted" data-testid="hop-distance-hint">
-              {hopFieldHint(s.fields, lang)}
-            </span>
+          <h2 className="text-title">{displayName(cat, start ? route.start.id : to.id, lang)}</h2>
+          <p className="text-body-sm leading-7">
+            {start ? course.recognize[lang] : course.steps[step]?.[lang]}
           </p>
           <FinderChart
             small
             pack={pack}
             cat={cat}
-            center={dir(s.from)}
-            previous={dir(s.from)}
-            target={dir(s.to)}
+            center={center}
+            previous={start ? undefined : center}
+            target={start ? undefined : dir(to)}
             date={date}
             observer={observer}
-            fovDeg={fov * 1.8}
+            fovDeg={contextFov}
+            fieldDeg={fov}
+            landmarks={landmarks}
             orientation={
               p.mode === 'binoculars' || p.finderKind !== 'optical' ? 'upright' : 'rotate180'
             }
             rotationDeg={p.rotationDeg}
           />
-          <p className="my-2 text-caption text-muted">{t('guide.contextChart')}</p>
+          <p className="text-caption leading-6 text-muted">
+            {t('hopJourney.chartHint', { fov: fov.toFixed(1) })}
+          </p>
+          {!start && (
+            <p className="text-body-sm" data-testid="hop-distance-hint">
+              {activeStep.distanceDeg.toFixed(1)}° · {hopFieldHint(activeStep.fields, lang)}
+            </p>
+          )}
           <button
-            className={EQUIPMENT_BUTTON + ' mt-3 w-full'}
-            disabled={step !== i || !visible}
-            onClick={() => setStep(i + 1)}
+            disabled={!visible}
+            className={EQUIPMENT_BUTTON + ' w-full'}
+            onClick={confirm}
+            data-testid="hop-confirm"
           >
-            {t(step > i ? 'guide.checked' : 'guide.hopConfirmed')}
+            {t(
+              start
+                ? 'guide.startConfirmed'
+                : to.id === targetId
+                  ? 'hopJourney.targetConfirmed'
+                  : 'guide.hopConfirmed',
+            )}
           </button>
         </section>
-      ))}
-      {step === route.steps.length && (
-        <button
-          className={EQUIPMENT_BUTTON + ' w-full'}
-          disabled={busy || done || !visible}
-          data-testid="hop-finish"
-          onClick={() => void complete()}
-        >
-          {t(done ? (simulator ? 'guide.simulation' : 'guide.hopDone') : 'guide.hopFinish')}
-        </button>
       )}
+      <div className="flex gap-2">
+        <button
+          disabled={step < 0}
+          onClick={() => {
+            setStep(step - 1);
+            setOverview(false);
+          }}
+          className="min-h-12 flex-1 rounded-pill bg-surface-2 px-4 disabled:opacity-40"
+          data-testid="hop-back"
+        >
+          ← {t('hopJourney.previous')}
+        </button>
+        <button
+          onClick={() => {
+            useTelescopeStore.getState().setRoute(route);
+            flyToObject(from.id, Math.max(20, contextFov));
+            window.location.hash = '#/sky?coursePreview=' + course.id;
+          }}
+          className="min-h-12 flex-1 rounded-pill bg-surface-2 px-3 text-body-sm text-accent"
+          data-testid="hop-on-sky"
+        >
+          {t('guide.routeOnSky')}
+        </button>
+      </div>
       {error && <p role="alert">{t('guide.error')}</p>}
-      {course && (
+      <details className="rounded-2xl border border-hairline px-4 py-2 text-body-sm">
+        <summary className="min-h-11 cursor-pointer py-2">{t('hopJourney.lost')}</summary>
+        <p className="leading-7 text-muted">{t('hopJourney.lostHelp')}</p>
         <button
-          className="min-h-12 w-full text-accent"
-          onClick={() => navigateLearn('courses', { hopCourse: course.id })}
+          className="min-h-11 text-accent"
+          onClick={() => {
+            setStep(-1);
+            setOverview(true);
+          }}
         >
-          {t('hopCourses.back')}
+          {t('hopJourney.restartView')}
         </button>
-      )}
+        <label className="flex min-h-12 items-center justify-between gap-3">
+          {t('hopJourney.orientation')}
+          <select
+            className="min-h-11 rounded-xl bg-surface-2 px-3"
+            value={p.finderKind}
+            onChange={(e) =>
+              useTelescopeStore
+                .getState()
+                .setProfile({ ...p, finderKind: e.target.value as 'raci' | 'optical' | 'rdf' })
+            }
+          >
+            <option value="raci">{t('hopJourney.upright')}</option>
+            <option value="optical">{t('hopJourney.inverted')}</option>
+            <option value="rdf">{t('hopJourney.redDot')}</option>
+          </select>
+        </label>
+      </details>
+      <button
+        className="min-h-12 w-full text-accent"
+        onClick={() =>
+          navigateLearn('courses', { theme: 'telescope', group: 'starhop', hopCourse: course.id })
+        }
+      >
+        {t('hopCourses.back')}
+      </button>
     </div>
   );
 }

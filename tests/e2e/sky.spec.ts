@@ -262,6 +262,7 @@ test('야간 모드: 별자리 선·경계는 흰색, 다른 하늘 레이어는
   await openSky(page, 'alt=30&az=180&fov=90');
   // 야간 모드 켜기
   await page.getByTestId('open-settings').click();
+  await page.getByTestId('app-settings').click();
   await page.locator('#setting-night').click();
   // 설정의 일반 하늘 복귀는 preserve 플래그가 없으므로, 픽셀 검사용 캔버스로 다시 연다.
   await openSky(page, 'alt=30&az=180&fov=90');
@@ -323,7 +324,9 @@ test('야간 모드: 별자리 선·경계는 흰색, 다른 하늘 레이어는
   await expect(page.locator('#layer-constellationLines')).toHaveAttribute('aria-checked', 'false');
   // 복구
   await page.locator('#layer-constellationLines').click();
+  await page.getByTestId('layer-panel').getByRole('button', { name: '닫기', exact: true }).click();
   await page.getByTestId('open-settings').click();
+  await page.getByTestId('app-settings').click();
   await page.locator('#setting-night').click();
 });
 

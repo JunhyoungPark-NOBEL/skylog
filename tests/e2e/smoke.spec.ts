@@ -21,7 +21,9 @@ test('앱 셸: 탭 5개 · 상태 바 · 콘솔 에러 0', async ({ page }) => {
   await expect(page.getByTestId('tab-bar')).toBeVisible();
   await expect(page.getByRole('tab')).toHaveCount(5);
   await expect(page.getByTestId('tab-sky')).toHaveAttribute('aria-selected', 'true');
+  await page.getByTestId('open-settings').click();
   await expect(page.getByTestId('status-site')).toContainText('대전');
+  await page.getByTestId('close-sky-settings').click();
   await expect(page.getByTestId('time-toggle')).toContainText(/\d{2}:\d{2}/);
   await expect(page.locator('#splash')).toHaveCount(0);
 
@@ -49,7 +51,8 @@ test('작은 첫 화면: 시간 조절은 접히고 하늘 도구는 설정 안�
   await expect(page.getByTestId('sky-telescope')).toHaveCount(0);
   await expect(page.getByTestId('real-sky-toggle')).toHaveCount(0);
   await expect(page.getByTestId('view-info')).toHaveCount(0);
-  expect((await time.boundingBox())!.width).toBeLessThan(210);
+  expect((await time.boundingBox())!.y).toBeLessThan(70);
+  expect((await time.boundingBox())!.width).toBeLessThan(250);
   expect((await page.getByTestId('tab-bar').boundingBox())!.height).toBeLessThan(65);
   for (const tab of await page.getByRole('tab').all()) {
     const box = (await tab.boundingBox())!;
@@ -100,8 +103,8 @@ test('큰 글자 200%: 센서 권한 안내·목표·좌표와 하단 탭이 겹
       return (
         target.y >= layers.y + layers.height + 7 &&
         view.y >= target.y + target.height + 7 &&
-        view.y + view.height < time.y &&
-        controls.y >= time.y + time.height
+        target.y >= time.y + time.height + 7 &&
+        controls.y > view.y + view.height
       );
     })
     .toBe(true);
@@ -121,6 +124,7 @@ test('설정: 야간 모드 · 언어 전환 · 디버그 HUD가 동작하고 De
   const errors = collectConsoleErrors(page);
   await page.goto('#/sky');
   await page.getByTestId('open-settings').click();
+  await page.getByTestId('app-settings').click();
   await expect(page.getByTestId('settings-screen')).toBeVisible();
 
   // 야간 모드

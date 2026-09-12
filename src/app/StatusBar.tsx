@@ -45,6 +45,7 @@ export function StatusBar() {
     };
   }, [overSky, timeFmt]);
 
+  if (overSky) return null;
   return (
     <header
       data-testid="status-bar"

@@ -106,9 +106,9 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   v = await getView(page);
   expect(Math.abs(((v.azDeg - tgt!.azDeg + 540) % 360) - 180)).toBeLessThan(1.5);
   expect(Math.abs(v.altDeg - tgt!.altDeg)).toBeLessThan(1.5);
-  await page.getByTestId('sensor-settings-toggle').click();
-  await expect(page.getByTestId('ar-source')).toContainText(/맞춤/);
-  await page.getByTestId('sensor-settings-toggle').click();
+  await page.getByTestId('open-settings').click();
+  await expect(page.getByTestId('alignment-setting-status')).toContainText(/맞춤/);
+  await page.getByTestId('close-sky-settings').click();
 
   // 수동 드래그 → "수동" → 버튼으로 센서 복귀
   const box = (await page.getByTestId('sky-canvas').boundingBox())!;
@@ -116,13 +116,13 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   await page.mouse.down();
   await page.mouse.move(box.x + box.width / 2 - 120, box.y + box.height / 2, { steps: 6 });
   await page.mouse.up();
-  await expect(page.getByTestId('ar-source')).toContainText(/손으로/);
-  await expect(page.getByTestId('ar-resume')).toBeVisible();
+  await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.getByTestId('ar-resume')).toHaveCount(0);
   const dragged = await getView(page);
   expect(Math.abs(((dragged.azDeg - v.azDeg + 540) % 360) - 180)).toBeGreaterThan(5);
   await page.waitForTimeout(5600);
-  await expect(page.getByTestId('ar-source')).toContainText(/손으로/);
-  await page.getByTestId('ar-resume').click();
+  await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await page.getByTestId('ar-toggle').click();
   await page.waitForTimeout(500);
   const back = await getView(page);
   expect(Math.abs(((back.azDeg - v.azDeg + 540) % 360) - 180)).toBeLessThan(1.5);
@@ -197,6 +197,7 @@ test('허용된 현재 위치는 자동 갱신하고 저장 관측지를 고르�
   await context.grantPermissions(['geolocation']);
   await context.setGeolocation({ latitude: 37.5665, longitude: 126.978, accuracy: 20 });
   await page.goto('#/sky');
+  await page.getByTestId('open-settings').click();
   await expect(page.getByTestId('status-site')).toHaveText('GPS');
   await page.goto('#/sites');
   await expect(page.locator('#sites-auto-location')).toHaveAttribute('aria-checked', 'true');
@@ -235,6 +236,7 @@ test('관측지: 추가(붙여넣기 파서·범위 선택기) → 선택 → �
   await page.getByTestId('sites-list').getByText('베란다').click();
   await expect(page.getByTestId('sites-current')).toHaveText('베란다');
   await page.goto('#/sky');
+  await page.getByTestId('open-settings').click();
   await expect(page.getByTestId('status-site')).toContainText('베란다');
 
   // 편집·삭제

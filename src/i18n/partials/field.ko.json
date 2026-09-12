@@ -1,8 +1,8 @@
 {
   "field": {
     "sketchAccount": "로그인하고 공유 준비하기",
-    "sensorOn": "센서 켜기",
-    "sensorResume": "센서 복귀",
+    "sensorOn": "GPS 센서 켜기",
+    "sensorResume": "GPS 센서 켜기",
     "alignedWith": "{{target}}에 맞춤",
     "permissionHint": "센서 버튼을 누르고 방향 센서 사용을 허용해 주세요.",
     "manual": "손으로 둘러보는 중 · 센서는 버튼으로 다시 켜요",

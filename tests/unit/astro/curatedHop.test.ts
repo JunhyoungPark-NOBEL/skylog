@@ -10,9 +10,12 @@ it('대표 코스는 실제 카탈로그의 출발 별과 목적지를 보존한
   for (const c of HOP_COURSES) {
     const selected = c.points.map((id) => points.find((p) => p.id === id)!);
     expect(selected.every(Boolean)).toBe(true);
+    expect(c.steps).toHaveLength(c.points.length - 1);
+    expect(c.steps.every((s) => s.ko.length > 20 && s.en.length > 20)).toBe(true);
+    expect(c.landmarks.every((id) => points.some((p) => p.id === id))).toBe(true);
     const route = curatedHop(selected, 6)!;
     expect(route.steps.at(-1)!.to.id).toBe(c.target);
-    expect(route.steps.every((s) => s.distanceDeg > 0 && s.distanceDeg < 5)).toBe(true);
+    expect(route.steps.every((s) => s.distanceDeg > 0 && s.distanceDeg < 7)).toBe(true);
     expect(curatedHop(selected, 1)!.steps[0]!.fields).toBeCloseTo(route.steps[0]!.fields * 6);
   }
 });

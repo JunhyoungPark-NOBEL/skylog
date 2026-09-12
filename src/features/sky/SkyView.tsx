@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { hashQuery } from '@/app/router';
+import { hashQuery, useHash } from '@/app/router';
 import type { ObjectId } from '@/catalog/objectId';
 import { ArToggle } from '@/features/sky/ArToggle';
 import { useRearCamera } from './useRearCamera';
-import { RearCameraControls, RearCameraSettings, RearCameraView } from './RearCameraView';
+import { RearCameraView } from './RearCameraView';
 import { CalibrationWizard } from '@/features/sky/CalibrationWizard';
 import { LayerPanel } from '@/features/sky/LayerPanel';
 import { SensorSimPanel } from '@/features/sky/SensorSimPanel';
@@ -30,7 +30,12 @@ import { useLogStore, type LogState } from '@/state/logStore';
 import { useSelectionStore } from '@/state/selectionStore';
 import { useSettingsStore } from '@/state/settingsStore';
 import { useViewStore } from '@/state/viewStore';
-import { IconLayers } from '@/ui/icons';
+import { IconLayers, IconSettings } from '@/ui/icons';
+
+import { HOP_COURSES } from '@/learn/hopCourses';
+import { openTelescope } from '@/features/telescope/navigation';
+import { SkySettings } from './SkySettings';
+const TelescopeMode = lazy(() => import('@/features/telescope/TelescopeMode'));
 
 function formatView(alt: number, az: number, fov: number): string {
   return `${alt >= 0 ? '+' : ''}${alt.toFixed(1)}° / ${az.toFixed(1)}° · FOV ${fov.toFixed(0)}°`;
@@ -69,7 +74,7 @@ function ViewInfo() {
   if (!selected && !hasTarget && fov < 180) return null;
   return (
     <div
-      className="pointer-events-none absolute left-1/2 top-[calc(var(--status-height)+env(safe-area-inset-top)+18px)] z-10 flex h-7 -translate-x-1/2 items-center whitespace-nowrap rounded-pill glass-hud px-2 text-caption text-fg tabular-nums"
+      className="pointer-events-none absolute left-1/2 top-[calc(var(--sky-controls-bottom,64px)+8px)] z-10 flex h-7 -translate-x-1/2 items-center whitespace-nowrap rounded-pill glass-hud px-2 text-caption text-fg tabular-nums"
       style={hasTarget ? { top: 'calc(var(--sky-target-bottom) + 8px)' } : undefined}
       data-testid="view-info"
     >
@@ -95,6 +100,11 @@ export function SkyView() {
   const rearCamera = useRearCamera(rearVideoRef);
   const [ready, setReady] = useState(false);
   const [layersOpen, setLayersOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const hash = useHash();
+  const scope = hashQuery(hash).get('scope');
+  const hopPreview = HOP_COURSES.find((c) => c.id === hashQuery(hash).get('coursePreview'));
+  const toolbarRef = useRef<HTMLDivElement>(null);
   const [wizardOpen, setWizardOpen] = useState(false);
   const simulator = useSensorStore((s) => s.simulator);
   const arActive = useSensorStore((s) => s.arActive);
@@ -152,7 +162,9 @@ export function SkyView() {
         sensorManager.pauseForManual();
     };
     const isFixedChart = () =>
-      ['alt', 'az', 'fov', 'select', 't'].some((key) => hashQuery().has(key));
+      ['alt', 'az', 'fov', 'select', 't', 'scope', 'coursePreview'].some((key) =>
+        hashQuery().has(key),
+      );
     const stopAutoOrientation = mountSkyOrientation(!isFixedChart());
 
     // 시점·시각: 해시 쿼리(#/sky?t=&alt=&az=&fov=&rate=) > viewStore. 해시가 바뀌면 다시 적용(공유 링크·테스트).
@@ -228,6 +240,21 @@ export function SkyView() {
     };
   }, []);
 
+  useEffect(() => {
+    const toolbar = toolbarRef.current;
+    const sky = toolbar?.parentElement;
+    if (!toolbar || !sky) return;
+    const measure = () =>
+      sky.style.setProperty(
+        '--sky-controls-bottom',
+        `${toolbar.getBoundingClientRect().bottom - sky.getBoundingClientRect().top}px`,
+      );
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(toolbar);
+    return () => observer.disconnect();
+  }, []);
+
   // 테마 변경 → 팔레트 재적용
   useEffect(() => {
     sceneRef.current?.setPalette();
@@ -252,7 +279,7 @@ export function SkyView() {
     };
   }, [selectedId, ready, lang]);
   const shownInfo =
-    selectedId && selectedId !== targetId && !sheetOpen && info && info.id === selectedId
+    !scope && selectedId && selectedId !== targetId && !sheetOpen && info && info.id === selectedId
       ? info
       : null;
 
@@ -277,19 +304,62 @@ export function SkyView() {
 
       {showViewInfo && <ViewInfo />}
 
-      {/* 위 HUD 줄: 왼쪽 레이어 버튼 · 오른쪽 AR 클러스터(ArToggle) — 상태 캡슐 바로 아래 */}
-      <button
-        type="button"
-        aria-label={t('sky.layers')}
-        aria-expanded={layersOpen}
-        onClick={() => setLayersOpen((o) => !o)}
-        data-testid="open-layers"
-        className="absolute left-[12px] top-[calc(var(--status-height)+env(safe-area-inset-top)+8px)] z-10 flex h-[44px] w-[44px] items-center justify-center rounded-pill glass-hud text-fg transition-transform duration-150 ease-standard active:scale-95"
+      <div
+        ref={toolbarRef}
+        data-testid="sky-toolbar"
+        className={`pointer-events-none absolute inset-x-3 top-[calc(env(safe-area-inset-top)+8px)] z-20 flex items-start gap-2 ${sheetOpen ? 'invisible' : ''}`}
       >
-        <IconLayers size={20} />
-      </button>
+        <button
+          type="button"
+          aria-label={t('common.settings')}
+          aria-expanded={settingsOpen}
+          onClick={() => {
+            setSettingsOpen(true);
+            setLayersOpen(false);
+          }}
+          data-testid="open-settings"
+          className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-pill glass-hud"
+        >
+          <IconSettings size={20} />
+        </button>
+        <button
+          type="button"
+          aria-label={t('sky.layers')}
+          aria-expanded={layersOpen}
+          onClick={() => {
+            setLayersOpen(!layersOpen);
+            setSettingsOpen(false);
+          }}
+          data-testid="open-layers"
+          className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-pill glass-hud"
+        >
+          <IconLayers size={20} />
+        </button>
+        <div className="min-w-0 flex-1">
+          <TimeBar readOnly={!!scope && !simulator} />
+        </div>
+      </div>
+      {settingsOpen && (
+        <SkySettings
+          camera={rearCamera}
+          onClose={() => setSettingsOpen(false)}
+          onAlign={() => {
+            setSettingsOpen(false);
+            setWizardOpen(true);
+          }}
+          onStartCamera={() => {
+            sceneRef.current?.controller.setView({ fovDeg: rearCamera.fov });
+            void rearCamera.start();
+          }}
+        />
+      )}
+      {!scope && <FovOverlay />}
+      {scope && ready && (
+        <Suspense fallback={null}>
+          <TelescopeMode embedded key={scope + ':' + hashQuery(hash).get('view')} />
+        </Suspense>
+      )}
 
-      <FovOverlay />
       {simulator && arActive && <SensorSimPanel />}
       {wizardOpen && <CalibrationWizard onClose={() => setWizardOpen(false)} />}
 
@@ -301,6 +371,7 @@ export function SkyView() {
             setWizardOpen(true);
           }}
           onOverview={() => {
+            if (scope) window.location.hash = '#/sky?alt=89.9&az=0&fov=220';
             setSkyOrientationAutomaticAllowed(false);
             const scene = sceneRef.current;
             scene?.controller.flyTo({ altDeg: 89.9, azDeg: 0, fovDeg: 220 });
@@ -310,7 +381,7 @@ export function SkyView() {
         />
       )}
 
-      <TargetGuide />
+      {!scope && <TargetGuide />}
 
       {/* 평소에는 작은 시간 컨트롤만 보이고, 천체를 선택했을 때 정보를 더한다. */}
       {/* 시트가 열려 있으면 독을 숨긴다(유리 위 유리·불필요한 블러 방지). */}
@@ -319,6 +390,15 @@ export function SkyView() {
       >
         <div className="flex w-full max-w-md flex-col gap-2">
           <BelowHorizonHint />
+          {hopPreview && (
+            <button
+              className="pointer-events-auto min-h-12 rounded-pill glass-hud px-4 text-body-sm text-accent"
+              data-testid="hop-return"
+              onClick={() => openTelescope(hopPreview.target, 'hop', hopPreview.id)}
+            >
+              {t('hopCourses.back')} →
+            </button>
+          )}
           {shownInfo && (
             <SelectionTooltip
               info={shownInfo}
@@ -327,20 +407,7 @@ export function SkyView() {
               onDetails={() => openObject(shownInfo.id, 'half')}
             />
           )}
-          <TimeBar />
-          <RearCameraSettings camera={rearCamera} />
-          <ArToggle
-            onAlign={() => setWizardOpen(true)}
-            cameraControl={
-              <RearCameraControls
-                camera={rearCamera}
-                onStart={() => {
-                  sceneRef.current?.controller.setView({ fovDeg: rearCamera.fov });
-                  void rearCamera.start();
-                }}
-              />
-            }
-          />
+          {!scope && <ArToggle onAlign={() => setWizardOpen(true)} />}
         </div>
       </div>
     </div>

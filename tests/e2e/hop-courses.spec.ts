@@ -12,11 +12,10 @@ test('대표 스타호핑 코스 → 실제 이정표 → 완료 → 기록 → 
   await expect(page.getByRole('button', { name: '관측 기록 쓰기' })).toBeDisabled();
   await page.screenshot({ path: 'tests/e2e/__screenshots__/hop-course-detail.png' });
   await page.getByRole('button', { name: '스타호핑 시작', exact: true }).click();
-  await page.getByTestId('guide-accept').click();
   await expect(page.getByTestId('starhop')).toContainText('허큘리스');
   await expect(page.getByTestId('hop-step')).toHaveCount(1);
   await page.getByRole('button', { name: '출발 별을 시야 중앙에 놓았어요' }).click();
-  await page.getByTestId('hop-step').getByRole('button').click();
+  await page.getByTestId('hop-confirm').click();
   await page.getByTestId('hop-finish').click();
   await page.getByRole('button', { name: '관측 코스로 돌아가기' }).click();
   await expect(page.getByTestId('hop-course-progress')).toContainText('✓ 차트를');

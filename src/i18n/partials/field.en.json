@@ -1,8 +1,8 @@
 {
   "field": {
     "sketchAccount": "Sign in to share",
-    "sensorOn": "Track sky",
-    "sensorResume": "Resume",
+    "sensorOn": "GPS sensors on",
+    "sensorResume": "GPS sensors on",
     "alignedWith": "Aligned with {{target}}",
     "permissionHint": "Tap the sensor button and allow motion access.",
     "manual": "Explore by touch · tap the sensor button to resume",

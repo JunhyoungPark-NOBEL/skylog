@@ -1,5 +1,8 @@
 /** 별길 방향: automatic은 나침반 추정, relative는 별 보정용 자이로. 두 모드 모두 폰 물리 +Y를 고정한다. */
 import type { Quaternion } from 'three';
+import { OrientationFilter } from './orientation/filter';
+import { useViewStore } from '@/state/viewStore';
+import { degPerPixel } from '@/render/projection';
 import { create } from 'zustand';
 import { physicalQuaternion, type QTuple } from '@/astro/pointing';
 import { deviceOrientationToScene, genericSensorToScene } from './orientation/math';
@@ -63,9 +66,8 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
     });
     return;
   }
-  let filtered: Quaternion | null = null,
-    last = 0,
-    readingAt = 0;
+  const filter = new OrientationFilter();
+  let last = 0;
   const publish = (q: Quaternion, source: string, headingReady = false) => {
     if (token !== generation) return;
     if (!q.toArray().every(Number.isFinite) || q.lengthSq() < 1e-9) return;
@@ -73,12 +75,12 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
     const at = Date.now();
     const resumed = previous.at > 0 && at - previous.at > 1500;
     // 백그라운드 복귀 첫 센서가 watchdog보다 먼저 와도 상대 yaw의 이전 정렬을 재사용하지 않는다.
-    if (resumed) filtered = null;
+    if (resumed) filter.reset();
     const now = performance.now();
-    const dt = Math.max(0, now - readingAt);
-    readingAt = now;
-    filtered = filtered ? filtered.slerp(q, 1 - Math.exp(-dt / 65)) : q.clone();
-    if (!resumed && now - last < 60) return;
+    const fov = useViewStore.getState().fovDeg;
+    filter.setViewport(fov, degPerPixel(fov, window.innerWidth, window.innerHeight));
+    const filtered = filter.push(q, now);
+    if (!resumed && now - last < 30) return;
     last = now;
     useTelescopeOrientation.setState({
       q: filtered.toArray() as QTuple,
@@ -110,8 +112,7 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
       provider?.stop();
       if (token !== generation) return;
       provider = providers.shift() ?? null;
-      filtered = null;
-      readingAt = 0;
+      filter.reset();
       useTelescopeOrientation.setState({
         q: null,
         at: 0,
@@ -197,7 +198,7 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
     if (fallbackStarted || token !== generation) return;
     fallbackStarted = true;
     sensor?.stop();
-    filtered = null;
+    filter.reset();
     window.addEventListener('deviceorientation', handler);
     timeout = window.setTimeout(() => {
       if (useTelescopeOrientation.getState().status === 'waiting')
@@ -214,7 +215,7 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
   ).RelativeOrientationSensor;
   if (Ctor) {
     try {
-      sensor = new Ctor({ frequency: 30, referenceFrame: 'device' });
+      sensor = new Ctor({ frequency: 60, referenceFrame: 'device' });
       sensor.onreading = () => {
         if (sensor?.quaternion)
           publish(

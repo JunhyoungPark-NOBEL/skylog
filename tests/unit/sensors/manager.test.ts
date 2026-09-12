@@ -133,6 +133,7 @@ describe('자동 재시작을 지원하는 하늘 센서 세션', () => {
     manager.attachCamera({
       setSensorQuaternion,
       degreesPerPixel: () => 0.01,
+      getView: () => ({ fovDeg: 10 }),
     } as unknown as CameraController);
     manager.start();
     expect(providers.available).toHaveBeenLastCalledWith(true);
@@ -157,6 +158,7 @@ describe('자동 재시작을 지원하는 하늘 센서 세션', () => {
     manager.attachCamera({
       setSensorQuaternion,
       degreesPerPixel: () => 0.01,
+      getView: () => ({ fovDeg: 10 }),
     } as unknown as CameraController);
     manager.start();
     publish(sample());

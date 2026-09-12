@@ -35,6 +35,7 @@ export class OrientationFilter {
   private lastRaw: Quaternion | null = null;
   private lastMs = 0;
   private deadbandDeg: number;
+  private zoomWeight = 0;
   /** 마지막 갱신에서 감지된 이상 여부 */
   anomaly = false;
   /** 마지막 추정 각속도(도/초) */
@@ -54,6 +55,13 @@ export class OrientationFilter {
     this.deadbandDeg = Math.max(0.001, Math.min(0.2, deg));
   }
 
+  /** 넓게 둘러볼 때는 빠르게, 확대해 멈춰 볼 때는 강하게 안정화한다. */
+  setViewport(fovDeg: number, degreesPerPixel: number): void {
+    if (!Number.isFinite(fovDeg) || !Number.isFinite(degreesPerPixel)) return;
+    this.zoomWeight = Math.max(0, Math.min(1, Math.log2(60 / Math.max(3, fovDeg)) / 4));
+    this.setDeadband(Math.min(0.035, degreesPerPixel * 0.3));
+  }
+
   reset(): void {
     this.state = null;
     this.output = null;
@@ -70,6 +78,8 @@ export class OrientationFilter {
   /** 새 샘플을 넣고 필터된 자세를 돌려준다. tMs는 단조 증가(performance.now()). */
   push(raw: Quaternion, tMs: number): Quaternion {
     const o = this.opts;
+    if (this.state && tMs <= this.lastMs) return (this.output ?? this.state).clone();
+    if (this.state && tMs - this.lastMs > 500) this.reset();
     if (!this.state || !this.lastRaw) {
       this.state = raw.clone();
       this.output = raw.clone();
@@ -80,12 +90,17 @@ export class OrientationFilter {
       return this.state.clone();
     }
     const dt = Math.max(1, tMs - this.lastMs);
-    // 각속도는 한 샘플 차이가 아니라 ~100ms 창의 변위로 잰다(노이즈가 30°/s처럼 보이는 것을 막음)
+    // 220ms 동안의 순변위와 총 회전량을 비교한다. 왕복하는 손떨림을 의도적 이동 속도로 오인하지 않는다.
     this.history.push({ t: tMs, q: raw.clone() });
-    while (this.history.length > 1 && tMs - this.history[0]!.t > 120) this.history.shift();
+    while (this.history.length > 1 && tMs - this.history[0]!.t > 220) this.history.shift();
     const oldest = this.history[0]!;
     const span = Math.max(1, tMs - oldest.t);
     this.rateDegPerSec = span >= 50 ? (angleBetween(oldest.q, raw) / span) * 1000 : 0;
+    let travel = 0;
+    for (let i = 1; i < this.history.length; i++)
+      travel += angleBetween(this.history[i - 1]!.q, this.history[i]!.q);
+    const coherence = travel > 1e-6 ? Math.min(1, angleBetween(oldest.q, raw) / travel) : 0;
+    const intentionalRate = this.rateDegPerSec * coherence * coherence;
 
     // 상대 회전의 세계 Y축 성분으로 판정한다. 천정을 가로지르는 작은 회전은 180° yaw 점프가 아니다.
     const rotation = raw.clone().multiply(this.lastRaw.clone().invert()).normalize();
@@ -102,8 +117,11 @@ export class OrientationFilter {
     this.lastMs = tMs;
 
     // 적응 이득 — 추정치는 항상 갱신(데드밴드는 출력에만: 첫 샘플 편향이 고정되지 않도록)
-    const fast = this.rateDegPerSec > o.fastRateDegPerSec;
-    const tau = o.tauMs / (1 + Math.max(0, this.rateDegPerSec - 3) / 3);
+    // 1€ 필터의 속도 적응 원리(Casiez et al., CHI 2012)를 쿼터니언에 적용한다.
+    // https://gery.casiez.net/1euro/ — 확대 정지 시 최대650ms, 일관된 이동 시 빠른 추종.
+    const fast = intentionalRate > o.fastRateDegPerSec;
+    const steadyTau = o.tauMs + 550 * this.zoomWeight;
+    const tau = steadyTau / (1 + (intentionalRate / 1.5) ** 2);
     const gain = fast ? 1 : 1 - Math.exp(-dt / tau);
     const next = slerpShortest(this.state, raw, gain);
     this.state = next;

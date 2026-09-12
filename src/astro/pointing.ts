@@ -40,6 +40,19 @@ export function pointingDirection(q: QTuple, alignment?: PointingAlignment | nul
   if (alignment) v.applyQuaternion(yawQuaternion(alignment.yawDeg));
   return tuple(v.normalize());
 }
+/** 메인 하늘 카메라(-Z)를 경통/폰 윗변(+Y)에 맞춘다. 천정에서도 롤·방위가 연속이다. */
+export function pointingCameraQuaternion(
+  q: QTuple,
+  alignment?: PointingAlignment | null,
+): Quaternion {
+  const cameraToTube = new Quaternion().setFromUnitVectors(
+    new Vector3(0, 0, -1),
+    vector(alignment?.axis ?? PHONE_TOP),
+  );
+  const result = new Quaternion(...q).multiply(cameraToTube);
+  if (alignment) result.premultiply(yawQuaternion(alignment.yawDeg));
+  return result.normalize();
+}
 function fit(samples: readonly AlignmentSample[], yawDeg: number): PointingAlignment {
   const invYaw = yawQuaternion(yawDeg).invert();
   const sum = new Vector3();

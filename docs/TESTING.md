@@ -9,7 +9,6 @@
 - 최초 Android 산출물의 beta.7 버전명을 패키지 검증이 거부했다. Gradle package.json 참조와 CI 메타 검사를 추가한 후 최종 beta.8/version13 AAB/APK를 다시 만들었다. 최종 키·서명·16KB 정렬·174에셋/공개 다운로드 해시 검증 통과. Play 업로드 키 없는 이 PC의 AAB는 무서명이다.
 - [Pages](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34292913299)·[Android/iOS](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34292913317) 최종 성공. 개별 계측/플랫폼 로그는 artifacts/qa-build13/mobile-evidence.json과 함께 보존한다. 실제 폰·스토어/Apple서명·SMTP/운영자 개통은 별도다.
 
-
 ## build5 재검증 (2026-09-08)
 
 - typecheck/ESLint/단위366/data 검증/웹·native build 통과. pnpm12.3.4와 frozen lock 사용.
@@ -111,6 +110,7 @@ T3b e2e(`tests/e2e/tonight.spec.ts`): Open-Meteo를 `page.route`로 목(서비�
 ```
 
 ## T4/T6·G3/G5 통합 검증 (2026-09-07)
+
 - 단위 328개: 기록 CRUD/소프트 삭제/통계, v1→v2 보존, JSON/CSV 및 blob 왕복·충돌·롤백, 마커, 콘텐츠 스키마/수치 대조/오늘의 천체, 미션·배지·SR·응답 트랜잭션. integrated.test는 실제 팩 121개/180문항의 ID·출처 포인터·언어 키를 검사한다.
 - Playwright 총 26개 시나리오. 전체 실행에서 25개 통과 후 새 검색 테스트의 디바운스 대기를 수정해 통합 4개 재실행 통과. 기존 하늘·센서·날씨·스크롤 회귀도 통과했다.
 - learning-log.spec: 스케치 그리기, 사진 2000px→1600px, 기록 수정, 관련 퀴즈 3응답, JSON 다운로드, 별도 브라우저 복원(사진·스케치·진도), 삭제 취소. 이야기 읽음→미션 진도, 영어 조작부, 글자 확대·길잡이 링크, 실제 서비스 워커를 이용한 오프라인 새로고침.
@@ -118,6 +118,7 @@ T3b e2e(`tests/e2e/tonight.spec.ts`): Open-Meteo를 `page.route`로 목(서비�
 - 초기 Chromium 실행 실패는 코드 오류가 아니라 새 PC의 Playwright 브라우저 미설치였다. 해당 버전 설치 후 실행했다. Node structuredClone/jsdom Blob 차이는 tests/setup에서 Node Blob으로 맞추되 실제 브라우저 복원 검사도 유지한다.
 
 ### 이번 실기기 체크리스트
+
 - [ ] 앱을 다시 열거나 업데이트 적용 후 기록/배우기 화면이 채워졌는지 확인.
 - [ ] 목록·퀴즈 본문 아무 곳에서 드래그/터치 스크롤. 선택지 클릭과 구분되는지 확인.
 - [ ] 실제 관측 기록 1건에 사진·스케치·메모를 넣고 수정/삭제 취소.
@@ -126,6 +127,7 @@ T3b e2e(`tests/e2e/tonight.spec.ts`): Open-Meteo를 `page.route`로 목(서비�
 - [ ] 이야기 5개를 읽고 글자 크기·자연스러운 문장·야간 모드 가독성 확인. 오류 메모는 기기에 저장되므로 후속 세션에 해당 내용을 전달.
 
 ## 배우기 분리·스테이지·지평선 검증 (2026-09-07)
+
 - Vitest 333/333: stages.test 5개 추가 — 144문항 중복/누락/활성/난이도·28스테이지 계약, 60/80/100% 경계, 불완전/버전 불일치 거부, 개인 최고점·선행 해제, 동일 응답 재전송, 마지막 저장 실패 원자 롤백·재시도. 기존 logStore 테스트의 20ms 고정 대기는 실제 완료 조건을 기다리도록 수정(과부하 환경의 성급한 실패 방지).
 - Playwright 29개 시나리오 검증. 최초 전체 28통과/새 테스트 선택자 오류 1건 수정 후 관련 재검증. journey.spec 최종 2개 모두 통과, horizon.spec 통과, learning-log 통합 4개 통과. 최종 typecheck/lint/build 통과.
 - journey.spec: 1단계 완주→다음 단계 실행→중도 닫기, 재도전 최고점 유지, 새로고침, 백업 다운로드→다른 브라우저 복원, 360px 메뉴 44px/가로 넘침, 메뉴/문항 방향키·Tab 순환·Escape 복귀, 브라우저 뒤로가기·다른 하단 탭 복귀, 이야기 검색, 한/영/야간.
@@ -133,6 +135,7 @@ T3b e2e(`tests/e2e/tonight.spec.ts`): Open-Meteo를 `page.route`로 목(서비�
 - 직접 확인한 화면: journey-home, stage-stamp, journey-night-en, learn-badges, learn-courses-en, sky-below-translucent. 시스템 글자 확대·실제 OLED 야간 대비는 아래 실기기 확인을 받는다.
 
 ### 폰에서 확인할 항목
+
 - [ ] 배우기 상단 퀴즈/코스/이야기/업적 이동, 본문 스크롤, 다른 하단 탭에 다녀와 원래 메뉴 복귀.
 - [ ] 첫 스테이지 완료→별/도장→다음 단계. 재도전 후 최고점 유지, 앱 종료/다시 열기 후 진도 유지.
 - [ ] 지평선 위아래로 시선 이동: 반투명 지면 아래 별·별자리와 안내. 레이어에서 투시 끄기/불투명 켜기.
@@ -171,7 +174,6 @@ G4 요청에는 `astro/pointing.ts`, `astro/finder.ts`, `sensors/telescopeOrient
 - 기존 하늘 e2e는 React 생성 전에 loading 개수=0을 성공으로 판정할 수 있었다. 캔버스 생성 후 loading 종료를 기다리도록 수정했다. 브라우저 전체 34개 통과 후 최종 쌍안경 수정에 대해 망원경 4개를 재검증했다(새 회귀 1개 포함, 현재 총 35개). GoTo 망원경에서 쌍안경으로 전환하면 방향 안내를 계속 제공한다.
 - 최종 108e99a 모바일 run 34174587920: Android 오프라인 계측 1/1 통과, 실패/누락 0. Android lint 오류0/경고33(템플릿·아이콘·리소스 등, MOBILE-RELEASE에 기록). iOS arm64 무서명 컴파일 성공. 서명된 versionCode4 AAB의 jarsigner strict/bundletool validate 통과. 실제 폰 축·드리프트·권한·공유는 별도 수용 항목이다.
 
-
 ## beta.5 오늘 밤·달력·코스·풍경 (2026-09-08)
 
 - calendar 단위: 현지 자정/다른 시간대·연도 전환·윤년·하루 여러 일정·ICS UTF8 줄 접기/예약문자/UTC. 날씨 구간 경계, 시야 비율 문장, 풍경 smoothstep 단조성/사용자 설정 보존 검증.
@@ -190,3 +192,11 @@ beta.7/build12 최종 결과: 단위504개, 타입/lint, PostgreSQL27개, 실제
 `pnpm test:community-db`는 PGlite 실제 PostgreSQL에서 RLS/RPC/운영 역할/차단/비공개/업로드 한도를 검증한다. `tests/backend/live-community.mjs`는 명시적 SKYLOG_LIVE_TEST=yes와 CLI 인증으로 임시 계정만 생성해 실제 서버의 JPEG EXIF 제거·공개·검토·백업·삭제를 검사하고 finally에서 정리한다. 키와 토큰을 출력하지 않는다. `personal-community.spec.ts`는360px·영어125%·야간 적색·키보드 배치·재실행 보존·목록/상세를 검증한다. 테스트 그림은 네트워크 목이며 공개 갤러리에 올리지 않는다.
 
 실기기: 배우기→내 마당에서 장식/아바타를 바꾸고 재실행; 설정 언어 전환/야간/스크롤; 천체 상세→사진; 메일 개통 후 두 계정 공유/검토/차단과 다른 기기 백업 복원. 기존 관측·코스 진도가 보존되는지 확인한다.
+
+## build26 확대·메인 하늘·스타호핑
+
+- `tests/unit/sensors/stabilization.test.ts`: 30/60/90Hz 왕복 떨림, 3° 시야, 의도적 이동 지연, 줌 변경/오래된 입력/재연결.
+- `tests/unit/astro/pointingCamera.test.ts`: 정렬 후 물리 +Y와 메인 카메라 -Z의 일치, 롤·천정 자세.
+- `tests/e2e/sky-refinement.spec.ts`: 메인 캔버스 한 개, 파인더/접안 원 실제 픽셀, 시간 잠금, 경통 축 방향, 수동 전환/버튼 복귀, 코스 지도 왕복/새로고침 체크포인트.
+- `tests/e2e/telescope.spec.ts`, `hop-courses.spec.ts`: 한 별/두 별 정렬, 도착/관측/업적, 보조 차트, 태양 근접 차단, 영어/야간과 실제 코스 완료. 브라우저 검사끼리는 공유 test-results 삭제 충돌을 피하기 위해 별도 프로세스로 동시에 실행하지 않는다.
+- 실기기 체크리스트: [build26 보고](SKY-REFINEMENT-BUILD26.md). 합성 필터 감소율은 기기별 물리 손떨림 감소율이 아니다.

@@ -22,7 +22,7 @@ function toLocalDateInput(d: Date): string {
  * 실시간은 작은 시각 pill, 필요할 때만 상세 제어를 펼친다. 시간 이동과 지금 복귀는 접어도 표시한다.
  * 위치는 SkyView의 하단 스택(bottom-sky)이 정한다.
  */
-export function TimeBar() {
+export function TimeBar({ readOnly = false }: { readOnly?: boolean }) {
   const { t } = useTranslation();
   const lang = useSettingsStore((s) => s.lang);
   const mode = useClockStore((s) => s.mode);
@@ -94,7 +94,7 @@ export function TimeBar() {
   return (
     <div
       className={`${open ? 'glass-sm' : 'glass-hud'} pointer-events-auto flex max-w-full flex-col text-caption shadow-card ${
-        open ? 'w-full rounded-xl' : 'self-center rounded-pill'
+        open ? 'w-full rounded-xl' : 'rounded-pill'
       } ${notNow ? 'text-accent' : 'text-fg'}`}
       data-testid="time-bar"
       data-time-shifted={notNow ? '1' : '0'}
@@ -104,6 +104,7 @@ export function TimeBar() {
           type="button"
           className="flex min-h-11 min-w-0 flex-1 items-center gap-2 text-left text-body-sm font-medium tabular-nums"
           onClick={() => setOpen((o) => !o)}
+          disabled={readOnly}
           data-testid="time-toggle"
           aria-expanded={open}
           aria-controls={open ? controlsId : undefined}
@@ -117,7 +118,7 @@ export function TimeBar() {
               {open || notNow ? label : timeOnly}
               {mode === 'manual' && rate !== 0 ? ` ×${rate}` : ''}
             </span>
-            {notNow && (
+            {notNow && !readOnly && (
               <span className="text-label font-medium" data-testid="time-shift-label">
                 {t('status.manualTime')}
               </span>
@@ -130,7 +131,7 @@ export function TimeBar() {
             }`}
           />
         </button>
-        {notNow && (
+        {notNow && !readOnly && (
           <button
             type="button"
             className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-pill px-3 text-caption font-semibold text-accent transition-colors duration-150 ease-standard active:bg-accent-soft"
@@ -141,7 +142,7 @@ export function TimeBar() {
           </button>
         )}
       </div>
-      {open && (
+      {open && !readOnly && (
         <div
           id={controlsId}
           className="flex max-h-[45dvh] flex-col gap-2 overflow-y-auto overscroll-contain px-3 pb-3 text-fg"

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ComponentProps } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { bodyState } from '@/astro/bodies';
 import { altAzToScene, angularSeparation, sceneToAltAz, wrap360 } from '@/astro/coords';
@@ -16,7 +17,7 @@ import { isObjectId, type ObjectId } from '@/catalog/objectId';
 import { loadStarPack } from '@/catalog/starPack';
 import type { StarPack } from '@/catalog/starPackFormat';
 import { hashQuery } from '@/app/router';
-import { ScreenFrame } from '@/features/settings/ScreenFrame';
+import { ScreenFrame as BaseScreenFrame } from '@/features/settings/ScreenFrame';
 import { useLocationStore } from '@/state/locationStore';
 import { useClockStore } from '@/state/clockStore';
 import { useSensorStore } from '@/state/sensorStore';
@@ -37,11 +38,25 @@ import { flyToObject } from '@/features/sky/skyApi';
 import { Equipment } from './Equipment';
 import { FinderChart } from './FinderChart';
 import { StarHop } from './StarHop';
-import { DirectionPanel } from './DirectionPanel';
-import { GuideSky } from './GuideSky';
+import { TelescopeSkyGuide } from './TelescopeSkyGuide';
+import { openTelescope } from './navigation';
 import { guideTarget } from './skyData';
 import { closeTelescope } from './navigation';
 import { EQUIPMENT_BUTTON as BTN, EQUIPMENT_INPUT as INPUT } from './styles';
+
+function ScreenFrame({
+  overlay = false,
+  ...props
+}: ComponentProps<typeof BaseScreenFrame> & { overlay?: boolean }) {
+  if (!overlay) return <BaseScreenFrame {...props} />;
+  // 하늘 안의 보조 화면만 전역 탭 위에 올린다. 독립 코스 화면은 기존 레이아웃을 사용한다.
+  return createPortal(
+    <div className="pointer-events-auto fixed inset-0 z-40 bg-bg">
+      <BaseScreenFrame {...props} />
+    </div>,
+    document.body,
+  );
+}
 
 type View = 'guide' | 'align' | 'finder' | 'eyepiece' | 'hop' | 'equipment';
 const captureDate = (simulation: boolean) =>
@@ -50,7 +65,18 @@ const freshReading = () => {
   const reading = useTelescopeOrientation.getState();
   return reading.status === 'active' && Date.now() - reading.at < 1000 ? reading : null;
 };
-export default function TelescopeMode() {
+export default function TelescopeMode({ embedded = false }: { embedded?: boolean }) {
+  const courseId = hashQuery().get('course');
+  const course = HOP_COURSES.find((c) => c.id === courseId);
+  useEffect(() => {
+    if (!embedded && !course) {
+      const id = hashQuery().get('scope') ?? hashQuery().get('target');
+      openTelescope(
+        id && isObjectId(id) ? id : undefined,
+        hashQuery().get('view') === 'align' ? 'align' : undefined,
+      );
+    }
+  }, [embedded, course]);
   const paidCourse = HOP_COURSES.some((c) => c.id === hashQuery().get('course'));
   const { t } = useTranslation();
   const access = useEntitlements();
@@ -59,10 +85,12 @@ export default function TelescopeMode() {
       <PlusOffer />
     </ScreenFrame>
   ) : (
-    <TelescopeSession />
+    <div className={embedded ? 'pointer-events-none absolute inset-0 z-30' : 'h-full'}>
+      <TelescopeSession embedded={embedded} />
+    </div>
   );
 }
-function TelescopeSession() {
+function TelescopeSession({ embedded }: { embedded: boolean }) {
   const { t } = useTranslation(),
     lang = useSettingsStore((s) => s.lang),
     theme = useSettingsStore((s) => s.theme);
@@ -73,7 +101,10 @@ function TelescopeSession() {
   // 쌍안경에는 이전 망원경의 가대/GoTo 설정을 적용하지 않는다.
   const guideMount = p.mode === 'binoculars' ? 'altaz' : p.mount;
   const [targetId, setTargetId] = useState<ObjectId | null>(() => {
-    const id = hashQuery().get('target');
+    const id =
+      HOP_COURSES.find((c) => c.id === hashQuery().get('course'))?.target ??
+      hashQuery().get('scope') ??
+      hashQuery().get('target');
     return id && isObjectId(id) ? id : useTelescopeStore.getState().targetId;
   });
   const [cat, setCat] = useState<Catalog | null>(null),
@@ -82,7 +113,7 @@ function TelescopeSession() {
     [retry, setRetry] = useState(0);
   const [view, setView] = useState<View>(() => {
     const v = hashQuery().get('view');
-    return v === 'hop' || v === 'align' || v === 'finder' ? v : 'guide';
+    return (!embedded && v === 'hop') || v === 'align' || v === 'finder' ? v : 'guide';
   });
   const [choosing, setChoosing] = useState(!targetId),
     [query, setQuery] = useState('');
@@ -92,7 +123,7 @@ function TelescopeSession() {
     [error, setError] = useState<string | null>(null),
     [busy, setBusy] = useState(false),
     [checked, setChecked] = useState<number | null>(null);
-  const [accepted, setAccepted] = useState(false),
+  const [accepted, setAccepted] = useState(!embedded && hashQuery().get('view') === 'hop'),
     [preview, setPreview] = useState(false),
     [pan, setPan] = useState({ alt: 0, az: 0 });
   const [tick, setTick] = useState(() => Date.now());
@@ -285,18 +316,26 @@ function TelescopeSession() {
     }
   };
   if (view === 'equipment')
-    return (
-      <Equipment
-        onBack={() => {
-          setView('guide');
-          setAlignment(null);
-          setSamples([]);
-        }}
-      />
+    return createPortal(
+      <div className="pointer-events-auto fixed inset-0 z-40 bg-bg">
+        <Equipment
+          onBack={() => {
+            setView('guide');
+            setAlignment(null);
+            setSamples([]);
+          }}
+        />
+      </div>,
+      document.body,
     );
   if (unsafe)
     return (
-      <ScreenFrame title={t('guide.sunTitle')} onBack={closeTelescope} testId="sun-guard">
+      <ScreenFrame
+        overlay={embedded}
+        title={t('guide.sunTitle')}
+        onBack={closeTelescope}
+        testId="sun-guard"
+      >
         <div
           role="alert"
           className="m-4 rounded-3xl border-2 border-danger bg-danger-soft p-6 text-danger"
@@ -317,8 +356,52 @@ function TelescopeSession() {
         </div>
       </ScreenFrame>
     );
+  if (!embedded && view === 'hop' && cat && pack && targetId)
+    return (
+      <ScreenFrame
+        title={
+          HOP_COURSES.find((c) => c.id === hashQuery().get('course'))?.title[lang] ?? t('guide.hop')
+        }
+        onBack={closeTelescope}
+      >
+        <StarHop
+          key={targetId + finderFov}
+          cat={cat}
+          pack={pack}
+          targetId={targetId}
+          date={date}
+          observer={site}
+          course={HOP_COURSES.find((c) => c.id === hashQuery().get('course'))}
+        />
+      </ScreenFrame>
+    );
+  if (embedded && view === 'guide' && targetId && target && !choosing)
+    return (
+      <TelescopeSkyGuide
+        targetId={targetId}
+        target={target}
+        accepted={accepted}
+        approximate={approximate}
+        alignment={usable}
+        inside={inside}
+        delta={delta}
+        eq={eq}
+        mount={guideMount}
+        onAccept={() => {
+          setAccepted(true);
+          if (guideMount !== 'goto') startAutomatic();
+        }}
+        onStart={startAutomatic}
+        onAlign={startAlignment}
+        onClose={closeTelescope}
+        onEquipment={() => setView('equipment')}
+        onChange={() => setChoosing(true)}
+        onChart={() => setView('finder')}
+      />
+    );
   return (
     <ScreenFrame
+      overlay={embedded}
       title={t('guide.title')}
       onBack={closeTelescope}
       testId="telescope-screen"
@@ -437,8 +520,8 @@ function TelescopeSession() {
                     </div>
                   )}
                 </section>
-                <div className="grid grid-cols-3 gap-2" aria-label={t('guide.views')}>
-                  {(['guide', 'finder', 'hop'] as const).map((v) => (
+                <div className="grid grid-cols-2 gap-2" aria-label={t('guide.views')}>
+                  {(embedded ? (['guide', 'finder'] as const) : (['hop'] as const)).map((v) => (
                     <button
                       className={
                         'min-h-14 rounded-2xl text-body-sm font-semibold ' +
@@ -457,27 +540,6 @@ function TelescopeSession() {
                     </button>
                   ))}
                 </div>
-                {view === 'guide' && guideMount !== 'goto' && (
-                  <div className="relative isolate overflow-hidden rounded-3xl border border-accent/20">
-                    <GuideSky targetId={targetId} pointing={pointing} />
-                    <DirectionPanel
-                      delta={delta}
-                      eq={eq}
-                      mount={guideMount}
-                      inside={inside}
-                      status={sensor.status}
-                      hasTarget={!!target}
-                      approximate={approximate}
-                      onStart={startAutomatic}
-                      onAlign={startAlignment}
-                      onChart={() => {
-                        setPreview(false);
-                        setPan({ alt: 0, az: 0 });
-                        setView('eyepiece');
-                      }}
-                    />
-                  </div>
-                )}
                 {view === 'hop' && targetId && (
                   <StarHop
                     key={targetId + finderFov}

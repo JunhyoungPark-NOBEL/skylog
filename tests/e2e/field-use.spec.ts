@@ -66,6 +66,7 @@ test('카메라 겹치기·밝기 조절·종료와 하단 버튼 배치', async
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('#/sky?t=2026-09-06T12:00:00Z&preserve=1&alt=40&az=180&fov=65');
   await expect(page.getByTestId('sky-canvas')).toBeVisible();
+  await page.getByTestId('open-settings').click();
   await page.getByTestId('camera-toggle').click();
   await expect(page.getByTestId('camera-toggle')).toHaveAttribute('aria-pressed', 'true');
   await expect(page.getByTestId('rear-camera-video')).toHaveJSProperty('readyState', 4);
@@ -77,12 +78,15 @@ test('카메라 겹치기·밝기 조절·종료와 하단 버튼 배치', async
   await page.getByTestId('camera-settings').locator('summary').click();
   await page.getByTestId('camera-settings').locator('input').first().fill('0.35');
   await expect(page.getByTestId('rear-camera-video')).toHaveCSS('opacity', '0.35');
-  const camera = (await page.getByTestId('camera-toggle').boundingBox())!;
+  await page.getByTestId('close-sky-settings').click();
+  await expect(page.getByTestId('camera-controls')).toHaveCount(0);
+  const time = (await page.getByTestId('time-bar').boundingBox())!;
   const sensor = (await page.getByTestId('ar-toggle-wrap').boundingBox())!;
-  expect(camera.y).toBeGreaterThan(600);
-  expect(sensor.x).toBeGreaterThanOrEqual(camera.x + camera.width);
+  expect(time.y).toBeLessThan(80);
+  expect(sensor.y).toBeGreaterThan(600);
   expect(sensor.x + sensor.width).toBeLessThanOrEqual(412);
-  await page.screenshot({ path: 'tests/e2e/__screenshots__/field-camera.png' });
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/build26-camera-clean.png' });
+  await page.getByTestId('open-settings').click();
   await page.getByTestId('camera-toggle').click();
   await expect(page.getByTestId('rear-camera-video')).toHaveJSProperty('srcObject', null);
   expect(

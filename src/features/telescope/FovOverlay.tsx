@@ -12,11 +12,12 @@ import { altAzToScene, DEG, type Vec3 } from '@/astro/coords';
 import { hemisphereRadiusPx } from '@/render/projection';
 import { equipmentFovRings, telescopeRingName } from '@/astro/fovRings';
 /** 원을 구면 위에 샘플링하므로 화면 중앙 밖에서도 각도 크기/원근이 맞는다. */
-export function FovOverlay() {
+export function FovOverlay({ guide = false }: { guide?: boolean }) {
   const { t } = useTranslation();
   const ref = useRef<HTMLCanvasElement>(null);
-  const enabled = useTelescopeStore((s) => s.fovRings),
+  const savedEnabled = useTelescopeStore((s) => s.fovRings),
     route = useTelescopeStore((s) => s.route);
+  const enabled = guide || savedEnabled;
   useEffect(() => {
     if (!enabled && !route) return;
     const canvas = ref.current;
@@ -47,7 +48,7 @@ export function FovOverlay() {
           selected = useSelectionStore.getState().selectedId,
           view = scene.controller.getView();
         const center =
-          (!useSensorStore.getState().arActive && selected
+          (!guide && !useSensorStore.getState().arActive && selected
             ? scene.objectDirection(selected)
             : null) ?? altAzToScene(view.altDeg, view.azDeg);
         const c = new Vector3(...center),
@@ -56,21 +57,42 @@ export function FovOverlay() {
         r.normalize();
         const u = new Vector3().crossVectors(r, c).normalize();
         const state = useTelescopeStore.getState();
-        const rings = equipmentFovRings(p).filter(
+        const rings = (
+          guide
+            ? [
+                {
+                  kind: 'finder' as const,
+                  fovDeg: p.mode === 'binoculars' ? p.binocularFov : p.finderFov,
+                  example: false,
+                },
+                ...(p.mode === 'telescope'
+                  ? [
+                      {
+                        kind: 'telescope' as const,
+                        fovDeg: (p.afovDeg * p.eyepieceMm) / p.focalLengthMm,
+                        example: !!p.telescopeFovExample,
+                      },
+                    ]
+                  : []),
+              ]
+            : equipmentFovRings(p)
+        ).filter(
           ({ kind, fovDeg }) =>
-            (kind === 'binoculars' ? state.fovBinoculars : state.fovTelescope) &&
+            (guide || (kind === 'binoculars' ? state.fovBinoculars : state.fovTelescope)) &&
             Number.isFinite(fovDeg) &&
             fovDeg > 0 &&
             fovDeg < 180,
         );
         rings.forEach(({ kind, fovDeg: fov, example }) => {
-          const binoculars = kind === 'binoculars';
-          const label = binoculars
-            ? t('guide.fovBinoculars', {
-                magnification: p.binocularMag,
-                aperture: p.binocularAperture,
-              })
-            : telescopeRingName(p);
+          const binoculars = kind === 'binoculars' || kind === 'finder';
+          const label = guide
+            ? t(kind === 'finder' ? 'guide.finder' : 'guide.eyepiece')
+            : binoculars
+              ? t('guide.fovBinoculars', {
+                  magnification: p.binocularMag,
+                  aperture: p.binocularAperture,
+                })
+              : telescopeRingName(p);
           ctx.setLineDash(binoculars ? [6, 5] : []);
           ctx.beginPath();
           let active = false;
@@ -139,7 +161,7 @@ export function FovOverlay() {
     draw();
     const timer = window.setInterval(draw, 66);
     return () => clearInterval(timer);
-  }, [enabled, route, t]);
+  }, [enabled, route, t, guide]);
   return (
     <canvas
       ref={ref}

@@ -148,8 +148,8 @@ test('장비 저장 → 폰 윗변 두 별 정렬 → 목표 안내·차트·스
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-equipment.png' });
   await page.goto('#/telescope?target=dso%3AM13');
   await page.getByTestId('guide-accept').click();
-  await expect(page.getByTestId('direction-panel')).toContainText('별로 더 정밀하게 맞추기');
-  await expect(page.getByTestId('guide-sky-canvas')).toBeVisible();
+  await expect(page.getByTestId('direction-align')).toContainText('밝은 별');
+  await expect(page.getByTestId('sky-canvas')).toBeVisible();
   await pointAt(page, 'star:HIP97649');
   await page.getByTestId('direction-align').click();
   await expect(page.getByTestId('alignment-wizard')).toBeVisible();
@@ -170,23 +170,23 @@ test('장비 저장 → 폰 윗변 두 별 정렬 → 목표 안내·차트·스
   await expect(page.getByRole('button', { name: '세 번째 별로 확인하기' })).toBeVisible();
   await expect(page.getByTestId('alignment-residual')).toContainText('0.0°');
   await page.getByTestId('alignment-done').click();
-  await expect(page.getByTestId('guide-arrows')).toBeInViewport();
+  await expect(page.getByTestId('scope-directions')).toBeInViewport();
   await expect(page.getByTestId('direction-horizontal')).toContainText(/왼쪽|오른쪽/);
   await expect(page.getByTestId('direction-vertical')).toContainText(/위로|아래로/);
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-direction.png' });
   await pointAt(page, 'dso:M13');
-  await expect(page.getByTestId('direction-action')).toContainText('목표 근처');
+  await expect(page.getByTestId('scope-directions')).toContainText('목표 근처');
   await expect(page.getByTestId('guide-chart')).toHaveCount(0);
-  await page.getByRole('button', { name: '시야 차트로 확인하기' }).click();
-  await expect(page.getByTestId('guide-chart')).toBeVisible();
-  await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-aligned.png' });
-  await page.getByTestId('guide-view-hop').click();
+  await expect(page.getByTestId('fov-overlay')).toBeVisible();
+  await expect(page.getByTestId('direction-panel')).toHaveCount(0);
+  await expect(page.getByTestId('guide-view-hop')).toHaveCount(0);
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/build26-telescope-aligned.png' });
+  await page.goto('#/telescope?view=hop&course=hercules-keystone&target=dso%3AM13');
   await expect(page.getByTestId('starhop')).toBeVisible();
-  await page.getByRole('button', { name: '출발 별을 시야 중앙에 놓았어요' }).click();
-  const steps = page.getByTestId('hop-step');
-  expect(await steps.count()).toBeGreaterThanOrEqual(1);
-  await page.screenshot({ path: 'tests/e2e/__screenshots__/starhop-m13.png' });
-  for (let i = 0; i < (await steps.count()); i++) await steps.nth(i).getByRole('button').click();
+  await page.getByTestId('hop-confirm').click();
+  await expect(page.getByTestId('hop-step')).toHaveCount(1);
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/build26-starhop-m13.png' });
+  await page.getByTestId('hop-confirm').click();
   await page.getByTestId('hop-finish').click();
   await expect(page.getByTestId('hop-finish')).toContainText('업적');
   await page.goto('#/learn?section=achievements');
@@ -216,7 +216,8 @@ test('태양 차단·센서 없는 차트·360px 영어와 야간 화면', async
   await page.goto('#/telescope?target=dso%3AM31');
   // 같은 라우트의 쿼리가 바뀌어도 새 목표로 갱신된다.
   await page.getByTestId('guide-accept').click();
-  await page.getByTestId('guide-view-finder').click();
+  await page.goto('#/sky?scope=dso%3AM31&view=finder');
+  await page.getByTestId('guide-accept').click();
   await expect(page.getByTestId('finder-chart')).toBeVisible();
   const chart = page.getByTestId('finder-chart');
   await chart.scrollIntoViewIfNeeded();
@@ -235,9 +236,10 @@ test('태양 차단·센서 없는 차트·360px 영어와 야간 화면', async
   await page.goto('#/settings');
   await page.getByRole('radio', { name: 'English', exact: true }).click();
   await page.goto('#/telescope?target=dso%3AM31');
-  await expect(page.getByTestId('guide-intro')).toContainText('Start without aligning a star');
+  await expect(page.getByTestId('guide-intro')).toContainText('Place your phone parallel');
   await page.getByTestId('guide-accept').click();
-  await page.getByTestId('guide-view-finder').click();
+  await page.goto('#/sky?scope=dso%3AM31&view=finder');
+  await page.getByTestId('guide-accept').click();
   await expect(page.getByTestId('finder-chart')).toBeVisible();
   await page.getByTestId('finder-chart').scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -267,11 +269,11 @@ test('나침반으로 바로 안내하며 별 보정 없이 실제 밤하늘을 
   });
   await page.goto('#/telescope?target=dso%3AM13');
   await page.getByTestId('guide-accept').click();
-  await expect(page.getByTestId('guide-arrows')).toBeVisible();
-  await expect(page.getByTestId('direction-panel')).toContainText('나침반으로 잡은 대략 방향');
+  await expect(page.getByTestId('scope-directions')).toBeVisible();
+  await expect(page.getByTestId('scope-status')).toContainText('나침반으로 잡은 대략 방향');
   await expect(page.getByTestId('alignment-wizard')).toHaveCount(0);
-  await expect(page.getByTestId('guide-sky-canvas')).toBeVisible();
-  await expect.poll(() => page.getByTestId('guide-sky-labels').innerText()).not.toBe('');
+  await expect(page.getByTestId('sky-canvas')).toBeVisible();
+  await expect.poll(() => page.getByTestId('sky-labels').innerText()).not.toBe('');
   const before = await page.getByTestId('direction-horizontal').innerText();
   await page.evaluate(() => {
     (window as Window & { __automaticPose?: { alpha: number; beta: number } }).__automaticPose = {
@@ -281,8 +283,7 @@ test('나침반으로 바로 안내하며 별 보정 없이 실제 밤하늘을 
   });
   await expect(page.getByTestId('direction-horizontal')).not.toHaveText(before);
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-automatic.png' });
-  await page.getByTestId('guide-view-finder').click();
-  await expect(page.getByTestId('guide-status')).toContainText('대략 방향');
+  await expect(page.getByTestId('fov-overlay')).toBeVisible();
   await page.goto('#/backup');
   const [download] = await Promise.all([
     page.waitForEvent('download'),
@@ -302,14 +303,14 @@ test('상대 센서만 있으면 임의 방위 화살표 대신 목표 주변 �
   await pointAt(page, 'star:HIP97649');
   await page.goto('#/telescope?target=dso%3AM13');
   await page.getByTestId('guide-accept').click();
-  await expect(page.getByTestId('direction-panel')).toContainText('자동 방향을 확인하고 있어요', {
+  await expect(page.getByTestId('telescope-sky-guide')).toContainText('나침반', {
     timeout: 15000,
   });
-  await expect(page.getByTestId('guide-sky-canvas')).toBeVisible();
-  await expect.poll(() => page.getByTestId('guide-sky-labels').innerText()).not.toBe('');
-  await expect(page.getByTestId('guide-arrows')).toHaveCount(0);
+  await expect(page.getByTestId('sky-canvas')).toBeVisible();
+  await expect.poll(() => page.getByTestId('sky-labels').innerText()).not.toBe('');
+  await expect(page.getByTestId('scope-directions')).toHaveCount(0);
   await expect(page.getByTestId('alignment-wizard')).toHaveCount(0);
-  await expect(page.getByTestId('direction-align')).toContainText('선택');
+  await expect(page.getByTestId('direction-align')).toContainText('별');
 });
 
 /** 저장 값만 읽지 않고 실제 시야원 캔버스 가운데에 그려진 지름을 확인한다. */

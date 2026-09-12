@@ -4,7 +4,7 @@ import type { LearningState } from '@/learn/runtime';
 import { useSettingsStore } from '@/state/settingsStore';
 import { openObservationForm } from '@/state/logUiStore';
 import { openTelescope } from '@/features/telescope/navigation';
-import { displayName } from '@/catalog/catalog';
+import { hopName as displayName } from '@/features/telescope/hopNames';
 import { navigateLearn } from './learnNavigation';
 
 export function HopCourses({

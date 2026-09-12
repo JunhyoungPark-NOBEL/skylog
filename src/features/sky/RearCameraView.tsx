@@ -77,7 +77,7 @@ export function RearCameraControls({ camera, onStart }: { camera: RearCamera; on
           <path d="M3 7h4l2-3h6l2 3h4v13H3z" />
           <circle cx="12" cy="13" r="4" />
         </svg>
-        <span className="hidden whitespace-nowrap min-[400px]:inline">{label}</span>
+        <span className="whitespace-normal text-left">{label}</span>
       </button>
     </div>
   );
