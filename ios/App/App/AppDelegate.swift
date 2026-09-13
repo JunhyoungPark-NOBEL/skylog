@@ -39,7 +39,7 @@ public class SkylogMotionPlugin: CAPPlugin, CAPBridgedPlugin {
                 let q = data.attitude.quaternion
                 // Core Motion의 북·서·천정 기준을 ENU로 바꾼다. 상대 모드는 yaw만 임의다.
                 let enu = simd_quatd(angle: .pi / 2, axis: SIMD3<Double>(0, 0, 1)) * simd_quatd(ix: q.x, iy: q.y, iz: q.z, r: q.w)
-                self.notifyListeners("orientation", data: ["quaternion": [enu.imag.x, enu.imag.y, enu.imag.z, enu.real], "northReference": relative ? "relative" : "magnetic", "session": token])
+                self.notifyListeners("orientation", data: ["quaternion": [enu.imag.x, enu.imag.y, enu.imag.z, enu.real], "timestampMs": data.timestamp * 1000, "northReference": relative ? "relative" : "magnetic", "session": token])
             }
             call.resolve()
         }

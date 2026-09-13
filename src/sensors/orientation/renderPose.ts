@@ -1,67 +1,54 @@
 import { Quaternion } from 'three';
 import { clamp } from '@/astro/coords';
 
-const DEFAULT_INTERVAL_MS = 1000 / 30;
-const RESET_GAP_MS = 250;
 export const MAX_POSE_BLEND_MS = 50;
+export const POSE_DELAY_MS = 40;
+const RESET_GAP_MS = 250;
 
-/**
- * 불규칙한 센서 자세를 렌더 시각에 맞춰 잇는다. 별도의 저역통과 필터나 미래 방향 예측은 하지 않는다.
- * 샘플 간격만큼(최대 50ms) 최단 경로로 보간하고, 동일 목표는 도착 시간을 뒤로 미루지 않는다.
- */
+/** 측정 시각의 자세 열을 40ms 뒤에서 재생한다. 이벤트가 몰려와도 매번 보간을 재시작하지 않는다. */
 export class RenderPose {
-  private present = false;
-  private readonly from = new Quaternion();
-  private readonly target = new Quaternion();
-  private readonly output = new Quaternion();
-  private readonly incoming = new Quaternion();
-  private lastSampleMs = 0;
-  private startMs = 0;
-  private durationMs = 0;
-  private intervalMs = DEFAULT_INTERVAL_MS;
-
+  private samples: { q: Quaternion; time: number }[] = [];
+  private output = new Quaternion();
+  private lastChangeMs = -Infinity;
   reset(): void {
-    this.present = false;
-    this.durationMs = 0;
-    this.intervalMs = DEFAULT_INTERVAL_MS;
+    this.samples = [];
+    this.lastChangeMs = -Infinity;
   }
-
   get active(): boolean {
-    return this.present;
+    return this.samples.length > 0;
   }
-
-  /** 첫 입력 또는 긴 공백 뒤 입력이면 true: 이전 세션의 자세에서 보간하지 않고 즉시 적용한다. */
-  push(q: Quaternion, nowMs: number): boolean {
-    this.incoming.copy(q).normalize();
-    const gap = nowMs - this.lastSampleMs;
-    if (!this.present || gap > RESET_GAP_MS || gap < 0) {
-      this.present = true;
-      this.from.copy(this.incoming);
-      this.target.copy(this.incoming);
-      this.lastSampleMs = this.startMs = nowMs;
-      this.durationMs = 0;
-      this.intervalMs = DEFAULT_INTERVAL_MS;
-      return true;
-    }
-    if (gap > 0) this.intervalMs += 0.25 * (clamp(gap, 8, MAX_POSE_BLEND_MS) - this.intervalMs);
-    this.lastSampleMs = nowMs;
-    if (1 - Math.abs(this.incoming.dot(this.target)) < 1e-12) return false;
-    this.from.copy(this.sample(nowMs)!);
-    this.target.copy(this.incoming);
-    this.startMs = nowMs;
-    this.durationMs = clamp(this.intervalMs, 8, MAX_POSE_BLEND_MS);
-    return false;
+  /** 오래된/중복/무효 입력으로 표시 자세를 되감지 않는다. */
+  push(q: Quaternion, time: number): boolean {
+    if (!Number.isFinite(time) || !q.toArray().every(Number.isFinite) || q.lengthSq() < 1e-9)
+      return false;
+    const last = this.samples.at(-1);
+    if (last && time <= last.time) return false;
+    const fresh = !last || time - last.time > RESET_GAP_MS;
+    if (fresh) this.reset();
+    const normalized = q.clone().normalize();
+    if (fresh || !last || 1 - Math.abs(normalized.dot(last.q)) > 1e-12) this.lastChangeMs = time;
+    this.samples.push({ q: normalized, time });
+    while (this.samples.length > 2 && time - this.samples[1]!.time > 1000) this.samples.shift();
+    return fresh;
   }
-
-  /** 반환 객체는 다음 호출에서 재사용하므로 호출자는 보관할 때 복사한다. */
+  /** 호출 횟수/렌더 주기와 무관한 시간 기반 보간. 입력이 끊기면 마지막 자세를 유지한다. */
   sample(nowMs: number): Quaternion | null {
-    if (!this.present) return null;
-    const progress =
-      this.durationMs > 0 ? clamp((nowMs - this.startMs) / this.durationMs, 0, 1) : 1;
-    return this.output.copy(this.from).slerp(this.target, progress).normalize();
+    const first = this.samples[0];
+    if (!first) return null;
+    const time = nowMs - POSE_DELAY_MS;
+    if (time <= first.time) return this.output.copy(first.q);
+    for (let i = 1; i < this.samples.length; i++) {
+      const next = this.samples[i]!,
+        prev = this.samples[i - 1]!;
+      if (time <= next.time)
+        return this.output
+          .copy(prev.q)
+          .slerp(next.q, clamp((time - prev.time) / (next.time - prev.time), 0, 1))
+          .normalize();
+    }
+    return this.output.copy(this.samples.at(-1)!.q);
   }
-
   isMoving(nowMs: number): boolean {
-    return this.present && this.durationMs > 0 && nowMs - this.startMs < this.durationMs;
+    return this.active && nowMs < this.lastChangeMs + POSE_DELAY_MS;
   }
 }

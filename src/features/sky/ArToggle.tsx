@@ -7,6 +7,7 @@ import {
   enableSkyOrientationFromGesture,
 } from '@/sensors/orientation/autoStart';
 import { useSensorStore } from '@/state/sensorStore';
+import { IconCompass } from '@/ui/icons';
 
 /** 엄지가 닿는 하단: 주 조작 하나 + 필요할 때 여는 추적/보정 설정. */
 export function ArToggle() {
@@ -48,10 +49,7 @@ export function ArToggle() {
         data-testid="ar-toggle"
         className="flex h-[48px] min-w-[64px] items-center justify-center gap-1.5 rounded-pill glass-hud px-3 text-body-sm font-semibold shadow-float aria-pressed:bg-accent-soft aria-pressed:text-accent"
       >
-        <span
-          aria-hidden
-          className={`h-1.5 w-1.5 rounded-full ${tracking ? 'bg-accent' : 'bg-muted'} ${startup === 'starting' ? 'animate-pulse motion-reduce:animate-none' : ''}`}
-        />
+        <IconCompass className="h-[20px] w-[20px] shrink-0" />
         GPS
       </button>
     </div>

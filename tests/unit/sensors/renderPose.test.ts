@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { Quaternion, Vector3 } from 'three';
-import { RenderPose, MAX_POSE_BLEND_MS } from '@/sensors/orientation/renderPose';
+import { RenderPose, MAX_POSE_BLEND_MS, POSE_DELAY_MS } from '@/sensors/orientation/renderPose';
 import { angleBetween } from '@/sensors/orientation/math';
 import { OrientationFilter } from '@/sensors/orientation/filter';
 
@@ -96,7 +96,7 @@ describe('sensor pose resampling for rendered frames', () => {
     const pose = new RenderPose();
     pose.push(yaw(359), 0);
     pose.push(yaw(1), 30);
-    expect(angleBetween(pose.sample(45)!, yaw(0))).toBeLessThan(0.1);
+    expect(angleBetween(pose.sample(15 + POSE_DELAY_MS)!, yaw(0))).toBeLessThan(0.1);
     const target = yaw(1);
     pose.push(new Quaternion(-target.x, -target.y, -target.z, -target.w), 45);
     expect(angleBetween(pose.sample(80)!, target)).toBeLessThan(1e-6);

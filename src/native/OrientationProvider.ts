@@ -1,3 +1,5 @@
+import { SampleClock } from '@/sensors/orientation/sampleClock';
+import { NorthFusion } from '@/sensors/orientation/northFusion';
 import { currentScreenAngle, genericSensorToScene } from '@/sensors/orientation/math';
 import type { OrientationProvider, OrientationSample } from '@/sensors/orientation/types';
 import { isNative, watchNativeMotion } from './motion';
@@ -9,9 +11,15 @@ export class NativeOrientationProvider implements OrientationProvider {
     return isNative();
   }
   start(onSample: (s: OrientationSample) => void, onError: (e: Error) => void) {
+    const clock = new SampleClock();
+    const fusion = new NorthFusion();
     this.cleanup = watchNativeMotion(
       this.relative,
-      (r) => {
+      (reading) => {
+        const r = fusion.push(reading);
+        if (!r) return;
+        const timestampMs = clock.map(r.timestampMs, performance.now());
+        if (timestampMs === null) return;
         const screenAngleDeg = currentScreenAngle();
         onSample({
           q: genericSensorToScene(r.quaternion, screenAngleDeg, 'device'),
@@ -20,7 +28,7 @@ export class NativeOrientationProvider implements OrientationProvider {
           compassAccuracyDeg: r.headingAccuracyDeg ?? null,
           raw: { alpha: null, beta: null, gamma: null, absolute: r.northReference !== 'relative' },
           screenAngleDeg,
-          timestampMs: performance.now(),
+          timestampMs,
           provider: this.name,
         });
       },

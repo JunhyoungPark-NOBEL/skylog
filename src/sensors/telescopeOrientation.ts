@@ -1,3 +1,4 @@
+import { SampleClock, browserSampleTime } from './orientation/sampleClock';
 /** 별길 방향: automatic은 나침반 추정, relative는 별 보정용 자이로. 두 모드 모두 폰 물리 +Y를 고정한다. */
 import type { Quaternion } from 'three';
 import { OrientationFilter } from './orientation/filter';
@@ -16,6 +17,7 @@ import { useLocationStore } from '@/state/locationStore';
 interface Reading {
   q: QTuple | null;
   at: number;
+  sampleMs: number;
   status: 'off' | 'waiting' | 'active' | 'unavailable' | 'denied';
   source: string;
   sessionId: string;
@@ -25,6 +27,7 @@ interface Reading {
 export const useTelescopeOrientation = create<Reading>(() => ({
   q: null,
   at: 0,
+  sampleMs: 0,
   status: 'off',
   source: '',
   sessionId: '',
@@ -32,6 +35,7 @@ export const useTelescopeOrientation = create<Reading>(() => ({
   headingReady: false,
 }));
 interface RelativeSensor {
+  timestamp?: number | null;
   quaternion: ArrayLike<number> | null;
   onreading: (() => void) | null;
   onerror: (() => void) | null;
@@ -68,7 +72,12 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
   }
   const filter = new OrientationFilter();
   let last = 0;
-  const publish = (q: Quaternion, source: string, headingReady = false) => {
+  const publish = (
+    q: Quaternion,
+    source: string,
+    headingReady = false,
+    sampleMs = performance.now(),
+  ) => {
     if (token !== generation) return;
     if (!q.toArray().every(Number.isFinite) || q.lengthSq() < 1e-9) return;
     const previous = useTelescopeOrientation.getState();
@@ -79,12 +88,13 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
     const now = performance.now();
     const fov = useViewStore.getState().fovDeg;
     filter.setViewport(fov, degPerPixel(fov, window.innerWidth, window.innerHeight));
-    const filtered = filter.push(q, now);
+    const filtered = filter.push(q, sampleMs);
     if (!resumed && now - last < 30) return;
     last = now;
     useTelescopeOrientation.setState({
       q: filtered.toArray() as QTuple,
       at,
+      sampleMs,
       status: 'active',
       source,
       headingReady,
@@ -140,7 +150,12 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
             sample,
             useSensorStore.getState().applyDeclination ? declination : 0,
           );
-          publish(q ?? physicalQuaternion(sample.q, sample.screenAngleDeg), current.name, !!q);
+          publish(
+            q ?? physicalQuaternion(sample.q, sample.screenAngleDeg),
+            current.name,
+            !!q,
+            sample.timestampMs,
+          );
         },
         () => {
           if (provider === current) next();
@@ -168,9 +183,14 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
     return;
   }
   if (isNative()) {
+    const clock = new SampleClock();
     const stop = watchNativeMotion(
       true,
-      (r) => publish(genericSensorToScene(r.quaternion, 0, 'device'), 'Native relative'),
+      (r) => {
+        const time = clock.map(r.timestampMs, performance.now());
+        if (time !== null)
+          publish(genericSensorToScene(r.quaternion, 0, 'device'), 'Native relative', false, time);
+      },
       () => {
         if (token === generation)
           useTelescopeOrientation.setState({ status: 'unavailable', q: null });
@@ -192,6 +212,8 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
     publish(
       physicalQuaternion(deviceOrientationToScene(e.alpha, e.beta, e.gamma, 0), 0),
       'DeviceOrientation (relative)',
+      false,
+      browserSampleTime(e.timeStamp),
     );
   };
   const fallback = () => {
@@ -221,6 +243,8 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
           publish(
             genericSensorToScene(sensor.quaternion, 0, 'device'),
             'RelativeOrientationSensor',
+            false,
+            browserSampleTime(sensor.timestamp),
           );
       };
       sensor.onerror = fallback;

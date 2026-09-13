@@ -6,7 +6,7 @@ on:
         description: '새 빌드 번호 (이전 배포보다 큰 양의 정수, 최대 2100000000)'
         required: true
         type: string
-        default: '27'
+        default: '28'
 permissions:
   contents: read
 env:

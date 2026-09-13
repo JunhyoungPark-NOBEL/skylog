@@ -21,10 +21,12 @@ test('접이식 하늘 메뉴·통합 설정·GPS·시계가 200% 글자에서�
   expect(gps.y).toBeGreaterThan(650);
   expect(camera.x).toBeGreaterThan(gps.x + gps.width);
   await expect(page.getByTestId('ar-toggle')).toHaveText('GPS');
+  await expect(page.getByTestId('ar-toggle').locator('svg')).toBeVisible();
+  expect(gps.height).toBeGreaterThanOrEqual(44);
   await expect(page.getByTestId('time-toggle')).toHaveText('');
   await expect(page.getByTestId('tab-bar')).toBeHidden();
   await expect(page.getByTestId('open-layers')).toHaveCount(0);
-  await page.screenshot({ path: 'tests/e2e/__screenshots__/build27-compact-200.png' });
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/build28-compact-200.png' });
   await page.getByTestId('nav-toggle').click();
   await expect(page.getByTestId('tab-bar')).toBeVisible();
   await expect(page.getByTestId('tab-bar').getByRole('tab')).toHaveCount(5);
@@ -46,7 +48,7 @@ test('접이식 하늘 메뉴·통합 설정·GPS·시계가 200% 글자에서�
   await expect(page.locator('#setting-night')).toBeVisible();
   await expect(page).toHaveURL(/#\/sky$/);
   await page.getByTestId('close-sky-settings').click();
-  await page.screenshot({ path: 'tests/e2e/__screenshots__/build27-compact.png' });
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/build28-compact.png' });
 });
 
 test('센서 권한 거부는 메인에 패널을 띄우지 않으며 설정에서 원인을 확인한다', async ({ page }) => {
@@ -65,5 +67,5 @@ test('센서 권한 거부는 메인에 패널을 띄우지 않으며 설정에�
   await page.getByTestId('open-settings').click();
   await page.getByTestId('settings-gps').click();
   await expect(page.getByTestId('sensor-connection-status')).not.toHaveText('');
-  await page.screenshot({ path: 'tests/e2e/__screenshots__/build27-gps-settings.png' });
+  await page.screenshot({ path: 'tests/e2e/__screenshots__/build28-gps-settings.png' });
 });

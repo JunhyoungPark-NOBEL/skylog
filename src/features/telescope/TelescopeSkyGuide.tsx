@@ -1,3 +1,4 @@
+import { IconCompass } from '@/ui/icons';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Vector3 } from 'three';
@@ -93,9 +94,11 @@ export function TelescopeSkyGuide({
     if (!sc) return;
     sc.controller.setSensorQuaternion(
       moving && reading.q ? pointingCameraQuaternion(reading.q, alignment?.model) : null,
+      false,
+      reading.sampleMs,
     );
     sc.invalidate();
-  }, [moving, reading.q, alignment]);
+  }, [moving, reading.q, reading.sampleMs, alignment]);
   useEffect(() => {
     const tick = () => {
       const sc = getSkyScene(),
@@ -320,7 +323,7 @@ export function TelescopeSkyGuide({
                   }
                 }}
               >
-                GPS
+                <IconCompass className="inline-block h-[20px] w-[20px] align-middle mr-1" /> GPS
               </button>
             </div>
           </>

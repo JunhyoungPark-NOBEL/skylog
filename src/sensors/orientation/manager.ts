@@ -285,7 +285,7 @@ export class SensorManager {
     if (!paused && this.camera) {
       // 나침반 동기화 전의 임의 상대 yaw로 실제 하늘 방위를 바꾸지 않는다.
       if (source === 'relative') this.camera.setSensorQuaternion(null);
-      else this.camera.setSensorQuaternion(qCal, st.keepLevel);
+      else this.camera.setSensorQuaternion(qCal, st.keepLevel, s.timestampMs);
     }
 
     // OS가 지속적으로 낮은 정확도를 보고할 때만 방향 불안정 안내를 띄운다.

@@ -1,6 +1,6 @@
 {
   "name": "skylog",
-  "version": "0.1.0-beta.21",
+  "version": "0.1.0-beta.22",
   "private": true,
   "description": "스카이야드 Skyard - 천체 관측 가이드",
   "type": "module",

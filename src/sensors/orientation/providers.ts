@@ -1,3 +1,4 @@
+import { browserSampleTime } from './sampleClock';
 /**
  * 방향 센서 Provider 어댑터 (task-02 §3.2, G1 §A7-1 우선순위).
  * 우선순위: DeviceOrientationAbsolute → AbsoluteOrientationSensor(선택) → DeviceOrientation(absolute=true면 자북, 아니면 상대+iOS 나침반).
@@ -47,7 +48,7 @@ function sampleFromEvent(
     compassAccuracyDeg: acc,
     raw: { alpha, beta, gamma, absolute },
     screenAngleDeg: screen,
-    timestampMs: performance.now(),
+    timestampMs: browserSampleTime(e.timeStamp),
     provider,
   };
 }
@@ -99,6 +100,7 @@ export class DeviceOrientationProvider implements OrientationProvider {
 }
 
 interface GenericSensor {
+  timestamp?: number | null;
   quaternion: ArrayLike<number> | null;
   onreading: (() => void) | null;
   onerror: ((e: { error?: { name?: string; message?: string } }) => void) | null;
@@ -140,7 +142,7 @@ export class AbsoluteOrientationSensorProvider implements OrientationProvider {
           compassAccuracyDeg: null,
           raw: { alpha: null, beta: null, gamma: null, absolute: !this.relative },
           screenAngleDeg: currentScreenAngle(),
-          timestampMs: performance.now(),
+          timestampMs: browserSampleTime(sensor.timestamp),
           provider: this.name,
         });
       };

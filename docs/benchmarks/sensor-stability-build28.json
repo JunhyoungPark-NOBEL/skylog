@@ -1,0 +1,122 @@
+{
+  "date": "2026-09-13",
+  "baseline": "build27 / 32a65a7",
+  "candidate": "beta.22 / build28",
+  "fixture": "tests/unit/render/sensorStability.test.ts",
+  "viewportCssPx": [
+    412,
+    915
+  ],
+  "renderHz": 120,
+  "note": "합성 세 축 입력·화면 투영 결과. S24+ 실측치가 아님.",
+  "cases": [
+    {
+      "sensorHz": 30,
+      "fov": 90,
+      "oldRmsPx": 0.5078660726875425,
+      "newRmsPx": 0.24645258014447075,
+      "improvementPercent": 51.47291906303471,
+      "oldMaxFrameStepPx": 0.409078884677948,
+      "newMaxFrameStepPx": 0.08892019875699965
+    },
+    {
+      "sensorHz": 30,
+      "fov": 60,
+      "oldRmsPx": 0.7850929247730999,
+      "newRmsPx": 0.3809826790350302,
+      "improvementPercent": 51.47291906303471,
+      "oldMaxFrameStepPx": 0.6323811636701173,
+      "newMaxFrameStepPx": 0.1374587173033538
+    },
+    {
+      "sensorHz": 30,
+      "fov": 15,
+      "oldRmsPx": 1.1107637567911748,
+      "newRmsPx": 0.3878764490525151,
+      "improvementPercent": 65.08020299716743,
+      "oldMaxFrameStepPx": 0.818769178922535,
+      "newMaxFrameStepPx": 0.09542847598982585
+    },
+    {
+      "sensorHz": 30,
+      "fov": 3,
+      "oldRmsPx": 3.3378640488423628,
+      "newRmsPx": 0.8016669733543712,
+      "improvementPercent": 75.9826355530446,
+      "oldMaxFrameStepPx": 2.404758272722117,
+      "newMaxFrameStepPx": 0.16975187170934983
+    },
+    {
+      "sensorHz": 60,
+      "fov": 90,
+      "oldRmsPx": 0.4758273085450032,
+      "newRmsPx": 0.24138262204439617,
+      "improvementPercent": 49.27096076463076,
+      "oldMaxFrameStepPx": 0.32508504723415055,
+      "newMaxFrameStepPx": 0.11394268004024476
+    },
+    {
+      "sensorHz": 60,
+      "fov": 60,
+      "oldRmsPx": 0.7355652866820683,
+      "newRmsPx": 0.37314520288270164,
+      "improvementPercent": 49.2709607646309,
+      "oldMaxFrameStepPx": 0.5025379411199683,
+      "newMaxFrameStepPx": 0.17614012185514483
+    },
+    {
+      "sensorHz": 60,
+      "fov": 15,
+      "oldRmsPx": 0.9823776435108753,
+      "newRmsPx": 0.3811248816672037,
+      "improvementPercent": 61.20383192912263,
+      "oldMaxFrameStepPx": 0.5206608230061656,
+      "newMaxFrameStepPx": 0.14724591184228605
+    },
+    {
+      "sensorHz": 60,
+      "fov": 3,
+      "oldRmsPx": 2.8953758581577196,
+      "newRmsPx": 0.7944407423860258,
+      "improvementPercent": 72.56174046807466,
+      "oldMaxFrameStepPx": 1.4747384046831584,
+      "newMaxFrameStepPx": 0.20514946950854313
+    },
+    {
+      "sensorHz": 90,
+      "fov": 90,
+      "oldRmsPx": 0.47716386593651555,
+      "newRmsPx": 0.24141825520216573,
+      "improvementPercent": 49.40558738069129,
+      "oldMaxFrameStepPx": 0.3085072245561976,
+      "newMaxFrameStepPx": 0.1299251969491795
+    },
+    {
+      "sensorHz": 90,
+      "fov": 60,
+      "oldRmsPx": 0.7376314253907991,
+      "newRmsPx": 0.37320028697190893,
+      "improvementPercent": 49.405587380691316,
+      "oldMaxFrameStepPx": 0.47691084769402076,
+      "newMaxFrameStepPx": 0.20084695229747096
+    },
+    {
+      "sensorHz": 90,
+      "fov": 15,
+      "oldRmsPx": 0.9909111779026778,
+      "newRmsPx": 0.38820526928873106,
+      "improvementPercent": 60.823403959334634,
+      "oldMaxFrameStepPx": 0.6004244210773502,
+      "newMaxFrameStepPx": 0.19568035537795378
+    },
+    {
+      "sensorHz": 90,
+      "fov": 3,
+      "oldRmsPx": 2.939231311600111,
+      "newRmsPx": 0.7969682806787394,
+      "improvementPercent": 72.88514593821228,
+      "oldMaxFrameStepPx": 1.6937971561872753,
+      "newMaxFrameStepPx": 0.26660174086780036
+    }
+  ]
+}

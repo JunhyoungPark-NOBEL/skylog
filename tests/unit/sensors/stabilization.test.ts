@@ -27,7 +27,9 @@ describe('확대 손떨림 보정', () => {
       }
     }
     expect(rms(narrow) / rms(raw)).toBeLessThan(0.15);
-    expect(rms(narrow)).toBeLessThan(rms(broad) * 0.5);
+    // 광각도 안정화되므로 확대가 광각보다 반드시 더 흔들리지 않는다는 상대 조건 대신 픽셀 한도를 쓴다.
+    expect(rms(narrow) / degPerPixel(3, 412, 915)).toBeLessThan(0.3);
+    expect(rms(broad) / degPerPixel(60, 412, 915)).toBeLessThan(0.3);
   });
   it('확대해도 의도적인 5°/s 이동은 0.4° 안에서 추종하고 큰 방향 전환은150ms 안에 도달한다', () => {
     const f = new OrientationFilter();
