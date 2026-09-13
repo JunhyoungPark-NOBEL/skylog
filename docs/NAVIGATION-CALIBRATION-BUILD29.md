@@ -37,3 +37,12 @@
 DB/데이터 팩 버전 변경 없음, 새 의존성 없음. 새 파일: CalibrationPanel/useCalibrationStars, telescopePose/telescopeAlignment/stableAlignmentCapture/CalibratedTelescopeProvider, navigationLabel 및 회귀 검사. D-075에 결정 기록. 추가 GPT Pro 요청이나 설계 결정은 필요 없다. 실제 보정 정확도는 위 실기기 확인 대상이다.
 
 Android는 이 PC에 연구실 최신 Play 업로드 키가 없으므로 기존 방침대로 무서명 AAB를 검증해 인계한다. 연구실의 기존 인증서로만 서명하며 새 키를 생성하지 않는다. AAB 직접 설치/Play 제출·심사·Apple 배포 서명은 수행하지 않는다.
+
+
+## 배포 확인
+
+소스 `01afbd25f5f0916b644cead561547bbd49e4b778`. [Pages 배포34736379970](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34736379970) 성공. 공개 웹200·beta.23 JS·상단 목표/파인더 보정 UI·오류0·서버쓰기0을 확인했다. [모바일 빌드34736379941](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34736379941)전체 성공. Android release/lint 오류0(기존 경고32), API36 오프라인 실행2개 및 iOS 무서명 Release 컴파일 통과. 내려받은 원본 XML의 failures/errors=0도 확인했다.
+
+AAB bundletool validate, 앱ID/버전29, CAMERA·마이크 권한 없음, 정적 파일480개 원본 비교 통과. 무서명 AAB **20,790,368bytes**, SHA256 `98c691dd7119c7b29f4cb263db5715ddab34764ece4cd3cf4847787d438d1d78`.
+
+릴리스 태그 `v0.1.0-beta.23-build29`는 위 소스를 가리킨다. 산출물: `Downloads/skylog-release-0.1.0-beta.23-build29/app-release.aab`, `Downloads/skylog-0.1.0-beta.23-build29-signing-kit.zip`. ZIP은 AAB·메타데이터/검증서·서명 스크립트2개·이 보고서·한국어 안내 총8항목이다. AAB와 ZIP 안 AAB의 SHA256을 비교한다. 기존 Play 인증서는 `f5ad3a778d18b33973938b40f5b93f604c0cb099095a9875b09aa4f0c57a98bd`로 고정한다.
