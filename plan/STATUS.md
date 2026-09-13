@@ -1,11 +1,13 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-13 · beta.22/build28 GPS 나침반·자세 안정화 · 웹 자동 검증 통과 · 모바일/공개 배포 확인 중
+> 마지막 갱신: 2026-09-13 · beta.22/build28 GPS 나침반·자세 안정화 · 웹/모바일 검증 완료 · 연구실 동일 키 서명·S24+ 실기기 확인 대기
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
-- 최신 AAB(build27): 로컬 `Downloads/skylog-release-0.1.0-beta.21-build27/app-release.aab`(**서명 전**) · 서명 인계 `Downloads/skylog-0.1.0-beta.21-build27-signing-kit.zip` · [개선/확인 보고](../docs/COMPACT-SKY-BUILD27.md).
+- 최신 AAB(build28): 로컬 `Downloads/skylog-release-0.1.0-beta.22-build28/app-release.aab`(**서명 전**) · 인계 `Downloads/skylog-0.1.0-beta.22-build28-signing-kit.zip` · [안정화/실기기 보고](../docs/SENSOR-STABILITY-BUILD28.md).
+
+- 이전 AAB(build27): 로컬 `Downloads/skylog-release-0.1.0-beta.21-build27/app-release.aab`(**서명 전**) · 서명 인계 `Downloads/skylog-0.1.0-beta.21-build27-signing-kit.zip` · [개선/확인 보고](../docs/COMPACT-SKY-BUILD27.md).
 
 - 이전 AAB(build26): 로컬 `Downloads/skylog-release-0.1.0-beta.20-build26/app-release.aab`(**서명 전**) · 서명 인계 `Downloads/skylog-0.1.0-beta.20-build26-signing-kit.zip` · [개선/확인 보고](../docs/SKY-REFINEMENT-BUILD26.md).
 
@@ -20,8 +22,8 @@
 
 - 최신 main/origin6f358ad 확인. GPS에 나침반 아이콘, 광각·확대 두 단계 안정화, 실제 측정 시각 전달과40ms 렌더 재표본화를 적용했다.
 - Android 자동 추적은 자이로 자세와8초 북쪽 보정을 분리한다. 기준 없는 상대 방위를 북쪽처럼 노출하지 않으며 기존 자이로·+Y 경통·별 정렬/수동 동선을 보존한다.
-- typecheck·lint·단위786개·PWA 빌드·전체 브라우저113개 통과. 합성60Hz 입력의 별 RMS는90°에서0.476→0.241px,3°에서2.895→0.794px. 이는 S24+ 실측치가 아니다.
-- D-074, [수치/설계/실기기 보고](../docs/SENSOR-STABILITY-BUILD28.md). 공개 Pages·모바일 산출물 확인 후 링크를 갱신한다. 기존 연구실 Play 키 최종 서명과 S24+ 실제 사용감 확인은 남는다.
+- typecheck·lint·단위787개·PWA 빌드·전체 브라우저113개 통과. 합성60Hz 입력의 별 RMS는90°에서0.476→0.241px,3°에서2.895→0.794px. 이는 S24+ 실측치가 아니다.
+- D-074, [수치/설계/실기기 보고](../docs/SENSOR-STABILITY-BUILD28.md). 실행 소스a8e3146, 태그v0.1.0-beta.22-build28, Pages34733709128·모바일34733709370 성공. 공개 웹200/나침반·동선, AAB/bundletool·480파일·Android 오프라인2개·iOS 컴파일 통과. 기존 연구실 Play 키 최종 서명과 S24+ 실제 사용감 확인은 남는다.
 
 ## 이전 작업 보고 (2026-09-13 · 간결한 하늘 조작 / build27)
 
@@ -76,10 +78,10 @@
 
 - **build27 UI(D-073)**: 하늘에서만 하단 탭을 좌상단 아래꺾쇠 메뉴로 접었다. 설정 하나 → 하늘/GPS/앱, 시계 우상단, GPS 하단 중앙, 카메라 우하단. main 센서 연결 오류 패널은 없다. autoStart는 실행 중 상태로만 유지하고 새 실행 시 true; OS 권한을 우회하지 않는다. 지면 투명도 기본0%=불투명도1, 저장한 사용자 값 보존. 메뉴 전환 E2E는 navigation.selectTab을 사용한다.
 
-- **최우선 build26**: docs/SKY-REFINEMENT-BUILD26.md의 확대/메인 하늘/스타호핑 체크리스트 결과를 받는다. 하늘 진입은 #/sky?scope=ObjectId, 스타호핑은 #/telescope?view=hop&course=기존ID. 필터의 setViewport는 실제 FOV/화면 픽셀을 전달하며 줌 변경 때 reset하지 않는다. 센서 trackingMode는 compass/gyro, manualPauseUntil은 호환 이름을 남긴 런타임 플래그(1=사용자 버튼 대기)이며 타이머가 아니다. 자이로 상대 보정은 재시작 시 재사용하지 않는다.
-- **집 PC와 연구실 키 구별**: 기존 문서의 “이 PC”는 당시 연구실을 뜻한다. 현재 PC에는 이전 업로드 키만 있다. build26의 기존 Play 서명은 별도 인계가 필요하며 scripts/sign-play-update.ps1이 AAB 해시와 build24 인증서를 검증한다.
+- **build26 유지 동선**: 최신 실기기 확인은 SENSOR-STABILITY-BUILD28.md를 따른다. 하늘 진입은 #/sky?scope=ObjectId, 스타호핑은 #/telescope?view=hop&course=기존ID. 필터의 setViewport는 실제 FOV/화면 픽셀을 전달하며 줌 변경 때 reset하지 않는다. 센서 trackingMode는 compass/gyro, manualPauseUntil은 호환 이름을 남긴 런타임 플래그(1=사용자 버튼 대기)이며 타이머가 아니다. 자이로 상대 보정은 재시작 시 재사용하지 않는다.
+- **집 PC와 연구실 키 구별**: 기존 문서의 “이 PC”는 당시 연구실을 뜻한다. 현재 PC에는 이전 업로드 키만 있다. build28의 기존 Play 서명은 별도 인계가 필요하며 scripts/sign-play-update.ps1이 AAB 해시와 build24 인증서를 검증한다.
 
-- **현재 작업**: beta.20/build26 확대 안정화·메인 하늘 안내(D-072), beta.18/build24 천체물리 서사 개편(D-070), 이전 풍경·업적(D-069)은 보존한다. 새 선택적 backdrop은 migration202609110002와 함께 사용한다. 기존 Play/개인 APK 키를 재사용하며 최종 검사·산출물·배포 상태는 문서 맨 위와 docs/MOBILE-RELEASE.md를 따른다.
+- **기존 기능**: beta.20/build26 확대 안정화·메인 하늘 안내(D-072), beta.18/build24 천체물리 서사 개편(D-070), 이전 풍경·업적(D-069)은 보존한다. 새 선택적 backdrop은 migration202609110002와 함께 사용한다. 기존 Play/개인 APK 키를 재사용하며 최종 검사·산출물·배포 상태는 문서 맨 위와 docs/MOBILE-RELEASE.md를 따른다.
 
 - **우선 사항**: 최신 유료화는 D-064, ₩9,900 1회 구매 계획이다. 현재 무료 베타 미리보기이며 구매 브리지/권한 검사는 구현했지만 실제 상품·purchases 서버·환불 재검증·일반 SMTP·두 사람의 무상 grant는 미완료다. D-053~054는 이전 설계 이력이다. docs/BILLING-SETUP.md·MONETIZATION-PLAN.md를 따른다. Supabase ijxuwtbcwifttiuwvqrh/서울 대시보드 인증으로 지평선 migration202609110002까지 적용했다. 대시보드 인증은 CLI 인증과 구분하며 일반 가입·숫자 메일 준비 전 VITE_COMMUNITY_SIGNUPS_READY/EMAIL_CODE를 켜지 않는다. 공개 프로필만 사용자가 명시적으로 동기화하며 개인 백업은 수동 스냅샷이다.
 
@@ -100,11 +102,11 @@
 - **UI 규칙(D-021)**: 새 화면은 `docs/ARCHITECTURE.md` "UI 디자인 시스템 v2"와 토큰(`theme.css`)만 쓴다. 검색/오늘 밤/기록은 App의 `pt-status pb-tab` 래퍼를 쓴다. 배우기는 D-026: 자체 고정 제목·상단 4개 메뉴 + ScrollArea(pb-tab), 위치/센서 상태바는 생략한다. 카피는 D-021 용어집(해요체·평이한 용어)을 따른다.
 - **스크롤 규칙(D-022)**: 세로 스크롤 영역은 `ui/ScrollArea.tsx`(마우스 드래그 스크롤·관성·페이드 오버레이)로 만든다. 스크롤러에 `mask-image`를 걸지 않는다. 드래그 스크롤이 닿으면 안 되는 컨트롤은 `touch-action: none` 또는 `data-drag-scroll="off"`. 사용자 보고("스크롤이 뻑뻑하고 스크롤 바를 정확히 눌러야 함")에 대한 수정이며, 실기기 확인은 T3b 체크리스트의 스크롤 항목으로 받는다.
 - **주의(이 세션에서 겪은 것)**: 워크플로 에이전트가 "코드 스케치를 써 달라"는 프롬프트를 실제 경로에 파일을 만들었다가 지우는 바람에 `src/astro/phenomena.ts`가 사라진 적이 있다. 리서치용 에이전트 프롬프트에는 **"파일을 만들거나 고치지 말 것"**을 명시한다.
-- **최신 검증**: 문서 맨 위 build26 보고를 따른다. 이전 버전 수치는 당시 이력이며 실제 휴대폰 센서/성능·일반 SMTP·스토어 심사·Apple 서명은 별도다.
+- **최신 검증**: 문서 맨 위 build28 보고를 따른다. 이전 버전 수치는 당시 이력이며 실제 휴대폰 센서/성능·일반 SMTP·스토어 심사·Apple 서명은 별도다.
 - 데이터 원본(`data-src/raw/`)은 gitignore이며 새 환경에서 재생성할 때 원본 확보가 필요하다. 현재 실행 경로와 pnpm PATH는 위 **환경** 항목을 따른다. 과거 OneDrive PC 경로를 현재 작업 경로로 사용하지 않는다.
 - **사용자 장비**: 솔로몬 HQ 8×42 ED, SVBONY SV48P 102mm(제조사 초점거리663mm). 사용자 요청으로 쌍안경 시야7.50°·접안25mm/52°는 시작 예시이며 직접 입력하도록 한다. 마운트/실제 접안 사양은 확정하지 않았다. 관측지는 자동 GPS 또는 사용자가 고른 저장 장소·보이는 범위를 따른다.
 
-build23 보고는 [보관 기록](reports/2026-09-11-build23.md)을 참고한다. 이전 T3b/T4/T5/T6·학습 UX 보고는 [기능 개발 보관 기록](reports/2026-09-08-pre-mobile-history.md)을 참고한다.
+build25 보고는 [보관 기록](reports/build25-field-use-summary.md)을 참고한다. build23 보고는 [보관 기록](reports/2026-09-11-build23.md)을 참고한다. 이전 T3b/T4/T5/T6·학습 UX 보고는 [기능 개발 보관 기록](reports/2026-09-08-pre-mobile-history.md)을 참고한다.
 
 ## 결정 기록 요약 (`DECISIONS.md` 전체 참조)
 

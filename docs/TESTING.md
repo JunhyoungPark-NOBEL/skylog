@@ -200,3 +200,8 @@ beta.7/build12 최종 결과: 단위504개, 타입/lint, PostgreSQL27개, 실제
 - `tests/e2e/sky-refinement.spec.ts`: 메인 캔버스 한 개, 파인더/접안 원 실제 픽셀, 시간 잠금, 경통 축 방향, 수동 전환/버튼 복귀, 코스 지도 왕복/새로고침 체크포인트.
 - `tests/e2e/telescope.spec.ts`, `hop-courses.spec.ts`: 한 별/두 별 정렬, 도착/관측/업적, 보조 차트, 태양 근접 차단, 영어/야간과 실제 코스 완료. 브라우저 검사끼리는 공유 test-results 삭제 충돌을 피하기 위해 별도 프로세스로 동시에 실행하지 않는다.
 - 실기기 체크리스트: [build26 보고](SKY-REFINEMENT-BUILD26.md). 합성 필터 감소율은 기기별 물리 손떨림 감소율이 아니다.
+
+
+## build28 센서 안정화 회귀
+
+`tests/unit/render/sensorStability.test.ts`는30/60/90Hz 합성 세 축 입력→OrientationFilter→CameraController/RenderPose→별 픽셀까지 검사한다. 광각90°/60°와 확대15°/3°에서 RMS1px·프레임 간0.5px 미만, 손떨림을 동반한 이동, 단발 튐과 큰 방향 전환을 포함한다. `sampleClock.test.ts`는 측정/도착 시각·지연·순서 역전을, `northFusion.test.ts`는 자이로/나침반 융합·빠른 회전·방위 잡음·드리프트·재연결을 검사한다. S24+ 물리 센서 확인은 `SENSOR-STABILITY-BUILD28.md` 체크리스트를 따른다.

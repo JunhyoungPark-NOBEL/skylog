@@ -68,7 +68,7 @@ pointer/wheel ────┴─► CameraController ─► camera(alt/az/fov) �
 Provider(DOAbsolute | GenericAbs | DeviceOrientation | Simulator)   ── OrientationSample{q_scene, northReference, compassHeading, raw}
    └─► SensorManager.onSample
          1. 자북이면 applyYawOffset(q, D)          D = WMM2025 편각(magvar), 절대 소스에만 한 번
-         2. OrientationFilter.push(q, t)           slerp τ100ms · 적응 이득 · 출력 데드밴드 0.2° · (절대) yaw τ500ms
+         2. OrientationFilter.push(q, t)           2단계 적응 평활 · 광각/확대 픽셀 데드밴드 · 세계 Y축 방위 별도 평활(D-074)
          3. 상대 소스: compassSyncCandidate → YawSync   iOS 상단축 heading으로 δ_sync (자세 조건 밖이면 갱신 중단)
          4. q_cal = applyOffset(q_f, δ, pitch)     δ = 별 정렬 > 나침반 동기 > 0
          5. CameraController.setSensorQuaternion(q_cal, keepLevel)   (수동 일시 정지 중이면 생략)
@@ -235,3 +235,10 @@ HorizonLayer의 지면 한 표면에서 meadow-v2 색을 혼합한 뒤 사용자
 ## 하늘 조작 최소화 (D-073, build27)
 
 TabBar는 sky에서만 좌상단 아래꺾쇠로 접고 다른 콘텐츠 탭에서는 하단 이동을 유지한다. SkySettings 모달은 하늘/GPS/앱 탭으로 기존 LayerPanel/SettingsContent를 단일 ScrollArea에 넣는다. TimeBar는 우상단 아이콘과 팝오버, GPS는 하단 중앙, RearCameraControls는 일반 하늘 우하단이다. 센서 오류는 설정에만 표시한다. autoStart는 실행 중 상태이며 hydration은 이전 저장값을 무시하고 현재 실행의 선택을 보존한다. App의 layout effect가 CSS 테마를 먼저 적용한 뒤 SkyView가 팔레트를 읽는다.
+
+
+## build28 센서 안정화 (D-074)
+
+Android NativeOrientation은 지원 시 GAME_ROTATION_VECTOR60Hz와 ROTATION_VECTOR20Hz를 각각 motion/reference 채널로 받는다. NorthFusion은 측정 시각이 같은 물리 ENU 자세끼리 비교해 수직 Z축 오프셋만8초 시정수로 보정한다. 자력계 정확도25° 초과/오프셋 차15° 초과는 무시하며, 초기 기준 수신 전 상대 방위를 노출하지 않는다. Java에서 게임 벡터 미지원/500ms 중단을 절대 소스로 복귀시키고 대기열의 게임 이벤트를 차단한다.
+
+SampleClock은 부팅 시각을 performance 축으로 정렬하며 DOM/Generic Sensor의 측정 시각도 유지한다. OrientationFilter는100ms 평활한 속도 판정용 자세와500ms의 이동 일관성을 사용한다. 두 단계 자세 평활과 Y축 twist 평활은 천정에서 정의되지 않는 Euler yaw를 쓰지 않는다. RenderPose는 측정 자세 열의40ms 전 시점을 보간하며 센서 도착마다 보간을 재시작하거나 미래로 외삽하지 않는다. CameraController와 +Y 망원경 안내까지 측정 시각을 전달한다. 실측 경계와 합성 픽셀 결과는 SENSOR-STABILITY-BUILD28.md를 참조한다.

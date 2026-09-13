@@ -12,7 +12,7 @@
 
 ## 검증과 개선 수치
 
-기본 설치·타입·기존 단위772개 통과를 확인한 뒤 작업했다. 최종 typecheck·전체 lint·단위786개(113파일)·PWA 빌드·전체 브라우저113개 통과. 모바일 CI와 공개 배포는 아래 산출물 검증에 기록한다.
+기본 설치·타입·기존 단위772개 통과를 확인한 뒤 작업했다. 최종 typecheck·전체 lint·단위787개(113파일)·PWA 빌드·전체 브라우저113개 통과. 브라우저 전체 통과 후 네이티브 품질 진단만 보완하고 관련22개와 전체 단위787개를 다시 검사했다. 모바일 CI와 공개 배포는 아래 산출물 검증에 기록한다.
 
 합성 입력을 실제 CameraController와 별의 CPU 화면 투영까지 통과시켰다. 412×915 CSS px, 센서30/60/90Hz와 렌더120Hz, 세 축의 0.9–12.3Hz 복합 입력을12초간 재생하고 초기4초를 제외해 측정했다. 휴대폰 실측치는 아니다. 재현 fixture와 전체12조건은 [벤치마크](benchmarks/sensor-stability-build28.json)에 있다.
 
@@ -48,3 +48,12 @@ D-074. 데이터 팩·DB·서버/계정 정책 변경 없음. 추가 GPT Pro 자
 - [Android position sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_position): 게임 회전 벡터는 자력계 변화의 영향을 받지 않지만 북쪽을 제공하지 않고 장기 드리프트가 있다. 그래서 자동 모드에 별도 북쪽 보정을 유지한다.
 - [Android SensorEvent timestamp](https://developer.android.com/reference/android/hardware/SensorEvent#timestamp): 이벤트 도착 시각 대신 단조 증가하는 실제 측정 시각을 전달한다.
 - [Antoine 등, UIST2020](https://gery.casiez.net/async/): 입력과 출력 주기의 불일치로 생기는 화면 떨림과 일정 지연 재표본화 원리. 이 앱의40ms는 해당 논문의 터치 장치 수치를 복사한 값이 아니라30–90Hz 자세 입력 시험으로 선택한 값이다.
+
+
+## 최종 배포·AAB 검증
+
+실행 소스 `a8e3146931eb9a485be2d43ce7fce04693409f3c` · 태그 `v0.1.0-beta.22-build28`. [Pages34733709128](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34733709128)와 [모바일34733709370](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34733709370) 성공. 공개 웹200, beta.22 JS, GPS 나침반, 접이식 메뉴·통합 설정·카메라·시간·망원경 시야 원 확인. JavaScript 오류와 서버 쓰기0.
+
+AAB `20,787,432bytes`, SHA256 `bbed2d5b37cc81e84eeb594a7fdbaa372e0f315a0c17af6be802d8e27210918d`. 앱ID `io.github.junhyoungparknobel.skylog`, versionCode28, bundletool validate와 포함 정적 파일480개 원본 바이트 비교 통과. Android release/lint 오류0(기존 경고32개), API36 오프라인 계측2개 failures/errors0, iOS 무서명 Release 컴파일 통과. 실제 물리 센서/자이로를 에뮬레이터에서 검증한 것은 아니다.
+
+`Downloads/skylog-release-0.1.0-beta.22-build28/app-release.aab` 및 `Downloads/skylog-0.1.0-beta.22-build28-signing-kit.zip`. 기존 연구실 키 최종 서명용 도구와 보고/해시를 동봉한다. 수용 기준은 GPS 아이콘·합성 안정화·측정/북쪽 처리·기존 조작 회귀·웹/모바일 빌드5항목 통과, 실기기 감각과 최종 Play 서명2항목 확인 대기다.
