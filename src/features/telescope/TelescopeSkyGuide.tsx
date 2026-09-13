@@ -192,6 +192,14 @@ export function TelescopeSkyGuide({
           <div className="max-h-[35dvh] space-y-2 overflow-y-auto rounded-2xl glass-strong p-3">
             <p className="text-caption leading-6 text-muted">{t('scopeSky.phoneTop')}</p>
             <div className="grid grid-cols-2 gap-2">
+              {' '}
+              <button
+                className="min-h-12 rounded-pill glass-hud px-4 text-body-sm"
+                onClick={onAlign}
+                data-testid="direction-align"
+              >
+                {t('field.align')}
+              </button>
               <button className="min-h-11 rounded-xl bg-surface-2 px-2" onClick={onEquipment}>
                 {t('guide.edit')}
               </button>
@@ -287,7 +295,7 @@ export function TelescopeSkyGuide({
                 )}
               </div>
             )}
-            {!moving && reading.status !== 'off' && !paused && (
+            {more && !moving && reading.status !== 'off' && !paused && (
               <p role="status" className="rounded-xl glass-hud px-3 py-2 text-caption">
                 {t(
                   reading.status === 'denied' || reading.status === 'unavailable'
@@ -298,18 +306,12 @@ export function TelescopeSkyGuide({
                 )}
               </p>
             )}
-            <div className="flex justify-between gap-2">
-              <button
-                className="min-h-12 rounded-pill glass-hud px-4 text-body-sm"
-                onClick={onAlign}
-                data-testid="direction-align"
-              >
-                {t('field.align')}
-              </button>
+            <div className="flex justify-center gap-2">
               <button
                 className="min-h-12 rounded-pill glass-hud px-4 text-body-sm aria-pressed:text-accent"
                 data-testid="guide-sensor"
                 aria-pressed={moving}
+                aria-label={t(moving ? 'sensorAuto.turnOff' : 'sensor.ar')}
                 onClick={() => {
                   if (moving) stopTelescopeOrientation();
                   else {
@@ -318,7 +320,7 @@ export function TelescopeSkyGuide({
                   }
                 }}
               >
-                {t(moving ? 'sensorAuto.on' : 'field.sensorOn')}
+                GPS
               </button>
             </div>
           </>

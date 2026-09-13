@@ -64,10 +64,12 @@ export function LayerPanel({
   onClose,
   onOverview,
   onAlign,
+  embedded = false,
 }: {
   onClose(): void;
   onOverview(): void;
   onAlign(): void;
+  embedded?: boolean;
 }) {
   const { t } = useTranslation();
   const labelLang = useLayerStore((s) => s.labelLang);
@@ -79,6 +81,165 @@ export function LayerPanel({
   const set = useLayerStore((s) => s.set);
   const arActive = useSensorStore((s) => s.arActive);
   const calibrated = useSensorStore((s) => Boolean(s.calibration));
+  const content = (
+    <>
+      <div className="grid grid-cols-2 gap-2 px-4 pb-3">
+        <button
+          type="button"
+          className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-surface-2 px-2 text-caption text-fg"
+          onClick={onOverview}
+          data-testid="sky-overview"
+          title={t('sky.circularViewHelp')}
+        >
+          <span aria-hidden="true">⊕</span>
+          {t('sky.circularView')}
+        </button>
+        <button
+          type="button"
+          className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-surface-2 px-2 text-caption text-fg"
+          onClick={() => {
+            onClose();
+            openTelescope(useSelectionStore.getState().selectedId ?? undefined);
+          }}
+          data-testid="sky-telescope"
+        >
+          <span aria-hidden="true">◎</span>
+          {t('guide.title')}
+        </button>
+      </div>
+      {arActive && (
+        <button
+          type="button"
+          onClick={onAlign}
+          className="mx-4 mb-3 flex min-h-11 w-[calc(100%-2rem)] items-center justify-center rounded-xl bg-surface-2 px-3 text-caption text-fg"
+          data-testid="ar-align"
+        >
+          {calibrated ? t('sensor.realign') : t('sensor.align')}
+        </button>
+      )}
+      <FovRingOptions />
+      {hopRoute && (
+        <button
+          className="min-h-12 px-4 text-accent"
+          onClick={() => useTelescopeStore.getState().setRoute(null)}
+        >
+          {t('guide.clearRoute')}
+        </button>
+      )}
+      <RealSkyToggle />
+      {realSky && (
+        <div className="px-4 pb-3">
+          <label htmlFor="layer-bortle" className="block text-caption text-muted">
+            {bortle > 0 ? t('realSky.bortle', { n: bortle }) : t('realSky.bortleAuto')}
+          </label>
+          <input
+            id="layer-bortle"
+            type="range"
+            min={0}
+            max={9}
+            step={1}
+            value={bortle}
+            onChange={(e) => set('bortle', Number(e.target.value))}
+            className="w-full"
+            data-testid="layer-bortle"
+          />
+        </div>
+      )}
+      <Row id="markers" label={t('sky.layer.markers')} />
+      <Row
+        id="constellationLines"
+        label={t('sky.layer.constellationLines')}
+        alphaKey="constellationLinesAlpha"
+      />
+      <Row
+        id="constellationBounds"
+        label={t('sky.layer.constellationBounds')}
+        alphaKey="constellationBoundsAlpha"
+      />
+      <Row
+        id="constellationNames"
+        label={t('sky.layer.constellationNames')}
+        alphaKey="constellationNamesAlpha"
+      />
+      <Row id="starLabels" label={t('sky.layer.starLabels')} />
+      <Row id="dso" label={t('sky.layer.dso')} />
+      <Row
+        id="milkyWay"
+        label={t('sky.layer.milkyWay')}
+        alphaKey="milkyWayAlpha"
+        hint={t('sky.layer.milkyWayHint')}
+      />
+      <Row id="altAzGrid" label={t('sky.layer.altAzGrid')} />
+      <Row id="equator" label={t('sky.layer.equator')} />
+      <Row id="ecliptic" label={t('sky.layer.ecliptic')} />
+      <Row id="meridian" label={t('sky.layer.meridian')} />
+      <div className="px-4 py-3">
+        <label htmlFor="layer-ground-transparency" className="flex justify-between gap-2 text-body">
+          <span>{t('sky.layer.groundTransparency')}</span>
+          <span className="tabular-nums">{Math.round((1 - groundOpacity) * 100)}%</span>
+        </label>
+        <input
+          id="layer-ground-transparency"
+          data-testid="layer-ground-transparency"
+          type="range"
+          min={0}
+          max={100}
+          step={5}
+          value={Math.round((1 - groundOpacity) * 100)}
+          onChange={(e) => set('groundOpacity', 1 - Number(e.target.value) / 100)}
+          className="min-h-11 w-full"
+        />
+        <p className="text-caption text-muted">{t('sky.layer.groundTransparencyHint')}</p>
+      </div>
+      <Row id="landscape" label={t('nightRefresh.landscape')} />
+      <p className="px-4 pb-2 text-caption text-muted">{t('nightRefresh.landscapeHelp')}</p>
+      <button
+        type="button"
+        onClick={() => navigate('profile')}
+        className="mx-4 mb-3 min-h-11 rounded-xl bg-surface-2 px-4 text-body-sm text-accent"
+      >
+        {t('personal.garden')} <span aria-hidden="true">↗</span>
+      </button>
+      <Row id="atmosphere" label={t('sky.layer.atmosphere')} />
+      <Row id="extinction" label={t('sky.layer.extinction')} />
+      <Row id="magnifyBodies" label={t('sky.layer.magnifyBodies')} />
+      <Row id="showViewInfo" label={t('sky.layer.viewInfo')} />
+      <div className="px-4 pt-2">
+        <label htmlFor="layer-saturation" className="block text-body">
+          {t('sky.layer.starSaturation')}
+        </label>
+        <input
+          id="layer-saturation"
+          type="range"
+          min={0}
+          max={1}
+          step={0.05}
+          value={saturation}
+          onChange={(e) => set('starSaturation', Number(e.target.value))}
+          className="w-full"
+        />
+      </div>
+      <Segmented
+        label={t('sky.layer.labelLang')}
+        value={labelLang}
+        options={[
+          { value: 'auto', label: t('sky.layer.labelLangAuto') },
+          { value: 'ko', label: '한국어' },
+          { value: 'en', label: 'English' },
+        ]}
+        onChange={(v) => set('labelLang', v)}
+      />
+      <button
+        type="button"
+        data-testid="layer-reset"
+        className="mx-4 mt-3 mb-4 flex min-h-11 w-[calc(100%-2rem)] items-center justify-center rounded-xl bg-surface-2 px-3 text-caption text-fg"
+        onClick={() => useLayerStore.getState().reset()}
+      >
+        {t('sky.layer.reset')}
+      </button>
+    </>
+  );
+  if (embedded) return <div data-testid="layer-panel">{content}</div>;
   return (
     <div
       className="absolute inset-y-0 left-0 z-20 flex w-[min(20rem,85vw)] flex-col overflow-hidden rounded-r-2xl bg-surface text-fg shadow-float squircle"
@@ -99,163 +260,7 @@ export function LayerPanel({
         </button>
       </header>
       <ScrollArea className="pb-tab pt-2 text-body-sm" fadeBottom="28px" fadeColor="var(--surface)">
-        <div className="grid grid-cols-2 gap-2 px-4 pb-3">
-          <button
-            type="button"
-            className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-surface-2 px-2 text-caption text-fg"
-            onClick={onOverview}
-            data-testid="sky-overview"
-            title={t('sky.circularViewHelp')}
-          >
-            <span aria-hidden="true">⊕</span>
-            {t('sky.circularView')}
-          </button>
-          <button
-            type="button"
-            className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-surface-2 px-2 text-caption text-fg"
-            onClick={() => {
-              onClose();
-              openTelescope(useSelectionStore.getState().selectedId ?? undefined);
-            }}
-            data-testid="sky-telescope"
-          >
-            <span aria-hidden="true">◎</span>
-            {t('guide.title')}
-          </button>
-        </div>
-        {arActive && (
-          <button
-            type="button"
-            onClick={onAlign}
-            className="mx-4 mb-3 flex min-h-11 w-[calc(100%-2rem)] items-center justify-center rounded-xl bg-surface-2 px-3 text-caption text-fg"
-            data-testid="ar-align"
-          >
-            {calibrated ? t('sensor.realign') : t('sensor.align')}
-          </button>
-        )}
-        <FovRingOptions />
-        {hopRoute && (
-          <button
-            className="min-h-12 px-4 text-accent"
-            onClick={() => useTelescopeStore.getState().setRoute(null)}
-          >
-            {t('guide.clearRoute')}
-          </button>
-        )}
-        <RealSkyToggle />
-        {realSky && (
-          <div className="px-4 pb-3">
-            <label htmlFor="layer-bortle" className="block text-caption text-muted">
-              {bortle > 0 ? t('realSky.bortle', { n: bortle }) : t('realSky.bortleAuto')}
-            </label>
-            <input
-              id="layer-bortle"
-              type="range"
-              min={0}
-              max={9}
-              step={1}
-              value={bortle}
-              onChange={(e) => set('bortle', Number(e.target.value))}
-              className="w-full"
-              data-testid="layer-bortle"
-            />
-          </div>
-        )}
-        <Row id="markers" label={t('sky.layer.markers')} />
-        <Row
-          id="constellationLines"
-          label={t('sky.layer.constellationLines')}
-          alphaKey="constellationLinesAlpha"
-        />
-        <Row
-          id="constellationBounds"
-          label={t('sky.layer.constellationBounds')}
-          alphaKey="constellationBoundsAlpha"
-        />
-        <Row
-          id="constellationNames"
-          label={t('sky.layer.constellationNames')}
-          alphaKey="constellationNamesAlpha"
-        />
-        <Row id="starLabels" label={t('sky.layer.starLabels')} />
-        <Row id="dso" label={t('sky.layer.dso')} />
-        <Row
-          id="milkyWay"
-          label={t('sky.layer.milkyWay')}
-          alphaKey="milkyWayAlpha"
-          hint={t('sky.layer.milkyWayHint')}
-        />
-        <Row id="altAzGrid" label={t('sky.layer.altAzGrid')} />
-        <Row id="equator" label={t('sky.layer.equator')} />
-        <Row id="ecliptic" label={t('sky.layer.ecliptic')} />
-        <Row id="meridian" label={t('sky.layer.meridian')} />
-        <div className="px-4 py-3">
-          <label
-            htmlFor="layer-ground-transparency"
-            className="flex justify-between gap-2 text-body"
-          >
-            <span>{t('sky.layer.groundTransparency')}</span>
-            <span className="tabular-nums">{Math.round((1 - groundOpacity) * 100)}%</span>
-          </label>
-          <input
-            id="layer-ground-transparency"
-            data-testid="layer-ground-transparency"
-            type="range"
-            min={0}
-            max={100}
-            step={5}
-            value={Math.round((1 - groundOpacity) * 100)}
-            onChange={(e) => set('groundOpacity', 1 - Number(e.target.value) / 100)}
-            className="min-h-11 w-full"
-          />
-          <p className="text-caption text-muted">{t('sky.layer.groundTransparencyHint')}</p>
-        </div>
-        <Row id="landscape" label={t('nightRefresh.landscape')} />
-        <p className="px-4 pb-2 text-caption text-muted">{t('nightRefresh.landscapeHelp')}</p>
-        <button
-          type="button"
-          onClick={() => navigate('profile')}
-          className="mx-4 mb-3 min-h-11 rounded-xl bg-surface-2 px-4 text-body-sm text-accent"
-        >
-          {t('personal.garden')} <span aria-hidden="true">↗</span>
-        </button>
-        <Row id="atmosphere" label={t('sky.layer.atmosphere')} />
-        <Row id="extinction" label={t('sky.layer.extinction')} />
-        <Row id="magnifyBodies" label={t('sky.layer.magnifyBodies')} />
-        <Row id="showViewInfo" label={t('sky.layer.viewInfo')} />
-        <div className="px-4 pt-2">
-          <label htmlFor="layer-saturation" className="block text-body">
-            {t('sky.layer.starSaturation')}
-          </label>
-          <input
-            id="layer-saturation"
-            type="range"
-            min={0}
-            max={1}
-            step={0.05}
-            value={saturation}
-            onChange={(e) => set('starSaturation', Number(e.target.value))}
-            className="w-full"
-          />
-        </div>
-        <Segmented
-          label={t('sky.layer.labelLang')}
-          value={labelLang}
-          options={[
-            { value: 'auto', label: t('sky.layer.labelLangAuto') },
-            { value: 'ko', label: '한국어' },
-            { value: 'en', label: 'English' },
-          ]}
-          onChange={(v) => set('labelLang', v)}
-        />
-        <button
-          type="button"
-          data-testid="layer-reset"
-          className="mx-4 mt-3 mb-4 flex min-h-11 w-[calc(100%-2rem)] items-center justify-center rounded-xl bg-surface-2 px-3 text-caption text-fg"
-          onClick={() => useLayerStore.getState().reset()}
-        >
-          {t('sky.layer.reset')}
-        </button>
+        {content}
       </ScrollArea>
     </div>
   );

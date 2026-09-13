@@ -1,3 +1,4 @@
+import { selectTab } from './navigation';
 import { expect, test, type Page } from '@playwright/test';
 
 /**
@@ -39,7 +40,7 @@ test('검색: 토성 → 1위 → 탭하면 하늘 이동 + 상세 시트(출·�
 }) => {
   const errors = collectErrors(page);
   await openSky(page);
-  await page.getByTestId('tab-search').click();
+  await selectTab(page, 'search');
   const input = page.getByTestId('search-input');
   await expect(input).toBeVisible();
 
@@ -132,7 +133,7 @@ test('검색: 토성 → 1위 → 탭하면 하늘 이동 + 상세 시트(출·�
   // 북마크가 Dexie에 남아 재열기 시 표시
   await page.reload();
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
-  await page.getByTestId('tab-search').click();
+  await selectTab(page, 'search');
   await page.getByTestId('search-recent').getByTestId('search-result').first().click();
   await expect(page.getByTestId('sheet-plan')).toHaveText('★ 예정됨', { timeout: 10_000 });
 
@@ -199,7 +200,7 @@ test('툴팁 "자세히" → 시트 · 찾아가기: 화면 밖 화살표 방향
   await expect(page.getByTestId('target-guide')).toHaveCount(0);
 
   // 지평선 아래 목표: 안내 문구 + 시간 이동
-  await page.getByTestId('tab-search').click();
+  await selectTab(page, 'search');
   await page.getByTestId('search-input').fill('오리온성운');
   await expect(
     page.getByTestId('search-result').first().getByTestId('search-result-name'),
@@ -222,7 +223,7 @@ test('오늘 밤: 하늘 상태 카드(일몰·박명·월출몰·어두운 창)
 }) => {
   const errors = collectErrors(page);
   await openSky(page);
-  await page.getByTestId('tab-tonight').click();
+  await selectTab(page, 'tonight');
   const card = page.getByTestId('sky-status-card');
   await page.getByTestId('tonight-tab-conditions').click();
   await expect(card).toBeVisible({ timeout: 15_000 });

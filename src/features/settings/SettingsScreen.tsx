@@ -41,11 +41,20 @@ function LinkRow({ label, onClick, testId }: { label: string; onClick(): void; t
 
 export function SettingsScreen({ onBack }: { onBack(): void }) {
   const { t } = useTranslation();
+  return (
+    <ScreenFrame title={t('settings.title')} onBack={onBack} testId="settings-screen">
+      <SettingsContent />
+    </ScreenFrame>
+  );
+}
+
+export function SettingsContent() {
+  const { t } = useTranslation();
   const s = useSettingsStore();
   const wakeLockOk = isWakeLockSupported();
 
   return (
-    <ScreenFrame title={t('settings.title')} onBack={onBack} testId="settings-screen">
+    <>
       <SectionTitle>{t('personal.title')}</SectionTitle>
       <Group>
         <LinkRow label={t('personal.title')} onClick={() => navigate('profile')} />
@@ -127,6 +136,6 @@ export function SettingsScreen({ onBack }: { onBack(): void }) {
       <p className="px-5 pt-6 text-caption text-muted tabular-nums">
         {t('settings.version')} {__APP_VERSION__}
       </p>
-    </ScreenFrame>
+    </>
   );
 }

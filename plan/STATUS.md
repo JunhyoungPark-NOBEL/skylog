@@ -1,11 +1,11 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-13 · beta.20/build26 확대 안정화·메인 하늘 안내·코스 개선, 웹/네이티브 검증 완료 · 연구실 Play 서명 대기
+> 마지막 갱신: 2026-09-13 · beta.21/build27 하늘 조작 최소화·통합 설정 · 최종 검증/배포 진행 중
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
-- 최신 AAB(build26): 로컬 `Downloads/skylog-release-0.1.0-beta.20-build26/app-release.aab`(**서명 전**) · 서명 인계 `Downloads/skylog-0.1.0-beta.20-build26-signing-kit.zip` · [개선/확인 보고](../docs/SKY-REFINEMENT-BUILD26.md).
+- 이전 AAB(build26): 로컬 `Downloads/skylog-release-0.1.0-beta.20-build26/app-release.aab`(**서명 전**) · 서명 인계 `Downloads/skylog-0.1.0-beta.20-build26-signing-kit.zip` · [개선/확인 보고](../docs/SKY-REFINEMENT-BUILD26.md).
 
 - 이전 AAB(build25): 로컬 `Downloads/skylog-release-0.1.0-beta.19-build25/app-release.aab`(**서명 전**) · 서명 인계 ZIP `Downloads/skylog-0.1.0-beta.19-build25-signing-kit.zip`. 연구실 기존 키로 마무리한다.
 
@@ -14,7 +14,14 @@
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
 
-## 이번 작업 보고 (2026-09-13 · 확대 안정화·메인 하늘 안내 / build26)
+## 이번 작업 보고 (2026-09-13 · 간결한 하늘 조작 / build27)
+
+- 최신 main/origin 3268f9d(build26 후속 기록)에서 시작했다. 하늘 화면은 좌상단 설정 하나와 그 아래 아래꺾쇠 메뉴, 우상단 시계 아이콘, 하단 중앙 GPS, 오른쪽 아래 카메라 아이콘으로 배치했다. 하늘에서는 하단 5탭을 접이식 메뉴로 대체하고 콘텐츠 화면의 하단 탭은 유지한다.
+- 설정 하나 안에서 하늘·GPS·앱으로 구분한다. 기존 하늘 레이어·테마·언어·장비·관측지 설정을 보존한다. 연결 실패·정렬 도움말은 설정/망원경 더보기 안에서 확인한다.
+- GPS 끄기는 현재 실행 동안만 유지하고 앱 새 실행에서는 자동 연결을 시도한다. 이전 버전의 저장된 autoStart=false를 무시하되 권한 거부는 존중한다. 지면 투명도는 신규 설치/기본값 복원 시0%(groundOpacity=1)이며 기존 사용자 조절값을 보존한다.
+- 360px/200% 글자, 키보드 메뉴 이동/닫기, 카메라·시간·통합 설정과 기존 센서/망원경 경로를 검사한다. typecheck·전체 lint·단위772개·PWA 빌드 통과. 전체 브라우저113개 중112개 통과 후, 통합 설정의 이전 테스트 절차와 하늘을 유지한 채 야간 전환 시 CSS/렌더 팔레트 갱신 순서 문제를 수정했다. 최종 하늘·메뉴·설정16개 재검사 모두 통과, 별/지면의 적색 픽셀도 확인했다. 360px·200% 글자에서44px 터치 영역과 메뉴·GPS·카메라 간격을 확인했다. 배포 결과는 아래에 추가한다. 상세 docs/COMPACT-SKY-BUILD27.md, 결정 D-073.
+
+## 이전 작업 보고 (2026-09-13 · 확대 안정화·메인 하늘 안내 / build26)
 
 - 최신 origin/main 6bf4e5e와 일치하는 상태에서 시작했다. 확대 시 강한 평활과 움직임의 일관성을 함께 판단하는 quaternion 필터를 적용했다. 30/60/90Hz 합성 3° 시야 시험에서 잔여 RMS 15% 미만, 일정 이동 추종 및 줌/재연결 연속성을 검사한다. 실기기 측정으로 해석하지 않는다.
 - 설정·하늘 설정·시간을 상단에 모으고 카메라는 설정 안으로 옮겼다. 별도 수동 복귀 패널 없이 하단 GPS 센서 버튼을 사용한다. GPS는 위치, 나침반/자이로는 방향이라는 설명을 설정에 둔다.
@@ -35,17 +42,6 @@
 - **서명 경계**: 연구실 build24 Play 키 f5ad…98bd와 이 PC의37e1…6443은 다르다. 키 교체/생성 없이 AAB 원본을 만들고 기존 키가 있는 연구실에서 동일 인증서 검증 후 서명하는 도구를 준비했다. 무서명 AAB는 Play 제출 완료본이 아니다. S24+ 물리 센서·카메라 느낌은 사용자 확인이 필요하다.
 
 - **최종 검증/배포**: 실행 소스80eb31730890feff8e100c1224c533c36e2c3c6d, beta.19/build25. [Pages34704907732](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34704907732)·[모바일34704907215](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34704907215) 성공(Android release/lint/오프라인 에뮬레이터·iOS Release 컴파일). 공개 페이지200·beta.19 JS·별 색/카메라/자이로 UI·JS 오류0·서버 쓰기0 확인. AAB20,779,731bytes, SHA256 1f472c9fdf7151ae55e54a030ca19e7a782412e275d435e15ba669e89a6ebfb5. bundletool validate·정적 파일480개 원본 비교·버전/앱ID/CAMERA 권한·마이크 권한 없음 검증. 기존 집 키의 오서명 차단도 실행 검증했다. 이 AAB는 **무서명**이며 연구실의 기존 Play 키로 서명해야 한다.
-
-## 이전 작업 보고 (2026-09-11 · 발견을 따라가는 천체물리 이야기 / build24)
-
-- 열 편에 도입·90개 장면·30개 발견 기록·10개 결말을 한영으로 추가했다. 관측 상황에서 출발해 마지막에 처음의 의문으로 돌아온다. 결말은 간결한 본문과 펼쳐 읽는 세 장 기록으로 구성한다.
-- 세 계산·판단을 각각 제출하면 결말을 읽을 수 있으며 정답 수·복습할 장은 별도로 표시한다. 마지막 장만 제출했을 때는 첫 미제출 장으로 이어 준다. 결말·장 이동은 점수나 보상을 쓰지 않는다.
-- 기존 30개 계산·판단과60개 개념 문항의 수치·답·가정·ID·저장 형식, 힌트·메모·아바타/지평선은 유지했다. 역사 원문과 교육용 재구성을 구별하고 모형 전환을 장면 안에도 표시한다.
-- 전체102파일/747단위 검사와 관련 Chromium8개(실제 PWA 오프라인1개 포함) 통과. 초기 사진 해시 검사는 전체 동시 실행에서5초 시간 초과했으나 단독 및4worker 전체 검사에서 통과했다. 최종 beta.18의 타입·전체 lint·변경 파일 포맷·PWA 빌드, 관련 단위11개와 Chromium8개 재검증도 통과했다. 초기 JS gzip479.21kB, PWA405항목 프리캐시. 서명·배포도 완료했으며 다음 항목에 근거를 기록한다.
-- 결정 D-070; 상세 docs/HISTORY-NARRATIVE.md·HISTORY-QUESTS-SOURCES.md. 물리 휴대폰 확인: 안드로이드 기존 APK 위 업데이트, 아이폰 홈 화면 웹앱 새 버전, 이야기9장면·결말·뒤로가기·용어 홀드·오프라인 재실행.
-
-- **최종 산출물**: 소스 `a0225d33708fb725c7770831ad3fa6aa0402605f`, beta.18/code24/min24/target36. Play AAB **20,872,938bytes**·SHA256 `b4a83bf074d6bd4dee68ed4d4406f279751dcf33a5d2941dd4ae2582388874b1`. 개인 APK **21,482,971bytes**·SHA256 `de33422f0bee82362d95c5f28f9c3560cae6519356223d7b8465f5f8e4e35658`. 기존 Play 업로드키·개인 APK키를 유지하고 build23 개인 APK와 인증서 일치를 확인했다. jarsigner strict·bundletool·16KB APK 정렬, payload1077개 전체 서명/원본 일치, native572/public480/사진328개 Android·로컬 iOS 자산 일치를 검증했다.
-- **배포/CI**: [Pages 34590649099](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34590649099)·[모바일 34590650742](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34590650742) 성공. Android release/lint·에뮬레이터 계측 및 iOS 무서명 Release 컴파일의 job/step 성공을 확인했다. 공개 웹앱4개 시나리오(열 편 도입·9단계 완주·결말 재실행·영어 야간125%)와 배포 자산 해시를 기록했고 서버 쓰기·JS/콘솔 오류0이다. 공개 APK도 재다운로드해 로컬 서명본과 일치했다. 물리 휴대폰·Apple 배포 서명·Play 업로드/심사는 별도다. 보고서 artifacts/qa-build24/public-release-verification.json 및 다운로드 폴더 READ-ME-KO.txt.
 
 ## 태스크 현황
 
@@ -76,6 +72,8 @@
 
 ## 다음 세션이 알아야 할 것
 
+- **build27 UI(D-073)**: 하늘에서만 하단 탭을 좌상단 아래꺾쇠 메뉴로 접었다. 설정 하나 → 하늘/GPS/앱, 시계 우상단, GPS 하단 중앙, 카메라 우하단. main 센서 연결 오류 패널은 없다. autoStart는 실행 중 상태로만 유지하고 새 실행 시 true; OS 권한을 우회하지 않는다. 지면 투명도 기본0%=불투명도1, 저장한 사용자 값 보존. 메뉴 전환 E2E는 navigation.selectTab을 사용한다.
+
 - **최우선 build26**: docs/SKY-REFINEMENT-BUILD26.md의 확대/메인 하늘/스타호핑 체크리스트 결과를 받는다. 하늘 진입은 #/sky?scope=ObjectId, 스타호핑은 #/telescope?view=hop&course=기존ID. 필터의 setViewport는 실제 FOV/화면 픽셀을 전달하며 줌 변경 때 reset하지 않는다. 센서 trackingMode는 compass/gyro, manualPauseUntil은 호환 이름을 남긴 런타임 플래그(1=사용자 버튼 대기)이며 타이머가 아니다. 자이로 상대 보정은 재시작 시 재사용하지 않는다.
 - **집 PC와 연구실 키 구별**: 기존 문서의 “이 PC”는 당시 연구실을 뜻한다. 현재 PC에는 이전 업로드 키만 있다. build26의 기존 Play 서명은 별도 인계가 필요하며 scripts/sign-play-update.ps1이 AAB 해시와 build24 인증서를 검증한다.
 
@@ -90,7 +88,7 @@
 
 - **다음 작업**: T5 실기기 정렬/드리프트 결과와 G4 반영 → T7 잔여(skyPick 36, 하루 복습 누적 상한·배지 이력/연출) → T8. G3/G5 추가 생성은 불필요. 사용자는 솔로몬 HQ 8×42 ED와 SV48P 102mm를 사용한다. FOV/접안 사양은 시작 예시로 두고 직접 입력하도록 요청했다. 7.50°·25mm/52°를 실제 장비 사양으로 단정하지 않는다(D-039).
 - **학습/콘텐츠**: 한국어 재서술본은 data-src/*-raw/*-natural, 게시본은 public/data/{content,learn}/v1이며 확장 업적48개는 public/data/learn/v2다. 기존18개 ID/규칙과 코스·퀴즈 v1을 보존한다(D-040). `pnpm data:content` 다음 `pnpm data:learn`; CI는 이야기121/G5원본180+추가60 참조와 근거를 검증한다. 새 관측12단계는 별도 observingStages.json이며 기존 stageCatalog 28단계를 변경하지 않는다. 수치 검토112·G2 이름42는 docs/CONTENT-REVIEW.md. 새60문항은 전부 영어 제공, 기존 장문 전체 번역은 후속이다.
-- **환경(build26)**: Codex 데스크톱 로컬, Windows PowerShell7. Node24.19.0, 도구 PATH의 pnpm11.19.0(프로젝트/CI는12.3.4 고정), gh2.100.0·JunhyoungPark-NOBEL 로그인. 명령 앞에 `C:\Program Files\nodejs;C:\Program Files\GitHub CLI;%APPDATA%\npm`을 PATH에 더한다. 현재 작업 폴더는 `C:\Users\JunhyoungPark\OneDrive\Desktop\별관찰해쌀뚜`. 이 PC에는 연구실 최신 Play 키가 없고 예전 집 키만 있다.
+- **환경(build27)**: Codex 데스크톱 로컬, Windows PowerShell7. Node24.19.0, 도구 PATH의 pnpm11.19.0(프로젝트/CI는12.3.4 고정), gh2.100.0·JunhyoungPark-NOBEL 로그인. 명령 앞에 `C:\Program Files\nodejs;C:\Program Files\GitHub CLI;%APPDATA%\npm`을 PATH에 더한다. 현재 작업 폴더는 `C:\Users\JunhyoungPark\OneDrive\Desktop\별관찰해쌀뚜`. 이 PC에는 연구실 최신 Play 키가 없고 예전 집 키만 있다.
 
 - **T2 실기기 통과**(2026-09-07, 사용자 보고 "문제 없이 잘 돼"). 덤프·기기 정보는 받지 못했으므로 D-018의 기본값(compassAxis='top', iOS 편각 적용, 필터 상수)을 그대로 둔다. 문제가 보고되면 센서 디버그 "덤프 복사" 텍스트로 원인을 특정한 뒤 테스트 벡터부터 고친다.
 - 센서 관련 진입점: `sensors/orientation/manager.ts`(`sensorManager` 싱글턴: start/stop/nudge/setCalibration/currentAltAz), `state/sensorStore.ts`, `features/sky/ArToggle.tsx`·`CalibrationWizard.tsx`, 시뮬레이터 `features/sky/SensorSimPanel.tsx`(설정 → 개발자 → 센서 디버그에서 켬). 테스트 훅 `window.__skylogSensor`(스토어 상태).

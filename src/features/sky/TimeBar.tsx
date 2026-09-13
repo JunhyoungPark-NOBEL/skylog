@@ -2,7 +2,7 @@ import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useClockStore } from '@/state/clockStore';
 import { useSettingsStore } from '@/state/settingsStore';
-import { IconChevron } from '@/ui/icons';
+import { IconClock } from '@/ui/icons';
 
 const RATES = [-600, -60, 0, 60, 600] as const;
 
@@ -19,8 +19,7 @@ function toLocalDateInput(d: Date): string {
 
 /**
  * 시간 제어 바 (task-01 §3.7): ±12시간 슬라이더(1분), 날짜, 배속, "지금". 상태는 clockStore.
- * 실시간은 작은 시각 pill, 필요할 때만 상세 제어를 펼친다. 시간 이동과 지금 복귀는 접어도 표시한다.
- * 위치는 SkyView의 하단 스택(bottom-sky)이 정한다.
+ * 우상단 시계 아이콘에서만 펼친다. 접힌 상태에서는 시각 텍스트로 시야를 가리지 않는다.
  */
 export function TimeBar({ readOnly = false }: { readOnly?: boolean }) {
   const { t } = useTranslation();
@@ -34,6 +33,25 @@ export function TimeBar({ readOnly = false }: { readOnly?: boolean }) {
   const [slider, setSlider] = useState(0);
   const sliderPrev = useRef(0);
   const controlsId = useId();
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const outside = (e: PointerEvent) => {
+      if (!root.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const escape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        root.current?.querySelector('button')?.focus();
+      }
+    };
+    document.addEventListener('pointerdown', outside);
+    document.addEventListener('keydown', escape);
+    return () => {
+      document.removeEventListener('pointerdown', outside);
+      document.removeEventListener('keydown', escape);
+    };
+  }, [open]);
   const formats = useMemo(() => {
     const locale = lang === 'ko' ? 'ko-KR' : 'en-GB';
     const time: Intl.DateTimeFormatOptions = {
@@ -93,61 +111,51 @@ export function TimeBar({ readOnly = false }: { readOnly?: boolean }) {
 
   return (
     <div
-      className={`${open ? 'glass-sm' : 'glass-hud'} pointer-events-auto flex max-w-full flex-col text-caption shadow-card ${
-        open ? 'w-full rounded-xl' : 'rounded-pill'
-      } ${notNow ? 'text-accent' : 'text-fg'}`}
+      ref={root}
+      className="pointer-events-auto relative h-[44px] w-[44px]"
       data-testid="time-bar"
       data-time-shifted={notNow ? '1' : '0'}
     >
-      <div className={`flex min-h-11 items-center ${notNow ? 'gap-1 pl-3 pr-1' : 'px-3'}`}>
-        <button
-          type="button"
-          className="flex min-h-11 min-w-0 flex-1 items-center gap-2 text-left text-body-sm font-medium tabular-nums"
-          onClick={() => setOpen((o) => !o)}
-          disabled={readOnly}
-          data-testid="time-toggle"
-          aria-expanded={open}
-          aria-controls={open ? controlsId : undefined}
-          aria-label={`${t('sky.time.controls')} · ${label}${notNow ? ` · ${t('status.manualTime')}` : ''}`}
-        >
-          <span className="flex min-w-0 flex-col">
-            <span className="truncate">
-              {!open && !notNow && (
-                <span className="mr-1.5 font-normal text-fg/70">{t('sky.time.now')}</span>
-              )}
-              {open || notNow ? label : timeOnly}
-              {mode === 'manual' && rate !== 0 ? ` ×${rate}` : ''}
-            </span>
-            {notNow && !readOnly && (
-              <span className="text-label font-medium" data-testid="time-shift-label">
-                {t('status.manualTime')}
-              </span>
-            )}
-          </span>
-          <IconChevron
-            size={14}
-            className={`ml-auto shrink-0 transition-transform duration-150 ease-standard ${
-              open ? 'rotate-90' : '-rotate-90'
-            }`}
-          />
-        </button>
-        {notNow && !readOnly && (
-          <button
-            type="button"
-            className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-pill px-3 text-caption font-semibold text-accent transition-colors duration-150 ease-standard active:bg-accent-soft"
-            onClick={() => useClockStore.getState().resetToNow()}
-            data-testid="time-now"
-          >
-            {t('sky.time.now')}
-          </button>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        disabled={readOnly}
+        data-testid="time-toggle"
+        aria-expanded={open && !readOnly}
+        aria-controls={open && !readOnly ? controlsId : undefined}
+        aria-label={`${t('sky.time.controls')} · ${label}${notNow ? ` · ${t('status.manualTime')}` : ''}`}
+        title={`${label}${notNow ? ` · ${t('status.manualTime')}` : ''}`}
+        className={`flex h-[44px] w-[44px] items-center justify-center rounded-full glass-hud ${notNow ? 'text-accent' : 'text-fg'}`}
+      >
+        <IconClock size={21} />
+        {notNow && (
+          <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
         )}
-      </div>
+      </button>
       {open && !readOnly && (
         <div
           id={controlsId}
-          className="flex max-h-[45dvh] flex-col gap-2 overflow-y-auto overscroll-contain px-3 pb-3 text-fg"
+          className="absolute right-0 top-[calc(100%+8px)] z-40 flex max-h-[70dvh] w-[min(22rem,calc(100vw-24px))] flex-col gap-2 overflow-y-auto overscroll-contain rounded-2xl border border-hairline bg-surface p-4 text-fg shadow-float"
           data-testid="time-controls"
         >
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-body-sm tabular-nums">
+              {label || timeOnly}
+              {notNow && (
+                <span className="block text-caption text-accent" data-testid="time-shift-label">
+                  {t('status.manualTime')}
+                </span>
+              )}
+            </p>
+            <button
+              type="button"
+              className="min-h-11 rounded-pill bg-surface-2 px-4 text-body-sm text-accent"
+              data-testid="time-now"
+              onClick={() => useClockStore.getState().resetToNow()}
+            >
+              {t('sky.time.now')}
+            </button>
+          </div>
           <input
             type="range"
             min={-720}

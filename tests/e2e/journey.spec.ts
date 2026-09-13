@@ -1,3 +1,4 @@
+import { selectTab } from './navigation';
 import { test, expect, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import type { QuizItem } from '../../src/learn/schema';
@@ -83,8 +84,8 @@ test('분리된 학습 탐색·이야기 검색·뒤로 가기·좁은 화면·�
   await page.goBack();
   await expect(page.getByTestId('courses-screen')).toBeVisible();
   await page.getByTestId('learn-tab-stories').click();
-  await page.getByTestId('tab-log').click();
-  await page.getByTestId('tab-learn').click();
+  await selectTab(page, 'log');
+  await selectTab(page, 'learn');
   await expect(page.getByTestId('learn-tab-stories')).toHaveAttribute('aria-selected', 'true');
   await page.getByTestId('story-search').fill('M31');
   await page.getByTestId('story-dso:M31').click();

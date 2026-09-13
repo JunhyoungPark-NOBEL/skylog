@@ -4,9 +4,9 @@ test.use({ serviceWorkers: 'block' });
 test('기본 쌍안경 시야 7.5° 원은 10° 화면의 투영 크기 ±2%이며 끄면 사라진다', async ({ page }) => {
   await page.goto('#/sky?t=' + T + '&alt=35&az=180&fov=10');
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-fovRings').click();
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   const canvas = page.getByTestId('fov-overlay');
   await expect(canvas).toBeVisible();
   await expect
@@ -32,9 +32,9 @@ test('기본 쌍안경 시야 7.5° 원은 10° 화면의 투영 크기 ±2%이�
     )
     .toBeLessThan(0.02);
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-fov.png' });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-fovRings').click();
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await expect(canvas).toBeHidden();
 });
 async function setup(page: Page) {
@@ -148,6 +148,7 @@ test('장비 저장 → 폰 윗변 두 별 정렬 → 목표 안내·차트·스
   await page.screenshot({ path: 'tests/e2e/__screenshots__/telescope-equipment.png' });
   await page.goto('#/telescope?target=dso%3AM13');
   await page.getByTestId('guide-accept').click();
+  await page.getByTestId('scope-options').click();
   await expect(page.getByTestId('direction-align')).toContainText('밝은 별');
   await expect(page.getByTestId('sky-canvas')).toBeVisible();
   await pointAt(page, 'star:HIP97649');
@@ -303,6 +304,7 @@ test('상대 센서만 있으면 임의 방위 화살표 대신 목표 주변 �
   await pointAt(page, 'star:HIP97649');
   await page.goto('#/telescope?target=dso%3AM13');
   await page.getByTestId('guide-accept').click();
+  await page.getByTestId('scope-options').click();
   await expect(page.getByTestId('telescope-sky-guide')).toContainText('나침반', {
     timeout: 15000,
   });
@@ -340,7 +342,7 @@ test('두 장비 시야원을 개별로 켜고 끄며 전체 끄기와 새로고
 }) => {
   await setup(page);
   await page.goto('#/sky?t=' + T + '&alt=35&az=180&fov=10');
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-fovRings').click();
   const bino = page.locator('#fov-ring-binoculars');
   const scope = page.locator('#fov-ring-telescope');
@@ -364,10 +366,10 @@ test('두 장비 시야원을 개별로 켜고 끄며 전체 끄기와 새로고
   await expect.poll(() => fovDiameterError(page, 0)).toBe(0);
   await bino.click();
   await expect.poll(() => fovDiameterError(page, 7.5)).toBeLessThan(6);
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.reload();
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await expect(bino).toHaveAttribute('aria-checked', 'true');
   await expect(scope).toHaveAttribute('aria-checked', 'false');
   await expect.poll(() => fovDiameterError(page, 7.5)).toBeLessThan(6);
@@ -408,7 +410,7 @@ test('기본 장비 예시를 편집·저장하면 표시와 실제 두 시야�
   await expect(calculated.getByText('기본 예시', { exact: true })).toHaveCount(0);
   await page.goto('#/sky?t=' + T + '&alt=35&az=180&fov=10');
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   const choices = page.getByTestId('fov-ring-choices');
   await expect(choices).toContainText('6.00°');
   await expect(choices).toContainText('0.85°');

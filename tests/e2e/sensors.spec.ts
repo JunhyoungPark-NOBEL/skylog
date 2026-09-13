@@ -1,3 +1,4 @@
+import { selectTab } from './navigation';
 import { expect, test, type Page } from '@playwright/test';
 
 /**
@@ -42,7 +43,7 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   // 켜기
   await page.getByTestId('ar-toggle').click();
   await expect(page.getByTestId('sim-panel')).toBeVisible();
-  await expect(page.getByTestId('ar-status')).toBeVisible();
+  await expect(page.getByTestId('ar-status')).toHaveCount(0);
 
   // 상대 모드(iOS형): 북 기준이 준비되지 않은 yaw는 방위로 사용하지 않고 기존 차트를 유지한다.
   await setSlider(page, 'sim-beta', 90);
@@ -51,7 +52,10 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   let v = await getView(page);
   expect(Math.abs(v.azDeg - 180)).toBeLessThan(1.5);
   expect(Math.abs(v.altDeg - 30)).toBeLessThan(1.5);
+  await page.getByTestId('open-settings').click();
+  await page.getByTestId('settings-gps').click();
   await expect(page.getByTestId('ar-source')).toContainText('밝은 별');
+  await page.getByTestId('close-sky-settings').click();
 
   // 절대 모드(Android형): 자북 기준 α=0 → 편각(대전 −8.7°) 적용 → 방위 ≈ 351.3
   await page.getByTestId('sim-absolute').check();
@@ -79,7 +83,7 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   await page.screenshot({ path: 'tests/e2e/__screenshots__/sensor-ar.png' });
 
   // 1-별 정렬: 대상(베가)을 고르고 "맞췄어요" → δ = 대상 방위 − 센서 방위 → 화면 중심이 대상과 일치
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.getByTestId('ar-align').click();
   await expect(page.getByTestId('calib-wizard')).toBeVisible();
   const candidates = page.getByTestId('calib-candidates').locator('button');
@@ -107,6 +111,7 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   expect(Math.abs(((v.azDeg - tgt!.azDeg + 540) % 360) - 180)).toBeLessThan(1.5);
   expect(Math.abs(v.altDeg - tgt!.altDeg)).toBeLessThan(1.5);
   await page.getByTestId('open-settings').click();
+  await page.getByTestId('settings-gps').click();
   await expect(page.getByTestId('alignment-setting-status')).toContainText(/맞춤/);
   await page.getByTestId('close-sky-settings').click();
 
@@ -132,7 +137,7 @@ test('AR 모드(시뮬레이터): 켜기 → 방위 추종 → 편각 → 1-별 
   await expect(page.getByTestId('sim-panel')).toHaveCount(0);
 });
 
-test('기본 방향 센서: 바로 연결하고 끄기 선택은 재실행에도 유지한다', async ({ page }) => {
+test('기본 방향 센서: 실행 중 끄기는 유지하고 앱을 다시 열면 자동 연결한다', async ({ page }) => {
   await enableSimulator(page);
   await page.goto('#/sky');
   await expect(page.getByTestId('sim-panel')).toBeVisible();
@@ -150,43 +155,43 @@ test('기본 방향 센서: 바로 연결하고 끄기 선택은 재실행에도
   await expect(page.getByTestId('ar-align')).toHaveCount(0);
   await page.getByTestId('ar-toggle').click();
   await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
-  // 화면의 꺼짐 표시와 Dexie 비동기 저장 완료는 다르다. 저장을 확인한 뒤 재실행한다.
-  await expect
-    .poll(() =>
-      page.evaluate(
-        () =>
-          new Promise<unknown>((resolve, reject) => {
-            const request = indexedDB.open('skylog');
-            request.onerror = () => reject(request.error);
-            request.onsuccess = () => {
-              const db = request.result;
-              const tx = db.transaction('settings', 'readonly');
-              const value = tx.objectStore('settings').get('sensor.autoStart');
-              tx.oncomplete = () => {
-                db.close();
-                resolve((value.result as { value?: unknown } | undefined)?.value);
-              };
-              tx.onabort = () => {
-                db.close();
-                reject(tx.error);
-              };
-            };
-          }),
-      ),
-    )
-    .toBe(false);
-  await page.reload();
-  await expect(page.getByTestId('sky-view')).toBeVisible();
+  await selectTab(page, 'search');
+  await selectTab(page, 'sky');
   await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
-  await expect(page.getByTestId('sim-panel')).toHaveCount(0);
-  await page.getByTestId('ar-toggle').click();
+  // 이전 버전이 저장한 끄기 값이 있어도 새 실행의 기본 자동 추적을 막지 않는다.
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolve, reject) => {
+        const r = indexedDB.open('skylog');
+        r.onerror = () => reject(r.error);
+        r.onsuccess = () => {
+          const db = r.result,
+            tx = db.transaction('settings', 'readwrite');
+          tx.objectStore('settings').put({
+            key: 'sensor.autoStart',
+            value: false,
+            schemaVersion: 1,
+          });
+          tx.oncomplete = () => {
+            db.close();
+            resolve();
+          };
+          tx.onabort = () => {
+            db.close();
+            reject(tx.error);
+          };
+        };
+      }),
+  );
+  await page.reload();
+  await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'true');
   await expect(page.getByTestId('sim-panel')).toBeVisible();
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.getByTestId('sky-overview').click();
   await expect(page.getByTestId('ar-toggle')).toHaveAttribute('aria-pressed', 'false');
   await expect(page.getByTestId('view-info')).toContainText('180°');
-  await page.getByTestId('tab-search').click();
-  await page.getByTestId('tab-sky').click();
+  await selectTab(page, 'search');
+  await selectTab(page, 'sky');
   await expect(page.getByTestId('sim-panel')).toBeVisible();
 });
 
@@ -198,6 +203,7 @@ test('허용된 현재 위치는 자동 갱신하고 저장 관측지를 고르�
   await context.setGeolocation({ latitude: 37.5665, longitude: 126.978, accuracy: 20 });
   await page.goto('#/sky');
   await page.getByTestId('open-settings').click();
+  await page.getByTestId('settings-gps').click();
   await expect(page.getByTestId('status-site')).toHaveText('GPS');
   await page.goto('#/sites');
   await expect(page.locator('#sites-auto-location')).toHaveAttribute('aria-checked', 'true');
@@ -237,6 +243,7 @@ test('관측지: 추가(붙여넣기 파서·범위 선택기) → 선택 → �
   await expect(page.getByTestId('sites-current')).toHaveText('베란다');
   await page.goto('#/sky');
   await page.getByTestId('open-settings').click();
+  await page.getByTestId('settings-gps').click();
   await expect(page.getByTestId('status-site')).toContainText('베란다');
 
   // 편집·삭제

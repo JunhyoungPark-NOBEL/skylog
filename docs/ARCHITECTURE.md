@@ -231,3 +231,7 @@ HorizonLayer의 지면 한 표면에서 meadow-v2 색을 혼합한 뒤 사용자
 - 망원경 기본 경로는 `#/sky?scope=ObjectId`. TelescopeSkyGuide는 기존 SkyScene 하나에 `pointingCameraQuaternion`으로 물리 +Y를 카메라 -Z에 대응시킨다. 실제 안내 중 시각은 현재를 사용하고 시간 도구를 잠근다. guide FovOverlay는 중심 파인더·접안 원을 표시한다. 정렬/장비/보조 차트만 전역 탭 위 포털이며 일반 코스는 독립 ScreenFrame이다.
 - 스타호핑은 `#/telescope?view=hop&course=기존ID`에 한정한다. HOP_COURSES의 밝은 이정표·한영 안내를 curatedHop으로 계산한다. 세션 체크포인트에 코스 ID·경로·FOV를 포함하며 기존 실제 완료 이벤트를 바꾸지 않는다. FinderChart는 기기 배율에 맞춘 캔버스와 이름 배치/연결선, 실제 파인더 원을 사용한다. `astro/starHop.ts` 자동 탐색은 보존하지만 코스 UI에서는 사용하지 않는다.
 - 구현/검증/물리 확인 경계는 [build26 보고](SKY-REFINEMENT-BUILD26.md)를 따른다.
+
+## 하늘 조작 최소화 (D-073, build27)
+
+TabBar는 sky에서만 좌상단 아래꺾쇠로 접고 다른 콘텐츠 탭에서는 하단 이동을 유지한다. SkySettings 모달은 하늘/GPS/앱 탭으로 기존 LayerPanel/SettingsContent를 단일 ScrollArea에 넣는다. TimeBar는 우상단 아이콘과 팝오버, GPS는 하단 중앙, RearCameraControls는 일반 하늘 우하단이다. 센서 오류는 설정에만 표시한다. autoStart는 실행 중 상태이며 hydration은 이전 저장값을 무시하고 현재 실행의 선택을 보존한다. App의 layout effect가 CSS 테마를 먼저 적용한 뒤 SkyView가 팔레트를 읽는다.

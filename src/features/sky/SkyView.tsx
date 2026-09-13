@@ -1,12 +1,11 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useTranslation } from 'react-i18next';
 import { hashQuery, useHash } from '@/app/router';
 import type { ObjectId } from '@/catalog/objectId';
 import { ArToggle } from '@/features/sky/ArToggle';
 import { useRearCamera } from './useRearCamera';
-import { RearCameraView } from './RearCameraView';
+import { RearCameraView, RearCameraControls } from './RearCameraView';
 import { CalibrationWizard } from '@/features/sky/CalibrationWizard';
-import { LayerPanel } from '@/features/sky/LayerPanel';
 import { SensorSimPanel } from '@/features/sky/SensorSimPanel';
 import { useRealSkySync } from '@/features/sky/useRealSkySync';
 import { sensorManager } from '@/sensors/orientation/manager';
@@ -30,7 +29,7 @@ import { useLogStore, type LogState } from '@/state/logStore';
 import { useSelectionStore } from '@/state/selectionStore';
 import { useSettingsStore } from '@/state/settingsStore';
 import { useViewStore } from '@/state/viewStore';
-import { IconLayers, IconSettings } from '@/ui/icons';
+import { IconSettings } from '@/ui/icons';
 
 import { HOP_COURSES } from '@/learn/hopCourses';
 import { openTelescope } from '@/features/telescope/navigation';
@@ -99,7 +98,6 @@ export function SkyView() {
   const rearVideoRef = useRef<HTMLVideoElement>(null);
   const rearCamera = useRearCamera(rearVideoRef);
   const [ready, setReady] = useState(false);
-  const [layersOpen, setLayersOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const hash = useHash();
   const scope = hashQuery(hash).get('scope');
@@ -283,8 +281,23 @@ export function SkyView() {
       ? info
       : null;
 
+  const overview = () => {
+    if (scope) window.location.hash = '#/sky?alt=89.9&az=0&fov=220';
+    setSkyOrientationAutomaticAllowed(false);
+    sceneRef.current?.controller.flyTo({ altDeg: 89.9, azDeg: 0, fovDeg: 220 });
+    sceneRef.current?.invalidate();
+    setSettingsOpen(false);
+  };
+  const startCamera = () => {
+    sceneRef.current?.controller.setView({ fovDeg: rearCamera.fov });
+    void rearCamera.start();
+  };
   return (
-    <div className="relative h-full w-full overflow-hidden bg-bg" data-testid="sky-view">
+    <div
+      className="relative h-full w-full overflow-hidden bg-bg"
+      data-testid="sky-view"
+      style={{ '--tab-height': '0px', '--tab-inset': '8px' } as CSSProperties}
+    >
       <RearCameraView camera={rearCamera} videoRef={rearVideoRef} />
       <canvas ref={canvasRef} className="relative block h-full w-full" data-testid="sky-canvas" />
       <div
@@ -307,7 +320,7 @@ export function SkyView() {
       <div
         ref={toolbarRef}
         data-testid="sky-toolbar"
-        className={`pointer-events-none absolute inset-x-3 top-[calc(env(safe-area-inset-top)+8px)] z-20 flex items-start gap-2 ${sheetOpen ? 'invisible' : ''}`}
+        className={`pointer-events-none absolute inset-x-[12px] top-[calc(env(safe-area-inset-top)+8px)] z-20 flex items-start justify-between gap-2 ${sheetOpen ? 'invisible' : ''}`}
       >
         <button
           type="button"
@@ -315,27 +328,13 @@ export function SkyView() {
           aria-expanded={settingsOpen}
           onClick={() => {
             setSettingsOpen(true);
-            setLayersOpen(false);
           }}
           data-testid="open-settings"
-          className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-pill glass-hud"
+          className="pointer-events-auto flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-pill glass-hud"
         >
           <IconSettings size={20} />
         </button>
-        <button
-          type="button"
-          aria-label={t('sky.layers')}
-          aria-expanded={layersOpen}
-          onClick={() => {
-            setLayersOpen(!layersOpen);
-            setSettingsOpen(false);
-          }}
-          data-testid="open-layers"
-          className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-pill glass-hud"
-        >
-          <IconLayers size={20} />
-        </button>
-        <div className="min-w-0 flex-1">
+        <div className="pointer-events-auto">
           <TimeBar readOnly={!!scope && !simulator} />
         </div>
       </div>
@@ -347,10 +346,7 @@ export function SkyView() {
             setSettingsOpen(false);
             setWizardOpen(true);
           }}
-          onStartCamera={() => {
-            sceneRef.current?.controller.setView({ fovDeg: rearCamera.fov });
-            void rearCamera.start();
-          }}
+          onOverview={overview}
         />
       )}
       {!scope && <FovOverlay />}
@@ -363,25 +359,12 @@ export function SkyView() {
       {simulator && arActive && <SensorSimPanel />}
       {wizardOpen && <CalibrationWizard onClose={() => setWizardOpen(false)} />}
 
-      {layersOpen && (
-        <LayerPanel
-          onClose={() => setLayersOpen(false)}
-          onAlign={() => {
-            setLayersOpen(false);
-            setWizardOpen(true);
-          }}
-          onOverview={() => {
-            if (scope) window.location.hash = '#/sky?alt=89.9&az=0&fov=220';
-            setSkyOrientationAutomaticAllowed(false);
-            const scene = sceneRef.current;
-            scene?.controller.flyTo({ altDeg: 89.9, azDeg: 0, fovDeg: 220 });
-            scene?.invalidate();
-            setLayersOpen(false);
-          }}
-        />
-      )}
-
       {!scope && <TargetGuide />}
+      {!sheetOpen && !scope && (
+        <div className="absolute right-[12px] bottom-sky z-20">
+          <RearCameraControls compact camera={rearCamera} onStart={startCamera} />
+        </div>
+      )}
 
       {/* 평소에는 작은 시간 컨트롤만 보이고, 천체를 선택했을 때 정보를 더한다. */}
       {/* 시트가 열려 있으면 독을 숨긴다(유리 위 유리·불필요한 블러 방지). */}
@@ -407,7 +390,7 @@ export function SkyView() {
               onDetails={() => openObject(shownInfo.id, 'half')}
             />
           )}
-          {!scope && <ArToggle onAlign={() => setWizardOpen(true)} />}
+          {!scope && <ArToggle />}
         </div>
       </div>
     </div>

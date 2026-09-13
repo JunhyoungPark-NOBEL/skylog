@@ -1,0 +1,12 @@
+{
+  "compactSky": {
+    "settingsSections": "Settings sections",
+    "section": {
+      "sky": "Sky",
+      "gps": "GPS",
+      "app": "App"
+    },
+    "openMenu": "Open navigation",
+    "closeMenu": "Close navigation"
+  }
+}

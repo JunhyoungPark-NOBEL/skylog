@@ -1,0 +1,12 @@
+{
+  "compactSky": {
+    "settingsSections": "설정 분류",
+    "section": {
+      "sky": "하늘",
+      "gps": "GPS",
+      "app": "앱"
+    },
+    "openMenu": "화면 이동 메뉴 열기",
+    "closeMenu": "화면 이동 메뉴 닫기"
+  }
+}

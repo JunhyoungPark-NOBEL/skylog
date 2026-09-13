@@ -1,3 +1,4 @@
+import { selectTab } from './navigation';
 import { expect, test, type Page } from '@playwright/test';
 
 /**
@@ -18,21 +19,24 @@ function collectConsoleErrors(page: Page): string[] {
 test('앱 셸: 탭 5개 · 상태 바 · 콘솔 에러 0', async ({ page }) => {
   const errors = collectConsoleErrors(page);
   await page.goto('#/sky');
+  await expect(page.getByTestId('tab-bar')).toBeHidden();
+  await page.getByTestId('nav-toggle').click();
   await expect(page.getByTestId('tab-bar')).toBeVisible();
   await expect(page.getByRole('tab')).toHaveCount(5);
   await expect(page.getByTestId('tab-sky')).toHaveAttribute('aria-selected', 'true');
   await page.getByTestId('open-settings').click();
+  await page.getByTestId('settings-gps').click();
   await expect(page.getByTestId('status-site')).toContainText('대전');
   await page.getByTestId('close-sky-settings').click();
-  await expect(page.getByTestId('time-toggle')).toContainText(/\d{2}:\d{2}/);
+  await expect(page.getByTestId('time-toggle')).toHaveAttribute('aria-label', /\d{2}:\d{2}/);
   await expect(page.locator('#splash')).toHaveCount(0);
 
   for (const tab of ['search', 'tonight', 'log', 'learn'] as const) {
-    await page.getByTestId(`tab-${tab}`).click();
+    await selectTab(page, tab);
     await expect(page).toHaveURL(new RegExp(`#/${tab}$`));
     await expect(page.getByTestId(`tab-${tab}`)).toHaveAttribute('aria-selected', 'true');
   }
-  await page.getByTestId('tab-sky').click();
+  await selectTab(page, 'sky');
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
   await page.waitForTimeout(500);
   await page.screenshot({ path: `${SHOTS}/shell-dark.png`, fullPage: true });
@@ -53,22 +57,25 @@ test('작은 첫 화면: 시간 조절은 접히고 하늘 도구는 설정 안�
   await expect(page.getByTestId('view-info')).toHaveCount(0);
   expect((await time.boundingBox())!.y).toBeLessThan(70);
   expect((await time.boundingBox())!.width).toBeLessThan(250);
-  expect((await page.getByTestId('tab-bar').boundingBox())!.height).toBeLessThan(65);
+  await expect(page.getByTestId('tab-bar')).toBeHidden();
+  await page.getByTestId('nav-toggle').click();
   for (const tab of await page.getByRole('tab').all()) {
     const box = (await tab.boundingBox())!;
     expect(box.width).toBeGreaterThanOrEqual(44);
     expect(box.height).toBeGreaterThanOrEqual(44);
   }
-  await page.screenshot({ path: `${SHOTS}/sky-simple.png` });
+  await page.getByTestId('nav-toggle').click();
+  await page.screenshot({ path: `${SHOTS}/build27-sky-simple.png` });
   await page.getByTestId('time-toggle').click();
   await expect(page.getByTestId('time-controls')).toBeVisible();
   await page.getByTestId('time-date').fill('2026-09-09');
   await expect(time).toHaveAttribute('data-time-shifted', '1');
   await page.getByTestId('time-toggle').click();
-  await expect(page.getByTestId('time-shift-label')).toBeVisible();
+  await expect(page.getByTestId('time-shift-label')).toHaveCount(0);
+  await page.getByTestId('time-toggle').click();
   await page.getByTestId('time-now').click();
   await expect(time).toHaveAttribute('data-time-shifted', '0');
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await expect(page.getByTestId('sky-telescope')).toBeVisible();
   await page.getByTestId('sky-overview').click();
   await expect(page.getByTestId('layer-panel')).toHaveCount(0);
@@ -89,14 +96,14 @@ test('큰 글자 200%: 센서 권한 안내·목표·좌표와 하단 탭이 겹
   await page.getByTestId('sheet-show-in-sky').click();
   await page.getByTestId('sheet-close').click();
   await page.getByTestId('ar-toggle').click();
-  await expect(page.getByTestId('ar-help')).toBeVisible();
+  await expect(page.getByTestId('ar-help')).toHaveCount(0);
   await page.evaluate(() => {
     document.documentElement.style.fontSize = '200%';
   });
   await expect
     .poll(async () => {
       const controls = (await page.getByTestId('ar-toggle-wrap').boundingBox())!;
-      const layers = (await page.getByTestId('open-layers').boundingBox())!;
+      const layers = (await page.getByTestId('open-settings').boundingBox())!;
       const target = (await page.getByTestId('target-pill').boundingBox())!;
       const view = (await page.getByTestId('view-info').boundingBox())!;
       const time = (await page.getByTestId('time-bar').boundingBox())!;
@@ -108,16 +115,10 @@ test('큰 글자 200%: 센서 권한 안내·목표·좌표와 하단 탭이 겹
       );
     })
     .toBe(true);
-  const tabs = (await page.getByTestId('tab-bar').boundingBox())!;
-  expect(tabs.height).toBe(60);
-  for (const tab of await page.getByRole('tab').all()) {
-    const box = (await tab.boundingBox())!;
-    expect(box.width).toBeGreaterThanOrEqual(44);
-    expect(box.height).toBeGreaterThanOrEqual(44);
-  }
+  await expect(page.getByTestId('tab-bar')).toBeHidden();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(360);
   await expect(page.getByTestId('tooltip')).toHaveCount(0);
-  await page.screenshot({ path: `${SHOTS}/sky-large-text.png` });
+  await page.screenshot({ path: `${SHOTS}/build27-sky-large-text.png` });
 });
 
 test('설정: 야간 모드 · 언어 전환 · 디버그 HUD가 동작하고 Dexie에 저장된다', async ({ page }) => {
@@ -125,7 +126,7 @@ test('설정: 야간 모드 · 언어 전환 · 디버그 HUD가 동작하고 De
   await page.goto('#/sky');
   await page.getByTestId('open-settings').click();
   await page.getByTestId('app-settings').click();
-  await expect(page.getByTestId('settings-screen')).toBeVisible();
+  await expect(page.getByTestId('sky-settings')).toBeVisible();
 
   // 야간 모드
   const night = page.locator('#setting-night');
@@ -144,7 +145,7 @@ test('설정: 야간 모드 · 언어 전환 · 디버그 HUD가 동작하고 De
   await page.getByRole('radio', { name: 'English' }).click();
   await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible();
 
-  await page.getByTestId('back').click();
+  await page.getByTestId('close-sky-settings').click();
   await expect(page.getByTestId('tab-sky')).toHaveText(/Sky/);
   await expect(page.getByTestId('debug-hud')).toBeVisible();
   await expect(page.getByTestId('debug-hud')).toContainText(/fps/);

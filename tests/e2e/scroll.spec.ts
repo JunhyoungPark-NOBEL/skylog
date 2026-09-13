@@ -1,3 +1,4 @@
+import { selectTab } from './navigation';
 import { expect, test, type CDPSession, type Locator, type Page } from '@playwright/test';
 
 /**
@@ -14,7 +15,7 @@ async function openTonight(page: Page): Promise<void> {
   await page.route(OPEN_METEO, (route) => route.abort('failed'));
   await page.goto(`#/sky?t=${T}&preserve=1`);
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
-  await page.getByTestId('tab-tonight').click();
+  await selectTab(page, 'tonight');
   await page.getByTestId('tonight-filters').click();
   await page.getByText('시간순 관측 계획', { exact: true }).click();
   await expect(page.getByTestId('recommend-card').getByTestId('rec-list')).toBeVisible({

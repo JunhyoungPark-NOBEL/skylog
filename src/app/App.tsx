@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, lazy, Suspense, type ReactNode } from 'react';
 import { setLanguage } from '@/app/i18n';
 import { navigate, useRoute, useHash } from '@/app/router';
 import { applyTheme } from '@/app/theme';
@@ -61,7 +61,8 @@ export function App() {
   const keepAwake = useSettingsStore((s) => s.keepAwake);
   const debugHud = useSettingsStore((s) => s.debugHud);
 
-  useEffect(() => applyTheme(theme), [theme]);
+  // 하늘의 passive effect가 팔레트를 읽기 전에 CSS 테마부터 적용한다.
+  useLayoutEffect(() => applyTheme(theme), [theme]);
   useEffect(() => {
     void setLanguage(lang);
   }, [lang]);

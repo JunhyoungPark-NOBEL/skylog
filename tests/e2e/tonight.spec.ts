@@ -1,3 +1,4 @@
+import { selectTab } from './navigation';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 
@@ -62,7 +63,7 @@ test('월 버튼·월간/연간 달력·ICS 내보내기와 간결한 날씨', a
     }),
   );
   await openSky(page);
-  await page.getByTestId('tab-tonight').click();
+  await selectTab(page, 'tonight');
   await expect(page.getByTestId('tonight-tab-conditions')).toHaveText('날씨');
   await page.getByTestId('tonight-tab-conditions').click();
   await expect(page.getByTestId('sky-best-window')).toBeVisible();
@@ -143,7 +144,7 @@ test('360px 영어·큰 글자에서도 달력과 코스 테마가 화면 안에
   await page.goto(`#/sky?t=${T}&alt=0&az=180&fov=90&preserve=1`);
   await expect(page.getByTestId('sky-loading')).toHaveCount(0);
   await page.screenshot({ path: `${SHOTS}/sky-meadow-night-en.png` });
-  await page.getByTestId('tab-tonight').click();
+  await selectTab(page, 'tonight');
   await page.getByTestId('tonight-tab-events').click();
   await page.getByTestId('events-view-year').click();
   await expect(page.getByTestId('year-month-12')).toBeVisible();
@@ -174,7 +175,7 @@ test('오늘 밤(온라인): 날씨 카드 · 추천 그룹(토성 포함) · �
     }),
   );
   await openSky(page);
-  await page.getByTestId('tab-tonight').click();
+  await selectTab(page, 'tonight');
   await expect(page.getByTestId('recommend-card').getByTestId('rec-list')).toBeVisible();
   await page.screenshot({ path: `${SHOTS}/tonight-picks.png` });
   await page.getByTestId('tonight-tab-conditions').click();
@@ -257,7 +258,7 @@ test('오늘 밤(오프라인/실패): 날씨 카드는 조용히 숨고 추천�
   const errors = collectErrors(page);
   await page.route(OPEN_METEO, (route) => route.abort('failed'));
   await openSky(page);
-  await page.getByTestId('tab-tonight').click();
+  await selectTab(page, 'tonight');
   await page.getByTestId('tonight-tab-conditions').click();
   await expect(page.getByTestId('sky-status-card')).toBeVisible({ timeout: 15_000 });
   await expect(page.getByTestId('weather-card')).toHaveCount(0);
@@ -321,10 +322,10 @@ test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 �
       }
     }, hideStars);
   // 은하수 텍스처·별자리 선은 한계등급과 무관하므로 끄고 별만 비교한다
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-milkyWay').click();
   await page.locator('#layer-constellationLines').click();
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.waitForTimeout(500);
   const background = await brightness(true);
   const withoutBackground = (pixels: number[]) => {
@@ -335,12 +336,12 @@ test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 �
   const litBefore = before.filter((v) => v > 40).length;
   expect(litBefore).toBeGreaterThan(200);
   const toggle = page.getByTestId('real-sky-toggle');
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await expect(toggle).toHaveAttribute('data-limiting-mag', '6.5');
   await toggle.click();
   await expect(toggle).toHaveAttribute('aria-checked', 'true');
   await expect(toggle).toHaveAttribute('data-limiting-mag', /4\.\d/); // Bortle 7 기본: NELM 4.6 − 달
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.waitForTimeout(600);
   const after = withoutBackground(await brightness());
   let gone = 0;
@@ -355,19 +356,19 @@ test('실제 하늘처럼: 켜면 별이 눈에 띄게 줄고 Bortle 변경이 �
   ).toBeGreaterThan(0.2);
 
   // Bortle 슬라이더(레이어 패널) → 즉시 반영
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   const slider = page.getByTestId('layer-bortle');
   await expect(slider).toBeVisible();
   await slider.fill('3');
   await expect(toggle).toHaveAttribute('data-limiting-mag', /6\.\d/);
   await slider.fill('9');
   await expect(toggle).toHaveAttribute('data-limiting-mag', /3\.\d/);
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.waitForTimeout(400);
   await page.screenshot({ path: `${SHOTS}/real-sky.png` });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await toggle.click();
   await expect(toggle).toHaveAttribute('data-limiting-mag', '6.5');
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   expect(errors, errors.join('\n')).toEqual([]);
 });

@@ -44,9 +44,9 @@ test('잔디·꽃은 하늘을 가리지 않고 아래를 볼수록 지면과 �
   await look(-35);
   await expect.poll(async () => (await opacity()).opacity).toBe(0);
   await expect.poll(async () => (await opacity()).visible).toBe(false);
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-landscape').click();
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await expect.poll(async () => (await opacity()).opacity).toBe(1);
   await expect(page.getByTestId('below-horizon-hint')).toHaveCount(0);
   expect(errors).toEqual([]);
@@ -83,9 +83,9 @@ test('풍경의 반투명 픽셀은 지면을 한 번 합성한 값이고 야간
     });
   const full = await sample();
   const transparency = async (value: string) => {
-    await page.getByTestId('open-layers').click();
+    await page.getByTestId('open-settings').click();
     await page.getByTestId('layer-ground-transparency').fill(value);
-    await page.getByTestId('close-layers').click();
+    await page.getByTestId('close-sky-settings').click();
     await expect
       .poll(() =>
         page.evaluate(
@@ -138,9 +138,9 @@ test('지면 투명도 하나로 기본 불투명·반투명·투명과 별 선�
   await page.goto('#/sky?t=2026-09-06T12:00:00Z&alt=0&az=90&fov=75&preserve=1');
   await expect(page.getByTestId('sky-canvas')).toBeVisible({ timeout: 30000 });
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-landscape').click();
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.evaluate(() => {
     const s = (window as unknown as { __skylogScene: SkyScene }).__skylogScene;
     s.flyToObject('star:HIP32349', 25);
@@ -183,25 +183,25 @@ test('지면 투명도 하나로 기본 불투명·반투명·투명과 별 선�
   expect(before.alt).toBeLessThan(-10);
   expect(before.picked).toBeNull();
   expect(before.spread).toBeLessThan(5);
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await expect(page.locator('#layer-ground')).toHaveCount(0);
   await expect(page.locator('#layer-groundOpaque')).toHaveCount(0);
   await expect(page.locator('#layer-showBelowHorizon')).toHaveCount(0);
   await expect(page.getByTestId('layer-ground-transparency')).toHaveValue('0');
   await page.getByTestId('layer-ground-transparency').fill('50');
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await expect(page.getByTestId('below-horizon-hint')).toBeVisible();
   await expect.poll(async () => (await sample()).picked).toBe('star:HIP32349');
   expect((await sample()).spread).toBeGreaterThan(40);
   await page.screenshot({ path: 'tests/e2e/__screenshots__/sky-below-translucent.png' });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.getByTestId('layer-ground-transparency').fill('100');
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await expect.poll(async () => (await sample()).picked).toBe('star:HIP32349');
   await page.reload();
   await expect(page.getByTestId('sky-canvas')).toBeVisible();
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30000 });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await expect(page.getByTestId('layer-ground-transparency')).toHaveValue('100');
   await page.getByTestId('layer-reset').click();
   await page.locator('#layer-landscape').click();
@@ -209,7 +209,7 @@ test('지면 투명도 하나로 기본 불투명·반투명·투명과 별 선�
   await expect(page.locator('#layer-constellationBounds')).toHaveAttribute('aria-checked', 'false');
   await expect(page.getByTestId('layer-milkyWayAlpha')).toHaveValue('0.33');
   await expect(page.locator('#layer-saturation')).toHaveValue('1');
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await expect(page.getByTestId('below-horizon-hint')).toHaveCount(0);
   expect(errors).toEqual([]);
 });

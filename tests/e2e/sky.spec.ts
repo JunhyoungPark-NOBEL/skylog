@@ -264,11 +264,10 @@ test('야간 모드: 별자리 선·경계는 흰색, 다른 하늘 레이어는
   await page.getByTestId('open-settings').click();
   await page.getByTestId('app-settings').click();
   await page.locator('#setting-night').click();
-  // 설정의 일반 하늘 복귀는 preserve 플래그가 없으므로, 픽셀 검사용 캔버스로 다시 연다.
-  await openSky(page, 'alt=30&az=180&fov=90');
-  await page.getByTestId('open-layers').click();
+  // 통합 설정 안에서 하늘 설정으로 이동하므로 캔버스/시각은 그대로 유지된다.
+  await page.getByTestId('settings-sky').click();
   await page.locator('#layer-constellationBounds').click();
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.waitForTimeout(600);
   await page.screenshot({ path: `${SHOTS}/sky-night.png` });
   const whitePixels = await page.evaluate(() => {
@@ -290,10 +289,10 @@ test('야간 모드: 별자리 선·경계는 흰색, 다른 하늘 레이어는
   });
   expect(whitePixels).toBeGreaterThan(200);
   // 흰색으로 요청된 두 레이어만 끄고 나머지 팔레트의 적색 규칙을 따로 검사한다.
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-constellationLines').click();
   await page.locator('#layer-constellationBounds').click();
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.waitForTimeout(300);
   const offenders = await page.evaluate(() => {
     const src = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
@@ -320,11 +319,11 @@ test('야간 모드: 별자리 선·경계는 흰색, 다른 하늘 레이어는
   // 꺼 둔 별자리 선은 새로고침 후에도 유지된다.
   await page.reload();
   await expect(page.getByTestId('sky-loading')).toHaveCount(0, { timeout: 30_000 });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await expect(page.locator('#layer-constellationLines')).toHaveAttribute('aria-checked', 'false');
   // 복구
   await page.locator('#layer-constellationLines').click();
-  await page.getByTestId('layer-panel').getByRole('button', { name: '닫기', exact: true }).click();
+  await page.getByTestId('close-sky-settings').click();
   await page.getByTestId('open-settings').click();
   await page.getByTestId('app-settings').click();
   await page.locator('#setting-night').click();
@@ -333,9 +332,9 @@ test('야간 모드: 별자리 선·경계는 흰색, 다른 하늘 레이어는
 test('은하수 기본 33%와 최대 강도에서 능선·색 대비가 남고 별 코어는 선명하다', async ({ page }) => {
   const errors = collectErrors(page);
   await openSky(page, 'alt=60&az=180&fov=90');
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-milkyWay').click();
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.waitForTimeout(300);
   await page.evaluate(() => {
     const src = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
@@ -351,10 +350,10 @@ test('은하수 기본 33%와 최대 강도에서 능선·색 대비가 남고 �
       c.height,
     ).data;
   });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.locator('#layer-milkyWay').click();
   await expect(page.getByTestId('layer-milkyWayAlpha')).toHaveValue('0.33');
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.waitForTimeout(300);
   const visibility = await page.evaluate(() => {
     const src = document.querySelector<HTMLCanvasElement>('[data-testid="sky-canvas"]')!;
@@ -397,9 +396,9 @@ test('은하수 기본 33%와 최대 강도에서 능선·색 대비가 남고 �
     return { changed, total, mean: brightness / Math.max(1, changed), core, ratio };
   });
   await page.screenshot({ path: `${SHOTS}/sky-milkyway-clear.png` });
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.getByTestId('layer-milkyWayAlpha').fill('1');
-  await page.getByTestId('close-layers').click();
+  await page.getByTestId('close-sky-settings').click();
   await page.waitForTimeout(300);
   await page.screenshot({ path: `${SHOTS}/sky-milkyway-max.png` });
   const maximum = await page.evaluate(() => {
@@ -453,7 +452,7 @@ test('원형 천구: 반구 경계·GPU 별 위치·선택·역투영이 가로/
 }) => {
   const errors = collectErrors(page);
   await openSky(page, 'alt=40&az=180&fov=90');
-  await page.getByTestId('open-layers').click();
+  await page.getByTestId('open-settings').click();
   await page.getByTestId('sky-overview').click();
   await expect
     .poll(() =>

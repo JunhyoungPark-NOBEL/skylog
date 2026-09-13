@@ -1,3 +1,4 @@
+import { selectTab } from './navigation';
 import { expect, test, type Page } from '@playwright/test';
 import sharp from 'sharp';
 
@@ -38,7 +39,7 @@ test('천체 탭·검색은 사진만 간결하게 표시하고 자세히에서 
   ).toHaveAttribute('href', /^https:\/\//);
   await page.screenshot({ path: 'artifacts/screenshots/photo-sheet-saturn.png' });
   await page.getByTestId('sheet-close').click();
-  await page.getByTestId('tab-search').click();
+  await selectTab(page, 'search');
   await page.getByTestId('search-input').fill('M31');
   const result = page.getByTestId('search-result').first();
   await expect(result).toHaveAttribute('data-object-id', 'dso:M31');
@@ -131,7 +132,7 @@ test('사진 요청 실패에도 상세 정보와 검색은 작동하고 사진 
   await expect(page.getByTestId('photo-unavailable')).toBeVisible();
   await expect(page.getByTestId('sheet-transit')).toHaveText(/\d{2}:\d{2}/);
   await page.getByTestId('sheet-close').click();
-  await page.getByTestId('tab-search').click();
+  await selectTab(page, 'search');
   await page.getByTestId('search-input').fill('베가');
   const result = page.getByTestId('search-result').first();
   await expect(result.getByTestId('search-result-name')).toHaveText('베가');

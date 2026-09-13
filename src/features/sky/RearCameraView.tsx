@@ -45,7 +45,15 @@ export function RearCameraView({
   );
 }
 
-export function RearCameraControls({ camera, onStart }: { camera: RearCamera; onStart(): void }) {
+export function RearCameraControls({
+  camera,
+  onStart,
+  compact = false,
+}: {
+  camera: RearCamera;
+  onStart(): void;
+  compact?: boolean;
+}) {
   const { t } = useTranslation();
   const active = camera.status !== 'off';
   const label = t(
@@ -59,7 +67,7 @@ export function RearCameraControls({ camera, onStart }: { camera: RearCamera; on
     <div className="pointer-events-auto" data-testid="camera-controls">
       <button
         type="button"
-        className="flex min-h-11 items-center gap-2 rounded-pill glass-hud px-3 text-caption font-semibold"
+        className={`flex h-[44px] items-center justify-center gap-2 rounded-pill glass-hud text-caption font-semibold aria-pressed:bg-accent-soft aria-pressed:text-accent ${compact ? 'w-[44px]' : 'px-3'}`}
         data-testid="camera-toggle"
         aria-label={label}
         aria-pressed={camera.status === 'on'}
@@ -77,7 +85,7 @@ export function RearCameraControls({ camera, onStart }: { camera: RearCamera; on
           <path d="M3 7h4l2-3h6l2 3h4v13H3z" />
           <circle cx="12" cy="13" r="4" />
         </svg>
-        <span className="whitespace-normal text-left">{label}</span>
+        {!compact && <span className="whitespace-normal text-left">{label}</span>}
       </button>
     </div>
   );
