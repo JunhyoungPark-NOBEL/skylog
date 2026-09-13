@@ -247,3 +247,9 @@ SampleClock은 부팅 시각을 performance 축으로 정렬하며 DOM/Generic S
 ## build29 · 설치 보정의 수명
 
 3별 보정은 PointingAlignment(yawDeg, axis)+샘플시각+고정관측지+프로필/공급자/센서sessionId를 저장한다. 실행 자세는 telescopePose의 메모리 전용 스토어에 둔다. TelescopeSession 종료 때 유효한 완료 보정이 있으면 센서를 유지하고 일반 하늘의 CalibratedTelescopeProvider가 같은 입력을 구독한다. 화면 회전은 육안 어댑터에서만 복구하고 경통 모델은 물리 +Y를 사용한다. savedAlignment 디스크 저장만으로 다음 실행의 임의 자이로 북 기준을 복원하지 않는다. 새 세션/1500ms 공백/100m 초과 관측지 변경은 재사용하지 않으며 설치 종료로 리스너를 해제한다.
+
+## build30 · 시야 고정과 이동 판정 (D-076)
+
+측정 필터 → 좌표/별 보정 → CameraController의 IntentStabilizer(표시용 정지·이동) → RenderPose(40ms 표시 보간) → 카메라. 세 별 평균·잔차와 경통 보정 입력에는 표시용 고정값을 쓰지 않는다. 범위 안에서는 정지 시점을 유지하고, 판정용 평활 자세의 지속 방향 이동을 확인해 추종하며, 멈추면 현재 시점에서 고정한다. 확대 변경은 고정 시점을 초기화하지 않고 수동/센서 종료와 긴 입력 공백은 초기화한다.
+
+skyCadence는 광각의1초 갱신을 유지하면서 확대/해상도에 맞춰 별·천체 갱신 주기를 줄인다. 시각이 멈추면 기존 invalidate 방식대로 계산/그리기를 쉬므로 정지 프레임을 불필요하게 계속 그리지 않는다. 시험 입력·고정 각도의 절충·기기 확인은 INTENT-STABILITY-BUILD30.md를 참조한다.

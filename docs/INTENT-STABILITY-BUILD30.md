@@ -14,7 +14,7 @@
 
 ## 자동 검증
 
-시작 시 install·typecheck·기존798개 단위 검사 통과. 구현 후 typecheck·ESLint·단위813개(117파일)·PWA 빌드 통과. 전체 브라우저115개 중114개 통과 후 새 화성 검사에서 위 이름 초기화 오류를 발견했다. 수정 후 관련8개 모두 통과했다. 정상·야간 목표 색 대비4.5:1 이상, 취소44px, 360px·200% 글자 배치의 스크린샷을 직접 확인했다. 브라우저의 세 별 보정/재사용과 확대 별 선택·GPS 유지, 정지 시 draw0도 통과했다.
+시작 시 install·typecheck·기존798개 단위 검사 통과. 구현 후 typecheck·ESLint·단위813개(117파일)·PWA 빌드 통과. 전체 브라우저115개 중114개 통과 후 새 화성 검사에서 위 이름 초기화 오류를 발견했다. 수정 후 관련8개 모두 통과했다. 정상·야간 목표 색 대비4.5:1 이상, 취소44px, 360px·200% 글자 배치의 스크린샷을 직접 확인했다. 브라우저의 세 별 보정/재사용과 확대 별 선택·GPS 유지, 정지 시 draw0도 통과했다. 추가로 실제 SimulatorProvider→스토어→렌더 루프를 연결한 광각/확대 손떨림·방향 전환 통합1개도 통과했다(브라우저 검사 총116개).
 
 합성 입력: 30/60/90Hz, 불규칙 간격±12%, 화면120Hz, 412×915px. 세 축의 빠른 진동과 느린 손목 흔들림을 합쳤다. 동일한 측정 필터 출력에 대해 기존40ms 표시와 고정 범위 적용 표시를 실제 카메라/별 투영으로 비교했다. 초기4초 제외, 평균 위치 주위의 RMS이며 절대 포인팅 오차가 아니다.
 
@@ -48,4 +48,6 @@ D-076. DB/데이터 팩/의존성 변경 없음. 새 파일은 IntentStabilizer�
 
 ## 배포와 산출물
 
-검증/배포가 끝나면 소스·Actions·AAB 검증값을 여기에 기록한다.
+소스 0ae11c9e64e2b9527a46fb354d50e2d3dc10368d, 태그 v0.1.0-beta.24-build30. [Pages34742100652](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34742100652)·[모바일34742101093](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34742101093) 성공. 공개 웹200·beta.24·화성 이름/취소·JS오류0·서버쓰기0. Android release/lint 오류0(기존 경고32)·API36 오프라인2개·iOS Release 컴파일 통과, 원본 XML 확인. 무서명 AAB 20,791,244bytes, SHA256 8e2bcb0253860061fe3cd8eb1289145ce81f7d0c55724bd99fa122e48d7f7129. bundletool·버전30·앱ID·카메라 권한 있음/마이크 권한 없음·정적 파일480개 바이트 비교 통과. S24+ 실제 손떨림·조작 지연·파인더 비교와 연구실 동일 인증서 서명은 남는다.
+
+산출물: Downloads/skylog-release-0.1.0-beta.24-build30/app-release.aab, Downloads/skylog-0.1.0-beta.24-build30-signing-kit.zip. ZIP은 AAB·메타데이터/검증서·서명 스크립트2개·이 보고서·한국어 안내 총8항목이다. ZIP 내부 AAB의 SHA256도 비교한다. 서명은 연구실의 기존 Play 업로드 인증서 f5ad3a778d18b33973938b40f5b93f604c0cb099095a9875b09aa4f0c57a98bd로만 진행한다.

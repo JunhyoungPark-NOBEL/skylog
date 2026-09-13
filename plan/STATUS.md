@@ -1,11 +1,11 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-13 · beta.24/build30 표시 시야 고정·목표 취소 · 자동 검증 완료 · 배포/서명 인계 준비
+> 마지막 갱신: 2026-09-13 · beta.24/build30 표시 시야 고정·목표 취소 · 웹/모바일 검증 완료 · 연구실 동일 키 서명·S24+ 실기기 확인 대기
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
-- build30 배포/산출물은 [시야 고정 보고](../docs/INTENT-STABILITY-BUILD30.md)에 기록한다.
+- 최신 AAB(build30): 로컬 Downloads/skylog-release-0.1.0-beta.24-build30/app-release.aab(**서명 전**) · Downloads/skylog-0.1.0-beta.24-build30-signing-kit.zip · [시야 고정 보고](../docs/INTENT-STABILITY-BUILD30.md).
 
 - 이전 AAB(build29): 로컬 `Downloads/skylog-release-0.1.0-beta.23-build29/app-release.aab`(**서명 전**) · 인계 `Downloads/skylog-0.1.0-beta.23-build29-signing-kit.zip` · [네비게이션/보정 보고](../docs/NAVIGATION-CALIBRATION-BUILD29.md).
 
@@ -29,7 +29,9 @@
 - 표시 전용 정지/이동 판정: FOV별0.325~1.05° 시야 고정, 방향 지속/왕복 구분, 부드러운 해제와 정지. 기존 측정·세 별 평균/보정과 물리 +Y 축은 유지한다. 확대 시 천체 갱신 간격도1초에서 픽셀 예산 기반으로 조정했다.
 - 수용 기준 ✅4/⚠️1(S24+ 실기기). type/lint·단위813개(117파일)·PWA 빌드 통과. 전체 브라우저115개 중114개 통과 후 이름 초기화 오류 수정, 관련8개 재검증 모두 통과. 정상/야간 색 대비4.5:1 이상·44px 취소·360px/200% 배치·별 탭 GPS 유지·세 별 보정/재사용·수동 조작을 확인했다.
 - 합성30/60/90Hz 불규칙 손떨림→120Hz 화면 시험에서 정지 화면 RMS0.001px 미만. S24+ 실측 아님. 움직임/반전/정지와 실제 포인팅 잔여각도도 검사했다. 시야 고정으로 작은 조작에 지연이 생기는 절충을 보고서에 명시한다.
-- D-076, docs/INTENT-STABILITY-BUILD30.md. DB/팩/의존성 변경 없음. 추가 GPT Pro/결정 질문 없음. 배포/산출물 검증 후 아래에 최종 결과를 기록한다.
+- D-076, docs/INTENT-STABILITY-BUILD30.md. DB/팩/의존성 변경 없음. 추가 GPT Pro/결정 질문 없음. 별도 실제 시뮬레이터→스토어→화면 통합 검사1개도 통과(검사 인벤토리116개).
+
+- **최종 배포/산출물**: 소스 0ae11c9e64e2b9527a46fb354d50e2d3dc10368d, 태그 v0.1.0-beta.24-build30. [Pages34742100652](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34742100652)·[모바일34742101093](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34742101093) 성공. 공개 웹200·beta.24·화성 이름/취소·JS오류0·서버쓰기0. Android release/lint 오류0(기존 경고32)·API36 오프라인2개·iOS Release 컴파일 통과, 원본 XML 확인. 무서명 AAB 20,791,244bytes, SHA256 8e2bcb0253860061fe3cd8eb1289145ce81f7d0c55724bd99fa122e48d7f7129. bundletool·버전30·앱ID·카메라 권한 있음/마이크 권한 없음·정적 파일480개 바이트 비교 통과. S24+ 실제 손떨림·조작 지연·파인더 비교와 연구실 동일 인증서 서명은 남는다.
 
 ## 이전 작업 보고 (2026-09-13 · 네비게이션·세 별 캘리브레이션 / build29)
 
