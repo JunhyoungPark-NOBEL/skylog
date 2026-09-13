@@ -1,9 +1,11 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-13 · beta.21/build27 하늘 조작 최소화·통합 설정 · 최종 검증/배포 진행 중
+> 마지막 갱신: 2026-09-13 · beta.21/build27 하늘 조작 최소화·통합 설정 · 웹/모바일 검증 완료 · 연구실 Play 서명 대기
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
+
+- 최신 AAB(build27): 로컬 `Downloads/skylog-release-0.1.0-beta.21-build27/app-release.aab`(**서명 전**) · 서명 인계 `Downloads/skylog-0.1.0-beta.21-build27-signing-kit.zip` · [개선/확인 보고](../docs/COMPACT-SKY-BUILD27.md).
 
 - 이전 AAB(build26): 로컬 `Downloads/skylog-release-0.1.0-beta.20-build26/app-release.aab`(**서명 전**) · 서명 인계 `Downloads/skylog-0.1.0-beta.20-build26-signing-kit.zip` · [개선/확인 보고](../docs/SKY-REFINEMENT-BUILD26.md).
 
@@ -19,7 +21,9 @@
 - 최신 main/origin 3268f9d(build26 후속 기록)에서 시작했다. 하늘 화면은 좌상단 설정 하나와 그 아래 아래꺾쇠 메뉴, 우상단 시계 아이콘, 하단 중앙 GPS, 오른쪽 아래 카메라 아이콘으로 배치했다. 하늘에서는 하단 5탭을 접이식 메뉴로 대체하고 콘텐츠 화면의 하단 탭은 유지한다.
 - 설정 하나 안에서 하늘·GPS·앱으로 구분한다. 기존 하늘 레이어·테마·언어·장비·관측지 설정을 보존한다. 연결 실패·정렬 도움말은 설정/망원경 더보기 안에서 확인한다.
 - GPS 끄기는 현재 실행 동안만 유지하고 앱 새 실행에서는 자동 연결을 시도한다. 이전 버전의 저장된 autoStart=false를 무시하되 권한 거부는 존중한다. 지면 투명도는 신규 설치/기본값 복원 시0%(groundOpacity=1)이며 기존 사용자 조절값을 보존한다.
-- 360px/200% 글자, 키보드 메뉴 이동/닫기, 카메라·시간·통합 설정과 기존 센서/망원경 경로를 검사한다. typecheck·전체 lint·단위772개·PWA 빌드 통과. 전체 브라우저113개 중112개 통과 후, 통합 설정의 이전 테스트 절차와 하늘을 유지한 채 야간 전환 시 CSS/렌더 팔레트 갱신 순서 문제를 수정했다. 최종 하늘·메뉴·설정16개 재검사 모두 통과, 별/지면의 적색 픽셀도 확인했다. 360px·200% 글자에서44px 터치 영역과 메뉴·GPS·카메라 간격을 확인했다. 배포 결과는 아래에 추가한다. 상세 docs/COMPACT-SKY-BUILD27.md, 결정 D-073.
+- 360px/200% 글자, 키보드 메뉴 이동/닫기, 카메라·시간·통합 설정과 기존 센서/망원경 경로를 검사한다. typecheck·전체 lint·단위772개·PWA 빌드 통과. 전체 브라우저113개 중112개 통과 후, 통합 설정의 이전 테스트 절차와 하늘을 유지한 채 야간 전환 시 CSS/렌더 팔레트 갱신 순서 문제를 수정했다. 최종 하늘·메뉴·설정16개 재검사 모두 통과, 별/지면의 적색 픽셀도 확인했다. 360px·200% 글자에서44px 터치 영역과 메뉴·GPS·카메라 간격을 확인했다. 배포 결과는 아래와 같다. 상세 docs/COMPACT-SKY-BUILD27.md, 결정 D-073.
+
+- **최종 배포/산출물**: 소스 `32a65a704ddd8526c328f24f8c04aa3c09816b87`, 태그 `v0.1.0-beta.21-build27`. [Pages34731260319](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34731260319)·[모바일34731259457](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34731259457) 성공. Android release/lint 오류0(기존 경고32), API36 오프라인 계측2개와 iOS 무서명 Release 컴파일 통과. 원본 XML failures/errors=0 확인. 공개 웹200·새 UI·JS오류0·서버쓰기0. 무서명 AAB 20,786,205bytes, SHA256 `0a0cd07820704d4c528ec33858e63bb3879a99ea5995b27dbd008d20b25063c2`. bundletool validate·버전27·권한·정적 파일480개 원본 비교 통과. Downloads 서명 인계 ZIP8항목의 AAB 해시를 검증했다. 연구실 기존 Play 키의 최종 서명과 S24+ 실제 GPS/카메라/확대 감각 확인은 남는다.
 
 ## 이전 작업 보고 (2026-09-13 · 확대 안정화·메인 하늘 안내 / build26)
 
