@@ -196,7 +196,6 @@ test('툴팁 "자세히" → 시트 · 찾아가기: 화면 밖 화살표 방향
   expect(Math.abs(angle3 + 90)).toBeLessThan(25);
 
   // 목표 해제
-  await page.getByTestId('target-options').click();
   await page.getByTestId('target-clear').click();
   await expect(page.getByTestId('target-guide')).toHaveCount(0);
 

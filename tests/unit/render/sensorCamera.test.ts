@@ -14,18 +14,24 @@ describe('CameraController sensor frames', () => {
     const { camera, onChange } = controller();
     camera.setSensorQuaternion(altAzToQuaternion(20, 0), false, 0);
     camera.setSensorQuaternion(altAzToQuaternion(20, 4), false, 40);
-    expect(camera.update(50, 10)).toBe(true);
+    expect(camera.update(50, 10)).toBe(false); // 방향이 유지되는 추가 입력으로 이동 의도를 확인한다.
+    camera.setSensorQuaternion(altAzToQuaternion(20, 8), false, 80);
+    camera.setSensorQuaternion(altAzToQuaternion(20, 12), false, 120);
+    expect(camera.update(130, 10)).toBe(true);
     expect(camera.getView().azDeg).toBeGreaterThan(0);
-    expect(camera.getView().azDeg).toBeLessThan(4);
+    expect(camera.getView().azDeg).toBeLessThan(12);
     camera.applyToCamera(400, 800);
-    for (let time = 80; time <= 1000; time += 40) {
+    for (let time = 160; time <= 1000; time += 40) {
       camera.setSensorQuaternion(altAzToQuaternion(20, time / 10), false, time);
       camera.update(time + 12, 12);
       camera.update(time + 28, 16);
     }
-    camera.update(1100, 72);
-    expect(camera.getView().azDeg).toBeCloseTo(100, 6);
-    expect(onChange.mock.calls.length).toBeLessThan(15);
+    for (let time = 1040; time <= 1400; time += 40) {
+      camera.setSensorQuaternion(altAzToQuaternion(20, 100), false, time);
+      camera.update(time, 40);
+    }
+    expect(Math.abs(camera.getView().azDeg - 100)).toBeLessThan(0.05);
+    expect(onChange.mock.calls.length).toBeLessThan(20);
   });
 
   it('clears the entire interpolation state when manual exploration or sensor stop takes over', () => {

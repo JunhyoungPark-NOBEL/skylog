@@ -6,6 +6,7 @@
  */
 import * as THREE from 'three';
 import { RenderPose } from '@/sensors/orientation/renderPose';
+import { IntentStabilizer } from '@/sensors/orientation/intentStabilizer';
 import { altAzToScene, clamp, sceneToAltAz, wrap360, type Vec3 } from '@/astro/coords';
 import {
   clampFov,
@@ -112,6 +113,7 @@ export class CameraController {
   private sensorQuat: THREE.Quaternion | null = null;
   private sensorKeepLevel = false;
   private readonly sensorPose = new RenderPose();
+  private readonly sensorIntent = new IntentStabilizer();
   private lastSensorNotifyMs = -Infinity;
 
   /**
@@ -128,6 +130,7 @@ export class CameraController {
       // 마지막으로 보인 자세를 그대로 이어받는다. 천정에서 세계의 위쪽으로 재정렬하지 않는다.
       if (this.sensorQuat) this.manualQuat = this.sensorQuat.clone();
       this.sensorPose.reset();
+      this.sensorIntent.reset();
       this.sensorQuat = null;
       this.lastSensorNotifyMs = -Infinity;
       if (wasActive) this.opts.onChange(this.getView());
@@ -142,7 +145,9 @@ export class CameraController {
           return altAzToQuaternion(altDeg, azDeg);
         })()
       : q;
-    if (this.sensorPose.push(target, nowMs)) this.applySensorPose(nowMs, true);
+    this.sensorIntent.setViewport(this.view.fovDeg);
+    const displayed = this.sensorIntent.push(target, nowMs);
+    if (displayed && this.sensorPose.push(displayed, nowMs)) this.applySensorPose(nowMs, true);
   }
 
   private applySensorPose(nowMs: number, immediate = false): boolean {

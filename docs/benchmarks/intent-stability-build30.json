@@ -1,0 +1,72 @@
+{
+  "kind": "synthetic, not S24+ measurements",
+  "viewport": {
+    "width": 412,
+    "height": 915
+  },
+  "report": [
+    {
+      "hz": 30,
+      "fov": 90,
+      "beforeRmsPx": 0.7266084424001797,
+      "afterRmsPx": 5.740411394355031e-12,
+      "maxStepPx": 0
+    },
+    {
+      "hz": 30,
+      "fov": 15,
+      "beforeRmsPx": 1.20780939973362,
+      "afterRmsPx": 6.344601565746176e-12,
+      "maxStepPx": 0
+    },
+    {
+      "hz": 30,
+      "fov": 3,
+      "beforeRmsPx": 2.9501365590606534,
+      "afterRmsPx": 7.434110886730112e-12,
+      "maxStepPx": 0
+    },
+    {
+      "hz": 60,
+      "fov": 90,
+      "beforeRmsPx": 0.7223265653237352,
+      "afterRmsPx": 5.740411394355031e-12,
+      "maxStepPx": 0
+    },
+    {
+      "hz": 60,
+      "fov": 15,
+      "beforeRmsPx": 1.1240708314856152,
+      "afterRmsPx": 6.344601565746176e-12,
+      "maxStepPx": 0
+    },
+    {
+      "hz": 60,
+      "fov": 3,
+      "beforeRmsPx": 2.2880652070361585,
+      "afterRmsPx": 7.434110886730112e-12,
+      "maxStepPx": 0
+    },
+    {
+      "hz": 90,
+      "fov": 90,
+      "beforeRmsPx": 0.7215304382189082,
+      "afterRmsPx": 5.740411394355031e-12,
+      "maxStepPx": 0
+    },
+    {
+      "hz": 90,
+      "fov": 15,
+      "beforeRmsPx": 1.1264971311016196,
+      "afterRmsPx": 6.344601565746176e-12,
+      "maxStepPx": 0
+    },
+    {
+      "hz": 90,
+      "fov": 3,
+      "beforeRmsPx": 2.287133964114657,
+      "afterRmsPx": 5.887891704087984e-12,
+      "maxStepPx": 0
+    }
+  ]
+}

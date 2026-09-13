@@ -158,17 +158,26 @@ export function TelescopeSkyGuide({
         </div>
       )}
       <div
-        className="pointer-events-auto absolute left-1/2 top-[calc(env(safe-area-inset-top)+8px)] w-max max-w-[calc(100%-144px)] -translate-x-1/2"
+        className="pointer-events-auto absolute left-1/2 top-[calc(env(safe-area-inset-top)+8px)] flex w-max max-w-[calc(100%-144px)] -translate-x-1/2 items-center rounded-pill bg-accent text-accent-fg shadow-float"
         data-testid="scope-target"
       >
         <button
-          className="block min-h-[44px] w-full truncate rounded-pill glass-hud px-4 text-body-sm font-semibold"
+          className="block min-h-[44px] min-w-0 flex-1 truncate rounded-l-full pl-3 pr-1 text-body-sm font-semibold"
           onClick={() => setMore(!more)}
           aria-expanded={more}
           aria-label={navigationLabel(name, lang)}
           data-testid="scope-options"
         >
           {navigationLabel(name, lang)}
+        </button>
+        <button
+          type="button"
+          className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full text-[20px] leading-none"
+          onClick={onClose}
+          aria-label={t('scopeSky.close')}
+          data-testid="scope-close"
+        >
+          ×
         </button>
       </div>
       <div className="pointer-events-auto absolute inset-x-3 bottom-sky mx-auto max-w-md space-y-2">
@@ -207,13 +216,6 @@ export function TelescopeSkyGuide({
                   {t('calibration.endSetup')}
                 </button>
               )}
-              <button
-                className="min-h-11 flex-1 rounded-xl bg-surface-2 px-2 text-body-sm"
-                data-testid="scope-close"
-                onClick={onClose}
-              >
-                {t('scopeSky.close')}
-              </button>
             </div>
             {mount === 'goto' && (
               <>

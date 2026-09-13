@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { bodyKeyFromObjectId } from '@/astro/bodies';
 import { altAzToScene, angularSeparation, sceneToAltAz } from '@/astro/coords';
 import { riseTransitSetBody, riseTransitSetFixed } from '@/astro/events';
-import { displayName, type Catalog } from '@/catalog/catalog';
+import { displayName } from '@/catalog/catalog';
 import type { ObjectId } from '@/catalog/objectId';
 import { getSkyScene } from '@/features/sky/skyApi';
 import { insideScreen, placeEdgeArrow } from '@/render/edgeArrow';
@@ -93,9 +93,6 @@ export function TargetGuide() {
   useEffect(() => {
     if (!targetId) return;
     let alive = true;
-    const scene = getSkyScene();
-    const cat: Catalog | null = scene?.catalog ?? null;
-    const label = cat ? displayName(cat, targetId, lang) : targetId;
     const invQ = new THREE.Quaternion();
     const v = new THREE.Vector3();
     armed.current = true;
@@ -103,8 +100,9 @@ export function TargetGuide() {
     const tick = () => {
       if (!alive) return;
       const sc = getSkyScene();
+      const cat = sc?.catalog;
       const el = containerRef.current;
-      if (!sc || !el) {
+      if (!sc || !cat || !el) {
         setState(null);
         return;
       }
@@ -167,7 +165,18 @@ export function TargetGuide() {
         riseAt = riseRef.current.at;
       } else riseRef.current = null;
 
-      setState({ onScreen, x, y, angleDeg, sepDeg, altDeg, centered, riseAt, name: label });
+      // 검색에서 빠르게 진입하면 처음에는 씬이 없을 수 있다. 준비된 카탈로그에서 이름을 읽는다.
+      setState({
+        onScreen,
+        x,
+        y,
+        angleDeg,
+        sepDeg,
+        altDeg,
+        centered,
+        riseAt,
+        name: displayName(cat, targetId, lang),
+      });
     };
     const timer = window.setInterval(tick, TICK_MS);
     const first = window.setTimeout(tick, 0);
@@ -237,19 +246,30 @@ export function TargetGuide() {
       )}
       <div
         ref={pillRef}
-        className="pointer-events-auto absolute left-1/2 top-[calc(env(safe-area-inset-top)+8px)] min-h-[44px] max-w-[calc(100%-144px)] -translate-x-1/2 rounded-pill glass-hud px-[12px] text-[0.75rem] leading-[1rem] text-fg shadow-float"
+        className="pointer-events-auto absolute left-1/2 top-[calc(env(safe-area-inset-top)+8px)] flex min-h-[44px] w-max max-w-[calc(100%-144px)] -translate-x-1/2 items-center rounded-pill bg-accent text-[0.75rem] leading-[1rem] text-accent-fg shadow-float"
         data-testid="target-pill"
       >
-        <details>
+        <details className="min-w-0 flex-1">
           <summary
-            className="flex min-h-[44px] cursor-pointer list-none items-center [&::-webkit-details-marker]:hidden"
+            className="flex min-h-[44px] cursor-pointer list-none items-center pl-[12px] pr-[4px] [&::-webkit-details-marker]:hidden"
             data-testid="target-options"
           >
             <span className="truncate font-semibold">
               {navigationLabel(state?.name ?? targetId, lang)}
             </span>
           </summary>
-          <div className="absolute left-1/2 top-full mt-2 w-[min(300px,calc(100vw-32px))] -translate-x-1/2 space-y-2 rounded-2xl glass-strong p-3">
+          <div className="absolute left-1/2 top-full mt-2 w-[min(300px,calc(100vw-32px))] -translate-x-1/2 space-y-2 rounded-2xl glass-strong p-3 text-fg">
+            <button
+              type="button"
+              className="min-h-[44px] w-full rounded-pill bg-surface-3 px-2 font-medium"
+              data-testid="target-details"
+              onClick={(event) => {
+                event.currentTarget.closest('details')?.removeAttribute('open');
+                useSelectionStore.getState().openSheet(targetId);
+              }}
+            >
+              {t('sky.tooltip.details')}
+            </button>
             {state && state.altDeg <= 0 && (
               <span className="block truncate text-fg/70" data-testid="target-below">
                 {t('target.below')}
@@ -274,17 +294,17 @@ export function TargetGuide() {
                 {t('target.jumpTime')}
               </button>
             )}
-            <button
-              type="button"
-              className="flex min-h-[44px] w-full items-center justify-center rounded-pill text-fg/80 transition-colors duration-150 active:bg-surface-2"
-              onClick={clear}
-              aria-label={t('target.clear')}
-              data-testid="target-clear"
-            >
-              {t('target.clear')}
-            </button>
           </div>
         </details>
+        <button
+          type="button"
+          className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full text-[20px] leading-none"
+          onClick={clear}
+          aria-label={t('target.clear')}
+          data-testid="target-clear"
+        >
+          ×
+        </button>
       </div>
     </div>
   );

@@ -58,6 +58,7 @@ import { degPerPixel, hemisphereRadiusPx, isInsideSkyDisk } from '@/render/proje
 import { SkyProjection } from '@/render/SkyProjection';
 import { SkyBackground, skyBrightnessPenaltyMag } from '@/render/SkyBackground';
 import { StarLayer } from '@/render/StarLayer';
+import { skyUpdateIntervalMs } from '@/render/skyCadence';
 import { renderStats } from '@/render/stats';
 import type { LayerValues } from '@/state/layerStore';
 import { onDbChange } from '@/db/events';
@@ -335,10 +336,11 @@ export class SkyScene {
     const observer = this.opts.getObserver();
     const key = `${observer.lat},${observer.lon},${observer.elevation ?? 0}`;
     const t = date.getTime();
+    const interval = skyUpdateIntervalMs(this.controller.getView().fovDeg, this.width, this.height);
     let changed = false;
     if (
       Number.isNaN(this.matrixTimeMs) ||
-      Math.abs(t - this.matrixTimeMs) >= 1000 ||
+      Math.abs(t - this.matrixTimeMs) >= interval ||
       key !== this.observerKey
     ) {
       this.matrix = eqjToSceneMatrix(date, observer);
@@ -346,9 +348,9 @@ export class SkyScene {
       this.observerKey = key;
       changed = true;
     }
-    // 행성·달·태양: 실시간 250ms 간격, 시간 점프(≥ 60s)면 즉시
+    // 확대 시 별과 함께 촘촘히 갱신하고, 정지된 시각에서는 추가 계산하지 않는다.
     const jump = Number.isNaN(this.lastBodyTimeMs) || Math.abs(t - this.lastBodyTimeMs) >= 60_000;
-    if ((changed && nowMs - this.lastBodyUpdateMs > 250) || jump) {
+    if ((changed && nowMs - this.lastBodyUpdateMs >= Math.min(250, interval)) || jump) {
       const dpp = degPerPixel(this.controller.getView().fovDeg, this.width, this.height);
       const layers = this.opts.getLayers();
       // 한계등급(하늘 밝기 반영)은 직전 프레임의 태양 고도로 계산 — 첫 프레임은 두 번 갱신된다

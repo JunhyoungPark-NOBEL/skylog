@@ -67,7 +67,6 @@ test('망원경 안내는 같은 하늘 캔버스에서 폰 윗변을 추적하�
   await page.getByTestId('guide-sensor').click();
   await expect(page.getByTestId('guide-sensor')).toHaveAttribute('aria-pressed', 'true');
   await page.screenshot({ path: 'tests/e2e/__screenshots__/build26-main-scope.png' });
-  await page.getByTestId('scope-options').click();
   await page.getByTestId('scope-close').click();
   await expect(page.getByTestId('telescope-sky-guide')).toHaveCount(0);
   expect(errors).toEqual([]);
