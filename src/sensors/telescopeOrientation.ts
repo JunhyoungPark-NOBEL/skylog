@@ -4,36 +4,18 @@ import type { Quaternion } from 'three';
 import { OrientationFilter } from './orientation/filter';
 import { useViewStore } from '@/state/viewStore';
 import { degPerPixel } from '@/render/projection';
-import { create } from 'zustand';
+import { useTelescopeOrientation, type TelescopeReading } from './telescopePose';
+export { useTelescopeOrientation } from './telescopePose';
+import { currentTelescopeAlignment } from './orientation/CalibratedTelescopeProvider';
 import { physicalQuaternion, type QTuple } from '@/astro/pointing';
 import { deviceOrientationToScene, genericSensorToScene } from './orientation/math';
-import { requestOrientationPermission } from './permissions';
+import { requestOrientationPermission, needsOrientationPermission } from './permissions';
 import { useSensorStore } from '@/state/sensorStore';
 import { isNative, watchNativeMotion } from '@/native/motion';
 import { AutomaticHeading } from './automaticHeading';
 import { availableProviders, SimulatorProvider } from './orientation/providers';
 import { declinationDeg } from './declination';
 import { useLocationStore } from '@/state/locationStore';
-interface Reading {
-  q: QTuple | null;
-  at: number;
-  sampleMs: number;
-  status: 'off' | 'waiting' | 'active' | 'unavailable' | 'denied';
-  source: string;
-  sessionId: string;
-  mode: 'automatic' | 'relative';
-  headingReady: boolean;
-}
-export const useTelescopeOrientation = create<Reading>(() => ({
-  q: null,
-  at: 0,
-  sampleMs: 0,
-  status: 'off',
-  source: '',
-  sessionId: '',
-  mode: 'automatic',
-  headingReady: false,
-}));
 interface RelativeSensor {
   timestamp?: number | null;
   quaternion: ArrayLike<number> | null;
@@ -50,7 +32,25 @@ export function stopTelescopeOrientation() {
   cleanup = null;
   useTelescopeOrientation.setState({ q: null, status: 'off', at: 0, headingReady: false });
 }
-export async function startTelescopeOrientation(mode: Reading['mode'] = 'automatic') {
+export async function startTelescopeOrientation(
+  mode: TelescopeReading['mode'] = 'automatic',
+  restart = false,
+  fromGesture = true,
+) {
+  const reading = useTelescopeOrientation.getState();
+  if (
+    !restart &&
+    (currentTelescopeAlignment() ||
+      (reading.mode === mode && (reading.status === 'active' || reading.status === 'waiting')))
+  )
+    return;
+  if (
+    !fromGesture &&
+    !useSensorStore.getState().simulator &&
+    needsOrientationPermission() &&
+    useSensorStore.getState().orientationConsent !== 'granted'
+  )
+    return;
   stopTelescopeOrientation();
   const token = generation;
   useTelescopeOrientation.setState({
@@ -60,10 +60,13 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
     mode,
   });
   const simulation = useSensorStore.getState().simulator;
-  const permission = simulation
-    ? 'granted'
-    : await requestOrientationPermission(mode === 'automatic');
+  const permission =
+    simulation || (!fromGesture && useSensorStore.getState().orientationConsent === 'granted')
+      ? 'granted'
+      : await requestOrientationPermission(mode === 'automatic');
   if (token !== generation) return;
+  if (!simulation && fromGesture && (permission === 'granted' || permission === 'denied'))
+    useSensorStore.getState().setSetting('orientationConsent', permission);
   if (permission !== 'granted') {
     useTelescopeOrientation.setState({
       status: permission === 'denied' ? 'denied' : 'unavailable',
@@ -114,7 +117,7 @@ export async function startTelescopeOrientation(mode: Reading['mode'] = 'automat
   if (mode === 'automatic') {
     const providers = simulation
       ? [new SimulatorProvider(() => ({ ...useSensorStore.getState().sim, absolute: false }))]
-      : availableProviders();
+      : availableProviders(false, false);
     let provider: (typeof providers)[number] | null = null;
     let timeout = 0;
     const next = () => {

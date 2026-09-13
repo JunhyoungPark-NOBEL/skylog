@@ -6,6 +6,7 @@ import type { AlignmentSample, PointingAlignment } from '@/astro/pointing';
 import type { ObjectId } from '@/catalog/objectId';
 import type { HopRoute } from '@/astro/starHop';
 import type { EquipmentProfile } from '@/astro/equipment';
+import type { ObserverLocation } from './locationStore';
 export function equipmentProfile(p: GuideProfile): EquipmentProfile {
   return {
     telescope: { apertureMm: p.apertureMm, focalLengthMm: p.focalLengthMm },
@@ -84,6 +85,9 @@ export function migrateDefaultGuideProfile(profile: GuideProfile): GuideProfile 
   return { ...profile, ...DEFAULT_GUIDE_PROFILE };
 }
 export interface SavedAlignment {
+  /** 첫 별을 맞춘 관측 장소. 이전 한·두 별 정렬에는 없다. */
+  site?: ObserverLocation;
+  method?: 'three-star-v1';
   model: PointingAlignment;
   samples: AlignmentSample[];
   at: string;

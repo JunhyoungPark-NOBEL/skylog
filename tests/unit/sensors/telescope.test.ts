@@ -6,6 +6,18 @@ import {
 } from '@/sensors/telescopeOrientation';
 import { sceneToAltAz } from '@/astro/coords';
 import { pointingDirection } from '@/astro/pointing';
+import { useTelescopeStore, profileKey } from '@/state/telescopeStore';
+import { useLocationStore } from '@/state/locationStore';
+import { useSensorStore } from '@/state/sensorStore';
+import { CalibratedTelescopeProvider } from '@/sensors/orientation/CalibratedTelescopeProvider';
+// 이 파일은 센서 시계를 멈춰 검사한다. DB 저장은 별도 통합 검사에서 다룬다.
+vi.mock('@/db/repos/settings', () => ({
+  createDexieSettingsStorage: () => ({
+    getItem: () => null,
+    setItem: () => {},
+    removeItem: () => {},
+  }),
+}));
 class MockOrientation extends Event {
   static requestPermission = vi.fn(async () => 'granted');
   alpha = 0;
@@ -24,6 +36,8 @@ describe('망원경 상대 센서', () => {
     vi.stubGlobal('DeviceOrientationEvent', MockOrientation);
     vi.stubGlobal('RelativeOrientationSensor', undefined);
     MockOrientation.requestPermission.mockResolvedValue('granted');
+    MockOrientation.requestPermission.mockClear();
+    useTelescopeStore.getState().saveAlignment(null);
   });
   afterEach(() => {
     stopTelescopeOrientation();
@@ -144,6 +158,64 @@ describe('망원경 상대 센서', () => {
     reading({ absolute: true });
     expect(useTelescopeOrientation.getState().q).toBeNull();
     reading({ alpha: 90 });
+    expect(useTelescopeOrientation.getState().status).toBe('active');
+  });
+  it('설치 완료 센서는 목표·화면 전환에서 재사용하고 명시적 새 설치에서만 재시작한다', async () => {
+    await startTelescopeOrientation('relative');
+    vi.advanceTimersByTime(100);
+    reading({ alpha: 90, beta: 40 });
+    const pose = useTelescopeOrientation.getState();
+    useTelescopeStore.getState().saveAlignment({
+      model: { yawDeg: 20, axis: [0, 1, 0], residualDeg: 0, maxResidualDeg: 0 },
+      method: 'three-star-v1',
+      site: { ...useLocationStore.getState().site },
+      samples: [1, 2, 3].map((id) => ({
+        q: pose.q!,
+        direction: [0, 1, 0],
+        at: new Date().toISOString(),
+        objectId: `star:HIP${id}`,
+      })),
+      at: new Date().toISOString(),
+      profileKey: profileKey(useTelescopeStore.getState().profile),
+      provider: pose.source,
+      sessionId: pose.sessionId,
+    });
+    await startTelescopeOrientation('automatic');
+    expect(useTelescopeOrientation.getState().sessionId).toBe(pose.sessionId);
+    expect(useTelescopeOrientation.getState().mode).toBe('relative');
+    expect(MockOrientation.requestPermission).toHaveBeenCalledTimes(1);
+    const provider = new CalibratedTelescopeProvider(),
+      receive = vi.fn(),
+      error = vi.fn();
+    expect(provider.isSupported()).toBe(true);
+    provider.start(receive, error);
+    vi.advanceTimersByTime(40);
+    reading({ alpha: 90, beta: 40 });
+    expect(receive).toHaveBeenCalledWith(
+      expect.objectContaining({ provider: 'CalibratedTelescope', northReference: 'true' }),
+    );
+    provider.stop();
+    expect(useTelescopeOrientation.getState().status).toBe('active');
+    const calls = receive.mock.calls.length;
+    vi.advanceTimersByTime(40);
+    reading({ alpha: 90, beta: 40 });
+    expect(receive).toHaveBeenCalledTimes(calls);
+    provider.start(receive, error);
+    await startTelescopeOrientation('relative', true);
+    expect(error).toHaveBeenCalledTimes(1);
+    expect(useTelescopeOrientation.getState().sessionId).not.toBe(pose.sessionId);
+    expect(provider.isSupported()).toBe(false);
+  });
+  it('권한이 필요한 브라우저에서는 자동 진입이 권한 창을 호출하지 않는다', async () => {
+    useSensorStore.getState().setSetting('orientationConsent', 'unknown');
+    await startTelescopeOrientation('automatic', false, false);
+    expect(MockOrientation.requestPermission).not.toHaveBeenCalled();
+    expect(useTelescopeOrientation.getState().status).toBe('off');
+    useSensorStore.getState().setSetting('orientationConsent', 'granted');
+    await startTelescopeOrientation('automatic', false, false);
+    expect(MockOrientation.requestPermission).not.toHaveBeenCalled();
+    vi.advanceTimersByTime(100);
+    reading({ absolute: true });
     expect(useTelescopeOrientation.getState().status).toBe('active');
   });
 });

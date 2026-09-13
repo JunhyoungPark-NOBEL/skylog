@@ -22,6 +22,7 @@ export interface OrientationSample {
 }
 
 export type ProviderName =
+  | 'CalibratedTelescope'
   | 'AbsoluteOrientationSensor'
   | 'RelativeOrientationSensor'
   | 'DeviceOrientationAbsolute'

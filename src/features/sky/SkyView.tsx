@@ -1,3 +1,4 @@
+import { currentTelescopeAlignment } from '@/sensors/orientation/CalibratedTelescopeProvider';
 import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useTranslation } from 'react-i18next';
 import { hashQuery, useHash } from '@/app/router';
@@ -126,7 +127,7 @@ export function SkyView() {
       canvas,
       labelContainer: labels,
       getTime: () => useClockStore.getState().now(),
-      getObserver: () => useLocationStore.getState().site,
+      getObserver: () => currentTelescopeAlignment()?.site ?? useLocationStore.getState().site,
       getLayers: () => useLayerStore.getState(),
       getLang: () => {
         const l = useLayerStore.getState().labelLang;
@@ -372,7 +373,7 @@ export function SkyView() {
         className={`pointer-events-none absolute inset-x-0 bottom-sky z-10 flex justify-center px-3 ${sheetOpen ? 'invisible' : ''}`}
       >
         <div className="flex w-full max-w-md flex-col gap-2">
-          <BelowHorizonHint />
+          {!scope && <BelowHorizonHint />}
           {hopPreview && (
             <button
               className="pointer-events-auto min-h-12 rounded-pill glass-hud px-4 text-body-sm text-accent"

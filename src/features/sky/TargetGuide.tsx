@@ -1,3 +1,4 @@
+import { navigationLabel } from '@/ui/navigationLabel';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as THREE from 'three';
@@ -41,7 +42,7 @@ interface GuideState {
 /**
  * 찾아가기 오버레이(task-03 §3.3): 목표가 화면 밖이면 가장자리 화살표 + 남은 각거리, 안에 있으면 링 마커,
  * 중앙 3° 안이면 색 변화 + 피드백(한 번, 5° 밖으로 나가면 재무장). 지평선 아래면 뜨는 시각과 시간 이동 버튼.
- * 목표 pill은 AR 안내까지 포함한 HUD 줄 아래에 놓고, 실제 아래 끝을 ViewInfo와 공유한다.
+ * 목표 pill은 화면 상단 중앙에 고정하고, 실제 아래 끝을 ViewInfo와 공유한다.
  */
 export function TargetGuide() {
   const { t } = useTranslation();
@@ -62,7 +63,7 @@ export function TargetGuide() {
     const controls = sky?.querySelector<HTMLElement>('[data-testid="sky-toolbar"]');
     if (!container || !pill || !sky || !controls) return;
 
-    // 목표는 상단 하늘 도구 아래에 놓는다. 센서/권한 안내는 하단 독에서 자체 배치한다.
+    // 목표는 도구와 나란히 상단 중앙에 놓는다. 센서 상태는 하단 독에서 자체 배치한다.
     // 렌더 틱에서 재지 않고 크기가 바뀔 때만 실제 경계를 공유한다.
     const measure = () => {
       const top = sky.getBoundingClientRect().top;
@@ -236,49 +237,54 @@ export function TargetGuide() {
       )}
       <div
         ref={pillRef}
-        className="pointer-events-auto absolute left-1/2 top-[calc(var(--sky-controls-bottom)+8px)] flex min-h-[44px] max-w-[calc(100%-24px)] -translate-x-1/2 items-center gap-[8px] rounded-pill glass-hud py-[4px] pl-[12px] pr-[4px] text-[0.75rem] leading-[1rem] text-fg shadow-float"
+        className="pointer-events-auto absolute left-1/2 top-[calc(env(safe-area-inset-top)+8px)] min-h-[44px] max-w-[calc(100%-144px)] -translate-x-1/2 rounded-pill glass-hud px-[12px] text-[0.75rem] leading-[1rem] text-fg shadow-float"
         data-testid="target-pill"
       >
-        <span aria-hidden className="shrink-0" style={{ color }}>
-          ◎
-        </span>
-        <div className="min-w-0">
-          <span className="block truncate font-semibold" title={state?.name ?? targetId}>
-            {state?.name ?? targetId}
-          </span>
-          {state && state.altDeg <= 0 && (
-            <span className="block truncate text-fg/70" data-testid="target-below">
-              {t('target.below')}
-              {state.riseAt
-                ? ` · ${t('target.risesAt', { time: formatTime(state.riseAt) })} (${formatRelative(useClockStore.getState().now().getTime(), state.riseAt.getTime(), lang)})`
-                : state.riseAt === null
-                  ? ` · ${t('target.noRise')}`
-                  : ''}
-            </span>
-          )}
-        </div>
-        {state && state.altDeg <= 0 && state.riseAt && (
-          <button
-            type="button"
-            className="inline-flex min-h-[44px] max-w-[40%] shrink-0 items-center justify-center rounded-pill bg-surface-3 px-[8px] text-center font-medium text-fg transition-transform duration-150 ease-standard active:scale-95"
-            onClick={() => {
-              const at = state.riseAt;
-              if (at) useClockStore.getState().setManual(new Date(at.getTime() + 20 * 60_000), 0);
-            }}
-            data-testid="target-jump-time"
+        <details>
+          <summary
+            className="flex min-h-[44px] cursor-pointer list-none items-center [&::-webkit-details-marker]:hidden"
+            data-testid="target-options"
           >
-            {t('target.jumpTime')}
-          </button>
-        )}
-        <button
-          type="button"
-          className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-pill text-fg/80 transition-colors duration-150 active:bg-surface-2"
-          onClick={clear}
-          aria-label={t('target.clear')}
-          data-testid="target-clear"
-        >
-          ✕
-        </button>
+            <span className="truncate font-semibold">
+              {navigationLabel(state?.name ?? targetId, lang)}
+            </span>
+          </summary>
+          <div className="absolute left-1/2 top-full mt-2 w-[min(300px,calc(100vw-32px))] -translate-x-1/2 space-y-2 rounded-2xl glass-strong p-3">
+            {state && state.altDeg <= 0 && (
+              <span className="block truncate text-fg/70" data-testid="target-below">
+                {t('target.below')}
+                {state.riseAt
+                  ? ` · ${t('target.risesAt', { time: formatTime(state.riseAt) })} (${formatRelative(useClockStore.getState().now().getTime(), state.riseAt.getTime(), lang)})`
+                  : state.riseAt === null
+                    ? ` · ${t('target.noRise')}`
+                    : ''}
+              </span>
+            )}
+            {state && state.altDeg <= 0 && state.riseAt && (
+              <button
+                type="button"
+                className="inline-flex min-h-[44px] w-full items-center justify-center rounded-pill bg-surface-3 px-[8px] text-center font-medium text-fg transition-transform duration-150 ease-standard active:scale-95"
+                onClick={() => {
+                  const at = state.riseAt;
+                  if (at)
+                    useClockStore.getState().setManual(new Date(at.getTime() + 20 * 60_000), 0);
+                }}
+                data-testid="target-jump-time"
+              >
+                {t('target.jumpTime')}
+              </button>
+            )}
+            <button
+              type="button"
+              className="flex min-h-[44px] w-full items-center justify-center rounded-pill text-fg/80 transition-colors duration-150 active:bg-surface-2"
+              onClick={clear}
+              aria-label={t('target.clear')}
+              data-testid="target-clear"
+            >
+              {t('target.clear')}
+            </button>
+          </div>
+        </details>
       </div>
     </div>
   );

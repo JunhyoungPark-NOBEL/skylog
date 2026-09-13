@@ -1,11 +1,11 @@
 # 스카이야드 Skyard (skylog) — 진행 상황 (STATUS)
 
-> 마지막 갱신: 2026-09-13 · beta.22/build28 GPS 나침반·자세 안정화 · 웹/모바일 검증 완료 · 연구실 동일 키 서명·S24+ 실기기 확인 대기
+> 마지막 갱신: 2026-09-13 · beta.23/build29 네비게이션·세 별 캘리브레이션 · 로컬 검증 완료 후 배포 진행
 > 새 세션은 이 문서 → `00-master-plan.md` → 해당 `task-0N-*.md` 순서로 읽는다.
 
 ## 링크
 
-- 최신 AAB(build28): 로컬 `Downloads/skylog-release-0.1.0-beta.22-build28/app-release.aab`(**서명 전**) · 인계 `Downloads/skylog-0.1.0-beta.22-build28-signing-kit.zip` · [안정화/실기기 보고](../docs/SENSOR-STABILITY-BUILD28.md).
+- 이전 AAB(build28): 로컬 `Downloads/skylog-release-0.1.0-beta.22-build28/app-release.aab`(**서명 전**) · 인계 `Downloads/skylog-0.1.0-beta.22-build28-signing-kit.zip` · [안정화/실기기 보고](../docs/SENSOR-STABILITY-BUILD28.md).
 
 - 이전 AAB(build27): 로컬 `Downloads/skylog-release-0.1.0-beta.21-build27/app-release.aab`(**서명 전**) · 서명 인계 `Downloads/skylog-0.1.0-beta.21-build27-signing-kit.zip` · [개선/확인 보고](../docs/COMPACT-SKY-BUILD27.md).
 
@@ -17,6 +17,14 @@
 - 이전 서명 산출물(build24): 로컬 `Downloads/skylog-release-0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-play-signed.aab` · [APK 다운로드](https://github.com/JunhyoungPark-NOBEL/skylog/releases/download/v0.1.0-beta.18-build24/skylog-0.1.0-beta.18-build24-local-test.apk)
 - 모바일 빌드: https://github.com/JunhyoungPark-NOBEL/skylog/actions/workflows/mobile.yml
 - 스토어 준비/서명/테스트: `docs/MOBILE-RELEASE.md`, `docs/STORE-LISTING.md`
+
+## 최근 작업 보고 (2026-09-13 · 네비게이션·세 별 캘리브레이션 / build29)
+
+- 사용자 피드백: build28 떨림이 많이 줄었다고 보고(정성 평가, 수치 실측 아님). 최신 origin/main da85317 일치를 확인하고 진행했다.
+- 상단 중앙의 한 줄 목표(포말하우트로/토성으로), 펼침 메뉴 안의 종료·옵션, 육안/망원경 네비게이션 이름. 소개·상시 태양 경고를 없애고 하단 GPS 옆에 캘리브레이션을 배치한다. 직접 태양 안내 차단과 근접 보정 후보 제외는 유지한다.
+- 밝고 떨어진 별3개를 실제 파인더 중앙에 맞추고700ms 정지 평균+전체 잔차로 검사한다. 첫 관측지를 고정하고 현재 시각을 적용한다. 완료 설치는 다른 목표 및 일반 하늘 왕복에서 센서를 공유해 재사용한다. 새 센서 세션·공백·장소/장비 변경에는 재사용하지 않는다.
+- 자동 수용6항목 확인, 실기기 정확도1항목 대기. 타입/lint·단위798개 통과. 브라우저 전체114개 중112개 통과 후 검색 갱신 대기와 이전 배치 검사를 수정했고, 해당7개 모두 통과했다. 200% 글자에서 새 HUD의 터치 높이가 불필요하게 커지는 부분과 망원경 모드의 중복 지평선 문구도 시각 검사로 보완했다. 관련17개 중16개 통과 후 목표 버튼의 인라인 여백을 줄여 남은1개도 최종 통과했다. 모든 실패 항목을 재검증했으며 배포 결과는 아래에 추가한다.
+- 결정 D-075, 상세 docs/NAVIGATION-CALIBRATION-BUILD29.md. DB/팩/의존성 변경 없음. 추가 GPT Pro 요청/결정 질문 없음. S24+ 파인더·접안 비교/드리프트 확인과 연구실 동일 Play 키 서명은 사용자 인계 대상이다. 영구 초정밀도나 모터 가대 추적을 주장하지 않는다.
 
 ## 이번 작업 보고 (2026-09-13 · GPS 방향 안정화 / build28)
 
@@ -33,17 +41,6 @@
 - 360px/200% 글자, 키보드 메뉴 이동/닫기, 카메라·시간·통합 설정과 기존 센서/망원경 경로를 검사한다. typecheck·전체 lint·단위772개·PWA 빌드 통과. 전체 브라우저113개 중112개 통과 후, 통합 설정의 이전 테스트 절차와 하늘을 유지한 채 야간 전환 시 CSS/렌더 팔레트 갱신 순서 문제를 수정했다. 최종 하늘·메뉴·설정16개 재검사 모두 통과, 별/지면의 적색 픽셀도 확인했다. 360px·200% 글자에서44px 터치 영역과 메뉴·GPS·카메라 간격을 확인했다. 배포 결과는 아래와 같다. 상세 docs/COMPACT-SKY-BUILD27.md, 결정 D-073.
 
 - **최종 배포/산출물**: 소스 `32a65a704ddd8526c328f24f8c04aa3c09816b87`, 태그 `v0.1.0-beta.21-build27`. [Pages34731260319](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34731260319)·[모바일34731259457](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34731259457) 성공. Android release/lint 오류0(기존 경고32), API36 오프라인 계측2개와 iOS 무서명 Release 컴파일 통과. 원본 XML failures/errors=0 확인. 공개 웹200·새 UI·JS오류0·서버쓰기0. 무서명 AAB 20,786,205bytes, SHA256 `0a0cd07820704d4c528ec33858e63bb3879a99ea5995b27dbd008d20b25063c2`. bundletool validate·버전27·권한·정적 파일480개 원본 비교 통과. Downloads 서명 인계 ZIP8항목의 AAB 해시를 검증했다. 연구실 기존 Play 키의 최종 서명과 S24+ 실제 GPS/카메라/확대 감각 확인은 남는다.
-
-## 이전 작업 보고 (2026-09-13 · 확대 안정화·메인 하늘 안내 / build26)
-
-- 최신 origin/main 6bf4e5e와 일치하는 상태에서 시작했다. 확대 시 강한 평활과 움직임의 일관성을 함께 판단하는 quaternion 필터를 적용했다. 30/60/90Hz 합성 3° 시야 시험에서 잔여 RMS 15% 미만, 일정 이동 추종 및 줌/재연결 연속성을 검사한다. 실기기 측정으로 해석하지 않는다.
-- 설정·하늘 설정·시간을 상단에 모으고 카메라는 설정 안으로 옮겼다. 별도 수동 복귀 패널 없이 하단 GPS 센서 버튼을 사용한다. GPS는 위치, 나침반/자이로는 방향이라는 설명을 설정에 둔다.
-- 망원경 찾기는 메인 하늘과 파인더·접안 원으로 통합했다. 물리 +Y 추적·한 별/두 별 정렬·GoTo 좌표·보조 차트는 유지한다. 실제 안내의 시간 이동은 막고 보조 화면은 하단 탭 위에 둔다.
-- 스타호핑은 배우기 코스에서만 안내한다. 6개 코스의 밝은 기준별과 이름, 단계별 맥락도/파인더 원·복귀 팁·체크포인트를 제공한다. 코스 ID·기존 진도·업적·관측 저장 규칙은 유지한다.
-- **자동 검증**: typecheck·전체 lint·772개 단위 검사·PWA 빌드 통과. 전체 Chromium111개 중110개 통과 후 열린 패널을 닫지 않은 테스트 절차1개를 수정했고, 그 항목을 포함한 하늘·망원경·코스19개를 최종 재검증해 모두 통과했다. 360px 영어/야간, 메인 시야 원·+Y 추적, 코스 지도 왕복/복원을 확인했다. 스크린샷에서 겹치는 길잡이별 이름을 배치/연결선으로 분리하고 고밀도 캔버스 글자를 개선했다.
-- 상세 docs/SKY-REFINEMENT-BUILD26.md, 결정 D-072. 자동 검증/웹 배포/모바일 CI의 최종 결과는 아래와 같다. S24+ 실제 손떨림·광학 정렬은 사용자 확인 대상이다. 연구실 기존 키가 없어 Android는 무서명 AAB와 동일 키 확인 도구로 인계한다.
-
-- **최종 배포/산출물**: 실행 소스 `7730a5cc3b38886275d2163b29e0fd8e5b391f4b`, 태그 `v0.1.0-beta.20-build26`. [Pages34708595022](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34708595022)·[모바일34708594801](https://github.com/JunhyoungPark-NOBEL/skylog/actions/runs/34708594801) 성공. Android release/lint(오류0, 기존 경고32)·API36 오프라인 계측2개 및 iOS 무서명 Release 컴파일을 확인했다. CI 원본 XML의 failures/errors=0을 재확인했다. 공개 웹200·beta.20 JS·상단 설정/메인 시야 원/코스 왕복·새로고침, JS오류0·서버쓰기0이다. AAB **20,785,236bytes**, SHA256 `ffb79695a018737cf5acb2a148e46f8174ade62ecc073b8d4a3c426ae60e3b06`. bundletool validate·앱ID/버전26·CAMERA/마이크 없음·정적 파일480개 원본 비교를 통과했다. ZIP8항목의 AAB 해시도 동일하다. 파일은 **무서명**이며 연구실의 기존 Play 업로드키로 마무리한다. 물리 S24+ 감각/접안 정렬·Play 제출/심사·Apple 배포 서명은 별도다.
 
 ## 태스크 현황
 

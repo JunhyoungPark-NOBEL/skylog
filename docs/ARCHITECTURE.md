@@ -242,3 +242,8 @@ TabBar는 sky에서만 좌상단 아래꺾쇠로 접고 다른 콘텐츠 탭에�
 Android NativeOrientation은 지원 시 GAME_ROTATION_VECTOR60Hz와 ROTATION_VECTOR20Hz를 각각 motion/reference 채널로 받는다. NorthFusion은 측정 시각이 같은 물리 ENU 자세끼리 비교해 수직 Z축 오프셋만8초 시정수로 보정한다. 자력계 정확도25° 초과/오프셋 차15° 초과는 무시하며, 초기 기준 수신 전 상대 방위를 노출하지 않는다. Java에서 게임 벡터 미지원/500ms 중단을 절대 소스로 복귀시키고 대기열의 게임 이벤트를 차단한다.
 
 SampleClock은 부팅 시각을 performance 축으로 정렬하며 DOM/Generic Sensor의 측정 시각도 유지한다. OrientationFilter는100ms 평활한 속도 판정용 자세와500ms의 이동 일관성을 사용한다. 두 단계 자세 평활과 Y축 twist 평활은 천정에서 정의되지 않는 Euler yaw를 쓰지 않는다. RenderPose는 측정 자세 열의40ms 전 시점을 보간하며 센서 도착마다 보간을 재시작하거나 미래로 외삽하지 않는다. CameraController와 +Y 망원경 안내까지 측정 시각을 전달한다. 실측 경계와 합성 픽셀 결과는 SENSOR-STABILITY-BUILD28.md를 참조한다.
+
+
+## build29 · 설치 보정의 수명
+
+3별 보정은 PointingAlignment(yawDeg, axis)+샘플시각+고정관측지+프로필/공급자/센서sessionId를 저장한다. 실행 자세는 telescopePose의 메모리 전용 스토어에 둔다. TelescopeSession 종료 때 유효한 완료 보정이 있으면 센서를 유지하고 일반 하늘의 CalibratedTelescopeProvider가 같은 입력을 구독한다. 화면 회전은 육안 어댑터에서만 복구하고 경통 모델은 물리 +Y를 사용한다. savedAlignment 디스크 저장만으로 다음 실행의 임의 자이로 북 기준을 복원하지 않는다. 새 세션/1500ms 공백/100m 초과 관측지 변경은 재사용하지 않으며 설치 종료로 리스너를 해제한다.

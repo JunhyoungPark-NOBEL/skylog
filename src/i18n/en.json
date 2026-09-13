@@ -375,8 +375,8 @@
     "verdictNote": "Rough estimate from sky brightness (Bortle {{bortle}}), the Moon and altitude. Nebulae and galaxies are judged by surface brightness, so their result is less certain.",
     "limit": "Limiting mag {{mag}}",
     "action": {
-      "showInSky": "Show in sky",
-      "telescope": "Find with telescope",
+      "showInSky": "Naked-eye navigation",
+      "telescope": "Telescope navigation",
       "log": "★ Log observation",
       "plan": "☆ Add to plan",
       "planned": "★ Planned",

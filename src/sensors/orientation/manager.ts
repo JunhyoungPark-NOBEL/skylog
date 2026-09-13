@@ -182,6 +182,7 @@ export class SensorManager {
           window.clearTimeout(this.noDataTimer);
           const remembered = useSensorStore.getState().lastCalibration;
           if (
+            s.provider !== 'CalibratedTelescope' &&
             s.northReference !== 'relative' &&
             remembered?.northReference === s.northReference &&
             remembered.provider === s.provider &&

@@ -205,3 +205,8 @@ beta.7/build12 최종 결과: 단위504개, 타입/lint, PostgreSQL27개, 실제
 ## build28 센서 안정화 회귀
 
 `tests/unit/render/sensorStability.test.ts`는30/60/90Hz 합성 세 축 입력→OrientationFilter→CameraController/RenderPose→별 픽셀까지 검사한다. 광각90°/60°와 확대15°/3°에서 RMS1px·프레임 간0.5px 미만, 손떨림을 동반한 이동, 단발 튐과 큰 방향 전환을 포함한다. `sampleClock.test.ts`는 측정/도착 시각·지연·순서 역전을, `northFusion.test.ts`는 자이로/나침반 융합·빠른 회전·방위 잡음·드리프트·재연결을 검사한다. S24+ 물리 센서 확인은 `SENSOR-STABILITY-BUILD28.md` 체크리스트를 따른다.
+
+
+## build29 · 네비게이션/세 별 보정
+
+수치·센서 세션·권한 경계 검사는 tests/unit/sensors/telescopeCalibration.test.ts 및 telescope.test.ts. 한 줄 HUD·360px/200%·키보드는 navigation-calibration.spec.ts, 세 별 전체 보정·목표 변경·일반 하늘 왕복·코스 업적은 telescope.spec.ts에서 확인한다. [S24+ 실기기 체크리스트](NAVIGATION-CALIBRATION-BUILD29.md)의 파인더/접안 비교와 장시간 드리프트 확인은 별도로 수행한다.

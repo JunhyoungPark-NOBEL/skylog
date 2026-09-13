@@ -35,5 +35,28 @@
     "inverted": "Rotated 180°",
     "redDot": "Red dot",
     "targetConfirmed": "I found the target"
+  },
+  "calibration": {
+    "title": "Calibrate",
+    "progress": "{{n}} of 3 stars complete",
+    "step": "Center star {{n}}",
+    "centerHelp": "Find this star in your actual finder and center it on the crosshair. Keep the phone firmly attached to the tube.",
+    "finder": "Finder field {{value}}° · Center on the crosshair",
+    "capture": "Star is centered",
+    "hold": "Hold still for a moment…",
+    "complete": "Three-star calibration complete",
+    "reuse": "Your calibration stays active when you choose another target in this setup. Pick what you want to find next.",
+    "residualHelp": "This is the agreement between your three readings, not a guarantee of pointing accuracy.",
+    "navigate": "Back to navigation",
+    "setupDetails": "Setup and calibration details",
+    "installHelp": "Align your finder with the telescope first. Secure the phone with its top pointing along the tube. Only bright stars with enough separation are offered.",
+    "fixedSite": "Fixed site · Latitude {{lat}}° / longitude {{lon}}°",
+    "driftHelp": "Star positions follow the current time. Recalibrate if you remove the phone, change location, or restart the sensor. You can also start again if pointing drifts.",
+    "restart": "Calibrate a new setup",
+    "endSetup": "End setup",
+    "pause": "Pause tracking",
+    "noStars": "There are not enough suitable stars right now. Try later when more stars are above the horizon or the sky is darker.",
+    "retryHelp": "Center the star carefully, hold still, and try again. If it still does not match, choose another star or restart under Setup and calibration details.",
+    "connect": "Connect calibration sensor"
   }
 }

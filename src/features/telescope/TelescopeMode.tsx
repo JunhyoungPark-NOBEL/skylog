@@ -1,15 +1,14 @@
+import { useCalibrationStars } from './useCalibrationStars';
 import { useEffect, useMemo, useRef, useState, type ComponentProps } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import { bodyState } from '@/astro/bodies';
 import { altAzToScene, angularSeparation, sceneToAltAz, wrap360 } from '@/astro/coords';
 import {
   alignOne,
-  alignTwo,
+  alignThree,
   pointingDirection,
   pointingDelta,
   equatorialDelta,
-  sunUnsafe,
   type AlignmentSample,
 } from '@/astro/pointing';
 import { displayName, loadCatalog, type Catalog } from '@/catalog/catalog';
@@ -42,6 +41,10 @@ import { TelescopeSkyGuide } from './TelescopeSkyGuide';
 import { openTelescope } from './navigation';
 import { guideTarget } from './skyData';
 import { closeTelescope } from './navigation';
+import { currentTelescopeAlignment } from '@/sensors/orientation/CalibratedTelescopeProvider';
+import { sameObservingSite, usableTelescopeAlignment } from '@/sensors/telescopeAlignment';
+import { captureStableAlignmentPose } from '@/sensors/stableAlignmentCapture';
+import { CalibrationPanel } from './CalibrationPanel';
 import { EQUIPMENT_BUTTON as BTN, EQUIPMENT_INPUT as INPUT } from './styles';
 
 function ScreenFrame({
@@ -94,7 +97,7 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
   const { t } = useTranslation(),
     lang = useSettingsStore((s) => s.lang),
     theme = useSettingsStore((s) => s.theme);
-  const site = useLocationStore((s) => s.site),
+  const liveSite = useLocationStore((s) => s.site),
     p = useTelescopeStore((s) => s.profile),
     simulator = useSensorStore((s) => s.simulator);
   const sensor = useTelescopeOrientation();
@@ -117,16 +120,31 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
   });
   const [choosing, setChoosing] = useState(!targetId),
     [query, setQuery] = useState('');
-  const [alignment, setAlignment] = useState<SavedAlignment | null>(null),
-    [samples, setSamples] = useState<AlignmentSample[]>([]);
+  const [alignment, setAlignment] = useState<SavedAlignment | null>(() =>
+      currentTelescopeAlignment(),
+    ),
+    [samples, setSamples] = useState<AlignmentSample[]>(
+      () => currentTelescopeAlignment()?.samples ?? [],
+    );
+  const [calibrationSite, setCalibrationSite] = useState(
+    () => currentTelescopeAlignment()?.site ?? { ...liveSite },
+  );
+  const captureAbort = useRef<AbortController | null>(null);
+  const storedAlignment = useTelescopeStore((s) => s.savedAlignment);
+  const [tick, setTick] = useState(() => Date.now());
+  const usable = usableTelescopeAlignment(
+    storedAlignment,
+    sensor,
+    profileKey(p),
+    liveSite,
+    Math.max(tick, sensor.at),
+  );
+  const site = usable?.site ?? (view === 'align' ? calibrationSite : liveSite);
   const [alignId, setAlignId] = useState<ObjectId | null>(null),
     [error, setError] = useState<string | null>(null),
-    [busy, setBusy] = useState(false),
-    [checked, setChecked] = useState<number | null>(null);
-  const [accepted, setAccepted] = useState(!embedded && hashQuery().get('view') === 'hop'),
-    [preview, setPreview] = useState(false),
+    [busy, setBusy] = useState(false);
+  const [preview, setPreview] = useState(false),
     [pan, setPan] = useState({ alt: 0, az: 0 });
-  const [tick, setTick] = useState(() => Date.now());
   useEffect(() => {
     const timer = window.setInterval(() => setTick(Date.now()), 1000);
     return () => clearInterval(timer);
@@ -160,20 +178,23 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
     };
     void so?.lock?.(so.type).catch(() => {});
     return () => {
-      stopTelescopeOrientation();
+      captureAbort.current?.abort();
+      if (!currentTelescopeAlignment()) stopTelescopeOrientation();
       if (!useSettingsStore.getState().keepAwake) void releaseWakeLock();
       so?.unlock?.();
     };
   }, []);
+  useEffect(() => {
+    if (!embedded || hashQuery().get('scope') === 'sun') return;
+    if (!useSensorStore.getState().simulator) useClockStore.getState().resetToNow();
+    const align = hashQuery().get('view') === 'align';
+    const timer = window.setTimeout(
+      () => void startTelescopeOrientation(align ? 'relative' : 'automatic', false, false),
+      0,
+    );
+    return () => clearTimeout(timer);
+  }, [embedded]);
   const target = cat && targetId ? guideTarget(cat, targetId, date, site) : null;
-  const usable =
-    sensor.mode === 'relative' &&
-    sensor.status === 'active' &&
-    alignment?.sessionId === sensor.sessionId &&
-    alignment?.profileKey === profileKey(p) &&
-    alignment?.provider === sensor.source
-      ? alignment
-      : null;
   const approximate = sensor.mode === 'automatic' && sensor.headingReady;
   const pointing =
     sensor.q && sensor.status === 'active' && (usable || approximate)
@@ -181,13 +202,7 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
       : null;
   const delta = pointing && target ? pointingDelta(pointing, target.direction) : null;
   const eq = pointing && target ? equatorialDelta(pointing, target.direction, site.lat) : null;
-  const sun = bodyState('sun', date, site);
-  const unsafe =
-    targetId === 'sun' ||
-    sunUnsafe(sun.altDeg, sun.azDeg, [
-      ...(target ? [target.direction] : []),
-      ...(pointing ? [pointing] : []),
-    ]);
+  const unsafe = targetId === 'sun';
   const names = useMemo(() => {
     if (!cat) return [];
     const ids = [
@@ -204,23 +219,7 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
     ].filter(isObjectId);
     return ids.map((id) => ({ id, name: displayName(cat, id, lang) }));
   }, [cat, lang]);
-  const candidates = useMemo(() => {
-    if (!cat) return [];
-    const ids: ObjectId[] = [...cat.starById.values()].filter((s) => s.mag <= 2.5).map((s) => s.id);
-    ids.push('moon', 'planet:venus', 'planet:jupiter', 'planet:saturn', 'planet:mars');
-    const solar = bodyState('sun', date, site);
-    return ids
-      .map((id) => guideTarget(cat, id, date, site))
-      .filter(
-        (s): s is NonNullable<ReturnType<typeof guideTarget>> =>
-          s !== null &&
-          s.altDeg >= 25 &&
-          s.altDeg <= 75 &&
-          !sunUnsafe(solar.altDeg, solar.azDeg, [s.direction]),
-      )
-      .sort((a, b) => (a.mag ?? 0) - (b.mag ?? 0))
-      .slice(0, 30);
-  }, [cat, date, site]);
+  const candidates = useCalibrationStars(cat, date, site.lat, site.lon, site.elevation, samples);
   const selected =
     candidates.find((c) => c.id === alignId) ??
     candidates.find((c) => !samples.some((s) => s.objectId === c.id)) ??
@@ -231,46 +230,61 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
     setBusy(true);
     setError(null);
     try {
-      const at = captureDate(simulator);
+      const abort = new AbortController();
+      captureAbort.current = abort;
+      const pose = await captureStableAlignmentPose(
+        Math.min(0.3, p.finderFov * 0.05),
+        abort.signal,
+      );
+      const current = freshReading();
+      if (
+        abort.signal.aborted ||
+        current?.sessionId !== pose.sessionId ||
+        current.source !== pose.source ||
+        !sameObservingSite(calibrationSite, useLocationStore.getState().site) ||
+        profileKey(p) !== profileKey(useTelescopeStore.getState().profile)
+      )
+        throw new Error('Setup changed');
+      const at = simulator ? captureDate(true) : new Date(pose.at);
       const fresh = guideTarget(cat, selected.id, at, site);
       if (!fresh || fresh.altDeg < 25 || fresh.altDeg > 75)
         throw new Error('Star below alignment range');
       const sample: AlignmentSample = {
-        q: reading.q,
+        q: pose.q,
         direction: fresh.direction,
         objectId: fresh.id,
         at: at.toISOString(),
       };
-      const previous = usable ? samples : [];
-      const next = previous.length >= 2 ? [sample] : [...previous, sample];
-      const model = next.length === 1 ? alignOne(sample) : alignTwo(next);
+      const previous =
+        alignment?.sessionId === pose.sessionId && alignment.provider === pose.source
+          ? samples
+          : [];
+      const next = previous.length >= 3 ? [sample] : [...previous, sample];
+      const model = next.length === 3 ? alignThree(next, p.finderFov) : alignOne(sample);
       if (angularSeparation(model.axis, [0, 1, 0]) > 25)
         throw new Error('Phone top must follow the tube');
       const saved: SavedAlignment = {
         model,
+        site: { ...calibrationSite },
+        ...(next.length === 3 ? { method: 'three-star-v1' as const } : {}),
         samples: next,
         at: captureDate(false).toISOString(),
         profileKey: profileKey(p),
-        provider: reading.source,
-        sessionId: reading.sessionId,
+        provider: pose.source,
+        sessionId: pose.sessionId,
       };
       // 저장 실패 시 화면에서도 다음 정렬 단계로 넘어가지 않는다.
-      if (!simulator)
+      if (!simulator && next.length < 3)
         await emitSkill(next.length === 1 ? 'align1' : 'align2', { ...saved, simulated: false });
       setSamples(next);
       setAlignment(saved);
-      setChecked(null);
-      useTelescopeStore.getState().saveAlignment(saved);
+      if (next.length === 3) useTelescopeStore.getState().saveAlignment(saved);
       setAlignId(null);
     } catch {
-      setError(t('guide.alignError'));
+      setError(t('calibration.retryHelp'));
     } finally {
       setBusy(false);
     }
-  };
-  const verify = () => {
-    if (!selected || !usable || !pointing || sensor.status !== 'active') return;
-    setChecked(angularSeparation(pointing, selected.direction));
   };
   const eyefov = p.afovDeg / (p.focalLengthMm / p.eyepieceMm),
     finderFov = p.mode === 'binoculars' ? p.binocularFov : p.finderFov;
@@ -300,20 +314,34 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
     setPan({ alt: 0, az: 0 });
   };
   const startAutomatic = () => {
-    setAlignment(null);
-    setSamples([]);
+    if (!currentTelescopeAlignment()) {
+      setAlignment(null);
+      setSamples([]);
+    }
     void startTelescopeOrientation('automatic');
   };
   const startAlignment = () => {
     setView('align');
-    if (sensor.mode !== 'relative' || sensor.status !== 'active') {
+    if (
+      !currentTelescopeAlignment() &&
+      (sensor.mode !== 'relative' || sensor.status !== 'active')
+    ) {
       setAlignment(null);
       setSamples([]);
-      void startTelescopeOrientation('relative');
-    } else if (samples.length >= 2) {
-      setSamples([]);
       setAlignId(null);
+      setCalibrationSite({ ...liveSite });
+      void startTelescopeOrientation('relative');
     }
+  };
+  const resetAlignment = () => {
+    captureAbort.current?.abort();
+    useTelescopeStore.getState().saveAlignment(null);
+    setAlignment(null);
+    setSamples([]);
+    setAlignId(null);
+    setError(null);
+    setCalibrationSite({ ...liveSite });
+    void startTelescopeOrientation('relative', true);
   };
   if (view === 'equipment')
     return createPortal(
@@ -321,8 +349,6 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
         <Equipment
           onBack={() => {
             setView('guide');
-            setAlignment(null);
-            setSamples([]);
           }}
         />
       </div>,
@@ -375,28 +401,60 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
         />
       </ScreenFrame>
     );
+  if (view === 'align' && cat && pack)
+    return (
+      <ScreenFrame
+        overlay={embedded}
+        title={t('calibration.title')}
+        onBack={() => {
+          captureAbort.current?.abort();
+          setView('guide');
+        }}
+      >
+        <CalibrationPanel
+          cat={cat}
+          pack={pack}
+          date={date}
+          site={site}
+          profile={p}
+          candidates={candidates}
+          selected={selected}
+          samples={samples}
+          alignment={usable}
+          busy={busy}
+          error={error}
+          ready={sensor.mode === 'relative' && sensor.status === 'active'}
+          onSelect={setAlignId}
+          onCapture={() => void capture()}
+          onDone={() => setView('guide')}
+          onReset={resetAlignment}
+          onStart={startAlignment}
+        />
+      </ScreenFrame>
+    );
   if (embedded && view === 'guide' && targetId && target && !choosing)
     return (
       <TelescopeSkyGuide
         targetId={targetId}
         target={target}
-        accepted={accepted}
         approximate={approximate}
         alignment={usable}
         inside={inside}
         delta={delta}
         eq={eq}
         mount={guideMount}
-        onAccept={() => {
-          setAccepted(true);
-          if (guideMount !== 'goto') startAutomatic();
-        }}
         onStart={startAutomatic}
         onAlign={startAlignment}
         onClose={closeTelescope}
         onEquipment={() => setView('equipment')}
         onChange={() => setChoosing(true)}
         onChart={() => setView('finder')}
+        onEndSetup={() => {
+          useTelescopeStore.getState().saveAlignment(null);
+          stopTelescopeOrientation();
+          setAlignment(null);
+          setSamples([]);
+        }}
       />
     );
   return (
@@ -408,432 +466,310 @@ function TelescopeSession({ embedded }: { embedded: boolean }) {
       scrollKey={view}
     >
       <div className="mx-auto flex max-w-3xl flex-col gap-4 p-4">
-        {!accepted ? (
-          <section className="rounded-3xl bg-surface p-5" data-testid="guide-intro">
-            <h2 className="text-headline">{t('guideAuto.title')}</h2>
-            <p className="mt-4 leading-7 text-muted">{t('guideAuto.intro')}</p>
-            <p className="mt-3 text-body-sm leading-6 text-muted">{t('guideAuto.estimateHelp')}</p>
-            <p className="mt-3 text-body-sm leading-6 text-danger">{t('guide.safety')}</p>
+        <details className="order-last">
+          <summary className="min-h-11 py-2 text-body-sm text-muted">
+            {t('guideFlow.settings')}
+          </summary>
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <button
-              className={BTN + ' mt-5 w-full'}
-              data-testid="guide-accept"
-              onClick={() => {
-                setAccepted(true);
-                if (view === 'align') startAlignment();
-                else if (guideMount !== 'goto' && view === 'guide') startAutomatic();
-              }}
+              className="min-h-12 rounded-pill bg-surface-2 px-4 text-body-sm"
+              onClick={() => setView('equipment')}
             >
-              {t('guideAuto.start')}
+              {p.mode === 'telescope' ? p.name : `${p.binocularMag}×${p.binocularAperture}`} ·{' '}
+              {t('guide.edit')}
             </button>
-          </section>
+            <button
+              className="min-h-12 px-3 text-accent"
+              onClick={() =>
+                useSettingsStore.getState().setTheme(theme === 'night' ? 'dark' : 'night')
+              }
+            >
+              {t('settings.nightMode')}
+            </button>
+          </div>
+          <p className="mt-2 text-body-sm leading-6 text-muted">{t('guide.mountHelp')}</p>
+        </details>
+        {loadError ? (
+          <div role="alert">
+            {t('guide.loadError')}{' '}
+            <button className={BTN} onClick={() => setRetry((x) => x + 1)}>
+              {t('study.retry')}
+            </button>
+          </div>
+        ) : !cat || !pack ? (
+          <p role="status">{t('common.loading')}</p>
         ) : (
           <>
-            <details className="order-last">
-              <summary className="min-h-11 py-2 text-body-sm text-muted">
-                {t('guideFlow.settings')}
-              </summary>
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <button
-                  className="min-h-12 rounded-pill bg-surface-2 px-4 text-body-sm"
-                  onClick={() => setView('equipment')}
-                >
-                  {p.mode === 'telescope' ? p.name : `${p.binocularMag}×${p.binocularAperture}`} ·{' '}
-                  {t('guide.edit')}
-                </button>
-                <button
-                  className="min-h-12 px-3 text-accent"
-                  onClick={() =>
-                    useSettingsStore.getState().setTheme(theme === 'night' ? 'dark' : 'night')
-                  }
-                >
-                  {t('settings.nightMode')}
-                </button>
-              </div>
-              <p className="mt-2 text-body-sm leading-6 text-muted">{t('guide.mountHelp')}</p>
-            </details>
-            {loadError ? (
-              <div role="alert">
-                {t('guide.loadError')}{' '}
-                <button className={BTN} onClick={() => setRetry((x) => x + 1)}>
-                  {t('study.retry')}
-                </button>
-              </div>
-            ) : !cat || !pack ? (
-              <p role="status">{t('common.loading')}</p>
-            ) : (
-              <>
-                <section className="rounded-2xl bg-surface px-4 py-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <p className="text-caption text-muted">{t('guide.target')}</p>
-                      <h2 className="mt-1 text-title">
-                        {targetId ? displayName(cat, targetId, lang) : t('guide.chooseTarget')}
-                      </h2>
-                      {target && (
-                        <p className="mt-2 text-body-sm text-muted">
-                          {t('guide.targetPosition', {
-                            alt: target.altDeg.toFixed(1),
-                            az: target.azDeg.toFixed(1),
-                          })}{' '}
-                          · {t(target.altDeg > 0 ? 'guide.above' : 'guide.below')}
-                        </p>
-                      )}
-                    </div>
-                    <button
-                      className="min-h-11 px-2 text-accent"
-                      onClick={() => setChoosing(!choosing)}
-                    >
-                      {t('guide.change')}
-                    </button>
-                  </div>
-                  {choosing && (
-                    <div className="mt-4">
-                      <input
-                        className={INPUT}
-                        placeholder={t('guide.search')}
-                        aria-label={t('guide.search')}
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                      />
-                      <div
-                        className="mt-2 max-h-60 overflow-y-auto"
-                        data-testid="guide-target-list"
-                      >
-                        {names
-                          .filter((s) =>
-                            (s.name + ' ' + s.id).toLowerCase().includes(query.toLowerCase()),
-                          )
-                          .slice(0, 30)
-                          .map((s) => (
-                            <button
-                              key={s.id}
-                              className="block min-h-12 w-full rounded-xl px-3 text-left hover:bg-surface-2"
-                              onClick={() => choose(s.id)}
-                            >
-                              {s.name}{' '}
-                              <span className="text-caption text-muted">
-                                {s.id.replace('dso:', '')}
-                              </span>
-                            </button>
-                          ))}
-                      </div>
-                    </div>
+            <section className="rounded-2xl bg-surface px-4 py-3">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-caption text-muted">{t('guide.target')}</p>
+                  <h2 className="mt-1 text-title">
+                    {targetId ? displayName(cat, targetId, lang) : t('guide.chooseTarget')}
+                  </h2>
+                  {target && (
+                    <p className="mt-2 text-body-sm text-muted">
+                      {t('guide.targetPosition', {
+                        alt: target.altDeg.toFixed(1),
+                        az: target.azDeg.toFixed(1),
+                      })}{' '}
+                      · {t(target.altDeg > 0 ? 'guide.above' : 'guide.below')}
+                    </p>
                   )}
-                </section>
-                <div className="grid grid-cols-2 gap-2" aria-label={t('guide.views')}>
-                  {(embedded ? (['guide', 'finder'] as const) : (['hop'] as const)).map((v) => (
-                    <button
-                      className={
-                        'min-h-14 rounded-2xl text-body-sm font-semibold ' +
-                        (actualView === v || (v === 'finder' && actualView === 'eyepiece')
-                          ? 'bg-accent text-accent-fg'
-                          : 'bg-surface')
-                      }
-                      key={v}
-                      aria-pressed={
-                        actualView === v || (v === 'finder' && actualView === 'eyepiece')
-                      }
-                      onClick={() => setView(v)}
-                      data-testid={'guide-view-' + v}
-                    >
-                      {t('guide.view.' + v)}
-                    </button>
-                  ))}
                 </div>
-                {view === 'hop' && targetId && (
-                  <StarHop
-                    key={targetId + finderFov}
-                    cat={cat}
-                    pack={pack}
-                    targetId={targetId}
-                    date={date}
-                    observer={site}
-                    course={HOP_COURSES.find(
-                      (c) => c.id === hashQuery().get('course') && c.target === targetId,
-                    )}
+                <button
+                  className="min-h-11 px-2 text-accent"
+                  onClick={() => setChoosing(!choosing)}
+                >
+                  {t('guide.change')}
+                </button>
+              </div>
+              {choosing && (
+                <div className="mt-4">
+                  <input
+                    className={INPUT}
+                    placeholder={t('guide.search')}
+                    aria-label={t('guide.search')}
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
                   />
-                )}
-                {view !== 'hop' && (
-                  <>
-                    {!(view === 'guide' && guideMount !== 'goto') && (
-                      <div className="rounded-2xl border border-hairline p-4">
-                        <p role="status" className="text-body-sm" data-testid="guide-status">
-                          {t(
-                            usable
-                              ? 'guide.aligned'
-                              : approximate
-                                ? 'guideAuto.estimate'
-                                : 'guideAuto.preview',
-                          )}
-                          {usable &&
-                            ` · ${t('guide.residual', { value: usable.model.residualDeg.toFixed(1) })}`}
-                        </p>
-                        {usable && tick - Date.parse(usable.at) > 600000 && (
-                          <p className="mt-2 text-body-sm text-accent">{t('guide.drift')}</p>
-                        )}
-                        {simulator && (
-                          <p className="text-body-sm text-accent">{t('guide.simulation')}</p>
-                        )}
-                        {sensor.status !== 'active' ? (
-                          <>
-                            <button
-                              className={BTN + ' mt-3 w-full'}
-                              data-testid="guide-sensor"
-                              onClick={() => {
-                                setAlignment(null);
-                                setSamples([]);
-                                void startTelescopeOrientation(
-                                  view === 'align' ? 'relative' : 'automatic',
-                                );
-                              }}
-                            >
-                              {t(
-                                sensor.status === 'waiting' ? 'guide.waiting' : 'guide.startSensor',
-                              )}
-                            </button>
-                            {(sensor.status === 'unavailable' || sensor.status === 'denied') && (
-                              <p role="alert" className="mt-3 text-body-sm">
-                                {t('guide.sensorUnavailable')}
-                              </p>
-                            )}
-                          </>
-                        ) : (
-                          <button
-                            className="min-h-11 text-body-sm text-accent"
-                            onClick={startAlignment}
-                          >
-                            {t('guideAuto.calibrate')}
-                          </button>
-                        )}
-                      </div>
-                    )}
-                    {view === 'align' && (
-                      <section
-                        className="rounded-3xl bg-surface p-5"
-                        data-testid="alignment-wizard"
-                      >
-                        <h2 className="text-title">
-                          {t('guide.alignStep', { n: Math.min(2, samples.length + 1) })}
-                        </h2>
+                  <div className="mt-2 max-h-60 overflow-y-auto" data-testid="guide-target-list">
+                    {names
+                      .filter((s) =>
+                        (s.name + ' ' + s.id).toLowerCase().includes(query.toLowerCase()),
+                      )
+                      .slice(0, 30)
+                      .map((s) => (
                         <button
-                          className="mt-2 min-h-11 w-full text-body-sm text-accent"
-                          onClick={() => {
-                            setView('guide');
-                            startAutomatic();
-                          }}
+                          key={s.id}
+                          className="block min-h-12 w-full rounded-xl px-3 text-left hover:bg-surface-2"
+                          onClick={() => choose(s.id)}
                         >
-                          {t('guideAuto.switchAuto')}
+                          {s.name}{' '}
+                          <span className="text-caption text-muted">
+                            {s.id.replace('dso:', '')}
+                          </span>
                         </button>
-                        <p className="my-3 text-body-sm leading-6 text-muted">
-                          {t('guide.alignHelp')}
-                        </p>
-                        {usable && (
-                          <div className="mb-4 rounded-2xl bg-accent-soft p-3">
-                            <p className="text-body-sm">{t('guideFlow.alignedNext')}</p>
-                            <button
-                              className={BTN + ' mt-3 w-full'}
-                              data-testid="alignment-done"
-                              onClick={() => setView('guide')}
-                            >
-                              {t('guide.finishAlignment')}
-                            </button>
-                            <p className="mt-2 text-caption text-muted">
-                              {t('guideFlow.secondOptional')}
-                            </p>
-                          </div>
-                        )}
-                        {!candidates.length && (
-                          <p role="status" className="my-3 text-body-sm">
-                            {t('guideFlow.noStars')}
-                          </p>
-                        )}
-                        <select
-                          aria-label={t('guide.alignmentStar')}
-                          data-testid="alignment-star"
-                          className={INPUT}
-                          value={selected?.id ?? ''}
-                          onChange={(e) => setAlignId(e.target.value as ObjectId)}
-                        >
-                          {candidates.map((c) => (
-                            <option value={c.id} key={c.id}>
-                              {displayName(cat, c.id, lang)} · {c.altDeg.toFixed(0)}°
-                            </option>
-                          ))}
-                        </select>
-                        {samples.length < 2 ? (
-                          <button
-                            className={BTN + ' mt-4 w-full'}
-                            disabled={!selected || sensor.status !== 'active' || busy}
-                            data-testid="alignment-capture"
-                            onClick={() => void capture()}
-                          >
-                            {t('guide.capture')}
-                          </button>
-                        ) : (
-                          <button
-                            className={BTN + ' mt-4 w-full'}
-                            disabled={!selected || samples.some((s) => s.objectId === selected.id)}
-                            onClick={verify}
-                          >
-                            {t('guide.verify')}
-                          </button>
-                        )}
-                        {usable && (
-                          <p
-                            className="mt-3 text-body-sm text-accent"
-                            data-testid="alignment-residual"
-                          >
-                            {t('guide.residual', { value: usable.model.residualDeg.toFixed(1) })}
-                          </p>
-                        )}
-                        {checked !== null && (
-                          <p role="status" className="mt-3">
-                            {t('guide.checkResidual', { value: checked.toFixed(1) })}{' '}
-                            {checked > 2 ? t('guide.drift') : ''}
-                          </p>
-                        )}
-                        {error && (
-                          <p role="alert" className="mt-3 text-danger">
-                            {error}
-                          </p>
-                        )}
-                      </section>
+                      ))}
+                  </div>
+                </div>
+              )}
+            </section>
+            <div className="grid grid-cols-2 gap-2" aria-label={t('guide.views')}>
+              {(embedded ? (['guide', 'finder'] as const) : (['hop'] as const)).map((v) => (
+                <button
+                  className={
+                    'min-h-14 rounded-2xl text-body-sm font-semibold ' +
+                    (actualView === v || (v === 'finder' && actualView === 'eyepiece')
+                      ? 'bg-accent text-accent-fg'
+                      : 'bg-surface')
+                  }
+                  key={v}
+                  aria-pressed={actualView === v || (v === 'finder' && actualView === 'eyepiece')}
+                  onClick={() => setView(v)}
+                  data-testid={'guide-view-' + v}
+                >
+                  {t('guide.view.' + v)}
+                </button>
+              ))}
+            </div>
+            {view === 'hop' && targetId && (
+              <StarHop
+                key={targetId + finderFov}
+                cat={cat}
+                pack={pack}
+                targetId={targetId}
+                date={date}
+                observer={site}
+                course={HOP_COURSES.find(
+                  (c) => c.id === hashQuery().get('course') && c.target === targetId,
+                )}
+              />
+            )}
+            {view !== 'hop' && (
+              <>
+                {!(view === 'guide' && guideMount !== 'goto') && (
+                  <div className="rounded-2xl border border-hairline p-4">
+                    <p role="status" className="text-body-sm" data-testid="guide-status">
+                      {t(
+                        usable
+                          ? 'guide.aligned'
+                          : approximate
+                            ? 'guideAuto.estimate'
+                            : 'guideAuto.preview',
+                      )}
+                      {usable &&
+                        ` · ${t('guide.residual', { value: usable.model.residualDeg.toFixed(1) })}`}
+                    </p>
+                    {usable && tick - Date.parse(usable.at) > 600000 && (
+                      <p className="mt-2 text-body-sm text-accent">{t('guide.drift')}</p>
                     )}
-                    {actualView === 'guide' && target && guideMount === 'goto' && (
-                      <section className="rounded-3xl bg-surface p-5" data-testid="pointing-guide">
-                        <div>
-                          <h3 className="text-title">{t('guide.goto')}</h3>
-                          <p className="mt-4 text-body leading-8 tabular-nums">
-                            JNow · RA {(target.raDeg / 15).toFixed(4)}h · Dec{' '}
-                            {target.decDeg.toFixed(3)}°
-                          </p>
-                          <button
-                            className={BTN + ' mt-4 w-full'}
-                            onClick={() => {
-                              setError(null);
-                              if (!navigator.clipboard) {
-                                setError(t('guide.copyUnavailable'));
-                                return;
-                              }
-                              void navigator.clipboard
-                                .writeText(
-                                  `JNow RA ${(target.raDeg / 15).toFixed(5)}h Dec ${target.decDeg.toFixed(4)}° Alt ${target.altDeg.toFixed(2)}° Az ${target.azDeg.toFixed(2)}°`,
-                                )
-                                .catch(() => setError(t('guide.error')));
-                            }}
-                          >
-                            {t('guide.copyCoordinates')}
-                          </button>
-                          <button
-                            className="min-h-14 w-full text-accent"
-                            onClick={() => {
-                              setPreview(true);
-                              setView('eyepiece');
-                            }}
-                          >
-                            {t('guide.gotoArrived')}
-                          </button>
-                        </div>
-                      </section>
+                    {simulator && (
+                      <p className="text-body-sm text-accent">{t('guide.simulation')}</p>
                     )}
-                    {(actualView === 'finder' || actualView === 'eyepiece') && target && (
-                      <section className="rounded-3xl bg-surface p-4" data-testid="guide-chart">
-                        <div className="mb-4 flex flex-wrap gap-2">
-                          <button
-                            className="min-h-12 rounded-pill bg-surface-2 px-4 text-accent"
-                            onClick={() => setView(actualView === 'finder' ? 'eyepiece' : 'finder')}
-                          >
-                            {t(actualView === 'finder' ? 'guide.eyepiece' : 'guide.finder')}
-                          </button>
-                          <button
-                            className="min-h-12 rounded-pill bg-surface-2 px-4 text-accent"
-                            onClick={() => {
-                              setPreview(!preview);
-                              setPan({ alt: 0, az: 0 });
-                            }}
-                          >
-                            {t(preview || !pointing ? 'guide.preview' : 'guide.live')}
-                          </button>
-                        </div>
-                        <FinderChart
-                          pack={pack}
-                          cat={cat}
-                          center={chartCenter}
-                          target={target.direction}
-                          date={date}
-                          observer={site}
-                          fovDeg={chartFov}
-                          equatorial={guideMount === 'eq'}
-                          orientation={
-                            actualView === 'finder'
-                              ? p.finderKind === 'optical'
-                                ? 'rotate180'
-                                : 'upright'
-                              : p.mode === 'binoculars'
-                                ? 'upright'
-                                : p.orientation
-                          }
-                          rotationDeg={p.rotationDeg}
-                          onCenter={(center) => {
-                            const next = sceneToAltAz(center),
-                              base = sceneToAltAz(target.direction);
-                            setPreview(true);
-                            setPan({ alt: next.altDeg - base.altDeg, az: next.azDeg - base.azDeg });
+                    {sensor.status !== 'active' ? (
+                      <>
+                        <button
+                          className={BTN + ' mt-3 w-full'}
+                          data-testid="guide-sensor"
+                          onClick={() => {
+                            setAlignment(null);
+                            setSamples([]);
+                            void startTelescopeOrientation(
+                              view === 'align' ? 'relative' : 'automatic',
+                            );
                           }}
-                        />
-                        <p className="mt-3 text-body-sm leading-6 text-muted">
-                          {t('guide.chartLimit')}
-                        </p>
-                        <div className="mt-3 flex justify-center gap-2">
-                          {(['←', '↑', '↓', '→'] as const).map((v, i) => (
-                            <button
-                              key={v}
-                              aria-label={t('guide.pan') + ' ' + v}
-                              className="h-12 w-12 rounded-xl bg-surface-2 text-title"
-                              onClick={() => {
-                                setPreview(true);
-                                setPan((s) => ({
-                                  alt:
-                                    s.alt + (i === 1 ? chartFov / 3 : i === 2 ? -chartFov / 3 : 0),
-                                  az: s.az + (i === 0 ? -chartFov / 3 : i === 3 ? chartFov / 3 : 0),
-                                }));
-                              }}
-                            >
-                              {v}
-                            </button>
-                          ))}
-                        </div>
-                        <p className="mt-2 text-caption text-muted">{t('guide.previewNote')}</p>
-                        {(pan.alt !== 0 || pan.az !== 0) && (
-                          <button
-                            className="min-h-12 w-full text-accent"
-                            onClick={() => setPan({ alt: 0, az: 0 })}
-                          >
-                            {t('guide.recenter')}
-                          </button>
+                        >
+                          {t(sensor.status === 'waiting' ? 'guide.waiting' : 'guide.startSensor')}
+                        </button>
+                        {(sensor.status === 'unavailable' || sensor.status === 'denied') && (
+                          <p role="alert" className="mt-3 text-body-sm">
+                            {t('guide.sensorUnavailable')}
+                          </p>
                         )}
-                      </section>
+                      </>
+                    ) : (
+                      <button
+                        className="min-h-11 text-body-sm text-accent"
+                        onClick={startAlignment}
+                      >
+                        {t('guideAuto.calibrate')}
+                      </button>
                     )}
-                  </>
+                  </div>
                 )}
-                {targetId && (
-                  <button
-                    className="min-h-14 w-full rounded-pill bg-surface-2 px-4 text-accent"
-                    onClick={() => {
-                      useTelescopeStore.getState().setRings(true);
-                      flyToObject(targetId, Math.max(3, finderFov * 1.3));
-                      window.location.hash = '#/sky';
-                    }}
-                  >
-                    {t('guide.showFov')}
-                  </button>
+                {actualView === 'guide' && target && guideMount === 'goto' && (
+                  <section className="rounded-3xl bg-surface p-5" data-testid="pointing-guide">
+                    <div>
+                      <h3 className="text-title">{t('guide.goto')}</h3>
+                      <p className="mt-4 text-body leading-8 tabular-nums">
+                        JNow · RA {(target.raDeg / 15).toFixed(4)}h · Dec {target.decDeg.toFixed(3)}
+                        °
+                      </p>
+                      <button
+                        className={BTN + ' mt-4 w-full'}
+                        onClick={() => {
+                          setError(null);
+                          if (!navigator.clipboard) {
+                            setError(t('guide.copyUnavailable'));
+                            return;
+                          }
+                          void navigator.clipboard
+                            .writeText(
+                              `JNow RA ${(target.raDeg / 15).toFixed(5)}h Dec ${target.decDeg.toFixed(4)}° Alt ${target.altDeg.toFixed(2)}° Az ${target.azDeg.toFixed(2)}°`,
+                            )
+                            .catch(() => setError(t('guide.error')));
+                        }}
+                      >
+                        {t('guide.copyCoordinates')}
+                      </button>
+                      <button
+                        className="min-h-14 w-full text-accent"
+                        onClick={() => {
+                          setPreview(true);
+                          setView('eyepiece');
+                        }}
+                      >
+                        {t('guide.gotoArrived')}
+                      </button>
+                    </div>
+                  </section>
                 )}
-                {error && view !== 'align' && (
-                  <p role="alert" className="text-danger">
-                    {error}
-                  </p>
+                {(actualView === 'finder' || actualView === 'eyepiece') && target && (
+                  <section className="rounded-3xl bg-surface p-4" data-testid="guide-chart">
+                    <div className="mb-4 flex flex-wrap gap-2">
+                      <button
+                        className="min-h-12 rounded-pill bg-surface-2 px-4 text-accent"
+                        onClick={() => setView(actualView === 'finder' ? 'eyepiece' : 'finder')}
+                      >
+                        {t(actualView === 'finder' ? 'guide.eyepiece' : 'guide.finder')}
+                      </button>
+                      <button
+                        className="min-h-12 rounded-pill bg-surface-2 px-4 text-accent"
+                        onClick={() => {
+                          setPreview(!preview);
+                          setPan({ alt: 0, az: 0 });
+                        }}
+                      >
+                        {t(preview || !pointing ? 'guide.preview' : 'guide.live')}
+                      </button>
+                    </div>
+                    <FinderChart
+                      pack={pack}
+                      cat={cat}
+                      center={chartCenter}
+                      target={target.direction}
+                      date={date}
+                      observer={site}
+                      fovDeg={chartFov}
+                      equatorial={guideMount === 'eq'}
+                      orientation={
+                        actualView === 'finder'
+                          ? p.finderKind === 'optical'
+                            ? 'rotate180'
+                            : 'upright'
+                          : p.mode === 'binoculars'
+                            ? 'upright'
+                            : p.orientation
+                      }
+                      rotationDeg={p.rotationDeg}
+                      onCenter={(center) => {
+                        const next = sceneToAltAz(center),
+                          base = sceneToAltAz(target.direction);
+                        setPreview(true);
+                        setPan({ alt: next.altDeg - base.altDeg, az: next.azDeg - base.azDeg });
+                      }}
+                    />
+                    <p className="mt-3 text-body-sm leading-6 text-muted">
+                      {t('guide.chartLimit')}
+                    </p>
+                    <div className="mt-3 flex justify-center gap-2">
+                      {(['←', '↑', '↓', '→'] as const).map((v, i) => (
+                        <button
+                          key={v}
+                          aria-label={t('guide.pan') + ' ' + v}
+                          className="h-12 w-12 rounded-xl bg-surface-2 text-title"
+                          onClick={() => {
+                            setPreview(true);
+                            setPan((s) => ({
+                              alt: s.alt + (i === 1 ? chartFov / 3 : i === 2 ? -chartFov / 3 : 0),
+                              az: s.az + (i === 0 ? -chartFov / 3 : i === 3 ? chartFov / 3 : 0),
+                            }));
+                          }}
+                        >
+                          {v}
+                        </button>
+                      ))}
+                    </div>
+                    <p className="mt-2 text-caption text-muted">{t('guide.previewNote')}</p>
+                    {(pan.alt !== 0 || pan.az !== 0) && (
+                      <button
+                        className="min-h-12 w-full text-accent"
+                        onClick={() => setPan({ alt: 0, az: 0 })}
+                      >
+                        {t('guide.recenter')}
+                      </button>
+                    )}
+                  </section>
                 )}
               </>
+            )}
+            {targetId && (
+              <button
+                className="min-h-14 w-full rounded-pill bg-surface-2 px-4 text-accent"
+                onClick={() => {
+                  useTelescopeStore.getState().setRings(true);
+                  flyToObject(targetId, Math.max(3, finderFov * 1.3));
+                  window.location.hash = '#/sky';
+                }}
+              >
+                {t('guide.showFov')}
+              </button>
+            )}
+            {error && view !== 'align' && (
+              <p role="alert" className="text-danger">
+                {error}
+              </p>
             )}
           </>
         )}

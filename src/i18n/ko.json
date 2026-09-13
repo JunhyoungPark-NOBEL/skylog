@@ -375,8 +375,8 @@
     "verdictNote": "참고: 하늘 밝기(광해 {{bortle}}단계)·달·고도로 어림한 값이에요. 성운·은하처럼 퍼져 보이는 천체는 오차가 더 클 수 있어요.",
     "limit": "{{mag}}등급까지 보임",
     "action": {
-      "showInSky": "하늘에서 보기",
-      "telescope": "망원경으로 찾기",
+      "showInSky": "육안 네비게이션",
+      "telescope": "망원경 네비게이션",
       "log": "★ 관측 기록",
       "plan": "☆ 관측 예정",
       "planned": "★ 예정됨",

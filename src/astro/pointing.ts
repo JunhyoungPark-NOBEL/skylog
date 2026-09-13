@@ -80,6 +80,36 @@ export function alignTwo(samples: readonly AlignmentSample[]): PointingAlignment
   const sep = angularSeparation(samples[0]!.direction, samples[1]!.direction);
   if (samples[0]!.objectId === samples[1]!.objectId || sep < 20 || sep > 150)
     throw new Error('Choose separated stars');
+  return solveAlignment(samples);
+}
+/** 세 별 모두로 북 기준과 장착 축을 함께 맞춘다. 잔차는 절대 정확도의 보증이 아니다. */
+export function alignThree(
+  samples: readonly AlignmentSample[],
+  finderFovDeg: number,
+): PointingAlignment {
+  if (samples.length !== 3 || new Set(samples.map((s) => s.objectId)).size !== 3)
+    throw new Error('Three distinct stars required');
+  if (!Number.isFinite(finderFovDeg) || finderFovDeg <= 0) throw new Error('Invalid finder field');
+  for (const [i, s] of samples.entries()) {
+    if (
+      !/^star:(HIP|HYG)\d+$/.test(s.objectId) ||
+      !Number.isFinite(Date.parse(s.at)) ||
+      ![...s.q, ...s.direction].every(Number.isFinite) ||
+      Math.abs(Math.hypot(...s.q) - 1) > 0.01 ||
+      Math.abs(Math.hypot(...s.direction) - 1) > 0.01
+    )
+      throw new Error('Invalid star sample');
+    for (const other of samples.slice(i + 1)) {
+      const sep = angularSeparation(s.direction, other.direction);
+      if (sep < 20 || sep > 150) throw new Error('Choose separated stars');
+    }
+  }
+  const model = solveAlignment(samples);
+  if (model.maxResidualDeg > Math.min(0.75, finderFovDeg * 0.2))
+    throw new Error('Center each star more carefully');
+  return model;
+}
+function solveAlignment(samples: readonly AlignmentSample[]): PointingAlignment {
   const center = alignOne(samples[0]!).yawDeg;
   let best = fit(samples, center);
   for (let d = center - 40; d <= center + 40; d += 0.25) {

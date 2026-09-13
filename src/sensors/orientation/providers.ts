@@ -1,4 +1,5 @@
 import { browserSampleTime } from './sampleClock';
+import { CalibratedTelescopeProvider } from './CalibratedTelescopeProvider';
 /**
  * 방향 센서 Provider 어댑터 (task-02 §3.2, G1 §A7-1 우선순위).
  * 우선순위: DeviceOrientationAbsolute → AbsoluteOrientationSensor(선택) → DeviceOrientation(absolute=true면 자북, 아니면 상대+iOS 나침반).
@@ -220,7 +221,7 @@ export class SimulatorProvider implements OrientationProvider {
 }
 
 /** 지원되는 Provider를 우선순위대로 (시뮬레이터 제외) */
-export function availableProviders(relative = false): OrientationProvider[] {
+export function availableProviders(relative = false, shareTelescope = true): OrientationProvider[] {
   // 자이로 선택 시 절대/나침반 소스로 몰래 되돌아가지 않는다.
   const all: OrientationProvider[] = relative
     ? [new NativeOrientationProvider(true), new AbsoluteOrientationSensorProvider(true)]
@@ -230,5 +231,6 @@ export function availableProviders(relative = false): OrientationProvider[] {
         new AbsoluteOrientationSensorProvider(),
         new DeviceOrientationProvider(),
       ];
+  if (shareTelescope) all.unshift(new CalibratedTelescopeProvider());
   return all.filter((p) => p.isSupported());
 }
