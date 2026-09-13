@@ -89,6 +89,19 @@ describe('자이로 자세 + 저속 북쪽 기준', () => {
       0.001,
     );
   });
+  it('추적을 유지하면서 낮은 정확도와 오래된 기준을 진단에 반영한다', () => {
+    const f = new NorthFusion();
+    f.push(sample(yaw(0), 0, 'motion'));
+    f.push(sample(yaw(0), 0, 'reference', 3));
+    f.push(sample(yaw(8), 20, 'reference', 90));
+    const poor = f.push(sample(yaw(0), 20, 'motion'));
+    expect(poor?.headingAccuracyDeg).toBe(90);
+    expect(angleBetween(quaternion(poor), yaw(0))).toBeLessThan(0.001);
+    let result: FusionReading | null = null;
+    for (let t = 40; t <= 1600; t += 20) result = f.push(sample(yaw(0), t, 'motion'));
+    expect(result?.headingAccuracyDeg).toBeUndefined();
+    expect(result?.northReference).toBe('magnetic');
+  });
   it('구형 플러그인·iOS·명시적인 자이로 모드는 그대로 전달한다', () => {
     const r = sample(yaw(30), 100, undefined);
     r.northReference = 'relative';

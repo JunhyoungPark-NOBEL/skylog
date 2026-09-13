@@ -60,7 +60,7 @@ export class NorthFusion {
       ...reading,
       channel: undefined,
       northReference: 'magnetic',
-      headingAccuracyDeg: this.accuracy,
+      headingAccuracyDeg: t - this.lastReference <= 1500 ? this.accuracy : undefined,
       quaternion: this.correction
         .clone()
         .multiply(q)
@@ -79,6 +79,8 @@ export class NorthFusion {
         ? Math.min(200, ref.t - this.lastReference)
         : 0;
       this.lastReference = ref.t;
+      // 추적은 유지해도 설정의 품질 진단에는 최근 센서 정확도를 그대로 전달한다.
+      this.accuracy = ref.accuracy;
       if (ref.accuracy !== undefined && (ref.accuracy < 0 || ref.accuracy > 25)) continue;
       let relative = first.q;
       for (let i = 1; i < this.motion.length; i++) {
@@ -97,7 +99,6 @@ export class NorthFusion {
       if (!this.correction) this.correction = yaw;
       else if (angleBetween(this.correction, yaw) <= 15)
         this.correction.slerp(yaw, 1 - Math.exp(-dt / 8000)).normalize();
-      this.accuracy = ref.accuracy;
     }
   }
 }
